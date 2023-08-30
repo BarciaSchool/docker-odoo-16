@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+    	<record model="account.journal.type" id="journal_other_moves">
+            <field name="name">Otros Movimientos</field>
+            <field name="code">other_moves</field>
+        </record>
+        
+        <record id="diario_other_moves" model="account.journal">
+			<field name="code">OTMV</field>
+			<field name="name">Otros Movimientos</field>
+			<field name="view_id">3</field>
+			<field name="type">other_moves</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale"/>
+			<field name="update_posted" eval="True"/>
+		</record>       
+
+        <record model="account.journal.type" id="journal_sale_note">
+            <field name="name">Nota de Venta</field>
+            <field name="code">sale_note</field>
+            <field name="sri_type_control">company_partner</field>
+            <field name="sri_type_document" model="sri.document.type" ref="straconx_sri.02"/>
+        </record>
+
+        <!-- record id="diario_sale_note" model="account.journal">
+			<field name="code">DNV</field>
+			<field name="name">Notas de Venta</field>
+			<field name="view_id">3</field>
+			<field name="type">sale_note</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale"/>
+			<field name="update_posted" eval="True"/>
+		</record-->       
+
+    </data>
+</openerp>

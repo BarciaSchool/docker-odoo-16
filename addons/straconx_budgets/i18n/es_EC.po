@@ -1,0 +1,406 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_budgets
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-03 17:33+0000\n"
+"PO-Revision-Date: 2016-05-03 17:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_budgets
+#: field:account.budget.post,creating_user_id:0
+#: field:crossovered.budget,creating_user_id:0
+msgid "Responsible User"
+msgstr "Responsable"
+
+#. module: straconx_budgets
+#: selection:crossovered.budget,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: straconx_budgets
+#: constraint:account.move:0
+msgid "You can not create more than one move per period on centralized journal"
+msgstr "No puede crear más de un movimiento por periodo en un diario centralizado"
+
+#. module: straconx_budgets
+#: model:ir.actions.act_window,name:straconx_budgets.open_budget_post_form
+#: model:ir.ui.menu,name:straconx_budgets.menu_budget_post_form
+msgid "Budgetary Positions"
+msgstr "Posiciones Presupuestarias"
+
+#. module: straconx_budgets
+#: constraint:account.move.line:0
+msgid "Company must be the same for its related account and period."
+msgstr "La compañía debe ser la misma para su cuenta y periodos relacionados"
+
+#. module: straconx_budgets
+#: field:crossovered.budget,validating_user_id:0
+msgid "Validate User"
+msgstr "Validar usuario"
+
+#. module: straconx_budgets
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "El código debe ser único por compañia"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_company_report_xls
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_department_report_xls
+msgid "Anual"
+msgstr "Anual"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_offer_xls
+msgid "Oferta"
+msgstr "Oferta"
+
+#. module: straconx_budgets
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal."
+msgstr "¡La fecha de su asiento no está en el periodo definido! Usted debería cambiar la fecha o borar este esta restricción del diario."
+
+#. module: straconx_budgets
+#: field:crossovered.budget.lines,paid_date:0
+msgid "Paid Date"
+msgstr "Fecha de pago"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+#: selection:crossovered.budget,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_budgets
+#: selection:account.analytic.account,type_account:0
+msgid "Income"
+msgstr "Ingresos"
+
+#. module: straconx_budgets
+#: field:account.account,department_id:0
+#: field:account.budget.post,department_id:0
+#: field:account.invoice.line,department_id:0
+#: field:account.move,department_id:0
+#: field:account.move.line,department_id:0
+#: field:crossovered.budget.lines,department_id:0
+#: model:ir.ui.menu,name:straconx_budgets.budget_report_department
+msgid "Department"
+msgstr "Departamento"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_budget_crossvered_report
+msgid "Account Budget crossvered report"
+msgstr "Reporte de Presupuestos Cruzados"
+
+#. module: straconx_budgets
+#: field:account.analytic.account,type_account:0
+msgid "Account Type"
+msgstr "Tipo de Cuenta"
+
+#. module: straconx_budgets
+#: field:crossovered.budget.lines,percentage:0
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: straconx_budgets
+#: field:crossovered.budget,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: straconx_budgets
+#: model:ir.actions.act_window,help:straconx_budgets.act_crossovered_budget_view
+msgid "A budget is a forecast of your company's income and expenses expected for a period in the future. With a budget, a company is able to carefully look at how much money they are taking in during a given period, and figure out the best way to divide it among various categories. By keeping track of where your money goes, you may be less likely to overspend, and more likely to meet your financial goals. Forecast a budget by detailing the expected revenue per analytic account and monitor its evolution based on the actuals realised during that period."
+msgstr "Un presupuesto es una previsión de ingresos y gastos de su empresa espera por un período en el futuro. Con un presupuesto, una empresa es capaz de analizar cuidadosamente la cantidad de dinero que están tomando durante un período determinado, y averiguar la mejor manera de dividirlo entre varias categorías. Al mantener un registro de dónde va su dinero, puede ser menos propensos a gastar en exceso, y más probabilidades de alcanzar sus metas financieras. Pronóstico un presupuesto detallando los ingresos esperados por cada cuenta analítico y vigilar su evolución a partir de los datos reales realizadas durante ese período."
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "Reset to Draft"
+msgstr "Cambiar a Borrador"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_shop_cost_xls
+msgid "Cuentas Analítica"
+msgstr "Cuentas Analítica"
+
+#. module: straconx_budgets
+#: field:account.budget.post,company_id:0
+#: field:crossovered.budget,company_id:0
+#: field:crossovered.budget.lines,company_id:0
+#: model:ir.ui.menu,name:straconx_budgets.budget_report_company
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "To Approve"
+msgstr "Para aprobar"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_analytic_account_xls
+msgid "Plan de Cuentas de Costo por Cuenta Contable"
+msgstr "Plan de Cuentas de Costo por Cuenta Contable"
+
+#. module: straconx_budgets
+#: view:account.budget.post:0
+#: view:crossovered.budget.lines:0
+#: field:crossovered.budget.lines,planned_amount:0
+msgid "Planned Amount"
+msgstr "Importe previsto"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_move_line
+msgid "Journal Items"
+msgstr "Lineas de Asientos Contables"
+
+#. module: straconx_budgets
+#: field:account.budget.post,shop_id:0
+#: field:crossovered.budget.lines,shop_id:0
+#: model:ir.ui.menu,name:straconx_budgets.budget_report_shop
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_budgets
+#: constraint:account.move.line:0
+msgid "You can not create journal items on an account of type view."
+msgstr "No puede crear asientos en una cuenta de tipo vista"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_ledger_consolidated_report_xls
+msgid "Mensual"
+msgstr "Mensual"
+
+#. module: straconx_budgets
+#: view:account.budget.post:0
+#: view:crossovered.budget.lines:0
+#: field:crossovered.budget.lines,practical_amount:0
+msgid "Practical Amount"
+msgstr "Importe real"
+
+#. module: straconx_budgets
+#: field:crossovered.budget,date_to:0
+#: field:crossovered.budget.lines,date_to:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_account
+msgid "Account"
+msgstr "Producto"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_budget_analytic
+#: model:ir.model,name:straconx_budgets.model_account_budget_report
+msgid "Account Budget report for analytic account"
+msgstr "Reporte de Presupuesto por Cuenta Analítica"
+
+#. module: straconx_budgets
+#: field:account.budget.post,name:0
+#: field:crossovered.budget,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_crossovered_budget_lines
+msgid "Budget Line"
+msgstr "Línea Presupuestal"
+
+#. module: straconx_budgets
+#: view:account.analytic.account:0
+#: view:account.budget.post:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: straconx_budgets
+#: field:account.budget.post,crossovered_budget_id:0
+#: view:crossovered.budget:0
+#: field:crossovered.budget.lines,crossovered_budget_id:0
+#: model:ir.model,name:straconx_budgets.model_crossovered_budget
+msgid "Budget"
+msgstr "Presupuesto"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_department_report_xls
+msgid "Resumido"
+msgstr "Resumido"
+
+#. module: straconx_budgets
+#: model:ir.ui.menu,name:straconx_budgets.budget_report_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_account_area_report_xls
+msgid "Por Cuenta Analítica"
+msgstr "Por Cuenta Analítica"
+
+#. module: straconx_budgets
+#: field:account.budget.post,code:0
+#: field:crossovered.budget,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_budgets
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr "¡Valor crédito o débito erróneo en apunte contable!"
+
+#. module: straconx_budgets
+#: model:ir.actions.act_window,name:straconx_budgets.act_crossovered_budget_view
+#: model:ir.actions.act_window,name:straconx_budgets.action_account_budget_post_tree
+#: model:ir.ui.menu,name:straconx_budgets.menu_act_crossovered_budget_view
+#: model:ir.ui.menu,name:straconx_budgets.menu_action_account_budget_post_tree
+#: model:ir.ui.menu,name:straconx_budgets.next_id_31
+msgid "Budgets"
+msgstr "Presupuestos"
+
+#. module: straconx_budgets
+#: selection:crossovered.budget,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: straconx_budgets
+#: field:crossovered.budget,date_from:0
+#: field:crossovered.budget.lines,date_from:0
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: straconx_budgets
+#: view:account.budget.post:0
+#: field:crossovered.budget.lines,general_budget_id:0
+#: model:ir.model,name:straconx_budgets.model_account_budget_post
+msgid "Budgetary Position"
+msgstr "Posición presupuestaria"
+
+#. module: straconx_budgets
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_account_account_department_xls
+#: model:ir.actions.report.xml,name:straconx_budgets.account_budgets_resumen_account_account_xls
+msgid "Cuentas Analítica y Contable"
+msgstr "Cuentas Analítica y Contable"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "To Approve Budgets"
+msgstr "Presupuestos por aprobar"
+
+#. module: straconx_budgets
+#: constraint:account.move.line:0
+msgid "You can not create journal items on closed account."
+msgstr "No puede crear asientos en cuentas cerradas"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_budget_crossvered_summary_report
+msgid "Account Budget  crossvered summary report"
+msgstr "Reporte sumarizado de Presupuestos Cruzados"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_move
+msgid "Account Entry"
+msgstr "Entrada de cuenta"
+
+#. module: straconx_budgets
+#: constraint:account.account:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "Error! No se pueden crear cuentas recursivas."
+
+#. module: straconx_budgets
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not select an account type with a deferral method different of \"Unreconciled\" for accounts with internal type \"Payable/Receivable\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_budgets
+#: field:account.analytic.account,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: straconx_budgets
+#: view:account.budget.post:0
+#: view:crossovered.budget.lines:0
+#: field:crossovered.budget.lines,theoritical_amount:0
+msgid "Theoretical Amount"
+msgstr "Importe teórico"
+
+#. module: straconx_budgets
+#: model:ir.model,name:straconx_budgets.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_budgets
+#: constraint:account.move.line:0
+msgid "The selected account of your Journal Entry forces to provide a secondary currency. You should remove the secondary currency on the account or select a multi-currency view on the journal."
+msgstr "La cuenta selecionada de su diario obliga a tener una moneda secundaria. Usted debería eliminar la moneda secundaria de la cuenta o asignar una vista de multi-moneda al diario."
+
+#. module: straconx_budgets
+#: field:account.account,analytic_account_id:0
+#: field:crossovered.budget.lines,analytic_account_id:0
+#: model:ir.model,name:straconx_budgets.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta Analitica"
+
+#. module: straconx_budgets
+#: selection:account.analytic.account,type_account:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+#: selection:crossovered.budget,state:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_budgets
+#: view:account.analytic.account:0
+#: field:account.analytic.account,crossovered_budget_line:0
+#: view:account.budget.post:0
+#: field:account.budget.post,crossovered_budget_line:0
+#: field:crossovered.budget,crossovered_budget_line:0
+#: view:crossovered.budget.lines:0
+#: model:ir.actions.act_window,name:straconx_budgets.act_account_analytic_account_cb_lines
+#: model:ir.actions.act_window,name:straconx_budgets.act_crossovered_budget_lines_view
+#: model:ir.ui.menu,name:straconx_budgets.menu_act_crossovered_budget_lines_view
+msgid "Budget Lines"
+msgstr "Líneas de presupuesto"
+
+#. module: straconx_budgets
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_budgets
+#: constraint:account.analytic.account:0
+msgid "Error! You can not create recursive analytic accounts."
+msgstr "¡Error! No puede crear cuentas analíticas recursivas."
+
+#. module: straconx_budgets
+#: selection:crossovered.budget,state:0
+msgid "Validated"
+msgstr "Validado"
+
+#. module: straconx_budgets
+#: view:crossovered.budget:0
+msgid "Draft Budgets"
+msgstr "Presupuestos en Borrador"

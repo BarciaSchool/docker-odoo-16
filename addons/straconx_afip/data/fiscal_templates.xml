@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<!-- Fiscal Position Templates -->
+		<record id="fp_respmonotributo" model="account.fiscal.position">
+			<field name="name">RESPONSABLE MONOTRIBUTO</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_sujetonocategorizado" model="account.fiscal.position">
+			<field name="name">SUJETO NO CATEGORIZADO</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_sujetonoresponsable" model="account.fiscal.position">
+			<field name="name">NO RESPONSABLE</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_iva_inscrito" model="account.fiscal.position">
+			<field name="name">IVA RESPONSABLE INSCRITO</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_iva_exento" model="account.fiscal.position">
+			<field name="name">IVA EXENTO</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_cons_final" model="account.fiscal.position">
+			<field name="name">CONSUMIDOR FINAL</field>
+			<field name="company_id">1</field>
+		</record>
+	</data>
+</openerp>

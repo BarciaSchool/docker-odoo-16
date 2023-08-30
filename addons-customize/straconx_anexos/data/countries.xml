@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id='base.as' model='res.country'>
+			<field name='name'>American Samoa</field>
+			<field name='code'>AS</field>
+			<field name='iso_code' eval='016' />
+		</record>
+		<record id='base.bv' model='res.country'>
+			<field name='name'>Bouvet Island</field>
+			<field name='code'>BV</field>
+			<field name='iso_code' eval='074' />
+		</record>
+		<record id='base.ar' model='res.country'>
+			<field name='name'>Argentina</field>
+			<field name='code'>AR</field>
+			<field name='iso_code' eval='101' />
+		</record>
+		<record id='base.bo' model='res.country'>
+			<field name='name'>Bolivia</field>
+			<field name='code'>BO</field>
+			<field name='iso_code' eval='102' />
+		</record>
+		<record id='base.br' model='res.country'>
+			<field name='name'>Brazil</field>
+			<field name='code'>BR</field>
+			<field name='iso_code' eval='103' />
+		</record>
+		<record id='base.ca' model='res.country'>
+			<field name='name'>Canada</field>
+			<field name='code'>CA</field>
+			<field name='iso_code' eval='104' />
+		</record>
+		<record id='base.co' model='res.country'>
+			<field name='name'>Colombia</field>
+			<field name='code'>CO</field>
+			<field name='iso_code' eval='105' />
+		</record>
+		<record id='base.cr' model='res.country'>
+			<field name='name'>Costa Rica</field>
+			<field name='code'>CR</field>
+			<field name='iso_code' eval='106' />
+		</record>
+		<record id='base.cu' model='res.country'>
+			<field name='name'>Cuba</field>
+			<field name='code'>CU</field>
+			<field name='iso_code' eval='107' />
+		</record>
+		<record id='base.cl' model='res.country'>
+			<field name='name'>Chile</field>
+			<field name='code'>CL</field>
+			<field name='iso_code' eval='108' />
+		</record>
+		<record id='base.ai' model='res.country'>
+			<field name='name'>Anguilla</field>
+			<field name='code'>AI</field>
+			<field name='iso_code' eval='109' />
+		</record>
+		<record id='base.us' model='res.country'>
+            <field name="name">United States</field>
+            <field name="code">us</field>
+            <field name="address_format" eval="'%(street)s\n%(street2)s\n%(city)s, %(state_code)s %(zip)s\n%(country_name)s'" />            
+			<field name='iso_code' eval='110' />
+        </record>		
+		<record id='base.gt' model='res.country'>
+			<field name='name'>Guatemala</field>
+			<field name='code'>GT</field>
+			<field name='iso_code' eval='111' />
+		</record>
+		<record id='base.ht' model='res.country'>
+			<field name='name'>Haiti</field>
+			<field name='code'>HT</field>
+			<field name='iso_code' eval='112' />
+		</record>
+		<record id='base.hn' model='res.country'>
+			<field name='name'>Honduras</field>
+			<field name='code'>HN</field>
+			<field name='iso_code' eval='113' />
+		</record>
+		<record id='base.jm' model='res.country'>
+			<field name='name'>Jamaica</field>
+			<field name='code'>JM</field>
+			<field name='iso_code' eval='114' />
+		</record>
+		<record id='base.mx' model='res.country'>
+			<field name='name'>Mexico</field>
+			<field name='code'>MX</field>
+			<field name='iso_code' eval='116' />
+		</record>
+		<record id='base.ni' model='res.country'>
+			<field name='name'>Nicaragua</field>
+			<field name='code'>NI</field>
+			<field name='iso_code' eval='117' />
+		</record>
+		<record id='base.pa' model='res.country'>
+			<field name='name'>Panama</field>
+			<field name='code'>PA</field>
+			<field name='iso_code' eval='118' />
+		</record>
+		<record id='base.py' model='res.country'>
+			<field name='name'>Paraguay</field>
+			<field name='code'>PY</field>
+			<field name='iso_code' eval='119' />
+		</record>
+		<record id='base.pe' model='res.country'>
+			<field name='name'>Peru</field>
+			<field name='code'>PE</field>
+			<field name='iso_code' eval='120' />
+		</record>
+		<record id='base.pr' model='res.country'>
+			<field name='name'>Puerto Rico</field>
+			<field name='code'>PR</field>
+			<field name='iso_code' eval='121' />
+		</record>
+		<record id='base.do' model='res.country'>
+			<field name='name'>Dominican Republic</field>
+			<field name='code'>DO</field>
+			<field name='iso_code' eval='122' />
+		</record>
+		<record id='base.sv' model='res.country'>
+			<field name='name'>El Salvador</field>
+			<field name='code'>SV</field>
+			<field name='iso_code' eval='123' />
+		</record>
+		<record id='base.tt' model='res.country'>
+			<field name='name'>Trinidad and Tobago</field>
+			<field name='code'>TT</field>
+			<field name='iso_code' eval='124' />
+		</record>
+		<record id='base.uy' model='res.country'>
+			<field name='name'>Uruguay</field>
+			<field name='code'>UY</field>
+			<field name='iso_code' eval='125' />
+		</record>
+		<record id='base.ve' model='res.country'>
+			<field name='name'>Venezuela</field>
+			<field name='code'>VE</field>
+			<field name='iso_code' eval='126' />
+		</record>
+		<record id='base.cw' model='res.country'>
+			<field name='name'>Curaçao</field>
+			<field name='code'>CW</field>
+			<field name='iso_code' eval='127' />
+		</record>
+		<record id='base.bs' model='res.country'>
+			<field name='name'>Bahamas</field>
+			<field name='code'>BS</field>
+			<field name='iso_code' eval='129' />
+		</record>
+		<record id='base.bb' model='res.country'>
+			<field name='name'>Barbados</field>
+			<field name='code'>BB</field>
+			<field name='iso_code' eval='130' />
+		</record>
+		<record id='base.gd' model='res.country'>
+			<field name='name'>Grenada</field>
+			<field name='code'>GD</field>
+			<field name='iso_code' eval='131' />
+		</record>
+		<record id='base.gy' model='res.country'>
+			<field name='name'>Guyana</field>
+			<field name='code'>GY</field>
+			<field name='iso_code' eval='132' />
+		</record>
+		<record id='base.sr' model='res.country'>
+			<field name='name'>Suriname</field>
+			<field name='code'>SR</field>
+			<field name='iso_code' eval='133' />
+		</record>
+		<record id='base.ag' model='res.country'>
+			<field name='name'>Antigua and Barbuda</field>
+			<field name='code'>AG</field>
+			<field name='iso_code' eval='134' />
+		</record>
+		<record id='base.bz' model='res.country'>
+			<field name='name'>Belize</field>
+			<field name='code'>BZ</field>
+			<field name='iso_code' eval='135' />
+		</record>
+		<record id='base.dm' model='res.country'>
+			<field name='name'>Dominica</field>
+			<field name='code'>DM</field>
+			<field name='iso_code' eval='136' />
+		</record>
+		<record id='base.kn' model='res.country'>
+			<field name='name'>Saint Kitts &amp; Nevis Anguilla</field>
+			<field name='code'>KN</field>
+			<field name='iso_code' eval='137' />
+		</record>
+		<record id='base.lc' model='res.country'>
+			<field name='name'>Saint Lucia</field>
+			<field name='code'>LC</field>
+			<field name='iso_code' eval='138' />
+		</record>
+		<record id='base.vc' model='res.country'>
+			<field name='name'>Saint Vincent &amp; Grenadines</field>
+			<field name='code'>VC</field>
+			<field name='iso_code' eval='139' />
+		</record>
+		<record id='base.an' model='res.country'>
+			<field name='name'>Netherlands Antilles</field>
+			<field name='code'>AN</field>
+			<field name='iso_code' eval='140' />
+		</record>
+		<record id='base.aw' model='res.country'>
+			<field name='name'>Aruba</field>
+			<field name='code'>AW</field>
+			<field name='iso_code' eval='141' />
+		</record>
+		<record id='base.bm' model='res.country'>
+			<field name='name'>Bermuda</field>
+			<field name='code'>BM</field>
+			<field name='iso_code' eval='142' />
+		</record>
+		<record id='base.gp' model='res.country'>
+			<field name='name'>Guadeloupe (French)</field>
+			<field name='code'>GP</field>
+			<field name='iso_code' eval='143' />
+		</record>
+		<record id='base.gf' model='res.country'>
+			<field name='name'>French Guyana</field>
+			<field name='code'>GF</field>
+			<field name='iso_code' eval='144' />
+		</record>
+		<record id='base.ky' model='res.country'>
+			<field name='name'>Cayman Islands</field>
+			<field name='code'>KY</field>
+			<field name='iso_code' eval='145' />
+		</record>
+		<record id='base.vg' model='res.country'>
+			<field name='name'>Virgin Islands (British)</field>
+			<field name='code'>VG</field>
+			<field name='iso_code' eval='146' />
+		</record>
+		<record id='base.mq' model='res.country'>
+			<field name='name'>Martinique (French)</field>
+			<field name='code'>MQ</field>
+			<field name='iso_code' eval='148' />
+		</record>
+		<record id='base.ms' model='res.country'>
+			<field name='name'>Montserrat</field>
+			<field name='code'>MS</field>
+			<field name='iso_code' eval='149' />
+		</record>
+		<record id='base.vi' model='res.country'>
+			<field name='name'>Virgin Islands (USA)</field>
+			<field name='code'>VI</field>
+			<field name='iso_code' eval='152' />
+		</record>
+		<record id='base.al' model='res.country'>
+			<field name='name'>Albania</field>
+			<field name='code'>AL</field>
+			<field name='iso_code' eval='201' />
+		</record>
+		<record id='base.de' model='res.country'>
+			<field name='name'>Germany</field>
+			<field name='code'>DE</field>
+			<field name='iso_code' eval='202' />
+		</record>
+		<record id='base.at' model='res.country'>
+			<field name='name'>Austria</field>
+			<field name='code'>AT</field>
+			<field name='iso_code' eval='203' />
+		</record>
+		<record id='base.be' model='res.country'>
+			<field name='name'>Belgium</field>
+			<field name='code'>BE</field>
+			<field name='iso_code' eval='204' />
+		</record>
+		<record id='base.bg' model='res.country'>
+			<field name='name'>Bulgaria</field>
+			<field name='code'>BG</field>
+			<field name='iso_code' eval='205' />
+		</record>
+		<record id='base.dk' model='res.country'>
+			<field name='name'>Denmark</field>
+			<field name='code'>DK</field>
+			<field name='iso_code' eval='208' />
+		</record>
+		<record id='base.es' model='res.country'>
+			<field name='name'>Spain</field>
+			<field name='code'>ES</field>
+			<field name='iso_code' eval='209' />
+		</record>
+		<record id='base.fr' model='res.country'>
+			<field name='name'>France</field>
+			<field name='code'>FR</field>
+			<field name='iso_code' eval='211' />
+		</record>
+		<record id='base.fi' model='res.country'>
+			<field name='name'>Finland</field>
+			<field name='code'>FI</field>
+			<field name='iso_code' eval='212' />
+		</record>
+		<record id='base.uk' model='res.country'>
+			<field name='name'>United Kingdom</field>
+			<field name='code'>	</field>
+			<field name='iso_code' eval='213' />
+		</record>
+		<record id='base.gr' model='res.country'>
+			<field name='name'>Greece</field>
+			<field name='code'>GR</field>
+			<field name='iso_code' eval='214' />
+		</record>
+		<record id='base.nl' model='res.country'>
+			<field name='name'>Netherlands</field>
+			<field name='code'>NL</field>
+			<field name='iso_code' eval='215' />
+		</record>
+		<record id='base.hu' model='res.country'>
+			<field name='name'>Hungary</field>
+			<field name='code'>HU</field>
+			<field name='iso_code' eval='216' />
+		</record>
+		<record id='base.ie' model='res.country'>
+			<field name='name'>Ireland</field>
+			<field name='code'>IE</field>
+			<field name='iso_code' eval='217' />
+		</record>
+		<record id='base.is' model='res.country'>
+			<field name='name'>Iceland</field>
+			<field name='code'>IS</field>
+			<field name='iso_code' eval='218' />
+		</record>
+		<record id='base.it' model='res.country'>
+			<field name='name'>Italy</field>
+			<field name='code'>IT</field>
+			<field name='iso_code' eval='219' />
+		</record>
+		<record id='base.lu' model='res.country'>
+			<field name='name'>Luxembourg</field>
+			<field name='code'>LU</field>
+			<field name='iso_code' eval='220' />
+		</record>
+		<record id='base.mt' model='res.country'>
+			<field name='name'>Malta</field>
+			<field name='code'>MT</field>
+			<field name='iso_code' eval='221' />
+		</record>
+		<record id='base.no' model='res.country'>
+			<field name='name'>Norway</field>
+			<field name='code'>NO</field>
+			<field name='iso_code' eval='222' />
+		</record>
+		<record id='base.pl' model='res.country'>
+			<field name='name'>Poland</field>
+			<field name='code'>PL</field>
+			<field name='iso_code' eval='223' />
+		</record>
+		<record id='base.pt' model='res.country'>
+			<field name='name'>Portugal</field>
+			<field name='code'>PT</field>
+			<field name='iso_code' eval='224' />
+		</record>
+		<record id='base.ro' model='res.country'>
+			<field name='name'>Romania</field>
+			<field name='code'>RO</field>
+			<field name='iso_code' eval='225' />
+		</record>
+		<record id='base.se' model='res.country'>
+			<field name='name'>Sweden</field>
+			<field name='code'>SE</field>
+			<field name='iso_code' eval='226' />
+		</record>
+		<record id='base.ch' model='res.country'>
+			<field name='name'>Switzerland</field>
+			<field name='code'>CH</field>
+			<field name='iso_code' eval='227' />
+		</record>
+		<record id='base.ua' model='res.country'>
+			<field name='name'>Ukraine</field>
+			<field name='code'>UA</field>
+			<field name='iso_code' eval='229' />
+		</record>
+		<record id='base.ru' model='res.country'>
+			<field name='name'>Russian Federation</field>
+			<field name='code'>RU</field>
+			<field name='iso_code' eval='230' />
+		</record>
+		<record id='base.yu' model='res.country'>
+			<field name='name'>Yugoslavia</field>
+			<field name='code'>YU</field>
+			<field name='iso_code' eval='231' />
+		</record>
+		<record id='base.ad' model='res.country'>
+			<field name='name'>Andorra, Principality of</field>
+			<field name='code'>AD</field>
+			<field name='iso_code' eval='233' />
+		</record>
+		<record id='base.li' model='res.country'>
+			<field name='name'>Liechtenstein</field>
+			<field name='code'>LI</field>
+			<field name='iso_code' eval='234' />
+		</record>
+		<record id='base.mc' model='res.country'>
+			<field name='name'>Monaco</field>
+			<field name='code'>MC</field>
+			<field name='iso_code' eval='235' />
+		</record>
+		<record id='base.sm' model='res.country'>
+			<field name='name'>San Marino</field>
+			<field name='code'>SM</field>
+			<field name='iso_code' eval='237' />
+		</record>
+		<record id='base.va' model='res.country'>
+			<field name='name'>Holy See (Vatican City State)</field>
+			<field name='code'>VA</field>
+			<field name='iso_code' eval='238' />
+		</record>
+		<record id='base.gi' model='res.country'>
+			<field name='name'>Gibraltar</field>
+			<field name='code'>GI</field>
+			<field name='iso_code' eval='239' />
+		</record>
+		<record id='base.by' model='res.country'>
+			<field name='name'>Belarus</field>
+			<field name='code'>BY</field>
+			<field name='iso_code' eval='241' />
+		</record>
+		<record id='base.ba' model='res.country'>
+			<field name='name'>Bosnia-Herzegovina</field>
+			<field name='code'>BA</field>
+			<field name='iso_code' eval='242' />
+		</record>
+		<record id='base.hr' model='res.country'>
+			<field name='name'>Croatia</field>
+			<field name='code'>HR</field>
+			<field name='iso_code' eval='243' />
+		</record>
+		<record id='base.si' model='res.country'>
+			<field name='name'>Slovenia</field>
+			<field name='code'>SI</field>
+			<field name='iso_code' eval='244' />
+		</record>
+		<record id='base.ee' model='res.country'>
+			<field name='name'>Estonia</field>
+			<field name='code'>EE</field>
+			<field name='iso_code' eval='245' />
+		</record>
+		<record id='base.ge' model='res.country'>
+			<field name='name'>Georgia</field>
+			<field name='code'>GE</field>
+			<field name='iso_code' eval='246' />
+		</record>
+		<record id='base.gl' model='res.country'>
+			<field name='name'>Greenland</field>
+			<field name='code'>GL</field>
+			<field name='iso_code' eval='247' />
+		</record>
+		<record id='base.lt' model='res.country'>
+			<field name='name'>Lithuania</field>
+			<field name='code'>LT</field>
+			<field name='iso_code' eval='249' />
+		</record>
+		<record id='base.md' model='res.country'>
+			<field name='name'>Moldavia</field>
+			<field name='code'>MD</field>
+			<field name='iso_code' eval='250' />
+		</record>
+		<record id='base.mk' model='res.country'>
+			<field name='name'>Macedonia, the former Yugoslav Republic of</field>
+			<field name='code'>MK</field>
+			<field name='iso_code' eval='251' />
+		</record>
+		<record id='base.sk' model='res.country'>
+			<field name='name'>Slovakia</field>
+			<field name='code'>SK</field>
+			<field name='iso_code' eval='252' />
+		</record>
+		<record id='base.fo' model='res.country'>
+			<field name='name'>Faroe Islands</field>
+			<field name='code'>FO</field>
+			<field name='iso_code' eval='253' />
+		</record>
+		<record id='base.tf' model='res.country'>
+			<field name='name'>French Southern Territories</field>
+			<field name='code'>tf</field>
+			<field name='iso_code' eval='260' />
+		</record>
+		<record id='base.af' model='res.country'>
+			<field name='name'>Afghanistan, Islamic State of</field>
+			<field name='code'>AF</field>
+			<field name='iso_code' eval='301' />
+		</record>
+		<record id='base.sa' model='res.country'>
+			<field name='name'>Saudi Arabia</field>
+			<field name='code'>SA</field>
+			<field name='iso_code' eval='302' />
+		</record>
+		<record id='base.mm' model='res.country'>
+			<field name='name'>Myanmar</field>
+			<field name='code'>MM</field>
+			<field name='iso_code' eval='303' />
+		</record>
+		<record id='base.kh' model='res.country'>
+			<field name='name'>Cambodia, Kingdom of</field>
+			<field name='code'>KH</field>
+			<field name='iso_code' eval='304' />
+		</record>
+		<record id='base.kp' model='res.country'>
+			<field name='name'>North Korea</field>
+			<field name='code'>KP</field>
+			<field name='iso_code' eval='306' />
+		</record>
+		<record id='base.tw' model='res.country'>
+			<field name='name'>Taiwan</field>
+			<field name='code'>TW</field>
+			<field name='iso_code' eval='307' />
+		</record>
+		<record id='base.ph' model='res.country'>
+			<field name='name'>Philippines</field>
+			<field name='code'>PH</field>
+			<field name='iso_code' eval='308' />
+		</record>
+		<record id='base.in' model='res.country'>
+			<field name='name'>India</field>
+			<field name='code'>IN</field>
+			<field name='iso_code' eval='309' />
+		</record>
+		<record id='base.id' model='res.country'>
+			<field name='name'>Indonesia</field>
+			<field name='code'>ID</field>
+			<field name='iso_code' eval='310' />
+		</record>
+		<record id='base.iq' model='res.country'>
+			<field name='name'>Iraq</field>
+			<field name='code'>IQ</field>
+			<field name='iso_code' eval='311' />
+		</record>
+		<record id='base.ir' model='res.country'>
+			<field name='name'>Iran</field>
+			<field name='code'>IR</field>
+			<field name='iso_code' eval='312' />
+		</record>
+		<record id='base.il' model='res.country'>
+			<field name='name'>Israel</field>
+			<field name='code'>IL</field>
+			<field name='iso_code' eval='313' />
+		</record>
+		<record id='base.jp' model='res.country'>
+			<field name='name'>Japan</field>
+			<field name='code'>JP</field>
+			<field name='iso_code' eval='314' />
+		</record>
+		<record id='base.jo' model='res.country'>
+			<field name='name'>Jordan</field>
+			<field name='code'>JO</field>
+			<field name='iso_code' eval='315' />
+		</record>
+		<record id='base.kw' model='res.country'>
+			<field name='name'>Kuwait</field>
+			<field name='code'>KW</field>
+			<field name='iso_code' eval='316' />
+		</record>
+		<record id='base.la' model='res.country'>
+			<field name='name'>Laos</field>
+			<field name='code'>LA</field>
+			<field name='iso_code' eval='317' />
+		</record>
+		<record id='base.lb' model='res.country'>
+			<field name='name'>Lebanon</field>
+			<field name='code'>LB</field>
+			<field name='iso_code' eval='318' />
+		</record>
+		<record id='base.my' model='res.country'>
+			<field name='name'>Malaysia</field>
+			<field name='code'>MY</field>
+			<field name='iso_code' eval='319' />
+		</record>
+		<record id='base.mn' model='res.country'>
+			<field name='name'>Mongolia</field>
+			<field name='code'>MN</field>
+			<field name='iso_code' eval='321' />
+		</record>
+		<record id='base.pk' model='res.country'>
+			<field name='name'>Pakistan</field>
+			<field name='code'>PK</field>
+			<field name='iso_code' eval='322' />
+		</record>
+		<record id='base.sy' model='res.country'>
+			<field name='name'>Syria</field>
+			<field name='code'>SY</field>
+			<field name='iso_code' eval='323' />
+		</record>
+		<record id='base.th' model='res.country'>
+			<field name='name'>Thailand</field>
+			<field name='code'>TH</field>
+			<field name='iso_code' eval='325' />
+		</record>
+		<record id='base.bh' model='res.country'>
+			<field name='name'>Bahrain</field>
+			<field name='code'>BH</field>
+			<field name='iso_code' eval='327' />
+		</record>
+		<record id='base.bd' model='res.country'>
+			<field name='name'>Bangladesh</field>
+			<field name='code'>BD</field>
+			<field name='iso_code' eval='328' />
+		</record>
+		<record id='base.bt' model='res.country'>
+			<field name='name'>Bhutan</field>
+			<field name='code'>BT</field>
+			<field name='iso_code' eval='329' />
+		</record>
+		<record id='base.kr' model='res.country'>
+			<field name='name'>South Korea</field>
+			<field name='code'>KR</field>
+			<field name='iso_code' eval='330' />
+		</record>
+		<record id='base.cn' model='res.country'>
+			<field name='name'>China</field>
+			<field name='code'>CN</field>
+			<field name='iso_code' eval='331' />
+		</record>
+		<record id='base.ae' model='res.country'>
+			<field name='name'>United Arab Emirates</field>
+			<field name='code'>AE</field>
+			<field name='iso_code' eval='333' />
+		</record>
+		<record id='base.qa' model='res.country'>
+			<field name='name'>Qatar</field>
+			<field name='code'>QA</field>
+			<field name='iso_code' eval='334' />
+		</record>
+		<record id='base.mv' model='res.country'>
+			<field name='name'>Maldives</field>
+			<field name='code'>MV</field>
+			<field name='iso_code' eval='335' />
+		</record>
+		<record id='base.np' model='res.country'>
+			<field name='name'>Nepal</field>
+			<field name='code'>NP</field>
+			<field name='iso_code' eval='336' />
+		</record>
+		<record id='base.om' model='res.country'>
+			<field name='name'>Oman</field>
+			<field name='code'>OM</field>
+			<field name='iso_code' eval='337' />
+		</record>
+		<record id='base.sg' model='res.country'>
+			<field name='name'>Singapore</field>
+			<field name='code'>SG</field>
+			<field name='iso_code' eval='338' />
+		</record>
+		<record id='base.lk' model='res.country'>
+			<field name='name'>Sri Lanka</field>
+			<field name='code'>LK</field>
+			<field name='iso_code' eval='339' />
+		</record>
+		<record id='base.vn' model='res.country'>
+			<field name='name'>Vietnam</field>
+			<field name='code'>VN</field>
+			<field name='iso_code' eval='341' />
+		</record>
+		<record id='base.ye' model='res.country'>
+			<field name='name'>Yemen</field>
+			<field name='code'>YE</field>
+			<field name='iso_code' eval='342' />
+		</record>
+		<record id='base.hm' model='res.country'>
+			<field name='name'>Heard and McDonald Islands</field>
+			<field name='code'>HM</field>
+			<field name='iso_code' eval='343' />
+		</record>
+		<record id='base.bn' model='res.country'>
+			<field name='name'>Brunei Darussalam</field>
+			<field name='code'>BN</field>
+			<field name='iso_code' eval='344' />
+		</record>
+		<record id='base.tr' model='res.country'>
+			<field name='name'>Turkey</field>
+			<field name='code'>TR</field>
+			<field name='iso_code' eval='346' />
+		</record>
+		<record id='base.az' model='res.country'>
+			<field name='name'>Azerbaijan</field>
+			<field name='code'>AZ</field>
+			<field name='iso_code' eval='347' />
+		</record>
+		<record id='base.kz' model='res.country'>
+			<field name='name'>Kazakhstan</field>
+			<field name='code'>KZ</field>
+			<field name='iso_code' eval='348' />
+		</record>
+		<record id='base.kg' model='res.country'>
+			<field name='name'>Kyrgyz Republic (Kyrgyzstan)</field>
+			<field name='code'>KG</field>
+			<field name='iso_code' eval='349' />
+		</record>
+		<record id='base.tj' model='res.country'>
+			<field name='name'>Tajikistan</field>
+			<field name='code'>TJ</field>
+			<field name='iso_code' eval='350' />
+		</record>
+		<record id='base.tm' model='res.country'>
+			<field name='name'>Turkmenistan</field>
+			<field name='code'>TM</field>
+			<field name='iso_code' eval='351' />
+		</record>
+		<record id='base.uz' model='res.country'>
+			<field name='name'>Uzbekistan</field>
+			<field name='code'>UZ</field>
+			<field name='iso_code' eval='352' />
+		</record>
+		<record id='base.ps' model='res.country'>
+			<field name='name'>Palestinian Territory, Occupied</field>
+			<field name='code'>PS</field>
+			<field name='iso_code' eval='353' />
+		</record>
+		<record id='base.hk' model='res.country'>
+			<field name='name'>Hong Kong</field>
+			<field name='code'>HK</field>
+			<field name='iso_code' eval='354' />
+		</record>
+		<record id='base.mo' model='res.country'>
+			<field name='name'>Macau</field>
+			<field name='code'>MO</field>
+			<field name='iso_code' eval='355' />
+		</record>
+		<record id='base.am' model='res.country'>
+			<field name='name'>Armenia</field>
+			<field name='code'>AM</field>
+			<field name='iso_code' eval='356' />
+		</record>
+		<record id='base.me' model='res.country'>
+			<field name='name'>Montenegro</field>
+			<field name='code'>ME</field>
+			<field name='iso_code' eval='382' />
+		</record>
+		<record id='base.bf' model='res.country'>
+			<field name='name'>Burkina Faso</field>
+			<field name='code'>BF</field>
+			<field name='iso_code' eval='402' />
+		</record>
+		<record id='base.dz' model='res.country'>
+			<field name='name'>Algeria</field>
+			<field name='code'>DZ</field>
+			<field name='iso_code' eval='403' />
+		</record>
+		<record id='base.bi' model='res.country'>
+			<field name='name'>Burundi</field>
+			<field name='code'>BI</field>
+			<field name='iso_code' eval='404' />
+		</record>
+		<record id='base.cm' model='res.country'>
+			<field name='name'>Cameroon</field>
+			<field name='code'>CM</field>
+			<field name='iso_code' eval='405' />
+		</record>
+		<record id='base.cd' model='res.country'>
+			<field name='name'>Congo, Democratic Republic of the</field>
+			<field name='code'>CD</field>
+			<field name='iso_code' eval='406' />
+		</record>
+		<record id='base.cg' model='res.country'>
+			<field name='name'>Congo</field>
+			<field name='code'>CG</field>
+			<field name='iso_code' eval='406' />
+		</record>
+		<record id='base.et' model='res.country'>
+			<field name='name'>Ethiopia</field>
+			<field name='code'>ET</field>
+			<field name='iso_code' eval='407' />
+		</record>
+		<record id='base.gm' model='res.country'>
+			<field name='name'>Gambia</field>
+			<field name='code'>GM</field>
+			<field name='iso_code' eval='408' />
+		</record>
+		<record id='base.gn' model='res.country'>
+			<field name='name'>Guinea</field>
+			<field name='code'>GN</field>
+			<field name='iso_code' eval='409' />
+		</record>
+		<record id='base.lr' model='res.country'>
+			<field name='name'>Liberia</field>
+			<field name='code'>LR</field>
+			<field name='iso_code' eval='410' />
+		</record>
+		<record id='base.mg' model='res.country'>
+			<field name='name'>Madagascar</field>
+			<field name='code'>MG</field>
+			<field name='iso_code' eval='412' />
+		</record>
+		<record id='base.mw' model='res.country'>
+			<field name='name'>Malawi</field>
+			<field name='code'>MW</field>
+			<field name='iso_code' eval='413' />
+		</record>
+		<record id='base.ml' model='res.country'>
+			<field name='name'>Mali</field>
+			<field name='code'>ML</field>
+			<field name='iso_code' eval='414' />
+		</record>
+		<record id='base.mr' model='res.country'>
+			<field name='name'>Mauritania</field>
+			<field name='code'>MR</field>
+			<field name='iso_code' eval='416' />
+		</record>
+		<record id='base.ng' model='res.country'>
+			<field name='name'>Nigeria</field>
+			<field name='code'>NG</field>
+			<field name='iso_code' eval='417' />
+		</record>
+		<record id='base.zw' model='res.country'>
+			<field name='name'>Zimbabwe</field>
+			<field name='code'>ZW</field>
+			<field name='iso_code' eval='419' />
+		</record>
+		<record id='base.sn' model='res.country'>
+			<field name='name'>Senegal</field>
+			<field name='code'>SN</field>
+			<field name='iso_code' eval='420' />
+		</record>
+		<record id='base.sd' model='res.country'>
+			<field name='name'>Sudan</field>
+			<field name='code'>SD</field>
+			<field name='iso_code' eval='421' />
+		</record>
+		<record id='base.za' model='res.country'>
+			<field name='name'>South Africa</field>
+			<field name='code'>ZA</field>
+			<field name='iso_code' eval='422' />
+		</record>
+		<record id='base.sl' model='res.country'>
+			<field name='name'>Sierra Leone</field>
+			<field name='code'>SL</field>
+			<field name='iso_code' eval='423' />
+		</record>
+		<record id='base.tz' model='res.country'>
+			<field name='name'>Tanzania</field>
+			<field name='code'>TZ</field>
+			<field name='iso_code' eval='425' />
+		</record>
+		<record id='base.ug' model='res.country'>
+			<field name='name'>Uganda</field>
+			<field name='code'>UG</field>
+			<field name='iso_code' eval='426' />
+		</record>
+		<record id='base.zm' model='res.country'>
+			<field name='name'>Zambia</field>
+			<field name='code'>ZM</field>
+			<field name='iso_code' eval='427' />
+		</record>
+		<record id='base.ax' model='res.country'>
+			<field name='name'>Åland Islands</field>
+			<field name='code'>AX</field>
+			<field name='iso_code' eval='428' />
+		</record>
+		<record id='base.bj' model='res.country'>
+			<field name='name'>Benin</field>
+			<field name='code'>BJ</field>
+			<field name='iso_code' eval='429' />
+		</record>
+		<record id='base.bw' model='res.country'>
+			<field name='name'>Botswana</field>
+			<field name='code'>BW</field>
+			<field name='iso_code' eval='430' />
+		</record>
+		<record id='base.cf' model='res.country'>
+			<field name='name'>Central African Republic</field>
+			<field name='code'>CF</field>
+			<field name='iso_code' eval='431' />
+		</record>
+		<record id='base.ci' model='res.country'>
+			<field name='name'>Ivory Coast (Cote D'Ivoire)</field>
+			<field name='code'>CI</field>
+			<field name='iso_code' eval='432' />
+		</record>
+		<record id='base.td' model='res.country'>
+			<field name='name'>Chad</field>
+			<field name='code'>TD</field>
+			<field name='iso_code' eval='433' />
+		</record>
+		<record id='base.eg' model='res.country'>
+			<field name='name'>Egypt</field>
+			<field name='code'>EG</field>
+			<field name='iso_code' eval='434' />
+		</record>
+		<record id='base.ga' model='res.country'>
+			<field name='name'>Gabon</field>
+			<field name='code'>GA</field>
+			<field name='iso_code' eval='435' />
+		</record>
+		<record id='base.gh' model='res.country'>
+			<field name='name'>Ghana</field>
+			<field name='code'>GH</field>
+			<field name='iso_code' eval='436' />
+		</record>
+		<record id='base.gw' model='res.country'>
+			<field name='name'>Guinea Bissau</field>
+			<field name='code'>GW</field>
+			<field name='iso_code' eval='437' />
+		</record>
+		<record id='base.gq' model='res.country'>
+			<field name='name'>Equatorial Guinea</field>
+			<field name='code'>GQ</field>
+			<field name='iso_code' eval='438' />
+		</record>
+		<record id='base.ke' model='res.country'>
+			<field name='name'>Kenya</field>
+			<field name='code'>KE</field>
+			<field name='iso_code' eval='439' />
+		</record>
+		<record id='base.ls' model='res.country'>
+			<field name='name'>Lesotho</field>
+			<field name='code'>LS</field>
+			<field name='iso_code' eval='440' />
+		</record>
+		<record id='base.mu' model='res.country'>
+			<field name='name'>Mauritius</field>
+			<field name='code'>MU</field>
+			<field name='iso_code' eval='441' />
+		</record>
+		<record id='base.mz' model='res.country'>
+			<field name='name'>Mozambique</field>
+			<field name='code'>MZ</field>
+			<field name='iso_code' eval='442' />
+		</record>
+		<record id='base.yt' model='res.country'>
+			<field name='name'>Mayotte</field>
+			<field name='code'>YT</field>
+			<field name='iso_code' eval='443' />
+		</record>
+		<record id='base.ne' model='res.country'>
+			<field name='name'>Niger</field>
+			<field name='code'>NE</field>
+			<field name='iso_code' eval='444' />
+		</record>
+		<record id='base.rw' model='res.country'>
+			<field name='name'>Rwanda</field>
+			<field name='code'>RW</field>
+			<field name='iso_code' eval='445' />
+		</record>
+		<record id='base.sc' model='res.country'>
+			<field name='name'>Seychelles</field>
+			<field name='code'>SC</field>
+			<field name='iso_code' eval='446' />
+		</record>
+		<record id='base.eh' model='res.country'>
+			<field name='name'>Western Sahara</field>
+			<field name='code'>EH</field>
+			<field name='iso_code' eval='447' />
+		</record>
+		<record id='base.so' model='res.country'>
+			<field name='name'>Somalia</field>
+			<field name='code'>SO</field>
+			<field name='iso_code' eval='448' />
+		</record>
+		<record id='base.st' model='res.country'>
+			<field name='name'>Saint Tome (Sao Tome) and Principe</field>
+			<field name='code'>ST</field>
+			<field name='iso_code' eval='449' />
+		</record>
+		<record id='base.sz' model='res.country'>
+			<field name='name'>Swaziland</field>
+			<field name='code'>SZ</field>
+			<field name='iso_code' eval='450' />
+		</record>
+		<record id='base.tg' model='res.country'>
+			<field name='name'>Togo</field>
+			<field name='code'>TG</field>
+			<field name='iso_code' eval='451' />
+		</record>
+		<record id='base.tn' model='res.country'>
+			<field name='name'>Tunisia</field>
+			<field name='code'>TN</field>
+			<field name='iso_code' eval='452' />
+		</record>
+		<record id='base.zr' model='res.country'>
+			<field name='name'>Zaire</field>
+			<field name='code'>ZR</field>
+			<field name='iso_code' eval='453' />
+		</record>
+		<record id='base.ao' model='res.country'>
+			<field name='name'>Angola</field>
+			<field name='code'>AO</field>
+			<field name='iso_code' eval='454' />
+		</record>
+		<record id='base.cv' model='res.country'>
+			<field name='name'>Cape Verde</field>
+			<field name='code'>CV</field>
+			<field name='iso_code' eval='456' />
+		</record>
+		<record id='base.km' model='res.country'>
+			<field name='name'>Comoros</field>
+			<field name='code'>KM</field>
+			<field name='iso_code' eval='458' />
+		</record>
+		<record id='base.dj' model='res.country'>
+			<field name='name'>Djibouti</field>
+			<field name='code'>DJ</field>
+			<field name='iso_code' eval='459' />
+		</record>
+		<record id='base.na' model='res.country'>
+			<field name='name'>Namibia</field>
+			<field name='code'>NA</field>
+			<field name='iso_code' eval='460' />
+		</record>
+		<record id='base.er' model='res.country'>
+			<field name='name'>Eritrea</field>
+			<field name='code'>ER</field>
+			<field name='iso_code' eval='463' />
+		</record>
+		<record id='base.ma' model='res.country'>
+			<field name='name'>Morocco</field>
+			<field name='code'>MA</field>
+			<field name='iso_code' eval='464' />
+		</record>
+		<record id='base.re' model='res.country'>
+			<field name='name'>Reunion (French)</field>
+			<field name='code'>RE</field>
+			<field name='iso_code' eval='465' />
+		</record>
+		<record id='base.sh' model='res.country'>
+			<field name='name'>Saint Helena</field>
+			<field name='code'>SH</field>
+			<field name='iso_code' eval='466' />
+		</record>
+		<record id='base.je' model='res.country'>
+			<field name='name'>Jersey</field>
+			<field name='code'>JE</field>
+			<field name='iso_code' eval='499' />
+		</record>
+		<record id='base.au' model='res.country'>
+			<field name='name'>Australia</field>
+			<field name='code'>AU</field>
+			<field name='iso_code' eval='501' />
+		</record>
+		<record id='base.nz' model='res.country'>
+			<field name='name'>New Zealand</field>
+			<field name='code'>NZ</field>
+			<field name='iso_code' eval='503' />
+		</record>
+		<record id='base.ws' model='res.country'>
+			<field name='name'>Samoa</field>
+			<field name='code'>WS</field>
+			<field name='iso_code' eval='504' />
+		</record>
+		<record id='base.fj' model='res.country'>
+			<field name='name'>Fiji</field>
+			<field name='code'>FJ</field>
+			<field name='iso_code' eval='506' />
+		</record>
+		<record id='base.pg' model='res.country'>
+			<field name='name'>Papua New Guinea</field>
+			<field name='code'>PG</field>
+			<field name='iso_code' eval='507' />
+		</record>
+		<record id='base.to' model='res.country'>
+			<field name='name'>Tonga</field>
+			<field name='code'>TO</field>
+			<field name='iso_code' eval='508' />
+		</record>
+		<record id='base.pw' model='res.country'>
+			<field name='name'>Palau</field>
+			<field name='code'>PW</field>
+			<field name='iso_code' eval='509' />
+		</record>
+		<record id='base.ki' model='res.country'>
+			<field name='name'>Kiribati</field>
+			<field name='code'>KI</field>
+			<field name='iso_code' eval='510' />
+		</record>
+		<record id='base.mh' model='res.country'>
+			<field name='name'>Marshall Islands</field>
+			<field name='code'>MH</field>
+			<field name='iso_code' eval='511' />
+		</record>
+		<record id='base.fm' model='res.country'>
+			<field name='name'>Micronesia</field>
+			<field name='code'>FM</field>
+			<field name='iso_code' eval='512' />
+		</record>
+		<record id='base.nr' model='res.country'>
+			<field name='name'>Nauru</field>
+			<field name='code'>NR</field>
+			<field name='iso_code' eval='513' />
+		</record>
+		<record id='base.sb' model='res.country'>
+			<field name='name'>Solomon Islands</field>
+			<field name='code'>SB</field>
+			<field name='iso_code' eval='514' />
+		</record>
+		<record id='base.tv' model='res.country'>
+			<field name='name'>Tuvalu</field>
+			<field name='code'>TV</field>
+			<field name='iso_code' eval='515' />
+		</record>
+		<record id='base.vu' model='res.country'>
+			<field name='name'>Vanuatu</field>
+			<field name='code'>VU</field>
+			<field name='iso_code' eval='516' />
+		</record>
+		<record id='base.gu' model='res.country'>
+			<field name='name'>Guam (USA)</field>
+			<field name='code'>GU</field>
+			<field name='iso_code' eval='517' />
+		</record>
+		<record id='base.cc' model='res.country'>
+			<field name='name'>Cocos (Keeling) Islands</field>
+			<field name='code'>CC</field>
+			<field name='iso_code' eval='518' />
+		</record>
+		<record id='base.ck' model='res.country'>
+			<field name='name'>Cook Islands</field>
+			<field name='code'>CK</field>
+			<field name='iso_code' eval='519' />
+		</record>
+		<record id='base.cx' model='res.country'>
+			<field name='name'>Christmas Island</field>
+			<field name='code'>CX</field>
+			<field name='iso_code' eval='520' />
+		</record>
+		<record id='base.nu' model='res.country'>
+			<field name='name'>Niue</field>
+			<field name='code'>NU</field>
+			<field name='iso_code' eval='522' />
+		</record>
+		<record id='base.nf' model='res.country'>
+			<field name='name'>Norfolk Island</field>
+			<field name='code'>NF</field>
+			<field name='iso_code' eval='523' />
+		</record>
+		<record id='base.nc' model='res.country'>
+			<field name='name'>New Caledonia (French)</field>
+			<field name='code'>NC</field>
+			<field name='iso_code' eval='524' />
+		</record>
+		<record id='base.pn' model='res.country'>
+			<field name='name'>Pitcairn Island</field>
+			<field name='code'>PN</field>
+			<field name='iso_code' eval='525' />
+		</record>
+		<record id='base.pf' model='res.country'>
+			<field name='name'>Polynesia (French)</field>
+			<field name='code'>PF</field>
+			<field name='iso_code' eval='526' />
+		</record>
+		<record id='base.tp' model='res.country'>
+			<field name='name'>East Timor</field>
+			<field name='code'>TP</field>
+			<field name='iso_code' eval='529' />
+		</record>
+		<record id='base.tk' model='res.country'>
+			<field name='name'>Tokelau</field>
+			<field name='code'>TK</field>
+			<field name='iso_code' eval='530' />
+		</record>
+		<record id='base.bl' model='res.country'>
+			<field name='name'>Saint Barthélémy</field>
+			<field name='code'>BL</field>
+			<field name='iso_code' eval='590' />
+		</record>
+		<record id='base.ec' model='res.country'>
+			<field name='name'>Ecuador</field>
+			<field name='code'>EC</field>
+			<field name='iso_code' eval='593' />
+		</record>
+		<record id='base.cy' model='res.country'>
+			<field name='name'>Cyprus</field>
+			<field name='code'>CY</field>
+			<field name='iso_code' eval='598' />
+		</record>
+		<record id='base.cz' model='res.country'>
+			<field name='name'>Czech Republic</field>
+			<field name='code'>CZ</field>
+			<field name='iso_code' eval='599' />
+		</record>
+		<record id='base.fk' model='res.country'>
+			<field name='name'>Falkland Islands</field>
+			<field name='code'>FK</field>
+			<field name='iso_code' eval='600' />
+		</record>
+		<record id='base.lv' model='res.country'>
+			<field name='name'>Latvia</field>
+			<field name='code'>LV</field>
+			<field name='iso_code' eval='601' />
+		</record>
+		<record id='base.ly' model='res.country'>
+			<field name='name'>Libya</field>
+			<field name='code'>LY</field>
+			<field name='iso_code' eval='602' />
+		</record>
+		<record id='base.mp' model='res.country'>
+			<field name='name'>Northern Mariana Islands</field>
+			<field name='code'>MP</field>
+			<field name='iso_code' eval='603' />
+		</record>
+		<record id='base.aq' model='res.country'>
+			<field name='name'>Antarctica</field>
+			<field name='code'>AQ</field>
+			<field name='iso_code' eval='606' />
+		</record>
+		<record id='base.io' model='res.country'>
+			<field name='name'>British Indian Ocean Territory</field>
+			<field name='code'>IO</field>
+			<field name='iso_code' eval='607' />
+		</record>
+		<record id='base.rs' model='res.country'>
+			<field name='name'>Serbia</field>
+			<field name='code'>RS</field>
+			<field name='iso_code' eval='688' />
+		</record>
+		<record id='base.gg' model='res.country'>
+			<field name='name'>Guernsey</field>
+			<field name='code'>GG</field>
+			<field name='iso_code' eval='831' />
+		</record>
+		<record id='base.im' model='res.country'>
+			<field name='name'>Isle of Man</field>
+			<field name='code'>IM</field>
+			<field name='iso_code' eval='833' />
+		</record>
+	</data>
+</openerp>

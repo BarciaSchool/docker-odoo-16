@@ -1,0 +1,384 @@
+<openerp>
+<data>
+
+    <!--Partner Search-->
+
+       <record id="view_res_supplier_partner_filter_straconx" model="ir.ui.view">
+            <field name="name">res.partner.supplier.select</field>
+            <field name="model">res.partner</field>
+            <field name="type">search</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search Supplier">
+                   <group col='10' colspan='4'>
+                        <filter string="Suppliers" name="supplier" icon="terp-personal" domain="[('supplier','=',1)]" help="Supplier Partners"/>
+                        <filter string="Customers" name="customer" icon="terp-partner" domain="[('customer','=',1)]" help="Customer Partners"/>
+                        <separator orientation="vertical"/>
+                        <field name="name" />
+                        <field name="comercial"/>
+                        <field name="vat" />
+                        <field name="estado_id"/>
+                        <field name="type_good"/>
+                   </group>
+                   <newline />
+                   <group expand="0" string="Group By...">
+                       <filter string="Origin" icon="terp-personal" domain="[]" context="{'group_by' : 'origin'}" />
+                       <filter string="Estado" icon="terp-personal" domain="[]" context="{'group_by' : 'estado_id'}" />
+                       <filter string="Tipo" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by' : 'type_good'}" />                       
+                       <filter string="Actividades Comerciales" icon="terp-dialog-close" domain="[]" context="{'group_by' : 'actcomercial'}" />
+                       
+                   </group>
+               </search>
+            </field>
+        </record>
+
+    <!--Partner Tree-->
+
+        <record id="view_res_supplier_partner_tree_straconx" model="ir.ui.view">
+            <field name="name">res.partner.supplier.tree</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Supplier">
+                    <field name="vat"/>
+                    <field name="name"/>
+                    <field name="comercial"/>
+                    <field name="street"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="city"/>
+                    <field name="country"/>
+                    <field name="origin"/>
+                    <field name="estado_id" invisible="1"/>
+                    <field name="type_good" invisible="1"/>
+                    <field name="actcomercial" invisible="1"/>
+                </tree>
+            </field>
+        </record> 
+
+    <!--Supplier Partner Form-->
+        <record id="view_res_supplier_partner_form_straconx" model="ir.ui.view">
+            <field name="name">res.partner.supplier.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="Suppliers" col="6">
+                 <field name="vat" on_change="vat_change(vat)" required="True" default_focus="1" />
+                 <field name="type_vat"/>                                  
+                 <field name="origin" />
+                 <newline/>
+                 <field name="name" colspan="6" select="1"/>                 
+                 <newline/>
+                 <field name="property_payment_term_supplier" required="1"/>
+                 <field name="property_account_position" required="1"/>
+                 <field name="type_good"/>          
+                 <newline/>
+                 <field name="actcomercial" colspan="6"/>
+                 <newline/>
+                 <field name="tax_sustent" colspan="6"/>                 
+                 <newline/>
+                 <field name="capital"/>
+                 <field name="patrimonio"/>
+                 <field name="date"/>
+                 <notebook colspan="6">
+                    <page string="General">
+                        <field name="address" mode="form,tree" colspan="4" nolabel="1" select="1" required="1">
+                            <tree string="Addresses">
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="street"/>
+                                <field name="phone"/>
+                                <field name="email"/> 
+                                <field name="location_id"/>                              
+                            </tree>
+                            <form string="Address">
+                                <group colspan="4" col="6">
+                                <field name="name"/>
+                                    </group>
+                                    <newline/>
+                                      <group colspan="2" col="4">
+                                        <separator string="Postal Address" colspan="4" col="4" />
+                                        <field name="type" string="Type" colspan="2" required="1"/>
+                                        <field name="street" colspan="4" required="1"/>
+                                        <field name="location_id" colspan="4" required="1"/>
+                                        <field name="buyer_assigned" colspan="4" />
+                                        <field name="salesman_assigned" colspan="4" />
+                                     </group>
+                                     <group colspan="2" col="2">
+                                        <separator string="Communication" colspan="2" col="2" />
+                                        <field name="phone"/>
+                                        <field name="phone2"/>
+                                        <field name="mobile"/>
+                                        <field name="fax"/>
+                                        <field name="email" widget="email"/>
+                                     </group>
+							<separator string="Authorization Assing" colspan="4" />
+							<field name="authorizations_ids" nolabel="1" colspan="4">
+								<tree string="Authorization" colors="grey:state==False">
+									<field name="address_id" invisible="1" />
+									<field name="type_printer" required="1" colspan="4"/>
+									<field name="name"
+										attrs="{'invisible':[('type_printer','=','electronic')],'required':[('type_printer','!=','electronic')]}" />
+									<field name="code_address" required="1" attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="prefix_shop" required="1"  attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="prefix_point" required="1"  attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="starting_number"
+										attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}" />
+									<field name="ending_number"
+										attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}" />
+									<field name="state" />
+								</tree>
+								<form string="Authorization">
+									<label string="Las autorizaciones electrónicas no requieren ser creadas para los proveedores porque son únicas por documento." colspan="4"/>
+									<field name="address_id" invisible="1" />
+									<field name="type_printer" required="1" colspan="4"/>
+									<field name="name"
+										attrs="{'invisible':[('type_printer','=','electronic')],'required':[('type_printer','!=','electronic')]}" />
+									<field name="code_address" required="1" attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="prefix_shop" required="1"  attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="prefix_point" required="1"  attrs="{'invisible':[('type_printer','=','electronic')]}"/>
+									<field name="start_date" required="1"
+										on_change="on_change_start_date(start_date)" />
+									<field name="expiration_date" />
+									<field name="starting_number"
+										attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+									<field name="ending_number"
+										attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+									<field name="state" />
+								</form>
+							</field>                                     
+                            <field name="contact_ids" mode="tree,form" nolabel="1" colspan="4"/>                            
+                            </form>
+                        </field>
+                    </page>   
+                    <page string="General Information">
+                    <group col="4" colspan="4">
+                        <separator string="Partner Status" colspan="4"/>
+                            <group col="8" colspan="8">
+                            <!--field name="customer"/-->
+                            <field name="supplier"/>
+							<field name="beneficiary"/>
+                            <newline/>
+                            <field name="active"/>
+                            <field name="permit_changed"/>                            
+                            </group>
+                        <separator string="Comercial Information" colspan="4"/>
+                            <field colspan="2" name="estado_id"/>
+                            <field name="lang" required="True"/>
+                            <separator string="Supplier Information" colspan="2"/>
+                            <separator string="Customer Information" colspan="2"/>
+                            <field name="property_product_pricelist_purchase" />
+                            <field name="property_product_pricelist" readonly="1"/>
+                            <field name="property_account_payable" readonly="0"/>
+                            <field name="property_account_receivable" readonly="0"/>
+                            <field name="payment_type_supplier" widget="selection"/>
+                            <field name="payment_type_customer" widget="selection" readonly="1"/>                            
+                    </group>
+                    </page>
+                    <page string="Account Banks and Credit Cards ">
+                    <field colspan="4" context="{'address': address}" name="bank_ids" nolabel="1">
+                        <form string="Bank account">
+                            <field name="state"/>
+                            <newline/>
+                            <field name="acc_number" select="1"/>
+                            <newline/>
+                            <field name="bank"/>
+                            <newline/>
+                            <field name="sequence"/>
+                            <field colspan="4" name="name"/>
+                            <separator colspan="4" string="Bank account owner"/>
+                            <field colspan="4" name="owner_name"/>
+                            <field colspan="4" name="street"/>
+                            <newline/>
+                            <field name="zip"/>
+                            <field name="city"/>
+                            <newline/>
+                            <field completion="1" name="country_id"/>
+                            <field name="state_id"/>
+                        </form>
+                        <tree string="Bank Details">
+                            <field name="state"/>
+                            <field name="bank"/>
+                            <field name="owner_name"/>
+                            <field name="acc_number"/>
+                        </tree>
+                    </field>
+                    </page>                        
+                    <page string="Supplier History Notes">
+                            <field name="credit_history_id" colspan="4" nolabel="1">
+                            <tree string="Customer History" colors="red:state=='open';blue:state=='pending';gray:state=='cancel'">
+                                 <field name="name"/>
+                                 <field name="date_note"/>
+                                 <field name="user_id"/>
+                                 <field name="state"/>
+                            </tree>
+                            <form string="Customer History">
+                                <group colspan="4" col="6">
+                                     <field name="name"/>
+                                     <field name="date_note"/>
+                                     <newline/>
+                                     <field name="message" colspan="4"/>
+                                     <newline/>
+                                     <field name="user_id"/>
+                                     <field name="state"/>
+                                 </group>
+                            </form>
+                        </field> 
+                    </page>
+                    <page string="Purchase History" position="inside">
+                        <field name="emails" colspan="4" nolabel="1"/>
+                        <field name="opportunity_ids" colspan="4" nolabel="1" context="{'default_partner_id': active_id}">
+                             <tree string="Leads and Opportunities"  colors="blue:state=='pending';gray:state=='cancel'">
+                                 <field name="create_date"/>
+                                 <field name="name"/>
+                                 <field name="type"/>
+                                 <field name="stage_id"/>
+                                 <button name="stage_previous" string="Previous"
+                                     states="open,pending" type="object" icon="gtk-go-back" />
+                                 <button name="stage_next" string="Next"
+                                     states="open,pending" type="object"
+                                     icon="gtk-go-forward" />
+                                 <field name="user_id" />
+                                 <field name="state" />
+                                 <button name="case_cancel" string="Cancel"
+                                     states="draft,open,pending" type="object"
+                                     icon="gtk-cancel" />
+                                 <button name="case_open" string="Open"
+                                     states="draft,pending" type="object"
+                                     icon="gtk-go-forward" />
+                                 <button name="case_close" string="Close"
+                                     states="open,draft,pending" type="object"
+                                     icon="gtk-close" />
+                                 <button string="Convert to Opportunity"
+                                     name="convert_opportunity"
+                                     states="draft,open,pending" icon="gtk-index"
+                                     type="object" attrs="{'invisible':[('type','=','opportunity')]}" />
+                                 <button name="case_escalate" string="Escalate"
+                                     states="open,draft,pending" type="object"
+                                     icon="gtk-go-up" />
+                             </tree>
+                        </field>
+                        <field name="meeting_ids" colspan="4" nolabel="1"  context="{'default_partner_id': active_id}">
+                            <tree string="Meetings" colors="gray:state in ('draft', 'cancel','done','pending')">
+                                <field name="user_id" string="Responsible"/>
+                                <field name="name" string="Subject" />
+                                <field name="date" string="Start Date" />
+                                <field name="date_deadline" string="End Date"/>
+                            </tree>
+                        </field>
+                        <field name="phonecall_ids" colspan="4" nolabel="1" context="{'default_partner_id': active_id}">
+                            <tree string="Phone Calls" colors="gray:state in ('draft', 'cancel','done','pending')">
+                                <field name="date" string="Date"/>
+                                <field name="name" string="Call Summary"/>
+                                <field name="categ_id" string="Type" widget="selection"/>
+                                <field name="user_id"/>
+                                <field name="state"/>
+                                <button name="case_cancel" string="Cancel" states="draft,open,pending" type="object" icon="gtk-cancel"/>
+                                <button name="case_open" string="Open" states="draft,pending" type="object" icon="gtk-go-forward"/>
+                                <button name="case_close" string="Held" states="open,draft,pending" type="object" icon="gtk-jump-to"/>
+                                <button name="case_pending" string="Not Held" states="open" type="object" icon="gtk-media-pause"/>
+                            </tree>
+                            <form string="Phone Call">
+                                 <group colspan="6" col="7">
+                                    <field name="name" required="1"/>
+                                    <field name="partner_phone"   attrs="{'required': [('categ_id.name', '=', 'Outbound')]}"/>
+                                    <field name="duration" widget="float_time" required="1"/>
+                                    <button string="Schedule a Meeting" name="action_make_meeting" icon="gtk-redo" type="object"/>
+
+                                    <field name="date" required="1"/>
+                                    <field name="user_id"/>
+                                    <field name="section_id" colspan="1" widget="selection" />
+                                    <button string="Convert to Opportunity"
+                                        name="%(crm.phonecall2opportunity_act)d"
+                                        icon="gtk-index" type="action"
+                                        attrs="{'invisible':[('opportunity_id','!=',False)]}" />
+                                    <label colspan="6"  string=""/>
+                                    <button string="Schedule Other Call"
+                                     icon="terp-call-start"
+                                    name="%(crm.phonecall_to_phonecall_act)d"
+                                    type="action"  />
+
+                                </group>
+
+                                <group col="3" colspan="2">
+                                    <separator colspan="3" string="Contacts" />
+                                    <field name="partner_id"
+                                        on_change="onchange_partner_id(partner_id, email_from)" />
+                                    <button string="Create a Partner"
+                                        icon="terp-partner"
+                                        name="%(crm.action_crm_phonecall2partner)d"
+                                        type="action"
+                                        attrs="{'invisible':[('partner_id','!=',False)]}"
+                                        groups="base.group_partner_manager" />
+                                    <newline/>
+                                    <field name="partner_address_id"
+                                        on_change="onchange_partner_address_id(partner_address_id, email_from)" />
+                                    <newline/>
+                                    <field name="partner_mobile" />
+                                </group>
+                                <group col="2" colspan="2">
+                                    <separator colspan="2" string="Categorization" />
+                                    <field name="categ_id" widget="selection"
+                                        domain="[('object_id.model', '=', 'crm.phonecall')]"
+                                        string="Type" />
+                                    <field name="priority"/>
+                                    <field name="opportunity_id"/>
+                                </group>
+                                <separator string="Description" colspan="4" />
+                                <field name="description" nolabel="1" colspan="4" />
+                                <separator colspan="4" />
+                                <group col="8" colspan="4">
+                                    <field name="state" select="1" />
+                                    <button name="case_cancel" string="Cancel"
+                                        states="draft,open,pending" type="object"
+                                        icon="gtk-cancel" />
+                                    <button name="case_open" string="Open"
+                                        states="draft,pending" type="object"
+                                        icon="gtk-go-forward" />
+                                    <button name="case_pending" string="Not Held"
+                                        states="open" type="object" icon="gtk-media-pause" />
+                                    <button name="case_close" string="Held"
+                                        states="open,draft,pending" type="object"
+                                        icon="gtk-jump-to" />
+                                    <button name="case_reset" string="Reset to Draft"
+                                        states="done,cancel" type="object"
+                                        icon="gtk-convert" />
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                 </notebook>
+            </form>
+            </field>
+        </record>
+
+    
+    <!--Supplier Partner Actions-->
+
+        <record id="straconx_action_supplier_partner_form" model="ir.actions.act_window">
+            <field name="name">Supplier</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="context">{'default_customer':0, 'search_default_supplier': 1, 'default_supplier':1}</field>
+            <field name="view_id" ref="view_res_supplier_partner_form_straconx"/>
+            <field name="search_view_id" ref="view_res_supplier_partner_filter_straconx"/>
+            <field name="help">You can access all information regarding your suppliers from the supplier form: accounting data, history of emails, meetings, purchases, etc. You can uncheck the 'Suppliers' filter button in order to search in all your partners, including customers and prospects.</field>
+        </record>
+
+        <record id="action_supplier_partner_form_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_res_supplier_partner_tree_straconx"/>
+            <field name="act_window_id" ref="straconx_action_supplier_partner_form"/>
+        </record>
+        <record id="action_supplier_partner_form_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_res_supplier_partner_form_straconx"/>
+            <field name="act_window_id" ref="straconx_action_supplier_partner_form"/>
+        </record>
+        
+</data>
+</openerp>

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<!-- hr discount -->
+
+		<record model="ir.ui.view" id="hr_discount_search_view">
+			<field name="name">Search Discount</field>
+			<field name="model">hr.discount</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Discount">
+					<group col='10' colspan='4'>
+						<filter string="Company" icon="terp-go-home" domain="[]"
+							context="{'group_by':'company_id'}" /> 
+						<filter string="Employee" icon="terp-partner" domain="[]"
+							context="{'group_by':'employee_id'}" />
+						<filter string="Payment Form" icon="terp-camera_test"
+							domain="[]" context="{'group_by':'payment_form'}" />
+						<filter string="State" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'state'}" />
+						<separator orientation="vertical" />
+						<field name="employee_id" />
+						<field name="name" />
+						<field name="ref" />
+						<field name="payment_form" />
+						<field name="company_id" />
+					</group>
+					<newline />
+					<group expand="0" string="More filters..." colspan="4" col="10">
+						<field name="collection_form" />
+						<field name="date_from" />
+						<field name="date" />
+						<field name="amount_to_paid" />
+						<field name="number_of_quotas" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_discount_tree_view">
+			<field name="name">hr.discount.tree</field>
+			<field name="model">hr.discount</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Discount"
+					colors="blue:state in ('draft','generate'); gray:state in ('paid');red:state in ('cancel')">
+					<field name="employee_id" />
+					<field name="name" />
+					<field name="ref" />
+					<field name="date" />
+					<field name="date_from" invisible="1" />
+					<field name="payment_form" />
+					<field name="collection_form" invisible="1" />
+					<field name="amount_to_paid" />
+					<field name="number_of_quotas" />
+					<field name="state" />
+					<field name="company_id" invisible="0" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_discount_form_view">
+			<field name="name">Discount Form</field>
+			<field name="model">hr.discount</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Discount">
+					<group colspan="4" col="6">
+						<field name="company_id" widget="selection" colspan="6"
+							on_change="onchange_date(date,company_id)"  />
+						<newline />
+						<field name="name" required="1" on_change="onchange_type_discount(name,contract_id)"
+							domain="[('type','=','expenses'),('type_expense','=',type),('company_id','=',company_id)]"
+							options='{"quick_create":false}' context="{'default_type':'expenses'}" />
+						<field name="ref" required="1" />
+						<field name="date" required="1" on_change="onchange_date(date,company_id)" />
+						<newline />
+						<field name="employee_id" required="1"
+							on_change="onchange_employee_id(employee_id,date_from,company_id)"
+							domain="[('company_id','=',company_id)]" />
+						<field name="contract_id" required="1" on_change="onchange_type_discount(name,contract_id)"
+							domain="[('company_id','=',company_id),('employee_id','=',employee_id)]" />
+						<field name="collection_form" required="1" attrs="{'readonly':[('state','=','paid')]}"/>
+					</group>
+					<group colspan="4" col="8">
+						<field name="date_from" required="1" />
+						<field name="amount" required="1" />
+						<field name="interest" invisible="1"/>
+						<field name="number_of_quotas" required="1" />
+					</group>
+					<newline />
+					<group colspan="4" col="6">
+						<field name="payment_form" required="1" />
+						<group colspan="2"
+							attrs="{'invisible':[('payment_form','!=','payment')]}">
+							<field name="mode_id"
+								domain="['|','|',('cash','=',1),('check','=',1),('only_payment','=',1),('company_id','=',company_id)]"
+								attrs="{'required':[('payment_form','=','payment')]}" />
+						</group>
+						<group attrs="{'invisible':[('payment_form','!=','invoiced')]}">
+							<field name="partner_id"
+								attrs="{'required':[('payment_form','=','invoiced')]}" />
+							<field name="invoice_line_id"
+								domain="[('employee_id','=',employee_id),('discount_employee','=',False),('invoice_id.partner_id','=',partner_id),('invoice_id.state','in',('open','paid'))]"
+								attrs="{'required':[('payment_form','=','invoiced')]}" />
+						</group>
+					</group>
+					<separator string="Summary" colspan="4" />
+					<field name="amount_to_paid" colspan="2" />
+					<field name="value_quota" colspan="2" />
+					<group colspan="4" col="8">
+						<field name="amount_paid" invisible="0" />
+						<field name="amount_remain" invisible="0" />
+						<field name="quotas_paid" />
+						<field name="quotas_remain" />
+					</group>
+					<notebook colspan="4">
+						<page string="Pays of Employee">
+							<separator string="Payments" colspan="4" />
+							<field name="lines_ids" colspan="4" nolabel="1" attrs="{'readonly':[('state','=','approve')]}">
+								<tree string="Payments" editable="bottom">
+									<field name="payslip_id" readonly="1"/>
+									<field name="name" readonly="1" />
+									<field name="date" />
+									<field name="amount" sum="total amount" />
+									<field name="number_quota" readonly="1" />
+									<field name="state" readonly="1"/>
+								</tree>
+								<form string="payments">
+									<field name="payslip_id" />
+									<field name="name" readonly="1"/>
+									<field name="date" readonly="1"/>
+									<field name="amount" readonly="1" default_focus="1"/>
+									<field name="number_quota" readonly="1"/>
+									<field name="move_line_id" invisible="0" readonly="1"/>
+									<field name="state" readonly="1" />
+								</form>
+							</field>
+						</page>
+						<page string="Other information">
+							<field name="user_id" required="1" />
+							<field name="journal_id" domain="[('type','=','discount_employee')]"/>
+							<field name="period_id" required="1" />
+							<field name="type" invisible="1" />
+							<field name="move_id" />
+							<field name="payment_id" />
+							<field name="debit_note_id" 
+							context ="{'form_view_ref':'straconx_debit_notes.view_advance_supplier_form'}"/>
+							<field name="paid" invisible="1" />
+							<separator colspan="4" string="Información Adicional"/>
+							<field colspan="4" name="comment" nolabel="1"/>
+						</page>
+					</notebook>
+					<group colspan="4" col="8">
+						<field name="state" widget="statusbar" />
+						<button name="button_set_draft" string="Set to Draft"
+							states="cancel" type="object" icon="terp-stock_effects-object-colorize" />
+						<button name="button_canceled" states="approve,paid,generate" string="Cancel"
+							type="object" icon="gtk-cancel" />
+						<button name="button_create_discount" states="draft" string="Crear Descuento"
+							confirm="¡Se procederá a GENERAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!" 
+							type="object" icon="gtk-media-play" />
+						<button name="button_approve" states="generate" string="Approve"
+							confirm="¡Se procederá a APROBAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!" 
+							type="object" icon="gtk-media-play" />
+						<button name="%(pentaho_discount_report_id)d" type="action" string="Print Discount"
+							icon="gtk-print" states="approve,paid"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!-- discounts action -->
+
+		<record model="ir.actions.act_window" id="action_hr_discount">
+			<field name="name">Discount Employee</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','discount')]</field>
+			<field name="context">{'type':'discount'}</field>
+			<field name="search_view_id" ref="hr_discount_search_view" />
+		</record>
+
+
+		<record id="action_hr_discount_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_discount_tree_view" />
+			<field name="act_window_id" ref="action_hr_discount" />
+		</record>
+
+		<record id="action_hr_discount_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_discount_form_view" />
+			<field name="act_window_id" ref="action_hr_discount" />
+		</record>
+
+
+		<!-- advance action -->
+
+		<record model="ir.actions.act_window" id="action_hr_advance">
+			<field name="name">Advance Employee</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','advance')]</field>
+			<field name="context">{'type':'advance'}</field>
+			<field name="search_view_id" ref="hr_discount_search_view" />
+		</record>
+
+
+		<record id="action_hr_advance_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_discount_tree_view" />
+			<field name="act_window_id" ref="action_hr_advance" />
+		</record>
+
+		<record id="action_hr_advance_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_discount_form_view" />
+			<field name="act_window_id" ref="action_hr_advance" />
+		</record>
+
+
+		<!-- loans action -->
+
+		<record model="ir.actions.act_window" id="action_hr_loans">
+			<field name="name">Loans Employee</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','loans'),('generate_lines_employee','=',False)]</field>
+			<field name="context">{'type':'loans'}</field>
+			<field name="search_view_id" ref="hr_discount_search_view" />
+		</record>
+
+
+		<record id="action_hr_loans_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_discount_tree_view" />
+			<field name="act_window_id" ref="action_hr_loans" />
+		</record>
+
+		<record id="action_hr_loans_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_discount_form_view" />
+			<field name="act_window_id" ref="action_hr_loans" />
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_discount_generate_lines_tree_view">
+			<field name="name">Discount Generate Lines tree</field>
+			<field name="model">hr.discount</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Discount"
+					colors="blue:state in ('draft');gray:state in ('paid');red:state in ('cancel')">
+					<field name="employee_id" invisible="1" />
+					<field name="name" />
+					<field name="ref" />
+					<field name="date" />
+					<field name="date_from" invisible="1" />
+					<field name="payment_form" />
+					<field name="collection_form" invisible="1" />
+					<field name="amount_to_paid" />
+					<field name="lines_ids" />
+					<field name="number_of_quotas" invisible="1" />
+					<field name="state" />
+					<field name="company_id" invisible="0" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_discount_generate_lines_form_view">
+			<field name="name">Discount Generate Lines Form</field>
+			<field name="model">hr.discount</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Discount">
+					<group colspan="4" col="6">
+						<field name="company_id" widget="selection" on_change="onchange_date(date,company_id)" />
+						<field name="date" required="1" on_change="onchange_date(date,company_id)" />
+						<newline />
+						<field name="name" required="1"
+							domain="[('type','=','expenses'),('generate_lines_employee','=',1),('company_id','=',company_id)]"
+							on_change="onchange_type_trans_id(name, partner_id)" />
+						<field name="ref" required="1" />
+						<newline />
+						<field name="partner_id"
+							attrs="{'invisible':[('type','!=','loans')],'required':[('is_paid','=',True)]}" />
+						<field name="collection_form" required="1" />
+						<field name="date_from" required="1" />
+						<field name="is_paid" invisible="1" />
+						<newline />
+						<field name="payment_form" required="1" />
+						<field name="amount_to_paid" />
+						<field name="number_of_quotas" invisible="1" />
+					</group>
+					<newline />
+					<group colspan="4" col="6">
+						<group colspan="2"
+							attrs="{'invisible':[('payment_form','!=','payment')]}">
+							<field name="mode_id"
+								domain="['|',('cash','=',1),('check','=',1),('only_payment','=',1)]"
+								attrs="{'required':[('payment_form','=','payment')]}" />
+						</group>
+						<group attrs="{'invisible':[('payment_form','!=','invoiced')]}">
+							<!-- <field name="partner_id" attrs="{'required':[('payment_form','=','invoiced')]}" 
+								/> -->
+							<field name="invoice_line_id"
+								domain="[('discount_employee','=',False),('invoice_id.partner_id','=',partner_id),('invoice_id.state','in',('open','paid'))]"
+								attrs="{'required':[('payment_form','=','invoiced')]}" />
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="Pays of Employee">
+							<notebook>
+								<page string ="Cuota 1">
+									<separator string="Payments" colspan="4" />
+									<field name="lines_ids" colspan="4" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
+										<tree string="Payments" editable="bottom">
+											<field name="employee_id" readonly="1" />
+											<field name="name" invisible="1" />
+											<field name="total" sum="total" on_change="onchange_amount_cuota(total)" />											
+											<field name="amount" sum="total amount" default_focus="1" />
+											<field name="number_quota" invisible="1" />
+											<field name="ref" invisible="0" />
+											<field name="date" invisible="1" />
+											<field name="payslip_id" readonly="1" />
+											<field name="state" />
+										</tree>
+										<form string="payments">
+											<field name="employee_id" readonly="1" />
+											<field name="name" readonly="1" />
+											<field name="total" sum="total amount"/>
+											<field name="amount" sum="total amount" default_focus="1" />
+											<field name="number_quota" invisible="1" />
+											<field name="ref" invisible="0" />
+											<field name="date" required="1" />
+											<field name="payslip_id" readonly="1" />
+											<field name="move_line_id" />
+											<field name="state" />
+										</form>
+									</field>
+								</page>
+								<page string="Cuota 2" attrs="{'invisible':[('collection_form','!=','middle_end_month')]}">
+									<separator string="Pagos" colspan="4"/>
+									<field name="lines_ids2" colspan="4" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
+										<tree string="Payments" editable="bottom">
+											<field name="employee_id" readonly="1" />
+											<field name="name" invisible="1" />
+											<field name="total" sum="total" on_change="onchange_amount_cuota(total)"/>	
+											<field name="amount2" sum="total amount" default_focus="1" />
+											<field name="number_quota" invisible="1" />
+											<field name="ref" invisible="0" />
+											<field name="date" invisible="1" />
+											<field name="payslip_id2" readonly="1" />
+											<field name="state" />
+										</tree>
+										<form string="payments">
+											<field name="employee_id" readonly="1" />
+											<field name="name" readonly="1" />
+											<field name="total" sum="total" />	
+											<field name="amount2" sum="total amount" default_focus="1" />
+											<field name="number_quota" invisible="1" />
+											<field name="ref" invisible="0" />
+											<field name="date" required="1" />
+											<field name="payslip_id2" readonly="1" />
+											<field name="move_line_id" />
+											<field name="state" />
+										</form>
+									</field>
+								</page>
+							</notebook>
+						</page>
+						<page string="Other information">
+							<field name="user_id" required="1" />
+							<field name="journal_id" domain="[('type','=','discount_employee')]" />
+							<field name="period_id" required="1" />
+							<field name="type" invisible="1" />
+							<field name="move_id" />
+							<field name="payment_id" />
+							<field name="debit_note_id" />
+							<field name="paid" invisible="1" />
+														
+						</page>
+					</notebook>
+					<group colspan="4" col="8">
+						<field name="state" widget="statusbar" />
+						<button name="button_set_draft" string="Set to Draft"
+							states="cancel" type="object" icon="terp-stock_effects-object-colorize" />
+						<button name="button_canceled" states="approve,paid,generate" string="Cancel"
+							type="object" icon="gtk-cancel" />
+						<button name="get_employee_ids" type="object" states="draft"
+							icon="gtk-search" string="Search Lines Discount by employee" />
+						<button name="button_create_discount" states="draft" string="Crear Descuento"
+							confirm="¡Se procederá a GENERAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!" 
+							type="object" icon="gtk-media-play" />
+						<button name="button_approve" states="generate" string="Approve"
+							confirm="¡Se procederá a APROBAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!" 
+							type="object" icon="gtk-media-play" />
+						<button name="%(pentaho_discount_expense_id)d" type="action" string="Print Discount"
+							icon="gtk-print" states="approve,paid"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- loans action generate -->
+
+		<record model="ir.actions.act_window" id="action_hr_loans_generate">
+			<field name="name">Loans Employee Generate Lines</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','loans'),('generate_lines_employee','=',True)]</field>
+			<field name="context">{'type':'loans', 'default_payment_form':'none'}</field>
+			<field name="search_view_id" ref="hr_discount_search_view" />
+		</record>
+
+
+		<record id="action_hr_loans_generate_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_discount_generate_lines_tree_view" />
+			<field name="act_window_id" ref="action_hr_loans_generate" />
+		</record>
+
+		<record id="action_hr_loans_generate_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_discount_generate_lines_form_view" />
+			<field name="act_window_id" ref="action_hr_loans_generate" />
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_discount_document_tree">
+			<field name="name">hr.discount.document.tree</field>
+			<field name="model">hr.discount.document</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Discount Document Generate">
+					<field name="reference" select="1" />
+					<field name="date" select="1" />
+					<field name="amount" />
+					<field name="state" />
+					<field name="company_id" invisible="0" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_discount_document_form">
+			<field name="name">hr.discount.document.form</field>
+			<field name="model">hr.discount.document</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Discount Document Generate">
+					<field name="reference" required="1" />
+					<field name="date" required="1" />
+					<field name="amount" />
+					<field name="name" invisible="1" />
+					<field name="data" />
+					<separator string="Discounts" colspan="4" />
+					<field name="discount_ids" colspan="4" nolabel="1" widget="many2many"
+						domain="[('document_id','=',False), ('invoiced','!=',True),('mode_id.others','=',True)]">
+						<tree string="Discount">
+							<field name="employee_id" />
+							<field name="name" />
+							<field name="mode_id" />
+							<field name="document_id" invisible="1" />
+							<field name="invoiced" invisible="1" />
+							<field name="amount" sum="Total" />
+							<field name="number_of_quotas" />
+						</tree>
+					</field>
+					<group colspan="4" col="6">
+						<field name="state" />
+						<button string="Export File" icon="gtk-ok" name="create_file"
+							type="object" states="draft" />
+						<button string="Set to Draft" icon="terp-stock_effects-object-colorize"
+							name="draft_discount_generate" type="object" states="done" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_discount_document">
+			<field name="name">Discount Document Generate</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount.document</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="hr_discount_document_tree" />
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_discount_lines_search_view">
+			<field name="name">Búsqueda de Descuentos de Colaborador</field>
+			<field name="model">hr.discount.lines</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Discount">
+					<group col='10' colspan='4'>
+						<filter string="Empleado" icon="terp-partner" domain="[]"
+							context="{'group_by':'employee_id'}" />
+						<filter string="Nómina" icon="terp-go-home" domain="[]"
+							context="{'group_by':'discount_id'}" /> 
+						<filter string="Estado" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'state'}" />
+						<filter string="Fecha" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'date'}" />
+
+						<separator orientation="vertical" />
+						<field name="employee_id" />
+						<field name="name" />
+						<field name="ref" />
+						<field name="state" />
+						<field name="discount_id" />
+						<field name="date"/>						
+<!-- 						<field name="company_id" /> -->
+					</group>
+					<newline />
+<!-- 					<group expand="0" string="More filters..." colspan="4" col="10"> -->
+<!-- 						<field name="collection_form" /> -->
+<!-- 						<field name="date_from" /> -->
+<!-- 						<field name="date" /> -->
+<!-- 						<field name="amount_to_paid" /> -->
+<!-- 						<field name="number_of_quotas" /> -->
+<!-- 					</group> -->
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_discount_lines_tree_view">
+			<field name="name">Lista de Descuentos de Colaborador</field>
+			<field name="model">hr.discount.lines</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Discount"
+					colors="blue:state in ('draft','generate'); gray:state in ('paid');red:state in ('cancel')">
+					<field name="discount_id" invisible="1" />
+					<field name="date" invisible="0" />
+					<field name="employee_id" invisible="1" />
+					<field name="number_quota"/>
+					<field name="name" />											
+					<field name="ref" invisible="1" />
+					<field name="amount" string="Valor" sum="Total Cuota"/>
+<!-- 					<field name="amount2" string="Abonado" sum="Total Pagado"/>		 -->			
+					<field name="payslip_id" readonly="1" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_discount_lines">
+			<field name="name">Detalle de Descuento por Colaborador</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.discount.lines</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_discount_lines_tree_view" />
+			<field name="context">{'state':'draft', 'default_state': 'draft', 'search_default_state': 'draft'}</field>
+			<field name="search_view_id" ref="hr_discount_lines_search_view" />
+			<field name="auto_search" eval="False"/>
+		</record>
+
+	</data>
+</openerp>

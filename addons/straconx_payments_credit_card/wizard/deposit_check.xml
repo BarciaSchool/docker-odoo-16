@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_payments.deposit_check_form" model="ir.ui.view">
+			<field name="name">Depósitos de Tarjetas de Crédito</field>
+			<field name="model">deposit</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Deposit Checks">
+					<group colspan="4" width="800">
+						<separator colspan="4"
+							string="Digit the number of deposit and date" />
+					</group>
+					<group colspan="4">
+						<field name="credit_card" invisible="1" />
+						<field name="generate_invoice"/>
+						<field name="generate_withhold"/>						
+						<newline />
+						<field name="account_commission_id"
+							attrs="{'invisible': [('credit_card','!=',1)],'required': [('credit_card','=',1)]}"
+							domain="[('type','!=','view'), ('type','!=','consolidation')]"
+							colspan="2" />
+						<field name="base_tc_paid" attrs="{'required': [('credit_card','=',1)],'invisible':[('credit_card','!=',1)]}"  string="Base para Pagos"/>
+						<field name="date_deposit" required="True"/>
+						<field name="number_deposit" />
+						<field name="amount_commission" attrs="{'required': [('credit_card','=',1)],'invisible':[('credit_card','!=',1)]}"  string="Comisión Bancaria"/>
+						<field name="other_commission" attrs="{'invisible':[('credit_card','!=',1)]}"/>
+					</group>
+					<newline />
+					<group colspan="4" width="800"
+						attrs="{'invisible': [('credit_card','!=',1)]}">
+						<separator colspan="4" string="Información Factura" />
+						<field name="electronic_invoice" on_change="onchange_authorization_in(authorization_in,electronic_invoice)" />
+						<field name="invoice_number_in" on_change="onchange_invoice_number_in(invoice_number_in)" attrs="{'required': [('generate_invoice','=',1)]}" />
+						<field name="authorization_in" on_change="onchange_authorization_in(authorization_in,electronic_invoice)" attrs="{'required': [('generate_invoice','=',1)]}"/>
+						<field name="date_invoice" attrs="{'required': [('generate_invoice','=',1)]}"/>
+						<separator colspan="4" string="Información Retención" />
+						<field name="electronic_withhold" on_change="onchange_withhold_authorization(withhold_authorization,electronic_withhold)" />
+						<field name="withhold_number" on_change="onchange_withhold_number(withhold_number)"  attrs="{'required': [('generate_withhold','=',1)]}" />
+						<field name="withhold_authorization" on_change="onchange_withhold_authorization(withhold_authorization,electronic_withhold)"  attrs="{'required': [('generate_withhold','=',1)]}" />
+						<field name="date_withhold"  attrs="{'required': [('generate_withhold','=',1)]}" />
+						<newline />
+						<field name="amount_withhold_tax" />
+						<field name="amount_withhold_iva_tax" />
+					</group>
+
+					<group colspan="4" col="6">
+						<label string="" colspan="2" />
+						<button special="cancel" string="Cancel" icon="gtk-cancel" />
+						<button name="button_deposit" string="Deposit" icon="gtk-go-forward"
+							type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="straconx_payments.action_deposit_check" model="ir.actions.act_window">
+			<field name="name">Deposit Check</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">deposit</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</openerp>

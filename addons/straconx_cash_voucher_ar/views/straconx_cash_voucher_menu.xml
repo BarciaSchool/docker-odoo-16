@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<menuitem name="Cajas Chicas"
+				  id="cash_voucher_root"
+				  parent="account.menu_finance"
+				  sequence="1"/>
+				  					  				  				  				
+		<menuitem name="Nuevo Vale de Caja"
+				  id="menu_view_new_cash_vouchers"
+				  action="straconx_cash_voucher_ar.action_straconx_new_cash_voucher" 
+				  parent="cash_voucher_root"
+				  sequence="1" />
+
+		<menuitem name="Nuevo Ingreso de Caja"
+				  id="menu_view_new_receipts_vouchers"
+				  action="action_straconx_new_cash_receipts_payments" 
+				  parent="cash_voucher_root"
+				  sequence="2" />
+
+	    <menuitem name="Abrir Nueva Caja Chica" 
+	    		  id="menu_view_open_petty_cash"
+	    		  action="action_straconx_open_petty_cash"
+				  parent="cash_voucher_root"
+				  sequence="3" />
+
+		<menuitem name="Lista de Ingresos de Caja" 
+				  id="menu_view_cash_receipts"
+				  action="action_straconx_cash_receipts_payments" 
+				  parent="cash_voucher_root"
+				  sequence="4" />	
+
+		<menuitem name="Lista de Vales de Caja" 
+				  id="menu_view_cash_vouchers"
+				  action="action_straconx_cash_voucher_payments" 
+				  parent="cash_voucher_root"
+				  sequence="5" />
+				  			  		
+		<menuitem name="Registro de Cajas Chica"
+				  id="menu_view_petty_cash"
+				  action="action_straconx_petty_cash"
+				  parent="cash_voucher_root" 
+	     		  sequence="6" />
+	     		  				  
+		<menuitem name="Listado de Cajas Chicas"
+				  id="menu_petty_cash_expenses"
+				  parent="account.menu_finance_configuration"
+				  sequence="12"/>
+		
+		<menuitem name="Cuentas de Ingresos" 
+	    		  id="menu_view_account_input_cash"
+	    		  action="action_straconx_account_cash_input"
+	    		  parent="menu_petty_cash_expenses"
+				  sequence="1" />
+
+		<menuitem name="Cuentas de Egresos" 
+	    		  id="menu_view_account_expense_cash"
+	    		  action="action_straconx_account_cash_expense"
+	    		  parent="menu_petty_cash_expenses"
+				  sequence="1" />
+	  				  
+	</data>
+</openerp>

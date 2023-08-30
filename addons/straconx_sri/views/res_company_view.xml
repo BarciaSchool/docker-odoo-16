@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_company_form_sri_inherit">
+			<field name="name">res.company.inherit</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="model">res.company</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="parent_id" position="after">
+					<field name="property_account_position" required="1"/>
+					<field name="resolution_sri" attrs="{'invisible':[('property_account_position','!=',4)],'required':[('property_account_position','=',4)]}"/>
+					<field name="date_resolution" attrs="{'invisible':[('property_account_position','!=',4)],'required':[('property_account_position','=',4)]}"/>
+					<field name="portal_active"/>
+				</field>
+				<notebook position="inside">
+                    <page string="Authorizations">
+                        <field colspan="4" name="authorizations_ids" nolabel="1">
+                        	<tree string="Authorizations">
+                        		<field name="name"/>
+                        		<field name="start_date"/>
+                        		<field name="expiration_date"/>
+                        		<field name="printer_aut"/>
+                        		<field name="auto_printer"/>
+                        		<field name="lines_ids" />
+                        		<field name="state" />
+                        	</tree>
+                        	<form string="Authorizations">
+                        		<field name="name" attrs="{'readonly':[('generate_document','=',True)]}"/>
+                        		<field name="printer_aut" required="1" attrs="{'readonly':[('generate_document','=',True)]}"/>
+								<field name="start_date" attrs="{'readonly':[('generate_document','=',True)]}"/>
+								<field name="expiration_date" />
+								<field name="auto_printer" attrs="{'readonly':[('generate_document','=',True)]}"/>
+								<field name="auto_expired" invisible="1"/>
+								<field name="generate_document" invisible="1"/>
+								<field name="padding" groups="base.group_extended" attrs="{'readonly':[('generate_document','=',True)]}"/>
+								<field name="state" groups="base.group_extended"/>
+								<separator string="Documents authorized" colspan="4"/>
+								<field name="lines_ids" nolabel="1" colspan="4" readonly="1" context="{'default_auto_printer':auto_printer}">
+									<tree string="Documents authorized">
+										<field name="name" />
+										<field name="auto_printer" invisible="1"/>
+										<field name="shop_id"/>
+										<field name="printer_id"/>
+										<field name="prefix_shop" invisible="1"/>
+										<field name="prefix_point" invisible="1"/>
+										<field name="starting_number"/>
+										<field name="ending_number"/>
+										<field name="state" />
+										<field name="counter" invisible="1"/>
+										<field name="number_next" invisible="1"/>
+										<field name="expired" invisible="1"/>
+									</tree>
+									<form string="Documents authorized">
+										<field name="name" on_change="on_change_name(name, shop_id, printer_id, auto_printer,parent.company_id)" attrs="{'readonly':[('generate_document','=',True)]}"/>
+<!-- 										<field name="auto_printer" invisible="1" on_change="onchange_filter(shop_id, auto_printer, pre_printer)"/> -->
+<!-- 										<field name="pre_printer" attrs="{'invisible':[('auto_printer','=',True)],'readonly':[('generate_document','=',True)]}" on_change="onchange_filter(shop_id, auto_printer, pre_printer)"/> -->
+<!-- 										<field name="shop_id" required="1" on_change="onchange_filter(shop_id, auto_printer, pre_printer)" attrs="{'readonly':[('generate_document','=',True)]}"/> -->
+										<field name="shop_id" required="1" attrs="{'readonly':[('generate_document','=',True)]}"/>
+										<field name="printer_id" required="1" on_change="on_change_name(name, shop_id, printer_id, auto_printer,parent.company_id)" attrs="{'readonly':[('generate_document','=',True)]}"/>
+										<field name="type_printer" attrs="{'readonly':[('generate_document','=',True)]}" required="1"/>
+										<field name="prefix_shop" invisible="1"/>
+										<field name="prefix_point" invisible="1"/>
+										<field name="starting_number" required="1" attrs="{'readonly':[('generate_document','=',True)], 'invisible':[('expired','=',True)]}" on_change="onchange_number(starting_number, auto_printer)"/>
+										<field name="ending_number" required="1" attrs="{'readonly':[('generate_document','=',True)],'invisible':['|',('auto_printer','=',True),('expired','=',True)]}"/>
+										<field name="counter" invisible="1"/>
+										<field name="number_next" invisible="1"/>
+										<field name="expired" invisible="1"/>
+										<field name="generate_document" invisible="1"/>
+									</form>
+								</field>
+                        	</form>
+                        </field>
+                    </page>
+                </notebook>
+			</field>
+		</record>
+    
+    </data>
+</openerp>

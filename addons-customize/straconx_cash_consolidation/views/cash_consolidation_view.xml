@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="cash_consolidation_search_view" model="ir.ui.view">
+			<field name="name">cash.consolidation.search</field>
+			<field name="model">cash.consolidation</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Cash Consolidation">
+					<filter string="Shop" icon="terp-go-home" domain="[]"
+						context="{'group_by':'shop_id'}" />
+					<filter string="date" context="{'group_by': 'date'}" icon="terp-go-month" />
+					<separator orientation="vertical" />
+					<field name="name" />
+					<field name="shop_id" />
+					<field name="printer_id" />
+					<field name="user_id" />
+					<field name="date" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="cash_consolidation_tree_view">
+			<field name="name">cash.consolidation.tree</field>
+			<field name="model">cash.consolidation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Cash Consolidation">
+					<field name="name" />
+					<field name="shop_id" />
+					<field name="printer_id" />
+					<field name="user_id" />
+					<field name="date" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="cash_consolidation_form_view">
+			<field name="name">cash.consolidation.form</field>
+			<field name="model">cash.consolidation</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Cash Consolidation">
+					<group colspan="4" col="6">
+						<field name="name" />
+						<field name="user_id" required="1" on_change="on_change_user(user_id)" />
+						<field name="date" required="1" on_change="on_change_date(date)" />
+						<field name="shop_id" required="1"
+							on_change="on_change_shop(shop_id,user_id)" />
+						<field name="printer_id" required="1" />
+						<field name="amount_initial" required="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="Expenses and Incomes">
+								<field name="expenses_ids" colspan="2" nolabel="1"
+									context="{'shop_ids','=',parent.shop_id}" attrs="{'readonly':[('state','!=','open')]}">
+									<tree string="Expenses" editable="bottom">
+										<field name="sequence" invisible="1" />
+										<field name="move_type_id" required="1"
+											on_change="onchange_move_type(move_type_id)" domain="[('shop_ids','=',parent.shop_id)]" />
+										<field name="amount" attrs="{'readonly':[('register_move','!=',True)]}" sum="Total Cobros"/>
+										<field name="register_move" invisible="1" />
+										<field name="required_reference" invisible="1" />
+									</tree>
+									<form string="Expenses">
+										<field name="sequence" invisible="1" />
+										<field name="move_type_id" required="1"
+											on_change="onchange_move_type(move_type_id)" domain="[('shop_ids','=',parent.shop_id)]" />
+										<field name="amount"
+											attrs="{'invisible':[('register_move','!=',True)]}" />
+										<field name="register_move" invisible="1" />
+										<field name="required_reference" invisible="1" />
+									</form>
+								</field>
+								<field name="invoices_ids" colspan="2" nolabel="1"
+									context="{'shop_ids','=',parent.shop_id}" attrs="{'readonly':[('state','!=','open')]}">
+									<tree string="Invoice" editable="bottom">
+										<field name="sequence" invisible="1" />
+										<field name="invoice_type_id" required="1"
+											on_change="onchange_invoice_type(invoice_type_id)" domain="[('shop_ids','=',parent.shop_id)]" />
+										<field name="quantity"
+											attrs="{'readonly':[('required_reference','!=',True)]}" />
+										<field name="amount" on_change="onchange_amount(amount,account_id_iva)"
+											attrs="{'readonly':[('register_move','!=',True)]}" sum="Total Facturado"/>
+										<field name="register_move" invisible="1" />
+										<field name="account_id_iva" invisible="1" />
+										<field name="amount_untaxed" invisible="1" />
+										<field name="amount_taxes" invisible="1" />
+									</tree>
+									<form string="Invoice">
+										<field name="sequence" invisible="1" />
+										<field name="invoice_type_id" required="1"
+											on_change="onchange_invoice_type(invoice_type_id)" domain="[('shop_ids','=',parent.shop_id)]" />
+										<field name="quantity"
+											attrs="{'invisible':[('required_reference','!=',True)]}" />
+										<field name="amount" on_change="onchange_amount(amount,account_id_iva)"
+											attrs="{'invisible':[('register_move','!=',True)]}" />
+										<field name="register_move" invisible="1" />
+										<field name="account_id_iva" invisible="1" />
+										<field name="amount_untaxed" invisible="1" />
+										<field name="amount_taxes" invisible="1" />
+									</form>
+								</field>
+						</page>
+						<page string="Accounting Information">
+							<field name="company_id" required="1" widget="selection"
+								on_change="on_change_company(company_id)" />
+							<field name="partner_id" required="1" />
+							<field name="account_id" required="1"
+								domain="[('type','=','receivable')]" />
+							<field name="journal_id" required="1"
+								domain="[('type','=','cash_consolidation')]" />
+							<field name="period_id" required="1" />
+							<separator string="Moves Account" colspan="4" />
+							<field name="expenses_move_id" />
+							<field name="invoice_move_id" />
+						</page>
+					</notebook>
+					<group colspan="5" col="10">
+						<field name="state" />
+						<field name="comprob" />
+						<button name="action_confirm" states="open" string="Confirm"
+							icon="gtk-go-forward" type="object" />
+						<button name="action_open" states="draft" string="Open"
+							icon="terp-gtk-media-pause" type="object" />
+						<button name="action_cancel" states="open" string="Cancel"
+							icon="gtk-cancel" type="object"
+							confirm="Are you sure to cancel this cash consolidation?" />
+						<button name="set_to_draft" states="cancel" string="Set to draft"
+							icon="terp-stock_effects-object-colorize" type="object"
+							confirm="Will erase the income and expenses recorded, sure you want to change to draft this cash consolidation?" />
+						<button name="action_re_open" states="confirm" string="Re-Open"
+							icon="gtk-convert" type="object"
+							confirm="Are you sure to Re-open this cash consolidation?" />
+
+						<button name="%(action_straconx_cash_consolidation_report)d"
+							string="Print Cash Consolidate" type="action" icon="gtk-print"
+							states="confirm" />
+
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_cash_consolidation_view">
+			<field name="name">Cash Consolidation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">cash.consolidation</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="cash_consolidation_search_view" />
+		</record>
+
+		<record id="action_cash_consolidation_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="cash_consolidation_tree_view" />
+			<field name="act_window_id" ref="action_cash_consolidation_view" />
+		</record>
+
+		<record id="action_cash_consolidation_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="cash_consolidation_form_view" />
+			<field name="act_window_id" ref="action_cash_consolidation_view" />
+		</record>
+	</data>
+</openerp>

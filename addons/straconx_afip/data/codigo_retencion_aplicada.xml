@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<record id="ret_00" model="tax.code.retencion.aplicada">
+		<field name="code">0</field>
+		<field name="name">Ninguno</field>
+		</record>
+
+		<record id="ret_01" model="tax.code.retencion.aplicada">
+		<field name="code">1</field>
+		<field name="name">Artículo 40 – Inciso A</field>
+		</record>
+
+		<record id="ret_02" model="tax.code.retencion.aplicada">
+		<field name="code">2</field>
+		<field name="name">Artículo 40 – Inciso B</field>
+		</record>
+   
+    </data>
+</openerp>

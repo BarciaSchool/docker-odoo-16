@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_account_withhold_lines_search">
+			<field name="name">Withhold Lines Search</field>
+			<field name="model">account.withhold.line</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Withhold Lines">
+					<group col="10" colspan="4">
+						<filter string="Partner" icon="terp-partner" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<filter string="Withhold" icon="terp-document-new" domain="[]"
+							context="{'group_by':'name'}" />
+						<filter name="taxes_ids" string="Tax ID" icon="terp-partner"
+							domain="[]" context="{'group_by':'tax_id'}" />
+						<filter string="Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'date'}" />
+						<separator orientation="vertical" />
+						<field name="partner_id" />
+						<field name="number" />
+						<field name="date" />
+						<field name="period_id" widget="selection" invisible="1" />
+						<field name="name" />
+						<field name="state" />
+					</group>
+					<newline />
+					<group expand="0" string="Group By...">
+						<field name="address_id" invisible="1" />
+						<field name="tax_base" />
+						<field name="retained_value" />
+						<field name="withhold_id" invisible="1" />
+						<field name="percentage" />
+						<field name="tax_id" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_account_withhold_lines_tree">
+			<field name="name">Withhold Lines List</field>
+			<field name="model">account.withhold.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Withhold Lines"
+					colors="blue:state in ('draft');gray:state in ('annulled')">
+					<field name="name" />
+					<field name="tax_id" />
+					<field name="partner_id" />
+					<field name="address_id" invisible="1" />
+					<field name="number" />
+					<field name="date" />
+					<field name="tax_base" />
+					<field name="retained_value" />
+					<field name="withhold_id" invisible="1"/>
+					<field name="period_id" invisible="1" />
+					<field name="percentage" />
+					<field name="invoice_id" />
+					<field name="state" />
+
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_account_withhold_lines_search_tree">
+			<field name="name">Sales Withhold Lines</field>
+			<field name="res_model">account.withhold.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="domain">[('transaction_type','=','sale')]</field>
+			<field name="context">{'transaction_type':'sale','search_default_date':time.strftime('%Y-%m-%d'),'search_default_state':'approved','search_default_taxes_ids':1}</field>
+			<field name="search_view_id" ref="view_account_withhold_lines_search" />
+			<field name="limit">1000</field>
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_account_withhold_lines_search_tree_sales" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_lines_tree" />
+			<field name="act_window_id" ref="action_account_withhold_lines_search_tree" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_account_withhold_lines_search_tree_purchase">
+			<field name="name">Purchase Withhold Lines</field>
+			<field name="res_model">account.withhold.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="domain">[('transaction_type','=','purchase')]</field>
+			<field name="context">{'transaction_type':'purchase','search_default_date':time.strftime('%Y-%m-%d'),'search_default_state':'approved','search_default_taxes_ids':1}</field>
+			<field name="search_view_id" ref="view_account_withhold_lines_search" />
+			<field name="limit">1000</field>
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_account_withhold_lines_search_tree_purchases"
+			model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_lines_tree" />
+			<field name="act_window_id"	ref="action_account_withhold_lines_search_tree_purchase" />
+		</record>
+
+	</data>
+</openerp>

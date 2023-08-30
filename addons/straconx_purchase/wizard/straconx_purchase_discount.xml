@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Add  Product -->
+
+        <record id="view_purchase_discount" model="ir.ui.view">
+            <field name="name">Aplicar Descuento Proveedor</field>
+            <field name="model">purchase.discount</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Aplicar descuento">
+                    <field name="discount" colspan="4"/>
+                    <separator colspan="4" string=""/>
+                    <group colspan="2"/>
+                    <button icon='gtk-cancel' special="cancel"
+                        string="Close" />
+                    <button name="apply_discount" string="Aplicar Descuento"
+                        colspan="1" type="object" icon="gtk-ok" />
+                </form>
+            </field>
+        </record>
+
+        <record id="action_purchase_discount" model="ir.actions.act_window">
+            <field name="name">Aplicar Descuento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.discount</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    	<record id="action_purchase_discount_form" model="ir.ui.view">
+            <field name="name">Agrega descuento en facturas de proveedor</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<button name="invoice_open" position="after">
+         			<button name="%(action_purchase_discount)d"
+					string="Añadir Descuento Global" icon="terp-stock_format-default"
+					type="action" states="draft"/>
+               </button>
+            </field>
+        </record>
+
+
+
+
+    </data>
+</openerp>

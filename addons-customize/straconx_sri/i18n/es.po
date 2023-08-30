@@ -1,0 +1,805 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_sri
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120814-233345\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-26 13:57+0000\n"
+"PO-Revision-Date: 2012-08-26 13:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization_line.py:171
+#, python-format
+msgid "You have activated automatic authorization in the company by this printer point and shop"
+msgstr "You have activated automatic authorization in the company by this printer point and shop"
+
+#. module: straconx_sri
+#: view:sri.authorization:0
+msgid "Auto-Printer"
+msgstr "Auto-Printer"
+
+#. module: straconx_sri
+#: sql_constraint:sri.document.type:0
+msgid "The code of document type must be unique!"
+msgstr "The code of document type must be unique!"
+
+#. module: straconx_sri
+#: field:res.company,date_resolution:0
+msgid "Date Resolution"
+msgstr "Date Resolution"
+
+#. module: straconx_sri
+#: sql_constraint:sri.authorization.line:0
+msgid "There is the same document created in this authorization for the same shop and the same printer point, please verify"
+msgstr "There is the same document created in this authorization for the same shop and the same printer point, please verify"
+
+#. module: straconx_sri
+#: model:ir.ui.menu,name:straconx_sri.straconx_menu_type_company
+msgid "Types Companies"
+msgstr "Types Companies"
+
+#. module: straconx_sri
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La cédula / RUC específicada ya existe para otra empresa registrada."
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_printer_point
+msgid "printer.point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,purchase_tax_vat:0
+msgid "Default Purchase VAT Tax"
+msgstr "Default Purchase VAT Tax"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_ltd_cia
+msgid "Limited Company"
+msgstr "Limited Company"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:316
+#, python-format
+msgid "You cannot input a new authorization for invoice, there are some documents in draft state"
+msgstr "You cannot input a new authorization for invoice, there are some documents in draft state"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.straconx_action_wizard_multi_chart
+#: model:ir.ui.menu,name:straconx_sri.menu_straconx_action_wizard_multi_chart
+msgid "Generate Tax Accounts for Product"
+msgstr "Generate Tax Accounts for Product"
+
+#. module: straconx_sri
+#: constraint:res.partner.address:0
+msgid "Only must exist a address type default by partner"
+msgstr "Only must exist a address type default by partner"
+
+#. module: straconx_sri
+#: constraint:sri.authorization:0
+msgid "The name must be only numbers"
+msgstr "The name must be only numbers"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,company_id:0
+#: field:sri.authorization,company_id:0
+msgid "Company"
+msgstr "Company"
+
+#. module: straconx_sri
+#: selection:account.journal.type,sri_type_control:0
+msgid "internal control"
+msgstr "internal control"
+
+#. module: straconx_sri
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_account_journal_type
+msgid "account.journal.type"
+msgstr "account.journal.type"
+
+#. module: straconx_sri
+#: selection:account.journal.type,sri_type_control:0
+msgid "Company and Partner"
+msgstr "Company and Partner"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.action_sri_transaction_type_tree_view
+msgid "Transactions Types"
+msgstr "Transactions Types"
+
+#. module: straconx_sri
+#: selection:printer.point,type_printer:0
+msgid "auto-printer"
+msgstr "auto-printer"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,prefix_point:0
+msgid "Prefix Printer"
+msgstr "Prefix Printer"
+
+#. module: straconx_sri
+#: model:ir.ui.menu,name:straconx_sri.sri_authorizations
+msgid "SRI Authorizations"
+msgstr "Autorizaciones de la Empresa"
+
+#. module: straconx_sri
+#: selection:printer.point,type_printer:0
+msgid "pre-printer"
+msgstr "pre-printer"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:184
+#: code:addons/straconx_sri/objects/sri_authorization.py:219
+#, python-format
+msgid "the number entered is incorrect!"
+msgstr "the number entered is incorrect!"
+
+#. module: straconx_sri
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "The number of SRI must be unique !"
+
+#. module: straconx_sri
+#: view:account.multi.charts.tax:0
+msgid "Taxes"
+msgstr "Taxes"
+
+#. module: straconx_sri
+#: view:sri.tax.sustent:0
+#: view:sri.transaction.type:0
+msgid "Documents Type"
+msgstr "Documents Type"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:152
+#: code:addons/straconx_sri/objects/sri_authorization.py:154
+#: code:addons/straconx_sri/objects/sri_authorization.py:158
+#: code:addons/straconx_sri/objects/sri_authorization.py:165
+#: code:addons/straconx_sri/objects/sri_authorization.py:184
+#: code:addons/straconx_sri/objects/sri_authorization.py:193
+#: code:addons/straconx_sri/objects/sri_authorization.py:219
+#: code:addons/straconx_sri/objects/sri_authorization.py:257
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,sale_tax_withhold:0
+msgid "Default Sale Withhold Tax"
+msgstr "Default Sale Withhold Tax"
+
+#. module: straconx_sri
+#: view:printer.point:0
+#: field:sri.authorization.line,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,number_next:0
+msgid "number next"
+msgstr "number next"
+
+#. module: straconx_sri
+#: view:account.multi.charts.tax:0
+msgid "This selection underwriter your actual selection of taxes product"
+msgstr "This selection underwriter your actual selection of taxes product"
+
+#. module: straconx_sri
+#: selection:printer.point,type_printer:0
+msgid "manual"
+msgstr "manual"
+
+#. module: straconx_sri
+#: field:sri.tax.sustent,documents_type_ids:0
+#: field:sri.transaction.type,documents_type_ids:0
+msgid "Document Types"
+msgstr "Document Types"
+
+#. module: straconx_sri
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "The address selected must be from a one Shop. Please check !"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:154
+#, python-format
+msgid "Can not get sequence for missing data: type of journal"
+msgstr "Can not get sequence for missing data: type of journal"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,pre_printer:0
+msgid "Pre printer"
+msgstr "Pre printer"
+
+#. module: straconx_sri
+#: view:res.partner.address:0
+msgid "SRI Authorization"
+msgstr "SRI Authorization"
+
+#. module: straconx_sri
+#: sql_constraint:printer.point:0
+msgid "The number of point printer must be unique for each shop!"
+msgstr "¡El número del punto de impresión debe ser único para cada tienda!"
+
+#. module: straconx_sri
+#: field:sri.authorization,address_id:0
+msgid "Address Partner"
+msgstr "Address Partner"
+
+#. module: straconx_sri
+#: view:sri.tax.sustent:0
+#: view:sri.transaction.type:0
+msgid "Documents"
+msgstr "Documents"
+
+#. module: straconx_sri
+#: field:sri.authorization,ending_number:0
+#: field:sri.authorization.line,ending_number:0
+msgid "End"
+msgstr "End"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:379
+#, python-format
+msgid "You cannot input a new authorization for liquidancion compras, there are some documents in draft state"
+msgstr "You cannot input a new authorization for liquidancion compras, there are some documents in draft state"
+
+#. module: straconx_sri
+#: field:res.partner,type_company_id:0
+msgid "Type company"
+msgstr "Type company"
+
+#. module: straconx_sri
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_sri
+#: field:res.partner.type.company,shortcut:0
+msgid "Shortcut"
+msgstr "Shortcut"
+
+#. module: straconx_sri
+#: field:res.partner.address,ag_state:0
+msgid "State"
+msgstr "State"
+
+#. module: straconx_sri
+#: help:res.partner.address,number_sri:0
+msgid "This number is assigned by the SRI by each warehouse"
+msgstr "This number is assigned by the SRI by each warehouse"
+
+#. module: straconx_sri
+#: selection:sri.transaction.type,type_identification:0
+msgid "Passport"
+msgstr "Passport"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sri_authorization_line
+msgid "sri.authorization.line"
+msgstr "sri.authorization.line"
+
+#. module: straconx_sri
+#: selection:account.journal.type,sri_type_control:0
+msgid "Sequence Company"
+msgstr "Sequence Company"
+
+#. module: straconx_sri
+#: selection:sri.transaction.type,type_identification:0
+msgid "Cedula"
+msgstr "Cedula"
+
+#. module: straconx_sri
+#: field:res.company,resolution_sri:0
+msgid "Resolution SRI"
+msgstr "Resolution SRI"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.action_partner_type_company_view
+#: model:ir.ui.menu,name:straconx_sri.type_company_menu
+#: view:res.partner.type.company:0
+msgid "Type Company"
+msgstr "Type Company"
+
+#. module: straconx_sri
+#: field:sri.authorization,padding:0
+msgid "Number padding"
+msgstr "Number padding"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.action_sri_tax_sustent_tree_view
+#: model:ir.ui.menu,name:straconx_sri.sri_tax_sustent_menu
+#: field:res.partner,tax_sustent:0
+#: view:sri.document.type:0
+#: field:sri.document.type,sustent_ids:0
+#: view:sri.tax.sustent:0
+msgid "Tax Sustent"
+msgstr "Tax Sustent"
+
+#. module: straconx_sri
+#: view:account.multi.charts.tax:0
+msgid "Done"
+msgstr "Done"
+
+#. module: straconx_sri
+#: field:sri.transaction.type,type_identification:0
+msgid "Identification Type"
+msgstr "Identification Type"
+
+#. module: straconx_sri
+#: field:sri.authorization,expiration_date:0
+msgid "Expiration Date"
+msgstr "Expiration Date"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,purchase_withhold_vat:0
+msgid "Default Purchase Withhold VAT Tax"
+msgstr "Default Purchase Withhold VAT Tax"
+
+#. module: straconx_sri
+#: selection:sri.transaction.type,type_identification:0
+msgid "Final Consumer"
+msgstr "Final Consumer"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,printer_id:0
+msgid "Printer Point"
+msgstr "Printer Point"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.action_view_authorization_company
+msgid "SRI Authorizations Company"
+msgstr "SRI Authorizations Company"
+
+#. module: straconx_sri
+#: field:res.partner.address,date:0
+msgid "Open since"
+msgstr "Open since"
+
+#. module: straconx_sri
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "should only be a journal by type in the shop"
+
+#. module: straconx_sri
+#: field:sri.authorization,prefix_shop:0
+msgid "prefix shop"
+msgstr "prefix shop"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_res_partner
+#: field:sale.shop,partner_id:0
+#: field:stock.warehouse,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sri_document_type
+msgid "sri.document.type"
+msgstr "sri.document.type"
+
+#. module: straconx_sri
+#: model:ir.ui.menu,name:straconx_sri.account_sri_configuration
+msgid "SRI Configuration"
+msgstr "Configuración SRI"
+
+#. module: straconx_sri
+#: sql_constraint:sri.authorization:0
+msgid "Can not exist authorizations with the same name for the same company"
+msgstr "Can not exist authorizations with the same name for the same company"
+
+#. module: straconx_sri
+#: model:ir.actions.act_window,name:straconx_sri.action_sri_document_type_tree_view
+#: model:ir.ui.menu,name:straconx_sri.sri_document_type_menu
+msgid "Documents Types"
+msgstr "Documents Types"
+
+#. module: straconx_sri
+#: constraint:sri.authorization:0
+msgid "The padding number must be more than 0"
+msgstr "The padding number must be more than 0"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,range:0
+msgid "range"
+msgstr "range"
+
+#. module: straconx_sri
+#: view:res.company:0
+#: view:sri.authorization:0
+msgid "Documents authorized"
+msgstr "Documents authorized"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_foreg_cia
+msgid "Foreing Company or Person"
+msgstr "Foreing Company or Person"
+
+#. module: straconx_sri
+#: field:sri.authorization,start_date:0
+msgid "Start Date"
+msgstr "Start Date"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sri_transaction_type
+msgid "sri.transaction.type"
+msgstr "sri.transaction.type"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_st_cia
+msgid "State Company"
+msgstr "State Company"
+
+#. module: straconx_sri
+#: model:ir.ui.menu,name:straconx_sri.sri_transaction_type_menu
+#: view:sri.document.type:0
+#: field:sri.document.type,usage_ids:0
+msgid "Transaction Types"
+msgstr "Tipos de Transacción"
+
+#. module: straconx_sri
+#: help:printer.point,type_printer:0
+msgid "defines how it will generate documents"
+msgstr "defines how it will generate documents"
+
+#. module: straconx_sri
+#: help:account.journal.type,sri_type_control:0
+msgid "Indicate if the journal control is based in documents authorizated by SRI or internal control."
+msgstr "Indicate if the journal control is based in documents authorizated by SRI or internal control."
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sri_authorization
+msgid "sri.authorization"
+msgstr "sri.authorization"
+
+#. module: straconx_sri
+#: field:printer.point,number_sri:0
+#: field:res.partner.address,number_sri:0
+msgid "SRI Number"
+msgstr "SRI Number"
+
+#. module: straconx_sri
+#: help:printer.point,number_sri:0
+msgid "This number is assigned by the SRI by each printer point"
+msgstr "This number is assigned by the SRI by each printer point"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,sale_tax_vat:0
+msgid "Default Sale VAT Tax"
+msgstr "Default Sale VAT Tax"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_res_partner_type_company
+msgid "res.partner.type.company"
+msgstr "res.partner.type.company"
+
+#. module: straconx_sri
+#: field:sri.authorization,starting_number:0
+#: field:sri.authorization.line,starting_number:0
+msgid "Start"
+msgstr "Start"
+
+#. module: straconx_sri
+#: field:sri.authorization,generate_document:0
+#: field:sri.authorization.line,generate_document:0
+msgid "Generate Document"
+msgstr "Generate Document"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:350
+#, python-format
+msgid "You cannot input a new authorization for Delivery Note, there are some documents in draft state"
+msgstr "You cannot input a new authorization for Delivery Note, there are some documents in draft state"
+
+#. module: straconx_sri
+#: sql_constraint:sri.authorization:0
+msgid "Can not exist authorizations with the same name for the same address partner"
+msgstr "Can not exist authorizations with the same name for the same address partner"
+
+#. module: straconx_sri
+#: view:res.partner.address:0
+#: view:sri.authorization:0
+#: field:sri.authorization,name:0
+#: field:sri.authorization.line,authorization_id:0
+msgid "Authorization"
+msgstr "Authorization"
+
+#. module: straconx_sri
+#: field:sri.authorization,printer_aut:0
+msgid "Printer Authorization"
+msgstr "Printer Authorization"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_mxd_cia
+msgid "Mixed Company"
+msgstr "Mixed Company"
+
+#. module: straconx_sri
+#: view:sri.document.type:0
+#: view:sri.transaction.type:0
+msgid "Transaction Type"
+msgstr "Transaction Type"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda ventas"
+
+#. module: straconx_sri
+#: field:res.partner.type.company,active:0
+#: field:sri.authorization,state:0
+#: field:sri.authorization.line,state:0
+msgid "Active"
+msgstr "Active"
+
+#. module: straconx_sri
+#: field:account.journal.type,sri_type_control:0
+msgid "Control Type SRI"
+msgstr "Control Type SRI"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,auto_printer:0
+msgid "auto_printer"
+msgstr "auto_printer"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:152
+#, python-format
+msgid "Does not exist authorization for this document!"
+msgstr "Does not exist authorization for this document!"
+
+#. module: straconx_sri
+#: field:sale.shop,number_sri:0
+msgid "Number SRI"
+msgstr "Number SRI"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_sri
+#: view:sri.document.type:0
+msgid "Tax Supports"
+msgstr "Tax Supports"
+
+#. module: straconx_sri
+#: field:sri.authorization,prefix_point:0
+msgid "prefix point"
+msgstr "prefix point"
+
+#. module: straconx_sri
+#: selection:account.journal.type,sri_type_control:0
+msgid "Sequence Partner"
+msgstr "Sequence Partner"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_np_ltd
+msgid "Natural Person"
+msgstr "Natural Person"
+
+#. module: straconx_sri
+#: field:sri.document.type,code:0
+#: field:sri.tax.sustent,code:0
+#: field:sri.transaction.type,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: straconx_sri
+#: selection:sri.transaction.type,type_identification:0
+msgid "RUC"
+msgstr "RUC"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,purchase_withhold:0
+msgid "Default Purchase Withhold Tax"
+msgstr "Default Purchase Withhold Tax"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:257
+#, python-format
+msgid "can not get authorization, data are missing!"
+msgstr "can not get authorization, data are missing!"
+
+#. module: straconx_sri
+#: sql_constraint:sri.tax.sustent:0
+msgid "The code of Tax Sustent must be unique!"
+msgstr "The code of Tax Sustent must be unique!"
+
+#. module: straconx_sri
+#: field:res.company,property_account_position:0
+msgid "Fiscal Position"
+msgstr "Fiscal Position"
+
+#. module: straconx_sri
+#: selection:res.partner.address,ag_state:0
+msgid "Close"
+msgstr "Close"
+
+#. module: straconx_sri
+#: selection:res.partner.address,ag_state:0
+msgid "Open"
+msgstr "Open"
+
+#. module: straconx_sri
+#: sql_constraint:sri.transaction.type:0
+msgid "The code of transaction type must be unique!"
+msgstr "The code of transaction type must be unique!"
+
+#. module: straconx_sri
+#: view:res.company:0
+#: field:res.company,authorizations_ids:0
+#: field:res.partner.address,authorizations_ids:0
+msgid "Authorizations"
+msgstr "Authorizations"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_sa_cia
+msgid "Corporation"
+msgstr "Corporation"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:334
+#, python-format
+msgid "You cannot input a new authorization for withholding, there are some documents in draft state"
+msgstr "You cannot input a new authorization for withholding, there are some documents in draft state"
+
+#. module: straconx_sri
+#: field:account.multi.charts.tax,sale_tax_withhold_vat:0
+msgid "Default Sale  Withhold VAT Tax"
+msgstr "Default Sale  Withhold VAT Tax"
+
+#. module: straconx_sri
+#: field:sri.authorization,lines_ids:0
+msgid "Documents Authorized"
+msgstr "Documents Authorized"
+
+#. module: straconx_sri
+#: constraint:printer.point:0
+#: constraint:res.partner.address:0
+msgid "The number sri must be only numbers"
+msgstr "The number sri must be only numbers"
+
+#. module: straconx_sri
+#: view:res.partner.address:0
+msgid "Authorization Assing"
+msgstr "Authorization Assing"
+
+#. module: straconx_sri
+#: model:res.partner.type.company,name:straconx_sri.res_partner_unp_cia
+msgid "Uniperson Company"
+msgstr "Uniperson Company"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:176
+#: code:addons/straconx_sri/objects/sri_authorization.py:211
+#, python-format
+msgid "The format number is incorrect"
+msgstr "The format number is incorrect"
+
+#. module: straconx_sri
+#: field:res.partner.type.company,name:0
+msgid "Type of Company"
+msgstr "Type of Company"
+
+#. module: straconx_sri
+#: view:printer.point:0
+#: field:printer.point,type_printer:0
+msgid "Type Printer"
+msgstr "Type Printer"
+
+#. module: straconx_sri
+#: field:sri.authorization,auto_printer:0
+msgid "automatic"
+msgstr "automatic"
+
+#. module: straconx_sri
+#: constraint:sale.shop:0
+msgid "The percentage utility margin must be a positive number"
+msgstr "El porcentaje de utilidad debe ser un número positivo"
+
+#. module: straconx_sri
+#: field:sale.shop,partner_address_id:0
+msgid "Address"
+msgstr "Address"
+
+#. module: straconx_sri
+#: constraint:sri.authorization.line:0
+msgid "the ending sequence must be greater than the starting sequence and must be positive numbers"
+msgstr "the ending sequence must be greater than the starting sequence and must be positive numbers"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:133
+#: code:addons/straconx_sri/objects/sri_authorization_line.py:185
+#, python-format
+msgid "You can delete authorization that have already generated documents"
+msgstr "You can delete authorization that have already generated documents"
+
+#. module: straconx_sri
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_sri
+#: field:sri.authorization,code_address:0
+#: field:sri.authorization.line,name:0
+#: field:sri.document.type,name:0
+#: field:sri.tax.sustent,name:0
+#: field:sri.transaction.type,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: straconx_sri
+#: field:sri.authorization,auto_expired:0
+#: field:sri.authorization.line,expired:0
+msgid "Expired?"
+msgstr "Expired?"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:133
+#: code:addons/straconx_sri/objects/sri_authorization.py:176
+#: code:addons/straconx_sri/objects/sri_authorization.py:211
+#: code:addons/straconx_sri/objects/sri_authorization_line.py:185
+#, python-format
+msgid "Invalid action!"
+msgstr "Invalid action!"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,prefix_shop:0
+msgid "Prefix Shop"
+msgstr "Prefix Shop"
+
+#. module: straconx_sri
+#: help:res.partner.address,ag_state:0
+msgid "State of Agency"
+msgstr "State of Agency"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_account_multi_charts_tax
+msgid "account.multi.charts.tax"
+msgstr "account.multi.charts.tax"
+
+#. module: straconx_sri
+#: field:sri.authorization.line,counter:0
+msgid "counter"
+msgstr "counter"
+
+#. module: straconx_sri
+#: model:ir.model,name:straconx_sri.model_sri_tax_sustent
+msgid "sri.tax.sustent"
+msgstr "sri.tax.sustent"
+
+#. module: straconx_sri
+#: code:addons/straconx_sri/objects/sri_authorization.py:165
+#: code:addons/straconx_sri/objects/sri_authorization.py:193
+#, python-format
+msgid "can not concatenate the series!"
+msgstr "can not concatenate the series!"
+
+#. module: straconx_sri
+#: selection:sri.transaction.type,type_identification:0
+msgid "Export"
+msgstr "Export"
+
+#. module: straconx_sri
+#: view:sri.document.type:0
+msgid "Document Type"
+msgstr "Document Type"
+

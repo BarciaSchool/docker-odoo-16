@@ -1,0 +1,355 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    #---------------------------------------------------------
+    # New Sale Order Form
+    #---------------------------------------------------------
+    
+    <delete model="ir.values" search="[('name','=','shop_id'),('model','=','sale.order')]"/>
+
+        <record id="sale.view_order_form" model="ir.ui.view">
+            <field name="name">Lista de Pedidos</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+            <form string="Sales Order">                    	
+                        <field name="company_id" on_change="onchange_shop_id(shop_id,company_id)" colspan="4" required ="1"/>
+                        <newline/>
+                        <field name="shop_id" on_change="onchange_shop_id(shop_id,company_id)" domain="[('company_id','=',company_id)]"/>
+                        <field name="printer_id" required="1" />
+                        <newline/>
+                        <field name="partner_id" on_change="onchange_partner_id(partner_id)" domain="[('customer','=',True)]"
+                        	context="{'form_view_ref' : 'straconx_partners.view_partner_form_straconx','search_default_customer':1,'type':type}" required="1" colspan="4"/>
+                        <newline/>
+                        <field domain="[('partner_id','=',partner_id)]" name="partner_order_id" 
+                        on_change="onchange_partner_id(partner_id)" colspan="4"/>
+                        <newline/>
+                        <field name="name" readonly="1"/>                        
+                        <field name="client_order_ref" />
+                        <newline/>
+                        <field name="salesman_id" required="1" domain="[('is_seller','=',True)]" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="user_id" attrs="{'readonly':[('state','!=','draft')]}"/>   
+                        <newline/>
+                        <field name="date_order"/>    
+                        <field name="date_valid" />
+                        <newline/>
+                        <field name="order_policy" on_change="shipping_policy_change(order_policy)" required="True"/>              					
+                        <field domain="[('type','=','sale')]" name="pricelist_id" invisible ="1" select="1"/>                         
+                       	<field name="invoice_later"/>
+                        <field name="is_superv" invisible="1"/>
+                        <field name="authorized" invisible="1"/>
+                        <field name="verify" invisible="1"/>
+                        <field name="wizard_auth" invisible="1"/>
+                        <newline/>	
+                        <field colspan="4" name="note" nolabel="0"/>
+                    <notebook colspan="4">
+                        <page string="Sales Order">
+                            <field colspan="4" mode="tree,form" name="order_line" nolabel="1" widget="one2many_list" attrs="{'readonly':[('verify','=',True),('state','!=','draft')]}">
+                                <tree string="Sales order lines">
+                                    <field name="sequence" invisible="1" on_change="sequence_change(parent.order_line, parent.shop_id)"/> 
+                                    <field name="product_id" required="0" default_focus ="1"
+                                        on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)"
+                                        context="{'search_view_ref':'straconx_products.product_sale_product_search_view',
+                                        		  'form_view_ref':'straconx_products.product_sale_product_form_view',
+                                        		  'tree_view_ref':'straconx_products.product_sale_product_tree_view',
+                                        		  'location':parent.location_id,
+                                        		  'partner_id':parent.partner_id,
+                                        		  'quantity':product_uom_qty,
+                                        		  'pricelist':parent.pricelist_id,
+                                        		  'shop':parent.shop_id,
+                                        		  'uom':product_uom, 
+												  'force_product_uom': True}"                                        		  
+                                        		  />
+                                    <field name="name" invisible="True"/>
+                                    <field name="categ_id"/>
+                                    <field name="product_uom_qty" sum="Total Qty"
+                                        string="Qty"
+                                        on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)"
+                                        context="{'location':parent.location_id,'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'discount_price':discount_price}"/>
+                                    <field name="product_uos" />
+                                    <field name="product_uom" string="UoM" on_change="product_uom_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, False,parent.date_order,parent.shop_id,parent.location_id)" invisible="1"/>
+									<field name="product_packaging" on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)" domain="[('product_id','=',product_id)]" context="{'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'location':parent.location_id}" invisible="1"/>                                        
+                                    <field name="discount_order" invisible="1"/>
+                                    <field name="discount_order_total" readonly ="0" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="offer_value" invisible="1"/>
+                                    <field name="offer_value_total" invisible="1"/>
+                                    <field name="discount_price" readonly ="0" invisible="0" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" on_change="onchange_discount_prices(product_uom_qty,parent.partner_id,product_id,parent.pricelist_id,discount_price,purchase_price,discount_percent,discount,parent.shop_id,context)" />
+                                    <field name="discount_percent" invisible="0"/>                                   
+                                    <field name="price_unit" readonly ="0"/>                                    
+                                    <field name="discount" on_change="onchange_discount(price_unit,discount,product_uom_qty,purchase_price,parent.shop_id)" string="Offer"/>
+                                    <field name="price_subtotal" readonly ="0" sum="Subtotal"/>
+                                    <field name="margin_unit" invisible="1"/>
+                                    <field name="margin" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="margin_percent" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="purchase_price" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>                                                                        
+                                    <field name="total_cost_line" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="product_uos_qty" on_change="uos_change(product_uos, product_uos_qty, product_id)" invisible="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="tax_id" sum="Total Taxes" domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" invisible="1"/>
+                                    <field name="authorized" invisible="1"/>
+                                </tree>
+                                <form string="Sales order lines">
+                                    <field name="sequence" invisible="1" on_change="sequence_change(parent.order_line,parent.shop_id)"/>
+                                    <field name="product_id" required="0" default_focus ="1"
+                                        on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id,True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)"
+                                        context="{'search_view_ref':'straconx_products.product_sale_product_search_view',
+                                        		  'form_view_ref':'straconx_products.product_sale_product_form_view',
+                                        		  'tree_view_ref':'straconx_products.product_sale_product_tree_view',
+                                        		  'location':parent.location_id,
+                                        		  'partner_id':parent.partner_id,
+                                        		  'quantity':product_uom_qty,
+                                        		  'pricelist':parent.pricelist_id,
+                                        		  'shop':parent.shop_id,
+                                        		  'uom':product_uom, 
+												  'force_product_uom': True}"/>                                        		  
+                                    <field name="categ_id"/>
+                                    <newline/>
+                                    <field name="name" colspan="4"/>
+                                    <field name="product_uos_qty" on_change="uos_change(product_uos, product_uos_qty, product_id)" invisible="1"/>
+                                    <field name="product_uos" invisible="1"/>
+                                    <field name="product_uom_qty"
+                                        invisible="0"
+                                        string="Qty"
+                                        on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)"
+                                        context="{'location':parent.location_id,'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'discount_price':discount_price}"/>
+                                    <field name="product_uom"
+                                        string="UoM"
+                                        invisible="0"
+                                        on_change="product_uom_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id,False, parent.date_order, parent.shop_id,parent.location_id)"/>
+                                    <field name="discount_price" on_change="onchange_discount_prices(product_uom_qty,parent.partner_id,product_id,parent.pricelist_id,discount_price,purchase_price,discount_percent,discount,parent.shop_id,context)" invisible="0" 
+                                    groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="discount_percent" invisible="0" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="discount_order" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="discount_order_total" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="discount" on_change="onchange_discount(price_unit,discount,product_uom_qty,purchase_price,parent.shop_id)" string="Offer"/>
+                                    <field name="price_unit" />                                    
+                                    <field name="purchase_price" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>                                                                        
+                                    <field name="offer_value" invisible="1"/>
+                                    <field name="offer_value_total" invisible="1"  groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="price_subtotal" sum="Subtotal"/>
+                                    <field name="total_cost_line" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="margin_unit" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="margin" invisible="1" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                    <field name="margin_percent" invisible="1" />
+                                    <field name="state" invisible="1"/>
+                                    <field name="type" invisible="1"/>
+									<field name="product_packaging" invisible="1"
+										on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id,True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id, context)"
+                                        context="{'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'location':parent.location_id}"
+                                        domain="[('product_id','=',product_id)]"/>                                                                
+                                    <field name="notes" colspan="4"/>
+                                    <field name="tax_id" domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" colspan="4"/>
+                                    <field name="authorized" invisible="1"/>
+                                </form>
+                            </field>
+                            <newline/>
+                        <group colspan="4" col="8">
+                                <field name="state"/>
+                                <field name="carrier_id" colspan="2" required="1"/>
+								<button name="button_dummy" states="draft" string="Compute" type="object" icon="gtk-execute"/>
+								<newline/>
+                                <field name="totalqty" />
+                                <field name="amount_untaxed"/>
+                                <field name="amount_tax"/>
+                                <field name="amount_total"/>
+                                <newline/>
+                                <field name="totaldiscount" invisible="0"/>
+                                <field name="totaloffer" invisible="0"/>
+                                <field name="margin_val" invisible="0" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                                <field name="margin_total_percent" invisible="0" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                         </group>
+                         <newline/>                        
+                         <group colspan="3" col="8">
+                              <button name="authorize_sale_order" string="Authorize sale" states="draft" icon="gtk-convert" attrs="{'invisible':[('authorized','=',1),('state','!=','draft')]}" type="object" />                           
+                              <button name="order_confirm" states="draft" string="Confirm Order" icon="gtk-apply" attrs="{'invisible':['|',('authorized','=',0),('state','!=','draft')]}"/>
+                              <button name="ship_cancel" states="shipping_except" string="Cancel Order" icon="gtk-cancel"/>
+                              <button name="%(report_quo_order_straconx)d" string="Quotation" states="draft" type="action" icon="gtk-print" attrs="{'invisible':['|',('verify','=',False),('state','!=','draft')]}"/>
+                              <button name="%(report_sale_order_straconx)d" string="Sale Order" states="wait_risk,manual,progress,done" type="action" icon="gtk-print" attrs="{'invisible':['|',('authorized','=',False),('state','in',('expired','draft'))]}"/>
+                         	  <button name="verify_sale_order" states="draft" string="Verify Order" icon="gtk-go-forward" type="object"/>
+                          	  <button name="cancel" states="draft" string="Cancel Order" icon="gtk-cancel"/>
+                          	  <button name="action_cancel_draft" states="cancel" string="Set to Draft" type="object" icon="gtk-convert"/>
+                          	  <newline/>                          	  
+                         </group>
+                        </page>
+                        <page string="Other Information">
+                            <group colspan="2" col="2"> <!-- attrs="{'readonly':[('is_superv','=',False)]}" -->
+                                <separator string="Logistic" colspan="2"/>
+                                <field name="segmento_id" required="1" invisible="0"/>
+                                <field name="location_id" required="1" />
+                                <field name="picking_policy" required="True"/>                                
+                                <field name="invoice_quantity"/>
+                            </group>
+                            <group colspan="2" col="2">
+                                <separator string="References" colspan="2"/>
+                                <field domain="[('partner_id','=',partner_id)]" name="partner_invoice_id" invisible="0"/>
+                                 <field domain="[('partner_id','=',partner_id)]" name="partner_shipping_id" invisible="0"/>
+                                <field  name="origin" attrs="{'readonly':[('state','!=','draft'),('is_superv','=',False)]}"/>
+                                <field name="project_id"
+                                context="{'partner_id':partner_id, 'contact_id':partner_order_id, 'pricelist_id':pricelist_id, 'default_name':name}"
+                                groups="analytic.group_analytic_accounting, base.group_phone_manager" domain="[('parent_id','!=',False)]" />
+                            </group>
+                            <group colspan="2" col="2" ><!-- attrs="{'invisible':[('is_superv','=',False)]}" -->
+                                <separator string="Conditions" colspan="2"/>
+                                <field name="payment_term" required="1" widget="selection" /> <!-- attrs="{'invisible':[('is_superv','=',False)]}" -->
+                                <field name="fiscal_position" required="1" widget="selection" /> <!-- attrs="{'invisible':[('is_superv','=',False)]}" -->
+                            </group>
+                            <group colspan="2" col="2" >
+                                <separator string="Dates" colspan="2"/>
+                                <field name="create_date" widget="datetime"/>
+                                <field name="date_confirm" attrs="{'readonly':[('state','!=','draft'),('is_superv','=',False)]}"/>
+                            </group>
+                        </page>
+                        <page string="History" >
+                            <separator colspan="4" string="Invoices"/>
+                            <field colspan="4" name="invoice_ids" nolabel="1" context="{'form_view_ref':'account.invoice_form'}" readonly="1"/>
+                            <separator colspan="4" string="Packings"/>
+                            <field colspan="4" name="picking_ids" nolabel="1" context="{'form_view_ref':'stock.view_picking_form'}" readonly="1"/>
+                        </page>
+                        <page string="Information Authorization" attrs="{'invisible':[('wizard_auth','=',False)]}">
+                            <separator colspan="4" string="Sale Authorizated by:"/>
+                            <field name="supervisor_id" readonly="1"/>
+                            <field name="date_authorized" string="Date" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="type" invisible="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="sale.view_order_tree" model="ir.ui.view">
+            <field name="name">Lista de Pedidos de Ventas</field>
+            <field name="model">sale.order</field>
+            <field name="type">tree</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Sales Orders" colors="grey:state in ('cancel','expired');blue:state in ('waiting_date','draft', 'manual');red:state in ('invoice_except','shipping_except')">
+                    <field name="shop_id"/>                    
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="date_order"/>
+                    <field name="partner_id"/>
+                    <field name="user_id" />
+                    <field name="segmento_id" />
+                    <field name="salesman_id" />
+                    <field name="amount_untaxed" sum="Total Tax Excluded"/>
+                    <field name="amount_tax" sum="Total Taxes"/>
+                    <field name="amount_total" sum="Total Tax Included"/>
+                    <field name="margin_val" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                    <field name="margin_total_percent" groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager"/>
+                    <field name="picked_rate" widget = "progressbar"/>
+                    <field name="invoiced_rate" widget = "progressbar"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale.view_sales_order_filter" model="ir.ui.view">
+            <field name="name">Búsqueda de Pedidos</field>
+            <field name="model">sale.order</field>
+            <field name="type">search</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search Sales Order">
+                    <filter icon="terp-document-new" string="Quotations" domain="[('state','=','draft')]" help="Sales Order that haven't yet been confirmed"/>
+                    <filter icon="terp-check" string="Progress" domain="[('state','=','progress')]"/>
+                    <filter icon="terp-check" string="Invoiced" domain="[('state','=','done')]"/>
+                    <filter icon="terp-check" string="Expired" domain="[('state','=','expired')]"/>
+                    <filter icon="terp-check" string="UnInvoiced" domain="['|',('invoice_ids','!=',[]),('invoice_ids.state','not in',('open','paid'))]"/>
+                    <field name="user_id" select="1">
+                        <filter domain="[('user_id','=',uid)]" name="mysales" help="My Sale Orders" icon="terp-personal"/>
+                    </field>
+                    <field name="name" select="1"/>
+                    <field name="date_order" select="1" string="Order date"/>
+                    <separator orientation="vertical"/>
+                    <newline/>
+                    <field name="partner_id"/>
+                    <field name="salesman_id"/>
+                    <newline/>
+                    <group expand="0" string="Group By..." colspan="11" col="11" >
+                        <filter string="Shop" icon="terp-personal" domain="[('shop_id.wholesale','=',True)]" context="{'group_by':'shop_id'}"/>
+                        <filter string="Segment" icon="terp-personal" domain="[('segmento_id','!=',1)]" context="{'group_by':'segmento_id'}"/>                        
+                        <filter string="Customer" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="User" icon="terp-personal" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Salesman" icon="terp-personal" domain="[]" context="{'group_by':'salesman_id'}"/>                        
+                        <separator orientation="vertical"/>
+                        <filter string="State" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Order Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_order'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="straconx_action_sale_view_order" model="ir.actions.act_window">
+            <field name="name">New Sale Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sale.view_order_form"/>
+            <field name="context">{'type':'sale_order','search_default_user_id':uid}</field>
+        </record>
+
+        <record id="sale.action_order_form" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+            <field name="context">{'default_mysales':1}</field>
+            <field name="help">Sales Orders help you manage quotations and orders from your customers. OpenERP suggests that you start by creating a quotation. Once it is confirmed, the quotation will be converted into a Sales Order. OpenERP can handle several types of products so that a sales order may trigger tasks, delivery orders, manufacturing orders, purchases and so on. Based on the configuration of the sales order, a draft invoice will be generated so that you just have to confirm it when you want to bill your customer.</field>
+        </record>
+
+        <record model="ir.ui.view" id="sale_crm.sale_view_inherit123">
+            <field name="name">sale.order.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="invoice_quantity" position="after">
+                <field name="section_id" widget="selection" groups="base.group_extended"/>
+                <field name="categ_id" widget="selection" groups="base.group_extended"/>
+                </field>
+            </field>
+        </record>
+
+
+
+<!--         <record id="straconx_action_order_tree" model="ir.actions.act_window"> -->
+<!--             <field name="name">Sales Orders</field> -->
+<!--             <field name="type">ir.actions.act_window</field> -->
+<!--             <field name="res_model">sale.order</field> -->
+<!--             <field name="view_type">form</field> -->
+<!--             <field name="view_mode">tree,form,calendar,graph</field> -->
+<!--             <field name="search_view_id" ref="sale.view_sales_order_filter"/> -->
+<!--             <field name="domain">[('type','=','sale_order'),('is_backorder','!=',1)]</field> -->
+<!--             <field name="context">{'type':'sale_order','search_default_user_id':uid}</field> -->
+<!--             <field name="help">Sales Orders help you manage quotations and orders from your customers. OpenERP suggests that you start by creating a quotation. Once it is confirmed, the quotation will be converted into a Sales Order. OpenERP can handle several types of products so that a sales order may trigger tasks, delivery orders, manufacturing orders, purchases and so on. Based on the configuration of the sales order, a draft invoice will be generated so that you just have to confirm it when you want to bill your customer.</field> -->
+<!--         </record> -->
+
+<!--         <record id="straconx_action_order_tree_1" model="ir.actions.act_window.view"> -->
+<!--             <field eval="1" name="sequence"/> -->
+<!--             <field name="view_mode">tree</field> -->
+<!--             <field name="view_id" ref="straconx_view_order_tree"/> -->
+<!--             <field name="act_window_id" ref="straconx_action_order_tree"/> -->
+<!--         </record> -->
+<!--         <record id="straconx_action_order_form_1" model="ir.actions.act_window.view"> -->
+<!--             <field eval="2" name="sequence"/> -->
+<!--             <field name="view_mode">form</field> -->
+<!--             <field name="view_id" ref="straconx_view_order_form"/> -->
+<!--             <field name="act_window_id" ref="straconx_action_order_tree"/> -->
+<!--         </record> -->
+
+<!--        <act_window-->
+<!--            id="crm.crm_case_categ_phone_create_partner"-->
+<!--            name="Schedule Phone Call"-->
+<!--            res_model="crm.phonecall"-->
+<!--            src_model="sale.order"-->
+<!--            view_mode="form"-->
+<!--            context="{'search_default_partner_id': [partner_id], 'default_duration': 1.0, 'default_partner_id': [partner_id]}"-->
+<!--            />        -->
+<!--            -->
+            
+    </data>
+</openerp>

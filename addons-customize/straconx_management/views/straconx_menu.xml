@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+
+    <menuitem 
+        name="Management " 
+        icon="STOCK_DND" 
+        id="menu_management"
+        sequence="8"
+        groups="base.group_management_manager,base.group_management_user"/>
+      
+    <menuitem 
+        name="Purchase Requisitions" 
+        id="menu_purchase_management" 
+        parent="menu_management"
+        sequence="1"/>
+
+    <menuitem
+        name="New Purchase Requisition"
+        action="straconx_action_purchase_requisition_form"
+        id="menu_purchase_requisition_management_form" 
+        parent="menu_purchase_management"
+        sequence="1"/>
+
+    <menuitem 
+        name="Purchase Requisition"
+        action="straconx_action_purchase_requisition"
+        id="menu_purchase_requisition_management_tree" 
+        parent="menu_purchase_management"
+        sequence="2"/>
+
+    <menuitem 
+        name="Management Purchase " 
+        id="menu_purchase_management_admin" 
+        parent="menu_management"
+        sequence="2"/>
+
+    <menuitem
+        name="New Purchase"
+        id="menu_management_purchase_form_action" 
+        action="straconx_purchase.straconx_purchase_new_form_action" 
+        parent="menu_purchase_management_admin" 
+        sequence="1" />
+
+    <menuitem 
+        name="Purchases"
+        id="straconx_menu__management_purchase_form_action"
+        action="straconx_purchase.straconx_purchase_action"
+        parent="menu_purchase_management_admin"
+        sequence="4" />
+
+    </data>
+</openerp>
+    

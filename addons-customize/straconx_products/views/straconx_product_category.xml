@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="product_category_is_comercial_view_form_inherit">
+			<field name="name">Discount Form</field>
+			<field name="model">product.category</field>
+			<field name="inherit_id"
+				ref="product.product_category_form_view" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="type" position="after">
+					<field name="is_comercial"/>
+				</field>
+				<field name="parent_id" position="replace">
+					<field name="active"/>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>
+

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="product_segmento_discount_view_form">
+			<field name="name">Discount Form</field>
+			<field name="model">res.partner.segmento</field>
+			<field name="inherit_id"
+				ref="straconx_partners.view_info_segmento_form_straconx" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="is_default" position="replace">
+					<field name="discount"/>
+					<field name="is_default"/>
+					<newline/>
+					<group colspan="4" col="2">
+						<separator string="Historical Discounts" colspan="2" />
+						<field name="list_discount_historical" colspan="2" />
+						<field name="list_price_historical_ids" nolabel="1" colspan="2">
+							<form string="Historical Discount">
+								<field name="name" />
+								<field name="discount" />
+								<field name="user_id" />
+							</form>
+							<tree string="Historical Discount">
+								<field name="name" />
+								<field name="discount" />
+								<field name="user_id" />
+							</tree>
+						</field>
+					</group>
+				</field>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="product_category_discount_view_form">
+			<field name="name">Discount Form</field>
+			<field name="model">product.category</field>
+			<field name="inherit_id"
+				ref="product.product_category_form_view" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="type" position="after">
+					<field name="discount"/>
+					<newline/>
+					<group colspan="4" col="2">
+						<separator string="Historical Discounts" colspan="2" />
+						<field name="list_discount_historical" colspan="2" />
+						<field name="list_price_historical_ids" nolabel="1" colspan="2">
+							<form string="Historical Discount">
+								<field name="name" />
+								<field name="discount" />
+								<field name="user_id" />
+							</form>
+							<tree string="Historical Discount">
+								<field name="name" />
+								<field name="discount" />
+								<field name="user_id" />
+							</tree>
+						</field>
+					</group>
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

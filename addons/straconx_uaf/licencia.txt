@@ -1,0 +1,50 @@
+LICENCIA DE USO
+
+OPENERP es una sofware bajo licencia APGL propiedad de Odoo S.A., 
+una empresa constituida en Bélgica.
+
+El presente programa es un módulo que amplía la funcionalidad del software OpenERP S.A. 
+
+Ha sido desarrollado y es propiedad de STRATEGIC CONEXION STRACONX S.A. 
+empresa constituida en la República del Ecuador, que a partir de ahora se la denominará como
+LA FIRMA.
+
+TÉRMINOS Y CONDICIONES GENERALES 
+
+a) La Propiedad Intelectual del módulo licenciado, es única y exclusivamente de LA FIRMA.
+Dicha propiedad intelectual abarca el programa informático, su código fuente y
+la estructura de su base de datos.
+
+b) Se autoriza el uso del presente módulo al propietario de este servidor, al cual se denominará a partir
+de ahora como CLIENTE, mientras mantenga un contrato de prestación de servicios con el propietario del software.
+
+c) Queda expresamente prohibido al CLIENTE la reproducción, transmisión a otro equipo informático, 
+modificación, adaptación, mantenimiento, corrección de errores, cesión, venta, arriendo, préstamo, 
+cesión de uso ni parcial ni total, transmisión del derecho de uso, divulgación y publicación del 
+módulo licenciado, con la lógica excepción del uso por parte de los empleados directos del CLIENTE. 
+En todo aquello que no se haya regulado expresamente en este contrato, las partes se remiten a lo 
+que establece la legislación sobre Propiedad Intelectual.
+
+d) El CLIENTE reconoce que el programa se suministra bajo las especificaciones de LA FIRMA y que el 
+presente acuerdo no le concede ningún derecho sobre otras versiones, ni sobre mejoras o modificaciones del mismo. 
+
+e) La licencia de uso incluye todos los conocimientos necesarios y adicionales al contenido del módulo y
+sus especificaciones técnicas para que éste sea útil al CLIENTE. 
+
+f) La licencia de uso del programa se concede para los SERVIDORES que se encuentran en las instalaciones del CLENTE.
+
+g) Si el CLIENTE apreciase cualquier defecto dentro del plazo de vigencia del contrato de prestación de servicio, 
+comunicará la incidencia a LA FIRMA, que se compromete a corregir y/o reemplazar el módulo hasta que funcione perfectamente. 
+En los casos de manifiesto de uso inadecuado de los servidores donde se aloja el software o como la utilización incorrecta del módulo,
+esta garantía queda sin efecto.
+
+h) Si el CLIENTE tuviese que utilizar otro SERVIDOR, ya sea por sustitución o ampliación del número de SERVIDORES en su negocio, 
+tendrá que comunicar ésta incidencia a la FIRMA y solicitarle permiso, por escrito, para instalar este módulo en el nuevo ordenador.
+
+i) En ningún caso será LA FIRMA el responsable, ante el usuario o terceras partes, de cualquier daño, incluida pérdida de beneficios, 
+pérdida de ahorro o cualquier tipo de perjuicio surgido como consecuencia de su utilización, siendo el uso del programa a riesgo del CLIENTE.
+
+j) En caso de terminación del contrato de prestación de servicios con LA FIRMA, EL CLIENTE deberá eliminar todas las copias que tengan en en sus SERVIDORES.
+
+k) EL uso NO AUTORIZADO del presente módulo que fuera conocido por LA FIRMA, podrá ser perseguido de acuerdo a los parámetros proporcionado por 
+la LEY DE PROPIEDAD INTELECTUAL vigente en la República del Ecuador.

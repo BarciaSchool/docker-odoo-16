@@ -1,0 +1,15 @@
+BZR merge-modified list format 1
+file_id: ats.py-20120313215505-10zb4rawv2v178np-10
+hash: 1ae968349fcc98934a1a72cf19d51e3258988edd
+
+file_id: company_view.xml-20121029182136-a94mkc3le94e0xcu-1
+hash: 0fc9bc9bec54b3dd2d49de1e5b9b8b6b0d5c5c16
+
+file_id: company.py-20121029182136-a94mkc3le94e0xcu-2
+hash: 056786b91b44ffcee05899c53b967c13932f8b7e
+
+file_id: countries.xml-20160112014249-wq1iakt7je7y6s55-2
+hash: b3f3f1dbbea29bc3938ed48c4568996d9d6f2def
+
+file_id: __openerp__.py-20120313215505-10zb4rawv2v178np-5
+hash: d0283b7ebedc622444eb9d16b6499decf284a047

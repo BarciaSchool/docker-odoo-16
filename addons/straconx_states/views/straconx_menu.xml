@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <menuitem 
+            name="Cities" 
+            id="menu_city_partner" 
+            action="action_city" 
+            parent="base.menu_localisation"/>
+        
+        <menuitem 
+            name="Regions" 
+            id="menu_regions_partner" 
+            action="action_regions" 
+            parent="base.menu_localisation"/>                       
+            
+    </data>
+</openerp>

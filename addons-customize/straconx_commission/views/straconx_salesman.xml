@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	
+        <record model="ir.ui.view" id="view_salesman_commission_form_inherit">
+            <field name="name">salesman.commission.inherit</field>
+            <field name="inherit_id" ref="straconx_salesman.view_salesman_form"/>
+            <field name="model">salesman.salesman</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<field name="zone_id" position="after">
+					<field name="table_commission_id" select="1" domain="[('segmento_id.table_ids','=',table_commission_id)]"/>
+				</field>
+            </field>
+        </record>
+    
+    
+    </data>
+</openerp>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<!-- Account Areas -->
+		<record id="administration" model="account.area">
+			<field name="name">Administración</field>
+		</record>
+		<record id="comercial" model="account.area">
+			<field name="name">Comercial</field>
+		</record>
+		<record id="production" model="account.area">
+			<field name="name">Producción</field>
+		</record>
+		<record id="logistics" model="account.area">
+			<field name="name">Logistica</field>
+		</record>
+
+	</data>
+</openerp>

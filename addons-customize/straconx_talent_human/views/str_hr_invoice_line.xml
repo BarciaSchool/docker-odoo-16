@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="straconx_invoice_line_form" model="ir.ui.view">
+            <field name="name">straconx_invoice_line.form</field>
+            <field name="type">form</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_form"/>
+            <field name="arch" type="xml">
+                <field name="price_product" position="before">
+                	<field name="employee_id"/>
+                	<field name="discount_employee" invisible="1"/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

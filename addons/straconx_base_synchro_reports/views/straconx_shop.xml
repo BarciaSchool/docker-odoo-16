@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="straconx_base_synchro.straconx_view_shop_form_base" model="ir.ui.view">
+			<field name="name">Sincronización Tiendas</field>
+			<field name="inherit_id" ref="sale.view_shop_form" />
+			<field name="model">sale.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<page string="Shop Contacts" position="after">
+					<page string="Sincronización">
+						<field name="server_db" required="1" />
+						<field name="server_url" required="1" />
+						<field name="server_port" required="1" />
+						<field name="login" required="1" />
+						<field name="password" password="True" required="1" />
+					</page>
+				</page>
+			</field>
+		</record>
+
+		<record id="straconx_base_synchro.straconx_view_shop_invoice_base" model="ir.ui.view">
+			<field name="name">Resumen de Facturación</field>
+			<field name="model">reports.invoice.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Facturas">
+					<group colspan="8" width="900">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_invoices" string=" Generar Reporte de Ventas" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_invoice_shop_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_invoice_ids" groups="base.group_pos_manager" 
+							required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="straconx_base_synchro.straconx_view_shop_invoice_resumen" model="ir.ui.view">
+			<field name="name">Resumen de Facturas</field>
+			<field name="model">invoice.shop.resumen</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Facturas">
+					<group colspan="8" width="900">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_invoices" string=" Generar Reporte de Ventas" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_invoice_shop_resumen_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_ids"  
+								required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="straconx_base_synchro.invoice_shop_resumen_tree" model="ir.ui.view">
+			<field name="name">Resumen de Facturas</field>
+			<field name="model">invoice.shop.resumen.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Facturas">
+					<field name="shop_id" readonly="1" />
+					<field name="quantity" readonly="1"  sum="Total Documentos" />
+					<field name="amount_untaxed_s" readonly="1" sum="Base Imponible" />
+					<field name="amount_total_vat_s" readonly="1" sum="Impuestos"  />
+					<field name="amount_total_s" readonly="1" sum="Total" />
+					<field name="residual_s" readonly="1" sum="Pendiente" />
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.resumen_invoice_reports_invoice_form" model="ir.actions.act_window">
+			<field name="name">Resumen de Facturas</field>
+			<field name="res_model">invoice.shop.resumen</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+		
+		<record id="straconx_base_synchro.view_invoice_shop_lines_tree" model="ir.ui.view">
+			<field name="name">Resumen de Facturas y N/C</field>
+			<field name="model">reports.invoice.shop.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Facturas">
+					<field name="shop_id" readonly="1" />
+					<field name="quantity" readonly="1"  sum="Total Documentos" />
+					<field name="amount_untaxed_s" readonly="1" sum="Base Imponible" />
+					<field name="amount_total_vat_s" readonly="1" sum="Impuestos"  />
+					<field name="amount_total_s" readonly="1" sum="Total" />
+					<field name="residual_s" readonly="1" sum="Pendiente" />
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.action_invoice_form_reports_invoice" model="ir.actions.act_window">
+			<field name="name">Resumen de Ventas</field>
+			<field name="res_model">reports.invoice.shop</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+
+
+		<record id="straconx_base_synchro.straconx_view_shop_payment_base" model="ir.ui.view">
+			<field name="name">Resumen de Cobros</field>
+			<field name="model">reports.payments.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Cobros"> 
+					<group col="8" colspan="4" width="900">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_payments" string=" Generar Reporte de Cobros" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_payments_shop_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_payments_ids" groups="base.group_pos_manager" 
+							required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="straconx_base_synchro.view_payments_shop_lines_tree" model="ir.ui.view">
+			<field name="name">Resumen de Cobros</field>
+			<field name="model">reports.payments.shop.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Cobros">
+					<field name="shop_id" readonly="1" />
+					<field name="cash" readonly="1" sum="efectivo"/>
+					<field name="credit_card" readonly="1" sum="T/C"/>
+					<field name="day_check" readonly="1" sum="Ch.Dia"/>
+					<field name="date_check" readonly="1" sum="Ch.Fecha"/>
+					<field name="bank_deposit" readonly="1" sum="Depósitos"/>					
+					<field name="credit_notes" readonly="1" sum="N/C"/>					
+					<field name="withholds" readonly="1" sum="Retenciones"/>
+					<field name="employee_discount" readonly="1" sum="Desc.Empl."/>					
+					<field name="others" readonly="1" sum="Otros"/>
+					<field name="total_incomes" readonly="1" sum="Ingresos"/>
+					<field name="cheques" readonly="1" sum="Cheques"/>
+					<field name="expenses" readonly="1" sum="Egresos"/>
+					<field name="petty" readonly="1" sum="Caja Chica"/>
+					<field name="total_expenses" readonly="1" sum="Egresos"/>					
+					<field name="total" readonly="1" sum="Total"/>
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.action_invoice_form_reports_payments" model="ir.actions.act_window">
+			<field name="name">Resumen de Cobros</field>
+			<field name="res_model">reports.payments.shop</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+		
+	<!-- Nuevo -->
+		
+		<record id="straconx_base_synchro.straconx_view_shop_invoice_type" model="ir.ui.view">
+			<field name="name">Resumen de Facturación</field>
+			<field name="model">reports.invoice.shop.type</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Facturas">
+					<group colspan="8" width="900">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_invoices_report" string=" Generar Reporte de Ventas" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_invoice_shop_type_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_invoice_ids" groups="base.group_pos_manager" 
+							required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="straconx_base_synchro.view_invoice_shop_lines_type_tree" model="ir.ui.view">
+			<field name="name">Resumen de Facturas y N/C</field>
+			<field name="model">reports.invoice.shop.line.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Facturas">
+					<field name="shop_id" readonly="1" />
+					<field name="type" readonly="1" />
+					<field name="quantity" readonly="1"  sum="Total Documentos" />
+					<field name="amount_base_vat_00" readonly="1" sum="Base 0" />
+					<field name="amount_base_vat_12" readonly="1" sum="Base 12" />
+					<field name="amount_total_vat_s" readonly="1" sum="Impuestos"  />
+					<field name="amount_total_s" readonly="1" sum="Total" />
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.action_invoice_reports_invoice_type_form" model="ir.actions.act_window">
+			<field name="name">Resumen de Ventas</field>
+			<field name="res_model">reports.invoice.shop.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+	</data>
+</openerp>

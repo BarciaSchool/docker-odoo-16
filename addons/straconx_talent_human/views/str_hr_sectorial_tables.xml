@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+            <record model="ir.ui.view" id="straconx_hr_comission_search">
+                <field name="name">hr.comission.search</field>
+                <field name="model">hr.sectorialcomission</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Sectorial Comission">
+                    <group col='12' colspan='8'>
+                    <filter icon="terp-document-new" name="code" string="Code" domain="[]"  context="{'group_by':'code'}"/>
+                    <filter icon="terp-partner" name="name" string="Name" domain="[]"  context="{'group_by':'name'}"/>
+                    <filter icon="terp-camera_test" name="branch" string="Branch" domain="[]"  context="{'group_by':'branch'}"/>
+                    <separator orientation="vertical"/>
+                    <filter icon="terp-check" name="active" string="Branch" domain="[('active','=',True)]"/>
+                    <separator orientation="vertical"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="branch"/>
+                    <field name="active"/>
+                    </group>
+                    </search>
+                </field>
+            </record>
+            
+            <record model="ir.ui.view" id="straconx_hr_comission_tree">
+                <field name="name">hr.comission.tree</field>
+                <field name="model">hr.sectorialcomission</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Sectorial Comission">
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="branch"/>
+                        <field name="active"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="straconx_hr_comission_form">
+                <field name="name">hr.comission.form</field>
+                <field name="model">hr.sectorialcomission</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Sectorial Comission">
+                        <group col='4' colspan='2'>
+                        <field name="code" colspan='1'/>
+                        <field name="active" colspan='1'/>
+                        <newline/>
+                        <field name="name" colspan='2'/>
+                        <newline/>
+                        <field name="branch" colspan='2'/>
+                        </group>
+                    </form>
+                </field>
+            </record>
+            
+        <record id="straconx_hr_commision_action" model="ir.actions.act_window">
+            <field name="name">Sectorial Comissions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.sectorialcomission</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="straconx_hr_comission_search"/>
+        </record>
+
+        <record id="straconx_hr_commision_action_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="straconx_hr_comission_tree"/>
+            <field name="act_window_id" ref="straconx_hr_commision_action"/>
+        </record>
+        <record id="straconx_hr_commision_action_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="straconx_hr_comission_form"/>
+            <field name="act_window_id" ref="straconx_hr_commision_action"/>
+        </record>
+
+    <!-- Tables -->
+
+        <record model="ir.ui.view" id="straconx_hr_table_search">
+                <field name="name">hr.table.search</field>
+                <field name="model">hr.payslip.tables</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Sectorial Tables">
+                    <group col='12' colspan='8'>
+                    <filter icon="terp-document-new" name="code" string="Code" domain="[]"  context="{'group_by':'code'}"/>
+                    <filter icon="terp-partner" name="name" string="Name" domain="[]"  context="{'group_by':'name'}"/>
+                    <filter icon="terp-camera_test" name="sectorial_comission" string="Sectorial Comission" domain="[]"  context="{'group_by':'sectorial_comission'}"/>
+                    </group>
+                    <separator orientation="vertical"/>
+                    <field name="sectorial_comission"/>
+                    <field name="basic_wages"/>                    
+                    <field name="name"/>
+                    </search>
+                </field>
+            </record>
+            
+            <record model="ir.ui.view" id="straconx_hr_table_tree">
+                <field name="name">hr.table.tree</field>
+                <field name="model">hr.payslip.tables</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree editable="bottom" string="Sectorial table">
+                        <field name="sectorial_comission" colspan="2"/>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="basic_wages"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="straconx_hr_table_form">
+                <field name="name">hr.table.form</field>
+                <field name="model">hr.payslip.tables</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Sectorial table">
+                        <group col='4' colspan='2'>
+                            <field name="sectorial_comission" colspan='2'/>
+                            <newline/>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <newline/>
+                            <field name="basic_wages"/>
+                        </group>
+                    </form>
+                </field>
+            </record>
+            
+        <record id="straconx_hr_table_action" model="ir.actions.act_window">
+            <field name="name">Sectorial tables</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payslip.tables</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="straconx_hr_table_search"/>
+        </record>
+
+        <record id="straconx_hr_table_action_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="straconx_hr_table_tree"/>
+            <field name="act_window_id" ref="straconx_hr_table_action"/>
+        </record>
+        <record id="straconx_hr_table_action_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="straconx_hr_table_form"/>
+            <field name="act_window_id" ref="straconx_hr_table_action"/>
+        </record>
+
+    <!-- Wages Legal Ecuadorian  -->
+
+        <record model="ir.ui.view" id="straconx_hr_legal_search">
+                <field name="name">hr.legal.search</field>
+                <field name="model">hr.legal.wages</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Legals Wages and Provisions">                   
+                    <field name="name"/>
+                    </search>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="straconx_hr_legal_tree">
+                <field name="name">Legals Wages and Provisions</field>
+                <field name="model">hr.legal.wages</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Legals Wages and Provisions" editable="bottom">
+							<field name="name" on_change="onchange_wage(name,basic_wages)" colspan="6"/>
+                            <field name="basic_wages" on_change="onchange_wage(name,basic_wages)" colspan='2'/>
+                        </tree>
+                </field>
+            </record>            
+            <record model="ir.ui.view" id="straconx_hr_legal_form">
+                <field name="name">Legals Wages and Provisions</field>
+                <field name="model">hr.legal.wages</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Legals Wages and Provisions">
+							<group col='8' colspan='4'>
+							<field name="name" on_change="onchange_wage(name,basic_wages)" colspan="4"/>
+							<field name="basic_wages" on_change="onchange_wage(name,basic_wages)" colspan='2'/>
+							</group>
+                        </form>
+                </field>
+            </record>
+            
+        <record id="straconx_hr_legal_action" model="ir.actions.act_window">
+            <field name="name">Legals Wages and Provisions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.legal.wages</field>
+            <field name="view_mode">tree,form</field>            
+            <field name="search_view_id" ref="straconx_hr_legal_search"/>
+        </record>
+
+        <record id="straconx_hr_legal_action_tree" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="straconx_hr_legal_tree"/>
+            <field name="act_window_id" ref="straconx_hr_legal_action"/>
+        </record>
+
+        <record id="straconx_hr_legal_action_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="straconx_hr_legal_form"/>
+            <field name="act_window_id" ref="straconx_hr_legal_action"/>
+        </record>
+
+    </data>
+</openerp>

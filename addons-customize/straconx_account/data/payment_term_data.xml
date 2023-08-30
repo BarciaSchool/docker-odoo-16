@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+    
+    	<record id="account.account_payment_term_0" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;Contado&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Contado&quot;&quot;&quot;" name="note"/>
+			<field eval="True" name='default'/>
+        </record>
+        <record id="account.account_payment_term_line_0" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_0"/>
+            <field eval="&quot;&quot;&quot;Contado&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="0" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_15" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;15 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;15 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_15" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_15"/>
+            <field eval="&quot;&quot;&quot;15 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="15" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_20" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;20 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;20 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_20" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_20"/>
+            <field eval="&quot;&quot;&quot;20 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="20" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_30" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_30" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_30"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="30" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_60" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_60" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_60"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_90" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_90" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_90"/>
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="90" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_120" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_120" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_120"/>
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="120" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_3060" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;30/60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;30/60 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_3060_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_3060"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="30" name="days"/>
+            <field eval="0.5" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_3060_2" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_3060"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_306090" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;30/60/90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;30/60/90 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_306090_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="30" name="days"/>
+            <field eval="0.33" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_306090_2" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+            <field eval="0.33" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_306090_3" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090"/>
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="90" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>    
+    	<record id="account.account_payment_term_4560" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;45/60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;45/60 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_4560_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_4560"/>
+            <field eval="&quot;&quot;&quot;45 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="45" name="days"/>
+            <field eval="0.50" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_4560_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_4560"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+		<field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_120150180" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;120/150/180 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;120/150/180 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_line_120150180_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_120150180"/>
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="120" name="days"/>
+            <field eval="0.33" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_120150180_2" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_120150180"/>
+            <field eval="&quot;&quot;&quot;150 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="150" name="days"/>
+            <field eval="0.33" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_line_120150180_3" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_120150180"/>
+            <field eval="&quot;&quot;&quot;180 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="180" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_306090120" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;30/60/90/120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;30/60/90/120 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_306090120_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="30" name="days"/>
+            <field eval="0.25" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120_2" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+            <field eval="0.25" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120_3" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120"/>
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="90" name="days"/>
+            <field eval="0.25" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120_4" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120"/>
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="120" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+
+        <record id="account.account_payment_term_306090120150180" model="account.payment.term">
+            <field eval="&quot;&quot;&quot;30/60/90/120/150/180 días&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;30/60/90/120/150/180 días&quot;&quot;&quot;" name="note"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_1" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="30" name="days"/>
+            <field eval="0.1666" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_2" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;60 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="60" name="days"/>
+            <field eval="0.1666" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_3" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;90 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="90" name="days"/>
+            <field eval="0.1666" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_4" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;120 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="120" name="days"/>
+            <field eval="0.1666" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_5" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;150 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="150" name="days"/>
+            <field eval="0.1666" name="value_amount"/>
+            <field eval="&quot;&quot;&quot;procent&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record id="account.account_payment_term_306090120150180_6" model="account.payment.term.line">
+            <field name="payment_id" ref="account.account_payment_term_306090120150180"/>
+            <field eval="&quot;&quot;&quot;30 días&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field eval="180" name="days"/>
+            <field eval="&quot;&quot;&quot;balance&quot;&quot;&quot;" name="value"/>
+        </record>
+        <record forcecreate="True" id="property_payment_term" model="ir.property">
+            <field name="name">property_payment_term</field>
+            <field name="fields_id" search="[('model','=','res.partner'),('name','=','property_payment_term')]"/>
+            <field eval="'account.payment.term,'+str(ref('account.account_payment_term_0'))" name="value_reference"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</openerp>

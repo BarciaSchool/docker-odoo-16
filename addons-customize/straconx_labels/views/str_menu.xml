@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id="menu_label_product" parent="base.menu_product" action="action_label_product"/>
+		<menuitem id="menu_label_product" name="Print Products Label" parent="stock.menu_stock_product" action="action_label_product"/>				
+	</data>
+</openerp>
+

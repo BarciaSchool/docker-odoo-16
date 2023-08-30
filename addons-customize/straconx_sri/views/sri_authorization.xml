@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="sri_authorization_company_tree_view">
+			<field name="name">Authorizations List</field>
+			<field name="model">sri.authorization</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Authorization" colors="grey:state==False">
+					<field name="name" />
+					<field name="start_date" />
+					<field name="expiration_date" />
+					<field name="printer_aut" />
+					<field name="type_printer"/>
+					<field name="auto_printer" invisible="1"/>
+					<field name="lines_ids" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="sri_authorization_company_form_view">
+			<field name="name">Authorizations Form</field>
+			<field name="model">sri.authorization</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Authorization">
+					<field name="company_id" required="1" widget="selection" attrs="{'readonly':[('generate_document','=',True)]}" colspan="4"/>
+					<newline/>
+					<field name="name" attrs="{'readonly':[('generate_document','=',True)]}"/>
+					<field name="type_printer" on_change="onchange_type(type_printer,company_id,name)" string="Tipo de Emisión" attrs="{'readonly':[('generate_document','=',True)]}" required="1"/>
+					<newline/>
+					<field name="start_date" on_change="on_change_start_date(start_date)" attrs="{'readonly':[('generate_document','=',True)]}"/>
+					<field name="expiration_date" attrs="{'readonly':[('generate_document','=',True)]}"/>
+					<newline/>
+					<field name="address_id" required="1" attrs="{'readonly':[('generate_document','=',True)]}" string="Imprenta"/>
+					<field name="printer_aut" attrs="{'readonly':[('generate_document','=',True)],'required':[('auto_printer','=',False)],'invisible':[('type_printer','!=','pre')]}" string="Aut. de Imprenta"/>
+					<field name="environment" attrs="{'invisible':[('type_printer','!=','electronic')],'required':[('type_printer','=','electronic')],'readonly':[('generate_document','=',True)]}"/>
+					<field name="type_emision" attrs="{'invisible':[('type_printer','!=','electronic')],'required':[('type_printer','=','electronic')],'readonly':[('generate_document','=',True)]}"/>
+					<newline/>
+					<field name="auto_printer" invisible="1" attrs="{'readonly':[('generate_document','=',True)]}"/>
+					<button icon="gtk-execute" colspan="4" name="%(action_straconx_sri_generate_lines_authorization)d" string="Generar autorizaciones" type="action" attrs="{'invisible':[('state','!=',True)]}"/>
+					<newline/>
+					<field name="generate_document" invisible="1"/>
+					<field name="padding" invisible="1" attrs="{'readonly':[('generate_document','=',True)]}"/>
+					<field name="auto_expired" invisible="1"/>
+					<field name="auth_generate" invisible="1"/>					
+					<field name="state" invisible="1"/>
+					<separator string="Documents authorized" colspan="4"/>
+					<field name="lines_ids" nolabel="1" colspan="4" attrs="{'readonly':[('auto_expired','=',True)]}" context="{'default_auto_printer':auto_printer}">
+						<tree string="Documents authorized" colors="grey:state==False">
+							<field name="name" />
+							<field name="type_printer" required="1"/>
+ 							<field name="auto_printer" invisible="1"/> 
+							<field name="shop_id"/>
+							<field name="printer_id"/>
+							<field name="prefix_shop" invisible="1"/>
+							<field name="prefix_point" invisible="1"/>
+							<field name="starting_number"/>
+							<field name="ending_number"/>
+							<field name="state" />
+							<field name="counter" invisible="1"/>
+							<field name="number_next" groups="base.group_extended"/>
+							<field name="expired" invisible="1"/>
+						</tree>
+						<form string="Documents authorized">
+							<field name="name" on_change="on_change_name(name, shop_id, printer_id, auto_printer,parent.company_id)" attrs="{'readonly':[('generate_document','=',True)]}"/>
+ 							<field name="auto_printer" invisible="1" on_change="onchange_auto_printer(shop_id, auto_printer)"/> 
+							<field name="type_printer" attrs="{'readonly':[('generate_document','=',True)]}" required="1"/>
+							<field name="shop_id" on_change="on_change_shop(shop_id,parent.company_id)" required="1" attrs="{'readonly':[('generate_document','=',True)]}"/>
+							<field name="printer_id" required="1" on_change="on_change_name(name, shop_id, printer_id, auto_printer,parent.company_id)" attrs="{'readonly':[('generate_document','=',True)]}" domain="[('shop_id','=',shop_id)]"/>
+							<field name="prefix_shop" invisible="1"/>
+							<field name="prefix_point" invisible="1"/>
+							<field name="starting_number" required="1" attrs="{'readonly':[('generate_document','=',True)], 'invisible':[('expired','=',True)]}" on_change="onchange_number(starting_number, auto_printer)"/>
+							<field name="ending_number" required="1" attrs="{'readonly':[('generate_document','=',True)],'invisible':['|',('auto_printer','=',True),('expired','=',True)]}"/>
+							<field name="counter" invisible="1"/>
+							<field name="number_next" groups="base.group_extended"/>
+							<field name="expired" invisible="1"/>
+							<field name="generate_document" invisible="1"/>
+						</form>
+					</field>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="sri_authorization_company_search_view">
+			<field name="name">Authorizations Search</field>
+			<field name="model">sri.authorization</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Authorization">
+					<group col="10" colspan="4">
+						<filter string="Active" icon="terp-camera_test" domain="[('state','=',True)]" name="active"/>
+						<filter string="Auto-Printer" icon="terp-folder-orange" domain="[('type_printer','=','auto')]"/>
+						<filter string="Electronic" icon="terp-folder-orange" domain="[('type_printer','=','electronic')]"/>
+						<separator orientation="vertical" />
+						<field name="name" />
+						<field name="start_date" />
+						<field name="expiration_date" />
+						<field name="printer_aut" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="action_view_authorization_company" model="ir.actions.act_window">
+			<field name="name">SRI Authorizations Company</field>
+			<field name="res_model">sri.authorization</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field eval="False" name="view_id" />
+			<field name="domain">[('company_id','!=',False)]</field>
+            <field name="context">{'default_company_id': 1,'search_default_active':1}</field>
+			<field name="search_view_id" ref="sri_authorization_company_search_view" />
+		</record>
+
+		<record id="action_view_authorization_company_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="sri_authorization_company_tree_view" />
+			<field name="act_window_id" ref="action_view_authorization_company" />
+		</record>
+		
+		<record id="action_view_authorization_company_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="sri_authorization_company_form_view" />
+			<field name="act_window_id" ref="action_view_authorization_company" />
+		</record>
+
+	</data>
+</openerp>

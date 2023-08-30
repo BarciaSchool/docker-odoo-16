@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="product.list0" model="product.pricelist">
+			<field name="name">Default Sale Pricelist</field>
+			<field name="type">sale</field>
+			<field name="currency_id" model="res.currency" ref="base.USD" />
+		</record>
+		<record id="purchase.list0" model="product.pricelist">
+			<field name="name">Default Purchase Pricelist</field>
+			<field name="type">purchase</field>
+			<field name="currency_id" model="res.currency" ref="base.USD" />
+		</record>
+
+        <record id="product.list1" model="product.pricelist">
+            <field name="name">Wholesale Prices</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="product.ver1" model="product.pricelist.version">
+            <field name="pricelist_id" ref="product.list1"/>
+            <field name="name">Wholesale Prices Version</field>
+        </record>
+        <record id="product.item1" model="product.pricelist.item">
+            <field name="price_version_id" ref="product.ver1"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="name">Wholesale Prices Version Line</field>
+        </record>
+
+        <record id="product.list2" model="product.pricelist">
+            <field name="name">Second Prices</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="product.ver2" model="product.pricelist.version">
+            <field name="pricelist_id" ref="product.list2"/>
+            <field name="name">Second Prices Version</field>
+        </record>
+        <record id="product.item2" model="product.pricelist.item">
+            <field name="price_version_id" ref="product.ver2"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="name">Second Prices Version Line</field>
+        </record>
+
+        <record id="product.list3" model="product.pricelist">
+            <field name="name">Liquidation Prices</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="product.ver3" model="product.pricelist.version">
+            <field name="pricelist_id" ref="product.list3"/>
+            <field name="name">Liquidation Prices Version</field>
+        </record>
+        <record id="product.item3" model="product.pricelist.item">
+            <field name="price_version_id" ref="product.ver3"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="name">Liquidation Prices Version Line</field>
+        </record>
+
+	</data>
+</openerp>

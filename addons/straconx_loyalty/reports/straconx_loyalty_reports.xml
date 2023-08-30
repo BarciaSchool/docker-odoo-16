@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="reports_loyalty_partner" model="ir.actions.report.xml">
+            <field name="name">Resumen de Promociones</field>
+            <field name="report_name">promociones</field>            
+            <field name="pentaho_filename">straconx_loyalty/reports/straconx_loyalty_partner.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','reports.loyalty.partner')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">reports.loyalty.partner</field>
+        </record>
+    </data>
+</openerp>

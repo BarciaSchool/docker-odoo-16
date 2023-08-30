@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+            
+            <record model="ir.ui.view" id="hr_family_burden_tree_view">
+                <field name="name">hr.family.burden.tree</field>
+                <field name="model">hr.family.burden</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Family Burden">
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="birth_date"/>
+                        <field name="relationship"/>
+                        <field name="age"/>
+                        <field name="bonus"/>
+                        <field name="is_inhab"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="hr_family_burden_form_view">
+                <field name="name">hr.family.burden.form</field>
+                <field name="model">hr.family.burden</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Family Burden">
+                     <group colspan="3" col="6">
+                        <field name="name" colspan="6"/>
+                        <newline/>                        
+                        <field name="last_name" colspan="6"/>
+                        <newline/>
+                        <separator string="Birth Info" colspan="6"/>
+                        <newline/>
+                        <field name="relationship" />
+                        <field name="birth_date" attrs="{'required':[('relationship','=','child')]}"/>
+                        <field name="age"/>
+                        <newline/>
+                        <field name="bonus"/>
+                        <field name="working"/>
+                        <field name="is_inhab"/>                        
+                        <newline/>
+                        <separator string="Aditional Info" colspan="6"/>
+                        <field name="work_place" colspan="6" attrs="{'required':[('working','=',True)]}"/>
+                        <newline/>
+                        <field name="work_address" colspan="6" attrs="{'required':[('working','=',True)]}"/>
+                        <newline/>
+                        <field name="email_personal" widget="email" colspan="6"/>
+                        <newline/>
+                        <field name="work_phone" colspan="3" attrs="{'required':[('working','=',True)]}"/>
+                        <field name="cell_phone" colspan="3"/>
+                     </group>     
+                    </form>
+                </field>
+            </record>
+    </data>
+</openerp>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+ 
+	<record id="solicitud_auth_auto" model="sri.type.transaction">
+		<field name="code">6</field>
+		<field name="name">Solicitud de Autorización (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+	<record id="cambio_soft_auth_auto" model="sri.type.transaction">
+		<field name="code">7</field>
+		<field name="name">Solicitud de Autorización por Cambio de Software (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+	<record id="renov_auth_auto" model="sri.type.transaction">
+		<field name="code">8</field>
+		<field name="name">Renovación de Autorización (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+    <record id="baja_auth_auto" model="sri.type.transaction">
+		<field name="code">9</field>
+		<field name="name">Baja de Autorización (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+	<record id="inclusion_printer_auto" model="sri.type.transaction">
+		<field name="code">10</field>
+		<field name="name">Inclusión de Puntos de Emisión y/o Tipos de Documentos (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+	<record id="eliminacion_printer_auto" model="sri.type.transaction">
+		<field name="code">11</field>
+		<field name="name">Eliminación de Puntos de Emisión y/o Tipos de Documentos (AutoImpresor)</field>
+		<field name="type">auto_printer</field>
+	</record>
+	
+	<record id="solicitud_auth_electronic" model="sri.type.transaction">
+		<field name="code">23</field>
+		<field name="name">Solicitud de Autorización (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+	<record id="cambio_soft_auth_electronic" model="sri.type.transaction">
+		<field name="code">24</field>
+		<field name="name">Solicitud de Autorización por Cambio de Software (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+	<record id="renov_auth_electronic" model="sri.type.transaction">
+		<field name="code">25</field>
+		<field name="name">Renovación de Autorización (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+    <record id="baja_auth_electronic" model="sri.type.transaction">
+		<field name="code">26</field>
+		<field name="name">Baja de Autorización (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+	<record id="inclusion_printer_electronic" model="sri.type.transaction">
+		<field name="code">27</field>
+		<field name="name">Inclusión de Puntos de Emisión y/o Tipos de Documentos (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+	<record id="eliminacion_printer_electronic" model="sri.type.transaction">
+		<field name="code">28</field>
+		<field name="name">Eliminación de Puntos de Emisión y/o Tipos de Documentos (Documentos Electrónicos)</field>
+		<field name="type">document_electronic</field>
+	</record>
+    
+    </data>
+</openerp>

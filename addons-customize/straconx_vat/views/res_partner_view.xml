@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="base_vat.view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+            	<field name="ref" position="replace"/>
+            	<field name="title" position="replace"/>
+            	<field name="lang" position="replace"/>
+            	<field name="property_account_payable" position="after">
+                    <field name="ref"/>
+            		<field name="title"/>
+            		<field name="lang"/>
+                </field>
+                <field name="name" position="after">
+                    <group colspan="2" col="6">
+                        <field name="vat" on_change="vat_change(vat)" required="1"/>
+                        <button name="button_check_vat" string="Check VAT" type="object" icon="gtk-execute"/>
+                        <field name="vat_subjected" colspan="1" groups="base.group_extended" invisible="1"/>
+                    </group>
+                    <newline/>
+                    <field name="type_vat" groups="base.group_extended"/>
+                    <field name="origin" groups="base.group_extended"/>
+                </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

@@ -1,0 +1,229 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_reports_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130313-004937\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-14 15:40+0000\n"
+"PO-Revision-Date: 2013-03-14 15:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+#: field:account.partner.statement,aging:0
+msgid "Aging"
+msgstr "Vencimiento cada"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+msgid "Partner Statement of Account"
+msgstr "Estado de Cuenta de Empresas"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,aging:0
+msgid "Show aging on balances by days or months"
+msgstr "Mostrar vencimientos en días o meses"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,date_from:0
+msgid "Date From"
+msgstr "Fecha de Inicio"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,include:0
+msgid "Include Payment"
+msgstr "Incluir Pagos"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,initial_balance:0
+msgid "Include initial balances"
+msgstr "Incluir Saldo Inicial"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,type_of_report:0
+msgid "Type"
+msgstr "Presentación"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,aging:0
+msgid "Age by Months"
+msgstr "Meses"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,aging:0
+msgid "Age by Days"
+msgstr "Días"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,multicompany:0
+msgid "Consolidated Statement from this and all child companies - requires appropriate access rights"
+msgstr "Estados consolidados para esta Empresas y sus subidiarias."
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,groupdebtor:0
+msgid "If partner is a parent include subsidiaries activity"
+msgstr "Si la empresa es matriz, incluye la actividades de las subsidiarias"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,groupdebtor:0
+msgid "Central Debtor"
+msgstr "Deudor central"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,reconcil:0
+msgid "Consider reconciled entries"
+msgstr "Considerar entradas reconciliadas"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,type_of_report:0
+msgid "Summarized"
+msgstr "Resumido"
+
+#. module: straconx_reports_partner
+#: model:ir.actions.report.xml,name:straconx_reports_partner.customer_statement_details_report_id
+msgid "res.partner.statement.details"
+msgstr "Detalle del Estado de Cuenta"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,multicompany:0
+msgid "Consolidated Statement"
+msgstr "Consolidar Estados"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,target_move:0
+msgid "Target Moves"
+msgstr "Tipo de movimientos"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,reconcil:0
+msgid "Include Reconciled Entries"
+msgstr "Incluir movimientos pagados"
+
+#. module: straconx_reports_partner
+#: model:ir.actions.report.xml,name:straconx_reports_partner.customer_statement_report_id
+msgid "res.partner.statement"
+msgstr "Estado de Cuenta"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,target_move:0
+msgid "All Posted Entries"
+msgstr "Todas las entradas ingresadas (en borrador y aprobadas)"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,months:0
+msgid "Months"
+msgstr "Meses"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,days:0
+msgid "Days"
+msgstr "Días"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+msgid "Report Options"
+msgstr "Opciones de reportes"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,statement_type:0
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,zero_balance:0
+msgid "Include Zero balances"
+msgstr "Incluir saldos en 0"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,type_of_report:0
+msgid "Show type of report selected by user"
+msgstr "Mostrar tipo de reporte seleccionado por usuario"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,result_selection:0
+msgid "Receivable Accounts"
+msgstr "Cuentas Cobrables"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,result_selection:0
+msgid "Payable Accounts"
+msgstr "Cuentas Pagables"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,statement_type:0
+msgid "Statement Type"
+msgstr "Estados"
+
+#. module: straconx_reports_partner
+#: model:ir.actions.act_window,name:straconx_reports_partner.action_partner_statement_view
+msgid "Partner Statement"
+msgstr "Empresas"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,period_from:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_reports_partner
+#: model:ir.model,name:straconx_reports_partner.model_account_partner_statement
+#: model:ir.ui.menu,name:straconx_reports_partner.menu_partner_account_statement
+msgid "Statement of Account"
+msgstr "Estado de Cuenta de Clientes"
+
+#. module: straconx_reports_partner
+#: field:account.partner.statement,result_selection:0
+msgid "Partner Types"
+msgstr "Tipo de cuentas"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,statement_type:0
+msgid "Open Item"
+msgstr "Documentos abiertos"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,result_selection:0
+msgid "Receivable and Payable Accounts"
+msgstr "Cuentas cobrables y pagables"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_reports_partner
+#: view:account.partner.statement:0
+#: field:account.partner.statement,partners:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_reports_partner
+#: help:account.partner.statement,initial_balance:0
+msgid "It adds initial balance row on report which display previous sum amount of debit/credit/balance"
+msgstr "Añade la línea de balance inicial en el reporte"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,target_move:0
+msgid "All Entries"
+msgstr "Todas las entradas"
+
+#. module: straconx_reports_partner
+#: selection:account.partner.statement,type_of_report:0
+msgid "Details"
+msgstr "Detalles"

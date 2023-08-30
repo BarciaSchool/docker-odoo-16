@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="res_user_salesman_form_view">
+			<field name="name">res.users.form</field>
+			<field name="model">res.users</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="base.view_users_form" />
+			<field name="arch" type="xml">
+				<page string="User" position="after">
+					<page string="User Profile">
+						<separator string="Comercial" colspan="4" />
+						<group colspan="3" col="6">
+							<field name="is_seller" />
+							<field name="is_buyer" />
+							<field name="is_collector" />
+						</group>
+						<newline />
+						<separator string="Management" colspan="4" />
+						<group colspan="4" col="6">
+							<field name="is_manager" />
+							<field name="is_supervisor" />
+						</group>
+						<newline />
+						<separator string="Logistics" colspan="4" />
+						<group colspan="4" col="6">
+							<field name="is_warehouse_user" />
+							<field name="is_driver" />
+						</group>
+					</page>
+				</page>
+			</field>
+		</record>
+
+	</data>
+</openerp>

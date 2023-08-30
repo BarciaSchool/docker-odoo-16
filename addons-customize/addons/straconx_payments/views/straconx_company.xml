@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_company_inherit_settings_account">
+			<field name="name">res.company.form.inherit</field>
+			<field name="inherit_id"
+				ref="straconx_debit_notes.view_company_inherit_settings_account" />
+			<field name="model">res.company</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="property_account_advance_supplier" position="after">
+					<group colspan="4">
+						<separator string="Configurar Cuentas e Impuestos Predeterminados"
+							colspan="4" />							
+						<field name="partner_id_taxes" required="0" />
+						<newline/>
+						<field name="property_tax_payment_isd" required="0" />
+						<newline/>
+						<field name="property_tax_position_partners" required="0" />
+						<newline/>
+						<field name="property_tax_vat_product_00" required="0" />
+						<newline/>
+						<field name="property_tax_vat_product_12" required="0" />
+						<newline/>
+						<field name="property_tax_withhold_product" required="0" />
+						<newline/>
+						<field name="property_account_customer_withhold" required="0" />
+						<newline/>
+						<field name="property_tax_withhold_vat_product" required="0" />
+						<newline/>
+						<field name="property_account_customer_withhold_vat" required="0" />						
+						<newline />
+						<separator string="Settings Commission Credit card"
+							colspan="4" />
+						<field name="property_account_commission_credit_card" />
+					</group>
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_unlink,perm_write,perm_create
+account_manager_model_sri_type_transaction,model_sri_type_transaction,straconx_sri_requirements.model_sri_type_transaction,account.group_account_manager,1,1,1,1
+account_manager_model_sri_generate_xml,model_sri_generate_xml,straconx_sri_requirements.model_sri_generate_xml,account.group_account_manager,1,1,1,1

@@ -1,0 +1,350 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="0">
+    
+        <!--Email Sender -->    
+        <record id="straconx_sri_electronic_invoice.electronic_sender" model="ir.mail_server">
+            <field name="name">email_electronic</field>
+            <field name="smtp_host">localhost</field>
+            <field eval="25" name="smtp_port"/>
+            <field eval="10" name="sequence"/>
+            <field name="smtp_encryption">ssl</field>
+            <field name="smtp_user">ei@localhost</field>
+            <field name="smtp_pass">sinpassword</field>
+	    </record>
+    
+        <!--Email template -->
+        <record id="straconx_sri_electronic_invoice.email_electronic_invoice" model="email.template">
+            <field name="name">Factura Electrónica</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Factura Electrónica ${object.invoice_number}</field>
+			<field name="email_to">${object.address_invoice_id.email}</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="report_template" ref="straconx_invoice.electronic_invoice_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="subtype">html</field>
+            <field name="mail_server_id" ref="straconx_sri_electronic_invoice.electronic_sender"/>
+            <field name="body_html"><![CDATA[
+
+    <div style="margin: 0px; padding: 0px; background-color: ${object.company_id.color_head}; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+            <img src="${object.company_id.image_email}" alt="${object.company_id.name}" style="width: 239px;height:98px;" />
+            <br/>
+    </div>
+
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2">
+    <p>Saludos:</p>
+    
+    <p>Estimado(a) ${object.partner_id.name}</p>
+      
+    <p>Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.</p>
+    <p>Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:</p>        
+    <br/>
+    <p>Tipo de Documento: FACTURA</p>
+    <p>Número: ${object.invoice_number}</p>
+    <p>Fecha:  ${object.date_invoice}</p>
+    <p>Clave de Acceso: ${object.access_key}</p> 
+    <p>Autorización: ${object.sri_authorization}</p>
+    <p>Valor Total: ${object.amount_total}</p>
+    <br/>
+
+    <p>En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}</p>
+    
+    <br/>
+	<p>Atentamente,</p>
+    <br/>
+    <p>${object.company_id.name}</p>
+    </div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos:
+    
+    Estimado(a) ${object.partner_id.name}
+      
+    Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.
+    Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:        
+    
+    Tipo de Documento: FACTURA
+    Número: ${object.invoice_number}
+    Fecha:  ${object.date_invoice}
+    Clave de Acceso: ${object.authorization} 
+    Autorización: ${object.sri_authorization}
+    Valor Total: ${object.amount_total}
+   
+    En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}
+    
+    Atentamente,
+    
+    ${object.company_id.name}    
+            ]]></field>
+        </record>
+
+
+        <record id="straconx_sri_electronic_invoice.email_electronic_delivery" model="email.template">
+            <field name="name">Guía de Remisión Electrónica</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Guía de Remisión ${object.number}</field>
+			<field name="email_to">${object.picking_id.address_id.email}</field>
+            <field name="model_id" ref="straconx_logistics.model_stock_delivery"/>
+            <field name="report_template" ref="straconx_logistics.electronic_delivery_guide_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="subtype">html</field>
+            <field name="mail_server_id" ref="straconx_sri_electronic_invoice.electronic_sender"/>
+            <field name="body_html"><![CDATA[
+
+    <div style="margin: 0px; padding: 0px; background-color: ${object.company_id.color_head}; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+            <img src="${object.company_id.image_email}" alt="${object.company_id.name}" style="width: 239px;height:98px;" />
+            <br/>
+    </div>
+
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2">
+    <p>Saludos:</p>
+    
+    <p>Estimado(a) ${object.picking_id.partner_id.name}</p>
+      
+    <p>Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.</p>
+    <p>Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:</p>        
+    <br/>
+    <p>Tipo de Documento: GUIA DE REMISION</p>
+    <p>Número: ${object.number}</p>
+    <p>Fecha:  ${object.date}</p>
+    <p>Autorización: ${object.sri_authorization}</p>
+    <p>Clave de Acceso: ${object.access_key}</p> 
+    <br/>
+
+    <p>En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}</p>
+    
+    <p>Gracias por su preferencia.</p>
+    <br/>
+	<p>Atentamente,</p>
+    <br/>
+    <p>${object.company_id.name}</p>
+    </div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos:
+    
+    Estimado(a) ${object.partner_id.name}
+      
+    Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.
+    Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:        
+    
+    Tipo de Documento: GUIA DE REMISION
+    Número: ${object.number}
+    Fecha:  ${object.date}
+    Autorización: ${object.sri_authorization}
+    Clave de Acceso: ${object.access_key} 
+    
+    En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}
+
+    Gracias por su preferencia.
+    
+    Atentamente,
+    
+    ${object.company_id.name}    
+            ]]></field>
+        </record>
+
+        <record id="straconx_sri_electronic_invoice.email_electronic_withhold" model="email.template">
+            <field name="name">Retención Electrónica</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Retención ${object.number}</field>
+			<field name="email_to">${object.address_id.email}</field>
+            <field name="model_id" ref="straconx_withhold.model_account_withhold"/>
+            <field name="report_template" ref="straconx_withhold.electronic_withhold"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="subtype">html</field>
+            <field name="mail_server_id" ref="straconx_sri_electronic_invoice.electronic_sender"/>
+            <field name="body_html"><![CDATA[
+
+    <div style="margin: 0px; padding: 0px; background-color: ${object.company_id.color_head}; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+            <img src="${object.company_id.image_email}" alt="${object.company_id.name}" style="width: 239px;height:98px;" />
+            <br/>
+    </div>
+
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2">
+    <p>Saludos:</p>
+    
+    <p>Estimado(a) ${object.partner_id.name}</p>
+      
+    <p>Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.</p>
+    <p>Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:</p>        
+    <br/>
+    <p>Tipo de Documento: RETENCION</p>
+    <p>Número: ${object.number}</p>
+    <p>Fecha:  ${object.date}</p>
+    <p>Autorización: ${object.sri_authorization}</p>
+    <p>Clave de Acceso: ${object.access_key}</p>
+    <p>Total: ${object.total}</p> 
+    <br/>
+	
+    <p>En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}</p>
+    
+    <p>Gracias por su preferencia.</p>
+    <br/>
+	<p>Atentamente,</p>
+    <br/>
+    <p>${object.company_id.name}</p>
+    </div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos:
+    
+    Estimado(a) ${object.partner_id.name}
+      
+    Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.
+    Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:        
+    
+    Tipo de Documento: RETENCION
+    Número: ${object.number}
+    Fecha:  ${object.date}
+    Autorización: ${object.sri_authorization}
+    Clave de Acceso: ${object.access_key} 
+    Total: ${object.total}
+    
+    En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}
+
+    Gracias por su preferencia.
+    
+    Atentamente,
+    
+    ${object.company_id.name}    
+            ]]></field>
+        </record>
+
+
+        <record id="straconx_sri_electronic_invoice.email_electronic_credit_note" model="email.template">
+            <field name="name">Nota de Crédito Electrónica</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Nota de Crédito Electrónica ${object.invoice_number}</field>
+			<field name="email_to">${object.address_invoice_id.email}</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="report_template" ref="straconx_invoice.electronic_credit_note_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="subtype">html</field>
+            <field name="mail_server_id" ref="straconx_sri_electronic_invoice.electronic_sender"/>
+            <field name="body_html"><![CDATA[
+
+    <div style="margin: 0px; padding: 0px; background-color: ${object.company_id.color_head}; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+            <img src="${object.company_id.image_email}" alt="${object.company_id.name}" style="width: 239px;height:98px;" />
+            <br/>
+    </div>
+
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2">
+    <p>Saludos:</p>
+    
+    <p>Estimado(a) ${object.partner_id.name}</p>
+      
+    <p>Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.</p>
+    <p>Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:</p>        
+    <br/>
+    <p>Tipo de Documento: NOTA DE CREDITO</p>
+    <p>Número: ${object.invoice_number}</p>
+    <p>Fecha:  ${object.date_invoice}</p>
+    <p>Clave de Acceso: ${object.access_key}</p> 
+    <p>Autorización: ${object.sri_authorization}</p>
+    <p>Valor Total: ${object.amount_total}</p>
+    <br/>
+	
+    <p>En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}</p>
+    
+    <p>Gracias por su preferencia.</p>
+    <br/>
+	<p>Atentamente,</p>
+    <br/>
+    <p>${object.company_id.name}</p>
+    </div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos:
+    
+    Estimado(a) ${object.partner_id.name}
+      
+    Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.
+    Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:        
+    
+    Tipo de Documento: NOTA DE CREDITO
+    Número: ${object.invoice_number}
+    Fecha:  ${object.date_invoice}
+    Clave de Acceso: ${object.authorization} 
+    Autorización: ${object.sri_authorization}
+    Valor Total: ${object.amount_total}
+    	
+    En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}
+
+    Gracias por su preferencia.
+    
+    Atentamente,
+    
+    ${object.company_id.name}    
+            ]]></field>
+        </record>
+
+        <record id="straconx_sri_electronic_invoice.email_electronic_debit_note" model="email.template">
+            <field name="name">Nota de Débito Electrónica</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Nota de Débito Electrónica ${object.invoice_number}</field>
+			<field name="email_to">${object.address_invoice_id.email}</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="report_template" ref="straconx_invoice.electronic_debit_note_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="subtype">html</field>
+            <field name="mail_server_id" ref="straconx_sri_electronic_invoice.electronic_sender"/>
+            <field name="body_html"><![CDATA[
+
+    <div style="margin: 0px; padding: 0px; background-color: ${object.company_id.color_head}; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+            <img src="${object.company_id.image_email}" alt="${object.company_id.name}" style="width: 239px;height:98px;" />
+            <br/>
+    </div>
+
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2">
+    <p>Saludos:</p>
+    
+    <p>Estimado(a) ${object.partner_id.name}</p>
+      
+    <p>Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.</p>
+    <p>Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:</p>        
+    <br/>
+    <p>Tipo de Documento: NOTA DE DEBITO</p>
+    <p>Número: ${object.invoice_number}</p>
+    <p>Fecha:  ${object.date_invoice}</p>
+    <p>Clave de Acceso: ${object.access_key}</p> 
+    <p>Autorización: ${object.sri_authorization}</p>
+    <p>Valor Total: ${object.amount_total}</p>
+    <br/>
+	
+    <p>En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}</p>
+    
+    <p>Gracias por su preferencia.</p>
+    <br/>
+	<p>Atentamente,</p>
+    <br/>
+    <p>${object.company_id.name}</p>
+    </div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos:
+    
+    Estimado(a) ${object.partner_id.name}
+      
+    Según el registro oficial No. 956, los sujetos pasivos, deberán emitir facturas, comprobantes de retención, guías de remisión, notas de crédito y notas de débito a través de mensajes de datos y firmados electrónicamente.
+    Cumpliendo con el artículo 2 de la Resolución No. NAC-DGERCGC12-00105 adjuntamos el siguiente documento electrónico:        
+    
+    Tipo de Documento: NOTA DE DEBITO
+    Número: ${object.invoice_number}
+    Fecha:  ${object.date_invoice}
+    Clave de Acceso: ${object.authorization} 
+    Autorización: ${object.sri_authorization}
+    Valor Total: ${object.amount_total}
+
+    En caso de cualquier inquietud, comunicarse al ${object.company_id.phone} o al correo electrónico ${object.company_id.email}
+
+    Gracias por su preferencia.
+    
+    Atentamente,
+    
+    ${object.company_id.name}    
+            ]]></field>
+        </record>
+
+    </data>    
+</openerp>

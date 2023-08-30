@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="area_form">
+			<field name="name">Areas</field>
+			<field name="model">account.area</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Area">
+					<field name="name" />
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="area_tree">
+			<field name="name">Areas</field>
+			<field name="model">account.area</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Area">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="area_search">
+			<field name="name">Areas</field>
+			<field name="model">account.area</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Area">
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_area_view">
+			<field name="name">Area</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.area</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="area_search" />
+		</record>
+
+
+
+	</data>
+</openerp>

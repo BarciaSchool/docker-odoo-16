@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!--  	Cron for Expired Orders -->
+        <record model="ir.cron" id="ir_cron_expired_order">
+            <field name="name">Sale Order: Expired Orders</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'sale.order'"/>
+            <field name="function" eval="'expired_process_all'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+    
+    </data>
+</openerp>

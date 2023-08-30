@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="reconcile_debit_search" model="ir.ui.view">
+			<field name="name">Pago Notas de Débito</field>
+			<field name="model">straconx.debit.reconcile</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Pago Notas de Débito">
+					<filter string="N/Debito" domain="[('type','=','debit_note')]" icon="terp-partner" name="debit_note"/>
+					<filter string="N/Crédito" domain="[('type','=','credit_note')]" icon="terp-partner" name="credit_note"/>
+					<filter string="Depósito" domain="[('type','=','deposit')]" icon="terp-partner" name="deposit"/>
+					<separator orientation="vertical" />
+					<field name="process_date"/>
+					<field name="account_id" />
+					<field name="bank_account_id" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="reconcile_debit_tree_view">
+			<field name="name">Pago Notas de Débito</field>
+			<field name="model">straconx.debit.reconcile</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Pago Notas de Débito">
+					<field name="name" />
+					<field name="shop_id" />
+					<field name="process_date" />
+					<field name="amount" sum="Total"/>
+					<field name="type" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="reconcile_debit_form_view">
+			<field name="name">Pago Notas de Débito</field>
+			<field name="model">straconx.debit.reconcile</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Pago Notas de Débito">
+					<field name="company_id" readonly="1"/>
+					<field name="shop_id" />
+					<field name="process_date"/>
+					<field name="name"/>
+					<field name="account_id" />					
+					<field name="type" />
+					<field name="bank_account_id" />
+					<field name="amount" />
+					<field name="state" />
+					<field name="move_id" />
+					<button name="approve_reconcile" string="Aprobar" states="draft,cashed" icon="gtk-execute" type="object"/>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_reconcile_debit_view">
+			<field name="name">Pago Notas de Débito</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">straconx.debit.reconcile</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="reconcile_debit_search" />
+			<field name="view_id" eval="False" />
+			<field name="domain">[]</field>
+		</record>
+		
+		<record id="action_reconcile_debit_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="reconcile_debit_tree_view" />
+			<field name="act_window_id" ref="action_reconcile_debit_view" />
+		</record>
+		
+		<record id="action_reconcile_debit_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="reconcile_debit_form_view" />
+			<field name="act_window_id" ref="action_reconcile_debit_view" />
+		</record>		
+	</data>
+</openerp>	

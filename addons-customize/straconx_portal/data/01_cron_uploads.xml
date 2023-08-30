@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="0">
+		<record id="straconx_bh.base_synchro_server_data" model="base.synchro.server">
+			<field name="name">Información de Facturas, Pickings y Pagos</field>
+			<field name="server_url">192.168.10.120</field>
+			<field name="server_db">bh_server_01</field>
+			<field name="server_port">5432</field>
+			<field name="active">True</field>
+			<field name="login">postgres</field>
+			<field name="password">straconX260706</field>
+		</record>		
+		<record id='straconx_bh.base_sync_model_account_invoice' model='base.synchro.obj'>
+			<field name='model_id'>account_invoice</field>
+			<field name='name'>account_invoice</field>
+			<field name='sequence'>35</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_invoice_line' model='base.synchro.obj'>
+			<field name='model_id'>account_invoice_line</field>
+			<field name='name'>account_invoice_line</field>
+			<field name='sequence'>36</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_stock_picking' model='base.synchro.obj'>
+			<field name='model_id'>stock_picking</field>
+			<field name='name'>stock_picking</field>
+			<field name='sequence'>37</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_product_ubication' model='base.synchro.obj'>
+			<field name='model_id'>product_ubication</field>
+			<field name='name'>product_ubication</field>
+			<field name='sequence'>42</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='False' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_payments' model='base.synchro.obj'>
+			<field name='model_id'>account_payments</field>
+			<field name='name'>account_payments</field>
+			<field name='sequence'>43</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_bank_statement' model='base.synchro.obj'>
+			<field name='model_id'>account_bank_statement</field>
+			<field name='name'>account_bank_statement</field>
+			<field name='sequence'>39</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_bank_statement_line' model='base.synchro.obj'>
+			<field name='model_id'>account_bank_statement_line</field>
+			<field name='name'>account_bank_statement_line</field>
+			<field name='sequence'>40</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_account_total_line' model='base.synchro.obj'>
+			<field name='model_id'>account_total_line</field>
+			<field name='name'>account_total_line</field>
+			<field name='sequence'>40</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_deposit_register' model='base.synchro.obj'>
+			<field name='model_id'>deposit_register</field>
+			<field name='name'>deposit_register</field>
+			<field name='sequence'>40</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>						
+		<record id='straconx_bh.base_sync_model_account_voucher' model='base.synchro.obj'>
+			<field name='model_id'>account_voucher</field>
+			<field name='name'>account_voucher</field>
+			<field name='sequence'>41</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_voucher_line' model='base.synchro.obj'>
+			<field name='model_id'>account_voucher_line</field>
+			<field name='name'>account_voucher_line</field>
+			<field name='sequence'>42</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_move' model='base.synchro.obj'>
+			<field name='model_id'>account_move</field>
+			<field name='name'>account_move</field>
+			<field name='sequence'>44</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_move_line' model='base.synchro.obj'>
+			<field name='model_id'>account_move_line</field>
+			<field name='name'>account_move_line</field>
+			<field name='sequence'>45</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_account_move_reconcile' model='base.synchro.obj'>
+			<field name='model_id'>account_move_reconcile</field>
+			<field name='name'>account_move_reconcile</field>
+			<field name='sequence'>46</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_ir_attachment' model='base.synchro.obj'>
+			<field name='model_id'>ir_attachment</field>
+			<field name='name'>ir_attachment</field>
+			<field name='sequence'>30</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_stock_delivery' model='base.synchro.obj'>
+			<field name='model_id'>stock_delivery</field>
+			<field name='name'>stock_delivery</field>
+			<field name='sequence'>49</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_account_debit_note' model='base.synchro.obj'>
+			<field name='model_id'>account_debit_note</field>
+			<field name='name'>account_debit_note</field>
+			<field name='sequence'>50</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_account_debit_note_line' model='base.synchro.obj'>
+			<field name='model_id'>account_debit_note_line</field>
+			<field name='name'>account_debit_note_line</field>
+			<field name='sequence'>51</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_res_partner' model='base.synchro.obj'>
+			<field name='model_id'>res_partner</field>
+			<field name='name'>res_partner</field>
+			<field name='sequence'>29</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_res_partner_address' model='base.synchro.obj'>
+			<field name='model_id'>res_partner_address</field>
+			<field name='name'>res_partner_address</field>
+			<field name='sequence'>30</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_res_bank' model='base.synchro.obj'>
+			<field name='model_id'>res_partner_bank</field>
+			<field name='name'>res_partner_bank</field>
+			<field name='sequence'>31</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>		
+		<record id='straconx_bh.base_sync_model_res_bank_emisor' model='base.synchro.obj'>
+			<field name='model_id'>res_bank_emisor</field>
+			<field name='name'>res_bank_emisor</field>
+			<field name='sequence'>32</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_res_partner_bank_type' model='base.synchro.obj'>
+			<field name='model_id'>res_partner_bank_type</field>
+			<field name='name'>res_partner_bank_type</field>
+			<field name='sequence'>33</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_res_partner_bank_type_field' model='base.synchro.obj'>
+			<field name='model_id'>res_partner_bank_type_field</field>
+			<field name='name'>res_partner_bank_type_field</field>
+			<field name='sequence'>34</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_product_category' model='base.synchro.obj'>
+			<field name='model_id'>product_category</field>
+			<field name='name'>product_category</field>
+			<field name='sequence'>53</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>				
+		<record id='straconx_bh.base_sync_model_product_clasification' model='base.synchro.obj'>
+			<field name='model_id'>product_clasification</field>
+			<field name='name'>product_clasification</field>
+			<field name='sequence'>54</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_product_template' model='base.synchro.obj'>
+			<field name='model_id'>product_template</field>
+			<field name='name'>product_template</field>
+			<field name='sequence'>55</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_product_product' model='base.synchro.obj'>
+			<field name='model_id'>product_product</field>
+			<field name='name'>product_product</field>
+			<field name='sequence'>56</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		<record id='straconx_bh.base_sync_model_product_images' model='base.synchro.obj'>
+			<field name='model_id'>product_images</field>
+			<field name='name'>product_images</field>
+			<field name='sequence'>57</field>
+			<field name='server_id' ref='straconx_bh.base_synchro_server_data' />
+			<field name='action'>d</field>
+			<field name='active' eval='True' />
+		</record>
+		
+		<!-- Create for synchronize servers -->
+		<record forcecreate="True" id="straconx_bh.ir_cron_synchronize_server" model="ir.cron">
+			<field name="name">Sincronización de Facturas, Pickings, Pagos y Movimientos</field>
+			<field eval="True" name="active" />
+			<field name="user_id" ref="base.user_root" />
+			<field name="interval_number">10</field>
+			<field name="interval_type">minutes</field>
+			<field name="numbercall">-1</field>
+			<field eval="False" name="doall" />
+			<field name="priority">4</field>
+			<field eval="'base.synchro.server'" name="model" />
+			<field eval="'write_sql_servers'" name="function" />
+			<field name="args" eval="[[ref('straconx_bh.base_synchro_server_data')]]"/>
+		</record>
+
+
+	</data>
+</openerp>

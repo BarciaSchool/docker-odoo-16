@@ -1,0 +1,750 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* straconx_reports_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-12 07:47+0000\n"
+"PO-Revision-Date: 2015-08-12 02:47-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:412
+#, python-format
+msgid "You can not remove an account containing journal items."
+msgstr "No se puede eliminar cuentas que contengan movimientos en sus diarios."
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,type:0
+msgid "Tipo"
+msgstr "Tipo"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,move_id:0
+msgid "Movimiento"
+msgstr "Movimiento"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,initial_balance:0
+msgid "Show initial balances"
+msgstr "Mostrar Saldos Iniciales"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Search Invoice"
+msgstr "Buscar Factura"
+
+#. module: straconx_reports_account
+#: help:accounting.financial.reports,debit_credit:0
+msgid ""
+"This option allow you to get more details about your the way your balances "
+"are computed. Because it is space consumming, we do not allow to use it "
+"while doing a comparison"
+msgstr ""
+"Esta opción permite mostrar un mayor detalle sobre la forma como muestra su balances "
+"son calculados. Por el espacio consumido, no debería ser utilizado "
+"cuando se realiza una balance comparativo."
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:410
+#, python-format
+msgid "You can not desactivate an account that contains some journal items."
+msgstr "No puede desactivar una cuenta que contiene movimientos"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,company_id:0
+#: field:accounting.financial.reports,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Proforma/Open/Paid Invoices"
+msgstr "Facturas en estado Proforma/Abierta/Pagada"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Other Filters"
+msgstr "Otros Filtros"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,journal_ids:0
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,move_state:0
+msgid "Both"
+msgstr "Ambos"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,account_list:0
+msgid "Account"
+msgstr "Cuenta Contable"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,level:0
+msgid "Level"
+msgstr "Nivel"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Select Date or Period for Ledgers"
+msgstr "Seleccionar Fecha o Períodos para Mayores"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "base_00"
+msgstr "base_00"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "invoice_total"
+msgstr "Total Factura"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:294
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:299
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:316
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:102
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:155
+#, python-format
+msgid "¡Aviso!"
+msgstr "¡Aviso!"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,state:0
+msgid "By Date"
+msgstr "Por fecha"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_ledger_report_xls_id
+msgid "Exportar Mayores"
+msgstr "Exportar Mayores"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "untaxed"
+msgstr "Sin impuestos"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:417
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:436
+#, python-format
+msgid "Warning !"
+msgstr "¡Precaución!"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "VAT"
+msgstr "Identificación"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,period_from:0
+msgid "Start period"
+msgstr "Período Inicial"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0 view:account.ledger.statement.lines:0
+msgid "Línea de Movimiento"
+msgstr "Línea de Movimiento"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:417
+#, python-format
+msgid ""
+"You can not remove/desactivate an account which is set on a customer or "
+"supplier."
+msgstr ""
+"No se puede desactivar / borrar una cuenta que se encuentra configurada"
+"en un cliente o proveedor"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,period_to:0
+msgid "End period"
+msgstr "Período Final"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_reports_account
+#: help:accounting.financial.reports,chart_account_id:0
+msgid "Select Charts of Accounts"
+msgstr "Seleccione un Plan de Cuentas"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,filter:0
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,state:0
+msgid "Select"
+msgstr "Selección por"
+
+#. module: straconx_reports_account
+#: model:ir.model,name:straconx_reports_account.model_account_ledger_statement_lines
+msgid "account.ledger.statement.lines"
+msgstr "Líneas de Mayores"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "base_12"
+msgstr "Base 12%"
+
+#. module: straconx_reports_account
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_balance_report_id
+msgid "Imprimir Estado Financiero"
+msgstr "Imprimir Estado Financiero"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Buscar Movimientos"
+msgstr "Buscar Movimientos"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,date_from:0
+msgid "Start date"
+msgstr "Fecha Inicial"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,code:0
+msgid "Código"
+msgstr "Código"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Filter on Periods"
+msgstr "Filtros por Períodos"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:410
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:412
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Tax Documents"
+msgstr "Documentos Tributarios"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,display_account:0
+msgid "With balance is not equal to 0"
+msgstr "Con Balance diferente de 0"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,move_lines:0
+msgid "Movimientos"
+msgstr "Movimientos"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:102
+#, python-format
+msgid "La cuenta %s - %s no tiene subcuentas"
+msgstr "La cuenta %s - %s no tiene subcuentas"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Tax Sustent"
+msgstr "Sustento tributario"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,move_balance_lines:0
+msgid "Movimientos Contables"
+msgstr "Movimientos Contables"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Purchase Type"
+msgstr "Tipo de Compra"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0 view:account.ledger.statement.lines:0
+msgid "Total Débitos"
+msgstr "Total Débitos"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:299
+#, python-format
+msgid ""
+"No opening/closing period defined, please create one to set the initial "
+"balance!"
+msgstr ""
+"No existe períodos de apertura / cierre, por favor crear uno para configurar"
+"el saldo inicial!"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_ledger_report_id
+msgid "Imprimir Mayores"
+msgstr "Imprimir Mayores"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,period_to:0
+msgid "End Period"
+msgstr "Período Final"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,credit:0
+#: field:accounting.financial.reports.lines,credit:0
+msgid "Crédito"
+msgstr "Crédito"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,only_data:0
+msgid "Cuentas con Movimientos"
+msgstr "Cuentas con Movimientos"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,account_type:0
+msgid "Tipo de Cuenta"
+msgstr "Tipo de Cuenta"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,account_id:0
+msgid "Cuenta Contable"
+msgstr "Cuenta Contable"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,display_account:0
+msgid "With movements"
+msgstr "Con movimientos"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "total_vat"
+msgstr "Total Impuestos"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:316
+#, python-format
+msgid "Unable to adapt the initial balance (negative value)!"
+msgstr "Imposible adaptar el balance inicial (valores negativos)!"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0 view:account.ledger.statement.lines:0
+msgid "Total Créditos"
+msgstr "Total Créditos"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,display_account:0
+msgid "Display accounts"
+msgstr "Mostrar cuentas con"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,date_from:0
+msgid "Start Date"
+msgstr "Fecha Inicial"
+
+#. module: straconx_reports_account
+#: model:ir.model,name:straconx_reports_account.model_accounting_financial_reports
+msgid "accounting.financial.reports"
+msgstr "Reportes Financieros"
+
+#. module: straconx_reports_account
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_account_purchase_id
+msgid "Compras por Período"
+msgstr "Compras por Período"
+
+#. module: straconx_reports_account
+#: selection:accounting.financial.reports,target_move:0
+msgid "All Entries"
+msgstr "Todas los asientos (Aprobados y Pendientes)"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,debit:0
+#: field:accounting.financial.reports.lines,debit:0
+msgid "Débito"
+msgstr "Débito"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Draft Invoices"
+msgstr "Facturas en borrador"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Invoice Date"
+msgstr "Emitida el"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:155
+#, python-format
+msgid ""
+"La información de la Empresa %s no ha sido migrada, por favor, solicitar su "
+"migración al área de sistemas"
+msgstr ""
+"La información de la Empresa %s no ha sido migrada, por favor, solicitar su "
+"migración al área de sistemas"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Required Info"
+msgstr "Información Requerida"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,date:0
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: straconx_reports_account
+#: model:ir.model,name:straconx_reports_account.model_account_ledger_statement
+msgid "Ledger Account"
+msgstr "Mayor Contable"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,analytic_account_id:0
+msgid "Cost Center"
+msgstr "Cuenta Analítica"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,name:0
+msgid "Cuenta"
+msgstr "Cuenta"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Date Filter"
+msgstr "Filtro de Fecha"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:307
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:319
+#, python-format
+msgid "Opening Balance"
+msgstr "Balance Inicial"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0 selection:account.ledger.statement,move_state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Source Purchase"
+msgstr "Origen de Compra"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,sortbydate:0
+#: selection:accounting.financial.reports,filter:0
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:167
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:170
+#, python-format
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Proforma"
+msgstr "Proforma"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,debit_credit:0
+msgid "Display Debit/Credit Columns"
+msgstr "Mostrar Débito / Crédito en el reporte"
+
+#. module: straconx_reports_account
+#: selection:accounting.financial.reports,target_move:0
+msgid "All Posted Entries"
+msgstr "Solo los asientos aprobados"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,subtotal_line:0
+msgid "Acumulado"
+msgstr "Acumulado"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,display_account:0
+msgid "All"
+msgstr "Todos"
+
+#. module: straconx_reports_account
+#: help:accounting.financial.reports,fiscalyear_id:0
+msgid "Keep empty for all open fiscal year"
+msgstr "Dejarlo vacío para todos los años fiscales abiertos"
+
+#. module: straconx_reports_account
+#: selection:accounting.financial.reports,filter:0
+msgid "No Filters"
+msgstr "Sin Filtros"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:64
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:69
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,balance:0
+msgid "Balance"
+msgstr "Balance"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,move_line_id:0
+msgid "Línea del Movimiento"
+msgstr "Línea del Movimiento"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,date_to:0
+msgid "End date"
+msgstr "Fecha final"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Residual Amount"
+msgstr "Saldo Pendiente"
+
+#. module: straconx_reports_account
+#: model:ir.actions.act_window,name:straconx_reports_account.account_ledger_statement_view_act
+#: model:ir.ui.menu,name:straconx_reports_account.account_menu_general_ledger
+#: model:ir.ui.menu,name:straconx_reports_account.account_menu_general_ledger_form
+msgid "Mayores Contables"
+msgstr "Mayores Contables"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,total_debit:0
+msgid "Total Débito"
+msgstr "Total Débito"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,account_id:0
+msgid "Cuentas"
+msgstr "Cuentas"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Fiscal Position"
+msgstr "Posición Fiscal"
+
+#. module: straconx_reports_account
+#: selection:accounting.financial.reports,filter:0
+msgid "Periods"
+msgstr "Períodos"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_reports_account
+#: view:account.ledger.statement:0
+msgid "Cancel"
+msgstr "Anular"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,reference:0
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,wizard_id:0
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:436
+#, python-format
+msgid ""
+"You cannot change the owner company of an account that already contains "
+"journal items."
+msgstr ""
+"No se pueden cambiar la compañía propietaria de una cuenta que contiene"
+"movimientos."
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,initial_amount:0
+msgid "Saldo Inicial"
+msgstr "Saldo Inicial"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,account_report_id:0
+msgid "Account Reports"
+msgstr "Reportes Contables"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports.lines,level:0
+msgid "Nivel"
+msgstr "Nivel"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/objects/straconx_general_ledger_report.py:169
+#, python-format
+msgid "Journal & Partner"
+msgstr "Diario y Empresa"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,enable_filter:0
+msgid "Enable Comparison"
+msgstr "Activar Comparación"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:294
+#, python-format
+msgid ""
+"You need an Opening journal with centralisation checked to set the initial "
+"balance!"
+msgstr ""
+"¡Necesita un diario de apertura centralizado para configurar el balance "
+"inicial!"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,amount_currency:0
+msgid "With Currency"
+msgstr "Con Moneda"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,chart_account_id:0
+msgid "Chart of Account"
+msgstr "Plan de Cuentas"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,target_move:0
+msgid "Target Moves"
+msgstr "Tipo de Movimientos"
+
+#. module: straconx_reports_account
+#: selection:account.ledger.statement,move_state:0
+msgid "Posted"
+msgstr "Aprobados"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,date_to:0
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: straconx_reports_account
+#: field:accounting.financial.reports,period_from:0
+msgid "Start Period"
+msgstr "Período Inicial"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,wizard_id:0
+msgid "Asistente"
+msgstr "Asistente"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:64
+#, python-format
+msgid "Debe seleccionar una compañía para continuar."
+msgstr "Debe seleccionar una compañía para continuar."
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,total_credit:0
+msgid "Total Crédito"
+msgstr "Total Crédito"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,fiscalyear:0
+#: field:accounting.financial.reports,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Año Fiscal"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Partner Type"
+msgstr "Tipo de Empresa"
+
+#. module: straconx_reports_account
+#: help:accounting.financial.reports,only_data:0
+msgid ""
+"Esta opción permite mostrar solo las cuentas que tienen movimientos en el "
+"debe o haber. No muestra las cuentas sin movimientos"
+msgstr ""
+"Esta opción permite mostrar solo las cuentas que tienen movimientos en el "
+"debe o haber. No muestra las cuentas sin movimientos"
+
+#. module: straconx_reports_account
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_balance_report_xls_id
+msgid "Exportar Estado Financiero"
+msgstr "Exportar Estado Financiero"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement.lines,partner_id:0
+msgid "Empresa"
+msgstr "Empresa"
+
+#. module: straconx_reports_account
+#: code:addons/straconx_reports_account/wizard/straconx_account_chart_month.py:69
+#, python-format
+msgid "No existen períodos fiscales para la compañía seleccionada."
+msgstr "No existen períodos fiscales para la compañía seleccionada."
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "Proforma Invoices"
+msgstr "Facturas proforma"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,move_state:0
+#: field:account.ledger.statement,sortbydate:0
+msgid "Sort by"
+msgstr "Movimientos"
+
+#. module: straconx_reports_account
+#: model:ir.actions.act_window,name:straconx_reports_account.view_sri_invoice_action
+msgid "SRI Review Invoices"
+msgstr "Revisión de Facturas del SRI"
+
+#. module: straconx_reports_account
+#: model:ir.actions.report.xml,name:straconx_reports_account.account_account_report_id
+msgid "Plan de Cuentas"
+msgstr "Plan de Cuentas"
+
+#. module: straconx_reports_account
+#: view:account.invoice:0
+msgid "More filters..."
+msgstr "Más filtros..."
+
+#. module: straconx_reports_account
+#: model:ir.model,name:straconx_reports_account.model_accounting_financial_reports_lines
+msgid "accounting.financial.reports.lines"
+msgstr "Líneas de Reporte Financiero"
+
+#. module: straconx_reports_account
+#: field:account.ledger.statement,final_amount:0
+msgid "Saldo Final"
+msgstr "Saldo Final"

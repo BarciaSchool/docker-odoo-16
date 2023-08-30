@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Invoice Lines -->
+		
+		<record id="account.view_invoice_line_tree" model="ir.ui.view">
+            <field name="name">account.invoice.line.tree</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Invoice Line">
+					<field name="product_id"
+						on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"
+						context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+						invisible="0" />									
+                   	<field name="name" 
+                    	on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"/>
+                    <field name="categ_id"/>
+                   	<field domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]" name="account_id" on_change="onchange_account_id(product_id, parent.partner_id, parent.type, parent.fiscal_position,account_id,name,parent.company_id,parent.shop_id, parent.currency_id)"
+                   		groups="analytic.group_analytic_accounting"/>
+                   	<field name="quantity"  sum="Cantidad"/>
+                   	<field name="uos_id" on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, parent.shop_id)" context="{'form_view_ref':'straconx_products.product_sale_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}" nolabel="1" invisible="1"/>
+					<field name="price_iva"
+						on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+						context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+						invisible="0" />
+					<field name="discount"
+						on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+						context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+						invisible="0"/>
+					<field name="offer"
+						on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+						context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+						invisible="0" />
+					<field name="price_unit"/>
+					<field name="price_subtotal" sum="Total"/>
+                   	<field name="margin" invisible="1"/>
+                   	<field colspan="4" name="invoice_line_tax_id" invisible="1" />
+                </tree>
+            </field>
+        </record>
+		
+        <record id="account.view_invoice_line_form" model="ir.ui.view">
+            <field name="name">account.invoice.line.form</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Line">
+                	<notebook>
+                		<page string="Line">
+							<field name="product_id"
+								on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+								context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product,'invoice_line_tax_id': invoice_line_tax_id}" invisible="0" />
+							<field name="categ_id" />
+							<field colspan="4" name="name" 
+								on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context, parent.company_id,discount,offer, parent.shop_id)"
+								context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+							/>
+							<field
+								domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+								name="account_id"
+								on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id, name, parent.company_id, parent.shop_id, parent.currency_id)" />
+							<field
+								domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+								name="account_analytic_id" groups="analytic.group_analytic_accounting" />
+							<label string="Quantity :" align="1.0" />
+							<group colspan="1" col="2">
+								<field name="quantity" nolabel="1"
+									on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+									 context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}" />
+								<field name="uos_id"
+									on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, parent.shop_id)"
+									context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+									nolabel="1" />
+							</group>
+							<field name="price_product"
+									on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)"
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+								invisible="0" />
+							<field name="discount"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)"
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+								invisible="0" />
+							<field name="offer"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)" 
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+								/>
+							<field name="price_unit"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)" 
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"									
+								/>
+							<field name="price_subtotal"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)" 
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+								/>
+							<field name="margin"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)" 
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"									
+								/>
+							<field name="iva_value"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)" 
+									context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"									
+								/>
+							<field name="department_id" />								
+							<field name="company_id" groups="base.group_multi_company"
+								readonly="1" />
+							<separator colspan="4" string="Taxes" />
+							<field colspan="4" name="invoice_line_tax_id" context="{'price_product': price_product,'invoice_line_tax_id': invoice_line_tax_id,'type':parent.type}"
+								on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id)"
+								domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]"
+								nolabel="1" />	
+	                    </page>
+	                    <page string="Notes">
+	                    	<separator string="Notes" colspan="4"/>
+		                    <field colspan="4" name="note" nolabel="1"/>
+	                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+		
+		
+		<record id="straconx_view_account_invoice_lines_filter" model="ir.ui.view">
+			<field name="name">Invoiced Lines</field>
+			<field name="model">account.invoice.line</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search Invoice">
+					<group col="10" colspan="4">
+						<filter string="Shop" icon="terp-partner" domain="[]"
+							context="{'group_by':'shop_id'}"/>
+						<filter string="Marca" icon="terp-partner" domain="[]"
+							context="{'group_by':'categ_id'}" />
+						<filter string="Partner" icon="terp-partner" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<filter string="Salesman" icon="terp-partner" domain="[]"
+							context="{'group_by':'salesman_id'}" />
+						<filter string="Segmento" icon="terp-partner" domain="[]"
+							context="{'group_by':'segmento_id'}" />
+						<filter string="Product" icon="terp-partner" domain="[]"
+							context="{'group_by':'product_id'}" />
+						<filter string="Documento" icon="terp-partner" domain="[]"
+							context="{'group_by':'invoice_id'}" />
+						<separator orientation="vertical" />
+						<field name="product_id" />
+						<field name="partner_id" />
+						<field name="date_invoice" />
+					</group>
+					<newline />
+					<group expand="1" col="10" colspan="4" string="More filters">
+						<filter string="Solo Ventas" icon="terp-partner" name='only_invoices' domain="[('type','=','out_invoice')]" />
+						<filter string="Credit Notes" icon="terp-partner" name='only_credit' domain="[('type','=','out_refund')]" />
+						<filter string="Type" icon="terp-partner" name='only_type' domain="[]" 
+						context="{'group_by':'type'}" />
+<!-- 						<filter string="Province" icon="terp-partner" domain="[]" -->
+<!-- 							context="{'group_by':'city_state'}" /> -->
+<!-- 						<filter string="City" icon="terp-partner" domain="[]" -->
+<!-- 							context="{'group_by':'city'}" /> -->
+<!-- 						<filter string="Agency" icon="terp-partner" domain="[]" -->
+<!-- 							context="{'group_by':'agency'}" /> -->
+						<filter string="Fecha" icon="terp-go-month" domain="[]"
+							context="{'group_by':'date_invoice'}" />
+						<separator orientation="vertical" />
+						<field name="shop_id" widget="selection"/>
+						<field name="invoice_id" string="Invoice"/>
+						<field name="categ_id" string="Marca"/>
+						<separator orientation="vertical" />						
+					</group>
+				</search>
+			</field>
+		</record>
+
+
+		<record id="straconx_invoice_product_line_act_tree" model="ir.ui.view">
+			<field name="name">Factura por Producto</field>
+			<field name="model">account.invoice.line</field>
+			<field name="type">tree</field>
+			<field eval="20" name="priority" />
+			<field name="arch" type="xml">
+				<tree string="Invoice Lines">
+					<field name="type" invisible="1" />
+					<field name="invoice_id" string="Invoice" />
+					<field name="date_invoice" />
+					<field name="name" invisible="1" />
+					<field name="shop_id" invisible="1"/>
+					<field name="partner_id" />
+					<field name="product_id" />
+					<field name="categ_id" />
+					<field name="quantity" />
+					<field name="price_unit" />
+					<field name="discount"/>
+					<field name="price_subtotal" />
+					<field name="cost_price" />
+					<field name="cost_subtotal" />
+					<field name="margin" />
+					<field name="segmento_id" />
+					<field name="salesman_id" />
+					<field name="type" invisible="1"/>
+					<field name="state" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_straconx_view_account_invoice_lines_filter"
+			model="ir.actions.act_window">
+			<field name="name">Invoiced Lines</field>
+			<field name="res_model">account.invoice.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,calendar,graph</field>
+			<field eval="False" name="view_id" />
+			<field eval="False" name="auto_search" />
+			<field name="domain">[('state','in',['open','paid']),('type','=','out_invoice')]</field>
+			<field name="context">{'search_default_only_invoices':1}</field>
+			<field name="search_view_id" ref="straconx_view_account_invoice_lines_filter" />
+		</record>
+
+		<record id="action_straconx_view_account_invoice_lines_purchase_filter"
+			model="ir.actions.act_window">
+			<field name="name">Invoiced Lines</field>
+			<field name="res_model">account.invoice.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,calendar,graph</field>
+			<field eval="False" name="view_id" />
+			<field eval="False" name="auto_search" />
+			<field name="domain">[('state','in',['open','paid']),('type','=','in_invoice')]</field>
+			<field name="context">{'search_default_only_invoices':1}</field>
+			<field name="search_view_id" ref="straconx_view_account_invoice_lines_filter" />
+		</record>
+		
+		<record id="action_straconx_view_account_invoice_lines_tree"
+			model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_invoice_product_line_act_tree" />
+			<field name="act_window_id" ref="action_straconx_view_account_invoice_lines_filter" />
+		</record>
+
+		<act_window
+			context="{'search_default_partner_id':[active_id], 'default_partner_id': active_id}"
+			id="act_res_partner_product_opened" name="Productos" res_model="account.invoice.line"
+			src_model="res.partner" />
+
+        <act_window
+            context="{'search_default_product_id': [active_id], 'default_product_id': active_id}"
+            id="straconx_invoice_product_line_tree"
+            name="Facturas x Producto"
+            res_model="account.invoice.line"
+            src_model="product.product"
+            />
+
+
+
+	</data>
+</openerp>
+
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sri_statemen_report_id" model="ir.actions.report.xml">
+            <field name="name">Estado de Cuenta por Cliente</field>
+            <field name="report_name">estado_cuenta</field>            
+            <field name="pentaho_filename">straconx_credit_risk/report/straconx_account_statement.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">res.partner</field>
+        </record>
+
+         <record id="account.account_aged_balance_view" model="ir.actions.report.xml">
+            <field name="name">Cuentas por Cobrar General</field>
+            <field name="report_name">account_statement_dues</field>
+            <field name="pentaho_filename">straconx_credit_risk/report/straconx_account_statement_dues.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_receipt')"/>
+            <field name="model" >account.invoice</field>
+        </record>   
+        
+        <record id="account.account_aged_balance_view2" model="ir.actions.report.xml">
+            <field name="name">Cuentas por Cobrar Fecha</field>
+            <field name="report_name">account_statement_dues_date</field>
+            <field name="pentaho_filename">straconx_credit_risk/report/straconx_account_statement_dues_date.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_receipt')"/>
+            <field name="model" >account.invoice</field>
+        </record> 
+
+         <record id="account.account_aged_list_view" model="ir.actions.report.xml">
+            <field name="name">Cartera Vencida</field>
+            <field name="report_name">account_statement_list_dues</field>
+            <field name="pentaho_filename">straconx_credit_risk/report/straconx_account_statement_list_dues.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_receipt')"/>
+            <field name="model" >account.invoice</field>
+        </record>   
+
+         <record id="account.account_aged_balance_shop_view" model="ir.actions.report.xml">
+            <field name="name">Cartera por Tienda</field>
+            <field name="report_name">account_statement_dues_shop</field>
+            <field name="pentaho_filename">straconx_credit_risk/report/straconx_account_statement_dues_shop.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_receipt')"/>
+            <field name="model" >account.invoice</field>
+        </record>   
+
+        <record id="ac_bank_cheque_list" model="ir.actions.report.xml">
+            <field name="name">Cheques de Clientes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_cheques</field>
+            <field name="report_type">xlsx</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_credit_risk.menu_credit_report')" />            
+        </record>       
+
+        <record id="pm_bank_cheque_list" model="ir.actions.report.xml">
+            <field name="name">Cheques de Clientes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_cheques_financial</field>
+            <field name="report_type">xlsx</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_cheques')" />            
+        </record>       
+
+        <record id="pm_bank_cheque_list_hold" model="ir.actions.report.xml">
+            <field name="name">Cheques por Depositar</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_cheques_hold</field>
+            <field name="report_type">xlsx</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_list_hold.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_cheques')" />            
+        </record>       
+
+        <record id="ac_tc_cheque_list" model="ir.actions.report.xml">
+            <field name="name">Pagos en T/C</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_tc</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_tc_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_credit_risk.menu_credit_report')" />            
+        </record> 
+
+        <record id="ac_tc_cheque_list_financial" model="ir.actions.report.xml">
+            <field name="name">Pagos en T/C</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_tc_financial</field>
+            <field name="report_type">xls</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_tc_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_cheques')" />            
+        </record> 
+
+
+    </data>
+</openerp>

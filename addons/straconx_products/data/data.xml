@@ -1,0 +1,20 @@
+<openerp>
+    <data noupdate="1">
+
+<!-- <delete model="label.templates" search="[('name','like','Productos')]"/> -->
+ 
+<!-- Category -->
+
+            <record id="categ_sincateg" model="product.category">
+                <field name="code">SCT</field>
+                <field name="name">SIN CATEGORIA</field>
+                <field name="active">TRUE</field>
+            </record>
+            
+            <record id="clasif_services" model="product.clasification">
+                <field name="code">SER001</field>
+                <field name="name">SERVICIOS</field>
+                <field name="active">TRUE</field>
+            </record>            
+            </data>
+</openerp>

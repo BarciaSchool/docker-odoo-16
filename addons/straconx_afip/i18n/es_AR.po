@@ -1,0 +1,548 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_afip
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-16 04:03+0000\n"
+"PO-Revision-Date: 2016-06-16 04:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_afip
+#: selection:account.multi.charts.tax,type:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: straconx_afip
+#: field:res.company,date_resolution:0
+msgid "Date Resolution"
+msgstr "Fecha de Resolución"
+
+#. module: straconx_afip
+#: model:ir.ui.menu,name:straconx_afip.straconx_menu_type_company
+msgid "Types Companies"
+msgstr "Tipo de Compañía"
+
+#. module: straconx_afip
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "¡Error! La identificación ya existe para otra Persona/Empresa."
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_printer_point
+msgid "printer.point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_afip
+#: model:ir.actions.act_window,name:straconx_afip.straconx_action_wizard_multi_tax_products
+#: model:ir.ui.menu,name:straconx_afip.menu_straconx_action_wizard_multi_tax_products
+msgid "Generate Tax Accounts for Product"
+msgstr "Generar Impuestos para Productos"
+
+#. module: straconx_afip
+#: field:account.multi.charts.tax,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_afip
+#: selection:account.journal.type,sri_type_control:0
+msgid "internal control"
+msgstr "Control Interno"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_account_journal_type
+msgid "account.journal.type"
+msgstr "Tipo de Diario Contable"
+
+#. module: straconx_afip
+#: selection:account.journal.type,sri_type_control:0
+msgid "Company and Partner"
+msgstr "Compañía y Empresas"
+
+#. module: straconx_afip
+#: model:ir.actions.act_window,name:straconx_afip.action_sri_transaction_type_tree_view
+msgid "Transactions Types"
+msgstr "Tipos de Transacción"
+
+#. module: straconx_afip
+#: field:res.company,portal_active:0
+msgid "Los clientes tienen acceso al Portal"
+msgstr "Los clientes tienen acceso al Portal"
+
+#. module: straconx_afip
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del AFIP debe ser único!"
+
+#. module: straconx_afip
+#: view:account.multi.charts.tax:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_afip
+#: view:sri.tax.sustent:0
+#: view:sri.transaction.type:0
+msgid "Documents Type"
+msgstr "Tipo de Documentos"
+
+#. module: straconx_afip
+#: code:addons/straconx_afip/objects/sale_shop.py:51
+#, python-format
+msgid "¡No se puede duplicar una Tienda ya que contiene información única por punto de venta!"
+msgstr "¡No se puede duplicar una Tienda ya que contiene información única por punto de venta!"
+
+#. module: straconx_afip
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_afip
+#: field:account.multi.charts.tax,type:0
+msgid "Product Type"
+msgstr "Tipo de Producto"
+
+#. module: straconx_afip
+#: field:sri.tax.sustent,documents_type_ids:0
+#: field:sri.transaction.type,documents_type_ids:0
+msgid "Document Types"
+msgstr "Tipo de Documento"
+
+#. module: straconx_afip
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "¡La dirección seleccionada solo puede tener una tienda asignada!"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_res_partner
+#: field:sale.shop,partner_id:0
+#: field:stock.warehouse,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_afip
+#: view:res.partner.address:0
+msgid "SRI Authorization"
+msgstr "Autorización AFIP"
+
+#. module: straconx_afip
+#: sql_constraint:printer.point:0
+msgid "The number of point printer must be unique for each shop!"
+msgstr "¡El número del punto de impresión debe ser único para cada tienda!"
+
+#. module: straconx_afip
+#: view:sri.tax.sustent:0
+#: view:sri.transaction.type:0
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: straconx_afip
+#: selection:account.multi.charts.tax,type:0
+msgid "Servicio Administrativo"
+msgstr "Servicio Administrativo"
+
+#. module: straconx_afip
+#: selection:account.multi.charts.tax,type:0
+msgid "Catálogo"
+msgstr "Catálogo"
+
+#. module: straconx_afip
+#: field:res.partner,type_company_id:0
+msgid "Type company"
+msgstr "Tipo de Empresa"
+
+#. module: straconx_afip
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_afip
+#: constraint:res.partner.address:0
+msgid "Por cada empresa, solo puede existir una dirección tipo"
+msgstr "Por cada empresa, solo puede existir una dirección tipo"
+
+#. module: straconx_afip
+#: field:res.partner.address,ag_state:0
+msgid "State"
+msgstr "Estado de la Sucursal"
+
+#. module: straconx_afip
+#: help:res.partner.address,number_sri:0
+msgid "This number is assigned by the SRI by each warehouse"
+msgstr "Este número es asignado por el AFIP para cada Depósito"
+
+#. module: straconx_afip
+#: selection:sri.transaction.type,type_identification:0
+msgid "Passport"
+msgstr "Pasaporte"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Depósito"
+
+#. module: straconx_afip
+#: view:account.multi.charts.tax:0
+#: field:account.multi.charts.tax,purchase_taxes_ids:0
+msgid "Purchase Taxes"
+msgstr "Impuestos de Compras"
+
+#. module: straconx_afip
+#: selection:account.journal.type,sri_type_control:0
+msgid "Sequence Company"
+msgstr "Secuencia de Compañía"
+
+#. module: straconx_afip
+#: selection:sri.transaction.type,type_identification:0
+msgid "Cedula"
+msgstr "DI"
+
+#. module: straconx_afip
+#: selection:printer.point,type_printer:0
+msgid "Facturación Electrónica"
+msgstr "Facturación Electrónica"
+
+#. module: straconx_afip
+#: field:res.company,resolution_sri:0
+msgid "Resolution SRI"
+msgstr "Resolución AFIP"
+
+#. module: straconx_afip
+#: model:ir.actions.act_window,name:straconx_afip.action_partner_type_company_view
+#: model:ir.ui.menu,name:straconx_afip.type_company_menu
+#: view:res.partner.type.company:0
+msgid "Type Company"
+msgstr "Tipo de Compañía"
+
+#. module: straconx_afip
+#: model:ir.actions.act_window,name:straconx_afip.action_sri_tax_sustent_tree_view
+#: model:ir.ui.menu,name:straconx_afip.sri_tax_sustent_menu
+#: field:res.partner,tax_sustent:0
+#: view:sri.document.type:0
+#: field:sri.document.type,sustent_ids:0
+#: view:sri.tax.sustent:0
+msgid "Tax Sustent"
+msgstr "Sustento Tributario"
+
+#. module: straconx_afip
+#: view:account.multi.charts.tax:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_afip
+#: selection:account.multi.charts.tax,type:0
+msgid "Consumable"
+msgstr "Consumible"
+
+#. module: straconx_afip
+#: field:sri.transaction.type,type_identification:0
+msgid "Identification Type"
+msgstr "Tipo de Identificación"
+
+#. module: straconx_afip
+#: selection:sri.transaction.type,type_identification:0
+msgid "Final Consumer"
+msgstr "Consumidor Final"
+
+#. module: straconx_afip
+#: field:account.journal.type,sri_type_document:0
+msgid "Tipo de Documento"
+msgstr "Tipo de Documento"
+
+#. module: straconx_afip
+#: field:sale.shop,emision_point:0
+msgid "Punto de Emisión"
+msgstr "Punto de Emisión"
+
+#. module: straconx_afip
+#: field:res.company,counter_id:0
+msgid "Counter"
+msgstr "Contador"
+
+#. module: straconx_afip
+#: field:res.partner.address,date:0
+msgid "Open since"
+msgstr "Abierto desde"
+
+#. module: straconx_afip
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "Solo puede existir un diario por tipo en cada tienda."
+
+#. module: straconx_afip
+#: help:printer.point,number_sri:0
+msgid "This number is assigned by the SRI by each printer point"
+msgstr "Este número es asigado por el AFIP para cada punto de impresión"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_sri_document_type
+msgid "sri.document.type"
+msgstr "Tipo de Documento SRI"
+
+#. module: straconx_afip
+#: model:ir.actions.act_window,name:straconx_afip.action_sri_document_type_tree_view
+#: model:ir.ui.menu,name:straconx_afip.sri_document_type_menu
+msgid "Documents Types"
+msgstr "Tipos de Documentos"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones de empresa"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_sri_transaction_type
+msgid "sri.transaction.type"
+msgstr "Tipo de Transacción SRI"
+
+#. module: straconx_afip
+#: model:ir.ui.menu,name:straconx_afip.sri_transaction_type_menu
+#: view:sri.document.type:0
+#: field:sri.document.type,usage_ids:0
+msgid "Transaction Types"
+msgstr "Tipos de Transacciones"
+
+#. module: straconx_afip
+#: help:printer.point,type_printer:0
+msgid "defines how it will generate documents"
+msgstr "define como se generará el documento"
+
+#. module: straconx_afip
+#: help:account.journal.type,sri_type_control:0
+msgid "Indicate if the journal control is based in documents authorizated by SRI or internal control."
+msgstr "Indica si el diario de control es basado en documentos autorizados por el SRI o por control interno."
+
+#. module: straconx_afip
+#: field:account.multi.charts.tax,sale_taxes_ids:0
+msgid "Sales Taxes"
+msgstr "Impuesto de Ventas"
+
+#. module: straconx_afip
+#: field:printer.point,number_sri:0
+#: field:res.partner.address,number_sri:0
+msgid "SRI Number"
+msgstr "Número AFIP"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_res_partner_type_company
+msgid "res.partner.type.company"
+msgstr "Tipo de empresa por compañía"
+
+#. module: straconx_afip
+#: view:res.partner.address:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_afip
+#: selection:printer.point,type_printer:0
+msgid "Auto Impresor"
+msgstr "Auto Impresor"
+
+#. module: straconx_afip
+#: view:sri.document.type:0
+#: view:sri.transaction.type:0
+msgid "Transaction Type"
+msgstr "Tipo de Transacción"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_sale_shop
+msgid "Sales Shop"
+msgstr "Agencia"
+
+#. module: straconx_afip
+#: field:res.partner.type.company,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_afip
+#: field:account.journal.type,sri_type_control:0
+msgid "Control Type SRI"
+msgstr "Tipo de Control AFIP"
+
+#. module: straconx_afip
+#: field:sale.shop,number_sri:0
+msgid "Number SRI"
+msgstr "Número AFIP"
+
+#. module: straconx_afip
+#: code:addons/straconx_afip/objects/sale_shop.py:51
+#, python-format
+msgid "¡Error!"
+msgstr "¡Error!"
+
+#. module: straconx_afip
+#: model:ir.ui.menu,name:straconx_afip.menu_finance_sri
+msgid "SRI"
+msgstr "AFIP"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: straconx_afip
+#: view:sri.document.type:0
+msgid "Tax Supports"
+msgstr "Soporte Impositivo"
+
+#. module: straconx_afip
+#: field:res.partner.type.company,shortcut:0
+msgid "Shortcut"
+msgstr "Código"
+
+#. module: straconx_afip
+#: field:res.company,legal_representative_id:0
+msgid "Legal Representative"
+msgstr "Representante Legal "
+
+#. module: straconx_afip
+#: selection:account.journal.type,sri_type_control:0
+msgid "Sequence Partner"
+msgstr "Secuencia de Proveedor"
+
+#. module: straconx_afip
+#: selection:account.multi.charts.tax,type:0
+msgid "Stockable Product"
+msgstr "Producto Almacenable"
+
+#. module: straconx_afip
+#: field:sri.document.type,code:0
+#: field:sri.tax.sustent,code:0
+#: field:sri.transaction.type,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_afip
+#: selection:sri.transaction.type,type_identification:0
+msgid "RUC"
+msgstr "CIUT"
+
+#. module: straconx_afip
+#: sql_constraint:sri.tax.sustent:0
+msgid "The code of Tax Sustent must be unique!"
+msgstr "¡El código del Sustento Tributario debe ser único!"
+
+#. module: straconx_afip
+#: field:res.company,property_account_position:0
+msgid "Fiscal Position"
+msgstr "Posición Fiscal"
+
+#. module: straconx_afip
+#: selection:res.partner.address,ag_state:0
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: straconx_afip
+#: selection:res.partner.address,ag_state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_afip
+#: field:res.partner.address,authorizations_ids:0
+msgid "Authorizations"
+msgstr "Autorizaciones"
+
+#. module: straconx_afip
+#: sql_constraint:sri.document.type:0
+msgid "The code of document type must be unique!"
+msgstr "¡El código del tipo de documento debe ser único!"
+
+#. module: straconx_afip
+#: sql_constraint:sri.transaction.type:0
+msgid "The code of transaction type must be unique!"
+msgstr "¡El código de la transacción debe ser única!"
+
+#. module: straconx_afip
+#: view:res.partner.address:0
+msgid "Authorization Assing"
+msgstr "Autorizaciones asignadas"
+
+#. module: straconx_afip
+#: view:account.multi.charts.tax:0
+msgid "This selection underwriter your actual selection of taxes product. This wizard only write products type storage"
+msgstr "Esta selección sobrescribirá su selección actual de impuestos de productos. Este asistent solo escribe sobre productos almacenables"
+
+#. module: straconx_afip
+#: field:res.partner.type.company,name:0
+msgid "Type of Company"
+msgstr "Tipo de Compañía"
+
+#. module: straconx_afip
+#: field:printer.point,type_printer:0
+msgid "Type Printer"
+msgstr "Tipo de Impresión"
+
+#. module: straconx_afip
+#: field:sale.shop,partner_address_id:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_afip
+#: selection:printer.point,type_printer:0
+msgid "Preimpresos"
+msgstr "Preimpresos"
+
+#. module: straconx_afip
+#: view:account.multi.charts.tax:0
+msgid "Sale Taxes"
+msgstr "Impuestos de Ventas"
+
+#. module: straconx_afip
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_afip
+#: field:sri.document.type,name:0
+#: field:sri.tax.sustent,name:0
+#: field:sri.transaction.type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_afip
+#: model:ir.ui.menu,name:straconx_afip.account_sri_configuration
+msgid "SRI Configuration"
+msgstr "Configuración AFIP"
+
+#. module: straconx_afip
+#: code:addons/straconx_afip/wizard/tax_products.py:46
+#, python-format
+msgid "¡Campo requerido!"
+msgstr "¡Campo requerido!"
+
+#. module: straconx_afip
+#: help:res.partner.address,ag_state:0
+msgid "State of Agency"
+msgstr "Estado de la Agencia"
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_account_multi_charts_tax
+msgid "account.multi.charts.tax"
+msgstr "Asiste de Impuestos múltiples"
+
+#. module: straconx_afip
+#: constraint:res.partner.address:0
+msgid "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+msgstr "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+
+#. module: straconx_afip
+#: model:ir.model,name:straconx_afip.model_sri_tax_sustent
+msgid "sri.tax.sustent"
+msgstr "Sustento AFIP"
+
+#. module: straconx_afip
+#: selection:sri.transaction.type,type_identification:0
+msgid "Export"
+msgstr "Exportación"
+
+#. module: straconx_afip
+#: view:sri.document.type:0
+msgid "Document Type"
+msgstr "Tipo de Documento"
+

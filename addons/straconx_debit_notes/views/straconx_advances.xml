@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+    
+	    <!-- vista de búsqueda para N/D -->
+
+	<record id="view_account_debit_filter" model="ir.ui.view">
+		<field name="name">Búsqueda de Avances de Clientes</field>
+		<field name="model">account.debit.note</field>
+		<field name="type">search</field>
+		<field name="arch" type="xml">
+			<search string="Búsqueda de Documentos">
+				<group>
+					<filter string="Empresa" icon="terp-partner" domain="[]"
+						context="{'group_by':'partner_id'}" />
+					<filter string="Usuario" icon="terp-personal" domain="[]"
+						context="{'group_by':'user_id'}" />
+					<filter string="Período" icon="terp-go-month" domain="[]"
+						context="{'group_by':'period_id'}" />
+					<filter string="Estado" icon="terp-stock_effects-object-colorize"
+						domain="[]" context="{'group_by':'state'}" />
+					<separator orientation="vertical" />
+					<field name="partner_id" string="Empresa" />
+					<field name="number" string="Número" />
+					<field name="date" />
+					<field name="total_amount" />
+					<field name="state" />
+					<newline />
+					<field name="reference" />
+					<field name="user_id" widget="selection" string="Usuario">
+						<filter domain="[('user_id','=',uid)]" icon="terp-personal" />
+					</field>
+					<field name="shop_id" />
+					<field name="statement_id" />
+					<field name="period_id" />
+				</group>
+			</search>
+		</field>
+	</record>
+	    
+    <!-- anticipo de cliente -->
+        
+        <record model="ir.ui.view" id="view_advance_customer_tree">
+                <field name="name">Lista de Avances de Clientes</field>
+                <field name="model">account.debit.note</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Advances" colors="blue:state == 'draft';black:state in ('posted','paid');gray:state == 'cancel'">
+                        <field name="shop_id" invisible="1"/>
+                        <field name="partner_id" string="Customer"/>
+                        <field name="number"/>
+                        <field name="name" invisible="1"/>
+                        <field name="reference"/>
+                        <field name="user_id"/>
+                        <field name="date"/>
+                       	<field name="statement_id" invisible="1"/>                        
+                        <field name="journal_id" invisible="1"/>
+                       	<field name="period_id" invisible="1"/>         
+                        <field name="total_amount"/>
+                        <field name="state"/>                        
+                    </tree>
+                </field>
+         </record>
+
+        <record model="ir.ui.view" id="view_advance_customer_form">
+            <field name="name">Formulario de Avances de Clientes</field>
+            <field name="model">account.debit.note</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Customer Advance">
+                    <group col="6" colspan="4">
+                    	<field name="shop_id" required="1"/>
+                    	<field name="partner_id" required="1" select="1" domain="[('customer','=',True)]" string="Customer"/>
+                    	<field name="account_id" required="1" domain="[('type','=','receivable')]"/>
+                    	<field name="date" required="1" select="1"/>
+                        <field name="number" readonly="1" select="1"/>
+                        <field name="name" readonly="1" select="1"/>
+                        <field name="reference" select="1"/>
+						<field name="comments"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Customer Advance">
+                        	<separator string="Advance Lines" colspan="4"/>
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Advance Lines" editable="bottom">
+                                    <field name="account_id" domain="[('type','not in',('view','stock','closed'))]" required="1"/>
+                                    <field name="name" required="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                                <form string="Advance Lines">
+                                    <field name="account_id" domain="[('type','not in',('view','stock','closed'))]"/>
+                                    <field name="name" required="1"/>
+                                    <field name="amount"/>
+                                </form>
+                            </field>
+                            <group col="6" colspan="4">
+                               <separator string="Total" colspan="4"/>
+                               <newline/>
+                               <button name="button_dummy" states="draft" string="Compute" type="object" icon="gtk-execute"/>
+                               <field name="total_amount" string="Total"/>
+                               <field name="residual"/>
+                            </group>
+                        </page>
+                        <page string="Información Adicional">
+                        	<field name="journal_id" required="1" domain="[('type','=','advances')]"/>
+                        	<field name="period_id" required="1" select="1"/>
+                        	<field name="user_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        	<field name="company_id" readonly="1" invisible="1" on_change="onchange_company(company_id,type)"/>
+                        	<field name="move_id" invisible="0"/>
+                            <field name="type" invisible="0" readonly="1"/>
+                        </page>
+                        <page string="payments">
+                        	<field name="payment_ids" colspan="4" nolabel="1">
+								<tree string="Payments">
+									<field name="date" />
+									<field name="ref" />
+									<field name="name" />
+									<field name="journal_id" groups="base.group_user" />
+									<field name="debit" sum="total debit"/>
+									<field name="credit" sum="total credit"/>
+									<field name="amount_currency" />
+									<field name="currency_id" />
+								</tree>
+							</field>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="4">
+                        <field name="state"/>
+						<button name="%(customer_advance)d" string="Imprimir comprobante de Ingreso"
+							type="action" icon="gtk-print" states="posted" />
+                        <button name="cancel_debit_note" string="Cancel" type="object" states="posted" icon="terp-stock_effects-object-colorize" confirm="Are you sure to confirm this record ?"/>
+                        <button name="confirm_debit_note" string="Validate" states="draft" icon="gtk-go-forward" type="object"/>
+                        <button name="action_cancel_draft" type="object" states="cancel" string="Set to Draft" icon="terp-stock_effects-object-colorize"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_advance_customer" model="ir.actions.act_window">
+            <field name="name">Advance Customer</field>
+            <field name="res_model">account.debit.note</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','advance_customer')]</field>
+            <field name="context">{'default_type':'advance_customer'}</field>
+            <field name="search_view_id" ref="view_account_debit_filter"/>
+			<field name="view_id" ref="view_advance_customer_tree"/>                        
+            <field name="target">current</field>
+        </record>
+        <record id="action_advance_customer_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_advance_customer_tree"/>
+            <field name="act_window_id" ref="action_advance_customer"/>
+        </record>
+        <record id="action_advance_customer_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_advance_customer_form"/>
+            <field name="act_window_id" ref="action_advance_customer"/>
+        </record>
+
+	       <!--anticipo de Proveedores-->
+	
+		<record model="ir.ui.view" id="view_advance_supplier_tree">
+			<field name="name">account.advance.supplier.tree</field>
+			<field name="model">account.debit.note</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Advances" colors="blue:state == 'draft';black:state in ('posted','paid');gray:state == 'cancel'">
+					<field name="shop_id" invisible="1" />
+					<field name="partner_id" string="Customer" />
+					<field name="number" />
+					<field name="name" invisible="1"/>
+					<field name="reference" />
+					<field name="user_id" />
+					<field name="date" />
+					<field name="statement_id" invisible="1" />
+					<field name="journal_id" invisible="1" />
+					<field name="period_id" invisible="1" />
+					<field name="total_amount" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+        
+        <record model="ir.ui.view" id="view_advance_supplier_form">
+            <field name="name">account.advance.supplier.form</field>
+            <field name="model">account.debit.note</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Supplier Advance">
+                    <group col="6" colspan="4">
+                    	<!-- <field name="cliente_des" required="0"/> -->
+                    	<field name="shop_id" required="1"/>
+                    	<field name="partner_id" on_change="onchange_partner_id(partner_id)" required="1" select="1" domain="[('supplier','=',True)]" 
+                    	context="{'form_view_ref' :'straconx_purchase.view_res_supplier_partner_form_straconx'}"
+                    	string="Supplier"/>
+                    	<field name="account_id" required="0" domain="[('type','not in',('view','stock','closed'))]" invisible="1"/>
+                        <field name="date" on_change="onchange_date(date,company_id)" required="1" select="1"/>
+                        <field name="number" readonly="1" select="1"/>
+                        <field name="name" readonly="1" select="1"/>
+                        <field name="reference" select="1"/>
+						<field name="varios"/>
+						<field name="comments" colspan="6"/>                        
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Supplier Advance">
+                        	<separator string="Advance Lines" colspan="4"/>
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree string="Advance Lines" editable="bottom">
+                                    <field name="account_id" domain="[('type','=','payable')]" required="1" on_change="onchange_line(parent.company_id,parent.type,account_id)"/>
+                                    <field name="name" required="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </tree>
+                                <form string="Debit Lines">
+                                    <field name="account_id" domain="[('type','=','payable')]" on_change="onchange_line(parent.company_id,parent.type,account_id)"/>
+                                    <field name="name" required="1"/>
+                                    <field name="amount" sum="Total"/>
+                                </form>
+                            </field>
+                            <group col="6" colspan="4">
+                               <separator string="Total" colspan="4"/>
+                               <newline/>
+                               <button name="button_dummy" states="draft" string="Compute" type="object" icon="gtk-execute"/>
+                               <field name="total_amount" string="Total"/>
+                               <field name="residual"/>
+                            </group>
+                        </page>
+                        <page string="Información Adicional">
+                        	<field name="journal_id" required="1" domain="[('type','=','advances')]"/>
+                        	<field name="period_id" required="1" select="1"/>
+                        	<field name="user_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        	<field name="company_id" required="1" invisible="0" on_change="onchange_company(company_id)"/>
+                        	<field name="move_id" invisible="0"/>
+                            <field name="type" invisible="0" readonly="1"/>
+                        </page>
+                        <page string="payments Move Line">
+                        	<field name="payment_ids" colspan="4" nolabel="1">
+								<tree string="Payments Detail">
+									<field name="date" />
+									<field name="ref" />
+									<field name="name" />
+									<field name="journal_id" groups="base.group_user" />
+									<field name="debit" sum="total debit"/>
+									<field name="credit" sum="total credit"/>
+									<field name="amount_currency" />
+									<field name="currency_id" />
+								</tree>
+							</field>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="4">
+                        <field name="state"/>
+                        <button name="cancel_debit_note" string="Cancel" type="object" attrs="{'invisible':[('state','not in',('posted','paid'))]}" icon="terp-stock_effects-object-colorize" confirm="Are you sure to confirm this record ?"/>
+                        <button name="confirm_debit_note" string="Validate" states="draft" icon="gtk-go-forward" type="object"/>
+                        <button name="action_cancel_draft" type="object" states="cancel" string="Set to Draft" icon="terp-stock_effects-object-colorize"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_advance_supplier" model="ir.actions.act_window">
+            <field name="name">Advance Supplier</field>
+            <field name="res_model">account.debit.note</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('type','=','advance_supplier')]</field>
+            <field name="context">{'default_type':'advance_supplier'}</field>
+            <field name="search_view_id" ref="view_account_debit_filter"/>
+            <field name="target">current</field>
+        </record>
+        
+        <record id="action_advance_supplier_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_advance_supplier_tree"/>
+            <field name="act_window_id" ref="action_advance_supplier"/>
+        </record>
+        
+        <record id="action_advance_supplier_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_advance_supplier_form"/>
+            <field name="act_window_id" ref="action_advance_supplier"/>
+        </record>
+    </data>
+</openerp>

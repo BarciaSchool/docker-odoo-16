@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="product_pricelist_view_tree">
+	        <field name="name">product.pricelist.tree</field>
+	        <field name="model">product.pricelist</field>
+	        <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+	        <field name="arch" type="xml">
+	            <field name="currency_id" position="before">
+	                <field name="visible_discount"/>
+	            </field>
+	        </field>
+	    </record>
+
+	    <record model="ir.ui.view" id="product_pricelist_view_form">
+	        <field name="name">product.pricelist.form</field>
+	        <field name="model">product.pricelist</field>
+	        <field name="inherit_id" ref="product.product_pricelist_view"/>
+	        <field name="arch" type="xml">
+	            <field name="currency_id" position="before">
+	                <field name="visible_discount"/>
+	            </field>
+	        </field>
+	    </record>
+
+		<record id="product.product_pricelist_version_form_view" model="ir.ui.view">
+			<field name="name">product.pricelist.version.form</field>
+			<field name="model">product.pricelist.version</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Pricelist Version">
+					<field name="name" select="1" />
+					<field name="active" />
+					<field colspan="4" name="pricelist_id" />
+					<field name="date_start" select="1" />
+					<field name="date_end" select="1" />
+					<field name="categ_id" />
+					<field name="class_id" />
+					<field name="company_id" widget="selection" invisible="1" />
+					<field colspan="4" name="items_id" nolabel="1" widget="one2many_list" />
+				</form>
+			</field>
+		</record>
+
+		<record id="product.product_pricelist_item_tree_view" model="ir.ui.view">
+			<field name="name">product.pricelist.item.tree</field>
+			<field name="model">product.pricelist.item</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Products Listprices Items" editable="bottom">
+					<field name="sequence" invisible="1"/>
+					<!-- <field colspan="4" name="name" select="1" /> -->
+					<field name="product_id" colspan="3" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="price_version_id"/>					
+					<field name="categ_id" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="class_id" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="min_quantity" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="min_base" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />					
+					<field name="min_bonus" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="price_base" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="price_discount" on_change="onchange_product(product_id,price_base,price_discount,min_quantity,min_base,min_bonus,price_version_id)" />
+					<field name="price_gross" />
+					<field name="price_tax" />
+					<field name="price_final" />
+					<field name="standard_price" />
+					<field name="margin" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="product.product_pricelist_item_form_view" model="ir.ui.view">
+			<field name="name">product.pricelist.item.form</field>
+			<field name="model">product.pricelist.item</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Products Listprices Items">
+					<separator colspan="3" string="Rules Test Match" />
+					<field name="product_id" colspan="3"
+						on_change="product_id_change(product_id)" select="1" />
+					<field name="product_tmpl_id" invisible="1" />
+					<newline/>
+					<field name="price_version_id"/>
+					<field name="categ_id" select="1" />
+					<field name="class_id" select="1" />
+					<field name="company_id" groups="base.group_multi_company" invisible="1"
+						widget="selection" />
+					<newline />
+					<group col="6" colspan="3">
+					<field name="sequence" invisible="1" />
+					<field name="min_quantity" />
+					<field name="min_base" />					
+					<field name="min_bonus" />
+					</group>
+					<separator colspan="4" string="Price Computation" />
+					<group col="6" colspan="3">
+						<field name="price_base" />
+						<field name="price_discount" />
+						<field name="price_gross" />
+						<field name="price_tax" />
+						<field name="price_final" />
+						<newline/>
+						<field name="standard_price" />
+						<field name="margin" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+	</data>
+</openerp>

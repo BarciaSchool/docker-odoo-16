@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_stock_delivery_note" model="ir.ui.view">
+            <field name="name">Delivery Note</field>
+            <field name="model">delivery.auth.wizard</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+              <form string="Create Delivery Note">
+                    <group colspan="1" width="300">
+                    <field name="journal_id_delivery" invisible="1"/>
+                    <field name="shop_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="warehouse_id_delivery" invisible="1"/>
+                    <newline/>
+                    <field name="delivery_date" readonly="1"/>
+                    <newline/>
+                    <field name="printer_id" on_change="onchange_printer(printer_id,delivery_date)" 
+                    domain="[('type','=',False),('shop_id','=',shop_id)]"
+                    required="1"/>
+                    <newline/>
+                    <field name="carrier_id" on_change="onchange_carrier_id(carrier_id)" required="1"/>
+                    <newline/>
+                    <field name="driver" required="1"/>
+                    <newline/>
+                    <field name="placa" required="1"/>
+					<newline/>
+                    <field name="comment" required="1"/>                    
+                    <newline/>
+                    <field name="authorization_id" invisible="1"/>                    
+                    <field name="delivery_number" invisible="1" />
+                    <newline/>
+                    <field name="delivery_status" invisible="1"/>
+                    <newline/>
+					<group colspan="2">
+                    <button special="cancel" string="_Cancel" icon='gtk-cancel'/>
+                    <button name="open_delivery" string="Create" type="object" icon="terp-gtk-go-back-rtl"/>
+                    </group>
+                    </group>
+             </form>
+            </field>
+        </record>
+        
+        <act_window name="Create Delivery Notes"
+            res_model="delivery.auth.wizard"
+            key2="client_action_multi"
+            multi="True"
+            view_mode="form"
+            view_type="form"
+            target="new"
+            id="action_delivery_note"/>
+    </data>
+</openerp>

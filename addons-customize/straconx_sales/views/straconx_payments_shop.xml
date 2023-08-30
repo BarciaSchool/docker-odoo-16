@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+    	
+		<record id="view_payments_shop_tree" model="ir.ui.view">
+            <field name="name">Payments by Shop</field>
+            <field name="model">account.payments</field>
+            <field name="type">tree</field>
+            <field name="priority">8</field>
+            <field name="arch" type="xml">
+                <tree string="Payments">
+                    <field name="mode_id"/>
+                    <field name="shop_id"/>                                    
+                    <field name="partner_id"/>
+                    <field name="vouch_name" invisible="1"/>
+                    <field name="bank_id" height="30" invisible="0"/>
+                    <field name="bank_account_id" invisible="1" />
+                    <field name="name"/>
+                    <field name="amount" sum="Total amount"/>
+                    <field name="user_id"/>
+                    <field name="period_id" invisible="1"/>
+					<field name="received_date"/>
+                    <field name="deposit_date"/>					
+                    <field name="type" invisible="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="authorization_credit" invisible="1"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_payments_shop_filter" model="ir.ui.view">
+            <field name="name">Payments by Shop Serch</field>
+            <field name="model">account.payments</field>
+            <field name="type">search</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Payments">
+                    <group col='8' colspan='4'>
+                        <filter string="Shop" icon="terp-go-home" name="shop" domain="[]" context="{'group_by':'shop_id'}"/>
+                        <filter string="Mode" icon="terp-dolar" name="mode" domain="[]" context="{'group_by':'mode_id'}"/>
+                        <filter string="Partner" icon="terp-partner" name="partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="User" icon="terp-partner" name="user" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Period" icon="terp-month" name="period" domain="[]" context="{'group_by':'period_id'}"/>
+                        <field name="received_date"/>
+                        <field name="partner_id"/>
+                        <field name="name"/>
+                        <field name="amount"/>
+                    </group>
+                    <newline/>
+					<group expand="0" string="More filters..." colspan="4" col="10">
+                        <separator orientation="vertical"/>
+                        <field name="bank_id" widget="selection"/>
+                        <field name="user_id"/>
+                        <field name="deposit_date"/>
+                        <field name="mode_id" widget="selection"/>
+                        <filter string="Bank" icon="terp-account" domain="[]" context="{'group_by':'bank_id'}"/>
+                        <filter string="State" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                    </group>                    
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_view_payments_shop_filter">
+                <field name="name">Payments by Shop</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree</field>
+				<field name="domain">[('state','not in',['draft','cancel'])]</field>
+				<field name="context">{'search_default_shop':1,'search_default_mode':1,}</field>                
+                <field name="search_view_id" ref="view_payments_shop_filter"/>
+        </record>
+
+        <record id="act_view_payments_shop_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_payments_shop_tree"/>
+            <field name="act_window_id" ref="act_view_payments_shop_filter"/>
+        </record>
+        		
+    </data>
+</openerp>
+

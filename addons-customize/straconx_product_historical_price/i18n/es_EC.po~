@@ -1,0 +1,167 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_product_historical_price
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120808-233336\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-10 15:27+0000\n"
+"PO-Revision-Date: 2012-08-10 15:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_product_historical_price
+#: help:product.historic.cost,product_uom:0
+#: help:product.historic.price,product_uom:0
+msgid "Choose here the Unit of Measure in which the prices and quantities are expressed below."
+msgstr "Choose here the Unit of Measure in which the prices and quantities are expressed below."
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+msgid "Historical Cost"
+msgstr "Historical Cost"
+
+#. module: straconx_product_historical_price
+#: help:product.product,cost_historical:0
+msgid "Latest Recorded Historical Cost"
+msgstr "Latest Recorded Historical Cost"
+
+#. module: straconx_product_historical_price
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Default code should be uniq"
+
+#. module: straconx_product_historical_price
+#: model:ir.model,name:straconx_product_historical_price.model_product_historic_cost
+#: model:ir.model,name:straconx_product_historical_price.model_product_historic_price
+msgid "Historical Price List"
+msgstr "Historical Price List"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.price,price:0
+msgid "Price"
+msgstr "Price"
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+#: field:product.product,cost_historical_ids:0
+#: field:product.product,list_price_historical_ids:0
+msgid "Historical Prices"
+msgstr "Historical Prices"
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+msgid "Historical Cost Price"
+msgstr "Historical Cost Price"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.cost,price:0
+msgid "Cost"
+msgstr "Cost"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.cost,user_id:0
+#: field:product.historic.price,user_id:0
+msgid "User"
+msgstr "User"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.cost,name:0
+#: field:product.historic.price,name:0
+msgid "Date"
+msgstr "Date"
+
+#. module: straconx_product_historical_price
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_product_historical_price
+#: help:product.product,list_price_historical:0
+msgid "Latest Recorded Historical Value"
+msgstr "Latest Recorded Historical Value"
+
+#. module: straconx_product_historical_price
+#: model:ir.actions.act_window,help:straconx_product_historical_price.product_normal_action_historical
+msgid "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, sales price, product category,\n"
+"				suppliers and so on."
+msgstr "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, sales price, product category,\n"
+"				suppliers and so on."
+
+#. module: straconx_product_historical_price
+#: field:product.product,cost_historical:0
+msgid " Latest Cost"
+msgstr " Latest Cost"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.cost,product_uom:0
+#: field:product.historic.price,product_uom:0
+msgid "Supplier UoM"
+msgstr "Supplier UoM"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.cost,product_id:0
+msgid "Product related to this Cost"
+msgstr "Product related to this Cost"
+
+#. module: straconx_product_historical_price
+#: model:ir.model,name:straconx_product_historical_price.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_product_historical_price
+#: model:ir.actions.act_window,name:straconx_product_historical_price.product_normal_action_historical
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+msgid "Historical List Price"
+msgstr "Historical List Price"
+
+#. module: straconx_product_historical_price
+#: field:product.historic.price,product_id:0
+msgid "Product related to this Price"
+msgstr "Product related to this Price"
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+msgid "Base Prices"
+msgstr "Precios base"
+
+#. module: straconx_product_historical_price
+#: model:ir.ui.menu,name:straconx_product_historical_price.menu_product_historical
+msgid "Historical List Prices"
+msgstr "Historical List Prices"
+
+#. module: straconx_product_historical_price
+#: view:product.product:0
+msgid "Historical Costs"
+msgstr "Historical Costs"
+
+#. module: straconx_product_historical_price
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_product_historical_price
+#: field:product.product,list_price_historical:0
+msgid "Latest Price"
+msgstr "Latest Price"
+
+#. module: straconx_product_historical_price
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+

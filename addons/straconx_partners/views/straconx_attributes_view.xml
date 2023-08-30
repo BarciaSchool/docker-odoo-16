@@ -1,0 +1,128 @@
+<openerp>
+<data>
+    <!--Agencies View-->
+        <record id="action_partner_title_agency" model="ir.actions.act_window">
+            <field name="name">Partner Titles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.title</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('domain','=','agency')]</field>
+            <field name="help">Manage the partner titles you want to have available in your system. The partner titles is the agency of the companies: Headquarter, Agency, Office, etc.</field>
+        </record>
+
+    <!--Functions View-->
+        <record id="action_partner_title_functions" model="ir.actions.act_window">
+            <field name="name">Partner Functions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.title</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('domain','=','function')]</field>
+            <field name="help">Manage the partner functions you want to have available in your system. The partner functions is jobs: Manager, CEO, Account, etc.</field>
+        </record>
+
+    <!--Segment Class-->
+        <record id="view_info_segmento_form_straconx" model="ir.ui.view">
+            <field name="name">info.segmento.form</field>
+            <field name="model">res.partner.segmento</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Segmento de Clientes">
+                    <field name="name" select="1"/>
+                    <field name="shortcut" select="1"/>
+                    <field name="is_default"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_info_segmento_straconx" model="ir.actions.act_window">
+            <field name="name">Segmento</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.segmento</field>
+            <field name="view_type">form</field>
+        </record>
+
+    <!--Credit Class-->
+        <record id="view_info_clasec_form_straconx" model="ir.ui.view">
+            <field name="name">info.clasec.form</field>
+            <field name="model">res.partner.clasec</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Clase de Clientes">
+                    <field name="name" select="1"/>
+                    <field name="shortcut" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_info_clasec_straconx" model="ir.actions.act_window">
+            <field name="name">Clase Crediticia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.clasec</field>
+            <field name="view_type">form</field>
+        </record>
+
+    <!--Sales Class-->    
+    
+        <record id="view_info_clasev_form_straconx" model="ir.ui.view">
+            <field name="name">info.clasev.form</field>
+            <field name="model">res.partner.clasev</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Clase de Clientes">
+                    <field name="name" select="1"/>
+                    <field name="shortcut" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_info_clasev_straconx" model="ir.actions.act_window">
+            <field name="name">Clase Comercial</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.clasev</field>
+            <field name="view_type">form</field>
+        </record>
+    
+    <!--Credit Status -->
+        <record id="view_info_estado_form_straconx" model="ir.ui.view">
+            <field name="name">info.estado.form</field>
+            <field name="model">res.partner.estado</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Clase de Clientes">
+                    <field name="name" select="1"/>
+                    <field name="shortcut" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_info_estado_straconx" model="ir.actions.act_window">
+            <field name="name">Estado</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.estado</field>
+            <field name="view_type">form</field>
+        </record>
+
+    <!--Comercial Activities-->
+
+        <record id="view_info_activities_form_straconx" model="ir.ui.view">
+            <field name="name">Comercial Activities</field>
+            <field name="model">res.partner.comactivities</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Comercial Activities">
+                    <field name="name" select="1"/>
+                    <field name="shortcut" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_info_activities_straconx" model="ir.actions.act_window">
+            <field name="name">Comercial Activities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner.comactivities</field>
+            <field name="view_type">form</field>
+        </record>
+        
+
+</data>
+</openerp>

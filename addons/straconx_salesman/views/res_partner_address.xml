@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Partner Address 1 -->
+	    <record model="ir.ui.view" id="partners_form_add_salesman1">
+	        <field name="name">partners_form_add_salesman1</field>
+	        <field name="model">res.partner.address</field>
+	        <field name="inherit_id" ref="base.view_partner_address_form1"/>
+	        <field name="arch" type="xml">
+	        <field name="email" position="after">
+	        	<newline/>
+	        	<separator colspan="4" string="Users assigned" />
+                <field name="salesman_assigned" colspan="2"/>
+                <field name="collect_assigned" colspan="2"/>
+	        </field>
+	        </field>
+	    </record>
+
+		<!-- Partner Address 2 -->
+		    <record model="ir.ui.view" id="partners_form_add_salesman2">
+		        <field name="name">partners_form_add_salesman2</field>
+		        <field name="model">res.partner.address</field>
+		        <field name="inherit_id" ref="base.view_partner_address_form2"/>
+		        <field name="arch" type="xml">
+		        <field name="email" position="after">
+		        	<newline/>
+		        	<separator colspan="4" string="Users assigned" />
+	                <field name="salesman_assigned" colspan="2"/>
+                	<field name="collect_assigned" colspan="2"/>
+		        </field>
+		        </field>
+		    </record>
+    
+	    <record model="ir.ui.view" id="view_partner_address_tree_inherited2">
+	        <field name="name">Partner addresses inherited</field>
+	        <field name="model">res.partner.address</field>
+	        <field name="inherit_id" ref="base.view_partner_address_tree"/>
+	        <field name="type">tree</field>
+	        <field name="arch" type="xml">
+	            <field name="phone" position="after">
+	            	<newline/>
+	                <field name="salesman_assigned"/>
+	                <field name="collect_assigned"/>
+	            </field>
+	        </field>
+	    </record>
+	    
+	    <record model="ir.ui.view" id="view_partner_form_inherit_salesman">
+			<field name="name">res.partner.inherit</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="model">res.partner</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="email" position="after">
+					<newline/>
+					<separator colspan="4" string="Users assigned" />
+	                <field name="salesman_assigned" colspan="2"/>
+                	<field name="collect_assigned" colspan="2"/>
+				</field>
+			</field>
+		</record>
+        
+        <record id="base.view_res_partner_address_filter" model="ir.ui.view">
+            <field name="name">res.partner.address.select</field>
+            <field name="model">res.partner.address</field>
+            <field name="type">search</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search Contact">
+                    <group>
+                        <filter string="Customer" name="customer" icon="terp-personal" domain="[('is_customer_add','=','1')]" />
+                        <filter string="Supplier" name="supplier"  icon="terp-personal" domain="[('is_supplier_add','=','1')]" />
+                        <separator orientation="vertical"/>
+                        <field name="partner_id" string="Partner"/>
+                        <field name="name" />
+                        <field name="city" />
+                        <field name="salesman_assigned"/>
+                        <field name="collect_assigned"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                       <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by' : 'partner_id'}" />
+                       <filter string="Country" icon="terp-go-home" domain="[]" context="{'group_by' : 'country_id'}" />
+                       <filter string="Type" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'type'}" />
+                       <filter string="Salesman" icon="terp-personal" domain="[]" context="{'group_by' : 'salesman_assigned'}" />
+                       <filter string="Collector" icon="terp-personal" domain="[]" context="{'group_by' : 'collect_assigned'}" />
+                   </group>
+                 </search>
+            </field>
+        </record>
+    
+    
+    </data>
+</openerp>

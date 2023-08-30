@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	<!--base_vat.company_form_vat-->
+ 		<record model="ir.ui.view" id="res_company_sales_form_view"> 
+ 			<field name="name">res.company.form</field> 
+ 			<field name="model">res.company</field> 
+ 			<field name="type">form</field> 
+ 			<field name="inherit_id" ref="straconx_account.view_company_inherit_settings_discount" />
+ 			<field name="arch" type="xml">
+ 				 <field name="property_analytic_account" position="replace" >
+ 				  	<field name="property_analytic_account"/> 
+ 				  	<newline/>
+ 				 	<separator string="Sales Order" />
+ 				 	<newline/>
+ 				 	<field name="authorize_sales_order" />
+ 				 	<field name="number_days_validate" on_change="onchange_number_days_validate(number_days_validate)" />
+ 				 </field>
+ 	        </field>
+ 		</record>
+	</data>
+</openerp>

@@ -1,0 +1,308 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_salesman
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-21 00:34+0000\n"
+"PO-Revision-Date: 2013-01-21 00:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_salesman
+#: sql_constraint:res.region.zone:0
+msgid "The code of the zone must be unique !"
+msgstr "El código de la zona debe ser único!"
+
+#. module: straconx_salesman
+#: field:res.users,is_manager:0
+msgid "Is manager?"
+msgstr "¿Es Gerente?"
+
+#. module: straconx_salesman
+#: field:res.partner.address,salesman_assigned:0
+msgid "Salesman Assigned"
+msgstr "Asesor Comercial"
+
+#. module: straconx_salesman
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía seleccionada no está autorizada como compañía para este usuario"
+
+#. module: straconx_salesman
+#: field:res.partner,salesman_id:0
+msgid "Comercial Asesor"
+msgstr "Asesor Comercial"
+
+#. module: straconx_salesman
+#: view:res.users:0
+msgid "Management"
+msgstr "Administración"
+
+#. module: straconx_salesman
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La cédula / RUC específicada ya existe para otra empresa registrada."
+
+#. module: straconx_salesman
+#: view:salesman.salesman:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_salesman
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_salesman
+#: model:ir.model,name:straconx_salesman.model_res_region_zone
+msgid "res.region.zone"
+msgstr "Zona"
+
+#. module: straconx_salesman
+#: field:res.region.zone,code:0
+msgid "Zone Code"
+msgstr "Código de Zona"
+
+#. module: straconx_salesman
+#: constraint:res.partner.address:0
+msgid "The number sri must be only numbers"
+msgstr "El número del SRI debe contener solo números"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,segmento_ids:0
+msgid "Segmentos"
+msgstr "Segmentos"
+
+#. module: straconx_salesman
+#: field:res.partner,collect_id:0
+msgid "Dedicated Collector"
+msgstr "Recaudador"
+
+#. module: straconx_salesman
+#: view:res.users:0
+msgid "Comercial"
+msgstr "Comercial"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,code:0
+msgid "salesman code"
+msgstr "Código Asesor"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,zone_id:0
+msgid "zone"
+msgstr "Zona"
+
+#. module: straconx_salesman
+#: constraint:res.partner.address:0
+msgid "Only must exist a address type default by partner"
+msgstr "Solo puede existir un dirección de tipo predeterminada por Empresa"
+
+#. module: straconx_salesman
+#: model:ir.model,name:straconx_salesman.model_salesman_salesman
+#: view:salesman.salesman:0
+msgid "salesman"
+msgstr "Asesor Comercial"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,is_collector:0
+msgid "Is a Collector?"
+msgstr "¿Es un Recaudador?"
+
+#. module: straconx_salesman
+#: help:salesman.salesman,user_id:0
+msgid "The internal user that is in charge of communicating with this partner if any."
+msgstr "El usuario interno que se encuentra a cargo de comunicarse con esta Empresa."
+
+#. module: straconx_salesman
+#: view:salesman.salesman:0
+msgid "Profiles of Users"
+msgstr "Perfil de Usuario"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,is_seller:0
+msgid "Is a Seller?"
+msgstr "¿Es un Vendedor?"
+
+#. module: straconx_salesman
+#: field:res.partner.address,collect_assigned:0
+msgid "Collector Assigned"
+msgstr "Recaudador"
+
+#. module: straconx_salesman
+#: model:ir.actions.act_window,name:straconx_salesman.action_buyer
+#: view:salesman.salesman:0
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: straconx_salesman
+#: help:res.region.zone,code:0
+msgid "The zone code in max ten chars.\n"
+""
+msgstr "El código de la zona en máximo 10 carácteres.\n"
+""
+
+#. module: straconx_salesman
+#: field:res.users,is_driver:0
+msgid "Is driver?"
+msgstr "¿Es un Chofer?"
+
+#. module: straconx_salesman
+#: field:res.users,is_collector:0
+msgid "Is Collector?"
+msgstr "¿Es un Recaudador?"
+
+#. module: straconx_salesman
+#: field:res.users,is_buyer:0
+msgid "Is Buyer?"
+msgstr "¿Es un Comprador?"
+
+#. module: straconx_salesman
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del SRI debe ser único!"
+
+#. module: straconx_salesman
+#: sql_constraint:salesman.salesman:0
+msgid "The code of the salesman must be unique !"
+msgstr "El código del Asesor comercial debe ser único !"
+
+#. module: straconx_salesman
+#: sql_constraint:salesman.salesman:0
+msgid "The name of the salesman must be unique !"
+msgstr "El nombre del Asesor comercial debe ser único !"
+
+#. module: straconx_salesman
+#: view:res.partner:0
+#: view:res.partner.address:0
+msgid "Users assigned"
+msgstr "Usuarios asignados"
+
+#. module: straconx_salesman
+#: model:ir.model,name:straconx_salesman.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_salesman
+#: field:salesman.salesman,is_buyer:0
+msgid "Is a Buyer?"
+msgstr "¿Es un Comprador?"
+
+#. module: straconx_salesman
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_salesman
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_salesman
+#: sql_constraint:res.region.zone:0
+msgid "The name of the zone must be unique !"
+msgstr "El nombre de la zona debe ser único !"
+
+#. module: straconx_salesman
+#: view:res.users:0
+msgid "Logistics"
+msgstr "Logística"
+
+#. module: straconx_salesman
+#: view:res.users:0
+msgid "User Profile"
+msgstr "Perfil del Usuario"
+
+#. module: straconx_salesman
+#: field:res.users,is_supervisor:0
+msgid "Is Supervisor?"
+msgstr "¿Es un Supervisor?"
+
+#. module: straconx_salesman
+#: field:res.partner,buyer_id:0
+msgid "Buyer Asesor"
+msgstr "Asesor de Compra"
+
+#. module: straconx_salesman
+#: model:ir.ui.menu,name:straconx_salesman.region_zones
+msgid "Region Zones"
+msgstr "Regiones"
+
+#. module: straconx_salesman
+#: model:ir.actions.act_window,name:straconx_salesman.action_salesman
+#: model:ir.ui.menu,name:straconx_salesman.salesman_menu
+#: view:salesman.salesman:0
+msgid "Salesman"
+msgstr "Asesor comercial"
+
+#. module: straconx_salesman
+#: view:res.region.zone:0
+#: field:res.region.zone,region_id:0
+msgid "region"
+msgstr "Región"
+
+#. module: straconx_salesman
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_salesman
+#: model:ir.actions.act_window,help:straconx_salesman.action_region_zone
+msgid "You can assing diferents Zones to Regions."
+msgstr "Usted puede asignadr diferentes zonas a regiones."
+
+#. module: straconx_salesman
+#: model:ir.actions.act_window,name:straconx_salesman.action_region_zone
+msgid "Zones"
+msgstr "Zonas"
+
+#. module: straconx_salesman
+#: field:res.partner.address,buyer_assigned:0
+msgid "Buyer Assigned"
+msgstr "Comprador asignado"
+
+#. module: straconx_salesman
+#: field:res.users,is_warehouse_user:0
+msgid "Is Warehouse User?"
+msgstr "¿Es un Auxiliar de Bodega?"
+
+#. module: straconx_salesman
+#: view:res.users:0
+#: field:salesman.salesman,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_salesman
+#: field:res.users,is_seller:0
+msgid "Is Seller?"
+msgstr "¿Es un vendedor?"
+
+#. module: straconx_salesman
+#: model:ir.model,name:straconx_salesman.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_salesman
+#: field:res.region.zone,name:0
+msgid "Zone Name"
+msgstr "Zona"
+
+#. module: straconx_salesman
+#: model:ir.model,name:straconx_salesman.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_salesman
+#: model:ir.actions.act_window,name:straconx_salesman.action_collector
+#: model:ir.ui.menu,name:straconx_salesman.menu_credit_collector
+#: view:salesman.salesman:0
+msgid "Collector"
+msgstr "Recaudador"
+

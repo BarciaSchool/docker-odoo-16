@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<record model="account.journal.type" id="journal_debit_note">
+            <field name="name">Notas de Débito</field>
+            <field name="code">debit_note</field>
+            <field name="sri_type_control">company</field>
+			<field name="sri_type_document" model="sri.document.type" search="[('code', '=', '05')]"/>
+        </record>
+        
+        <record model="account.journal.type" id="journal_advances">
+            <field name="name">Anticipos</field>
+            <field name="code">advances</field>
+            <field name="sri_type_control">internal</field>
+        </record>
+    
+	    <record id="diario_notas_debito" model="account.journal">
+			<field name="code">DND</field>
+			<field name="name">Diario de Notas de Débito</field>
+			<field name="view_id">3</field>
+			<field name="type">debit_note</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale"/>
+			<field name="update_posted" eval="True"/>						
+		</record>
+		
+		<record id="diario_Anticipos" model="account.journal">
+			<field name="code">DANT</field>
+			<field name="name">Diario de Anticipos</field>
+			<field name="view_id">3</field>
+			<field name="type">advances</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale"/>
+			<field name="update_posted" eval="True"/>						
+		</record>
+            
+    </data>
+</openerp>

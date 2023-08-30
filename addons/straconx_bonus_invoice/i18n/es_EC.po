@@ -1,0 +1,438 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_bonus_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120714-233648\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-05 21:32+0000\n"
+"PO-Revision-Date: 2013-04-05 21:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_bonus_invoice
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:41
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:272
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:285
+#: code:addons/straconx_bonus_invoice/objects/straconx_sale_order.py:124
+#: code:addons/straconx_bonus_invoice/objects/straconx_stock_picking.py:75
+#, python-format
+msgid "BONUS must be greater than or equal to 0.PLEASE CHECK!.The amount has been adjusted."
+msgstr "BONO debería ser mayor o igual a 0.POR FAVOR VERIFIQUE!.La cantidad ha sido ajustada."
+
+#. module: straconx_bonus_invoice
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr "¡La orden de referencia debe ser única por Compañía!"
+
+#. module: straconx_bonus_invoice
+#: model:ir.actions.act_window,name:straconx_bonus_invoice.action_wizard_report_bonus
+msgid "action.wizard.report.bonus"
+msgstr "action.wizard.report.bonus"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Cancel Availability"
+msgstr "Cancelar disponibilidad"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "New pack"
+msgstr "Nuevo paquete"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Scrap"
+msgstr "Residuo(Chatarra)"
+
+#. module: straconx_bonus_invoice
+#: help:wizard.report.bonus,initial_date:0
+msgid "indicates the initial date where the bonus products will be considered"
+msgstr "Indica la fecha inicial desde que las bonificaciones del producto será considerado"
+
+#. module: straconx_bonus_invoice
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: straconx_bonus_invoice
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_bonus_invoice
+#: view:bonus.move:0
+msgid "update quantities from invoices and stock moves"
+msgstr "actualizar las cantidades de las facturas y movimientos de valores"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Split"
+msgstr "Dividir"
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+msgid "Total Taxes"
+msgstr "Total de Impuestos"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Movimientos"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Move Information"
+msgstr "Información de movimiento"
+
+#. module: straconx_bonus_invoice
+#: model:ir.ui.menu,name:straconx_bonus_invoice.report_cost_bonus_invoice
+msgid "Report cost's bonus product"
+msgstr "Reporte de Costo de Bonificación de producto"
+
+#. module: straconx_bonus_invoice
+#: field:wizard.report.bonus,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+#: view:sale.order:0
+#: view:stock.picking:0
+msgid "Total Quantity"
+msgstr "Cantidad Total"
+
+#. module: straconx_bonus_invoice
+#: help:res.partner,last_bonus_qty:0
+msgid "Last quantity awarded as bonus"
+msgstr "Última Cantidad adjudicada como bonus."
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+msgid "Offer"
+msgstr "Oferta"
+
+#. module: straconx_bonus_invoice
+#: field:account.invoice.line,bonus_qty:0
+#: field:sale.order.line,bonus_qty:0
+#: field:stock.move,bonus_qty:0
+msgid "Bonus"
+msgstr "Bono"
+
+#. module: straconx_bonus_invoice
+#: constraint:stock.move:0
+msgid "You can not move products from or to a location of the type view."
+msgstr "No se puede mover productos a localidades que son tipos Vista."
+
+#. module: straconx_bonus_invoice
+#: field:wizard.report.bonus,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: straconx_bonus_invoice
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:41
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:243
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:272
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:285
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:290
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:296
+#: code:addons/straconx_bonus_invoice/objects/straconx_sale_order.py:124
+#: code:addons/straconx_bonus_invoice/objects/straconx_sale_order.py:127
+#: code:addons/straconx_bonus_invoice/objects/straconx_stock_picking.py:75
+#: code:addons/straconx_bonus_invoice/objects/straconx_stock_picking.py:78
+#, python-format
+msgid "Validation Error!"
+msgstr "Error de Validación!"
+
+#. module: straconx_bonus_invoice
+#: model:ir.actions.act_window,name:straconx_bonus_invoice.action_update_bonus_installer
+msgid "Update moves and amount invoices"
+msgstr "Actualizar movimientos y cantidades facturadas"
+
+#. module: straconx_bonus_invoice
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Unit Of Measure"
+msgstr "Unidad de medida"
+
+#. module: straconx_bonus_invoice
+#: view:bonus.move:0
+msgid "_Update"
+msgstr "_Actualizar"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Product Ubications"
+msgstr "Ubicaciones de Productos"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Ubication"
+msgstr "Ubicación"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+msgid "Line"
+msgstr "Line"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Scrap Products"
+msgstr "Productos Desperdicio/Chatarra"
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: straconx_bonus_invoice
+#: constraint:sale.order.line:0
+msgid "The qty of line must be a integer number"
+msgstr "La cantidad de la línea debe ser un entero"
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+#: view:stock.picking:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+#. module: straconx_bonus_invoice
+#: field:wizard.report.bonus,partner_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: straconx_bonus_invoice
+#: field:wizard.report.bonus,end_date:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_bonus_invoice
+#: view:wizard.report.bonus:0
+msgid "_Print"
+msgstr "_Imprimir"
+
+#. module: straconx_bonus_invoice
+#: field:res.partner,last_bonus_qty:0
+msgid "Bonus quantity"
+msgstr "Cantidad de Bono"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuestos de factura"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_wizard_report_bonus
+msgid "wizard.report.bonus"
+msgstr "wizard.report.bonus"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+msgid "Total Qty"
+msgstr "Total Cantidad"
+
+#. module: straconx_bonus_invoice
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:243
+#: code:addons/straconx_bonus_invoice/objects/straconx_account_invoice.py:290
+#: code:addons/straconx_bonus_invoice/objects/straconx_sale_order.py:127
+#: code:addons/straconx_bonus_invoice/objects/straconx_stock_picking.py:78
+#, python-format
+msgid "BONUS not be greater than QUANTITY.PLEASE CHECK!."
+msgstr "BONO no debe ser mayor que la CANTIDAD.POR FAVOR VERIFIQUE!"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_bonus_invoice
+#: view:wizard.report.bonus:0
+msgid "If a field is not complete then be omitted from the filter"
+msgstr "Si el campo no esta lleno entonces sera omitido del filtro"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Traceability"
+msgstr "Trazabilidad"
+
+#. module: straconx_bonus_invoice
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr "¡La referencia debe ser única por Compañia!"
+
+#. module: straconx_bonus_invoice
+#: view:bonus.move:0
+msgid "If you use this wizard will update all amounts on invoices prior to installation of this module.This way you could change the invoices and apply bonus."
+msgstr "Si utiliza este asistente se actualizará todos los importes de las facturas antes de la instalación de este módulo.De esta manera usted puede cambiar las facturas y aplicar bonificaciones."
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Put in a new pack"
+msgstr "Poner en un nuevo paquete"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_bonus_move
+msgid "bonus.move"
+msgstr "Movimiento de Bonos"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Put in current pack"
+msgstr "Poner en el paquete"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+msgid "Total Quantity :"
+msgstr "Total Cantidad :"
+
+#. module: straconx_bonus_invoice
+#: field:account.invoice.line,qty:0
+#: field:sale.order.line,qty:0
+#: field:stock.move,qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Date Expected"
+msgstr "Fecha esperada"
+
+#. module: straconx_bonus_invoice
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_bonus_invoice
+#: help:account.invoice.line,bonus_qty:0
+#: help:sale.order.line,bonus_qty:0
+#: help:stock.move,bonus_qty:0
+msgid "Quantity awarded as bonus.Bonus must be greater than or equal to 0."
+msgstr "Cantidad adjudicada como bonus.El bono debe ser mayor que o igual a 0."
+
+#. module: straconx_bonus_invoice
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: straconx_bonus_invoice
+#: view:sale.order:0
+msgid "Sales order lines"
+msgstr "Líneas de la Orden de Venta"
+
+#. module: straconx_bonus_invoice
+#: field:bonus.move,config_logo:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: straconx_bonus_invoice
+#: view:bonus.move:0
+msgid "title"
+msgstr "Título"
+
+#. module: straconx_bonus_invoice
+#: view:account.invoice:0
+#: model:ir.model,name:straconx_bonus_invoice.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_bonus_invoice
+#: help:wizard.report.bonus,end_date:0
+msgid "indicates the final date where the bonus products will be considered"
+msgstr "Indica la fecha final desde que las bonificaciones del producto será considerado"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Lost Sales"
+msgstr "Ventas Pérdidas"
+
+#. module: straconx_bonus_invoice
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_bonus_invoice
+#: field:wizard.report.bonus,initial_date:0
+msgid "Initial Date"
+msgstr "Fecha inicial"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Split in production lots"
+msgstr "Dividir en lotes de producción"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_bonus_invoice
+#: view:stock.picking:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: straconx_bonus_invoice
+#: model:ir.actions.report.xml,name:straconx_bonus_invoice.action_cost_bonus_invoice_report
+msgid "action.cost.bonus.invoice.report"
+msgstr "action.cost.bonus.invoice.report"
+
+#. module: straconx_bonus_invoice
+#: model:ir.model,name:straconx_bonus_invoice.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: straconx_bonus_invoice
+#: view:wizard.report.bonus:0
+msgid "Product cost bonus"
+msgstr "Costo de bonos en productos"
+

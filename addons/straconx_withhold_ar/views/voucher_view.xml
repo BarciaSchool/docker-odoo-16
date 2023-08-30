@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="account_voucher_withhold_form_view">
+			<field name="name">Sale Withhold</field>
+			<field name="model">account.voucher</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="account_voucher.view_vendor_receipt_form" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Payment Information']"
+					position="after">
+					<page string="Sales Withhold">
+						<separator string="Sales Withhold" colspan="4" />
+						<field name="withhold_ids" nolabel="1" widget="many2many"
+							domain="[('transaction_type','=','sale'),('state','=','draft'),('invoice_id.partner_id','=',partner_id)]"
+							context="{'form_view_ref':'straconx_withhold.view_withhold_sale_form1'}">
+							<tree string="Withhold">
+								<field name="fiscalyear_id" />
+								<field name="period_id" />
+								<!--field name="shop_id"/ -->
+								<field name="printer_id" />
+								<field name="date" />
+								<field name="invoice_id" on_change="onchange_invoice(invoice_id)" />
+								<field name="number_sale" />
+								<field name="authorization" />
+								<!--field name="authorization_sale"/ -->
+								<field name="total" />
+								<!-- <field name="voucher_id" invisible="1"/> -->
+								<group col="6" colspan="4">
+									<field name="state" string='State' />
+									<button name="button_approve" states="draft" string="Approved"
+										icon="gtk-go-forward" />
+									<button name="button_annulled" states="approved" string="Annulled"
+										icon="gtk-cancel" />
+									<button name="button_set_draft" states="annulled"
+										string="Set to draft" icon="terp-stock_effects-object-colorize"
+										type="object" />
+									<button name="%(withhold_report_id)d" string="Print Withhold"
+										type="action" icon="gtk-print" states="approved" />
+								</group>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="account_voucher_withhold_form_pos_view">
+			<field name="name">Sale Withhold</field>
+			<field name="model">account.voucher</field>
+			<field name="type">form</field>
+			<field name="inherit_id"
+				ref="straconx_payments.view_vendor_receipt_pos_form_straconx" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Payment Information']"
+					position="after">
+					<page string="Sales Withhold">
+						<separator string="Sales Withhold" colspan="4" />
+						<field name="withhold_ids" nolabel="1" widget="many2many"
+							domain="[('transaction_type','=','sale'),('state','=','draft'),('invoice_id.partner_id','=',partner_id)]"
+							context="{'form_view_ref':'straconx_withhold.view_withhold_sale_form1'}">
+							<tree string="Withhold">
+								<field name="fiscalyear_id" />
+								<field name="period_id" />
+								<!--field name="shop_id"/ -->
+								<field name="printer_id" />
+								<field name="date" />
+								<field name="invoice_id" on_change="onchange_invoice(invoice_id)" />
+								<field name="number_sale" />
+								<field name="authorization" />
+								<!--field name="authorization_sale"/ -->
+								<field name="total" />
+								<!-- <field name="voucher_id" invisible="1"/> -->
+								<group col="6" colspan="4">
+									<field name="state" string='State' />
+									<button name="button_approve" states="draft" string="Approved"
+										icon="gtk-go-forward" />
+									<button name="button_annulled" states="approved" string="Annulled"
+										icon="gtk-cancel" />
+									<button name="button_set_draft" states="annulled"
+										string="Set to draft" icon="terp-stock_effects-object-colorize"
+										type="object" />
+									<button name="%(withhold_report_id)d" string="Print Withhold"
+										type="action" icon="gtk-print" states="approved" />
+								</group>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="account_voucher_withhold_form_supplier_view">
+			<field name="name">Purchase Withhold</field>
+			<field name="model">account.voucher</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="account_voucher.view_vendor_payment_form" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Payment Information']"
+					position="after">
+					<page string="Purchase Withholds">
+						<separator string="Purchase Withholds" colspan="4" />
+						<group colspan="4">
+							<label
+								string="Aquí apareceran las retenciones pendientes de imprimir. En caso de aprobarlas, no olvide grabar el formulario para actualizar el pago." />
+						</group>
+						<field name="withhold_ids" nolabel="1" widget="many2many"
+						context="{'form_view_ref':'straconx_withhold.view_withhold_purchase_form'}">
+<!-- 							domain="[('transaction_type','=','purchase'),('state','=','draft'),('invoice_id.partner_id','=',partner_id)]" -->							
+							<tree string="Withhold">								
+								<field name="number_purchase" />
+								<field name="date" />
+								<field name="period_id" />
+								<field name="invoice_id" on_change="onchange_invoice(invoice_id)" />
+								<field name="authorization" />
+								<field name="state" string='State' />
+								<button name="%(withhold_report_id)d" string="Print Withhold"
+									type="action" icon="gtk-print" states="approved" />								
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>

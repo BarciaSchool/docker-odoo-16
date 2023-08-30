@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+
+		<record id="straconx_sri_electronic_invoice.cron_create_users" model="ir.cron">
+			<field eval="&quot;&quot;&quot;cron_create_users&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Crea Usuarios de Portal&quot;&quot;&quot;" name="name"/>
+			<field eval="-1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d %H:%M:%S')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="False" name="active"/>
+			<field eval="5" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;res.users&quot;&quot;&quot;" name="model"/>
+		</record>
+
+<!-- 		<record id="cron_verified_data" model="ir.cron"> -->
+<!-- 			<field eval="&quot;&quot;&quot;verified_data&quot;&quot;&quot;" name="function"/> -->
+<!-- 			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/> -->
+<!-- 			<field name="user_id" ref="base.user_root"/> -->
+<!-- 			<field eval="&quot;&quot;&quot;Verifica Datos de Documentos&quot;&quot;&quot;" name="name"/> -->
+<!-- 			<field eval="-1" name="numbercall"/> -->
+<!-- 			<field eval="time.strftime('%Y-%m-%d')" name="nextcall"/> -->
+<!-- 			<field eval="1" name="priority"/> -->
+<!-- 			<field eval="0" name="doall"/> -->
+<!-- 			<field eval="True" name="active"/> -->
+<!-- 			<field eval="1" name="interval_number"/> -->
+<!-- 			<field eval="&quot;&quot;&quot;verified.data&quot;&quot;&quot;" name="model"/> -->
+<!-- 		</record> -->
+
+    </data>
+</openerp>

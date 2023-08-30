@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+    
+    	<record id="purchase.trans_router_picking" model="workflow.transition">
+            <field name="act_from" ref="purchase.act_router"/>
+            <field name="act_to" ref="purchase.act_picking"/>
+            <field name="condition">has_stockable_product() and verify_type_purchase()</field>
+        </record>
+        
+        <record id="trans_router_picking_done" model="workflow.transition">
+            <field name="act_from" ref="purchase.act_router"/>
+            <field name="act_to" ref="purchase.act_picking_done"/>
+            <field name="condition">not has_stockable_product() and verify_type_purchase()</field>
+        </record>
+    
+    
+    </data>
+</openerp>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+  
+  	<record id="base_setup.config_action_user_preferences_config_form" model="ir.actions.todo">
+          <field name="action_id" ref="base_setup.action_user_preferences_config_form"/>
+          <field name="category_id" ref="base.category_administration_config"/>
+          <field name="sequence">1</field>
+          <field name="type">automatic</field>
+      </record>
+      
+    <record id="view_company_installer" model="ir.ui.view">
+      <field name="name">company.installer.view</field>
+      <field name="model">company.installer</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+        <data>
+          <form position="attributes">
+            <attribute name="string">RUC of company Configuration</attribute>
+          </form>
+          
+          <separator string="title" position="attributes">
+            <attribute name="string">Config RUC company</attribute>
+          </separator>
+          
+          <xpath expr="//label[@string='description']"
+                 position="attributes">
+            <attribute name="string">In the Ecuadorian norm for companies to ask the SRI to operate the RUC that will be necessary for your reports. This condition is essential</attribute>
+          </xpath>
+          
+          <xpath expr='//separator[@string="vsep"]' position='attributes'>
+                <attribute name='string'></attribute>
+          </xpath>
+          <xpath expr="//button[@string='Install Modules']" position="attributes">
+                   <attribute name="string">Configure</attribute>
+          </xpath>
+          <xpath expr="//button[@name='action_skip']" position="replace"/>
+          
+          <group colspan="8">
+          		<field name="name"></field>
+          		<newline/>
+          		<field name="company_id" widget="selection"></field>
+          </group>
+        </data>
+      </field>
+    </record>
+    
+     <record id="action_company_installer" model="ir.actions.act_window">
+      <field name="name">RUC company Configuration</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">company.installer</field>
+      <field name="view_id" ref="view_company_installer"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="company_installer_todo" model="ir.actions.todo">
+      <field name="name">Define the Vat of company</field>
+      <field name="action_id" ref="action_company_installer"/>
+      <field name="category_id" ref="base.category_administration_config"/>
+      <field name="sequence">2</field>
+      <field name="type">automatic</field>
+    </record>
+
+  </data>
+</openerp>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+  
+  	<record id="base_setup.config_action_user_preferences_config_form" model="ir.actions.todo">
+          <field name="action_id" ref="base_setup.action_user_preferences_config_form"/>
+          <field name="category_id" ref="base.category_administration_config"/>
+          <field name="sequence">1</field>
+          <field name="type">automatic</field>
+      </record>
+      
+    <record id="view_electronic_document_installer" model="ir.ui.view">
+      <field name="name">Wizard for Electronic Documents Configuration</field>
+      <field name="model">ei.installer</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+        <data>         
+          <separator string="title" position="attributes">
+            <attribute name="string">Wizard for Electronic Documents Configuration</attribute>
+          </separator>
+          
+          <xpath expr="//label[@string='description']"
+                 position="attributes">
+            <attribute name="string">Please, fill next fields</attribute>
+          </xpath>
+                    
+          <group colspan="8">
+          		<field name="electronic_path" required="1"/>
+          		<newline/>
+          		<field name="files_path" required="1"/>
+          		<newline/>
+          		<field name="document_email" required="1"/>
+          		<newline/>
+          		<field name="only_principal_shop" required="1"/>
+          </group>
+        </data>
+      </field>
+    </record>
+    
+     <record id="action_ei_installer" model="ir.actions.act_window">
+      <field name="name">Wizard for Electronic Documents Configuration</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">ei.installer</field>
+      <field name="view_id" ref="view_electronic_document_installer"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="ei_installer_todo" model="ir.actions.todo">
+      <field name="name">Wizard for Electronic Documents Configuration</field>
+      <field name="action_id" ref="action_ei_installer"/>
+      <field name="category_id" ref="base.category_administration_config"/>
+      <field name="sequence">5</field>
+      <field name="type">automatic</field>
+    </record>
+
+  </data>
+</openerp>

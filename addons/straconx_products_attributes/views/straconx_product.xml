@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<!-- Product -->
+
+		<record model="ir.ui.view" id="product_sales_attribute">
+			<field name="name">Product Attributes for Sales </field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook//page[@string='Information']"
+					position="after">
+					<page string="Applications Models">
+						<group colspan="2">
+							<separator string="Attributes" />
+							<field name="attribute_ids" nolabel="1" colspan="4" />
+						</group>
+						<group colspan="2" col="1">
+							<separator string="Applications" />
+							<field name="author_ids" nolabel="1" />
+						</group>
+					</page>
+					<page string="Relations">
+						<group colspan="2" col="1">
+							<separator string="Productos Equivalentes" />
+							<field name="link_ids" nolabel="1" />
+							<separator string="Producto Nuevo" />
+							<field name="link_ids1" nolabel="1" />
+							<separator string="Productos Relacionados" />
+							<field name="link_ids2" nolabel="1" />
+							<separator string="Accesorios" />
+							<field name="link_ids3" nolabel="1" />
+							<separator string="Adaptaciones de Producto" />
+							<field name="link_ids4" nolabel="1" />
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>
+    

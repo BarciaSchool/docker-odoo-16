@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!-- Protested and rejected -->
+
+		<record id="refund_check_form" model="ir.ui.view">
+			<field name="name">refund.form</field>
+			<field name="model">refund</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="refund Checks">
+					<group col="4" colspan="4">
+					<label string="In this wizard you must specify the information of cheks rejected or protested."/>
+					</group>
+					<separator string="Information Check" colspan="4"/>
+					<field name="name" readonly="1"/>
+					<field name="partner_id" readonly="1"/>
+					<field name="amount_check" readonly="1"/>
+					<field name="date_rejected" required="1"/>
+					<field name="pending" invisible="1"/>
+					<separator string="" colspan="4" />
+					<field name="account_id" required="1" domain="[('type','=','receivable')]"/>
+					<field name="amount_debit_note" required="4"/>
+					<newline/>
+					<field name="motive" colspan="4"/>
+					<group col="6" colspan="4">
+						<label string="" colspan="2" />
+						<button icon="gtk-cancel" special="cancel" string="_Cancel"/>
+						<button name="button_refund" string="Refund Check" icon="gtk-media-play" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_refund" model="ir.actions.act_window">
+			<field name="name">refund Checks</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">refund</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="refund_check_form" />
+			<field name="target">new</field>
+		</record>
+		
+<!--  Changed Date -->
+
+		<record id="changed_date_check_form" model="ir.ui.view">
+			<field name="name">refund.form</field>
+			<field name="model">refund</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Changed Date for Checks">
+					<group col="4" colspan="4">
+					<label string="In this wizard you must specify the information for change date of cheques."/>
+					</group>
+					<separator string="Information Check" colspan="4"/>
+					<field name="name" readonly="1"/>
+					<field name="partner_id" readonly="1"/>
+					<field name="amount_check" readonly="1"/>
+					<field name="date_changed" required="1"/>
+					<group col="6" colspan="4">
+						<label string="" colspan="2" />
+						<button icon="gtk-cancel" special="cancel" string="_Cancel"/>
+						<button name="button_changed_date" string="Changed Date" icon="gtk-media-play" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_change_date" model="ir.actions.act_window">
+			<field name="name">Change Date for Checks</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">refund</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="changed_date_check_form" />
+			<field name="target">new</field>
+		</record>
+		
+	<!-- Exchanged Checks -->
+	
+		<record id="exchanged_check_form" model="ir.ui.view">
+			<field name="name">exchanged.form</field>
+			<field name="model">refund</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="refund Checks">
+					<group col="4" colspan="4">
+						<label string="In this wizard you must specify the information of cheks Exchanged."/>
+					</group>
+					<separator string="Information Check" colspan="4"/>
+					<field name="user_id" required="1" on_change="onchange_user(user_id)"/>
+					<field name="statement_id" required="1" domain="[('state','=','open'),('user_id','=',user_id)]"/>
+					<field name="motive" required="1"/>
+					<field name="mode_id" required="1" domain="[('cash','=',True)]" widget="selection"/>
+					<field name="partner_id" invisible="1"/>
+					<field name="amount_check" readonly="1"/>
+					<field name="date_changed" required="1"/>
+					<group col="6" colspan="4">
+						<label string="" colspan="2" />
+						<button icon="gtk-cancel" special="cancel" string="_Cancel"/>
+						<button name="button_exchanged" string="Exchanged Check" icon="gtk-media-play" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_change_check" model="ir.actions.act_window">
+			<field name="name">Change Check for Cash</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">refund</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="exchanged_check_form" />
+			<field name="target">new</field>
+		</record>
+	</data>
+</openerp>

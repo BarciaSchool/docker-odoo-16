@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="procurement.view_make_procurment_wizard" model="ir.ui.view">
+			<field name="name">Procurement Request</field>
+			<field name="model">make.procurement</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Procurement Request">
+					<group colspan="3">
+						<label
+							string="This wizard will plan the procurement for this product. This procurement may generate task, production orders or purchase orders." />
+					</group>
+					<newline />
+					<group colspan="3" col="6">
+						<field name="shop_id" required="1"
+							on_change="on_change_shop(shop_id,location_id,context)" context="{'origin':True}"
+							invisible="1" />
+						<field name="carrier_id" invisible="1" />
+						<field name="shop_id_dest" required="1"
+							on_change="on_change_shop(shop_id_dest,location_id,context)"
+							context="{'dest':True}" invisible="1" />
+						<field name="location_dest_id" required="1"
+							domain="[('usage','=','internal')]" invisible="1" />
+						<field name="date_planned" invisible="1" />
+					</group>
+					<newline />
+					<group colspan="3" col="6">
+						<field name="location_id" string="Desde Bodega"
+							on_change="on_change_shop(shop_id,location_id,context)" context="{'origin':True}"
+							required="1" domain="[('usage','=','internal')]" colspan="6" />
+						<newline />
+						<field name="product_id" on_change="onchange_product_id(product_id,context)"
+							invisible="1" />
+						<newline />
+						<field name="qty"
+							on_change="onchage_qty_stock(qty,product_id,location_id,location_dest_id)" />
+						<field name="uom_id" />
+						<field name="view_picking" />
+					</group>
+					<newline />
+					<button icon='gtk-cancel' special="cancel" string="Cancel" />
+					<button name="make_procurement" string="Make Transfer Order"
+						colspan="1" type="object" icon="gtk-ok" />
+				</form>
+			</field>
+		</record>
+
+		<record id="action_make_procurment_wizard" model="ir.actions.act_window">
+			<field name="name">Make Procurement</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">make.procurement</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+
+</openerp>
+

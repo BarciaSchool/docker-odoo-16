@@ -1,0 +1,1 @@
+update res_users set first_login = True, action_id = (select id from ir_act_window where res_model = 'wizard.change.password') where id >1;

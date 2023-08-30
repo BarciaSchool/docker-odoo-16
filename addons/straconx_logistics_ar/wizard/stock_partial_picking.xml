@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="stock_partial_picking_line_ar_form">
+            <field name="name">stock_partial_picking_ar</field>
+            <field name="inherit_id" ref="stock.stock_partial_picking_form"/>
+            <field name="model">stock.partial.picking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">            	
+            	 <xpath expr="/form/field/tree/field[@name='product_id']" position="after">            		
+                    <field name="name" />                    
+            	</xpath>   
+            </field>
+        </record> 
+      
+           	
+    </data>
+</openerp>    

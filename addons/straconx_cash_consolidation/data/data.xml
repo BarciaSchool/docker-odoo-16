@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!-- journals -->
+
+		<record id="journal_type_cash_consolidation" model="account.journal.type">
+			<field name="name">Caja Consolidada</field>
+			<field name="code">cash_consolidation</field>
+            <field name="sri_type_control">internal</field>
+		</record>
+
+		<record id="diario_cash_consolidation" model="account.journal">
+			<field name="code">CCONS</field>
+			<field name="name">Caja Consolidada</field>
+			<field name="view_id">3</field>
+			<field name="type">cash_consolidation</field>
+		</record>
+
+		<!-- sequence -->
+
+		<record id="seq_type_cash_consolidation" model="ir.sequence.type">
+			<field name="name">Cash Consolidation</field>
+			<field name="code">cash.consolidation</field>
+		</record>
+
+		<record id="seq_cash_consolidation" model="ir.sequence">
+			<field name="name">Cash Consolidation</field>
+			<field name="code">cash.consolidation</field>
+			<field name="prefix">CASH</field>
+			<field name="padding">4</field>
+		</record>
+
+		<!-- BH Info -->
+		<record id="efect_matriz" model="move.type">
+			<field name="sequence">1</field>
+			<field name="name">EFECTIVO MATRIZ</field>			
+			<field name="account_id" ref="straconx_account.10101010205"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop')])]"/>
+		</record>
+
+		<record id="efect_orellana" model="move.type">
+			<field name="sequence">1</field>
+			<field name="name">EFECTIVO ORELLANA</field>			
+			<field name="account_id" ref="straconx_account.10101010103"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_005')])]"/>
+		</record>
+
+		<record id="efect_alborada" model="move.type">
+			<field name="sequence">1</field>
+			<field name="name">EFECTIVO ALBORADA</field>			
+			<field name="account_id" ref="straconx_account.10101010205"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="efect_shirys" model="move.type">
+			<field name="sequence">1</field>
+			<field name="name">EFECTIVO SHYRIS</field>			
+			<field name="account_id" ref="straconx_account.10101010102"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_004')])]"/>
+		</record>
+
+		<record id="cheque_matriz" model="move.type">
+			<field name="sequence">2</field>
+			<field name="name">CHEQUE AL COBRO MATRIZ</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop')])]"/>
+		</record>
+
+		<record id="cheque_orellana" model="move.type">
+			<field name="sequence">2</field>
+			<field name="name">CHEQUE AL COBRO ORELLANA</field>			
+			<field name="account_id" ref="straconx_account.10101010103"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_005')])]"/>
+		</record>
+
+		<record id="cheque_alborada" model="move.type">
+			<field name="sequence">2</field>
+			<field name="name">CHEQUE AL COBRO ALBORADA</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="cheque_shirys" model="move.type">
+			<field name="sequence">2</field>
+			<field name="name">CHEQUE AL COBRO SHYRIS</field>			
+			<field name="account_id" ref="straconx_account.10101010102"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_004')])]"/>
+		</record>
+
+		<record id="cheque_mendiburo" model="move.type">
+			<field name="sequence">2</field>
+			<field name="name">CHEQUE AL COBRO MENDIBURO</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_006')])]"/>
+		</record>
+		<record id="cheques_fecha" model="move.type">
+			<field name="sequence">3</field>
+			<field name="name">CHEQUES A FECHA</field>			
+			<field name="account_id" ref="straconx_account.10102050102"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="tarjetas_credito" model="move.type">
+			<field name="sequence">4</field>
+			<field name="name">TARJETAS DE CRÉDITO</field>			
+			<field name="account_id" ref="straconx_account.10102050103"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="deposito_matriz" model="move.type">
+			<field name="sequence">5</field>
+			<field name="name">DEPOSITO DEL DIA MATRIZ</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop')])]"/>
+		</record>
+
+		<record id="deposito_orellana" model="move.type">
+			<field name="sequence">5</field>
+			<field name="name">DEPOSITO DEL DIA ORELLANA</field>			
+			<field name="account_id" ref="straconx_account.10101010103"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_005')])]"/>
+		</record>
+
+		<record id="deposito_alborada" model="move.type">
+			<field name="sequence">5</field>
+			<field name="name">DEPOSITOS DEL DIA ALBORADA</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="deposito_shirys" model="move.type">
+			<field name="sequence">5</field>
+			<field name="name">DEPOSITOS DEL DIA SHYRIS</field>			
+			<field name="account_id" ref="straconx_account.10101010102"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_004')])]"/>
+		</record>
+
+		<record id="deposito_mendiburo" model="move.type">
+			<field name="sequence">5</field>
+			<field name="name">DEPOSITO DEL DIA MENDIBURO</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_006')])]"/>
+		</record>
+
+		<record id="notas_credito" model="move.type">
+			<field name="sequence">6</field>
+			<field name="name">NOTAS DE CRÉDITO</field>			
+			<field name="account_id" ref="straconx_account.4110010101"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="retenciones_fuente" model="move.type">
+			<field name="sequence">7</field>
+			<field name="name">RETENCIONES EN LA FUENTE</field>			
+			<field name="account_id" ref="straconx_account.10105020101"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="retenciones_iva" model="move.type">
+			<field name="sequence">7</field>
+			<field name="name">RETENCIONES DE IVA</field>			
+			<field name="account_id" ref="straconx_account.10105010103"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="egresos_matriz" model="move.type">
+			<field name="sequence">8</field>
+			<field name="name">EGRESOS MATRIZ</field>			
+			<field name="account_id" ref="straconx_account.10101010205"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop')])]"/>
+		</record>
+
+		<record id="egresos_orellana" model="move.type">
+			<field name="sequence">8</field>
+			<field name="name">EGRESOS ORELLANA</field>			
+			<field name="account_id" ref="straconx_account.10101010103"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_005')])]"/>
+		</record>
+
+		<record id="egresos_alborada" model="move.type">
+			<field name="sequence">8</field>
+			<field name="name">EGRESOS ALBORADA</field>			
+			<field name="account_id" ref="straconx_account.10101010205"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="egresos_shirys" model="move.type">
+			<field name="sequence">8</field>
+			<field name="name">EGRESOS SHYRIS</field>			
+			<field name="account_id" ref="straconx_account.10101010102"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_004')])]"/>
+		</record>
+
+		<record id="deposito_clie_matriz" model="move.type">
+			<field name="sequence">9</field>
+			<field name="name">DEPOSITO DE CLIENTES A CREDITO MATRIZ</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop')])]"/>
+		</record>
+
+		<record id="deposito_clie_orellana" model="move.type">
+			<field name="sequence">9</field>
+			<field name="name">DEPOSITO DE CLIENTES A CREDITO ORELLANA</field>			
+			<field name="account_id" ref="straconx_account.10101010103"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_005')])]"/>
+		</record>
+
+		<record id="deposito_clie_alborada" model="move.type">
+			<field name="sequence">9</field>
+			<field name="name">DEPOSITO DE CLIENTES A CREDITO ALBORADA</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="deposito_clie_shirys" model="move.type">
+			<field name="sequence">9</field>
+			<field name="name">DEPOSITO DE CLIENTES A CREDITO SHYRIS</field>			
+			<field name="account_id" ref="straconx_account.10101010102"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_004')])]"/>
+		</record>
+
+		<record id="deposito_clie_mendiburo" model="move.type">
+			<field name="sequence">9</field>
+			<field name="name">DEPOSITO DE CLIENTES A CREDITO MENDIBURO</field>			
+			<field name="account_id" ref="straconx_account.10101010101"/>
+			<field name="type">in</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('straconx_bh.sale_bh_006')])]"/>
+		</record>
+
+		<record id="retenciones_clie_fuente" model="move.type">
+			<field name="sequence">10</field>
+			<field name="name">RETENCIONES EN LA FUENTE DE CREDITO</field>			
+			<field name="account_id" ref="straconx_account.10105020101"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="retenciones_clie_iva" model="move.type">
+			<field name="sequence">10</field>
+			<field name="name">RETENCIONES DE CREDITO IVA</field>			
+			<field name="account_id" ref="straconx_account.10105010103"/>
+			<field name="type">out</field>
+			<field name="register_move" eval="True"/>
+			<field name="required_reference" eval="False"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="ventas_12" model="invoice.type">
+			<field name="sequence">13</field>
+			<field name="name">FACTURAS AL CONTADO 12%</field>			
+			<field name="account_id" ref="straconx_account.4101020101"/>
+			<field name="type">iva</field>
+			<field name="register_move" eval="True"/>
+			<field name="account_id_iva" ref="straconx_account.imp601_sale"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="ventas_12_cred" model="invoice.type">
+			<field name="sequence">13</field>
+			<field name="name">FACTURAS CREDITO 12%</field>			
+			<field name="account_id" ref="straconx_account.4101020101"/>
+			<field name="type">iva</field>
+			<field name="register_move" eval="True"/>
+			<field name="account_id_iva" ref="straconx_account.imp601_sale"/>			
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="ventas_0" model="invoice.type">
+			<field name="sequence">13</field>
+			<field name="name">FACTURAS AL CONTADO 0%</field>			
+			<field name="account_id" ref="straconx_account.4101020101"/>
+			<field name="type">noiva</field>
+			<field name="register_move" eval="True"/>
+			<field name="account_id_iva" ref="straconx_account.imp600_sale"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+		<record id="ventas_0_cred" model="invoice.type">
+			<field name="sequence">13</field>
+			<field name="name">FACTURAS CREDITO 0%</field>			
+			<field name="account_id" ref="straconx_account.4101020101"/>
+			<field name="type">noiva</field>
+			<field name="register_move" eval="True"/>
+			<field name="account_id_iva" ref="straconx_account.imp600_sale"/>
+			<field name="shop_ids" eval="[(6, 0,[ref('sale.shop'), ref('straconx_bh.sale_bh_004'), ref('straconx_bh.sale_bh_005'),ref('straconx_bh.sale_bh_006'),ref('straconx_bh.sale_bh_007')])]"/>
+		</record>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_company_inherit_settings_account">
+            <field name="name">res.company.form.inherit</field>
+            <field name="inherit_id" ref="straconx_account.view_company_inherit_settings_discount"/>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="property_discount_purchase" position="after">
+                      <separator string="Settings Advances" colspan="4"/>
+                      <field name="property_account_advance_customer" />
+                      <field name="property_account_advance_supplier" />
+                </field>
+            </field>
+        </record>
+
+	</data>
+</openerp>

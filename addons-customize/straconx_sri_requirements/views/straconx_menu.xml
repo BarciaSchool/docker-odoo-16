@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+    	<menuitem 
+            name="Reporte de Rangos"
+            id="menu_sri_reporte_rangos" 
+            parent="straconx_sri.account_sri_configuration"
+            action="action_straconx_sri_reporte_rango"
+            sequence="3"/>
+
+    	<menuitem 
+            name="Tipos de Transacciones"
+            id="menu_sri_type_transaction" 
+            parent="straconx_sri.account_sri_configuration"
+            action="action_straconx_sri_type_transaction"
+            sequence="4"/>            
+    </data>
+</openerp>

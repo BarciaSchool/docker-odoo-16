@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<record id="view_picking_internal_report_out_form" model="ir.ui.view">
+			<field name="name">stock.picking.form</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Internal Picking list">
+					<group colspan="4" col="6">
+						<group colspan="4" col="4">
+							<field name="internal_in" invisible="1" />
+							<field name="internal_out" invisible="1" />
+							<field name="confirm_reposition" invisible="1" />
+							<field name="name" readonly="1" />
+							<field name="digiter_id" readonly="1" />
+							<field name="shop_id" required="1" colspan="2"
+								on_change="onchange_shop(shop_id,{'internal_out':True})" readonly="1"/>
+							<field name="location_id" domain="[('usage','=','internal')]"
+								readonly="1" />
+							<field name="shop_id_dest" readonly="1" colspan="2"
+								on_change="onchange_shop_dest(shop_id_dest,{'internal_out':True})" />
+							<field name="location_dest_id" domain="[('usage','=','internal')]"
+								readonly="1" />
+							<field name="address_id" domain="[('partner_id','=',partner_id)]"
+								context="{'contact_display':'partner'}"
+								readonly="1" />
+							<field name="partner_id" readonly="1" colspan="2"
+								on_change="onchange_partner_id(partner_id, type, {'internal_out':True})"
+								invisible="1" />
+							<field name="carrier_id" readonly="1"
+								on_change="onchange_carrier(carrier_id)" />
+							<field name="date" readonly="1" />
+							<field name="date_expected" readonly="1" />
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="Products">
+							<field colspan="4" name="move_lines" nolabel="1"
+								widget="one2many_list" default_get="{'move_line':move_lines}" readonly="1">
+								<tree string="Stock Moves">
+									<field name="ref_product" />
+									<field name="product_id" />
+									<field name="categ_id" />
+									<field name="ubication_id" />
+									<field name="product_qty"
+										on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+									<field name="product_uom" string="UoM" />
+									<field name="location_id" domain="[('usage','=','internal')]"
+										widget="selection" />
+									<field name="location_dest_id" domain="[('usage','=','transit')]"
+										widget="selection" required="1" />
+									<field name="state" />
+								</tree>
+								<form string="Stock Moves">
+									<group colspan="2" col="4">
+										<separator colspan="4" string="Move Information" />
+										<field name="name" invisible="1" colspan="4" />
+										<field name="product_id" on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty, parent.type, {'internal_out':True})" context="{'shop_id':parent.shop_id,'internal_out':True}" colspan="4" />
+										<field name="ref_product" />
+										<field name="price_unit" readonly="1" />
+										<field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)"/>
+										<field name="product_uom" string="Unit Of Measure"/>
+										<field name="ubication_id" string="Ubication" domain="[('product_ids.product_id','=',product_id),('location_id','=',location_id)]" required="1"/>
+										<field name="prodlot_id" domain="[('product_id','=',product_id)]" groups="base.group_extended"/>
+										<field name="product_packaging" groups="base.group_extended" domain="[('product_id','=',product_id)]" colspan="4" invisible="1"/>
+									</group>
+
+									<group colspan="2" col="2">
+										<separator string="Locations" colspan="2" />
+										<field name="location_id" on_change="onchange_locations_internal(product_id, parent.type,parent.location_id,parent.location_dest_id,{'internal_out':True})"/>
+										<field name="location_dest_id" widget="selection" domain="[('usage','=','transit')]"/>
+										<field name="ubication_ids" nolabel="1" colspan="2">
+											<tree string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</tree>
+											<form string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</form>
+										</field>
+									</group>
+									<label string="" colspan="4" />
+									<field name="state" />
+								</form>
+							</field>
+							<button name="confirm_resposition" attrs="{'invisible': [('confirm_reposition','=',True)]}" string="Confirm Reposition" icon="gtk-media-play" confirm="Are you sure to confirm this picking Reposition?" type="object"/>
+						</page>
+						<page string="Additional info" groups="base.group_extended,base.group_multi_company">
+							<field name="auto_picking" groups="base.group_extended" />
+							<field name="invoice_state" groups="base.group_extended" />
+							<field name="date_done" groups="base.group_extended" />
+							<field name="move_type" groups="base.group_extended" />
+							<field name="type" groups="base.group_extended" />
+							<field name="company_id" groups="base.group_multi_company"
+								widget="selection" />
+							<field name="delivery_status" />	
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="note" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_picking_internal_report_in_form" model="ir.ui.view">
+			<field name="name">Internal Picking Moves</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Internal Picking list">
+					<group colspan="4" col="4">
+						<field name="internal_in" invisible="1" />
+						<field name="internal_out" invisible="1" />
+						<field name="name" readonly="1" />
+						<field name="origin" readonly="1" />
+						<field name="shop_id" readonly="1" colspan="2" on_change="onchange_shop(shop_id,{'internal_in':True})"/> 
+						<field name="location_id" domain="[('usage','=','internal')]" readonly="1" />
+						<field name="shop_id_dest" readonly="1" colspan="2" on_change="onchange_shop_dest(shop_id_dest,{'internal_in':True})" />
+						<field name="location_dest_id" domain="[('usage','=','internal')]" readonly="1" />
+						<field name="address_id" domain="[('partner_id','=',partner_id)]" context="{'contact_display':'partner'}" readonly="1" attrs="{'readonly':[('state','!=','draft')]}" />
+						<field name="partner_id" readonly="1" colspan="2" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_partner_id(partner_id, type, {'internal_out':True})" invisible="1" />
+						<field name="carrier_id" readonly="1" on_change="onchange_carrier(carrier_id)" />
+						<field name="date" />
+						<field name="date_expected" readonly="1" required="0" />
+						<field name="warehouse_id" readonly="1" />
+						<field name="backorder_id" readonly="1" />
+					</group>
+
+					<notebook colspan="4">
+						<page string="Products">
+							<field colspan="4" name="move_lines" nolabel="1"
+								widget="one2many_list" default_get="{'move_line':move_lines}" readonly="1">
+								<tree string="Stock Moves">
+									<field name="ref_product" />
+									<field name="product_id" />
+									<field name="categ_id" />
+									<field name="ubication_id" />
+									<field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+									<field name="product_uom" string="UoM" />
+									<field name="prodlot_id" domain="[('product_id','=',product_id)]" groups="base.group_extended" />
+									<field name="location_id" domain="[('usage','=','transit')]" attrs="{'invisible': [('type','=','in')]}" widget="selection" />
+									<field name="location_dest_id" domain="[('usage','=','internal')]" widget="selection" required="1" />
+									<field name="state" />
+								</tree>
+								<form string="Stock Moves">
+									<group colspan="2" col="4">
+										<separator colspan="4" string="Move Information" />
+										<field name="name" invisible="1" colspan="4" />
+										<field name="product_id" on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty,parent.type,{'internal_in':True})" colspan="4" />
+										<field name="ref_product" />
+										<field name="price_unit" />
+										<field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+										<field name="product_uom" string="Unit Of Measure" />
+										<field name="ubication_id" string="Ubication" domain="[('location_id','=',location_dest_id)]" required="1" />
+										<field name="prodlot_id" domain="[('product_id','=',product_id)]" groups="base.group_extended" />
+										<field groups="base.group_extended" name="product_packaging" domain="[('product_id','=',product_id)]" colspan="4" invisible="1" />
+										<newline />
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Locations" colspan="2" />
+										<field name="location_id" domain="[('usage','=','transit')]" attrs="{'invisible': [('type','=','in')]}" widget="selection" />
+										<field name="location_dest_id" on_change="onchange_locations_internal(product_id, parent.type,parent.location_id,parent.location_dest_id,{'internal_in':True})"/>
+										<field name="ubication_ids" nolabel="1" colspan="2">
+											<tree string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</tree>
+											<form string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</form>
+										</field>
+									</group>
+									<label string="" colspan="4" />
+									<field name="state" />
+									<group col="4" colspan="2" groups="base.group_extended">
+										<button name="action_cancel" states="assigned" string="Cancel"
+											type="object" icon="gtk-cancel" />
+										<button name="action_confirm" states="draft" string="Confirm"
+											type="object" icon="gtk-apply" />
+										<button name="cancel_assign" states="assigned"
+											string="Cancel Availability" type="object" icon="gtk-find" />
+									</group>
+								</form>
+							</field>
+						</page>
+						<page string="Additional info" groups="base.group_extended,base.group_multi_company">
+							<field name="auto_picking" groups="base.group_extended" />
+							<field name="invoice_state" groups="base.group_extended" />
+							<field name="date_done" groups="base.group_extended" />
+							<field name="move_type" groups="base.group_extended" />
+							<field name="type" groups="base.group_extended" />
+							<field name="company_id" groups="base.group_multi_company"
+								widget="selection" />
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="note" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<record id="straconx_action_picking_internal_report_out" model="ir.actions.act_window">
+			<field name="name">Internal Out Orders of other shop</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','internal'),('internal_out','=',True),('consigment','=',False),('shop_id.printer_point_ids.user_ids.id','=', uid)]</field>
+			<field name="context">{'contact_display':'partner_address','default_internal_out':1}</field>
+			<field name="search_view_id" ref="stock.view_picking_internal_search" />
+		</record>
+
+		<record id="action_picking_internal_report_out_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_picking_internal_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_internal_report_out" />
+		</record>
+
+		<record id="action_picking_internal_report_out_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_picking_internal_report_out_form" />
+			<field name="act_window_id" ref="straconx_action_picking_internal_report_out" />
+		</record>
+		
+		
+		<record id="straconx_action_picking_internal_report_in" model="ir.actions.act_window">
+			<field name="name">Internal In Orders of other shop</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','internal'),('internal_in','=',True),('consigment','=',False),('shop_id_dest.printer_point_ids.user_ids.id','=', uid)]</field>
+			<field name="context">{'contact_display':'partner_address','default_internal_in':1}</field>
+			<field name="search_view_id" ref="stock.view_picking_internal_search" />
+		</record>
+
+		<record id="action_picking_internal_report_in_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_picking_internal_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_internal_report_in" />
+		</record>
+
+		<record id="action_picking_internal_report_in_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_picking_internal_report_in_form" />
+			<field name="act_window_id" ref="straconx_action_picking_internal_report_in" />
+		</record>
+    
+    
+    </data>
+</openerp>

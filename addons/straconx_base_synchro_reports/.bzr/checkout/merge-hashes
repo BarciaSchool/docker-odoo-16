@@ -1,0 +1,15 @@
+BZR merge-modified list format 1
+file_id: straconx_invoice.py-20150601063651-97mi2kyw5m8ksy2b-13
+hash: c07393549c045e2141f282e1cd0697cfbfb53e3e
+
+file_id: straconx_shop_paymen-20150601063651-97mi2kyw5m8ksy2b-17
+hash: c4f8d2dc8a8ce486958920d121621a2aa2c257a2
+
+file_id: straconx_base_synchr-20150601063651-97mi2kyw5m8ksy2b-20
+hash: fdb01b8c9bdda4765771e7a07f2b4ddda151c120
+
+file_id: straconx_payments_de-20160913221245-uc1u9zm00hsmnxn0-1
+hash: 969ff8c356a2e12b0823223bf61bff0cceeae147
+
+file_id: straconx_picking.py-20150601063651-97mi2kyw5m8ksy2b-14
+hash: b58d60d67861203871597682f4129cca23d11ee9

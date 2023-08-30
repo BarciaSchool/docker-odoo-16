@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!--Groups User Administration -->
+		<record model="res.groups" id="base.group_multi_company">
+			<field name="name">Administration / Multi Companies</field>
+			<field name="category_id" ref="base.module_category_administration" />
+			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />
+		</record>
+
+		<record model="res.groups" id="base.group_extended">
+			<field name="name">Administration / Extended View</field>
+			<field name="category_id" ref="base.module_category_administration" />
+<!-- 			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />-->
+ 		</record>
+
+		<record model="res.groups" id="base.group_no_one">
+			<field name="name">Administration / Technical Features</field>
+			<field name="category_id" ref="base.module_category_administration" />
+			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />
+		</record>
+
+		<record model="res.groups" id="product.group_uos">
+			<field name="name">Administration / Product UoS View</field>
+			<field name="category_id" ref="base.module_category_administration" />
+<!-- 			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />-->	
+ 		</record>
+
+		<record model="res.groups" id="product.group_product_variant">
+			<field name="name">Administration / Product Variant</field>
+			<field name="category_id" ref="base.module_category_administration" />
+<!-- 			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" /> -->
+		</record>
+
+		<record model="res.groups" id="analytic.group_analytic_accounting">
+			<field name="name">Administration / Analytic Accounting</field>
+			<field name="category_id" ref="base.module_category_administration" />
+<!-- 			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />-->
+ 		</record>
+
+		<!-- grupo modulo conocimiento -->
+
+		<record id="base.group_document_manager" model="res.groups">
+			<field name="name">Knowledge / Manager</field>
+		</record>
+		
+		<record id="base.group_document_user" model="res.groups">
+	        <field name="name">User</field>
+	        <field name="category_id" ref="base.module_category_knowledge_management"/>
+	    </record>
+
+		<!-- Users Groups for sales menu -->
+
+		<record id="base.group_sales_commanager" model="res.groups">
+			<field name="name">Sales / Comercial Manager</field>
+		</record>
+
+		<record id="base.group_sales_supervisor" model="res.groups">
+			<field name="name">Sales / Supervisor</field>
+		</record>
+
+		<record id="base.group_phone_manager" model="res.groups">
+			<field name="name">Phone Sales / Manager</field>
+		</record>
+
+		<record id="base.group_phone_user" model="res.groups">
+			<field name="name">Phone Sales / User</field>
+		</record>
+
+		<record id="base.group_pos_manager" model="res.groups">
+			<field name="name">Point of Sale / Manager</field>
+		</record>
+
+		<record id="base.group_pos_user" model="res.groups">
+			<field name="name">Point of Sale / User</field>
+		</record>
+
+		<record id="base.group_pos_collector" model="res.groups">
+			<field name="name">Point of Sale / Collector</field>
+		</record>
+
+		<!--<record id="base.group_management_manager" model="res.groups"> -->
+		<!--<field name="name">Management / Manager</field></record> -->
+<!---->
+<!---->
+		<!--<record id="base.group_management_user" model="res.groups"> -->
+		<!--<field name="name">Management / User</field></record> -->
+<!---->
+<!---->
+		<!--<record id="base.group_customer_manager" model="res.groups"> -->
+		<!--<field name="name">Customer Service / Manager</field></record> -->
+<!---->
+<!---->
+		<!--<record id="base.group_customer_user" model="res.groups"> -->
+		<!--<field name="name">Customer Service / User</field></record> -->
+<!---->
+<!---->
+		<!--<record id="purchase_requisition.group_purchase_requisition_manager" 
+			model="res.groups"> -->
+		<!--<field name="name">Purchase Requisition / Manager</field></record> -->
+<!---->
+<!---->
+		<!--<record id="purchase_requisition.group_purchase_requisition_user" model="res.groups"> -->
+		<!--<field name="name">Purchase Requisition / User</field></record> -->
+<!---->
+
+<!-- 		<record id="marketing.group_marketing_user" model="res.groups"> -->
+<!-- 		<field name="name">Marketing / User</field></record> -->
+<!-- 		<record id="marketing.group_marketing_manager" model="res.groups"> -->
+<!-- 		<field name="name">Marketing / Manager</field></record> -->
+
+		<!--<record id="base.group_document_manager" model="res.groups"> -->
+		<!--<field name="name">Knowledge / Manager</field></record> -->
+		
+		<record id="base.group_risk_user" model="res.groups">
+			<field name="name">Credit Risk / User</field>
+		</record>
+
+		<record id="base.group_risk_manager" model="res.groups">
+			<field name="name">Credit Risk / Manager</field>
+		</record>
+
+		<record id="base.group_recovery_user" model="res.groups">
+			<field name="name">Recovery Risk / User</field>
+		</record>
+
+		<record id="base.group_recovery_manager" model="res.groups">
+			<field name="name">Recovery Risk / Manager</field>
+		</record>
+
+		<record id="base.group_risk_collector" model="res.groups">
+			<field name="name">Credit Risk / Collector</field>
+		</record>
+
+	</data>
+</openerp>

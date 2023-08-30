@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+		<data>
+	
+		<record model="ir.ui.view" id="hr_incomes_generate_lines_search_view">
+			<field name="name">Generate Lines of Incomes List</field>
+			<field name="model">hr.incomes</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Income">
+					<filter string="Company" icon="terp-go-home" domain="[]"
+						context="{'group_by':'company_id'}" />
+					<filter string="Type" icon="terp-camera_test" domain="[]"
+						context="{'group_by':'type'}" />
+					<filter string="Period" icon="terp-go-home" domain="[]"
+						context="{'group_by':'period_id'}" />
+					<filter string="State" icon="terp-stock_effects-object-colorize"
+						domain="[]" context="{'group_by':'state'}" />
+					<separator orientation="vertical" />
+					<field name="name" />
+					<field name="type" />
+					<field name="period_id" />
+					<field name="company_id" />
+					<newline />
+					<group expand="0" string="More filters..." colspan="4" col="10">
+						<field name="date" />
+						<field name="state" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_incomes_generate_lines_tree_view">
+			<field name="name">Generate Lines of Incomes List</field>
+			<field name="model">hr.incomes</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Income" colors="gray:state in ('paid')">
+					<field name="name" />
+					<field name="ref" />
+					<field name="period_id" />
+					<field name="company_id" />
+					<field name="collection_form" />
+					<field name="date" />
+					<field name="amount" />
+					<field name="state"  widget="statusbar"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_incomes_generate_lines_form_view">
+			<field name="name">Generate Lines of Incomes Form</field>
+			<field name="model">hr.incomes</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Incomes">
+					<group colspan="4" col="6">
+						<field name="company_id" widget="selection" on_change="onchange_date(date,company_id)"/>
+					</group>
+					<newline />
+					<group colspan="4" col="6">
+						<field name="name" required="1" domain="[('company_id','=',company_id),('type_income','=','other'),('generate_lines_employee','=',True)]" 							
+							context="{'search_view_ref':'straconx_talent_human.hr_incomes_type_search_view',
+							'tree_view_ref':'straconx_talent_human.hr_incomes_type_tree_view',
+							'form_view_ref':'straconx_talent_human.hr_incomes_type_form_view'}" 
+							on_change="onchange_trans_id(name)"/>
+						<field name="ref" required="1" />
+						<field name="date" required="1" on_change="onchange_date(date,company_id)"/>
+						<newline/>
+						<field name="collection_form" required="1" />
+						<field name="date_from" required="1" />
+						<field name="amount_to_paid" required="1" />
+					</group>
+
+					<notebook colspan="4">
+						<page string="Incomes of Employee">
+							<separator string="Incomes" colspan="4" />
+							<field name="lines_ids" colspan="4" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
+								<tree string="Incomes" editable="bottom">
+									<field name="employee_id" readonly="1"/>
+									<field name="name" invisible="1"/>
+									<field name="quantity" sum="total quantity" default_focus="1" on_change="onchange_total(quantity, price)"/>
+									<field name="price" sum="total price" on_change="onchange_total(quantity, price)"/>
+									<field name="amount" sum="total amount" />
+									<field name="ref" invisible="0"/>
+									<field name="date" invisible="1"/>
+									<field name="payslip_id" readonly="1"/>
+									<field name="payslip_id2"/>
+									<field name="income_type_id" invisible="1"/>
+									<field name="state" />									
+								</tree>
+								<form string="Incomes">
+									<field name="employee_id" readonly="1"/>
+									<field name="name" readonly="1"/>
+									<field name="quantity" sum="total quantity" default_focus="1" on_change="onchange_total(quantity, price)"/>
+									<field name="price" sum="total price" on_change="onchange_total(quantity, price)"/>
+									<field name="amount" sum="total amount"/>
+									<field name="ref" invisible="0"/>																		
+									<field name="date" required="1"/>
+									<field name="payslip_id" readonly="1"/>
+									<field name="payslip_id2" readonly="1"/>
+									<field name="income_type_id" invisible="1"/>
+									<field name="state" />
+								</form>
+							</field>
+						</page>
+						<page string="Other information">
+							<field name="user_id" required="1"/>							
+							<field name="journal_id" domain="[('type','=','discount_employee')]" />
+							<field name="period_id" required="1"/>
+							<field name="type" invisible="0"/>
+						</page>
+					</notebook>
+					<group colspan="4" col="8">
+						<field name="state" widget="statusbar"/>
+						<button name="button_set_draft" string="Set to Draft"
+							states="cancel" type="object" icon="terp-stock_effects-object-colorize" />
+						<button name="button_canceled" states="approve" string="Cancel"
+							type="object" icon="gtk-cancel" />
+						<button name="get_employee_ids" type="object" states="draft" icon="gtk-search" string="Search Lines Incomes by employee" />
+						<button name="button_approve" states="draft" string="Approve"
+							type="object" icon="gtk-media-play" />
+						<button name="%(pentaho_incomes_id)d" type="action" string="Print Incomes"
+							icon="gtk-print" states="approve,paid"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+
+
+		<!-- Other action generate -->
+
+		<record model="ir.actions.act_window" id="action_hr_incomes_generate">
+			<field name="name">Incomes Employee Generate Lines</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.incomes</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','other'),('generate_lines_employee','=',True)]</field>
+			<field name="context">{'type':'other'}</field>
+			<field name="search_view_id" ref="hr_incomes_generate_lines_search_view" />
+		</record>
+
+
+		<record id="action_hr_incomes_generate_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_incomes_generate_lines_tree_view" />
+			<field name="act_window_id" ref="action_hr_incomes_generate" />
+		</record>
+
+		<record id="action_hr_incomes_generate_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_incomes_generate_lines_form_view" />
+			<field name="act_window_id" ref="action_hr_incomes_generate" />
+		</record>
+
+		<record model="ir.ui.view" id="hr_incomes_hours_generate_lines_form_view">
+			<field name="name">Generate Lines of Extra Hours</field>
+			<field name="model">hr.incomes</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Incomes">
+					<group colspan="4" col="6">
+						<field name="company_id" widget="selection" on_change="onchange_date(date,company_id)"/>
+					</group>
+					<newline />
+					<group colspan="4" col="6">
+						<field name="name" required="1" domain="[('company_id','=',company_id),('type_income','=','extra_hours'),('generate_lines_employee','=',True)]" 							
+							context="{'search_view_ref':'straconx_talent_human.hr_incomes_type_search_view',
+							'tree_view_ref':'straconx_talent_human.hr_incomes_type_tree_view',
+							'form_view_ref':'straconx_talent_human.hr_incomes_type_form_view'}" 
+							on_change="onchange_trans_id(name)"/>
+						<field name="ref" required="1" />
+						<field name="date" required="1" on_change="onchange_date(date,company_id)"/>
+						<newline/>
+						<field name="collection_form" required="1" />
+						<field name="date_from" required="1" />
+						<field name="amount_to_paid" required="1" />
+					</group>
+
+					<notebook colspan="4">
+						<page string="Incomes of Employee">
+							<separator string="Incomes" colspan="4" />
+							<field name="lines_ids" colspan="4" nolabel="1" attrs="{'readonly':[('state','!=','draft')]}">
+								<tree string="Incomes" editable="bottom">
+									<field name="employee_id" readonly="1"/>
+									<field name="name" invisible="1"/>
+									<field name="quantity" sum="total quantity" default_focus="1" on_change="onchange_total(quantity, price)"/>
+									<field name="price" sum="total price" on_change="onchange_total(quantity, price)" invisible="1"/>
+									<field name="amount" sum="total amount" invisible="1"/>
+									<field name="ref" invisible="0"/>
+									<field name="date" invisible="1"/>
+									<field name="payslip_id" readonly="1"/>
+									<field name="income_type_id" invisible="1"/>
+									<field name="state" />									
+								</tree>
+								<form string="Incomes">
+									<field name="employee_id" readonly="1"/>
+									<field name="name" readonly="1"/>
+									<field name="quantity" sum="total quantity" default_focus="1" on_change="onchange_total(quantity, price)"/>
+									<field name="price" sum="total price" on_change="onchange_total(quantity, price)" invisible="1"/>
+									<field name="amount" sum="total amount" invisible="1"/>
+									<field name="ref" invisible="0"/>																		
+									<field name="date" required="1"/>
+									<field name="payslip_id" readonly="1"/>
+									<field name="income_type_id" invisible="1"/>
+									<field name="state" />
+								</form>
+							</field>
+						</page>
+						<page string="Other information">
+							<field name="user_id" required="1"/>							
+							<field name="journal_id" domain="[('type','=','discount_employee')]" />
+							<field name="period_id" required="1"/>
+							<field name="type" invisible="0"/>
+						</page>
+					</notebook>
+					<group colspan="4" col="8">
+						<field name="state" widget="statusbar"/>
+						<button name="button_set_draft" string="Set to Draft"
+							states="cancel" type="object" icon="terp-stock_effects-object-colorize" />
+						<button name="button_canceled" states="approve" string="Cancel"
+							type="object" icon="gtk-cancel" />
+						<button name="get_employee_ids" type="object" states="draft" icon="gtk-search" string="Search Lines Incomes by employee" />
+						<button name="button_approve" states="draft" string="Approve"
+							type="object" icon="gtk-media-play" />
+						<button name="%(pentaho_incomes_id)d" type="action" string="Print Incomes"
+							icon="gtk-print" states="approve"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+
+
+		<record model="ir.actions.act_window" id="action_hr_extra">
+			<field name="name">Incomes Employee Generate Lines</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.incomes</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','extra_hours'),('generate_lines_employee','=',True)]</field>
+			<field name="context">{'type':'extra_hours'}</field>
+			<field name="search_view_id" ref="hr_incomes_generate_lines_search_view" />
+		</record>
+
+		<record id="action_hr_incomes_generate_lines_form_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_incomes_generate_lines_tree_view" />
+			<field name="act_window_id" ref="action_hr_extra" />
+		</record>
+
+		<record id="hr_incomes_hours_generate_lines_form_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_incomes_hours_generate_lines_form_view" />
+			<field name="act_window_id" ref="action_hr_extra" />
+		</record>
+
+	</data>
+</openerp>

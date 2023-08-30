@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<menuitem action="action_recosting_products_form" id="recosting_products_menu_id"
+			name="Account Recosting" parent="straconx_products.account_menu_product" />
+	</data>
+</openerp>

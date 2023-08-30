@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<record id="oper_01" model="tax.code.operacion">
+		<field name="code">1</field>
+		<field name="name">Retención</field>
+		</record>
+
+		<record id="oper_02" model="tax.code.operacion">
+		<field name="code">2</field>
+		<field name="name">Percepción</field>
+		</record>
+
+		<record id="oper_03" model="tax.code.operacion">
+		<field name="code">3</field>
+		<field name="name">Imposibilidad de Retención</field>
+		</record>
+
+    </data>
+</openerp>

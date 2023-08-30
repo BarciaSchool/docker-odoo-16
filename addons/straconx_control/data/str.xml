@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="str_credit_control" model="ir.config_parameter">
+			<field name="key">credit_state</field>
+			<field name="value">Activo</field>
+		</record>
+
+	</data>
+</openerp>

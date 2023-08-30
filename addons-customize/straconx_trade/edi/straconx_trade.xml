@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<openerp>    
+    <data noupdate="0">
+        <!--Email template -->
+        <record id="stock.email_template_edi_picking_trade_request" model="email.template">
+            <field name="name">Picking de Entrada de Importación</field>
+            <field name="email_from">${object.digiter_id.user_email}</field>
+            <field name="subject">Información de Picking de Importación ${object.name or ''}</field>
+            <field name="email_to">${object.shop_id.logistics_stock.user_email},${object.shop_id.shop_manager.user_email},${object.shop_id_dest.shop_manager.user_email},${object.shop_id_dest.logistics_manager.user_email},${object.shop_id.logistics_manager.user_email}</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="report_template" ref="straconx_logistics.straconx_stock_pickinglist_pdf"/>
+            <field name="lang"></field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Saludos ${object.shop_id.logistics_stock.name or ''}</p>
+    
+    <p>Un nuevo picking de entrada por la Liquidación de importación # ${object.origin} esta pendiente. Los detalles se encuentran en el archivo adjunto.</p>        
+    <br/>
+    <p>Puede comunicarse con el remitente para alguna pregunta o inquietud.</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+    Saludos ${object.shop_id.logistics_stock.name or ''}
+    
+    Un nuevo picking de entrada por la Liquidación de importación # ${object.origin} esta pendiente. Los detalles se encuentran en el archivo adjunto.        
+    
+    Puede comunicarse con el remitente para alguna pregunta o inquietud.
+            ]]></field>
+        </record>
+    </data>
+    
+</openerp>

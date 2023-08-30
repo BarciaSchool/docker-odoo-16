@@ -1,0 +1,1825 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_sales
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-25 19:42+0000\n"
+"PO-Revision-Date: 2016-01-25 19:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,shop_id:0
+msgid "shop"
+msgstr "Tienda"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.straconx_action_sale_view_order
+msgid "New Sale Order"
+msgstr "Nueva Orden de Venta"
+
+#. module: straconx_sales
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía seleccionada no está autorizada como compañía para este usuario"
+
+#. module: straconx_sales
+#: field:res.users,max_offer:0
+msgid "% Maximum offer"
+msgstr "% Oferta Máxima autorizada"
+
+#. module: straconx_sales
+#: field:account.invoice,voucher_id:0
+msgid "Voucher Pay"
+msgstr "Pago de vale"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:146
+#, python-format
+msgid "You selected a quantity of %d Units.\n"
+"\"\n"
+"#                                 \"But it's not compatible with the selected packaging.\n"
+"\"\n"
+"#                                 \"Here is a proposition of quantities according to the packaging:\n"
+"\n"
+"\"\n"
+"#                                 \"EAN: %s Quantity: %s Type of ul: %s"
+msgstr "You selected a quantity of %d Units.\n"
+"\"\n"
+"#                                 \"But it's not compatible with the selected packaging.\n"
+"\"\n"
+"#                                 \"Here is a proposition of quantities according to the packaging:\n"
+"\n"
+"\"\n"
+"#                                 \"EAN: %s Quantity: %s Type of ul: %s"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_refund_customer
+msgid "Customer Refund Invoices"
+msgstr "Devoluciones de Facturas de Clientes"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/res_company.py:19
+#: code:addons/straconx_sales/objects/straconx_sales.py:414
+#, python-format
+msgid "Validation Error!"
+msgstr "Error de Validación!"
+
+#. module: straconx_sales
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:383
+#, python-format
+msgid "Can't find any account journal of %s type for this company.\n"
+"\n"
+"You can create one in the menu: \n"
+"Configuration\\Financial Accounting\\Accounts\\Journals."
+msgstr "Can't find any account journal of %s type for this company.\n"
+"\n"
+"You can create one in the menu: \n"
+"Configuration\\Financial Accounting\\Accounts\\Journals."
+
+#. module: straconx_sales
+#: field:res.users,changed_discount:0
+msgid "Permited Change Discount"
+msgstr "Permite cambiar descuentos"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay,payment_ids:0
+msgid "payments"
+msgstr "pagos"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Rejected"
+msgstr "Devueltos"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:600
+#, python-format
+msgid "You have exceed a Discount in the sale form.\n"
+"Please authorization request."
+msgstr "Usted ha excedido el descuento en este pedido de venta. Por favor, solicite autorización."
+
+#. module: straconx_sales
+#: field:account.invoice.line,department_id:0
+msgid "Department"
+msgstr "Department"
+
+#. module: straconx_sales
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_sales
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "Solo puede existir un diario por tipo en cada tienda."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:610
+#, python-format
+msgid "Put quantity in your sale order line"
+msgstr "Ingrese una cantidad en la línea de la orden de venta"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:228
+#, python-format
+msgid "Couldn't find a pricelist line matching this product and quantity.\n"
+"\"\n"
+"#                                            \"You have to change either the product, the quantity or the pricelist."
+msgstr "Couldn't find a pricelist line matching this product and quantity.\n"
+"\"\n"
+"#                                            \"You have to change either the product, the quantity or the pricelist."
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_ofsale
+msgid "New POS Order"
+msgstr "Nueva Orden de Venta POS"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Exchanged"
+msgstr "Canjeado"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_picking_all_pos_tree
+msgid "All Orders"
+msgstr "Listado de Ordenes"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:159
+#, python-format
+msgid "The product doesn't have a percentage sale in the category for calculate the price sale"
+msgstr "El producto no tiene un margen asignado en la categoría para calcular el precio de venta"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:217
+#: code:addons/straconx_sales/objects/straconx_sales.py:249
+#: code:addons/straconx_sales/objects/straconx_sales.py:632
+#, python-format
+msgid "No Pricelist !"
+msgstr "Sin Lista de Precios!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:218
+#, python-format
+msgid "You have to select a pricelist or a customer in the sales form !\n"
+"'\n"
+"#                                        'Please set one before choosing a product."
+msgstr "You have to select a pricelist or a customer in the sales form !\n"
+"'\n"
+"#                                        'Please set one before choosing a product."
+
+#. module: straconx_sales
+#: field:sale.order,totaloffer:0
+msgid "Offer"
+msgstr "Oferta"
+
+#. module: straconx_sales
+#: constraint:stock.move:0
+msgid "You can not move products from or to a location of the type view."
+msgstr "No se puede mover productos a localidades que son tipos Vista."
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,wizard_id:0
+msgid "wizard"
+msgstr "asistente"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:260
+#: code:addons/straconx_sales/objects/straconx_sales.py:570
+#, python-format
+msgid "Couldn't find a pricelist line matching this product and quantity.\n"
+"You have to change either the product, the quantity or the pricelist."
+msgstr "No se pueden encontrar listas de precios que coincidan con el producto y cantidad.\n"
+"Usted debería cambiar el producto, la cantidad o la lista de precios."
+
+#. module: straconx_sales
+#: field:sale.shop,headquarter:0
+msgid "Is Headquarter"
+msgstr "¿Es la Matriz?"
+
+#. module: straconx_sales
+#: field:sale.order,print_status_quotation_order:0
+msgid "Quotation Print Status"
+msgstr "Estado de Impresión de Proforma"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:204
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:226
+#, python-format
+msgid "Invoice not authorized!"
+msgstr "Factura no autorizada!"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_invoice_discount
+msgid "Add a Global Discount"
+msgstr "Añadir un descuento global"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.straconx_action_consignment_view_order
+#: model:ir.ui.menu,name:straconx_sales.menu_consignment_new
+msgid "New Consignment Order"
+msgstr "Nueva Orden de Consignación"
+
+#. module: straconx_sales
+#: view:wizard.authorization:0
+msgid "Validate"
+msgstr "Validado"
+
+#. module: straconx_sales
+#: field:sale.order.line,price_subtotal_incl:0
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay,change:0
+#: field:wizard.invoice.pay.lines,change:0
+msgid "Change"
+msgstr "Cambio a entregar"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_tema_pos
+msgid "POS Team"
+msgstr "Cajeros - Vendedor"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:457
+#, python-format
+msgid "the profit margin from these sales is less than that established by the shop.\n"
+"Please authorization request."
+msgstr "El margen de venta de este pedido es menor que el establecido para la tienda. Por favor, solicite una autorización."
+
+#. module: straconx_sales
+#: field:sale.shop,wholesale:0
+msgid "Is Wholesale Store"
+msgstr "¿Es un Punto de Distribución?"
+
+#. module: straconx_sales
+#: field:sale.order,amount_total_vat_12:0
+msgid "VAT 12%"
+msgstr "IVA 12%"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,number_deposit:0
+msgid "Number Deposit"
+msgstr "Número de Depósito"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_sale
+msgid "Shop Stock"
+msgstr "Inventario por Tienda"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:633
+#, python-format
+msgid "You have to select a pricelist in the sale form !\n"
+"' #                    'Please set one before choosing a product."
+msgstr "Tienes que seleccionar una lista de precios en la forma de la venta !\n"
+"' #                    'Por favor, configure uno antes de elegir un producto."
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_sales
+#: selection:sale.order,type:0
+msgid "Sale Order"
+msgstr "Orden de Venta"
+
+#. module: straconx_sales
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del SRI debe ser único!"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_resumen_invoice_pos_shop
+msgid "Resumen de Facturas"
+msgstr "Resumen de Facturas"
+
+#. module: straconx_sales
+#: field:account.invoice,pos:0
+msgid "pos"
+msgstr "pos"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,debit_note_id:0
+#: field:wizard.invoice.pay.lines,debit_notes:0
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:122
+#: code:addons/straconx_sales/objects/stock_picking.py:134
+#: code:addons/straconx_sales/objects/stock_picking.py:159
+#: code:addons/straconx_sales/objects/straconx_sales.py:234
+#: code:addons/straconx_sales/objects/straconx_sales.py:479
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:110
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:233
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:235
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:240
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:242
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:254
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:443
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:134
+#, python-format
+msgid "you can not create the backorder because the line with the product %s that have not sales order line associated"
+msgstr "No se puede crear un backorder porque la línea con el producto % no tiene una línea de venta asociada."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:398
+#, python-format
+msgid "No se puede proformar al Consumidor Final"
+msgstr "No se puede proformar al Consumidor Final"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_of_sale_product
+#: model:ir.ui.menu,name:straconx_sales.menu_pos_products
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,vouch_id:0
+#: field:wizard.invoice.pay.lines,vouch_name:0
+msgid "Voucher"
+msgstr "Documento"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:240
+#, python-format
+msgid "Necesita realizar por lo menos un pago para continuar"
+msgstr "Necesita realizar por lo menos un pago para continuar"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,return_date:0
+msgid "Return Date"
+msgstr "Fecha de devolución"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_consigment_out_pos
+msgid "Consigment Orders Out"
+msgstr "Orden de Consignación"
+
+#. module: straconx_sales
+#: field:sale.order,carrier_id:0
+msgid "Delivery Method"
+msgstr "Método de envío"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: view:wizard.invoice.pay:0
+#: field:wizard.invoice.pay,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_sales
+#: field:sale.order.line,offer_value:0
+msgid "$ Offer"
+msgstr "$ Oferta"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_internal_out_pos
+msgid "Envío de Transferencias"
+msgstr "Envío de Transferencias"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.region_zones
+msgid "Region Zones"
+msgstr "Regiones"
+
+#. module: straconx_sales
+#: field:res.users,max_discount:0
+msgid "% Maximum discount"
+msgstr "% Máximo de descuento"
+
+#. module: straconx_sales
+#: field:sale.order,margin_total_percent:0
+msgid "Margin Total %"
+msgstr "Margen Total %"
+
+#. module: straconx_sales
+#: model:ir.actions.report.xml,name:straconx_sales.proforma_report_id
+msgid "Imprimir Proforma"
+msgstr "Imprimir Proforma"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:77
+#: code:addons/straconx_sales/objects/stock_picking.py:84
+#, python-format
+msgid "Invalid Action!"
+msgstr "Acción Invalida!"
+
+#. module: straconx_sales
+#: field:account.invoice,wizard_auth:0
+#: field:sale.order,wizard_auth:0
+msgid "wizard auth"
+msgstr "Asistente de Autorización"
+
+#. module: straconx_sales
+#: constraint:res.partner.address:0
+msgid "Por cada empresa, solo puede existir una dirección tipo"
+msgstr "Por cada empresa, solo puede existir una dirección tipo"
+
+#. module: straconx_sales
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "¡La dirección seleccionada solo puede tener una tienda asignada!"
+
+#. module: straconx_sales
+#: field:account.invoice,user_authorized_refund:0
+msgid "User Authorized Refund"
+msgstr "Usuario autorizado para N/C"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,pending:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: straconx_sales
+#: model:ir.actions.report.xml,name:straconx_sales.report_quo_order_straconx
+msgid "Print Quotation Order"
+msgstr "Imprimir Proforma"
+
+#. module: straconx_sales
+#: view:wizard.invoice.pay:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: straconx_sales
+#: field:sale.order,nb_sale_order:0
+msgid "Number of Sale Order Print"
+msgstr "Número de Impresión de la Orden de Venta"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_sale_order
+#: view:res.company:0
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_st_delivery
+msgid "Delivery Orders"
+msgstr "Órdenes de entrega"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:113
+#: code:addons/straconx_sales/objects/straconx_sales.py:456
+#, python-format
+msgid "Margin Incorrect !"
+msgstr "¡Margen Incorrecto!"
+
+#. module: straconx_sales
+#: field:payment.mode,credit_notes:0
+#: field:wizard.invoice.pay.lines,credit_note_id:0
+msgid "Credit Notes"
+msgstr "Notas de Crédito"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_reports_pos_sale_shop
+msgid "Ventas por Tienda"
+msgstr "Ventas por Tienda"
+
+#. module: straconx_sales
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,move_id:0
+msgid "Accounting Entry"
+msgstr "Entrada contable"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_wizard_invoice_pay
+msgid "wizard.invoice.pay"
+msgstr "Asistente de Pagos"
+
+#. module: straconx_sales
+#: constraint:stock.picking:0
+msgid "El picking ya existe más de una vez en estado Asignado o Aprobado"
+msgstr "El picking ya existe más de una vez en estado Asignado o Aprobado"
+
+#. module: straconx_sales
+#: field:sale.order,is_superv:0
+msgid "is supervisor"
+msgstr "es supervisor"
+
+#. module: straconx_sales
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.action_invoice_form_pos_invoice
+msgid "New POS Invoice"
+msgstr "Nueva Factura POS"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_sales
+#: field:sale.order.line,offer_value_total:0
+msgid "Total Offer"
+msgstr "Total Oferta"
+
+#. module: straconx_sales
+#: field:sale.order,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_payment_mode
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: straconx_sales
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_sales
+#: view:wizard.authorization:0
+msgid "Autorización"
+msgstr "Autorización"
+
+#. module: straconx_sales
+#: field:sale.order.line,margin_unit:0
+msgid "Margin Unit"
+msgstr "Margen Unitario"
+
+#. module: straconx_sales
+#: help:wizard.invoice.pay.lines,number_deposit:0
+msgid "This number is used by deposit credit card payments"
+msgstr "Este número es usado para depositar pagos de tarjetas de crédito"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:233
+#, python-format
+msgid "You must enter a journal moves"
+msgstr "Debes ingresar un diario de movimientos"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_wizard_authorization
+msgid "wizard.authorization"
+msgstr "Asistente de Autorización"
+
+#. module: straconx_sales
+#: field:res.users,changed_prices:0
+msgid "Permited Change Prices"
+msgstr "Permite cambiar precios"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:37
+#: code:addons/straconx_sales/objects/straconx_sales.py:242
+#: code:addons/straconx_sales/objects/straconx_sales.py:1349
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_sales
+#: field:sale.shop,min_utility_margen:0
+msgid "% Minimum Utility Margen"
+msgstr "% Margen de utilidad mínimo"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_refund
+msgid "Refund Invoices"
+msgstr "Devolución de Facturas"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:33
+#: code:addons/straconx_sales/objects/straconx_sales.py:238
+#, python-format
+msgid "You must select a Shop."
+msgstr "Debe seleccionar una Tienda."
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_ofsale_tree
+#: selection:sale.order,type:0
+msgid "POS Order"
+msgstr "Órdenes de Ventas"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_st_internal
+msgid "Transferencias"
+msgstr "Transferencias"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,deposit_date:0
+msgid "Deposit Date"
+msgstr "Fecha de depósito"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_wizard_invoice_pay_lines
+msgid "wizard.invoice.pay.lines"
+msgstr "Asistente para Línea de Pago de Facturas"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_reports_pos_payments_shop
+msgid "Cobro por Tienda"
+msgstr "Cobro por Tienda"
+
+#. module: straconx_sales
+#: selection:sale.order,type:0
+msgid "Consignment"
+msgstr "Consignación"
+
+#. module: straconx_sales
+#: field:sale.shop,point_of_sale:0
+msgid "Is Point of Sale"
+msgstr "¿Es un Punto de Venta POS?"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:559
+#, python-format
+msgid "You have to select a pricelist or a customer in the sales form !\n"
+"Please set one before choosing a product."
+msgstr "¡Debe seleccionar una lista de precios o cliente en el pedido de venta!\n"
+"Por favor seleccione ambos para poder elegir productos."
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_product_pricelist
+msgid "Pricelist"
+msgstr "Precio"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_configuration_pos
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_internal_in_pos
+msgid "Recepción de Transferencias"
+msgstr "Recepción de Transferencias"
+
+#. module: straconx_sales
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,amount_commission:0
+msgid "Amount Commission"
+msgstr "Monto de Comisión"
+
+#. module: straconx_sales
+#: help:res.company,number_days_validate:0
+msgid "Days are needed to expire the sales order."
+msgstr "Días que son necesitados para expirar la orden de venta."
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Status"
+msgstr "Estado Crediticio"
+
+#. module: straconx_sales
+#: view:wizard.invoice.pay:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_sales
+#: field:sale.order,printer_id:0
+msgid "Printer Point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,required_bank:0
+msgid "Required Bank"
+msgstr "¿Requiere Banco?"
+
+#. module: straconx_sales
+#: model:ir.actions.report.xml,name:straconx_sales.report_sale_order_straconx
+msgid "Print Sale Order"
+msgstr "Imprimir Proforma"
+
+#. module: straconx_sales
+#: field:account.invoice.line,price_iva:0
+#: field:sale.order.line,discount_price:0
+msgid "PVP"
+msgstr "PVP"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:110
+#, python-format
+msgid "No hay formas de pago definidas para esta tienda."
+msgstr "No hay formas de pago definidas para esta tienda."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:37
+#, python-format
+msgid "You can not generate more than %s lines per Invoices."
+msgstr "No se puede generar más de %s líneas por Factura."
+
+#. module: straconx_sales
+#: field:sale.order,totalqty:0
+msgid "Total Qty"
+msgstr "Total Cantidad"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1191
+#, python-format
+msgid "You must assign a Sales Journal for the shop %s"
+msgstr "Debe asignar un diario de Venta para el almacén %s"
+
+#. module: straconx_sales
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código predeterminado debe ser único"
+
+#. module: straconx_sales
+#: field:account.invoice,p_offer:0
+msgid "Permited Offer"
+msgstr "Permited Offer"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.action_pay_pos_straconx
+msgid "POS Customer Payment"
+msgstr "Pago de Punto de Venta"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,amount_received:0
+msgid "Amount Received"
+msgstr "Monto Recibido"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:443
+#, python-format
+msgid "El valor del monto recibido debe ser mayor al monto a pagar"
+msgstr "El valor del monto recibido debe ser mayor al monto a pagar"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:227
+#: code:addons/straconx_sales/objects/straconx_sales.py:259
+#: code:addons/straconx_sales/objects/straconx_sales.py:641
+#, python-format
+msgid "No valid pricelist line found !"
+msgstr "No se encuentran listas de precios válidas!"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_menu_reports
+msgid "Reports"
+msgstr "Reportes"
+
+#. module: straconx_sales
+#: field:sale.order.line,margin_percent:0
+msgid "% Margin"
+msgstr "% Margen"
+
+#. module: straconx_sales
+#: field:sale.order,margin_val:0
+#: field:sale.order.line,margin:0
+msgid "Margin"
+msgstr "Margen"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:561
+#, python-format
+msgid "No Pricelist ! : "
+msgstr "Sin Lista de Precios ! : "
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,credit_notes:0
+msgid "Credit Note"
+msgstr "Nota de crédito"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1194
+#, python-format
+msgid "You need authorization to do this sales, Press Calculate and digit the authorization"
+msgstr "Requiere una autorización para crear esta venta. Presione Calcular y solicite la autorización correspondiente"
+
+#. module: straconx_sales
+#: help:sale.order,date_valid:0
+msgid "Date on which quotation order expired."
+msgstr "Fecha en la que expira el pedido de venta."
+
+#. module: straconx_sales
+#: field:account.invoice,supervisor_id:0
+#: field:sale.order,supervisor_id:0
+#: field:wizard.authorization,supervisor_id:0
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#. module: straconx_sales
+#: field:sale.order,nb_quotation_order:0
+msgid "Number of Quotation Order Print"
+msgstr "Número de Impresiones de Proformas"
+
+#. module: straconx_sales
+#: model:ir.actions.report.xml,name:straconx_sales.report_account_invoice_straconx
+msgid "Print Sale Invoice"
+msgstr "Imprimir Factura de Ventas"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:151
+#, python-format
+msgid "Picking Information !"
+msgstr "Información del Picking list!"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_delivery_guide_sales
+msgid "Delivery Guide"
+msgstr "Guía de Remisión"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1177
+#, python-format
+msgid "Can not exist lines of products with quantity 0"
+msgstr "No deben existir líneas de productos con cantidad igual a 0."
+
+#. module: straconx_sales
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1084
+#, python-format
+msgid "You do not have Cash Box assigned, please check"
+msgstr "No tiene asignada una Caja, por favor, revisar."
+
+#. module: straconx_sales
+#: view:wizard.invoice.pay:0
+msgid "Make _Pay"
+msgstr "Realizar _Pago"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_salesman_menu
+msgid "Salesman"
+msgstr "Asesor comercial"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: view:wizard.invoice.pay:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_sales
+#: field:sale.order.line,categ_id:0
+msgid "Category"
+msgstr "Marca"
+
+#. module: straconx_sales
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr "¡La orden de referencia debe ser única por Compañía!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1448
+#: model:ir.actions.act_window,name:straconx_sales.action_auth
+#, python-format
+msgid "Validate Offer"
+msgstr "Oferta Válida"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_st_inventory
+msgid "Inventarios"
+msgstr "Inventarios"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Hold"
+msgstr "Pendiente"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:66
+#: code:addons/straconx_sales/objects/straconx_sales.py:308
+#: code:addons/straconx_sales/objects/straconx_sales.py:395
+#, python-format
+msgid "No Customer Defined !"
+msgstr "¡Sin Cliente definido!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:360
+#, python-format
+msgid "Invoice line account company does not match with invoice company."
+msgstr "Invoice line account company does not match with invoice company."
+
+#. module: straconx_sales
+#: field:sale.order,invoice_later:0
+msgid "Invoice Later?"
+msgstr "¿Facturar posteriormente?"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,received_date:0
+msgid "Received Date"
+msgstr "Fecha de Recepción"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,beneficiary:0
+msgid "Beneficiary"
+msgstr "Beneficiario"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_of_sale
+msgid "Daily Operations"
+msgstr "Ventas"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:336
+#: code:addons/straconx_sales/objects/straconx_invoice.py:351
+#: code:addons/straconx_sales/objects/straconx_invoice.py:359
+#: code:addons/straconx_sales/objects/straconx_invoice.py:383
+#: code:addons/straconx_sales/objects/straconx_sales.py:578
+#, python-format
+msgid "Configuration Error !"
+msgstr "Error de Configuración!"
+
+#. module: straconx_sales
+#: field:sale.order,print_status_sale_order:0
+msgid "Sale Order Print Status"
+msgstr "Estado de Impresión de la Orden de Pedido"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,old_id:0
+msgid "Old Cheque"
+msgstr "Cheque anterior"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,statement_line_id:0
+msgid "Statement Line"
+msgstr "Línea de Registros"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:205
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:227
+#, python-format
+msgid "You must be solicited authorization to supervisor by this invoice, press calculate and digit the authorization"
+msgstr "Debe solicitar un autorización de un supervisor para esta factura, presione calcular y digite la autorización"
+
+#. module: straconx_sales
+#: help:sale.order,margin_val:0
+msgid "It gives profitability by calculating the difference between the Unit Price and Cost Price."
+msgstr "Muestra el margen basado en el cálculo de la diferencia entre el precio unitario y el costo."
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.action_invoice_tree_pos_invoice
+msgid "POS Invoice"
+msgstr "Listado de Facturas POS"
+
+#. module: straconx_sales
+#: field:sale.order,salesman_id:0
+msgid "Assigned Salesman"
+msgstr "Asesor Comercial"
+
+#. module: straconx_sales
+#: field:res.users,authorization:0
+#: field:wizard.authorization,code:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_sales
+#: field:res.company,authorize_sales_order:0
+msgid "Requires a supervisor"
+msgstr "Requiere un supervisor"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:642
+#, python-format
+msgid "Couldn't find a pricelist line matching this product\" #                    \" and quantity.\n"
+"You have to change either the product,\" #                    \" the quantity or the pricelist."
+msgstr "No se puede encontrar una lsita de precio que contega este produto\" #                    \" y cantidad.\n"
+"Debería revisar el producto y,\" #                    \" la cantidad en la lista de precios."
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_of_sale_customer
+#: model:ir.ui.menu,name:straconx_sales.menu_point_of_sale_customer_views
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.consignment_order_menu
+msgid "Consignment Orders"
+msgstr "Órdenes de Consignación"
+
+#. module: straconx_sales
+#: field:sale.order.line,discount_percent:0
+msgid "% Disc"
+msgstr "% Disc"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,required_document:0
+msgid "Required Document"
+msgstr "¿Requiere número de documento?"
+
+#. module: straconx_sales
+#: field:res.company,number_days_validate:0
+msgid "Number days to Validate"
+msgstr "Número de días a validar"
+
+#. module: straconx_sales
+#: field:account.invoice,date_authorized:0
+#: field:sale.order,date_authorized:0
+msgid "Date Authorization"
+msgstr "Fecha de autorización"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay,paid:0
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:84
+#, python-format
+msgid "You can not change this picking to draft because exist invoices related in state open or paid."
+msgstr "No se puede cambiar este picking a borrador porque existe facturas relacionadas en estado abierto o pagado."
+
+#. module: straconx_sales
+#: field:sale.order,totaldiscount:0
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_reports_pos_discounts_shop
+msgid "Resumen de Descuentos y Ofertas en Venta"
+msgstr "Resumen de Descuentos y Ofertas en Venta"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,payment_date:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,cheque_id:0
+msgid "Cheque"
+msgstr "Cheque"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_product_ubication_pos
+msgid "Products By Ubications"
+msgstr "Productos por Ubicación"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:33
+#: code:addons/straconx_sales/objects/straconx_sales.py:238
+#, python-format
+msgid "No Shop Defined !"
+msgstr "Sin Tienda Definida !"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,authorization:0
+#: field:wizard.invoice.pay.lines,authorization_credit:0
+msgid "authorization"
+msgstr "Autorización"
+
+#. module: straconx_sales
+#: field:account.invoice,authorized:0
+#: field:sale.order,authorized:0
+msgid "authorized"
+msgstr "autorizado"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:398
+#, python-format
+msgid "¡Acción Inválida!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_sales
+#: field:sale.order.line,purchase_price:0
+msgid "Cost Price"
+msgstr "Costo"
+
+#. module: straconx_sales
+#: help:res.company,authorize_sales_order:0
+msgid "Authorize sale by supervisor."
+msgstr "Autorizar venta por supervisor."
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_picking_later_pos_tree
+msgid "Picking for Invoice later"
+msgstr "Órdenes para facturar posterior"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_sales
+#: field:sale.order,date_valid:0
+msgid "Valid Date"
+msgstr "Fecha válida"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,others:0
+msgid "Others"
+msgstr "Others"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1350
+#, python-format
+msgid "There is no sales journal defined for this shop: \"%s\" (id:%d)"
+msgstr "No existe un diario de ventas definido para esta Tienda: \"%s\" (id:%d)"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.straconx_menu_new_sale_order
+msgid "New Phone Sale Orders"
+msgstr "Nueva Orden de Venta Telefónica"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_all_register_pos
+msgid "Statements Registers"
+msgstr "Registros de Cajas"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,check:0
+msgid "Check?"
+msgstr "¿Cheques?"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:250
+#, python-format
+msgid "You have to select a pricelist in the sale form !\n"
+"Please set one before choosing a product."
+msgstr "¡Debe seleccionar una lista de precios en el pedido de venta!\n"
+"Por favor seleccione una para poder elegir productos."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1177
+#: code:addons/straconx_sales/objects/straconx_sales.py:1191
+#, python-format
+msgid "Error!!"
+msgstr "Error!!"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_sales
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr "¡La referencia debe ser única por Compañia!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:573
+#, python-format
+msgid "No valid pricelist line found ! :"
+msgstr "No existe lista de precios válidas ! :"
+
+#. module: straconx_sales
+#: field:sale.order,verify:0
+msgid "verify"
+msgstr "Verificar"
+
+#. module: straconx_sales
+#: field:account.invoice,p_changed:0
+msgid "Permited Discount"
+msgstr "Permited Discount"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:555
+#, python-format
+msgid "Not enough stock ! : "
+msgstr "No existe inventario disponible ! : "
+
+#. module: straconx_sales
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "History"
+msgstr "Historial"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_menu_logistics
+msgid "Logistics"
+msgstr "Logística"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:77
+#, python-format
+msgid "You can not change this picking to draft because exist delivery note in state sent."
+msgstr "No se puede cambiar este picking a borrador ya que existe guías de remisión en estado enviado."
+
+#. module: straconx_sales
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_sales
+#: field:account.invoice.line,iva_value:0
+msgid "Iva"
+msgstr "Iva"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:479
+#, python-format
+msgid "The list price of product is equals to 0"
+msgstr "El precio del producto es igual a 0"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1398
+#: model:ir.ui.menu,name:straconx_sales.menu_customer_invoices_pos
+#: model:ir.ui.menu,name:straconx_sales.menu_customer_invoices_sales
+#, python-format
+msgid "Customer Invoices"
+msgstr "Facturas de Cliente"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,type:0
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: straconx_sales
+#: constraint:product.product:0
+msgid "has a standard price is greater than list Price"
+msgstr "el costo es mayor que el precio de venta"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,period_id:0
+msgid "Period"
+msgstr "Periodo"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: straconx_sales
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_sales
+#: help:sale.order,carrier_id:0
+msgid "Complete this field if you plan to invoice the shipping based on picking."
+msgstr "Complete este campo si usted planea facturar este envío basado en el picking."
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:414
+#, python-format
+msgid "Quantity can not be lower than or equal to 0"
+msgstr "Cantidad no debe ser menor o igual a 0"
+
+#. module: straconx_sales
+#: view:wizard.authorization:0
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_advance_pos_customer
+msgid "Advance Customer"
+msgstr "Anticipos  de Clientes"
+
+#. module: straconx_sales
+#: field:sale.order.line,total_cost_line:0
+msgid "Total Cost"
+msgstr "Costo total"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:235
+#, python-format
+msgid "You must entered at least one payment"
+msgstr "Usted debe ingresar por lo menos un pago."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:66
+#: code:addons/straconx_sales/objects/straconx_sales.py:308
+#: code:addons/straconx_sales/objects/straconx_sales.py:395
+#, python-format
+msgid "You have to select a customer in the sales form !\n"
+"Please set one customer before choosing a product."
+msgstr "¡Debe seleccionar un cliente en el pedido de venta!\n"
+"Por favor seleccione un cliente para poder elegir productos."
+
+#. module: straconx_sales
+#: view:wizard.authorization:0
+msgid "Ingrese su clave de Supervisor para continuar"
+msgstr "Ingrese su clave de Supervisor para continuar"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_picking_done_pos_tree
+msgid "Done Orders"
+msgstr "Órdenes para facturar"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_voucher_pos_straconx
+#: view:wizard.invoice.pay:0
+msgid "Customer Payment"
+msgstr "Pago de Cliente"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_invoice.py:337
+#: code:addons/straconx_sales/objects/straconx_invoice.py:352
+#, python-format
+msgid "Can not find a chart of account, you should create one from the configuration of the accounting menu."
+msgstr "Can not find a chart of account, you should create one from the configuration of the accounting menu."
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_internal_transfer_pos
+msgid "Solicitud de Transferencias"
+msgstr "Solicitud de Transferencias"
+
+#. module: straconx_sales
+#: field:sale.order,is_backorder:0
+msgid "Is Backorder?"
+msgstr "¿Es un Backorder?"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:212
+#, python-format
+msgid "Not enough stock !"
+msgstr "¡No existe inventario disponible!"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:234
+#, python-format
+msgid "The price of product is equals to 0"
+msgstr "El precio del producto es igual a 0"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Movimientos"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_open_config_pos
+msgid "Statements Register Management"
+msgstr "Administración de Cajas"
+
+#. module: straconx_sales
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: straconx_sales
+#: field:sale.order.line,discount_order_total:0
+msgid "Total Discount"
+msgstr "Total Descuento"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.act_view_payments_shop_filter
+msgid "Payments by Shop"
+msgstr "Pagos por tienda"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.action_consignment_view_order
+#: model:ir.ui.menu,name:straconx_sales.menu_consignment_orders
+msgid "Consignment Order"
+msgstr "Órdenes de Consignación"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:242
+#, python-format
+msgid "You can not generate more than %s lines per sales order."
+msgstr "No se puede genera más de %s lineas por la orden de venta."
+
+#. module: straconx_sales
+#: field:res.users,changed_offer:0
+msgid "Permited Change Offer"
+msgstr "Permite ingresar ofertas"
+
+#. module: straconx_sales
+#: field:sale.order,segmento_id:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay,partner_id:0
+msgid "partner"
+msgstr "empresa"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_st_consiment
+msgid "Consigment Moves"
+msgstr "Movimientos de Consignación"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/res_company.py:19
+#, python-format
+msgid "Number of days can not be negative."
+msgstr "El número de días no puede ser negativo."
+
+#. module: straconx_sales
+#: field:product.pricelist,visible_discount:0
+msgid "Visible Discount"
+msgstr "Descuento visible"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:143
+#, python-format
+msgid "(n/a)"
+msgstr "(n/a)"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_inventory_pos
+msgid "Inventarios Físicos"
+msgstr "Inventarios Físicos"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,exchanged_date:0
+msgid "Exchanged Date"
+msgstr "Fecha de Cambio"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_sales
+#: constraint:res.partner.address:0
+msgid "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+msgstr "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+
+#. module: straconx_sales
+#: field:account.invoice,nb_print_proforma:0
+msgid "Se ha impreso está proforma"
+msgstr "Se ha impreso está proforma"
+
+#. module: straconx_sales
+#: view:res.partner:0
+#: field:sale.order,type:0
+#: field:wizard.invoice.pay.lines,mode_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_action_picking_pos_tree
+msgid "Waiting Orders"
+msgstr "Ordenes pendientes"
+
+#. module: straconx_sales
+#: field:account.invoice.line,authorized:0
+#: field:sale.order.line,authorized:0
+msgid "flag"
+msgstr "bandera"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/stock_picking.py:122
+#, python-format
+msgid "you can not create the backorder because this picking have not sales order associated"
+msgstr "No se puede crear el backorder porque este picking no tiene una orden de ventas asociada"
+
+#. module: straconx_sales
+#: field:sale.shop,limits_line_invoice:0
+msgid "Limits line invoice"
+msgstr "Límite de líneas por documento"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:603
+#, python-format
+msgid "Exceed Discount !"
+msgstr "Descuento excedido!"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,deposit_id:0
+msgid "deposit"
+msgstr "depósito"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,bank_account_id:0
+msgid "Account Bank"
+msgstr "Cuenta Bancaria"
+
+#. module: straconx_sales
+#: selection:wizard.invoice.pay.lines,state:0
+msgid "Protested"
+msgstr "Protestado"
+
+#. module: straconx_sales
+#: view:wizard.invoice.pay:0
+#: selection:wizard.invoice.pay.lines,type:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,bank_id:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_sales
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_sales
+#: view:wizard.invoice.pay:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: straconx_sales
+#: field:sale.order,enddate:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,name:0
+msgid "Document No."
+msgstr "Documento No."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:500
+#, python-format
+msgid "Check quantity!"
+msgstr "Verificar cantidad!"
+
+#. module: straconx_sales
+#: field:product.category,permit_refund:0
+msgid "Permit refund"
+msgstr "¿Permite devoluciones?"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:111
+#, python-format
+msgid "the profit margin from these sales is less than that established by the shop.\n"
+"\"\n"
+"#                                 \"Please authorization request."
+msgstr "the profit margin from these sales is less than that established by the shop.\n"
+"\"\n"
+"#                                 \"Please authorization request."
+
+#. module: straconx_sales
+#: field:product.category,percentage_sale:0
+msgid "INC Percentage sale"
+msgstr "% Incremento de Precio"
+
+#. module: straconx_sales
+#: field:sale.shop,consignment:0
+msgid "Is Consignment"
+msgstr "¿Es Consignación?"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay,amount:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: straconx_sales
+#: model:ir.actions.report.xml,name:straconx_sales.pos_shop_report_id
+msgid "Reporte de Ventas por Tienda"
+msgstr "Reporte de Ventas por Tienda"
+
+#. module: straconx_sales
+#: field:account.invoice.line,sequence:0
+msgid "sequence"
+msgstr "sequencia"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,cash:0
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: straconx_sales
+#: field:account.invoice.line,cost_journal:0
+msgid "Cost Journal"
+msgstr "Diario de Costo"
+
+#. module: straconx_sales
+#: constraint:sale.shop:0
+msgid "The percentage utility margin must be a positive number"
+msgstr "El porcentaje de utilidad debe ser un número positivo"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:254
+#, python-format
+msgid "No puede pagar un valor mayor al de la Nota de Crédito"
+msgstr "No puede pagar un valor mayor al de la Nota de Crédito"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:1084
+#: code:addons/straconx_sales/objects/straconx_sales.py:1194
+#, python-format
+msgid "Warning!"
+msgstr "¡Precaución!"
+
+#. module: straconx_sales
+#: view:account.payments:0
+#: field:wizard.invoice.pay.lines,type:0
+msgid "Mode"
+msgstr "Modo"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_open_statement_pos
+msgid "Open Cash Registers"
+msgstr "Abrir Caja Registradoras"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/wizard/wizard_pay_invoice.py:242
+#, python-format
+msgid "El valor de los pagos (%s) es menor que el valor a pagar (%s)"
+msgstr "El valor de los pagos (%s) es menor que el valor a pagar (%s)"
+
+#. module: straconx_sales
+#: model:ir.actions.act_window,name:straconx_sales.straconx_action_backorder_view
+msgid "Back Orders"
+msgstr "Volver órdenes"
+
+#. module: straconx_sales
+#: field:sale.order.line,discount_order:0
+msgid "Discount Price"
+msgstr "Precio con descuento"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,motive:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:500
+#: constraint:sale.order.line:0
+#, python-format
+msgid "The UOM no permitted quantity with decimals"
+msgstr "La UOM no permite ninguna cantidad con decimales"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr "Dirección postal"
+
+#. module: straconx_sales
+#: view:account.payments:0
+msgid "Search Payments"
+msgstr "Search Payments"
+
+#. module: straconx_sales
+#: model:ir.model,name:straconx_sales.model_sale_report
+msgid "Sales Orders Statistics"
+msgstr "Estadística de las ordenes de pedido"
+
+#. module: straconx_sales
+#: view:res.partner:0
+msgid "Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_point_of_sale_invoices
+msgid "Invoices and Pays"
+msgstr "Facturas y pagos"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,type_account_bank:0
+msgid "Emisor"
+msgstr "Emisor"
+
+#. module: straconx_sales
+#: constraint:product.category:0
+msgid "Error ! You cannot create recursive categories."
+msgstr "Error ! No se puede crear categorías recursivas."
+
+#. module: straconx_sales
+#: code:addons/straconx_sales/objects/straconx_sales.py:213
+#: code:addons/straconx_sales/objects/straconx_sales.py:551
+#, python-format
+msgid "You plan to sell %.2f %s but you only have %.2f %s available !\n"
+"The real stock is %.2f %s. (without reservations)"
+msgstr "Usted quiere vender %.2f %s pero solo tiene %.2f %s disponible !\n"
+"El inventario real es %.2f %s. (sin reservaciones)"
+
+#. module: straconx_sales
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.menu_reports_pos_sale_shop_type
+msgid "Ventas por Tienda por Tipo Autorizacion"
+msgstr "Ventas por Tienda por Tipo Autorizacion"
+
+#. module: straconx_sales
+#: field:payment.mode,debit_notes:0
+msgid "Debit Notes"
+msgstr "Notas de Débito"
+
+#. module: straconx_sales
+#: view:account.payments:0
+msgid "More filters..."
+msgstr "Más filtros..."
+
+#. module: straconx_sales
+#: model:ir.ui.menu,name:straconx_sales.pos_menu_margen_reports
+msgid "Margen"
+msgstr "Margen"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,amount:0
+msgid "Debt Amount"
+msgstr "Monto Débito"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,credit_card:0
+msgid "credit card?"
+msgstr "¿Es tarjeta de crédito?"
+
+#. module: straconx_sales
+#: field:wizard.invoice.pay.lines,required_seq:0
+msgid "Required Sequence"
+msgstr "Requiere secuencia"
+

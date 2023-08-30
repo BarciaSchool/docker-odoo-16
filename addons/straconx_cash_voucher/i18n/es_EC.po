@@ -1,0 +1,1636 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_cash_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-10 21:17+0000\n"
+"PO-Revision-Date: 2016-03-10 21:17+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_account_payments
+msgid "account.payments"
+msgstr "Pagos"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Devuelto"
+msgstr "Devuelto"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Authorized"
+msgstr "Autorizado"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_open_petty_cash
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_open_petty_cash
+msgid "Abrir Nueva Caja Chica"
+msgstr "Abrir Nueva Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:141
+#, python-format
+msgid "No existe ningún modo de Pago predeterminado para CAJA CHICA. Solicite al área Financiera que cree una y/o añádalo a su Tienda para continuar."
+msgstr "No existe ningún modo de Pago predeterminado para CAJA CHICA. Solicite al área Financiera que cree una y/o añádalo a su Tienda para continuar."
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_new_cash_vouchers
+msgid "Nuevo Vale de Caja"
+msgstr "Nuevo Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_new_cash_voucher
+msgid "Nuevo Documento de Pago emitido en Caja Chica"
+msgstr "Nuevo Documento de Pago emitido en Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:691
+#, python-format
+msgid "Debe definir un sustento Tributario para el Proveedor"
+msgstr "Debe definir un sustento Tributario para el Proveedor"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:163
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:170
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:174
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:185
+#, python-format
+msgid "Validation Error!"
+msgstr "Error de Validación !"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,beneficiary:0
+msgid "Llenar este campo solamente si el beneficiario es distinto al Proveedor"
+msgstr "Llenar este campo solamente si el beneficiario es distinto al Proveedor"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type_doc:0
+#: selection:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Pago de Factura de Proveedor"
+msgstr "Pago de Factura de Proveedor"
+
+#. module: straconx_cash_voucher
+#: view:open.statement:0
+msgid "Open Petty Cash"
+msgstr "Abrir Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:404
+#, python-format
+msgid "Por favor ingrese los 37 dígitos de la autorización electrónica o los 49 dígitos de la clave de acceso para posteriormente su area financiera pueda descargar la factura"
+msgstr "Por favor ingrese los 37 dígitos de la autorización electrónica o los 49 dígitos de la clave de acceso para posteriormente su area financiera pueda descargar la factura"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Statement lines"
+msgstr "Líneas extracto"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,department_id:0
+msgid "Department"
+msgstr "Departamento"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Petty Cash"
+msgstr "Caja Chica"
+
+#. module: straconx_cash_voucher
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Document"
+msgstr "Documento"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:206
+#, python-format
+msgid "Usted es un cajero, pero no han definido el valor que debe tener en caja"
+msgstr "Usted es un cajero, pero no han definido el valor que debe tener en caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,budgets:0
+#: field:straconx.cash.vouchers.wizard.line,budgets:0
+msgid "¿Presupuesto Instalado?"
+msgstr "¿Presupuesto Instalado?"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Pagado"
+msgstr "Pagado"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:283
+#, python-format
+msgid "No se puede cambiar el estado de un Vale de Caja asociado a un pago"
+msgstr "No se puede cambiar el estado de un Vale de Caja asociado a un pago"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:251
+#, python-format
+msgid "El monto a entregar debe ser menor a \"+str(max_amount))}}\n"
+"        else:\n"
+"            return {\"value\":{\"amount\":amount}}             \n"
+"#         return {}\n"
+"         \n"
+"    def action_change_state_draft(self,cr,uid,ids,context=None):\n"
+"        \n"
+"        if context is None:\n"
+"            context = {}\n"
+"            \n"
+"        pool_account_bank_st=self.pool.get(\"account.bank.statement"
+msgstr "El monto a entregar debe ser menor a \"+str(max_amount))}}\n"
+"        else:\n"
+"            return {\"value\":{\"amount\":amount}}             \n"
+"#         return {}\n"
+"         \n"
+"    def action_change_state_draft(self,cr,uid,ids,context=None):\n"
+"        \n"
+"        if context is None:\n"
+"            context = {}\n"
+"            \n"
+"        pool_account_bank_st=self.pool.get(\"account.bank.statement"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_cash_voucher
+#: view:open.statement:0
+msgid "No"
+msgstr "No"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_account_input_cash
+msgid "account.input.cash"
+msgstr "Cuenta de Ingresos"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:325
+#, python-format
+msgid "Por favor cree la autorización de este Proveedor"
+msgstr "Por favor cree la autorización de este Proveedor"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.cash_voucher_root
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_cash_voucher_root
+msgid "Cajas Chicas"
+msgstr "Cajas Chicas"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,withhold:0
+msgid "Generate Withhold"
+msgstr "Generar Retención"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Autorizado por"
+msgstr "Autorizado por"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Información"
+msgstr "Información"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.report.xml,name:straconx_cash_voucher.action_straconx_cash_voucher_report
+msgid "Vale de Caja"
+msgstr "Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,received_date:0
+msgid "Received Date"
+msgstr "Fecha de Recepción"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Total lines"
+msgstr "Total Líneas"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Cash Transactions"
+msgstr "Transacciones de Caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,change:0
+msgid "Change"
+msgstr "Cambiar"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,approve_account_entry:0
+msgid "if TRUE , approves the account entries"
+msgstr "Si es VERDADERO, aprueba las entradas contables"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,number_deposit:0
+msgid "Number Deposit"
+msgstr "Número de Depósito"
+
+#. module: straconx_cash_voucher
+#: view:account.input.cash:0
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_account_cash_input
+msgid "Cuenta de Ingreso de Caja Chica"
+msgstr "Cuenta de Ingreso de Caja Chica"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,required_line_account:0
+msgid "Requiere línea contable"
+msgstr "Requiere línea contable"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Valores"
+msgstr "Valores"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:201
+#, python-format
+msgid "La Caja Registradora tiene solo \"+str(statement.balance_end)+\" en efectivo"
+msgstr "La Caja Registradora tiene solo \"+str(statement.balance_end)+\" en efectivo"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Pagos"
+msgstr "Pagos"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.report.xml,name:straconx_cash_voucher.action_straconx_petty_cash_report
+msgid "Cierre de Caja Chica"
+msgstr "Cierre de Caja Chica"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Anular Pago de Caja Chica"
+msgstr "Anular Pago de Caja Chica"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_new_cash_vouchers
+msgid "Nuevo Vale de Caja Chica"
+msgstr "Nuevo Vale de Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:119
+#, python-format
+msgid "Tiene más de una CAJA ABIERTA. Debe tener solo UNA abierta para continuar."
+msgstr "Tiene más de una CAJA ABIERTA. Debe tener solo UNA abierta para continuar."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,return_date:0
+msgid "Return Date"
+msgstr "Fecha de devolución"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Anular"
+msgstr "Anular"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:394
+#, python-format
+msgid "Campo DETALLE no puede estar vacio,cuenta para CREDITO o DEBITO debe ser definido!"
+msgstr "Campo DETALLE no puede estar vacio,cuenta para CREDITO o DEBITO debe ser definido!"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:185
+#, python-format
+msgid "The \"+type_name+\" has not CASH"
+msgstr "La \"+type_name+\" no tiene EFECTIVO"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:227
+#, python-format
+msgid "No existe Diarios del tipo Compra creados. Por favor,  cree uno."
+msgstr "No existe Diarios del tipo Compra creados. Por favor,  cree uno."
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_account_expense_cash
+msgid "Cuentas de Egresos"
+msgstr "Cuentas de Egresos"
+
+#. module: straconx_cash_voucher
+#: constraint:account.bank.statement:0
+msgid "The journal and period chosen have to belong to the same company."
+msgstr "El diario y periodo seleccionados tienen que pertenecer a la misma compañía"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,invoice_id:0
+msgid "Factura"
+msgstr "Factura"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,analytic_account_id:0
+msgid "Analytic Account"
+msgstr "Cuenta Analítica"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,name_withhold:0
+msgid "Retención"
+msgstr "Retención"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Caja"
+msgstr "Caja"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:33
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:184
+#, python-format
+msgid "CASH REGISTER"
+msgstr "CAJA REGISTRADORA"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: field:straconx.cash.vouchers.wizard,pay_vouch_ids:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Líneas de Vale de Caja"
+msgstr "Líneas de Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Modo de Pago"
+msgstr "Modo de Pago"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: field:straconx.cash.vouchers.wizard,mode_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: straconx_cash_voucher
+#: field:account.payments,is_cash_voucher:0
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_cash_voucher
+#: field:straconx.cash.vouchers.wizard,is_cash_voucher:0
+msgid "Cash Voucher"
+msgstr "Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: field:account.payments,is_cash_receipts:0
+#: field:straconx.cash.vouchers.wizard,is_cash_receipts:0
+msgid "Ingreso de Caja"
+msgstr "Ingreso de Caja"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Search Cash Vouchers"
+msgstr "Buscar Vales de Caja"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:745
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:787
+#, python-format
+msgid "No existen Diarios Contables tipo Retenciones creados"
+msgstr "No existen Diarios Contables tipo Retenciones creados"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,move_id:0
+msgid "Accounting Entry"
+msgstr "Entrada contable"
+
+#. module: straconx_cash_voucher
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:590
+#, python-format
+msgid "Debe agregar por lo menos un tipo de Impuestos para las compras (IVA 0%, 12% o retención código 332"
+msgstr "Debe agregar por lo menos un tipo de Impuestos para las compras (IVA 0%, 12% o retención código 332"
+
+#. module: straconx_cash_voucher
+#: constraint:account.payments:0
+#: constraint:straconx.cash.vouchers.wizard:0
+msgid "El valor de los pagos realizados es diferente al valor a pagar o ya existe otro cheque con el mismo número, empresa y cuenta bancaria. Por favor revise."
+msgstr "El valor de los pagos realizados es diferente al valor a pagar o ya existe otro cheque con el mismo número, empresa y cuenta bancaria. Por favor revise."
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "(+) Ingresos de Efectivo"
+msgstr "(+) Ingresos de Efectivo"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: view:account.payments:0
+#: field:straconx.cash.vouchers.wizard,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Usuario"
+msgstr "Usuario"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:409
+#, python-format
+msgid "!Error de Validación !"
+msgstr "!Error de Validación !"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_payment_mode
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,name_withhold:0
+msgid "Esta retención no puede ser electrónica"
+msgstr "Esta retención no puede ser electrónica"
+
+#. module: straconx_cash_voucher
+#: field:account.expense.cash,tax_line:0
+#: field:account.input.cash,tax_line:0
+msgid "Purchase Taxes"
+msgstr "Impuestos de Compras"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Autorización"
+msgstr "Autorización"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,number_deposit:0
+msgid "This number is used by deposit credit card payments"
+msgstr "Este número es usado para depositar pagos de tarjetas de crédito"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Documento"
+msgstr "Documento"
+
+#. module: straconx_cash_voucher
+#: field:account.payments,amount_credit:0
+#: field:straconx.cash.vouchers.wizard,amount_credit:0
+msgid "Monto Crédito"
+msgstr "Monto Crédito"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_petty_cash
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_petty_cash
+msgid "Registro de Cajas Chica"
+msgstr "Registro de Cajas Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:283
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:519
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:677
+#, python-format
+msgid "Error !"
+msgstr "¡Error!"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type_doc:0
+#: selection:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Pago de Liquidación de Compras"
+msgstr "Pago de Liquidación de Compras"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: view:account.payments:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:394
+#, python-format
+msgid "Integrity Error !"
+msgstr "¡Error de Integridad!"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:559
+#, python-format
+msgid "Debe seleccionar una Empresa!"
+msgstr "Debe seleccionar una Empresa!"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,deposit_date:0
+msgid "Deposit Date"
+msgstr "Fecha de depósito"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_open_petty_cash
+msgid "open.petty.cash.action"
+msgstr "open.petty.cash.action"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Group By"
+msgstr "Agrupar Por"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Movimientos"
+msgstr "Movimientos"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:856
+#, python-format
+msgid "El valor de la retención %s difiere con el valor calculado %s. Por favor, corrija  o devuelva al cliente la retención para que la cambie por los montos correctos."
+msgstr "El valor de la retención %s difiere con el valor calculado %s. Por favor, corrija  o devuelva al cliente la retención para que la cambie por los montos correctos."
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Anulado"
+msgstr "Anulado"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,pending:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:409
+#, python-format
+msgid "No se puede realizar el vale de caja, ya que existiría un déficit de \"+str((balance_end-payment.amount))+\"en la Caja."
+msgstr "No se puede realizar el vale de caja, ya que existiría un déficit de \"+str((balance_end-payment.amount))+\"en la Caja."
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,collection_form:0
+msgid "Middle and End of the month"
+msgstr "Quincena y Fin de Mes"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:559
+#, python-format
+msgid "Invalid action !"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,amount_commission:0
+msgid "Amount Commission"
+msgstr "Monto de Comisión"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,vouch_id:0
+#: field:straconx.cash.vouchers.wizard,vouch_name:0
+msgid "Voucher"
+msgstr "Documento"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,type_doc:0
+#: field:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Tipo de Documento"
+msgstr "Tipo de Documento"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Close CashBox"
+msgstr "Cerrar Cajas"
+
+#. module: straconx_cash_voucher
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,printer_id:0
+msgid "Punto de Emisión"
+msgstr "Punto de Emisión"
+
+#. module: straconx_cash_voucher
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía seleccionada no está autorizada como compañía para este usuario"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_new_receipts_vouchers
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_new_receipts_vouchers
+msgid "Nuevo Ingreso de Caja"
+msgstr "Nuevo Ingreso de Caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,withhold_rent:0
+msgid "Retención en al Fuente"
+msgstr "Retención en al Fuente"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,amount_received:0
+msgid "Amount Received"
+msgstr "Monto Recibido"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:170
+#, python-format
+msgid "You aren't a CASHIER"
+msgstr "No eres CAJERO"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Pendiente"
+msgstr "Pendiente"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,partner_id:0
+msgid "Partner"
+msgstr "Proveedor"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "(-) Salidas de Efectivo"
+msgstr "(-) Salidas de Efectivo"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Los ingresos que se han pagado a través de esta Caja"
+msgstr "Los ingresos que se han pagado a través de esta Caja"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:144
+#, python-format
+msgid "No existe ningún modo de Pago predeterminado para CAJA GENERAL.Solicite al área Financiera que cree una y/o añádalo a su Tienda para continuar."
+msgstr "No existe ningún modo de Pago predeterminado para CAJA GENERAL.Solicite al área Financiera que cree una y/o añádalo a su Tienda para continuar."
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: field:account.payments,account_expense_cash_id:0
+#: field:straconx.cash.vouchers.wizard,account_expense_cash_id:0
+#: field:straconx.cash.vouchers.wizard.line,account_expense_cash_id:0
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,credit_notes:0
+msgid "Credit Note"
+msgstr "Nota de Crédito"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:546
+#, python-format
+msgid "El número de Factura ingresado se encuentra en estado Pagado. Por favor,  revisar"
+msgstr "El número de Factura ingresado se encuentra en estado Pagado. Por favor,  revisar"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:295
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:364
+#, python-format
+msgid "Por favor ingrese los 37 dígitos de la autorización electrónica. La autorización ingresada tiene %s dígitos"
+msgstr "Por favor ingrese los 37 dígitos de la autorización electrónica. La autorización ingresada tiene %s dígitos"
+
+#. module: straconx_cash_voucher
+#: field:account.payments,supervisor_id:0
+#: field:straconx.cash.vouchers.wizard,supervisor_id:0
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Opening Balance"
+msgstr "Saldo Inicial"
+
+#. module: straconx_cash_voucher
+#: view:account.expense.cash:0
+msgid "Account Expense Cash"
+msgstr "Cuenta de Gasto de Caja"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_petty_cash_expenses
+msgid "Listado de Cajas Chicas"
+msgstr "Listado de Cajas Chicas"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Journal Entries"
+msgstr "Asientos Contables"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,motive:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_straconx_cash_vouchers_wizard
+msgid "straconx.cash.vouchers.wizard"
+msgstr "straconx.cash.vouchers.wizard"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Re-open"
+msgstr "Re-abrir"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_new_cash_receipts_payments
+msgid "Nuevo Ingreso de Caja Chica"
+msgstr "Nuevo Ingreso de Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:174
+#, python-format
+msgid "You should choose a PETTY CASH or a CASH REGISTER"
+msgstr "Tu debes elegir una CAJA CHICA o una CAJA REGISTRADORA"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Autorizado"
+msgstr "Autorizado"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:33
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:184
+#, python-format
+msgid "PETTY CASH"
+msgstr "CAJA CHICA"
+
+#. module: straconx_cash_voucher
+#: view:open.statement:0
+msgid "Yes"
+msgstr "Si"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Save and Process"
+msgstr "Grabar y Procesar"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: field:account.payments,account_input_cash_id:0
+#: field:straconx.cash.vouchers.wizard,account_input_cash_id:0
+msgid "Ingreso"
+msgstr "Ingreso"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: field:straconx.cash.vouchers.wizard,type:0
+msgid "Mode"
+msgstr "Modo"
+
+#. module: straconx_cash_voucher
+#: field:account.expense.cash,product_id:0
+#: field:account.input.cash,product_id:0
+msgid "Servicio"
+msgstr "Servicio"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:272
+#, python-format
+msgid "Para liquidaciones de Compras debe ingresar toda la numeración del comprobante."
+msgstr "Para liquidaciones de Compras debe ingresar toda la numeración del comprobante."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,withhold_vat:0
+msgid "Retención de IVA"
+msgstr "Retención de IVA"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,required_document:0
+msgid "Required Document"
+msgstr "¿Requiere número de documento?"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,is_electronic:0
+msgid "¿Es un documento electrónico?"
+msgstr "¿Es un documento electrónico?"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,auth_withhold_id:0
+msgid "Autorización Retención"
+msgstr "Autorización Retención"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,date_withhold:0
+msgid "Fecha"
+msgstr "Fecha Retención"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Pagador"
+msgstr "Pagador"
+
+#. module: straconx_cash_voucher
+#: constraint:account.payments:0
+#: constraint:straconx.cash.vouchers.wizard:0
+msgid "Document number already exists"
+msgstr "Número de Documento ya existe"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Los vales que se han pagado a través de esta Caja"
+msgstr "Los vales que se han pagado a través de esta Caja"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:196
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:201
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:206
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:282
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:341
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:383
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:391
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:461
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:467
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:474
+#, python-format
+msgid "¡Aviso!"
+msgstr "¡Aviso!"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Punto de Impresión"
+msgstr "Punto de Impresión"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: view:straconx.cash.vouchers.wizard:0
+#: field:straconx.cash.vouchers.wizard,beneficiary:0
+msgid "Beneficiary"
+msgstr "Beneficiario"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Cash Vouchers"
+msgstr "VALES DE CAJA"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:26
+#, python-format
+msgid "The field MAXIMUM CASH VOUCHER AMOUNT cannot be less than 0.00"
+msgstr "El campo MONTO MAXIMO PARA VALE DE CAJA  no puede ser menor a 0.00"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,old_id:0
+msgid "Old Cheque"
+msgstr "Cheque anterior"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Total payment"
+msgstr "Total de pago"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,wizard_line:0
+msgid "Líneas de Vale"
+msgstr "Líneas de Vale"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:40
+#, python-format
+msgid "There vouchers paid cash at a \"+type_name+\". The total value of the payments is \"+str(total_expense)+\", if you want to change this value should be greater than or equal to \"+str(total_expense)+\""
+msgstr "Hay vales de caja pagados en una \"+type_name+\". El valor total en pagos es \"+str(total_expense)+\", Si tu quieres cambiar este valor deberia ser mayor o igual a \"+str(total_expense)+\""
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Search Cash Statements"
+msgstr "Buscar Cierres de Caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,authorization_id:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:125
+#, python-format
+msgid "No tiene ninguna CAJA CHICA abierta. Cree una para continuar."
+msgstr "No tiene ninguna CAJA CHICA abierta. Cree una para continuar."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,gen_withhold:0
+msgid "¿Generar Retención al Proveedor?"
+msgstr "¿Generar Retención al Proveedor?"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,approve:0
+msgid "if TRUE create a payment line in PAID state also creates lines at the cash register,  the movement in accounting and her lines in VALID state .If FALSE only make the payment line in DRAFT state."
+msgstr "if TRUE create a payment line in PAID state also creates lines at the cash register,  the movement in accounting and her lines in VALID state .If FALSE only make the payment line in DRAFT state."
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type_doc:0
+#: selection:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Devolución de Retención a Cliente"
+msgstr "Devolución de Retención a Cliente"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:127
+#, python-format
+msgid "No tiene ninguna CAJA GENERAL abierta. Cree una para continuar."
+msgstr "No tiene ninguna CAJA GENERAL abierta. Cree una para continuar."
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:409
+#, python-format
+msgid "Por favor ingrese los 10 dígitos de la autorización manual o preimpresa"
+msgstr "Por favor ingrese los 10 dígitos de la autorización manual o preimpresa"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Este proceso anulara el pago. NO es reversible"
+msgstr "Este proceso anulara el pago. NO es reversible"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:254
+#, python-format
+msgid "No existe un punto de impresión con la numeración asignada"
+msgstr "No existe un punto de impresión con la numeración asignada"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,payment_date:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,cheque_id:0
+msgid "Cheque"
+msgstr "Cheque"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_account_input_cash
+msgid "Cuentas de Ingresos"
+msgstr "Cuentas de Ingresos"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,authorization:0
+#: field:straconx.cash.vouchers.wizard,authorization_credit:0
+msgid "authorization"
+msgstr "Autorización"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Protestado"
+msgstr "Protestado"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:574
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:589
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:659
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:661
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:691
+#, python-format
+msgid "¡Acción Inválida!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:26
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:40
+#, python-format
+msgid "Validation Error !"
+msgstr "Error de Validación !"
+
+#. module: straconx_cash_voucher
+#: view:straconx.cash.vouchers.wizard:0
+msgid "New Cash Voucher"
+msgstr "NUEVO Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,is_electronic:0
+msgid "Indicar si el documento a ingresar es tiene autorización electrónica"
+msgstr "Indicar si el documento a ingresar es tiene autorización electrónica"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Informacion"
+msgstr "Informacion"
+
+#. module: straconx_cash_voucher
+#: sql_constraint:account.payments:0
+#: sql_constraint:straconx.cash.vouchers.wizard:0
+msgid "There is another cheque with this number and this partner, please verify"
+msgstr "Ya existe otro cheque con este número y esta empresa, por favor verificar"
+
+#. module: straconx_cash_voucher
+#: field:account.bank.statement,vouchers_wizard_ids:0
+msgid "Vales de Caja"
+msgstr "Vales de Caja"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:243
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,discount_employee:0
+msgid "Discount employee"
+msgstr "Descuento de colaborador"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,number_of_quotas:0
+msgid "Quotas"
+msgstr "Cuotas"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,check:0
+msgid "Check?"
+msgstr "¿Cheques?"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Total moves"
+msgstr "Total Movimientos"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_cash_vouchers
+msgid "Cash Voucher Payments"
+msgstr "Pago de Vales de Caja"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type_doc:0
+#: selection:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Pago de Notas de Venta de Proveedores"
+msgstr "Pago de Notas de Venta de Proveedores"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:950
+#, python-format
+msgid "Por favor, elija un tipo de documento antes de continuar"
+msgstr "Por favor, elija un tipo de documento antes de continuar"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Procesar"
+msgstr "Procesar"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,statement_line_id:0
+msgid "Statement Line"
+msgstr "Línea de Registros"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:551
+#, python-format
+msgid "Solo se puede crear una factura de proveedores para las Empresas que tengan RUC. Por favor,  revisar el proveedor seleccionado."
+msgstr "Solo se puede crear una factura de proveedores para las Empresas que tengan RUC. Por favor,  revisar el proveedor seleccionado."
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_new_cash_normal_voucher
+msgid "Nuevo Documento de Pago emitido en Caja General"
+msgstr "Nuevo Documento de Pago emitido en Caja General"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:298
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:367
+#, python-format
+msgid "Por favor,  solo ingrese números en el campo de Autorización"
+msgstr "Por favor,  solo ingrese números en el campo de Autorización"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,gen_withhold:0
+msgid "Indica si debe generarse una retención al proveedor"
+msgstr "Indica si debe generarse una retención al proveedor"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,move_id_line:0
+msgid "Línea Contable"
+msgstr "Línea Contable"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Responsable"
+msgstr "Responsable"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Anular Vale"
+msgstr "Anular Vale"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type:0
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: field:straconx.cash.vouchers.wizard,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_account_bank_statement
+msgid "Bank Statement"
+msgstr "Registro de Bancos"
+
+#. module: straconx_cash_voucher
+#: field:account.expense.cash,account_id:0
+#: field:account.input.cash,account_id:0
+msgid "Credit Account"
+msgstr "Cuenta Credito"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:141
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:144
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:227
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:231
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:254
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:272
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:275
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:285
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:290
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:295
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:298
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:325
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:359
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:364
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:367
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:401
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:404
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:409
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:546
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:551
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:792
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:856
+#, python-format
+msgid "!Aviso!"
+msgstr "!Aviso!"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:247
+#, python-format
+msgid "El monto a entregar debe ser mayor a \"+str(min_amount))}}\n"
+"         \n"
+"        elif(amount>max_amount):\n"
+"            return {\"value\":{\"amount\":amount},\n"
+"                              \"warning\":{\"title\":_(\"Validation Error"
+msgstr "El monto a entregar debe ser mayor a \"+str(min_amount))}}\n"
+"         \n"
+"        elif(amount>max_amount):\n"
+"            return {\"value\":{\"amount\":amount},\n"
+"                              \"warning\":{\"title\":_(\"Validation Error"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,required_bank:0
+msgid "Required Bank"
+msgstr "¿Requiere Banco?"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:793
+#, python-format
+msgid "Solo se puede crear una retención para las Empresas y/o Personas Naturales que tengan RUC. Por favor, revisar la empresa seleccionada."
+msgstr "Solo se puede crear una retención para las Empresas y/o Personas Naturales que tengan RUC. Por favor, revisar la empresa seleccionada."
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_cash_voucher
+#: field:account.expense.cash,name:0
+#: field:account.input.cash,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_account_cash_expense
+msgid "action.straconx.account.cash.expense"
+msgstr "action.straconx.account.cash.expense"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,total_base_00:0
+msgid "BASE 0%"
+msgstr "BASE 0%"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,collection_form:0
+msgid "End of the month"
+msgstr "Fin de mes"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Beneficiario"
+msgstr "Beneficiario"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:575
+#, python-format
+msgid "Por favor, defina las cuentas de impuestos predeterminados desde la pantalla de configuración de compañías"
+msgstr "Por favor, defina las cuentas de impuestos predeterminados desde la pantalla de configuración de compañías"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Borrador"
+msgstr "Borrador"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:275
+#, python-format
+msgid "Por favor,  solo ingrese números y guiones en el campo de Documento"
+msgstr "Por favor,  solo ingrese números y guiones en el campo de Documento"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:196
+#, python-format
+msgid "La Caja Registradora no tiene efectivo para realizar pagos "
+msgstr "La Caja Registradora no tiene efectivo para realizar pagos "
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:247
+#, python-format
+msgid "Validation Error"
+msgstr "Error de Validación"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:822
+#, python-format
+msgid "Por favor configure los impuestos predeterminados desde la ficha Compañía"
+msgstr "Por favor configure los impuestos predeterminados desde la ficha Compañía"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+#: view:account.payments:0
+#: field:account.payments,statement_id:0
+#: field:straconx.cash.vouchers.wizard,statement_id:0
+msgid "CashBox"
+msgstr "Detalle de Caja"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+#: view:straconx.cash.vouchers.wizard:0
+msgid "Details"
+msgstr "Detalles"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Mis Vales"
+msgstr "Mis Vales"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:401
+#, python-format
+msgid "Por favor ingrese los 37 dígitos de la autorización electrónica"
+msgstr "Por favor ingrese los 37 dígitos de la autorización electrónica"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,invoice_id:0
+msgid "Si es una devolución de retención: la factura debe estar en estado pagada para proceder a la devolución por retención; Si es un Pago de Factura a Proveedor:  La factura debe estar en estado abierto para continuar"
+msgstr "Si es una devolución de retención: la factura debe estar en estado pagada para proceder a la devolución por retención; Si es un Pago de Factura a Proveedor:  La factura debe estar en estado abierto para continuar"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:659
+#, python-format
+msgid "No existe una cuenta contable para Proveedores por Pagar"
+msgstr "No existe una cuenta contable para Proveedores por Pagar"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,authorization_id:0
+msgid "La autorización de la factura ingresada"
+msgstr "La autorización de la factura ingresada"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Mis Ingresos"
+msgstr "Mis Ingresos"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Pagado por"
+msgstr "Pagado por"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type_doc:0
+#: selection:straconx.cash.vouchers.wizard.line,type_doc:0
+msgid "Generar Vale de Caja"
+msgstr "Generar Vale de Caja"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,exchanged_date:0
+msgid "Exchanged Date"
+msgstr "Fecha de Cambio"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:163
+#, python-format
+msgid "Please select an AUTHORIZED user"
+msgstr "Por favor seleccionar un usuario AUTORIZADO"
+
+#. module: straconx_cash_voucher
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_general_menu_view_new_cash_vouchers
+msgid "Nuevo Vale Caja General"
+msgstr "Nuevo Vale Caja General"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_account_expense_cash
+msgid "account.expense.cash"
+msgstr "account.expense.cash"
+
+#. module: straconx_cash_voucher
+#: view:open.statement:0
+msgid "Are you sure you want to open a Petty Cash ?"
+msgstr "Estás seguro de querer ABRIR una CAJA CHICA ?"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:285
+#, python-format
+msgid "Por favor ingrese toda la numeración del documento, ya que la secuencia ingresada puede corresponder a más de una autorización."
+msgstr "Por favor ingrese toda la numeración del documento, ya que la secuencia ingresada puede corresponder a más de una autorización."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,amount_partial:0
+msgid "Next Amount Paid"
+msgstr "Próximo valor a pagar"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Open CashBox"
+msgstr "Abrir Caja"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,collection_form:0
+msgid "Middle of the month"
+msgstr "Quincena"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,state:0
+msgid "Canjeado"
+msgstr "Canjeado"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Closing Balance"
+msgstr "Saldo Final"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,bank_account_id:0
+msgid "Account Bank"
+msgstr "Cuenta Bancaria"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:662
+#, python-format
+msgid "Debe definir una posición fiscal para el Proveedor"
+msgstr "Debe definir una posición fiscal para el Proveedor"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_cash_receipts_payments
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_cash_receipts
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_menu_view_cash_receipts
+msgid "Lista de Ingresos de Caja"
+msgstr "Lista de Ingresos de Caja"
+
+#. module: straconx_cash_voucher
+#: selection:straconx.cash.vouchers.wizard,type:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,bank_id:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,credit_note_id:0
+msgid "Credit Notes"
+msgstr "Nota de Crédito"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,name:0
+msgid "Document No."
+msgstr "Documento No."
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:291
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:359
+#, python-format
+msgid "Por favor verifique que ha ingresado los 15 dígitos del documento más los dos guiones."
+msgstr "Por favor verifique que ha ingresado los 15 dígitos del documento más los dos guiones."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,wizard_id:0
+msgid "Asistente"
+msgstr "Asistente"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_petty_cash
+#: field:payment.mode,petty:0
+msgid "Caja Chica"
+msgstr "Caja Chica"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:231
+#, python-format
+msgid "No existe Diarios del tipo Retenciones creados. Por favor,  cree uno."
+msgstr "No existe Diarios del tipo Retenciones creados. Por favor,  cree uno."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,cash:0
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,cost_journal:0
+msgid "Cost Journal"
+msgstr "Centro de Costo"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Buscar Ingresos de Caja"
+msgstr "Buscar Ingresos de Caja"
+
+#. module: straconx_cash_voucher
+#: model:ir.actions.act_window,name:straconx_cash_voucher.action_straconx_cash_voucher_payments
+#: model:ir.ui.menu,name:straconx_cash_voucher.menu_view_cash_vouchers
+#: model:ir.ui.menu,name:straconx_cash_voucher.pos_list_menu_view_cash_vouchers
+msgid "Lista de Vales de Caja"
+msgstr "Lista de Vales de Caja"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_open_statement
+msgid "Open Statements"
+msgstr "Abrir Registros"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,collection_form:0
+msgid "Collection Form"
+msgstr "Forma de Cobro"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,approve:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,debit_note_id:0
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: straconx_cash_voucher
+#: view:account.bank.statement:0
+msgid "Total"
+msgstr "Total"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,approve_account_entry:0
+msgid "Account Entry"
+msgstr "Asiento Contable"
+
+#. module: straconx_cash_voucher
+#: help:straconx.cash.vouchers.wizard,auth_withhold_id:0
+msgid "La autorización de la retención ingresada"
+msgstr "La autorización de la retención ingresada"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:678
+#, python-format
+msgid "There is no purchase journal defined for this company: %s (id:%d)"
+msgstr "There is no purchase journal defined for this company: %s (id:%d)"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,type_account_bank:0
+msgid "Emisor"
+msgstr "Emisor"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:119
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:125
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:127
+#, python-format
+msgid "!Error!"
+msgstr "!Error!"
+
+#. module: straconx_cash_voucher
+#: view:account.expense.cash:0
+msgid "Cuentas para Pagos por Caja"
+msgstr "Cuentas para Pagos por Caja"
+
+#. module: straconx_cash_voucher
+#: model:ir.model,name:straconx_cash_voucher.model_straconx_cash_vouchers_wizard_line
+msgid "straconx.cash.vouchers.wizard.line"
+msgstr "straconx.cash.vouchers.wizard.line"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/wizard/straconx_cash_vouchers_wizard.py:243
+#, python-format
+msgid "El formato del número de documento es incorrecto"
+msgstr "El formato del número de documento es incorrecto"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,deposit_id:0
+msgid "deposit"
+msgstr "Depositado"
+
+#. module: straconx_cash_voucher
+#: field:account.payments,debit_notes:0
+#: field:straconx.cash.vouchers.wizard,debit_notes:0
+msgid "Debit Notes"
+msgstr "Nota de Débito"
+
+#. module: straconx_cash_voucher
+#: code:addons/straconx_cash_voucher/objects/straconx_cash_vouchers.py:519
+#, python-format
+msgid "No existen empleados con la razón social indicada. Por favor crear el empleado y el contrato correspondiente para continuar."
+msgstr "No existen empleados con la razón social indicada. Por favor crear el empleado y el contrato correspondiente para continuar."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,nb_print:0
+msgid "Impresiones"
+msgstr "Impresiones"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,amount:0
+msgid "Debt Amount"
+msgstr "Monto Débito"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,required_seq:0
+#: field:straconx.cash.vouchers.wizard,required_seq_check:0
+msgid "Required Sequence"
+msgstr "Secuencia Requerida"
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard,credit_card:0
+msgid "credit card?"
+msgstr "¿Es tarjeta de crédito?"
+
+#. module: straconx_cash_voucher
+#: view:account.payments:0
+msgid "Esta acción anula el vale, sus documentos relacionados y los movimientos contables. No se puede deshacer."
+msgstr "Esta acción anula el vale, sus documentos relacionados y los movimientos contables. No se puede deshacer."
+
+#. module: straconx_cash_voucher
+#: field:straconx.cash.vouchers.wizard.line,total_base_12:0
+msgid "BASE 12%"
+msgstr "BASE 12%"
+

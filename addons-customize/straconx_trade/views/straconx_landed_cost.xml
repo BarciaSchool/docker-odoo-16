@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<record id="view_landed_cost_tree" model="ir.ui.view">
+		    <field name="name">landed.cost.tree</field>
+		    <field name="model">landed.cost</field>
+		    <field name="type">tree</field>
+		    <field name="arch" type="xml">
+		        <tree string="Landed Costs">
+		        	<field name="name"/>
+		        	<field name="method"/>
+		            <field name="date"/>
+		            <field name="amount"/>
+		            <field name="other"/>
+		            <field name="currency_id"/>
+		            <field name="state"/>
+		        </tree>
+		    </field>
+		</record>
+
+		<record id="view_landed_cost_form" model="ir.ui.view">
+		    <field name="name">landed.cost.form</field>
+		    <field name="model">landed.cost</field>
+		    <field name="type">form</field>
+		    <field name="arch" type="xml">
+		        <form string="Landed Cost">
+		            <field name="name"/>
+		            <field name="method"/>
+		            <field name="currency_id"/>
+		            <field name="date"/>
+		            <field name="amount"/>
+		            <field name="other"/>
+		            <separator string="Lines Costs" colspan="4"/>
+	                    <field name="lines" nolabel="1" colspan="4">
+	                        <tree string="Items">
+	                            <field name="product_id"/>
+	                            <field name="product_qty"/>
+	                            <field name="price_unit"/>
+	                            <field name="total_volume"/>
+	                            <field name="total_weight"/>
+	                            <field name="amount" sum="Total Amount"/>
+	                            <field name="cost" sum="Total Allocated Cost"/>
+	                            <field name="cost_unit" sum="Total Cost Unit"/>
+	                            <field name="other" sum="Total Other Cost"/>
+	                            <field name="other_unit" sum="Total Other Cost Unit"/>
+	                        </tree>
+	                        <form string="Item">
+	                        	<field name="invoice_line_id" readonly="1"/>
+	                            <field name="product_id"/>
+	                            <field name="product_qty"/>
+	                            <field name="price_unit"/>
+	                            <field name="amount"/>
+	                            <field name="total_volume"/>
+	                            <field name="total_weight"/>
+	                            <field name="cost"/>
+	                            <field name="cost_unit"/>
+	                            <field name="other" sum="Total Other Cost"/>
+	                            <field name="other_unit" sum="Total Other Cost Unit"/>
+	                        </form>
+	                    </field>
+		            <field name="state"/>
+		            <group colspan="2" col="10">
+		                <button name="btn_compute" string="Compute" type="object" states="draft" icon="terp-stock_format-scientific"/>
+		                <button name="btn_post" string="Post" type="object" states="draft" icon="gtk-go-forward"/>
+		                <button name="btn_cancel" string="Cancel" type="object" states="draft,posted" icon="gtk-cancel"/>
+		                <button name="btn_draft" string="To Draft" type="object" states="canceled" icon="terp-stock_effects-object-colorize"/>
+		            </group>
+		        </form>
+		    </field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="act_new_landed_cost">
+	        <field name="name">New Landed Costs</field>
+	        <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">landed.cost</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="view_id" ref="view_landed_cost_form"/>
+    	</record>
+
+        <record id="act_view_landed_cost" model="ir.actions.act_window">
+            <field name="name">Landed Costs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">landed.cost</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_landed_cost_tree"/>
+        </record>
+    
+    </data>
+</openerp>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+	    	<record id="printer_point_search_view" model="ir.ui.view">
+	            <field name="name">printer.point.search</field>
+	            <field name="model">printer.point</field>
+	            <field name="type">search</field>
+	            <field name="arch" type="xml">
+	                <search string="Printer Point">
+                        <filter string="Shop" icon="terp-go-home" domain="[]" context="{'group_by':'shop_id'}"/>
+                        <filter string="Tipo" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'type'}"/>
+                        <separator orientation="vertical"/>
+                        <field name="name"/>
+                        <field name="shop_id"/>
+	                </search>
+	            </field>
+	        </record>
+            <record model="ir.ui.view" id="printer_point_tree_view">
+                <field name="name">printer.point.tree</field>
+                <field name="model">printer.point</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Printer Points">
+                        <field name="name"/>
+                        <field name="shop_id"/>
+                        <field name="type"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="printer_point_form_view">
+                <field name="name">printer.point.form</field>
+                <field name="model">printer.point</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Printer Points">
+                        <field name="name"/>
+                        <field name="shop_id" required="1"/>
+                        <field name="type"/>
+                        <notebook colspan="4">
+	                        <page string="Users Assign">
+	                        	<separator string="Users assign" colspan="4"/>
+	                        	<field name="user_ids" nolabel="1" colspan="4"></field>
+	                        </page>
+                        </notebook>
+                    </form>
+                </field>
+            </record>
+            
+            <record model="ir.actions.act_window" id="action_printer_point_view">
+                <field name="name">Printer Point</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">printer.point</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="printer_point_search_view"/>
+            </record>
+            
+            <record id="action_printer_point_view_tree" model="ir.actions.act_window.view">
+	            <field eval="1" name="sequence"/>
+	            <field name="view_mode">tree</field>
+	            <field name="view_id" ref="printer_point_tree_view"/>
+	            <field name="act_window_id" ref="action_printer_point_view"/>
+	        </record>
+	
+	        <record id="action_printer_point_view_form" model="ir.actions.act_window.view">
+	            <field eval="2" name="sequence"/>
+	            <field name="view_mode">form</field>
+	            <field name="view_id" ref="printer_point_form_view"/>
+	            <field name="act_window_id" ref="action_printer_point_view"/>
+	        </record>
+            
+            <record model="ir.ui.view" id="printer_point_form_view_1">
+                <field name="name">printer.point.form</field>
+                <field name="model">printer.point</field>
+                <field name="type">form</field>
+                <field eval="10" name="priority"/>
+                <field name="arch" type="xml">
+                    <form string="Printer Points">
+                        <field name="name" readonly="1"/>
+                        <field name="shop_id" readonly="1"/>
+                        <field name="type"/>
+                        <notebook colspan="4">
+	                        <page string="Users Assign" groups="base.group_extended">
+	                        	<separator string="Users assign" colspan="4"/>
+	                        	<field name="user_ids" nolabel="1" colspan="4"></field>
+	                        </page>
+                        </notebook>
+                    </form>
+                </field>
+            </record>
+    </data>
+</openerp>

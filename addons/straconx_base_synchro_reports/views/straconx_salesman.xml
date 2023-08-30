@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_base_synchro.straconx_view_shop_invoice_base_salesman" model="ir.ui.view">
+			<field name="name">Resumen de Facturación</field>
+			<field name="model">reports.salesman.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Ventas por Asesor">
+					<group col="8" colspan="4">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_invoices" string=" Generar Reporte de Ventas" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_invoice_salesman_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_invoice_ids" groups="base.group_pos_manager" 
+							required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="straconx_base_synchro.view_invoice_salesman_lines_tree" model="ir.ui.view">
+			<field name="name">Resumen de Facturas y N/C</field>
+			<field name="model">reports.invoice.salesman.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Ventas x Asesor">
+					<field name="shop_id" readonly="1" />
+					<field name="salesman_id" readonly="1" />
+					<field name="quantity" readonly="1"  sum="Total Documentos" />
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.action_invoice_form_salesman_reports_invoice" model="ir.actions.act_window">
+			<field name="name">Resumen de Ventas</field>
+			<field name="res_model">reports.salesman.shop</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+
+	</data>
+</openerp>

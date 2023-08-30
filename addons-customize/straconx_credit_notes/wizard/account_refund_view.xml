@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="account.view_account_invoice_refund" model="ir.ui.view">
+            <field name="name">account.invoice.refund.form</field>
+            <field name="model">account.invoice.refund</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Refund Invoice">
+                    <separator string="Refund Invoice Options" colspan="4"/>
+                    <group colspan="4" >
+                         <field name="filter_refund"/>
+                         <field name="journal_id" widget='selection' required="1" on_change="on_change_motive(context)"/>
+                         <field name="date" invisible="1"/>
+                         <field name="date2" required="1"/>
+                         <field name="period" invisible="1"/>
+                         <field name="motive" required="1" widget='selection'/>
+                         <newline/>
+                         <field name="description" colspan="4"/>
+                         
+                    </group>
+                    <separator colspan="4"/>
+                    <field name="line_ids" colspan="4" nolabel="1">
+                    	<tree string="Lines refund" editable="bottom">
+                    		<field name="product_id" string="Producto" required="1"/>
+                    		<field name="quantity" string="Cantidad"/>
+                    	</tree>
+                    	<form string="lines refund">
+                    		<field name="product_id" string="Producto" required="1"/>
+                    		<field name="quantity" string="Cantidad"/>
+                    	</form>
+                    </field>
+                    
+                    <separator colspan="4"/>
+                    <group colspan="4" col="6">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button string='Refund' icon="gtk-execute" name="invoice_refund" type="object"/>
+                   </group>
+               </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

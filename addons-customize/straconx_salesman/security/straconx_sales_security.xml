@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.module.category" id="base.module_category_pos_sales_management">
+			<field name="name">POS Sales Management</field>
+			<field name="description">Helps you handle your quotations, sale orders and
+				invoicing in POS Shops.</field>
+			<field name="sequence">3</field>
+		</record>
+
+		<record id="base.group_sales_commanager" model="res.groups">
+			<field name="name">Sale / Comercial Manager</field>
+			<field name="category_id" ref="base.module_category_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]" />
+		</record>
+
+		<record id="base.group_sales_supervisor" model="res.groups">
+			<field name="name">Sales / Supervisor</field>
+			<field name="category_id" ref="base.module_category_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]" />
+		</record>
+
+		<record id="base.group_phone_manager" model="res.groups">
+			<field name="name">Phone Sales / Manager</field>
+			<field name="category_id" ref="base.module_category_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]" />
+		</record>
+
+		<record id="base.group_phone_user" model="res.groups">
+			<field name="name">Phone Sales / User</field>
+			<field name="category_id" ref="base.module_category_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_sale_salesman'))]" />
+		</record>
+
+		<record id="base.group_pos_user" model="res.groups">
+			<field name="name">Point of Sale / User</field>
+			<field name="category_id" ref="base.module_category_pos_sales_management" />
+		</record>
+
+		<record id="base.group_pos_manager" model="res.groups">
+			<field name="name">Point of Sale / Manager</field>
+			<field name="category_id" ref="base.module_category_pos_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_pos_manager'))]" />
+		</record>
+
+		<record id="base.group_pos_collector" model="res.groups">
+			<field name="name">Point of Sale / Collector</field>
+			<field name="category_id" ref="base.module_category_pos_sales_management" />
+			<field name="implied_ids" eval="[(4, ref('base.group_pos_manager'))]" />
+		</record>
+
+	</data>
+</openerp>

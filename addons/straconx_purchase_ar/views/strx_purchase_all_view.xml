@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+	<data>
+		<record id="straconx_purchase_order_form_inherit_ar" model="ir.ui.view">
+			<field name="name">Herencia para Nueva Orden de Compra </field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="straconx_purchase.straconx_purchase_order_form" />
+			<field name="arch" type="xml">
+			<xpath expr="//field[@name='order_line']" position="replace">
+				<field colspan="4" name="order_line" nolabel="1" mode="tree,form" on_change="onchange_line_id(order_line, price_with_tax)" attrs="{'readonly':[('state','not in',['draft','wait'])]}" required="1">								
+					<tree string="Purchase Order Lines">
+						<field name="product_id" invisible="1" required="0"
+						context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+						on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id,parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" />
+						<field name="name" invisible="0" required="1"/>
+						<field name="date_planned" invisible="0" />
+						<field name="categ_id" />
+						<field name="product_qty"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" />
+						<field name="product_uom" invisible="0"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" />
+						<field name="price_unit"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+						<field name="weight" invisible="1" />
+						<field name="weight_total" invisible="1" />
+						<field name="volume" invisible="1" />
+						<field name="volume_total" invisible="1" />
+						<field name="discount"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+						<field name="offer"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+						<field name="final_price"
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+						<field name="subtotal_with_taxes" 
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" invisible="1" />
+						<field name="price_subtotal"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+						<field name="company_id" groups="base.group_multi_company"
+							widget="selection" invisible="1" />										
+						<field name="account_analytic_id" groups="analytic.group_analytic_accounting"
+							domain="[('parent_id','!=',False)]" invisible="1" />
+						<field invisible="1" nolabel="1" name="taxes_id"
+							context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+							domain="[('parent_id','=',False),('type_tax_use','!=','sale')]" />
+						<field name="notes" invisible="1" />										
+					</tree>
+					<form>
+						<notebook colspan="4">
+							<page string="Order Line">
+								<group colspan="2" col="4">
+									<field name="product_id"
+										colspan="2"													
+										on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id,parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" 
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'form_view_ref':'product.product_normal_form_view','department_id':parent.department_id}"/>													
+									<field name="date_planned" invisible="0" />
+									<field name="categ_id" />
+									<newline/>
+									<field name="name" invisible="0" required="1" colspan="4"/>
+									<newline/>
+									<field name="product_qty"													
+										on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" 
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"/>
+									<field name="product_uom" invisible="0"
+										on_change="product_id_change(parent.pricelist_id,product_id,product_qty,product_uom,parent.partner_id, parent.categ_id, parent.date_order,parent.fiscal_position,date_planned,name,price_unit,notes,discount,offer,parent.shop_id,parent.price_with_tax,context)" 
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"/>
+									<field name="price_unit"
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+									<field name="weight" invisible="1" />
+									<field name="weight_total" invisible="1" />
+									<field name="volume" invisible="1" />
+									<field name="volume_total" invisible="1" />
+									<field name="discount"
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+									<field name="offer"
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+									<field name="final_price"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+									<field name="subtotal_with_taxes" invisible="1"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" />
+									<field name="price_subtotal"
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" 
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id}"													
+										/>
+									<newline/>
+									<field name="cost_journal" attrs="{'readonly':[('state','not in',['draft','wait'])]}" />												
+									<field name="account_analytic_id" colspan="2" required="1"
+										domain="[('parent_id','!=',False)]"/>
+									<field name="department_id" required="0"/>
+									<field name="company_id" groups="base.group_multi_company"
+										widget="selection" invisible="1" />
+									<field name="state"/>									
+								</group>
+								<newline />
+								<group colspan="4" col="8">
+									<field invisible="0" nolabel="1" name="taxes_id"
+										domain="[('parent_id','=',False),('type_tax_use','!=','sale'),('company_id','=',parent.company_id)]" 
+										on_change="offer_id_change(product_id,product_qty, price_unit, discount, offer,parent.price_with_tax,taxes_id)" 
+										context="{'partner_id':parent.partner_id,'quantity':product_qty,'pricelist':parent.pricelist_id,'uom':product_uom,'categ_id':parent.categ_id,'warehouse':parent.warehouse_id,'department_id':parent.department_id, 'form_view_ref':'taxes_lines_view_form','tree_view_ref':'taxes_lines_view_tree'}"/>
+								</group>
+							</page>
+							<page string="Invoicing" groups="base.group_extended">
+								<separator colspan="4" string="Manual Invoices" />
+								<field name="invoiced" />
+								<newline />
+								<field colspan="4" name="invoice_lines" nolabel="1"
+									widget="many2many" />
+							</page>
+							<page string="Notes">
+								<field colspan="4" name="notes" nolabel="1" />
+							</page>
+							<page string="History" groups="base.group_extended">
+								<separator colspan="4" string="Stock Moves" />
+								<field colspan="4" name="move_ids" nolabel="1" widget="many2many" />
+							</page>
+						</notebook>
+					</form>
+	
+				</field>
+				
+			</xpath>			
+						
+			</field>
+		</record>
+		
+		<record id="taxes_lines_view_form" model="ir.ui.view">
+            <field name="name">Taxes Form</field>
+            <field name="model">account.tax</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority" />
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="price_include"/>
+                    <field name="description"/>
+                    <field name="type_tax_use"/>
+                    <field name="tax_type" />
+                    <field name="state" />
+                    <field name="amount_variable" on_change="onchange_amount_variable(amount_variable)"/>
+                </form>
+            </field>
+       </record>
+       
+       <record id="taxes_lines_view_tree" model="ir.ui.view">
+            <field name="name">Taxes Tree</field>
+            <field name="model">account.tax</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority" />
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price_include"/>
+                    <field name="description"/>
+                    <field name="type_tax_use"/>
+                    <field name="tax_type" />
+                    <field name="state" />
+                    <field name="amount_variable" on_change="onchange_amount_variable(amount_variable)"/>
+                </tree>
+            </field>
+       </record>
+       
+	</data>
+</openerp>

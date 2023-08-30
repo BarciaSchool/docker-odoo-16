@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem name="Ventas por Tienda" id="straconx_sales.menu_reports_pos_sale_shop"
+			groups="base.group_pos_manager"
+			action="straconx_base_synchro.action_invoice_form_reports_invoice" parent="straconx_sales.pos_menu_reports"
+			sequence="1" />
+		<menuitem name="Ventas por Tienda por Tipo Autorizacion" id="straconx_sales.menu_reports_pos_sale_shop_type"
+			groups="base.group_pos_manager"
+			action="straconx_base_synchro.action_invoice_reports_invoice_type_form" parent="straconx_sales.pos_menu_reports"
+			sequence="1" />
+		<menuitem name="Resumen de Facturas" id="straconx_sales.menu_resumen_invoice_pos_shop"
+			groups="base.group_pos_manager"
+			action="straconx_base_synchro.resumen_invoice_reports_invoice_form" parent="straconx_sales.pos_menu_reports"
+			sequence="1" />
+		<menuitem name="Cobro por Tienda" id="straconx_sales.menu_reports_pos_payments_shop"
+			groups="base.group_pos_manager"
+			action="straconx_base_synchro.action_invoice_form_reports_payments" parent="straconx_sales.pos_menu_reports"
+			sequence="1" />
+		<menuitem name="Resumen de Descuentos y Ofertas en Venta" id="straconx_sales.menu_reports_pos_discounts_shop"
+			groups="base.group_pos_manager"
+			action="straconx_base_synchro.action_shop_form_reports_discounts" parent="straconx_sales.pos_menu_reports"
+			sequence="1" />
+		<menuitem action="action_migrate_obj_form" id="migrate_menu_id" parent="straconx_base_synchro.synch_config" />
+	</data>
+</openerp>

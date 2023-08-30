@@ -1,0 +1,153 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="straconx_purchase_order_form_inherit_budget" model="ir.ui.view">
+			<field name="name">Herencia para Nueva Orden de Compra </field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="straconx_purchase.straconx_purchase_order_form" />
+			<field name="arch" type="xml">
+<!-- 				<xpath
+					expr="//field[@name='order_line']/tree//field[@name='department_id']"
+						position="after">
+					<field name="cost_journal" />
+					<field name="wbs_phase" />
+					<field name="account_id" string="Cuenta Contable"/>
+				</xpath> -->
+				<xpath
+					expr="//field[@name='order_line']/form//field[@name='department_id']"
+						position="replace">
+					<field name="department_id" required="1"/>
+				</xpath>
+				<xpath
+					expr="//field[@name='order_line']/form//field[@name='cost_journal']"
+						position="replace">
+					<field name="cost_journal"
+						required="1"
+						create="False"
+						options="{'quick_create':False}" />					
+					<field name="wbs_phase"
+						attrs="{'required':[('cost_journal','!=',1)]}"
+						domain="[('type_phase','&lt;&gt;','cost'),('type_phase','&lt;&gt;','phase'), ('parent_id', '!=', False)]"						
+						options="{'quick_create':False,'create':False }" />
+					<field name="account_id" required="1"/>
+				</xpath>
+				<xpath expr="//field[@name='order_line']" position="attributes">
+				    <attribute name="context">{'cost_journal':cost_journal, 'department_id': department_id}</attribute>
+				</xpath>
+								
+				<xpath expr="/form/notebook/page/group/field[@name='amount_total_vat_12']" position='after'>
+					<field name="amount_total_perception" sum="Perception" />
+				</xpath>
+				
+				<xpath expr="/form/notebook/page/field[@name='categ_id']" position='after'>
+					<field name="currency_id" required="1"/>
+				</xpath>
+				
+			</field>
+		</record>
+
+		<record id="straconx_purchase_order_form_inherit_budget_terms" model="ir.ui.view">
+			<field name="name">Herencia para Nueva Orden de Compra </field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="straconx_purchase.straconx_purchase_order_form" />
+			<field name="arch" type="xml">
+			<xpath expr="//page[@string='Other Info']" position="before">
+	    		<page string="Términos y Condiciones">
+			  		<field name="pay_term" colspan="2"/>
+			  		<field name="entrega" colspan="2"/>
+			  		<field name="cronograma" colspan="2"/>
+			  		<field name="multas" colspan="2"/>
+			  		<field name="inspeccion" colspan="2"/>
+			  		<field name="garantia" colspan="2"/>
+		  		</page>
+			</xpath>
+			</field>
+		</record>
+		
+		<record id="budget_purchase_invoice_form" model="ir.ui.view">
+			<field name="name">Modificación de Factura</field>
+			<field name="inherit_id" ref="account.invoice_supplier_form" />
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="/form/notebook/page/field[@name='invoice_line']/form/notebook/page/field[@name='cost_journal']" position="after">
+					<field name="wbs_phase"
+						attrs="{'required':[('cost_journal','!=',1)]}"
+						domain="[('type_phase','&lt;&gt;','cost'),('type_phase','&lt;&gt;','phase'), ('parent_id', '!=', False)]"						
+						options="{'quick_create':False}"  />
+				</xpath>
+			</field>
+		</record>
+		
+<!-- 		<record id="budget_purchase_invoice_refund_form" model="ir.ui.view">
+			<field name="name">Modificación de N/C</field>
+			<field name="inherit_id" ref="straconx_credit_notes_ar.refund_supplier_form" />
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//field[@name='invoice_line']/form//field[@name='department_id']" position="after">
+					<field name="wbs_phase"
+						attrs="{'required':[('cost_journal','!=',1)]}"
+						domain="[('type_phase','&lt;&gt;','cost'),('type_phase','&lt;&gt;','phase'), ('parent_id', '!=', False)]"						
+						options="{'quick_create':False}"  />
+				</xpath>
+			</field>
+		</record> -->
+
+    	<record id="budget_view_move_form" model="ir.ui.view">
+			<field name="name">Budget</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+			<field name="model">account.move</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+            	<field name="cost_journal" position="before">
+               		<field name="wbs_phase" required="0"/>
+               </field>
+            </field>
+        </record>
+        
+        
+    <record id="view_account_budgets_filter_inherit" model="ir.ui.view">
+        <field name="name">Budgets</field>
+        <field name="model">account.move.line</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <field name="account_id" position="after">
+                <newline/>
+                <field name="shop_id"/>
+                <field name="department_id"/>
+                <field name="analytic_account_id"/>
+				<field name="wbs_phase"/>
+            </field>
+			<filter string="Period" position="after">
+				<filter string="Departamento" icon="terp-folder-green" context="{'group_by':'department_id'}"/>
+				<filter string="Tienda" icon="terp-folder-green" context="{'group_by':'shop_id'}" />
+				<filter string="Cuenta Analítica" icon="terp-folder-green" context="{'group_by':'analytic_account_id'}"/>
+				<filter string="Subfase/Tarea" icon="terp-folder-green" context="{'group_by':'wbs_phase'}" />
+			</filter>            
+        </field>
+    </record>
+
+	<record id="view_account_budgets_tree_inherit" model="ir.ui.view">
+        <field name="name">Budgets</field>
+        <field name="model">account.move.line</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <newline/>
+				<field name="wbs_phase" invisible="0" required="0"/>
+            </field>
+        </field>
+    </record>
+
+
+	</data>
+</openerp>
+
+

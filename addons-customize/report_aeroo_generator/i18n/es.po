@@ -1,0 +1,333 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* report_aeroo_generator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120613-233312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-14 17:35+0000\n"
+"PO-Revision-Date: 2012-06-14 17:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "Invoice Information"
+msgstr "Información de Factura"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,sale_order_state:0
+msgid "In Progress"
+msgstr "En Progreso"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_voucher_type:0
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: report_aeroo_generator
+#: view:sale.order:0
+msgid "Print Order"
+msgstr "Imprimir Pedido de Venta"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "Information"
+msgstr "Información"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/sale.py:68
+#, python-format
+msgid "There is no report defined for Sale Orders with this parameters or for Sale Orders in general."
+msgstr "No hay ningún reporte definido para Pedidos de Ventas con estos parámetros o para Pedidos de Venta en general."
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+#: field:report_aeroo_generator.report_configuration,line_ids:0
+msgid "Configuration lines"
+msgstr "Lineas de Configuración"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/account_invoice.py:68
+#, python-format
+msgid "There is no report defined for Invoice with this parameters or for Invoice in general."
+msgstr "No hay ningún reporte definido para Facturas con estos parámetros o para Facturas en general."
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+#: view:report_aeroo_generator.report_configuration_line:0
+msgid "Report Configuration Line"
+msgstr "Lineas de Configuración de Reportes"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report_configuration.py:31
+#, python-format
+msgid "There is another report created with the same parameters, there cannot be more than one report with the same parameters"
+msgstr "Existe otro reporte con los parámetros seleccionados, no puede haber más de un reporte con los mismos parámetros."
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_stock_picking
+msgid "Picking List"
+msgstr "Albarán"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,sale_order_state:0
+msgid "Sale Order State"
+msgstr "Estado de Pedido de Venta"
+
+#. module: report_aeroo_generator
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr "Order Reference must be unique per Company!"
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+#: field:report_aeroo_generator.report_configuration,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "Account Voucher Information"
+msgstr "Información de Comprobante"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,account_invoice_journal_id:0
+#: field:report_aeroo_generator.report_configuration,account_voucher_journal_id:0
+#: field:report_aeroo_generator.report_configuration,stock_picking_journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,report_xml_id:0
+msgid "Report XML"
+msgstr "Reporte XML"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,account_invoice_tax_included:0
+msgid "Tax Included"
+msgstr "Incluir Impuestos"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report/general_parser.py:44
+#, python-format
+msgid "Incorrect Configuration name"
+msgstr "Nombre de la configuración incorrecto"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration_line,name:0
+msgid "Key"
+msgstr "Clave"
+
+#. module: report_aeroo_generator
+#: view:sale.order:0
+msgid "Print Quotation"
+msgstr "Imprimir Cotización"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,type:0
+msgid "Picking"
+msgstr "Albarán"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration_line,report_configuration_id:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_voucher_type:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: report_aeroo_generator
+#: view:account.voucher:0
+msgid "Print Voucher"
+msgstr "Imprimir Comprobante"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report/general_parser.py:54
+#, python-format
+msgid "No configuration object"
+msgstr "Ningun objeto de configuración"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_voucher_type:0
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: report_aeroo_generator
+#: model:ir.actions.act_window,name:report_aeroo_generator.action_report_configuration
+#: model:ir.ui.menu,name:report_aeroo_generator.report_configuration_menu
+#: view:report_aeroo_generator.report_configuration:0
+#: view:report_aeroo_generator.report_configuration_line:0
+msgid "Report Configuration"
+msgstr "Configuración de Reporte"
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_report_aeroo_generator_report_configuration_line
+msgid "Line of the configuration information"
+msgstr "Line of the configuration information"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,type:0
+msgid "Sale Order"
+msgstr "Sale Order"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/stock.py:53
+#, python-format
+msgid "There is no report defined for Picking with this parameters or for Picking in general."
+msgstr "No hay ningún reporte definido para Albaranes con estos parámetros o para Albaranes en general."
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_voucher_type:0
+msgid "Sale"
+msgstr "Venta"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+#: field:report_aeroo_generator.report_configuration,account_invoice_tax_ids:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,account_invoice_state:0
+msgid "Invoice State"
+msgstr "Invoice State"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "Picking Information"
+msgstr "Picking Information"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration_line,value:0
+msgid "Value"
+msgstr "Value"
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_report_aeroo_generator_report_configuration
+msgid "Configuration information to generate an Aeroo report"
+msgstr "Configuration information to generate an Aeroo report"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report_configuration.py:30
+#, python-format
+msgid "Report already created"
+msgstr "Reporte ya creado"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/account_invoice.py:67
+#: code:addons/report_aeroo_generator/account_voucher.py:61
+#: code:addons/report_aeroo_generator/sale.py:67
+#: code:addons/report_aeroo_generator/stock.py:52
+#, python-format
+msgid "No report defined"
+msgstr "Ningún reporte definido"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,sale_order_shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: report_aeroo_generator
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "Sale Order Information"
+msgstr "Información de Pedido de Venta"
+
+#. module: report_aeroo_generator
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr "¡La referencia debe ser única por compañía!"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/account_voucher.py:62
+#, python-format
+msgid "There is no report defined for Accounting Voucher with this parameters or for Accounting Voucher in general."
+msgstr "No hay ningún reporte definido para Comprobantes con estos parámetros o para Comprobantes en general."
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_account_voucher
+#: selection:report_aeroo_generator.report_configuration,type:0
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: report_aeroo_generator
+#: field:report_aeroo_generator.report_configuration,account_voucher_type:0
+msgid "Account Voucher Type"
+msgstr "Tipo de Comprobante"
+
+#. module: report_aeroo_generator
+#: view:report_aeroo_generator.report_configuration:0
+msgid "General"
+msgstr "General"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report/general_parser.py:55
+#, python-format
+msgid "There is no report defined for Invoices with this parameters of in general."
+msgstr "There is no report defined for Invoices with this parameters of in general."
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_invoice_state:0
+msgid "Aproved Invoice"
+msgstr "Factura Aprobada"
+
+#. module: report_aeroo_generator
+#: model:ir.model,name:report_aeroo_generator.model_account_invoice
+#: selection:report_aeroo_generator.report_configuration,type:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,sale_order_state:0
+msgid "Quotation"
+msgstr "Cotización"
+
+#. module: report_aeroo_generator
+#: selection:report_aeroo_generator.report_configuration,account_invoice_state:0
+msgid "Pro-forma"
+msgstr "Pro-forma"
+
+#. module: report_aeroo_generator
+#: view:account.invoice:0
+msgid "Print Invoice"
+msgstr "Imprimir factura"
+
+#. module: report_aeroo_generator
+#: code:addons/report_aeroo_generator/report/general_parser.py:45
+#, python-format
+msgid "A number was expected for the report name but instead it was \"%s\".', name)\n"
+"            raise osv.except_osv(title, message)\n"
+"        \n"
+"        report_conf_obj = self.pool.get('report_aeroo_generator.report_configuration"
+msgstr "A number was expected for the report name but instead it was \"%s\".', name)\n"
+"            raise osv.except_osv(title, message)\n"
+"        \n"
+"        report_conf_obj = self.pool.get('report_aeroo_generator.report_configuration"
+

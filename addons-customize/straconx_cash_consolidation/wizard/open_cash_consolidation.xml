@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+		<record id="view_open_cash_consolidation" model="ir.ui.view">
+            <field name="name">Open Cash Consolidation</field>
+            <field name="model">open.cash.consolidation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Open Cash Consolidation">
+                	<group colspan="4" width="850" height="250">
+	                	<field name="user_id" required="1" on_change="on_change_user(user_id)"/>
+		                <field name="date" required="1"/>
+		                <field name="shop_id" required="1" on_change="on_change_shop(shop_id,user_id)"/>
+		                <field name="printer_id" required="1"/>
+		                <field name="partner_id" required="1"/>
+		                <field name="account_id" required="1" domain="[('type','=','receivable')]"/>
+		                <field name="company_id" required="1" widget="selection" on_change="on_change_company(company_id)"/>
+		                <field name="journal_id" required="1" widget="selection" domain="[('type','=','cash_consolidation')]"/>
+		                <field name="amount_initial" required="1"/>
+			     	    <separator colspan="4"/>
+			     	    <group col="4" colspan="4">
+				     	    <group col="2" colspan="2"/>
+		               		<button icon='gtk-stop' special="cancel"
+		               			string="No" />
+		               		<button name="open_cash" string="Yes"
+		               			 type="object" icon="gtk-ok"/>
+	                   </group>
+	                </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_open_cash_consolidation" model="ir.actions.act_window">
+            <field name="name">Open Cash Consolidation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">open.cash.consolidation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+	</data>
+</openerp>	        

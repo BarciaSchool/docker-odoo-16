@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+    <menuitem 
+        name="Knowledge" 
+        icon="STOCK_CONNECT"
+        id="knowledge.menu_document"
+        action="product.product_normal_action"
+        sequence="4"
+        groups="base.group_system,base.group_document_user,base.group_document_manager"
+        web_icon="images/knowledge.png"
+        web_icon_hover="images/knowledge-hover.png"/>
+
+    <menuitem 
+        name="Reports" 
+        id="knowledge.menu_document_reports" 
+        parent="knowledge.menu_document"
+        groups="base.group_system,base.group_document_user,base.group_document_manager"        
+        sequence="9"/>
+      
+    <menuitem 
+        name="Configuration" 
+        id="knowledge.menu_document_configuration" 
+        parent="knowledge.menu_document"
+        groups="base.group_system,base.group_document_user,base.group_document_manager"        
+        sequence="10"/>
+
+    <menuitem 
+        name="Collaborative Content"
+        id="knowledge.menu_document2" 
+        parent="knowledge.menu_document"
+        groups="base.group_system,base.group_document_user,base.group_document_manager"        
+        sequence="6"/>
+
+<!--Technical Advisor Menu -->
+
+    <menuitem 
+        name="Products" 
+        id="knowledge_menu_product" 
+        parent="knowledge.menu_document" 
+        sequence="0"/>
+        
+    <menuitem 
+        name="Products" 
+        action="product.product_normal_action" 
+        id="knowledge_menu_products" 
+        parent="knowledge_menu_product" 
+        sequence="1"/>
+
+    <menuitem 
+        name="Details Config"
+        id="menu_products_config_straconx"  
+        parent="knowledge.menu_document_configuration" 
+        sequence="1" />
+                
+    <menuitem 
+        name="Product Category"
+        action="product.product_category_action_form" 
+        id="product.menu_product_category_action_form" 
+        parent="menu_products_config_straconx" 
+        sequence="1"/>
+    
+    <menuitem
+        name="Product Clasification"
+        id="menu_product_clasification_str" 
+        action="action_product_clasification" 
+        parent="menu_products_config_straconx" 
+        sequence="2"/>
+
+    <menuitem
+        name="Product Material" 
+        id="menu_action_product_material_form_str" 
+        action="action_product_material"   
+        parent="menu_products_config_straconx" 
+        sequence="7"/>
+         
+<!--Sale Menu -->
+
+    <menuitem 
+        name="Product"
+        id="product.menu_products" 
+        action="product.product_normal_action" 
+        parent="base.menu_product"
+        sequence="0"/>
+        
+<!--Account Menu -->
+
+    <menuitem 
+        name="Products" 
+        id="account_menu_product" 
+        parent="account.menu_finance" 
+        sequence="3"/>
+
+    <menuitem 
+        name="Product"
+        id="account_products" 
+        action="product.product_normal_action" 
+        parent="account_menu_product" 
+        sequence="1"/>
+
+<!--Logistics Menu -->
+
+    <menuitem 
+        name="Product"
+        id="stock.menu_stock_products_menu" 
+        action="product.product_normal_action" 
+        parent="stock.menu_stock_product" 
+        sequence="1"/>
+
+<!--Purchase Menu -->
+
+    <menuitem 
+        name="Producto x Tipo de Unidad"
+        id="purchase_uom_products_menu" 
+        action="action_product_product_uom_tree_view" 
+        parent="purchase.menu_procurement_management_product" 
+        sequence="1"/>
+
+    </data>
+</openerp>
+    

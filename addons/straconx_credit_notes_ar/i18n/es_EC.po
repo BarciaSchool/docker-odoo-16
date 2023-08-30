@@ -1,0 +1,734 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_credit_notes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-18 07:35+0000\n"
+"PO-Revision-Date: 2014-08-18 07:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Invoice Information"
+msgstr "Información de Facturación"
+
+#. module: straconx_credit_notes
+#: help:product.template,property_account_discount_sale:0
+msgid "This account will be used for invoices to value discount sales for the current product"
+msgstr "Está cuenta será utilizada para valorizar los descuentos de ventas del actual producto"
+
+#. module: straconx_credit_notes
+#: help:product.template,property_account_refund_purchase:0
+msgid "This account will be used for invoices to value refund purchase for the current product"
+msgstr "Está cuenta será utilizada para valorizar las devoluciones de compras del actual producto"
+
+#. module: straconx_credit_notes
+#: field:account.refund.motive,code:0
+msgid "code"
+msgstr "Código"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "This button only appears when the state of the invoice is 'paid' (showing that it has been fully reconciled) and auto-computed boolean 'reconciled' is False (depicting that it's not the case anymore). In other words, the invoice has been dereconciled and it does not fit anymore the 'paid' state. You should press this button to re-open it and let it continue its normal process after having resolved the eventual exceptions it may have created."
+msgstr "Este botón solo aparece cuando el estado de la factura es 'pagado' (mostrando que ha sido totalmente conciliado) y el campo booleano autocalculado 'pagado/conciliado' es falso (representa que ya no es el caso). En otras palabra, la conciliación de la factura ha sido rota y ya no está en estado 'pagado'. Debería presionar este botón para volver a abrir la factura y le permitirá continuar su proceso normal después de haber resuelto la excepción eventual que lo puede haber producido."
+
+#. module: straconx_credit_notes
+#: field:account.invoice,refund_type:0
+msgid "Type of Refund"
+msgstr "Origen de Devolución"
+
+#. module: straconx_credit_notes
+#: model:ir.ui.menu,name:straconx_credit_notes.credit_risk_refund_customer
+msgid "Customer Refund Invoices"
+msgstr "Notas de Crédito de Clientes"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Nota de Crédito"
+msgstr "Nota de Crédito"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Tax Information"
+msgstr "Información de Impuestos"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Invoice Date"
+msgstr "Emitida el"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Modify"
+msgstr "Modificar"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "This action will erase taxes"
+msgstr "Esta acción borrará impuestos"
+
+#. module: straconx_credit_notes
+#: model:ir.actions.report.xml,name:straconx_credit_notes.refund_report_pos_id
+msgid "Nota_de_Crédito POS"
+msgstr "Nota_de_Crédito POS"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+#: view:authorization.refund:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: straconx_credit_notes
+#: selection:account.refund.motive,classification:0
+msgid "Sales and Purchase"
+msgstr "Compra y Venta"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:135
+#, python-format
+msgid "No Period found on Invoice!"
+msgstr "¡No existe período fiscal en la factura!"
+
+#. module: straconx_credit_notes
+#: selection:account.refund.motive,classification:0
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Due Date"
+msgstr "Fecha de Vencimiento"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:261
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:281
+#, python-format
+msgid "Error, no Journal !"
+msgstr "!Error, sin Diario Contable!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_credit_notes
+#: selection:account.refund.motive,classification:0
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:101
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:107
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:177
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:184
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:278
+#: code:addons/straconx_credit_notes/wizard/authorization_refund.py:38
+#: code:addons/straconx_credit_notes/wizard/authorization_refund.py:41
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_credit_notes
+#: sql_constraint:account.refund.motive:0
+msgid "The code of the motive refund must be unique!"
+msgstr "¡El código del motivo de la devolución debe ser único!"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_account_state_open
+msgid "Account State Open"
+msgstr "Estado contable Abierto"
+
+#. module: straconx_credit_notes
+#: view:account.refund.motive:0
+#: model:ir.actions.act_window,name:straconx_credit_notes.action_account_refund_motive
+msgid "Refund Motives"
+msgstr "Motivos"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_credit_notes
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:93
+#, python-format
+msgid "Usted debe ingresar por lo menos un producto de devolución"
+msgstr "Usted debe ingresar por lo menos un producto de devolución"
+
+#. module: straconx_credit_notes
+#: constraint:product.category:0
+msgid "Error ! You cannot create recursive categories."
+msgstr "Error ! No se puede crear categorías recursivas."
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Re-Open"
+msgstr "Reabrir"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:58
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:271
+#, python-format
+msgid "Warning!"
+msgstr "Precaución!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_credit_notes
+#: model:ir.ui.menu,name:straconx_credit_notes.account_motive_refund
+#: model:ir.ui.menu,name:straconx_credit_notes.account_motive_refund_menu
+msgid "Motive Refund"
+msgstr "Motivos de Devoluciones"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Digiter"
+msgstr "Digitador"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:97
+#, python-format
+msgid "Can not %s draft/proforma/cancel invoice."
+msgstr "No se puede cambiar el docuemnto %s a otro estado."
+
+#. module: straconx_credit_notes
+#: selection:account.refund.motive,classification:0
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: straconx_credit_notes
+#: field:product.category,property_account_refund_purchase_categ:0
+#: field:product.template,property_account_refund_purchase:0
+msgid "Refund Supplier Account"
+msgstr "Cuenta de Devolución de Proveedores"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Supplier Invoice"
+msgstr "Factura de Proveedor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Accounting Information"
+msgstr "Información Contable"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:99
+#, python-format
+msgid "No se puede cancelar una factura que ha sido pagada, excepto que sea reversado primero el pago para proceder a crear la Nota de Crédito"
+msgstr "No se puede cancelar una factura que ha sido pagada, excepto que sea reversado primero el pago para proceder a crear la Nota de Crédito"
+
+#. module: straconx_credit_notes
+#: field:invoice.refund.line,invoice_id:0
+msgid "invoice"
+msgstr "factura"
+
+#. module: straconx_credit_notes
+#: field:account.invoice.refund,user_authorized:0
+msgid "User Authorized"
+msgstr "Autorización de Usuario"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:118
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:93
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:97
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:99
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Imprimir Nota de Crédito (pdf)"
+msgstr "Imprimir Nota de Crédito (pdf)"
+
+#. module: straconx_credit_notes
+#: field:account.invoice.refund,required_auth:0
+msgid "required authorized"
+msgstr "requiere autorización"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Reset to Draft"
+msgstr "Cambiar a Borrador"
+
+#. module: straconx_credit_notes
+#: help:product.category,property_account_discount_sale_categ:0
+msgid "This account will be used for invoices to value discount sales for the current product category"
+msgstr "Está cuenta será utilizada para valorizar los descuentos de ventas de la actual categoría del producto"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:118
+#, python-format
+msgid "You must defined a payment term by default."
+msgstr "Debe definir un plazo de pago predeterminado."
+
+#. module: straconx_credit_notes
+#: field:account.invoice.line,quantity_refund:0
+msgid "Quantity Refund"
+msgstr "Cantidad devuelta"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Compute Taxes"
+msgstr "Calcular impuestos"
+
+#. module: straconx_credit_notes
+#: view:product.category:0
+msgid "Refund Properties"
+msgstr "Propiedades de la Devolución"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Imprimir Nota de Crédito (txt)"
+msgstr "Imprimir Nota de Crédito (txt)"
+
+#. module: straconx_credit_notes
+#: field:account.invoice.line,old_line_id:0
+msgid "Old Line"
+msgstr "Línea anterior"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:69
+#, python-format
+msgid "You can assign a sale refund account"
+msgstr "Debe asignar una cuenta de devolución de ventas para continuar"
+
+#. module: straconx_credit_notes
+#: field:authorization.refund,supervisor_id:0
+msgid "Supervisor"
+msgstr "Supervisor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "My invoices"
+msgstr "Mis facturas"
+
+#. module: straconx_credit_notes
+#: field:account.invoice,motive_id:0
+#: field:account.invoice.refund,motive:0
+#: field:account.refund.motive,name:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Buscar Factura"
+msgstr "Buscar Factura"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Salesman"
+msgstr "Vendedor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Additional Information"
+msgstr "Información Adicional"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Draft Invoices"
+msgstr "Facturas en borrador"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Proforma/Open/Paid Invoices"
+msgstr "Facturas en estado Proforma/Abierta/Pagada"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "(keep empty to use the current period)"
+msgstr "(vacío para período actual)"
+
+#. module: straconx_credit_notes
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:261
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:281
+#, python-format
+msgid "Please put a journal to generate invoice."
+msgstr "Por favor, ingrese un diario contable para generar el documento."
+
+#. module: straconx_credit_notes
+#: selection:account.invoice,refund_type:0
+msgid "Internal"
+msgstr "Interna"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_credit_notes
+#: field:authorization.refund,code:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "¿Imprimir la factura en formato PDF?"
+msgstr "¿Imprimir la factura en formato PDF?"
+
+#. module: straconx_credit_notes
+#: help:product.category,property_account_refund_purchase_categ:0
+msgid "This account will be used for invoices to value refund purchase for the current product category"
+msgstr "Está cuenta será utilizada para valorizar las devoluciones de compras de la actual categoría del producto"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Total Amount"
+msgstr "Monto total"
+
+#. module: straconx_credit_notes
+#: help:product.category,property_account_discount_purchase_categ:0
+msgid "This account will be used for invoices to value discount purchases for the current product category"
+msgstr "Está cuenta será utilizada para valorizar los descuentos de compras de la actual categoría del producto"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:144
+#, python-format
+msgid "The product %s not exist in the invoice, please check!"
+msgstr "El producto %s no existe en la factura, por favor revisar!"
+
+#. module: straconx_credit_notes
+#: selection:account.invoice,refund_type:0
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_credit_notes
+#: help:product.category,property_account_refund_sale_categ:0
+msgid "This account will be used for invoices to value refund sales for the current product category"
+msgstr "Está cuenta será utilizada para valorizar las devoluciones de ventas de la actual categoría del producto"
+
+#. module: straconx_credit_notes
+#: field:invoice.refund.line,wizard_id:0
+msgid "wizard"
+msgstr "asistente"
+
+#. module: straconx_credit_notes
+#: field:account.payment.term,default:0
+msgid "Default"
+msgstr "Predeterminado"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:141
+#: code:addons/straconx_credit_notes/objects/account_invoice.py:154
+#, python-format
+msgid "Invalid action!"
+msgstr "Acción Inválida!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Unpaid"
+msgstr "Sin Pagar"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Search Invoice"
+msgstr "Buscar Factura"
+
+#. module: straconx_credit_notes
+#: view:authorization.refund:0
+msgid "Digit the Code of Supervisor for Authorized the Refund"
+msgstr "Digite el código del supervisor para autorizar la devolución"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+#: selection:account.invoice,refund_type:0
+msgid "Refund"
+msgstr "Devolución"
+
+#. module: straconx_credit_notes
+#: field:account.invoice,old_invoice_id:0
+msgid "Old Invoice"
+msgstr "Aplica a factura"
+
+#. module: straconx_credit_notes
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Residual Amount"
+msgstr "Saldo Pendiente"
+
+#. module: straconx_credit_notes
+#: field:account.refund.motive,classification:0
+msgid "Classification"
+msgstr "Clasificación"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:134
+#, python-format
+msgid "Data Insufficient !"
+msgstr "¡Información insuficiente !"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_credit_notes
+#: field:product.category,property_account_discount_sale_categ:0
+#: field:product.template,property_account_discount_sale:0
+msgid "Discount Customer Account"
+msgstr "Cuenta de Descuento de Clientes"
+
+#. module: straconx_credit_notes
+#: model:ir.ui.menu,name:straconx_credit_notes.credit_risk_refund
+msgid "Refund Invoices"
+msgstr "Devolución de Facturas"
+
+#. module: straconx_credit_notes
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+#: field:account.invoice.refund,invoice_id:0
+#: model:ir.model,name:straconx_credit_notes.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_credit_notes
+#: model:ir.actions.act_window,name:straconx_credit_notes.action_auth_refund
+msgid "Validate Refund"
+msgstr "Validar devolución"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+#: view:authorization.refund:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_credit_notes
+#: model:ir.actions.report.xml,name:straconx_credit_notes.refund_report_id
+msgid "Nota_de_Crédito"
+msgstr "Nota_de_Crédito"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_account_refund_motive
+msgid "account.refund.motive"
+msgstr "Motivo de Devolución"
+
+#. module: straconx_credit_notes
+#: field:product.category,property_account_refund_sale_categ:0
+#: field:product.template,property_account_refund_sale:0
+msgid "Refund Customer Account"
+msgstr "Cuenta de Devolución de Clientes"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_invoice_refund_line
+msgid "invoice.refund.line"
+msgstr "Línea de Devolución"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/authorization_refund.py:38
+#, python-format
+msgid "Don't exist code of Supervisor for validate, enter a code"
+msgstr "No existe el código del supervisor para validar, por favor, ingrese un código"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_credit_notes
+#: help:product.template,property_account_discount_purchase:0
+msgid "This account will be used for invoices to value discount purchases for the current product"
+msgstr "Está cuenta será utilizada para valorizar los descuentos de compras del producto"
+
+#. module: straconx_credit_notes
+#: field:product.category,property_account_discount_purchase_categ:0
+#: field:product.template,property_account_discount_purchase:0
+msgid "Discount Supplier Account"
+msgstr "Cuenta de Descuento del Proveedor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "¿Imprimir la factura para Impresora de Texto?"
+msgstr "¿Imprimir la factura para Impresora de Texto?"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Unpaid Invoices"
+msgstr "Facturas sin Pagar"
+
+#. module: straconx_credit_notes
+#: view:authorization.refund:0
+msgid "Authorization for Refund"
+msgstr "Autorización para devolución"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_credit_notes
+#: help:account.invoice.refund,date2:0
+msgid "This date will be used as the invoice date for Refund Invoice and Period will be chosen accordingly!"
+msgstr "¡Está fecha será utilizada en la Devolución de la factura y su correspondiente período fiscal!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Invoice lines"
+msgstr "Detalle de Facturas"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: straconx_credit_notes
+#: field:invoice.refund.line,product_id:0
+msgid "product"
+msgstr "producto"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_account_invoice_refund
+msgid "Invoice Refund"
+msgstr "Devolución de Factura"
+
+#. module: straconx_credit_notes
+#: field:account.invoice.refund,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/authorization_refund.py:41
+#, python-format
+msgid "Code of authorization invalid"
+msgstr "Código de autorización inválido"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_credit_notes
+#: code:addons/straconx_credit_notes/wizard/account_invoice_refund.py:144
+#, python-format
+msgid "Invalid Action !"
+msgstr "!Acción Inválida!"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: straconx_credit_notes
+#: help:product.template,property_account_refund_sale:0
+msgid "This account will be used for invoices to value refund sales for the current product"
+msgstr "Está cuenta será utilizada para valorizar las devoluciones de ventas de producto"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_authorization_refund
+msgid "authorization.refund"
+msgstr "Autorización"
+
+#. module: straconx_credit_notes
+#: help:account.payment.term,default:0
+msgid "This field is active to be chosen automatically on out refund and in refund."
+msgstr "Este campo es activado automáticamente en un devolución de clientes y/o proveedor"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Aplica a factura"
+msgstr "Aplica a factura"
+
+#. module: straconx_credit_notes
+#: model:ir.model,name:straconx_credit_notes.model_account_payment_term
+msgid "Payment Term"
+msgstr "Plazo de pago"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: straconx_credit_notes
+#: view:account.invoice:0
+msgid "Untaxed Amount"
+msgstr "Base Imponible"
+
+#. module: straconx_credit_notes
+#: field:account.invoice.refund,date2:0
+msgid "Refund date"
+msgstr "Fecha de devolución"
+
+#. module: straconx_credit_notes
+#: field:invoice.refund.line,quantity:0
+msgid "quantity"
+msgstr "Cantidad"
+
+#. module: account, straconx_credit_notes
+#: field:account.invoice.refund,journal_id:0
+msgid "Refund Journal"
+msgstr "Diario"

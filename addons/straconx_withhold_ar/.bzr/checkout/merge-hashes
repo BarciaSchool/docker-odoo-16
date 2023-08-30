@@ -1,0 +1,24 @@
+BZR merge-modified list format 1
+file_id: withhold_wizard_view-20160617160816-6bivoeozbi8uzadj-31
+hash: 611ae4e4c3b6b95ee43dce1526ac22c33c1bd12d
+
+file_id: withhold_wizard.py-20160617160816-6bivoeozbi8uzadj-30
+hash: 30954698417c231ef4d6b9c6776b6465891b3f40
+
+file_id: straconx_menu.xml-20160617160816-6bivoeozbi8uzadj-25
+hash: b2f0afb01a4a787bf86833b6b48f535930cbd1a1
+
+file_id: straconx_withhold.py-20160617160816-6bivoeozbi8uzadj-16
+hash: 35779e674098ab6495be48200da53e2a2995576a
+
+file_id: invoice_view.xml-20160617160816-6bivoeozbi8uzadj-24
+hash: 8480e28a9eb649a81256a4b6aa1cd5832bda8708
+
+file_id: straconx_invoice.py-20160617160816-6bivoeozbi8uzadj-14
+hash: 6c1d0e31c9c921ae562f108c7cd90e84d8f9b0f9
+
+file_id: __openerp__.py-20160617160816-6bivoeozbi8uzadj-9
+hash: 1777c45cc463ad2ecdc148b9f55518adee9122a4
+
+file_id: export_files.xml-20160819231649-5nsjrgyva934yexx-1
+hash: 1d0e41434cc1b1aeff562c4ee6f0ef8aba55dd50

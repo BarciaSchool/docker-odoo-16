@@ -1,0 +1,280 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<!--Sales Modified Menus -->
+		<menuitem id="base.menu_base_partner" name="Sales" sequence="1"
+			icon="terp-partner"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user" />
+
+		<menuitem name="Sales" id="base.menu_sale_config_sales"
+			parent="base.menu_base_config" groups="base.group_sale_manager,base.group_phone_manager"
+			sequence="0" />
+
+		<menuitem id="base.menu_sales" name="Sales" parent="base.menu_base_partner"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"
+			sequence="1" />
+
+		<menuitem name="Products" id="base.menu_product" parent="base.menu_base_partner"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"
+			sequence="9" />
+
+<!-- 		<menuitem name="New Sale Orders" id="straconx_menu_new_sale_salesman_order" -->
+<!-- 			action="straconx_action_sale_view_salesman_order" groups="base.group_sale_salesman,base.group_sale_manager" -->
+<!-- 			parent="base.menu_sales" sequence="0" /> -->
+
+		<menuitem name="New Phone Sale Orders" id="straconx_menu_new_sale_order"
+			action="straconx_action_sale_view_order" groups="base.group_phone_manager,base.group_phone_user"
+			parent="base.menu_sales" sequence="0" />
+
+		<menuitem name="Sale Orders" id="sale.menu_sale_order"
+			action="sale.action_order_form"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"
+			parent="base.menu_sales" sequence="1" />
+						
+		<menuitem id="base.menu_invoiced" name="Invoicing" parent="base.menu_base_partner" sequence="5" 
+				groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"/>
+								
+		<menuitem name="Customer Invoices" id="menu_customer_invoices_sales"
+			action="account.action_invoice_tree1" parent="base.menu_invoiced"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"
+			sequence="1" />
+			
+		<menuitem name="Delivery Guide" id="menu_delivery_guide_sales"
+			action="straconx_logistics.straconx_action_delivery_guide" parent="base.menu_invoiced"
+			groups="base.group_sale_salesman,base.group_sale_manager,base.group_phone_manager,base.group_phone_user"
+			sequence="2" />
+
+		<!--Sales for POS Sales -->
+		<menuitem name="Point of Sale" id="account.menu_point_root"
+			sequence="2" icon="terp-go-home" web_icon="images/pos.png"
+			web_icon_hover="images/pos-hover.png"
+			action="straconx_sales.action_invoice_tree_pos_invoice"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector" />
+
+		<menuitem name="Daily Operations" id="menu_point_of_sale"
+			parent="account.menu_point_root" 
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="1" />
+
+		<menuitem name="New POS Order" parent="menu_point_of_sale"
+			id="menu_point_ofsale" action="straconx_sales.action_invoice_form_pos_invoice"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector" 
+			sequence="1" />
+
+		<menuitem name="POS Order" parent="menu_point_of_sale" id="menu_point_ofsale_tree"
+			action="straconx_sales.action_invoice_tree_pos_invoice" 
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="2" />
+
+		<!-- Consignment Orders Menu -->
+
+		<menuitem id="consignment_order_menu" name="Consignment Orders"
+			parent="base.menu_base_partner" sequence="2" />
+
+		<menuitem name="New Consignment Order" parent="consignment_order_menu"
+			id="menu_consignment_new" action="straconx_action_consignment_view_order"
+			sequence="1" />
+
+		<menuitem name="Consignment Order" parent="consignment_order_menu"
+			id="menu_consignment_orders" action="action_consignment_view_order"
+			sequence="2" />
+
+		<!-- POS Configuration -->
+
+		<menuitem name="Configuration" id="menu_configuration_pos"
+			parent="account.menu_point_root" groups="base.group_pos_manager"
+			sequence="19" />
+
+		<menuitem name="POS Team" id="menu_tema_pos"
+			parent="menu_configuration_pos" groups="base.group_pos_manager"
+			sequence="1" />
+
+        <menuitem 
+            name="Salesman" 
+            id="pos_salesman_menu" 
+            action="straconx_salesman.action_salesman" 
+            parent="menu_configuration_pos" 
+            sequence="0" />
+            
+        <menuitem 
+            name="Region Zones" 
+            id="region_zones" 
+            action="straconx_salesman.action_region_zone" 
+            parent="menu_configuration_pos" 
+            sequence="2" />
+
+		<!-- POS Statement Register -->
+
+		<menuitem name="Statements Register Management" id="menu_open_config_pos"
+			parent="account.menu_point_root" groups="base.group_pos_manager,base.group_pos_collector"
+			sequence="3" />
+
+		<menuitem name="Statements Registers" id="menu_all_register_pos"
+			parent="menu_open_config_pos" action="account.action_view_bank_statement_tree"
+			groups="base.group_pos_manager,base.group_pos_collector" sequence="1" />
+
+		<menuitem name="Open Cash Registers" id="menu_open_statement_pos"
+			string="Open Cash Registers" action="straconx_payments.straconx_action_open_statement"
+			parent="menu_open_config_pos" groups="base.group_pos_manager,base.group_pos_collector"
+			sequence="2" />
+
+		<!--Invoices -->
+
+		<menuitem name="Invoices" id="menu_point_of_sale_invoices"
+			parent="account.menu_point_root" groups="base.group_pos_manager,base.group_pos_collector"
+			sequence="4" />
+
+		<menuitem name="Invoices to Print"
+			action="straconx_logistics.straconx_action_picking_pos_done_tree" id="menu_point_of_sale_invoices_print"
+			parent="menu_point_of_sale_invoices" sequence="1" />
+
+		<menuitem name="Customer Invoices" id="menu_customer_invoices_pos"
+			action="account.action_invoice_tree1" parent="menu_point_of_sale_invoices"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="2" />
+
+		<menuitem action="straconx_payments.action_vendor_receipt_pos_straconx"
+			id="menu_action_voucher_pos_straconx" parent="menu_point_of_sale_invoices"
+			sequence="3"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector" />
+			
+		<menuitem id="menu_advance_pos_customer" 
+			action="straconx_debit_notes.action_advance_customer"
+			parent="menu_point_of_sale_invoices" 
+			sequence="4" />
+			
+		<!-- refund credit risk -->
+			
+		<menuitem 
+	        name="Refund Invoices" 
+	        id="pos_refund" 
+	        parent="account.menu_point_root"
+	        groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+	        sequence="7"/>
+	    
+	    <menuitem 
+		    name="Customer Refund Invoices" 
+		    id="pos_refund_customer"
+			parent="pos_refund"
+			action="account.action_invoice_tree3"
+			sequence="1"/>
+
+
+		<!-- Customer -->
+		<menuitem name="Customers" id="menu_point_of_sale_customer"
+			parent="account.menu_point_root"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="14" />
+
+		<menuitem name="Customers" id="menu_point_of_sale_customer_views"
+			action="base.action_partner_form" parent="menu_point_of_sale_customer"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="1" />
+
+		<!-- Products -->
+		<menuitem name="Products" id="menu_point_of_sale_product"
+			parent="account.menu_point_root"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="15" />
+
+		<menuitem action="product.product_normal_action" id="menu_pos_products"
+			parent="menu_point_of_sale_product" name="Products"
+			groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"
+			sequence="1" />
+
+		<menuitem name="Products By Ubications"
+			action="straconx_logistics.action_product_ubications_view" id="menu_action_product_ubication_pos"
+			parent="menu_point_of_sale_product" sequence="2" />
+
+		<menuitem name="Shop Stock" id="menu_action_sale"
+			action="straconx_logistics.action_stock_shop" parent="menu_point_of_sale_product"
+			sequence="3" />
+
+		<!-- Menu back-orders -->
+
+		<menuitem name="BackOrders" action="straconx_action_backorder_view"
+			id="menu_backorder_sales" parent="base.menu_sales" sequence="4" />
+
+		<menuitem name="BackOrders" action="straconx_action_backorder_view"
+			id="menu_backorder_consigment" parent="consignment_order_menu"
+			sequence="4" />
+
+		<menuitem name="BackOrders" action="straconx_action_backorder_view"
+			id="menu_backorder_pos" parent="menu_point_of_sale" sequence="3" />
+
+		<!-- Menu Reports -->
+		
+		<menuitem name="Reports" id="pos_menu_reports" parent="account.menu_point_root"
+			groups="base.group_pos_manager" sequence="17" />
+
+		<menuitem name="Margen" id="pos_menu_margen_reports" parent="pos_menu_reports"
+			groups="base.group_pos_manager" sequence="2" />
+
+		<menuitem name="Sales Shop Reports" id="menu_reports_pos_sale_shop"
+			action="straconx_invoice.action_invoice_form_reports" parent="pos_menu_reports"
+			groups="base.group_pos_manager" sequence="1" />
+
+		<menuitem name="Payments Shop Reports" id="menu_reports_pos_payments_shop"
+			action="act_view_payments_shop_filter" parent="pos_menu_reports"
+			groups="base.group_pos_manager" sequence="2" />
+
+		<menuitem name="Logistics" id="pos_menu_logistics" parent="account.menu_point_root"
+			groups="base.group_pos_manager" sequence="16" />
+
+		<menuitem name="Transferencias" id="pos_st_internal" groups="base.group_pos_manager"
+			parent="pos_menu_logistics" sequence="2" />
+
+		<menuitem name="Solicitud de Transferencias" 
+			action="straconx_logistics.straconx_action_picking_internal_confirm_form"
+			id="menu_action_internal_transfer_pos" 
+			parent="pos_st_internal" sequence="1" />
+
+		<menuitem name="Envío de Transferencias"
+			action="straconx_logistics.straconx_action_picking_internal_out" id="menu_action_internal_out_pos"
+			parent="pos_st_internal" sequence="2" />
+
+		<menuitem name="Recepción de Transferencias"
+			action="straconx_logistics.straconx_action_picking_internal" id="menu_action_internal_in_pos"
+			parent="pos_st_internal" sequence="3" />
+
+		<menuitem name="Consigment Moves" id="pos_st_consiment"
+			groups="base.group_pos_manager" parent="pos_menu_logistics" sequence="3" />
+
+		<menuitem name="Consigment Orders Out"
+			action="straconx_logistics.straconx_action_picking_consigment" id="menu_consigment_out_pos"
+			parent="pos_st_consiment" sequence="1" />
+
+<!-- 		<menuitem name="Consigment Orders In" -->
+<!-- 			action="straconx_logistics.straconx_action_picking_consigment_in" id="menu_consigment_in_pos" -->
+<!-- 			parent="pos_st_consiment" sequence="2" /> -->
+
+		<menuitem name="Delivery Orders" id="pos_st_delivery" groups="base.group_pos_manager"
+			parent="pos_menu_logistics" sequence="3" />
+
+		<menuitem name="Waiting Orders"
+			action="straconx_logistics.straconx_action_picking_tree" id="menu_action_picking_pos_tree"
+			parent="pos_st_delivery" sequence="1" />
+
+		<menuitem name="Done Orders"
+			action="straconx_logistics.straconx_action_picking_done" id="menu_action_picking_done_pos_tree"
+			parent="pos_st_delivery" sequence="2" />
+
+		<menuitem name="Picking for Invoice later"
+			action="straconx_logistics.straconx_action_picking_later_tree" id="menu_action_picking_later_pos_tree"
+			parent="pos_st_delivery" sequence="3" />
+
+		<menuitem name="All Orders"
+			action="straconx_logistics.straconx_action_picking_all_tree" id="menu_action_picking_all_pos_tree"
+			parent="pos_st_delivery" sequence="7" />
+
+		<menuitem name="Inventarios" id="pos_st_inventory" groups="base.group_pos_manager"
+			parent="pos_menu_logistics" sequence="5" />
+
+        <menuitem name="Inventarios Físicos" id="menu_action_inventory_pos"  
+        	action="stock.action_inventory_form" groups="base.group_pos_manager"
+        	parent="pos_st_inventory" sequence="1"/>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		#---------------------------------------------------------
+		# Type of Shop
+		#---------------------------------------------------------
+                
+		<record id="straconx_view_shop_form" model="ir.ui.view">
+			<field name="name">Logistics Sale Shop</field>
+			<field name="inherit_id" ref="sale.view_shop_form" />
+			<field name="model">sale.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<page string="General Information" position="replace">
+					<page string="General Information">
+						<separator colspan="4" string="Accounting" />
+						<field name="payment_default_id"/>
+	                    <field domain="[('type','=','sale')]" name="pricelist_id" select="1"/>
+	                    <field name="project_id" select="1" groups="base.group_extended"/>
+						<separator colspan="6" string="Another Information" />
+						<field name="headquarter" />
+						<field name="central_warehouse" on_change="onchange_central_warehouse(central_warehouse,company_id)"/>
+						<field name="wholesale" />
+						<field name="point_of_sale" />
+						<field name="consignment" />
+						<separator colspan="4" string="Configuration of sales" />
+						<field name="min_utility_margen" required="1" />
+						<field name="limits_line_invoice" required="1" />
+					</page>
+				</page>
+			</field>
+		</record>
+
+		<record id="straconx_view_shop_form_logistics" model="ir.ui.view">
+			<field name="name">Logistics Sale Shop for Ubication</field>
+			<field name="inherit_id" ref="straconx_afip.view_shop_form_inherit_sri" />
+			<field name="model">sale.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<field name="number_sri" position="after">
+					<field name="shop_ubication_id" domain="[('usage','=','view')]" required="1"/>
+				</field>
+			</field>
+		</record>
+
+
+
+	</data>
+</openerp>

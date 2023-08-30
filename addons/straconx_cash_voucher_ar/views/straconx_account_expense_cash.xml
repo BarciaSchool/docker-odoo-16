@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+           <record model="ir.ui.view" id="straconx_account_cash_expense_form">
+                <field name="name">straconx.account.cash.expense.form</field>
+                <field name="model">account.expense.cash</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Cuentas para Pagos por Caja">
+                        <field name="name" required="1"/>
+                        <field name="account_id" required="1"/>                        
+                        <field name="product_id" domain="[('type','in',('admin_service','service'))]"/>
+                        <newline/>
+						<field name="tax_line" required="0" colspan="4" nolabel="1"/>
+                    </form>
+                </field>
+            </record>    
+    		
+    	    <record model="ir.ui.view" id="straconx_account_cash_expense_tree">
+                <field name="name">straconx.account.cash.expense.tree</field>
+                <field name="model">account.expense.cash</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Account Expense Cash">
+                        <field name="name"/>
+                        <field name="account_id" />
+                        <field name="product_id" />
+                    </tree>
+                </field>
+            </record>
+            
+            <record model="ir.actions.act_window" id="action_straconx_account_cash_expense">
+                <field name="name">action.straconx.account.cash.expense</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.expense.cash</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="straconx_account_cash_expense_tree"/>
+            </record>
+            
+<!-- CUENTA DE INGRESO DE CAJA CHICA -->            
+
+            <record model="ir.ui.view" id="straconx_account_cash_input_form">
+                <field name="name">straconx.account.cash.input.form</field>
+                <field name="model">account.input.cash</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Cuenta de Ingreso de Caja Chica">
+                        <field name="name" required="1"/>
+                        <field name="product_id" domain="[('type','in',('admin_service','service'))]"/>
+                        <field name="account_id" required="1"/>
+                        <newline/>
+						<field name="tax_line" required="0" colspan="4" nolabel="1"/>
+                    </form>
+                </field>
+            </record>   
+            
+            
+            <record model="ir.ui.view" id="straconx_account_cash_input_tree">
+                <field name="name">straconx.account.cash.input.tree</field>
+                <field name="model">account.input.cash</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Cuenta de Ingreso de Caja Chica">
+                        <field name="name" required="1"/>
+                        <field name="account_id" required="1"/>
+                    </tree>
+                </field>
+            </record>
+            
+            <record model="ir.actions.act_window" id="action_straconx_account_cash_input">
+                <field name="name">Cuenta de Ingreso de Caja Chica</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.input.cash</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="straconx_account_cash_input_tree"/>
+            </record>
+
+    </data>
+</openerp>

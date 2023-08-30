@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+         <record id="straconx_partner_list_report_account" model="ir.actions.report.xml">
+            <field name="name">Clientes</field>
+            <field name="report_name">straconx_partner_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.next_id_22')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_pos" model="ir.actions.report.xml">
+            <field name="name">Clientes</field>
+            <field name="report_name">straconx_partner_list_pos</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_supplier" model="ir.actions.report.xml">
+            <field name="name">Proveedores</field>
+            <field name="report_name">straconx_supplier_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partners_supplier_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.next_id_22')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_supplier_purchase" model="ir.actions.report.xml">
+            <field name="name">Proveedores</field>
+            <field name="report_name">straconx_supplier_purchase_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partners_supplier_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('base.next_id_73')" />
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_shop_account" model="ir.actions.report.xml">
+            <field name="name">Clientes por Tienda</field>
+            <field name="report_name">straconx_partner_shop_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_shop.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.next_id_22')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_shop_pos" model="ir.actions.report.xml">
+            <field name="name">Clientes por Tienda</field>
+            <field name="report_name">straconx_partner_list_shop_pos</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_shop.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_salesman_account" model="ir.actions.report.xml">
+            <field name="name">Clientes por Vendedor</field>
+            <field name="report_name">straconx_partner_salesman_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_salesman.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.next_id_22')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_salesman_pos" model="ir.actions.report.xml">
+            <field name="name">Clientes por Vendedor</field>
+            <field name="report_name">straconx_partner_list_salesman_pos</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_salesman.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_segmento_account" model="ir.actions.report.xml">
+            <field name="name">Clientes por Segmento</field>
+            <field name="report_name">straconx_partner_list_segmento_account</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_segmento.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.next_id_22')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="straconx_partner_list_report_segmento_pos" model="ir.actions.report.xml">
+            <field name="name">Clientes por Segmento</field>
+            <field name="report_name">straconx_partner_list_segmento_pos</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_partner_list_segmento.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','res.partner')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')"/>
+            <field name="model" >res.partner</field>
+        </record>  
+
+         <record id="account.account_aged_supplier_balance_view" model="ir.actions.report.xml">
+            <field name="name">Cuentas por Pagar General</field>
+            <field name="report_name">account_statement_supplier_list</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_invoice_supplier_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_payment')"/>
+            <field name="model" >account.invoice</field>
+        </record>  
+        
+        <record id="account.account_aged_supplier_balance_view2" model="ir.actions.report.xml">
+            <field name="name">Cuentas por Pagar Fecha</field>
+            <field name="report_name">account_statement_supplier_list_date</field>
+            <field name="pentaho_filename">straconx_reports_partner/report/straconx_invoice_supplier_list_date.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_payments.next_account_payment')"/>
+            <field name="model" >account.invoice</field>
+        </record> 
+
+        <record id="straconx_payments.ac_bank_cheque_supplier_list" model="ir.actions.report.xml">
+            <field name="name">Cheques Emitidos</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_cheques_emitidos</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_supplier_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+           	<field name="linked_menu_id" eval="ref('straconx_payments.next_account_cheques')" />       
+        </record>       
+
+		<delete model="ir.values" search="[('name','=','Cuentas por Pagar')]" />
+
+</data>
+</openerp>
+

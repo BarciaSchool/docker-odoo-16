@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<delete model="ir.ui.menu" search="[('name','=','Allocation Requests')]" />
+		
+        <!-- Salary Structure -->
+        
+        <record id="INGRESOS" model="hr.salary.rule.category">
+            <field name="name">INGRESOS</field>
+            <field name="code">ING</field>
+        </record>
+
+        <record id="DESCUENTOS" model="hr.salary.rule.category">
+            <field name="name">DESCUENTOS</field>
+            <field name="code">DESC</field>
+        </record>
+
+        <record id="PROVISIONES" model="hr.salary.rule.category">
+            <field name="name">PROVISIONES</field>
+            <field name="code">PROV</field>
+        </record>
+    
+            <!-- Employee Category -->
+
+        <record id="category_experience" model="hr.employee.category">
+            <field name="name">Experiencia</field>
+        </record>
+
+        <record id="category_sr_exec" model="hr.employee.category">
+            <field name="name">Experto (5 años)</field>
+            <field name="parent_id" ref="category_experience"/>
+        </record>
+
+        <record id="category_jr_exec" model="hr.employee.category">
+            <field name="name">Junior (6 meses)</field>
+            <field name="parent_id" ref="category_experience"/>
+        </record>
+
+        <record id="category_trainee" model="hr.employee.category">
+            <field name="name">Entrenamiento</field>
+            <field name="parent_id" ref="category_experience"/>
+        </record>
+
+        <record id="category_ranking" model="hr.employee.category">
+            <field name="name">Posiciones</field>
+        </record>
+
+        <record id="category_ceo" model="hr.employee.category">
+            <field name="name">Presidente Ejecutivo</field>
+            <field name="parent_id" ref="category_ranking"/>
+        </record>
+
+        <record id="category_managers" model="hr.employee.category">
+            <field name="name">Gerentes</field>
+            <field name="parent_id" ref="category_ranking"/>
+        </record>
+
+        <record id="category_employee" model="hr.employee.category">
+            <field name="name">Colaboradores</field>
+            <field name="parent_id" ref="category_ranking"/>
+        </record>
+        
+<!-- Work Days -->
+
+        <record id="basic_attendace" model="resource.calendar">
+            <field name="name">Semana laboral</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="monday" model="resource.calendar.attendance">
+            <field name="name">Monday</field>	
+            <field name="dayofweek">0</field>
+            <field name="hour_from">8.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="calendar_id" ref="basic_attendace"/>            
+        </record>
+
+        <record id="tuesday" model="resource.calendar.attendance">
+            <field name="name">Tuesday</field>
+            <field name="dayofweek">1</field>
+            <field name="hour_from">8.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="calendar_id" ref="basic_attendace"/>            
+        </record>
+        <record id="wenesday" model="resource.calendar.attendance">
+            <field name="name">Wenesday</field>
+            <field name="dayofweek">2</field>
+            <field name="hour_from">8.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="calendar_id" ref="basic_attendace"/>            
+        </record>
+        
+        <record id="thursday" model="resource.calendar.attendance">
+            <field name="name">Thursday</field>
+            <field name="dayofweek">3</field>
+            <field name="hour_from">8.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="calendar_id" ref="basic_attendace"/>            
+        </record>
+        
+        <record id="friday" model="resource.calendar.attendance">
+            <field name="name">Friday</field>
+            <field name="dayofweek">4</field>
+            <field name="hour_from">8.5</field>
+            <field name="hour_to">17.5</field>
+            <field name="calendar_id" ref="basic_attendace"/>            
+        </record>
+        
+    <!-- Casual leave -->
+    <record model="hr.holidays.status" id="hr_holidays.holiday_status_cl">
+      <field name="name">Vacaciones</field>
+      <field name="color_name">lightcyan</field>
+      <field name="is_paid">False</field>
+      <field name="paid_cia">1.00</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl">
+      <field name="name">Permisos</field>
+      <field name="limit">False</field>
+      <field name="is_paid">True</field>
+      <field name="paid_cia">1.00</field>
+      <field name="limit">True</field>
+      <field name="color_name">magenta</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_status_comp">
+      <field name="name">Enfermedad</field>
+       <field name="is_paid">True</field>
+      <field name="paid_cia">100</field>
+      <field name="limit">False</field>
+      <field name="color_name">brown</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_status_matern">
+      <field name="name">Maternidad</field>
+      <field name="limit">True</field>
+      <field name="is_paid">True</field>
+      <field name="paid_cia">1.00</field>      
+      <field name="color_name">red</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_status_patern">
+      <field name="name">Paternidad</field>
+      <field name="limit">True</field>
+      <field name="is_paid">True</field>
+      <field name="paid_cia">1.00</field>      
+      <field name="color_name">red</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_iess_50">
+      <field name="name">Subsidio 50%</field>
+      <field name="limit">True</field>
+      <field name="is_paid">True</field>
+      <field name="paid_cia">0.50</field>      
+      <field name="color_name">red</field>
+    </record>
+
+    <record model="hr.holidays.status" id="hr_holidays.holiday_iess_75">
+      <field name="name">Subsidio 75%</field>
+      <field name="limit">True</field>
+      <field name="is_paid">True</field>
+      <field name="paid_cia">0.25</field>      
+      <field name="color_name">red</field>
+    </record>
+
+    </data>
+</openerp>

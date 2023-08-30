@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<record id="straconx_view_order_form_inherit_sales" model="ir.ui.view">
+			<field name="name">straconx.sale.order.form.bonus</field>
+			<field name="model">sale.order</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				<field name="order_line" position="replace">
+					<field colspan="4" mode="tree,form" name="order_line"
+						nolabel="1" widget="one2many_list" attrs="{'readonly':[('verify','=',True)]}">
+						<tree string="Sales order lines" editable="bottom">
+							<field name="sequence" invisible="1"
+								on_change="sequence_change(parent.order_line, parent.shop_id)" />
+							<!-- <field name="sequence1" readonly="1" invisible="1"/> -->
+							<field name="product_id" required="0"
+								on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'search_view_ref':'straconx_products.product_sale_product_search_view','form_view_ref':'straconx_products.product_sale_product_form_view','tree_view_ref':'straconx_products.product_sale_product_tree_view','location':parent.location_id,'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom}">
+							</field>
+							<field name="name" invisible="True" />
+							<field name="categ_id" />
+							<field name="qty" required="1"
+								on_change="onchange_qty(qty,bonus_qty,parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id,None)" />
+							<field name="bonus_qty"
+								on_change="onchange_qty(qty,bonus_qty,parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id,None)" />
+							<field name="product_uom_qty" string="Total Quantity" sum="Total Qty"
+								on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'location':parent.location_id,'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom,'flag_origin':True}" />
+							<field name="product_uom" invisible="1" string="UoM"
+								readonly="0"
+								on_change="product_uom_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], False, parent.date_order, parent.shop_id,parent.location_id)" />
+							<field name="product_packaging"
+								on_change="product_id_change(parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom,'location':parent.location_id}"
+								domain="[('product_id','=',product_id)]" />
+							<field name="discount_percent" invisible="1" />
+							<field name="discount_order" invisible="1" />
+							<field name="discount_order_total" readonly="0" invisible="1"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="offer_value" invisible="1" />
+							<field name="offer_value_total" invisible="1" />
+							<field name="discount_price" readonly="0" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="price_unit" readonly="0" />
+							<field name="discount"
+								on_change="onchange_discount(price_unit,discount,product_uom_qty,purchase_price,parent.shop_id)"
+								string="Offer" />
+							<field name="price_subtotal" readonly="0" sum="Subtotal" />
+							<field name="margin_unit" invisible="1" />
+							<field name="margin" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="margin_percent" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="purchase_price" invisible="1"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="total_cost_line" invisible="1"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="product_uos_qty"
+								on_change="uos_change(product_uos, product_uos_qty, product_id)"
+								invisible="1" />
+							<field name="product_uos" invisible="1" />
+							<field name="state" invisible="True" />
+							<field name="type" invisible="True" />
+							<field name="tax_id" sum="Total Taxes"
+								domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"
+								invisible="True" />
+							<field name="authorized" invisible="1" />
+						</tree>
+						<form string="Sales order lines">
+							<field name="sequence" invisible="1"
+								on_change="sequence_change(parent.order_line,parent.shop_id)" />
+							<!-- <field name="sequence1" readonly="1" invisible="1"/> -->
+							<field name="product_id" required="0" default_focus="1"
+								on_change="product_id_change(parent.pricelist_id,product_id,qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'search_view_ref':'straconx_products.product_sale_product_search_view','form_view_ref':'straconx_products.product_sale_product_form_view','tree_view_ref':'straconx_products.product_sale_product_tree_view','location':parent.location_id,'partner_id':parent.partner_id,'quantity':qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom}" />
+							<field name="qty" required="1"
+								on_change="onchange_qty(qty,bonus_qty,parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id,None)" />
+							<field name="bonus_qty"
+								on_change="onchange_qty(qty,bonus_qty,parent.pricelist_id,product_id,product_uom_qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id,None)" />
+							<field name="product_uom_qty" invisible="0" readonly="0" string="Total Quantity"
+								on_change="product_id_change(parent.pricelist_id,product_id,qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'location':parent.location_id,'partner_id':parent.partner_id,'quantity':qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom}" />
+							<field name="name" />
+							<field name="product_uom" string="UoM" readonly="0"
+								on_change="product_uom_change(parent.pricelist_id,product_id,qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], False, parent.date_order, parent.shop_id,parent.location_id)" />
+							<field name="categ_id" />
+							<field name="discount_price" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="discount_percent" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="discount_order" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="discount_order_total" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="price_unit" />
+							<field name="purchase_price"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="discount"
+								on_change="onchange_discount(price_unit,discount,qty,purchase_price,parent.shop_id)"
+								string="Offer" />
+							<field name="offer_value" invisible="0" />
+							<field name="offer_value_total" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="price_subtotal" sum="Subtotal" />
+							<field name="total_cost_line" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="margin_unit" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="margin" invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="margin_percent" invisible="0" />
+							<field name="product_uos_qty"
+								on_change="uos_change(product_uos, product_uos_qty, product_id)"
+								invisible="1" />
+							<field name="product_uos" invisible="1" />
+							<field name="state" invisible="True" />
+							<field name="type" invisible="True" />
+							<field name="product_packaging"
+								on_change="product_id_change(parent.pricelist_id,product_id,qty,product_uom,product_uos_qty,product_uos,name,parent.partner_id, 'lang' in context and context['lang'], True, parent.date_order, product_packaging, parent.fiscal_position, False, parent.shop_id,parent.location_id)"
+								context="{'partner_id':parent.partner_id,'quantity':product_uom_qty,'pricelist':parent.pricelist_id,'shop':parent.shop_id,'uom':product_uom,'location':parent.location_id}"
+								domain="[('product_id','=',product_id)]" />
+							<field name="tax_id"
+								domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"
+								invisible="0"
+								groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" />
+							<field name="authorized" invisible="1" />
+						</form>
+					</field>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>

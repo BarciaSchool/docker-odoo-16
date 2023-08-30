@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+     
+		<record id="account.invoice_form" model="ir.ui.view">
+			<field name="name">Customer Invoice Form</field>
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+                <form string="Invoice">
+                    <group colspan="4" col="4">
+                    	<group attrs="{'invisible': [('info','=',True)]}" colspan="4" col="4">
+	                    	<field name="info" invisible="1"/>
+	                    	<field name="p_offer" invisible="1"/>
+	                    	<field name="p_changed" invisible="1"/>
+                    		<label string="La Tienda no tiene autorizaciones activas. No podrá ingresar datos hasta que activen una. Comuníquese con el responsable de la Tienda." />
+                    	</group>
+                    	<newline/>
+                        <field name="shop_id"
+                            on_change="onchange_shop(company_id, shop_id, type,context)"
+                            attrs="{'readonly':['|',('info','=',False),('state','!=','draft')]}"
+                            options='{"quick_create": false}'
+                            invisible="0"
+                            required="1" />
+                        <field name="printer_id"
+                            on_change="onchange_cash(company_id, shop_id, type, printer_id, journal_id, context)"
+                            attrs="{'readonly':['|',('info','=',False),('state','!=','draft')]}"
+                            domain="[('shop_id','=',shop_id)]"
+                            options='{"quick_create": false}'
+                            invisible="0"
+                            required="1" />
+                        <field name="authorized" invisible="1" />
+                        <field name="wizard_auth" invisible="1" />
+                        <newline />
+                        <field string="Customer" name="partner_id"
+                            on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)"
+                            context="{'search_default_customer': 1,'form_view_ref':'straconx_partners.view_partner_form_straconx'}" options='{"quick_create": false}'
+                            domain="[('customer', '=', True)]" />
+                        <field domain="[('partner_id','=',partner_id)]" name="address_invoice_id"
+                            context="{'default_partner_id': partner_id}" on_change="onchange_address(address_invoice_id)"
+                            options='{"quick_create": false}' />
+                        <newline />
+                        <field name="vat" />
+                        <field name="picking_done" invisible="1" />
+                        <field name="pos" invisible="1" />
+                        <field name="proforma" readonly="1" groups="base.group_pos_manager"/>
+                        <field name="date_invoice2"
+                            attrs="{'readonly':['|','|',('info','=',False),('automatic','=',True),('state','!=','draft')]}"
+                            on_change="onchange_date2(date_invoice2,company_id)" />
+                        <newline />
+						<field name="invoice_number_out"
+							on_change="onchange_number(invoice_number_out,type,shop_id,printer_id,journal_id,company_id, date_invoice2, context)"
+							attrs="{'readonly':['|','|','|','|',('info','=',False),('automatic','=',True),('pre_printer','=',True),('electronic','=',True),('state','!=','draft')], 'required':[('pre_printer','!=',True),('automatic','!=',True),('electronic','!=',True)]}" />
+                        <field name="salesman_id" required="1"/>
+						<field name="automatic" invisible="1" />
+						<field name="electronic" invisible="1" />
+						<field name="pre_printer" 
+							attrs="{'invisible':['|',('automatic','=',True),('electronic','=',True)]}" />												
+                    </group>
+                    <notebook colspan="2">
+						<page string="Invoice">
+							<field colspan="4" name="invoice_line" nolabel="1"
+								on_change="onchange_line_ids(invoice_line)" widget="one2many_list"
+								context="{'type': type}"
+								attrs="{'readonly':['|','|',('wizard_auth','=',True),('state','!=','draft'),('info','=',False)]}">
+								<tree string="Invoice Line">
+									<field name="sequence"
+										on_change="sequence_change(parent.invoice_line, parent.shop_id)"
+										invisible="1" />
+									<field name="quantity"
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}" />
+									<field name="product_id"
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_sale_product_form_view','price_product': price_product,'invoice_line_tax_id': invoice_line_tax_id}"
+										invisible="0" />
+									<!-- <field name="categ_id" /> -->
+									<field name="salesman_id" on_change="salesman_id_change(salesman_id)" />
+									<field name="name"
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"
+										groups="analytic.group_analytic_accounting"
+										context="{'form_view_ref':'straconx_products.product_sale_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}" />
+									<field
+										domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+										name="account_id" groups="analytic.group_analytic_accounting"
+										on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id, name, parent.company_id, parent.shop_id, parent.currency_id)" />
+									<field
+										domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+										name="account_analytic_id" groups="analytic.group_analytic_accounting" />
+									<field name="uos_id"
+										on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_sale_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+										nolabel="1" invisible="1" />
+									<field name="price_iva"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id,'change_price_net':True}"
+										invisible="0" />
+									<field name="price_product"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+										invisible="1" />
+									<field name="discount"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+										invisible="0"/>
+									<field name="offer"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+										invisible="0" />
+									<field name="price_unit" 
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+										invisible="0" />
+									<field name="price_subtotal" 
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+										invisible="0" />
+									<field name="margin" groups="analytic.group_analytic_accounting" />
+									<field name="iva_value" groups="analytic.group_analytic_accounting" />
+									<field name="company_id" invisible="1" readonly="1" />
+									<field name="invoice_line_tax_id"
+										context="{'type':parent.type, 'invoice_line_tax_id': invoice_line_tax_id,'change_price_product':True}"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+										domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]"
+										invisible="1" nolabel="1" />
+									<field name="authorized" invisible="1" />
+								</tree>
+								<form string="Invoice Line">
+									<notebook>
+										<page string="Line">
+											<field name="sequence"
+												on_change="sequence_change(parent.invoice_line, parent.shop_id)"
+												invisible="1" />
+											<field name="product_id"
+												on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id)"
+												options='{"quick_create": false}' invisible="0" />
+											<field name="salesman_id" on_change="salesman_id_change(salesman_id)" />
+											<field name="categ_id" />
+											<field colspan="4" name="name" required="1" />
+											<field
+												domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+												name="account_id"
+												on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id, name, parent.company_id, parent.shop_id, parent.currency_id)"
+												required="0" />
+											<field
+												domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+												name="account_analytic_id" groups="analytic.group_analytic_accounting" />
+											<label string="Quantity :" align="1.0" />
+											<group colspan="1" col="2">
+												<field name="quantity" nolabel="1"
+													on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)" />
+												<field name="uos_id"
+													on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id)"
+													nolabel="1" />
+											</group>
+											<field name="price_iva"
+												on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id,'change_price_net':True}"
+												invisible="0" />
+											<field name="price_product"
+												on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+												invisible="1" />
+											<field name="discount"
+												on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+												invisible="0" readonly="0" />
+											<field name="offer"
+												on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+												invisible="0" />
+											<field name="price_unit"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}" />
+											<field name="price_subtotal"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}" />
+											<field name="margin"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+												groups="analytic.group_analytic_accounting" />
+											<field name="iva_value"
+												context="{'price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id, 'change_price_product':True}"
+												groups="analytic.group_analytic_accounting" />
+											<field name="company_id" invisible="1" readonly="1" />
+											<newline />
+											<separator colspan="4" string="Taxes" />
+											<field name="invoice_line_tax_id" colspan="4"
+												context="{'type':parent.type, 'invoice_line_tax_id': invoice_line_tax_id,'change_price_product':True}"
+												on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva,parent.fiscal_position,context)"
+												domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]"
+												invisible="0" nolabel="1" />
+										</page>
+										<page string="Notes">
+											<separator string="Notes" colspan="4" />
+											<field colspan="4" name="note" nolabel="1" />
+										</page>
+									</notebook>
+								</form>
+							</field>
+							<group colspan="4" col="10">
+								<separator string="Invoice Information" colspan="4" />
+								<newline />
+								<group colspan="3" col="6">
+									<group colspan="3" col="6">
+										<field name="amount_untaxed" />
+										<field name="amount_total_vat" />
+										<field name="amount_total" />
+									</group>
+									<newline />
+									<group colspan="2" col="4">
+										<field name="state" invisible="0" />
+										<field name="residual" invisible="0" />
+									</group>
+								</group>
+								<group colspan="2" col="4">
+									<group colspan="1" col="2">
+										<button name="%(straconx_authorizations.action_auth)d" string="Authorize Invoice"
+											type="action" icon="gtk-convert"
+											attrs="{'invisible':['|',('authorized','=',1),('state','!=','draft')]}" />
+									</group>
+									<group colspan="2" col="4">
+										<button name="action_validate" states="draft,proforma2"
+											type="object" string="Validate" icon="gtk-go-forward" />
+										<button name="print_proforma"
+											string="Imprimir Proforma" type="object" icon="gtk-print"
+											groups="base.group_pos_manager" 
+											states="draft,proforma" />
+										<newline />
+										<button name="button_reset_taxes" states="draft,proforma2"
+											string="Compute Taxes" type="object" icon="terp-stock_format-scientific"
+											help="This action will erase taxes" />
+									</group>
+									<group colspan="2" col="4">
+										<button name="print_invoice"
+											string="Imprimir Factura (pdf)" type="object" icon="gtk-print" 
+											states="open,paid,cancel" confirm="¿Imprimir la factura en formato PDF?" />
+										<newline />
+										<button name="%(straconx_authorizations.action_auth)d" string="Anular la factura"
+											type="action" icon="gtk-cancel"
+											attrs="{'invisible':[('state','not in',[('paid'),('open')])]}"
+											context="{'cancel_invoice':True}"
+											confirm="¿Está seguro de anular la factura? Esto anulara la factura y todo los documentos relacionados."
+											/>
+										<button name="%(straconx_authorizations.action_auth)d" string="Reabrir Factura"
+											type="action" icon="gtk-convert"
+											attrs="{'invisible':[('state','not in',[('paid'),('open')])]}"
+											context="{'draft_invoice':True}"
+											/>
+										<button name="%(account.action_account_invoice_refund)d"
+											type='action' string='Refund' states='open,paid' icon="gtk-execute" />
+										<newline/>
+										<button
+											name="%(straconx_logistics.straconx_stock_pickinglist_customer)d"
+											string="Imprimir Orden de Entrega"
+																attrs="{'invisible':[('picking_id', '=', False),('state','not in',[('open','paid' )])]}"
+											help="Imprime una Orden de entrega para la factura actual"
+											type="action" icon="gtk-print" />
+										<button name="invoice_pay_customer" type="object" string="Pagar Factura" states="open" icon="gtk-go-forward"/>
+										<button name="%(straconx_logistics.action_delivery_note)d"
+											string="Crear Guía de Remisión"
+											attrs="{'invisible':['|', ('state','not in',[('paid'),('open')]), ('delivery_status', '!=', 'draft')]}"
+											type="action" icon="terp-accessories-archiver" />
+										<newline/>
+										<button name="print_inv_delivery" 
+											string="Imprimir Guía de Remisión (PDF)" 
+											attrs="{'invisible':['|', ('state','not in',[('paid'),('open')]),('delivery_status', '!=', 'sent')]}"
+											icon="gtk-print" type="object" />											
+										<button name="%(straconx_logistics.delivery_report_pos_id)d"
+											string="Imprimir Guía de Remisión (txt)"
+											attrs="{'invisible':['|', ('state','not in',[('paid'),('open')]),('delivery_status', '!=', 'sent')]}"
+											type="action" icon="gtk-print" />
+										<button name="delivery_annulled" string="Anular Guía de Remisión"
+											attrs="{'invisible':['|', ('state','not in',[('paid'),('open')]),('delivery_status', '!=', 'sent')]}"
+											type="object" icon="terp-stock_effects-object-colorize"
+											confirm="¿Está seguro de anular la Guía de Remisión?" />
+									</group>
+								</group>
+							</group>
+						</page>
+						<page string="Impuestos y Retenciones">
+							<group col="1" colspan="2">
+								<field name="tax_line" nolabel="1">
+									<tree string="Taxes">
+										<field name="name" />
+										<field name="account_id" groups="account.group_account_invoice" />
+										<field name="base"
+											on_change="base_change(base,parent.currency_id,parent.company_id,parent.date_invoice)"
+											readonly="1" />
+										<field name="amount"
+											on_change="amount_change(amount,parent.currency_id,parent.company_id,parent.date_invoice)" />
+										<field invisible="True" name="base_amount" />
+										<field invisible="True" name="tax_amount" />
+										<field name="factor_base" invisible="True" />
+										<field name="factor_tax" invisible="True" />
+									</tree>
+									<form string="Taxes">
+										<field name="name" />
+										<field name="account_id" groups="account.group_account_invoice" />
+										<field name="base"
+											on_change="base_change(base,parent.currency_id,parent.company_id,parent.date_invoice)"
+											readonly="1" />
+										<field name="amount"
+											on_change="amount_change(amount,parent.currency_id,parent.company_id,parent.date_invoice)" />
+										<field invisible="True" name="base_amount" />
+										<field invisible="True" name="tax_amount" />
+										<field name="factor_base" invisible="True" />
+										<field name="factor_tax" invisible="True" />
+									</form>
+								</field>
+							</group>
+							<group col="4" colspan="2">
+								<group colspan="2" col="2">
+									<separator string="Tax Information Withhold" colspan="4" />
+									<field name="amount_tax_withhold_vat" />
+									<field name="amount_tax_withhold" />
+									<field name="amount_tax_other" />
+									<field name="reconciled" />
+								</group>
+							</group>
+						</page>
+                        <page string="Accounting Information">
+                            <separator colspan="4" string="Accounting" />
+                            <field name="authorization" invisible="0" />
+                            <field name="access_key" invisible="0" />
+                            <field name="authorization_sales" invisible="1" />
+                            <field name="date_invoice" invisible="1" />
+                            <field
+                                domain="[('company_id', '=', company_id),('type','=', 'receivable')]"
+                                name="account_id" groups="account.group_account_user" />
+                            <field name="journal_id" groups="base.group_user"
+                                on_change="onchange_journal_id(journal_id, context)" widget="selection" />
+                            <field name="type" invisible="1" />
+                            <field name="document_type" required="1"
+                                groups="account.group_account_manager"
+                                on_change="onchange_type_document(document_type, type, None, context)" />
+                            <field name="tax_sustent" groups="account.group_account_manager" />
+                            <field name="fiscal_position" groups="account.group_extended"
+                                widget="selection" options='{"quick_create": false}' />
+                            <field name="segmento_id" widget="selection" />
+                            <field name="payment_term" required="1" widget="selection" />
+                            <field name="period_id" domain="[('state', '=', 'draft')]"
+                                groups="account.group_account_user" widget="selection" />
+                            <newline />
+                            <separator colspan="4" string="Tax Information" />
+                            <group colspan="4" col="6">
+                                <field name="amount_base_vat_12" />
+                                <field name="amount_base_vat_00" />
+                                <field name="amount_base_vat_untaxes" />
+                            </group>
+                        </page>
+                        <page string="Other Info">
+                            <field name="name" colspan="4" />
+                            <newline />
+                            <field name="amount_total_offer" />
+                            <field name="amount_total_discount" />
+                            <newline />
+                            <field name="company_id"
+                                on_change="onchange_company_id(company_id,partner_id,type,invoice_line,date_invoice2,currency_id)"                                
+                                widget="selection" groups="base.group_multi_company" invisible="0" />
+                            <field name="currency_id" invisible="1"/>
+                            <newline />
+                            <field name="date_due" />
+                            <field name="user_id" string="Digiter" />
+                            <field domain="[('partner_id.ref_companies', 'in', [company_id])]"
+                                name="partner_bank_id" groups="base.group_extended" />
+                            <field name="origin" />
+                            <field colspan="4" domain="[('partner_id','=',partner_id)]"
+                                name="address_contact_id" groups="base.group_extended" />
+                            <field name="move_id" groups="account.group_account_user" />
+                            <field name="picking_id"
+                            	context="{'form_view_ref':'straconx_logistics.straconx_view_delivery_pos_form'}" />
+                            <field name="delivery_number" />
+                            <field name="delivery_status" />                            
+                            <field name="origin_transaction" required="1" />
+                            <field name="cancel_date" groups="base.group_extended" />
+                            <field name="cancel_user_id" groups="base.group_extended" />
+                            <separator colspan="4" string="Additional Information" />
+                            <field colspan="4" name="comment" nolabel="1" />
+                        </page>
+                        <page string="Information Authorization" attrs="{'invisible':[('wizard_auth','=',False)]}">
+                            <separator colspan="4" string="Sale Authorizated by:" />
+                            <field name="supervisor_id" readonly="1" />
+                            <field name="date_authorized" string="Date" readonly="1" />
+                        </page>
+                        <page string="Payments">
+                            <field name="payment_ids" colspan="4" nolabel="1">
+                                <tree string="Payments">
+                                    <field name="date" />
+                                    <field name="ref" />
+                                    <field name="name" />
+                                    <field name="journal_id" groups="base.group_user" />
+                                    <field name="debit" />
+                                    <field name="credit" />
+                                    <field name="amount_currency" />
+                                    <field name="currency_id" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Picking associated" 
+                   			groups="base.group_phone_manager,base.group_sales_supervisor,
+                   				base.group_pos_manager,base.group_return_manager,
+                   				base.group_driver_manager,stock.group_stock_supervisor">
+                       		<field name="picking_ids" 
+                       		context="{'form_view_ref':'straconx_logistics.straconx_view_delivery_pos_form'}"
+                       		colspan="4" nolabel="1"/>
+                       		<button name="done_picking_pending" type="object" string="Done Picking Pending" icon="gtk-find"
+                       				attrs="{'invisible':['|',('state','not in',('open','paid')), ('picking_done','=',1)]}"/>
+                   		</page>
+						<page string="Historial de Factura" groups="base.group_extended">
+							<field name="history_document" readonly="1"  nolabel="1"/>
+						</page>
+                    </notebook>
+                </form>
+			</field>
+		</record>
+		<delete model='ir.ui.view' id='account_cancel.invoice_form_cancel_inherit'/>
+
+    </data>
+</openerp>

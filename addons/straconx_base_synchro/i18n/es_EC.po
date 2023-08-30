@@ -1,0 +1,392 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_base_synchro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-06 05:07+0000\n"
+"PO-Revision-Date: 2014-02-06 05:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_base_synchro
+#: field:base.synchro.object,model_id:0
+msgid "Object not alter sequence"
+msgstr "Objectos que no deben alterar secuencia"
+
+#. module: straconx_base_synchro
+#: model:ir.actions.act_window,name:straconx_base_synchro.action_view_base_synchro
+msgid "Base Synchronization"
+msgstr "Sincronización"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:662
+#, python-format
+msgid "created."
+msgstr "creado."
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:118
+#, python-format
+msgid "Unable to delete this document because it is used as a default property"
+msgstr "Imposible borrar este documento porque es usado como una propiedad predeterminada"
+
+#. module: straconx_base_synchro
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:48
+#, python-format
+msgid "The filestore can not be created, %s'%e))\n"
+"    return True\n"
+"# \n"
+"def create_document(self, cr, uid, sql):\n"
+"    full_path=get_directory(self ,cr, uid)\n"
+"    check_filestore(self, full_path)\n"
+"    with open(full_path, 'a"
+msgstr "The filestore can not be created, %s'%e))\n"
+"    return True\n"
+"# \n"
+"def create_document(self, cr, uid, sql):\n"
+"    full_path=get_directory(self ,cr, uid)\n"
+"    check_filestore(self, full_path)\n"
+"    with open(full_path, 'a"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.server:0
+msgid "Excute Synchro"
+msgstr "Ejecutar sincronización"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:301
+#, python-format
+msgid "One of the records you are trying to modify has already been deleted (Document type: %s)."
+msgstr "Uno de los registros que intenta modificar fue eliminado (Document type: %s)."
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:389
+#, python-format
+msgid "Recursivity Detected."
+msgstr "Recursividad detectada"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro
+msgid "base.synchro"
+msgstr "Base Synchro"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:300
+#, python-format
+msgid "AccessError"
+msgstr "Error de acceso"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.server:0
+msgid "Objects must be synchronized"
+msgstr "Objetos deben ser sincronizados"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro_obj_avoid
+msgid "Fields to not synchronize"
+msgstr "Campos a no sincronizar"
+
+#. module: straconx_base_synchro
+#: model:ir.actions.act_window,name:straconx_base_synchro.action_base_synchro_server_tree
+#: model:ir.ui.menu,name:straconx_base_synchro.synchro_server_tree_menu_id
+msgid "Servers to be synchronized"
+msgstr "Servidores a ser sincronizados"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.server:0
+msgid "Objects without altered sequence"
+msgstr "Objectos que no deben alterar secuencia"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "_Close"
+msgstr "_Cerrar"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "Transfer Data To Server"
+msgstr "Transferir datos al servidor"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro_obj
+msgid "Register Class"
+msgstr "Registrar clase"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/base_synchro_obj.py:70
+#, python-format
+msgid "Connection test succeeded!"
+msgstr "Test de conexión exitoso!"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+msgid "Transfer Details"
+msgstr "Detalles de transferencia"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj.line:0
+msgid "Transfered Ids Details"
+msgstr "Detalles de lds transferidos"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/base_synchro_obj.py:57
+#: code:addons/straconx_base_synchro/objects/base_synchro_obj.py:77
+#, python-format
+msgid "Please, select a database."
+msgstr "Por favor, seleccione una base de datos."
+
+#. module: straconx_base_synchro
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: straconx_base_synchro
+#: constraint:stock.move:0
+msgid "You can not move products from or to a location of the type view."
+msgstr "No se puede mover productos a localidades que son tipos Vista."
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:484
+#, python-format
+msgid "Can not create register because name database is not correct."
+msgstr "No se puede crear registro porque el nombre de la base de datos no es correcto."
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj.line:0
+msgid "Object"
+msgstr "Objeto"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "Synchronization Completed!"
+msgstr "¡Sincranización Completada!"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+#: view:base.synchro.obj.line:0
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: straconx_base_synchro
+#: field:base.synchro.server,obj_without_sync:0
+msgid "Objects without synchronize"
+msgstr "Objectos sin sincronizar"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+msgid "Latest synchronization"
+msgstr "Última sincronización"
+
+#. module: straconx_base_synchro
+#: model:ir.actions.act_window,name:straconx_base_synchro.action_base_synchro_obj_line_tree
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro_obj_line
+#: model:ir.ui.menu,name:straconx_base_synchro.menu_action_base_synchro_obj_line_tree
+msgid "Synchronized instances"
+msgstr "Instancias de sincronización"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:527
+#, python-format
+msgid "You cannot perform this operation. New Record Creation is not allowed for this object as this object is for reporting purpose."
+msgstr "No se puede realizar esta operación. Creación de nuevos registros no es permitida para este objeto, que esta diseñado solo para propósito de reportes."
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj.line:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "_Synchronize"
+msgstr "_Sincronizar"
+
+#. module: straconx_base_synchro
+#: sql_constraint:account.tax:0
+msgid "Tax Name must be unique per company!"
+msgstr "¡El nombre del impuesto debe ser único por Compañía!"
+
+#. module: straconx_base_synchro
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_base_synchro
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_base_synchro
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro_object
+msgid "objects that are not synchronized"
+msgstr "Objetos que no son sincronizados"
+
+#. module: straconx_base_synchro
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+msgid "Fields"
+msgstr "Campos"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_base_synchro
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código predeterminado debe ser único"
+
+#. module: straconx_base_synchro
+#: field:base.synchro.server,last_synchro:0
+msgid "Process Date"
+msgstr "Fecha de proceso"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/base_synchro_obj.py:65
+#, python-format
+msgid "Could not establish the connection : %s\" %e))\n"
+"    \n"
+"    def check_connection(self, cr, uid, ids, context=None):\n"
+"        for server in self.browse(cr, uid, ids, context):\n"
+"            self.connection(cr, uid, ids, context)\n"
+"        raise osv.except_osv(_(\"Message!"
+msgstr "No se puede establecer la conexión : %s\" %e))\n"
+"    \n"
+"    def check_connection(self, cr, uid, ids, context=None):\n"
+"        for server in self.browse(cr, uid, ids, context):\n"
+"            self.connection(cr, uid, ids, context)\n"
+"        raise osv.except_osv(_(\"Message!"
+
+#. module: straconx_base_synchro
+#: field:base.synchro.server,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_base_synchro
+#: constraint:account.journal:0
+msgid "Configuration error! The currency chosen should be shared by the default accounts too."
+msgstr "Error de Configuración! La moneda seleccionada debe ser compartida por las cuentas por defecto tambíen"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:48
+#: code:addons/straconx_base_synchro/objects/orm.py:118
+#: code:addons/straconx_base_synchro/objects/orm.py:484
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+msgid "Object to synchronize"
+msgstr "Objeto a sincronizar"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.server:0
+msgid "Test Connection"
+msgstr "Test de conexión"
+
+#. module: straconx_base_synchro
+#: code:addons/straconx_base_synchro/objects/orm.py:389
+#: code:addons/straconx_base_synchro/objects/orm.py:526
+#, python-format
+msgid "UserError"
+msgstr "Error de usuario"
+
+#. module: straconx_base_synchro
+#: model:ir.ui.menu,name:straconx_base_synchro.synch_config
+msgid "Synchronization"
+msgstr "Sincronización"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "OK"
+msgstr "Aceptar"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.obj:0
+msgid "Synchronized objects"
+msgstr "Objetos sincronizados"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: straconx_base_synchro
+#: view:base.synchro:0
+msgid "The synchronisation has been started.You will receive a request when it's done."
+msgstr "La sincronización ha comenzado. Recibirá un aviso cuando finalice."
+
+#. module: straconx_base_synchro
+#: constraint:product.product:0
+msgid "has a standard price is greater than list Price"
+msgstr "el costo es mayor que el precio de venta"
+
+#. module: straconx_base_synchro
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr "El nombre del diaro debe ser único por compañía!"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_base_synchro
+#: model:ir.ui.menu,name:straconx_base_synchro.menu_action_view_base_synchro
+msgid "Synchronize objects"
+msgstr "Sincronizar objetos"
+
+#. module: straconx_base_synchro
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_base_synchro
+#: model:ir.actions.act_window,name:straconx_base_synchro.actions_regclass_tree
+#: model:ir.actions.act_window,name:straconx_base_synchro.actions_transfer_line_form
+#: model:ir.ui.menu,name:straconx_base_synchro.transfer_menu_id
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: straconx_base_synchro
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr "El código del diario debe ser único por compañía!"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_account_tax
+msgid "account.tax"
+msgstr "Impuestos"
+
+#. module: straconx_base_synchro
+#: model:ir.model,name:straconx_base_synchro.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_base_synchro
+#: view:base.synchro.server:0
+#: model:ir.model,name:straconx_base_synchro.model_base_synchro_server
+msgid "Synchronized server"
+msgstr "Servidor sincronizado"

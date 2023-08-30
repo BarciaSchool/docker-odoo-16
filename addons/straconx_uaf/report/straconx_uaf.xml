@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+
+
+		<menuitem id="menu_uaf" name="UAF" parent="account.menu_finance"
+			sequence="10" />
+
+        <record id="account_uaf_supplier_report_xls" model="ir.actions.report.xml">
+            <field name="name">Proveedores Externos</field>
+            <field name="report_name">proveedores_externos</field>
+            <field name="pentaho_filename">straconx_uaf/report/vistaclienteexterno.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.move.line</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account_move_line')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('menu_uaf')"/>
+        </record>   
+
+        <record id="account_uaf_customer_report_xls" model="ir.actions.report.xml">
+            <field name="name">Clientes Facturados</field>
+            <field name="report_name">clientes_facturados</field>
+            <field name="pentaho_filename">straconx_uaf/report/vistaclientefacturado.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account_invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('menu_uaf')"/>
+        </record>   
+   
+        
+    </data>
+</openerp>

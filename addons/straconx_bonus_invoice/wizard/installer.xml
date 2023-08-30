@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+	<record id="base_setup.config_action_user_preferences_config_form" model="ir.actions.todo">
+          <field name="action_id" ref="base_setup.action_user_preferences_config_form"/>
+          <field name="category_id" ref="base.category_administration_config"/>
+          <field name="sequence">2</field>
+          <field name="type">automatic</field>
+      </record>
+      
+	<record id="view_bonus_move_installer" model="ir.ui.view">
+      <field name="name">bonus.move</field>
+      <field name="model">bonus.move</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+        <data>          
+          <separator string="title" position="attributes">
+            <attribute name="string">update quantities from invoices and stock moves</attribute>
+          </separator>
+          <xpath expr="//label[@string='description']"
+                 position="attributes">
+            <attribute name="string">If you use this wizard will update all amounts on invoices prior to installation of this module.This way you could change the invoices and apply bonus.</attribute>
+          </xpath>
+          
+          <xpath expr='//separator[@string="vsep"]' position='attributes'>
+                <attribute name='string'></attribute>
+          </xpath>
+          <xpath expr="//button[@string='Install Modules']" position="attributes">
+                   <attribute name="string">_Update</attribute>
+          </xpath>
+        </data>
+         
+      </field>
+    </record>		
+		
+	<record id="action_update_bonus_installer" model="ir.actions.act_window">
+      <field name="name">Update moves and amount invoices</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">bonus.move</field>
+      <field name="view_id" ref="view_bonus_move_installer"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="update_bonus_move_installer_todo" model="ir.actions.todo">
+      <field name="name">Update quantities from invoices and stock moves</field>
+      <field name="action_id" ref="action_update_bonus_installer"/>
+      <field name="category_id" ref="base.category_administration_config"/>
+      <field name="sequence">3</field>
+      <field name="type">automatic</field>
+    </record>
+    
+	</data>
+</openerp>

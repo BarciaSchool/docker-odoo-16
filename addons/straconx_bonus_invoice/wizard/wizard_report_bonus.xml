@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="wizard_report_bonus_form">
+			<field name="name">wizard.report.bonus.form</field>
+			<field name="model">wizard.report.bonus</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product cost bonus">
+					<label string="If a field is not complete then be omitted from the filter" />
+					<newline />
+					<group col="2" colspan="4">
+						<field name="company_id" colspan="2" select="1"/>
+						<newline/>
+						<field name="partner_id" colspan="2" domain="[('customer','=',True)]"/>
+						<field name="product_id" colspan="2" domain="[('sale_ok','=',True)]"/>
+						<newline/>
+						<field name="initial_date" colspan="4"/>
+						<field name="end_date" colspan="4"/>
+					</group>
+					<newline />
+					<button name="%(action_cost_bonus_invoice_report)d" string="_Print"
+						type="action" icon="terp-report" colspan="2" />
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_wizard_report_bonus">
+			<field name="name">action.wizard.report.bonus</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">wizard.report.bonus</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+        
+        <menuitem id="bonus_report" name="Bonus" parent="base.next_id_64" sequence="11"/>
+    
+		<menuitem action="action_wizard_report_bonus" id="report_cost_bonus_invoice"
+			parent="bonus_report" sequence="1"
+			name="Report cost's bonus product" />
+
+	</data>
+</openerp>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="straconx_cash_vouchers_form_wizard">
+			<field name="name">Asistente para Nuevo Voucher</field>
+			<field name="model">straconx.cash.vouchers.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="New Cash Voucher">
+					<group colspan="4" height="520" width="800">
+						<field name="company_id" invisible="1" readonly="1" colspan="4" />
+						<field name="shop_id" readonly="1" invisible="0" string="Tienda"/>
+						<field name="statement_id"
+							domain="[('company_id', '=',company_id),('user_id', '=',user_id),('state','=','open'),('journal_id.type','in',('pcash','moves'))]"
+							invisible="0" required="1" readonly="0" options='{"quick_create": false}'							 
+							on_change="onchange_statement_id(user_id,statement_id)"
+							string="Caja" />
+						<field name="mode_id" string="Modo de Pago" colspan="2"
+							required="1" on_change="onchange_mode_id(shop_id, statement_id, mode_id, context)"
+							domain="[('company_id','=',company_id),('cash','=',True),('required_document','=',False)]" />
+						<field name="payment_date" required="1" />
+						<field name="type" invisible="1" eval="payment" required="1" />
+						<field name="is_cash_voucher" eval="True" invisible="1" />
+						<field name="budgets" invisible = "1"/>
+						<newline />
+						<field name="type_doc"
+							context="{'new_data':True}"
+							on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+							required="1" />
+						<group colspan="2" col="4">
+							<field name="is_electronic" attrs="{'invisible':[('type_doc','=','cash')]}"
+								required="0" />
+							<field name="gen_withhold" required="0"
+								on_change="onchange_ret(gen_withhold)"
+								attrs="{'invisible':[('type_doc','in',('withhold','cash'))]}" />
+						</group>
+						<newline />
+						<field name="partner_id" string="Beneficiary" required="1"
+							options='{"quick_create": false}'
+							context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'form_view_ref':'straconx_purchase.view_res_supplier_partner_form_straconx'}"
+							colspan="4" />
+						<field name="name"
+							on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+							string="Document" required="1" />
+						<field name="authorization_credit" string="Autorización"
+							on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+							attrs="{'required':['|',('type_doc', 'in',('invoice','withhold')),('is_electronic','=',True)],'invisible':[('type_doc','=','cash')]}" />
+						<newline/>						
+						<group colspan="6" col="12">
+							<field name="printer_id" string="Punto de Impresión"
+								domain="[('shop_id','=',shop_id)]"
+								on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+								attrs="{'required':[('gen_withhold','=',True)],'invisible':[('gen_withhold','!=',True)]}" />
+							<field name="invoice_id" on_change="onchange_withhold(withhold_rent, withhold_vat)"
+								domain="[('partner_id','=',partner_id),('type','=','out_invoice'),('state','in',('paid','open'))]"
+								context="{'form_view_ref':'account.invoice_form'}"
+								attrs="{'invisible':[('type_doc', '!=','withhold')],'required':[('type_doc', '=','withhold')]}" />
+							<field name="date_withhold" string="Fecha de Retención"
+								on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+								attrs="{'required':['|',('type_doc','=','withhold'),('gen_withhold','=',True)],'invisible':[('type_doc', '!=','withhold'),('gen_withhold','!=',True)]}" />
+							<field name="name_withhold"
+								on_change="onchange_type_doc(type_doc,name,authorization_credit,is_electronic,gen_withhold,payment_date,partner_id,shop_id,printer_id,name_withhold,date_withhold,context)"
+								attrs="{'required':[('gen_withhold','=',True)],'invisible':[('gen_withhold','!=',True)]}" />
+						</group>
+						<field name="motive" string="Details"
+							attrs="{'required':[('type_doc', '!=','withhold')],'invisible':[('type_doc', '=','withhold')]}"
+							colspan="4" />							
+						<field name="wizard_line" nolabel="1" colspan="4" 
+							on_change = "onchange_line_ids(wizard_line)"
+							context="{'type_doc': type_doc, 'budgets':budgets}">
+							<tree string="Líneas de Vale de Caja">
+								<field name="account_expense_cash_id" required = "1"/>
+								<field name="department_id" 
+									attrs="{'invisible':[('budgets', '=',False)],
+											'required':[('budgets', '=',True)]}"/>
+								<field name="analytic_account_id" required = "0"
+									attrs="{'invisible':[('budgets', '=',False)],
+											'required':[('budgets', '=',True)]}"/>
+								<field name="cost_journal"
+									attrs="{'invisible':[('budgets', '=',False)],
+											'required':[('budgets', '=',True)]}"/>								
+								<field name="amount" required="1" />
+								<field name="budgets" invisible = "1" />
+								<field name="type_doc" invisible = "1" />
+							</tree>
+							<form string="Líneas de Vale de Caja">
+								<field name="account_expense_cash_id" colspan="4" 
+									on_change="onchange_account(budgets, account_expense_cash_id)"
+								attrs="{'invisible':[('type_doc', '=','withhold')], 
+										'required':[('type_doc', '!=','withhold')]}"/>
+								<field name="total_base_00" 
+									on_change="onchange_amount(type_doc, amount, total_base_12, total_base_00, withhold_rent, withhold_vat)"
+									attrs="{'invisible':[('type_doc', 'in',('withhold', 'cash'))]}" />
+								<field name="total_base_12"
+									on_change="onchange_amount(type_doc, amount, total_base_12, total_base_00, withhold_rent, withhold_vat)"
+									attrs="{'invisible':[('type_doc', 'in',('withhold', 'cash'))]}" />
+								<field name="withhold_rent"
+									on_change="onchange_amount(type_doc, amount, total_base_12, total_base_00, withhold_rent, withhold_vat)"
+									attrs="{'invisible':[('type_doc', '!=','withhold')]}" />
+								<field name="withhold_vat"
+									on_change="onchange_amount(type_doc, amount, total_base_12, total_base_00, withhold_rent, withhold_vat)"
+									attrs="{'invisible':[('type_doc', '!=','withhold')]}" />
+								<field name="amount"
+									attrs="{'invisible':[('type_doc', 'in',('withhold','invoice','purchase_liquidation','sale_note'))]}"
+									on_change="onchange_amount(type_doc, amount, total_base_12, total_base_00, withhold_rent, withhold_vat)"
+									/>
+								<field name="department_id" 
+									attrs="{'invisible':[('budgets', '=',False)],
+											'required':[('budgets', '=',True), ('type_doc', '!=','withhold')]}"/>
+								<field name="analytic_account_id" required = "0"
+									domain="[('type', '!=', 'view')]"
+									attrs="{'invisible':[('budgets', '=',False)],
+											'required':[('budgets', '=',True), ('type_doc', '!=','withhold')]}"/>
+								<field name="cost_journal"
+									attrs="{'invisible':[('budgets', '=',False)]}"/>	
+								<field name="budgets" invisible = "1"/>
+								<field name="type_doc" invisible = "1"/>
+							</form>
+						</field>							 
+						<separator string="Valores" colspan="4" />
+							<field name="amount" />
+						<separator string="Autorización" colspan="4" />
+						<field name="user_id" string="Usuario" required="1"
+							domain="[('is_cashier','=',True),('cash_box_default_id','!=',False)]"
+							context="{'cash':True}" on_change="onchange_user_id(user_id,context)"
+							invisible="1" />
+						<field name="supervisor_id" string="Autorizado" required="1"
+							colspan="4" />
+						<field name="approve" eval="True" invisible="1" />
+						<field name="approve_account_entry" eval="True"
+							attrs="{'invisible':[('approve', '!=',True)]}" invisible="1" />
+					</group>
+					<newline />
+					<field name="state" invisible="True" />
+					<button icon="gtk-cancel" special="cancel" string="Cancel"
+						type="object" />
+					<button name="action_save_and_process" string="Save and Process"
+						icon="gtk-media-play" type="object" />
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_straconx_new_cash_voucher">
+			<field name="name">Nuevo Documento de Pago emitido en Caja Chica</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">straconx.cash.vouchers.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="context">{'default_type':'payment','default_is_cash_voucher':True,'journal_type':'pcash'}</field>
+			<field name="view_id" ref="straconx_cash_vouchers_form_wizard"/>
+			<field name="target">new</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="action_straconx_new_cash_normal_voucher">
+			<field name="name">Nuevo Documento de Pago emitido en Caja General</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">straconx.cash.vouchers.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="context">{'default_type':'payment','default_is_cash_voucher':True}</field>
+			<field name="view_id" ref="straconx_cash_vouchers_form_wizard"/>
+			<field name="target">new</field>
+		</record>
+	</data>
+</openerp>

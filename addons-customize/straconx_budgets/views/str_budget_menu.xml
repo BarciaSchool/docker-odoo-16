@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<menuitem id="next_id_31" name="Budgets" parent="account.menu_finance"
+			sequence="6" />
+		<menuitem id="menu_act_crossovered_budget_view"
+			action="act_crossovered_budget_view"
+			parent="next_id_31"
+			sequence="1" />
+		<menuitem id="menu_budget_post_form"
+			action="open_budget_post_form" 
+			parent="next_id_31" 
+			sequence="2" />
+		<menuitem id="menu_act_crossovered_budget_lines_view"
+			action="act_crossovered_budget_lines_view" 
+			parent="next_id_31" 
+			sequence="3" />
+	</data>
+</openerp>
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<menuitem id="synch_config" name="Synchronization" parent="base.menu_config" sequence="30"/>
+
+        <record id="view_base_synchro_server_tree" model="ir.ui.view">
+            <field name="name">base.synchro.server.tree</field>
+            <field name="model">base.synchro.server</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Synchronized server">
+                    <field name="name"/>
+                    <field name="server_url"/>
+                    <field name="server_port"/>
+                    <field name="server_db"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_base_synchro_server_form" model="ir.ui.view">
+            <field name="name">base.synchro.server.form</field>
+            <field name="model">base.synchro.server</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Synchronized server">
+	                <field name="name" select="1"/>
+	                <field name="active"/>
+	                <field name="server_url" select="1"/>
+	                <field name="server_port"/>
+	                <field name="login" select="1"/>
+	                <field name="password" password="True"/>
+	                <field name="server_db" select="1"/>
+	                <button name="check_connection" string="Test Connection" icon="gtk-go-forward" colspan="2" type="object"/>
+	                <separator string="Objects without altered sequence" colspan="4"/>
+	                <field name="obj_without_sync" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_base_synchro_server" model="ir.actions.act_window">
+            <field name="name">Servers to be synchronized</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.server</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="action_base_synchro_server" id="synchro_server_tree_menu_id" parent="synch_config" sequence="1"/>
+        
+        
+        <record id="view_base_synchro_obj_tree" model="ir.ui.view">
+            <field name="name">base.synchro.obj.tree</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Object not alter sequence">
+                    <field name="model_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_base_synchro_obj_form" model="ir.ui.view">
+            <field name="name">base.synchro.obj.form</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Object not alter sequence">
+	                <field name="model_id"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_base_synchro_obj" model="ir.actions.act_window">
+            <field name="name">Object not alter sequence</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.object</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem action="action_base_synchro_obj" id="synchro_obj_tree_menu_id" parent="synch_config" sequence="2"/>
+
+    </data>
+</openerp>

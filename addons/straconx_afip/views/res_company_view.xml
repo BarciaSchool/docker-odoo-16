@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_company_form_sri_inherit">
+			<field name="name">res.company.inherit</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="model">res.company</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="parent_id" position="after">
+					<field name="property_account_position" required="1"/>
+					<field name="resolution_sri" attrs="{'invisible':[('property_account_position','!=',4)],'required':[('property_account_position','=',4)]}"/>
+					<field name="date_resolution" attrs="{'invisible':[('property_account_position','!=',4)],'required':[('property_account_position','=',4)]}"/>
+					<field name="portal_active"/>
+				</field>
+			</field>
+		</record>
+    
+    </data>
+</openerp>

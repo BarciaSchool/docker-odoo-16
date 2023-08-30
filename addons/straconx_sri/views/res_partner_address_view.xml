@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	 <record model="ir.ui.view" id="view_sri_inherit_address">
+			<field name="name">Add SRI requirements - Address</field>
+			<field name="inherit_id" ref="base.view_partner_address_form1" />
+			<field name="model">res.partner.address</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="name" position="after">
+					<field name="number_sri"/>
+					<field name="ag_state"/>
+					<field name="date"/>
+				</field>
+				<notebook position="inside">
+					<page string="SRI Authorization">
+                     	<separator string="Authorization Assing" colspan="4"/>
+	                        <field name="authorizations_ids" nolabel="1" colspan="4">
+		                        <tree string="Authorization" colors="grey:state==False">
+		                        	<field name="address_id" invisible="1"/>
+				                     <field name="type_printer" required="1" colspan="4"/>
+				                     <field name="name" attrs="{'invisible':[('type_printer','=','electronic')],'required':[('type_printer','!=','electronic')]}"/>
+				                     <field name="code_address" required="1"/>
+				                     <field name="prefix_shop" required="1"/>
+				                     <field name="prefix_point" required="1"/>
+				                     <field name="starting_number" attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+				                     <field name="ending_number" attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+				                     <field name="state"/>
+								</tree>
+								<form string="Authorization">
+									<field name="address_id" invisible="1"/>
+				                     <field name="type_printer" required="1" colspan="4"/>
+				                     <field name="name" attrs="{'invisible':[('type_printer','=','electronic')],'required':[('type_printer','!=','electronic')]}"/>
+				                     <field name="code_address" required="1"/>
+				                     <field name="prefix_shop" required="1"/>
+				                     <field name="prefix_point" required="1"/>
+				                     <field name="start_date" required="1" on_change="on_change_start_date(start_date)"/>
+				                     <field name="expiration_date"/>
+				                     <field name="starting_number" attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+				                     <field name="ending_number" attrs="{'invisible':[('type_printer','!=','pre')],'required':[('type_printer','=','pre')]}"/>
+								</form>
+							</field>
+						</page>
+				</notebook>
+			</field>
+		</record>
+    
+    
+    </data>
+</openerp>

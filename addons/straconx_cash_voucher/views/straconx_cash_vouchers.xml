@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="straconx_cash_vouchers_form">
+			<field name="name">Formulario de Vale de Caja</field>
+			<field name="model">account.payments</field>
+			<field name="type">form</field>
+			<field name="priority">9</field>
+			<field name="arch" type="xml">
+				<form string="Cash Vouchers">
+					<notebook colspan="4">
+						<page string="Information">
+							<group colspan="4">
+								<field name="company_id" invisible="0" />
+								<field name="is_cash_voucher" eval="True" invisible="1" />
+								<field name="type" invisible="1" string="Type" required="1" readonly="1" />
+								<field name="name" string="Document" required="1" />
+								<field name="authorization_credit" string="Autorización" />
+								<field name="payment_date" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<newline />
+								<field name="statement_id"
+									domain="[('company_id', '=',company_id),('user_id', '=',user_id),('state','=','open'),('journal_id.type','in',('pcash','moves'))]"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" required="1"
+									on_change="onchange_statement_id(user_id,statement_id)" />
+								<field name="mode_id" string="Mode" required="1"
+									domain="[('cash','=',True),('required_document','=',False),('company_id','=',company_id)]" />
+								<newline />
+								<field name="account_expense_cash_id" required="1"
+									domain="[('account_id.company_id','=',company_id)]" attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<newline />
+								<field name="motive" string="Details" required="0"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<field name="amount" required="1"
+									on_change="onchange_amount(amount,user_id,statement_id)" />
+								<newline />
+								<field name="user_id" string="Authorized" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" /> <!--  on_change="onchange_user_id(user_id,statement_id)"-->
+								<field name="partner_id" string="Beneficiary" required="1" />
+								<separator string="Información" colspan="4" />
+								<field name="statement_line_id" />
+								<field name="move_id" />
+							</group>
+						</page>
+						<page string='Pagos'>
+							<field name="pay_vouch_ids" nolabel="1" colspan="4">
+								<tree string='Pagos'>
+									<field name="final_beneficiary" />
+									<field name="amount" />
+									<field name="payments_id" />
+								</tree>
+								<form>
+									<field name="final_beneficiary" />
+									<field name="amount" />
+									<field name="payments_id" />
+								</form>
+							</field>
+						</page>
+					</notebook>
+					<newline />
+					<group colspan="4" col="10">
+						<field name="state" />
+						<button name="action_change_state_draft" string="Anular Pago de Caja Chica"
+							type="object" icon="terp-stock_effects-object-colorize" colspan="1"
+							states='paid' confirm="Este proceso anulara el pago. NO es reversible"
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="action_change_state_paid" string="Paid" type="object"
+							icon="terp-dolar" colspan="1" states='draft'
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="action_change_state_post" string="Confirm"
+							type="object" icon="terp-tools" colspan="1" states='draft'
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="%(action_straconx_cash_voucher_report)d"
+							string="Print" type="action" icon="terp-report" colspan="1"
+							states='paid' />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_cash_vouchers_tree">
+			<field name="name">Lista de Vales de Caja</field>
+			<field name="model">account.payments</field>
+			<field name="type">tree</field>
+			<field name="priority">9</field>
+			<field name="arch" type="xml">
+				<tree string="Cash Vouchers"
+					colors="blue:state in ('draft');black:state in ('paid');red:state in ('protested','rejected','exchanged');gray:state in ('cancel')">
+					<field name="name" string="Document" />
+					<field name="company_id" invisible="0" />
+					<field name="statement_id" string="Caja" />
+					<field name="partner_id" string="Beneficiary" />
+					<field name="motive" />
+					<field name="payment_date" />
+					<field name="amount" />
+					<field name="state" />
+					<field name="user_id" string="Pagador" />
+					<field name="mode_id" string="Mode" invisible="1" />
+					<field name="type" invisible="1" />
+					<field name="account_expense_cash_id" invisible="1" />
+					<field name="is_cash_voucher" eval="True" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_cash_vouchers_filter">
+			<field name="name">Buscar Vales de Caja</field>
+			<field name="model">account.payments</field>
+			<field name="type">search</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+				<search string="Search Cash Vouchers">
+					<group col="10" colspan='4'>
+						<filter icon="terp-personal" string="Mis Vales" name="my_user_voucher"
+							domain="[('user_id','=',uid)]" help="Los vales que se han pagado a través de esta Caja" />
+						<separator orientation="vertical" />
+						<field name="name" string="Documento" colspan="1" />
+						<field name="partner_id" string="Beneficiario" colspan="2" />
+						<field name="user_id" string="Pagado por" />
+						<field name="supervisor_id" string="Autorizado por" />
+						<field name="payment_date" />
+						<newline />
+						<field name="mode_id" />
+						<field name="motive" />
+						<field name="amount" />
+						<field name="statement_id" />
+						<field name="state" />
+					</group>
+					<newline />
+					<group string="Group By" expand="0" col="10" colspan="4">
+						<filter string="CashBox"
+							domain="[('user_id', '=',user_id),('state','=','open'),'|',('journal_id.type','=','pcash'),('journal_id.type','=','moves')]"
+							context="{'group_by':'statement_id'}" colspan="4" />
+						<filter string="Expense" domain="[]"
+							context="{'group_by':'account_expense_cash_id'}" colspan="4" />
+						<filter string="Beneficiary" domain="[]"
+							context="{'group_by':'partner_id'}" colspan="4" />
+						<filter string="Authorized" domain="[]" context="{'group_by':'user_id'}"
+							colspan="4" icon="terp-partner" />
+						<filter string="State" domain="[]" context="{'group_by':'state'}"
+							colspan="4" icon="terp-stock_effects-object-colorize" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_straconx_cash_voucher_payments">
+			<field name="name">Lista de Vales de Caja</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.payments</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('is_cash_voucher','=',True)]</field>
+			<field name="context">{'search_default_my_user_voucher':1}</field>
+			<field name="search_view_id" ref="straconx_cash_vouchers_filter" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_cash_vouchers_ext1">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_cash_vouchers_tree" />
+			<field name="act_window_id" ref="action_straconx_cash_voucher_payments" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_cash_vouchers_ext2">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_cash_vouchers_form" />
+			<field name="act_window_id" ref="action_straconx_cash_voucher_payments" />
+		</record>
+
+
+		<!-- INGRESO DE CAJA CHICA -->
+		<record model="ir.ui.view" id="straconx_cash_receipts_form">
+			<field name="name">Formulario de Ingreso de Caja Chica</field>
+			<field name="model">account.payments</field>
+			<field name="type">form</field>
+			<field name="priority">9</field>
+			<field name="arch" type="xml">
+				<form string="Ingreso de Caja">
+					<notebook colspan="4">
+						<page string="Informacion">
+							<group colspan="4">
+								<field name="company_id" invisible="1" />
+								<field name="statement_id"
+									domain="[('company_id','=',company_id),('user_id', '=',user_id),('state','=','open'),('journal_id.type','=','pcash')]"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" required="1"
+									invisible="0" on_change="onchange_statement_id(user_id,statement_id)" />
+								<field name="shop_id" attrs="{'readonly':[('state', '!=', 'draft')]}"/>
+								<field name="is_cash_receipts" eval="True" invisible="1" />
+								<field name="type" invisible="1" string="Type" eval="payment"
+									required="1" readonly="1" />
+								<field name="mode_id" string="Mode" required="1"
+									domain="[('petty','=',True),('required_document','=',False),('company_id','=',company_id)]" />
+								<newline />
+								<field name="name" string="Document" required="1" />
+								<field name="payment_date" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<field name="account_input_cash_id" required="1"
+									domain="[('account_id.company_id','=',company_id)]" attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<field name="motive" string="Details" required="0"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<field name="amount_credit" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<field name="partner_id" string="Beneficiary" invisible="0" />
+								<field name="user_id" string="Authorized" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}"/> <!-- on_change="onchange_user_id(user_id)"  -->
+								<field name="statement_line_id" invisible="1" />
+								<field name="move_id" invisible="1" />
+							</group>
+						</page>
+					</notebook>
+					<newline />
+					<group colspan="4" col="6">
+						<field name="state" />
+						<button icon='gtk-cancel' special="cancel" string="Anular" states='draft'/>
+						<button name="action_change_state_draft" string="Anular Vale"
+							type="object" icon="terp-stock_effects-object-colorize" colspan="1"
+							confirm="Esta acción anula el vale, sus documentos relacionados y los movimientos contables. No se puede deshacer."
+							states='paid'
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="action_change_state_paid" string="Procesar" type="object"
+							icon="terp-dolar" colspan="1" states='draft'
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="action_change_state_post" string="Confirm" invisible="1"
+							type="object" icon="terp-tools" colspan="1" states='draft'
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user, base.group_pos_manager" />
+						<button name="%(action_straconx_cash_voucher_report)d"
+							string="Print" type="action" icon="terp-report" colspan="1"
+							states='paid' />
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="straconx_cash_receipts_tree">
+			<field name="name">Lista de Ingresos de Caja</field>
+			<field name="model">account.payments</field>
+			<field name="type">tree</field>
+			<field name="priority">9</field>
+			<field name="arch" type="xml">
+				<tree string="Ingreso de Caja"
+					colors="blue:state in ('draft');black:state in ('paid');red:state in ('protested','rejected','exchanged');gray:state in ('cancel')">
+					<field name="name" string="Document" />
+					<field name="company_id" invisible="1" />
+					<field name="statement_id" string="Caja" />
+					<field name="partner_id" string="Beneficiary" />
+					<field name="payment_date" />
+					<field name="amount_credit" />
+					<field name="state" />
+					<field name="user_id" string="Pagador" />
+					<field name="mode_id" string="Mode" invisible="1" />
+					<field name="type" invisible="1" />
+					<field name="account_input_cash_id" invisible="1" />
+					<field name="motive" string="Details" invisible="1" />
+					<field name="is_cash_receipts" eval="True" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_cash_receipts_filter">
+			<field name="name">Buscar Ingresos de Caja</field>
+			<field name="model">account.payments</field>
+			<field name="type">search</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+				<search string="Buscar Ingresos de Caja">
+					<group col="10" colspan='4'>
+						<filter icon="terp-personal" string="Mis Ingresos" name="my_user_receipt"
+							domain="[('user_id','=',uid)]" help="Los ingresos que se han pagado a través de esta Caja" />
+						<separator orientation="vertical" />
+						<field name="name" string="Documento" colspan="1" />
+						<field name="partner_id" string="Beneficiario" colspan="2" />
+						<field name="user_id" string="Pagado por" />
+						<field name="supervisor_id" string="Autorizado por" />
+						<field name="amount" />
+						<field name="statement_id"
+							domain="[('user_id', '=',user_id),('state','=','open'),'|',('journal_id.type','=','pcash'),('journal_id.type','=','moves')]" />
+					</group>
+					<newline />
+					<group string="Group By" expand="0" col="10" colspan="4">
+						<filter string="CashBox"
+							domain="[('user_id', '=',user_id),('state','=','open'),'|',('journal_id.type','=','pcash'),('journal_id.type','=','moves')]"
+							context="{'group_by':'statement_id'}" colspan="4" />
+						<filter string="Ingreso" domain="[]"
+							context="{'group_by':'account_input_cash_id'}" colspan="4" />
+						<filter string="Beneficiary" domain="[]"
+							context="{'group_by':'partner_id'}" colspan="4" />
+						<filter string="Authorized" domain="[]" context="{'group_by':'user_id'}"
+							colspan="4" icon="terp-partner" />
+						<filter string="State" domain="[]" context="{'group_by':'state'}"
+							colspan="4" icon="terp-stock_effects-object-colorize" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_straconx_cash_receipts_payments">
+			<field name="name">Lista de Ingresos de Caja</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.payments</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('is_cash_receipts','=',True)]</field>
+			<field name="context">{'search_default_my_user_voucher':1}</field>
+			<field name="search_view_id" ref="straconx_cash_receipts_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_straconx_new_cash_receipts_payments">
+			<field name="name">Nuevo Ingreso de Caja Chica</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.payments</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="domain">[('is_cash_receipts','=',True)]</field>
+			<field name="context">{'search_default_my_user_voucher':1}</field>
+			<field name="target">new</field>
+			<field name="search_view_id" ref="straconx_cash_receipts_filter" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_cash_receipts_ext1">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_cash_receipts_tree" />
+			<field name="act_window_id" ref="action_straconx_cash_receipts_payments" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_cash_receipts_ext2">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_cash_receipts_form" />
+			<field name="act_window_id" ref="action_straconx_cash_receipts_payments" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_cash_receipts_ext3">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_cash_receipts_form" />
+			<field name="act_window_id" ref="action_straconx_new_cash_receipts_payments" />
+		</record>
+
+    	<record model="ir.ui.view" id="view_payment_mode_cash_voucher_inherit_form">
+            <field name="name">Añadir Forma de Pago CAJA CHICA</field>
+            <field name="model">payment.mode</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_payment.view_payment_mode_form" />
+            <field name="arch" type="xml">
+	            <field name="others" position="before">	            	
+	            	<field name="petty"/>
+	            </field>
+            </field>
+        </record>
+
+	</data>
+</openerp>

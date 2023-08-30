@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+		<record model="account.journal.type" id="straconx_account.journal_sale">
+            <field name="name">Facturas de Ventas</field>
+            <field name="code">sale</field>
+            <field name="sri_type_control">company</field>
+            <field name="sri_type_document" ref='straconx_afip.01'/>
+        </record>
+        
+        <record model="account.journal.type" id="straconx_account.journal_sale_refund">
+            <field name="name">Notas de Crédito de Clientes</field>
+            <field name="code">sale_refund</field>
+            <field name="sri_type_control">company</field>
+            <field name="sri_type_document" ref='straconx_afip.04'/>
+        </record>
+        
+        <record model="account.journal.type" id="straconx_account.journal_purchase">
+            <field name="name">Facturas de Compras</field>
+            <field name="code">purchase</field>
+            <field name="sri_type_control">partner</field>
+        </record>
+
+        <record model="account.journal.type" id="straconx_account.journal_purchase_refund">
+            <field name="name">Notas de Crédito de Proveedores</field>
+            <field name="code">purchase_refund</field>
+            <field name="sri_type_control">partner</field>
+        </record>
+
+        <record model="account.journal.type" id="journal_delivery">
+            <field name="name">Guías de Remisión</field>
+            <field name="code">delivery</field>
+            <field name="sri_type_control">company</field>
+			<field name="sri_type_document" ref='straconx_afip.06'/>
+        </record>
+
+        <record model="account.journal.type" id="journal_purchase_liquidation">
+            <field name="name">Liquidación de Compras</field>
+            <field name="code">purchase_liquidation</field>
+            <field name="sri_type_control">company</field>
+        </record>
+        
+        <record model="account.journal.type" id="straconx_account.journal_withhold">
+            <field name="name">Retenciones</field>
+            <field name="code">withhold</field>
+            <field name="sri_type_control">company_partner</field>
+			<field name="sri_type_document" ref='straconx_afip.07'/>            
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_advance_inherit_customer_form">
+			<field name="name">account.advance.customer.form.inherit</field>
+			<field name="inherit_id" ref="straconx_debit_notes.view_advance_customer_form" />
+			<field name="model">account.debit.note</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="account_id" position="replace">
+					<field name="statement_id"
+						domain="[('user_id','=',user_id),('state','=','open')]"
+						required="1" />
+				</field>
+				<field name="line_ids" position="replace">
+					<field name="line_ids" colspan="4" nolabel="1"
+						string="concepts Advances">
+						<tree string="concepts Advances" editable="bottom">
+							<field name="name" required="1" />
+							<field name="account_id" domain="[('type','=','payable')]"
+								required="1"
+								on_change="onchange_line(parent.company_id,parent.type,account_id)" />
+							<field name="amount" sum="Total" />
+						</tree>
+						<form string="concepts Advances">
+							<field name="account_id" domain="[('type','=','payable')]"
+								on_change="onchange_line(parent.company_id,parent.type,account_id)" />
+							<field name="name" required="1" />
+							<field name="amount" />
+						</form>
+					</field>
+					<field name="payments" nolabel="1" colspan="4"
+						context="{'default_type':'receipt','default_partner_id':partner_id}">
+						<tree string="Payments">
+							<field name="partner_id" invisible="0" string="Customer" />
+							<field name="mode_id" />
+							<field name="bank_account_id"
+								context="{'bank_account_id':parent.partner_id.bank_ids[0].accnumber,'partner_id':parent.partner_id}"
+								invisible="0" />
+							<field name="bank_id" widget="selection"
+								context="{'bank_account_id':parent.partner_id.bank_ids[0], 'partner_id':parent.partner_id}"
+								invisible="0" />
+							<field name="name" invisible="0" />
+							<field name="amount" sum="Total Payments" />
+							<field name="payment_date" invisible="1" />
+							<field name="deposit_date" invisible="0" />
+							<field name="received_date" invisible="0" />
+							<field name="state" />
+						</tree>
+						<form string="Payment">
+							<field name="company_id" invisible="1" />
+							<field name="shop_id" invisible="1" />
+							<field name="partner_id" invisible="1"
+								on_change="on_change_amount(parent.payments, parent.amount)" />
+							<separator colspan="4" string="Payment" />
+							<field name="mode_id" required="1"
+								context="{'shop':parent.shop_id}"
+								on_change="on_change_mode_payment(mode_id, parent.partner_id,amount,type,company_id,parent.date,parent.shop_id,amount,context)" />
+							<field name="amount"
+								on_change="on_change_amount_receive(amount_received,amount,mode_id)"
+								required="1" />
+							<field name="amount_received"
+								on_change="on_change_amount_receive(amount_received,amount,mode_id)"
+								invisible="1" />
+							<field name="change"
+								on_change="on_change_amount_receive(amount_received,amount,mode_id)"
+								invisible="1" />
+							<group colspan="4">
+								<group colspan="8">
+									<separator colspan="8" />
+									<field name="required_bank" invisible="1" />
+									<field name="required_document" invisible="1" />
+									<field name="authorization" invisible="1" />
+									<field name="cash" invisible="1" />
+									<field name="credit_notes" invisible="1" />
+									<field name="debit_notes" invisible="1" />
+									<field name="credit_card" invisible="1" />
+									<field name="discount_employee" invisible="1" />
+									<field name="required_line_account" invisible="1"/>
+								</group>
+								<group colspan="4">
+									<group attrs="{'invisible':[('discount_employee','!=',1)]}">
+										<field name="collection_form" attrs="{'required':[('discount_employee','=',1)]}"
+											colspan="1" />
+										<field name="number_of_quotas"
+											on_change="onchange_number_of_quotas(number_of_quotas,discount_employee,amount)"
+											attrs="{'required':[('discount_employee','=',1)]}" colspan="1" />
+										<field name="amount_partial" />
+									</group>
+									<newline />
+									<group attrs="{'invisible':[('credit_card','=',1)]}">
+										<field name="bank_account_id"
+											attrs="{'invisible':['|',('required_bank','!=',1),('credit_card','=',1)],'required':[('required_bank','=',1),('credit_card','!=',1)]}"
+											on_change="on_change_account_bank(bank_account_id,partner_id,company_id,parent.payment_ids)"
+											domain="[('partner_id','=',parent.partner_id)]" />
+									</group>
+									<group attrs="{'invisible':[('credit_card','!=',1)]}">
+										<field name="type_account_bank" attrs="{'required':[('credit_card','=',1)]}"
+											widget="selection" />
+									</group>
+								</group>
+								<group colspan="4">
+									<field name="bank_id"
+										attrs="{'invisible':[('credit_card','!=',1)],'required':[('credit_card','=',1)]}" />
+									<field name="name"
+										attrs="{'invisible':[('required_document','!=',1)],'required':[('required_document','=',1)]}" />
+									<field name="authorization_credit"
+										attrs="{'invisible':[('authorization','!=',1)],'required':[('authorization','=',1)]}" />
+									<field name="credit_note_id"
+										attrs="{'invisible':[('credit_notes','!=',1)],'required':[('credit_notes','=',1)]}"
+										domain="[('partner_id','=',parent.partner_id),('type','=','out_refund')]"
+										on_change="on_change_credit_note(credit_note_id,amount)" />
+									<field name="debit_note_id"
+										attrs="{'invisible':[('debit_notes','!=',1)],'required':[('debit_notes','=',1)]}"
+										domain="[('partner_id','=',parent.partner_id),('type','=','advance_customer')]"
+										on_change="on_change_debit_note(debit_note_id,amount)" />
+									<field name="move_id_line" string="Línea Contable"
+										attrs="{'invisible':[('required_line_account','!=',1)],'required':[('required_line_account','=',1)]}"
+										domain="[('reconcile_id','=',False),('credit','>',0),('account_id.type','=','payable')]"
+										on_change="on_change_move_line_id(move_id_line,amount)" />
+								</group>
+							</group>
+							<group colspan="4">
+								<separator colspan="4" string="Dates" />
+								<field name="deposit_date" />
+								<field name="received_date" readonly="1"
+									attrs="{'invisible':['|',('required_bank','!=',0),('required_document','!=',0)]}" />
+								<field name="payment_date" />
+								<field name="return_date" readonly="1" invisible="0" />
+							</group>
+							<field name="vouch_id" domain="[('type','=',type)]"
+								invisible="1" />
+							<field name="type" invisible="1" readonly="1" />
+							<field name="state" invisible="1" />
+						</form>
+					</field>
+				</field>
+				<field name="total_amount" position="after">
+					<field name="total_payment" />
+				</field>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_advance_inherit_supplier_form">
+			<field name="name">account.advance.supplier.form.inherit</field>
+			<field name="inherit_id" ref="straconx_debit_notes.view_advance_supplier_form" />
+			<field name="model">account.debit.note</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="account_id" position="replace">
+					<field name="statement_id" options='{"quick_create": true}' domain="[('user_id','=',user_id),('state','=','open')]" 						
+						required="1" />
+					<field name="beneficiary"></field>
+					<field name="amount_payment_mode" invisible="1" />
+					<field name="amount" invisible="1" />
+				</field>
+				<field name="state" position="after">
+					<button name="%(supplier_advance)d" string="Imprimir comprobante de Egreso"
+						type="action" icon="gtk-print" attrs="{'invisible':[('state','not in',('posted','paid'))]}"/> 
+					<button name="print_cheque" string="Imprimir Cheque (Matricial)"
+						type="object" icon="gtk-print" attrs="{'invisible':[('state','not in',('posted','paid'))]}"/>
+					<button name="print_cheque_laser" string="Imprimir Cheque (Laser/Inkjet)"
+						type="object" icon="gtk-print" attrs="{'invisible':[('state','not in',('posted','paid'))]}"/>
+				</field>
+				<field name="line_ids" position="replace">
+					<field name="line_ids" colspan="4" nolabel="1">
+						<tree string="concepts Advances" editable="bottom">
+							<field name="name" required="1" />
+							<field name="account_id" domain="[('company_id','=',parent.company_id)]"
+								required="1"
+								on_change="onchange_line(parent.company_id,parent.type,account_id)" />
+							<field name="amount" sum="Total" />
+						</tree>
+						<form string="concepts Advances">
+							<field name="account_id" domain="[('company_id','=',parent.company_id)]"
+								on_change="onchange_line(parent.company_id,parent.type,account_id)" />
+							<field name="name" required="1" />
+							<field name="amount" />
+						</form>
+					</field>
+					<field name="payments" nolabel="1" colspan="4"
+						domain="[('type','=',type)]"
+						context="{'type':type,'partner_id':partner_id,'default_type':'payment','default_partner_id':partner_id}"
+						string="Payments Delivery">
+						<tree string="Payments">
+							<field name="partner_id" invisible="1" string="Customer" />
+							<field name="company_id" invisible="1" />
+							<field name="mode_id" />
+							<field name="bank_account_id"
+								context="{'bank_account_id':parent.partner_id.bank_ids[0].accnumber,'partner_id':parent.partner_id}"
+								invisible="0" />
+							<field name="bank_id" widget="selection"
+								context="{'bank_account_id':parent.partner_id.bank_ids[0], 'partner_id':parent.partner_id}"
+								invisible="0" />
+							<field name="name" invisible="0" />
+							<field name="amount" sum="Total Payments" />
+							<field name="deposit_date" invisible="0" />
+							<field name="received_date" invisible="0" />
+							<field name="state" />
+						</tree>
+						<form string="Payment">
+							<field name="company_id" invisible="0"
+								on_change="on_change_company(company_id,parent.company_id)" />
+							<field name="shop_id" invisible="1" />
+							<field name="partner_id" invisible="1"
+								on_change="on_change_amount(parent.payments, parent.amount)" />
+							<separator colspan="4" string="Payment" />
+							<field name="mode_id" required="1"
+								domain="[('only_payment','=',True)]"
+								on_change="on_change_mode_payment(mode_id, parent.partner_id,parent.amount,type,parent.company_id,parent.date,parent.shop_id,parent.amount_payment_mode,context)"
+								context="{'shop':parent.shop_id}" />
+							<field name="amount" required="1" />
+							<field name="amount_received"
+								on_change="on_change_amount_receive(amount_received,amount,mode_id)"
+								invisible="1" />
+							<field name="change" invisible="1" />
+							<group colspan="4">
+								<separator colspan="4" />
+								<field name="required_bank" invisible="1" />
+								<field name="required_document" invisible="1" />
+								<field name="authorization" invisible="1" />
+								<field name="cash" invisible="1" />
+								<field name="check" invisible="1" />
+								<field name="credit_card" invisible="1" />
+								<field name="credit_notes" invisible="1" />
+								<field name="debit_notes" invisible="1" />
+								<field name="required_seq" invisible="1" />
+								<field name="required_seq_check" invisible="1" />
+								<group colspan="4">
+									<group attrs="{'invisible':[('credit_card','=',1)]}">
+										<field name="bank_account_id"
+											attrs="{'invisible':['|',('required_bank','!=',1),('credit_card','=',1)],'required':[('required_bank','=',1),('credit_card','!=',1)]}"
+											on_change="on_change_account_bank(bank_account_id,partner_id,company_id,parent.payments)"
+											domain="[('partner_id','=',parent.partner_id)]" />
+										<field name="bank_id"
+											attrs="{'invisible':[('required_bank','!=',1)],'required':[('required_bank','=',1)]}" />
+										<field name="beneficiary"
+											attrs="{'invisible':[('required_bank','=',0)],'required':[('required_bank','=',1)]}" />
+										<field name="cheque_id" on_change="on_change_cheque(cheque_id,amount)"
+											domain="[('state','not in',('paid','cancel')),('partner_id','=',bank_account_id)]"
+											attrs="{'invisible':[('required_seq','!=',1)],'required':[('required_seq','=',1)]}" />
+										<field name="name"
+											attrs="{'invisible':[('required_document','!=',1)],'required':[('required_document','=',1)]}" />
+										<field name="authorization_credit"
+											attrs="{'invisible':[('authorization','!=',1)],'required':[('authorization','=',1)]}" />
+									</group>
+									<group attrs="{'invisible':[('credit_card','!=',1)]}">
+										<field name="type_account_bank" attrs="{'required':[('credit_card','=',1)]}"
+											widget="selection" />
+									</group>
+								</group>
+								<field name="credit_note_id" string="Nota de Crédito"
+									attrs="{'invisible':[('credit_notes','!=',1)],'required':[('credit_notes','=',1)]}"
+									domain="[('partner_id','=',parent.partner_id),('type','=','in_refund')]"
+									on_change="on_change_credit_note(credit_note_id,amount)" />
+								<field name="debit_note_id" string="Anticipo a Proveedores"
+									attrs="{'invisible':[('debit_notes','!=',1)],'required':[('debit_notes','=',1)]}"
+									domain="[('partner_id','=',parent.partner_id),('type','=','advance_supplier')]"
+									on_change="on_change_debit_note(debit_note_id,amount)" />
+							</group>
+							<group colspan="4">
+								<separator colspan="4" string="Dates" />
+								<field name="received_date" readonly="1"
+									attrs="{'invisible':['|',('required_bank','!=',0),('required_document','!=',0)]}" />
+								<field name="deposit_date"
+									attrs="{'invisible':[('required_bank','!=',1),('required_document','!=',1)],'required':['|',('required_bank','=',1),('required_document','=',1)]}" />
+								<field name="payment_date" readonly="1" invisible="1" />
+								<field name="return_date" readonly="1" invisible="1" />
+							</group>
+							<field name="type" invisible="1" />
+							<field name="state" />
+						</form>
+					</field>
+				</field>
+				<field name="total_amount" position="after">
+					<field name="total_payment" />
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

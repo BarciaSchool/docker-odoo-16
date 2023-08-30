@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+
+        <!--Email template -->
+        <record id="email_approve_purchase" model="email.template">
+            <field name="name">Solicitud de Aprobación de Orden de Compra</field>
+            <field name="email_from">${object.solicited.user_email}</field>
+            <field name="subject">${object.company_id.name} Solicitud de Aprobación de Orden de Compra (# ${object.name})</field>
+            <field name="email_to">${object.validator.user_email}</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="mail_server_id" ref="base.ir_mail_server_localhost0"/>
+            <field name="report_template" ref="straconx_purchase.purchase_report_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Saludos ${object.partner_address_id.name and ' ' or ''},</p>
+    
+    <p>Existe una solicitud de Aprobación de Compra: </p>
+    
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCIA</strong><br />
+       &nbsp;&nbsp;Número: <strong>${object.name}</strong><br />
+       &nbsp;&nbsp;Total: <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong><br />
+       &nbsp;&nbsp;Fecha: ${object.date_order}<br />
+    </p>
+
+    <p>
+    Usted puede aprobar la solicitud y ver otros detalles desde este vínculo:
+    </p>
+            <a style="display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;" 
+               href="${object.web_link_approve}">Aprobar / Ver Orden</a>
+
+    <br/>
+    <p>Si tiene alguna pregunta, por favor contactar al remitente de este correo.</p>
+    <p>Muchas gracias</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.company_id.street:
+            ${object.company_id.street}<br/>
+        % endif
+        % if object.company_id.street2:
+            ${object.company_id.street2}<br/>
+        % endif
+        % if object.company_id.city or object.company_id.zip:
+            ${object.company_id.zip} ${object.company_id.city}<br/>
+        % endif
+        % if object.company_id.country_id:
+            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Phone:&nbsp; ${object.company_id.phone}
+            </div>
+        % endif
+        % if object.company_id.website:
+            <div>
+                Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+Saludos ${object.partner_address_id.name and ' ' or ''}:,
+
+Existe una solicitud de Aprobación de Compra:
+       | Número: *${object.name}*
+       | Total: *${object.amount_total} ${object.pricelist_id.currency_id.name}*
+       | Fecha: ${object.date_order}
+
+Usted puede aprobar la solicitud y ver otros detalles desde este vínculo:
+    ${object.web_link_approve}
+
+Si tiene alguna pregunta, por favor contactar al remitente de este correo.
+
+Muchas gracias
+
+--
+${object.company_id.name}
+% if object.company_id.street:
+${object.company_id.street or ''}
+% endif
+% if object.company_id.street2:
+${object.company_id.street2}
+% endif
+% if object.company_id.city or object.company_id.zip:
+${object.company_id.zip or ''} ${object.company_id.city or ''}
+% endif
+% if object.company_id.country_id:
+${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}
+% endif
+% if object.company_id.phone:
+Phone: ${object.company_id.phone}
+% endif
+% if object.company_id.website:
+${object.company_id.website or ''}
+% endif
+            ]]></field>
+        </record>
+
+        <record id="email_required_purchase" model="email.template">
+            <field name="name">Solicitud de Compra</field>
+            <field name="email_from">${object.solicited.user_email}</field>
+            <field name="subject">${object.company_id.name} Solicitud de Compra (# ${object.name})</field>
+            <field name="email_to">${object.validator.user_email}</field>
+            <field name="email_cc">${object.shop_id.purchase_manager.user_email}</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="mail_server_id" ref="base.ir_mail_server_localhost0"/>
+            <field name="report_template" ref="straconx_purchase.purchase_report_id"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Saludos ${object.partner_address_id.name and ' ' or ''},</p>
+    
+    <p>Existe una solicitud de Cotización para Compras: </p>
+    
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCIA</strong><br />
+       &nbsp;&nbsp;Número: <strong>${object.name}</strong><br />
+       &nbsp;&nbsp;Total: <strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong><br />
+       &nbsp;&nbsp;Fecha: ${object.date_order}<br />
+    </p>
+
+    <p>
+    Usted puede aprobar la solicitud y ver otros detalles desde este vínculo:
+    </p>
+            <a style="display:block; width: 150px; height:20px; margin-left: 120px; color: #DDD; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; text-align: center; text-decoration: none !important; line-height: 1; padding: 5px 0px 0px 0px; background-color: #8E0000; border-radius: 5px 5px; background-repeat: repeat no-repeat;" 
+               href="${object.web_link_approve}">Aprobar / Ver Orden</a>
+
+    <br/>
+    <p>Si tiene alguna pregunta, por favor contactar al remitente de este correo.</p>
+    <p>Muchas gracias</p>
+    <br/>
+    <br/>
+    <div style="width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+        <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+            <strong style="text-transform:uppercase;">${object.company_id.name}</strong></h3>
+    </div>
+    <div style="width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;">
+        <span style="color: #222; margin-bottom: 5px; display: block; ">
+        % if object.company_id.street:
+            ${object.company_id.street}<br/>
+        % endif
+        % if object.company_id.street2:
+            ${object.company_id.street2}<br/>
+        % endif
+        % if object.company_id.city or object.company_id.zip:
+            ${object.company_id.zip} ${object.company_id.city}<br/>
+        % endif
+        % if object.company_id.country_id:
+            ${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}<br/>
+        % endif
+        </span>
+        % if object.company_id.phone:
+            <div style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; ">
+                Phone:&nbsp; ${object.company_id.phone}
+            </div>
+        % endif
+        % if object.company_id.website:
+            <div>
+                Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+            </div>
+        %endif
+        <p></p>
+    </div>
+</div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+Saludos ${object.partner_address_id.name and ' ' or ''}:,
+
+Existe una solicitud de Cotización para Compra:
+       | Número: *${object.name}*
+       | Total: *${object.amount_total} ${object.pricelist_id.currency_id.name}*
+       | Fecha: ${object.date_order}
+
+Usted puede aprobar la solicitud y ver otros detalles desde este vínculo:
+    ${object.web_link_approve}
+
+Si tiene alguna pregunta, por favor contactar al remitente de este correo.
+
+Muchas gracias
+
+--
+${object.company_id.name}
+% if object.company_id.street:
+${object.company_id.street or ''}
+% endif
+% if object.company_id.street2:
+${object.company_id.street2}
+% endif
+% if object.company_id.city or object.company_id.zip:
+${object.company_id.zip or ''} ${object.company_id.city or ''}
+% endif
+% if object.company_id.country_id:
+${object.company_id.state_id and ('%s, ' % object.company_id.state_id.name) or ''} ${object.company_id.country_id.name or ''}
+% endif
+% if object.company_id.phone:
+Phone: ${object.company_id.phone}
+% endif
+% if object.company_id.website:
+${object.company_id.website or ''}
+% endif
+            ]]></field>
+        </record>
+
+
+</data>
+</openerp>

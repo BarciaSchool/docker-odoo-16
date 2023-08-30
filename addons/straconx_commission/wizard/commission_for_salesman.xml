@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_commission_for_salesman_wizard" model="ir.ui.view">
+            <field name="name">Commission_for_salesman</field>
+            <field name="model">commission.salesman.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Commission for Salesman">
+                	<label colspan="4" nolabel="1" width="600" string="This wizard will generate Commission for all selected Salesman." />
+                	<field name="computation_type" width="600"/>
+                	<newline/>
+                    <group colspan="4">
+                        <separator colspan="4" string="Salesman"/>
+                    	<field name="salesman_ids" nolabel="1" domain="[('is_seller','=',True)]"  height="170" width="600">
+                        	<tree string="Salesman">
+                        		<field name="code"/>
+                        		<field name="user_id"/>
+                        		<field name="zone_id"/>
+                        	</tree>
+	                    </field>
+	                    <separator colspan="4" string="Category Products"/>
+                    	<field name="line_categ_ids" nolabel="1" height="170" width="600">
+                        	<tree string="Categories" editable="bottom">
+                        		<field name="product_category_id"/>
+                        		<field name="amount"/>
+                        	</tree>
+	                    </field>
+                    </group>
+	                <group colspan="4">
+	                	<label string="" colspan="2"></label>
+	                    <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+	                    <button  icon="gtk-execute" string="Generate" name="create_lines" type="object"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_commission_for_salesman_wizard" model="ir.actions.act_window">
+            <field name="name">Commission for salesman</field>
+            <field name="res_model">commission.salesman.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_commission_for_salesman_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

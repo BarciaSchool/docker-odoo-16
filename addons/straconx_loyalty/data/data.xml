@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+	<data>
+
+    	<!--  	Cron for Expired Loyalties -->
+        <record model="ir.cron" id="ir_cron_expired_loyalty">
+            <field name="name">Expired Loyalties Programs</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'sales.loyalty'"/>
+            <field name="function" eval="'expired_process_all'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+
+    	<!--  	Cron for Expired Loyalties Bonus Lies -->
+        <record model="ir.cron" id="ir_cron_expired_loyalty_customer">
+            <field name="name">Expired Bonus Programs</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'sales.loyalty.partner.line'"/>
+            <field name="function" eval="'expired_process_lines'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+
+
+	</data>
+</openerp>

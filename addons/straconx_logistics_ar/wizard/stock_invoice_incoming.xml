@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="straconx_view_stock_invoice_incoming" model="ir.ui.view">
+            <field name="name">Invoice on Shipping</field>
+            <field name="model">stock.invoice.incoming</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              <form string="Create Delivery Note">
+                    <separator colspan="4" string="Create Document Invoice" />
+                    <newline/>
+                    <field name="type_journal" required="1" on_change="onchange_type(type_journal,context)"/>
+                    <field name="invoice_date2" />
+                    <field name="origin" />   
+					<field name="group" string="Agrupar varias ordenes en una factura"/>                            
+                    <separator string="Delivery Purchase Info" colspan="4"  col="6"/>
+                    <field name="flag" invisible="1"/>
+                    <field name="journal_id" required="1"/>
+                    <field name="tpurchase" required="1"/>
+                    <field name='warehouse_user' string='Receiver' required='1' colspan="4"/>
+                    <separator string="SRI Information" colspan="4" />
+                    <group colspan="4">
+	                    <group attrs="{'invisible':[('type_journal','!=','purchase')]}">
+	                    	<field name="partner_address_id" colspan="4" attrs="{'required':[('type_journal','=','purchase')]}"/>
+	                    	<field name="electronic" string="Documento Electrónico"/>
+	                    	<newline/>
+	                    	<field name="invoice_number_in" attrs="{'required':[('type_journal','=','purchase')]}" on_change="onchange_number_in(invoice_number_in,type_journal,False,False,journal_id,False,invoice_date2,context)"/>
+	                    </group>
+	                    <group attrs="{'invisible':[('type_journal','=','purchase')]}">
+	                    	<field name="shop_id" attrs="{'required':[('type_journal','!=','purchase')]}"/>
+	                    </group>
+                    </group>
+                    <group colspan="4">
+	                    <separator string="" colspan="4" />
+	                    <label string="" colspan="2"/>
+	                    <button special="cancel" string="_Cancel" icon='gtk-cancel'/>
+	                    <button name="open_in_invoice" string="Create" type="object" icon="terp-gtk-go-back-rtl"/>
+                    </group>
+             </form>
+            </field>
+        </record>
+
+        <act_window name="Create invoice"
+            res_model="stock.invoice.incoming"
+            src_model="account.invoice"
+            key2="client_action_multi"
+            multi="True"
+            view_mode="form"
+            view_type="form"
+            target="new"
+            id="straconx_action_stock_invoice_incoming"/>
+
+    </data>
+</openerp>

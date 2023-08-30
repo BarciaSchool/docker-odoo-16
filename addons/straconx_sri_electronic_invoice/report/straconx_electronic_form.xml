@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="straconx_invoice.electronic_invoice_report_id" model="ir.actions.report.xml">
+            <field name="name">Factura_Electronica(txt)</field>
+            <field name="report_name">invoice_report_pos_id</field>            
+            <field name="pentaho_filename">straconx_invoice/report/straconx_invoice_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">txt</field>
+            <field name="pentaho_report_output_type">txt</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="straconx_invoice.electronic_invoice_id" model="ir.actions.report.xml">
+            <field name="name">RIDE Factura</field>
+            <field name="report_name">invoice_ride_id</field>            
+            <field name="pentaho_filename">straconx_sri_electronic_invoice/report/straconx_invoice_electronic_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="straconx_invoice.electronic_credit_note_id" model="ir.actions.report.xml">
+            <field name="name">RIDE Nota de Crédito</field>
+            <field name="report_name">credit_note_ride_id</field>            
+            <field name="pentaho_filename">straconx_sri_electronic_invoice/report/straconx_credit_note_electronic_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="straconx_invoice.electronic_debit_note_id" model="ir.actions.report.xml">
+            <field name="name">RIDE Nota de Débito</field>
+            <field name="report_name">debit_note_ride_id</field>            
+            <field name="pentaho_filename">straconx_sri_electronic_invoice/report/straconx_debit_note_electronic_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="straconx_logistics.electronic_delivery_guide_id" model="ir.actions.report.xml">
+            <field name="name">RIDE Guía de Remisión</field>
+            <field name="report_name">delivery_guide_ride_id</field>            
+            <field name="pentaho_filename">straconx_sri_electronic_invoice/report/straconx_electronic_delivery_guide.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.delivery')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">stock.delivery</field>
+        </record>
+
+        <record id="straconx_withhold.electronic_withhold" model="ir.actions.report.xml">
+            <field name="name">RIDE Retención</field>
+            <field name="report_name">account_withhold_ride_id</field>            
+            <field name="pentaho_filename">straconx_sri_electronic_invoice/report/straconx_withhold_electronic_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+        </record>
+
+        <delete model="ir.values" search="[('name','=','Factura_Electronica(txt)')]" />
+        <delete model="ir.values" search="[('name','=','RIDE Factura')]" />
+        <delete model="ir.values" search="[('name','=','RIDE Guía de Remisión')]" />
+        <delete model="ir.values" search="[('name','=','RIDE Nota de Crédito')]" />
+        <delete model="ir.values" search="[('name','=','RIDE Nota de Débito')]" />
+		<delete model="ir.values" search="[('name','=','RIDE Retención')]" />                        
+    </data>
+</openerp>

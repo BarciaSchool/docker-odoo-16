@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data >
+           
+        <record id="pentaho_employee_report_id" model="ir.actions.report.xml">
+            <field name="name">Curriculum Vitae</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.employee</field>
+            <field name="report_name">pentaho.employee.report</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_employee.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.employee')]" model="ir.model" />
+        </record>
+        
+        <ir_set>
+            <field eval="'action'" name="key" />
+            <field eval="'client_print_multi'" name="key2" />
+            <field eval="['hr.employee']" name="models" />
+            <field name="name">Curriculum Vitae</field>
+            <field eval="'ir.actions.report.xml,'+str(pentaho_employee_report_id)" name="value" />
+            <field eval="True" name="replace" />
+        </ir_set>
+
+        <record id="pentaho_department_employee_report_id" model="ir.actions.report.xml">
+            <field name="name">Employee List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.employee</field>
+            <field name="report_name">pentaho.employee.department.report</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_department_employee.prpt</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('hr.menu_hr_reporting')"/>
+            <field name="pentaho_report_model_id" search="[('model','=','hr.employee')]" model="ir.model" />
+        </record>
+        
+        <ir_set>
+            <field eval="'action'" name="key" />
+            <field eval="'client_print_multi'" name="key2" />
+            <field eval="['hr.employee']" name="models" />
+            <field name="name">Employee List</field>
+            <field eval="'ir.actions.report.xml,'+str(pentaho_department_employee_report_id)" name="value" />
+            <field eval="True" name="replace" />
+        </ir_set>
+
+        <record id="pentaho_discount_report_id" model="ir.actions.report.xml">
+            <field name="name">Employee Discount</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.discount</field>
+            <field name="report_name">pentaho.employee.discount</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_discount.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.discount')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Employee Discount')]" />
+
+        <record id="pentaho_discount_expense_id" model="ir.actions.report.xml">
+            <field name="name">Partner Discount</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.discount</field>
+            <field name="report_name">pentaho.partner.discount</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_discount_expenses.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.discount')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Partner Discount')]" />
+
+        <record id="pentaho_incomes_id" model="ir.actions.report.xml">
+            <field name="name">Employee Incomes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.incomes</field>
+            <field name="report_name">pentaho.partner.incomes</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_incomes.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.incomes')]" model="ir.model" />
+        </record>
+        
+        <delete model="ir.values" search="[('name','=','Employee Incomes')]" />
+        
+        <record id="payslip_report" model="ir.actions.report.xml">
+            <field name="name">Employee Payroll</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip</field>
+            <field name="report_name">Employee Payroll</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payroll.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip')]" model="ir.model" />
+        </record>
+
+
+
+        <record id="payslip_details_report" model="ir.actions.report.xml">
+            <field name="name">Employee Payroll Details</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip</field>
+            <field name="report_name">Employee Payroll Details</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payroll_prov.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip')]" model="ir.model" />
+        </record>
+
+        <record id="payslip_list_report" model="ir.actions.report.xml">
+            <field name="name">Employee Payroll List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">Employee Payroll List</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payroll_list.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+        <record id="payslip_list_report_excel" model="ir.actions.report.xml">
+            <field name="name">Exportar Nómina Final</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">nomina_total_excel</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payroll_list.prpt</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+       
+       <delete model="ir.values" search="[('name','=','Employee Payroll List')]" />
+       <delete model="ir.values" search="[('name','=','Exportar Nómina Final')]" />
+       
+        <record id="payslip_list_qreport" model="ir.actions.report.xml">
+            <field name="name">Employee Payroll QList</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">Nomina_Resumida</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_qpayroll_list.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+        <record id="payslip_list_qreport_excel" model="ir.actions.report.xml">
+            <field name="name">Exportar Nómina Quincenal</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">nomina_quincenal_excel</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_qpayroll_list.prpt</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+
+       <delete model="ir.values" search="[('name','=','Exportar Nómina Quincenal')]" />       
+        
+        <record id="payslip_list_prov" model="ir.actions.report.xml">
+            <field name="name">Employee Payslip Provisions</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">Employee Payslip Provisions</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payslip_prov.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+        <record id="payslip_list_prov_excel" model="ir.actions.report.xml">
+            <field name="name">Exportar Nómina con Provisiones</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">nomina_provisiones_excel</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_payslip_prov.prpt</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Employee Payslip Provisions')]" />
+		<delete model="ir.values" search="[('name','=','Exportar Nómina con Provisiones')]" />
+
+        <record id="ac_payroll_cheque_id" model="ir.actions.report.xml">
+            <field name="name">Payroll Cheques</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">Payroll Cheques</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_cheques.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Payroll Cheques')]" />
+
+        <record id="ac_payroll_cheque_move_id" model="ir.actions.report.xml">
+            <field name="name">Payroll Account Move</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">Payroll Account Move</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/str_hr_cheques_move.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Payroll Account Move')]" />        
+        
+        <record id="pay_provision_report" model="ir.actions.report.xml">
+            <field name="name">Pay Provision</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.pay.provision</field>
+            <field name="report_name">Employee Pay Provisions</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/straconx_pay_provision.prpt</field>            
+       		<field name="report_type">pdf</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.pay.provision')]" model="ir.model" />
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Pay Provision')]" />
+
+        <record id="payroll_move_report" model="ir.actions.report.xml">
+            <field name="name">Account Moves</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">movimientos_nomina</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/straconx_pay_provision.prpt</field>            
+       		<field name="report_type">pdf</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+        <record id="payroll_move_report_excel" model="ir.actions.report.xml">
+            <field name="name">Export Account Moves</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="report_name">movimientos_nomina_excel</field>
+	        <field name="pentaho_filename">straconx_talent_human/report/straconx_pay_provision.prpt</field>            
+       		<field name="report_type">pdf</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','hr.payslip.run')]" model="ir.model" />
+        </record>
+
+
+		<delete model="ir.values" search="[('name','=','Account Moves')]" />
+
+
+
+    </data>
+</openerp>

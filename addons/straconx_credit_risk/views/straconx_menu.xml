@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+       
+    <!-- Credit Risk Management -->
+    <menuitem
+        name="Credit Risk Management" 
+        id="straconx_partners.menu_financial_risk"
+        icon="terp-stock_format-default" 
+        groups ="base.group_risk_manager,base.group_risk_user,base.group_recovery_user,base.group_recovery_manager,base.group_risk_collector"
+        web_icon="images/risk.png"
+        web_icon_hover="images/risk-hover.png"
+        sequence="9"/>
+        
+    <menuitem 
+        name="Risk Credit Management" 
+        id="menu_management_risk"
+        parent="straconx_partners.menu_financial_risk" 
+        groups ="base.group_risk_manager,base.group_risk_user"
+        sequence="2"/>
+        
+    <menuitem
+        name="Risk Credit Management" 
+        id="menu_action_order_wait_risk" 
+        action="action_order_wait_risk" 
+        parent="menu_management_risk"
+        groups ="base.group_risk_manager,base.group_risk_user" 
+        sequence="1"/>
+
+    <menuitem
+        name="All Sale Order" 
+        id="menu_action_order_all_credit" 
+        action="action_order_all_credit" 
+        parent="menu_management_risk"
+        groups ="base.group_risk_manager" 
+        sequence="2"/>
+        
+    <menuitem 
+        name="Customer Invoices"
+        id="menu_customer_invoices_credit"
+        action="account.action_invoice_tree1"
+        parent="menu_management_risk"
+        sequence="3"
+    	/>
+
+
+    <menuitem 
+        name="Customers" 
+        id="menu_finance_receivables_risks" 
+        parent="straconx_partners.menu_financial_risk" 
+        sequence="1"/>
+        
+    <menuitem 
+        name="Customers" 
+        id="risk_menu_sales" 
+        action="action_partner_risk_form"
+        parent="menu_finance_receivables_risks" 
+        sequence="1"/>
+
+	<!-- Reports -->
+    <menuitem 
+        name="Reports"
+        id="menu_credit_report"  
+        parent="straconx_partners.menu_financial_risk"
+        sequence="9"/>
+
+        
+    </data>
+</openerp>
+    

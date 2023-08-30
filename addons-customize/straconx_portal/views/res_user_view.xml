@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- add partner field in user form -->
+
+        <record id="base.view_users_form_simple_modif" model="ir.ui.view">
+            <field name="name">Preferencias de Usuario</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field eval="18" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Users">
+                    <field name="company_id" widget="selection" readonly="1"/>
+                    <field name="name" string="Usuario" readonly="1"/>
+                    <field name="partner_id" readonly="1" widget="selection"/>
+	                <field name="active" invisible="1"/>                    
+                    <field name="context_lang" readonly="0"/>
+                    <field name="context_tz" readonly="0"/>
+                    <field name="user_email" widget="email" required="1"/>
+                    <field name="signature" readonly="0"/>
+                </form>
+            </field>
+        </record>
+
+
+	<delete model="ir.ui.view" id="crm.view_users_form_simple_modif_inherited1"/>
+	<delete model="ir.ui.view" id="crm.view_users_form_simple_modif_inherited2"/>
+	<delete model="ir.ui.view" id="hr.view_department_form_simple_modif_inherited1"/>
+	<delete model="ir.ui.view" id="project.view_users_form_project_modif_inherited1"/>
+	
+</data>    
+</openerp>

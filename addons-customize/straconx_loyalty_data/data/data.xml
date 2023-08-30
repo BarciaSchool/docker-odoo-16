@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+	<data>
+
+		<!--  	Demo Data -->
+        <record model="sales.loyalty" id="loyalty_xmas">
+            <field name="name">PROMOCIONES NAVIDAD 2015</field>
+            <field name="date_from">2015-11-01</field>
+            <field name="date_to">2015-12-31</field>
+            <field name="date_expired">2016-03-31</field>
+            <field name="days_start">65</field>
+            <field name="days">15</field>
+			<field name="maximun_pay">25</field>
+			<field name="penalization">100</field>
+			<field name="acumuled" eval="False"/>            
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_1">		
+			<field name="mode_id">cash</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">6</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_2">		
+			<field name="mode_id">cash</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">7</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_3">	
+			<field name="mode_id">cash</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">8</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_4">		
+			<field name="mode_id">check</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">4</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_5">		
+			<field name="mode_id">check</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">5</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_6">	
+			<field name="mode_id">check</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">6</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_7">		
+			<field name="mode_id">deposit</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">4</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_8">		
+			<field name="mode_id">deposit</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">5</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_9">	
+			<field name="mode_id">deposit</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">6</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_10">		
+			<field name="mode_id">credit_note</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">1</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">8</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_11">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">3</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_12">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">3.5</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_13">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" eval="False"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">3.5</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_14">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacificard"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">6</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_15">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacificard"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">7</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_16">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacificard"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">8</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_17">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacifico"/>         
+			<field name="from_amount">20.01</field>
+			<field name="to_amount">100</field>
+			<field name="bonus">6</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_18">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacifico"/>         
+			<field name="from_amount">100.01</field>
+			<field name="to_amount">500</field>
+			<field name="bonus">7</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+        <record model="sales.loyalty.line" id="loyalty_xmas_19">		
+			<field name="mode_id">credit_card</field>
+			<field name="bank_id" ref="straconx_account.pacifico"/>         
+			<field name="from_amount">500.01</field>
+			<field name="to_amount">50000</field>
+			<field name="bonus">8</field>
+			<field name="wizard_id" ref="loyalty_xmas"/>
+        </record>
+
+	</data>
+</openerp>

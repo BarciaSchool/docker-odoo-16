@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Zones -->
+
+        <record id="view_region_zone_tree" model="ir.ui.view">
+            <field name="name">res.region.zone.tree</field>
+            <field name="model">res.region.zone</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="region">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="region_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_region_zone_form" model="ir.ui.view">
+            <field name="name">res.region.zone.form</field>
+            <field name="model">res.region.zone</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="region">
+                    <field name="name" select="1"/>
+                    <field name="code" select="1"/>
+                    <field name="region_id" select="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_region_zone" model="ir.actions.act_window">
+            <field name="name">Zones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.region.zone</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_region_zone_tree"/>
+            <field name="help">You can assing diferents Zones to Regions.</field>
+        </record>
+
+    </data>
+</openerp>
+

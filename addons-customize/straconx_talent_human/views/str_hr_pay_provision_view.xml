@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+   
+    
+     	<record model="ir.ui.view" id="hr_provision_tree_view">
+           <field name="name">hr.provision.tree</field>
+           <field name="model">hr.provision</field>
+           <field name="type">tree</field>
+           <field name="arch" type="xml">
+               <tree string="hr Provision">
+                   <field name="name"/>
+                   <field name="account_id"/>
+                   <field name="pay_prov"/>
+               </tree>
+           </field>
+        </record>
+        
+             
+        <record model="ir.ui.view" id="hr_provision_form_view">
+            <field name="name">hr.provision.form</field>
+            <field name="model">hr.provision</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="hr Provision">
+                	<group colspan="2">
+	                	<field name="company_id" string="Compañía" select="1" required='1'/>
+	                    <field name="name" select="1" on_change = "onchange_boolean(name)"/>
+	                    <field name="account_id" domain="[('type','in',('payable','receivable','other')),('company_id','=',company_id)]" required="1"/>
+	                    <field name="pay_prov" string="Requiere Fecha"/>	                    
+ 					</group>       
+ 					<newline/>
+ 					<group attrs="{'invisible':[('name','!=','XIV')]}" colspan="2">
+ 						<field name="date_from_coast" attrs="{'required':[('name','=','XIV')]}"/>
+	                    <field name="date_to_coast" attrs="{'required':[('name','=','XIV')]}"/>
+	                    <field name="date_from_sie" attrs="{'required':[('name','=','XIV')]}"/>
+	                    <field name="date_to_sie" attrs="{'required':[('name','=','XIV')]}"/>
+ 					</group>  
+					<group attrs="{'invisible':[('pay_prov','=',False)]}" colspan="2">
+						<field name="date_from" attrs="{'required':[('pay_prov','=',True)]}"/>
+	                    <field name="date_to" attrs="{'required':[('pay_prov','=',True)]}"/>
+ 					</group>      
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_hr_provision_view">
+                <field name="name">Type Provision Pay</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.provision</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="hr_provision_tree_view"/>
+        </record>
+        
+        
+        
+        <record model="ir.ui.view" id="pay_provision_line_tree_view">
+              <field name="name">hr.pay.provision.line.tree</field>
+              <field name="model">hr.pay.provision.line</field>
+              <field name="type">tree</field>
+              <field name="arch" type="xml">
+                  <tree string="Provision Line">
+                  	  <field name="pay_provision_id" invisible="1"/>
+                  	  <field name="pay_aprove"/>
+                      <field name="employee_id"/>
+                      <field name="contract_id"/>
+                      <field name="total_provision" sum="Total Amount"/>      
+                      <field name="wk_years"/>
+                      <field name="value_year"/>
+                      <field name="iess_vac"/>
+                      <field name="advance" sum="Advance"/>   
+                      <field name="total_amount_provision" sum ="Total Provision"/>
+                      <field name="retention" sum="Retention"/>             
+                      <field name="amount_total" sum="Total"/>
+                      <field name="type" required="1" />
+                      <field name="mode_id" required="1" />
+                      <field name="bank_account_id" /> 
+                      <field name="partner_id" invisible ="1" />   
+                  </tree>
+              </field>
+         </record>
+         
+         <record model="ir.ui.view" id="pay_provision_line_form_view">
+              <field name="name">hr.pay.provision.line.form</field>
+              <field name="model">hr.pay.provision.line</field>
+              <field name="type">form</field>
+              <field name="arch" type="xml">
+                  <form string="Provision Line">
+                      <field name="pay_provision_id" invisible="1" />
+                      <field name="employee_id" required="1" on_change="bank_account_change(mode_id,employee_id)"/>
+                      <field name="contract_id" required="1" domain="[('employee_id','=',employee_id)]"/>
+                      <field name="total_provision"/>
+                      <field name="advance"/>
+                      <field name="total_amount_provision"/>
+                      <field name="retention"/>
+                      <field name="wk_years"/>
+                      <field name="value_year"/>
+                      <field name="iess_vac"/>
+                      <field name="amount_total"/>
+                      <field name="type"  />
+                      <field name="mode_id" on_change="bank_account_change(mode_id,employee_id)" domain="[('only_payment','=', True)]"/>
+                      <field name="partner_id" invisible ="1" /> 
+                      <field name="bank_account_id"/> 
+                      <field name="move_line_id"/>
+                      <field name="check_id"/>
+                      <field name="pay_aprove"/>
+                      <field name="move_line_ids" widget="many2many" colspan="4" nolabel="1" domain="[('partner_id','=',employee_id.partner_id.id),('reconcile_id','=',False)]">
+	                      <tree string="Move Lines">
+	                      	<field name="name"/>
+	                      	<field name="partner_id"/>
+	                      	<field name="account_id"/>
+	                      	<field name="date"/>
+	                      	<field name="period_id"/>
+	                      	<field name="move_id"/>
+	                      	<field name="debit" sum ="total debit"/>
+	                      	<field name="credit" sum ="total credit"/>
+	                      </tree>
+                      </field>
+                  </form>
+              </field>
+         </record>
+         
+         
+         <record model="ir.ui.view" id="hr_pay_provision_tree_view">
+              <field name="name">hr.pay.provision.tree</field>
+              <field name="model">hr.pay.provision</field>
+              <field name="type">tree</field>
+              <field name="arch" type="xml">
+                  <tree string="Pay Provision">
+                      <field name="provision_id"/>
+                      <field name="date_from"/>
+                      <field name="date_to"/>
+                      <field name="company_id"/>
+                      <field name="journal_id"/>
+                      <field name="state"/>
+                  </tree>
+              </field>
+         </record>
+         
+    	<record id="hr_pay_provision_form" model="ir.ui.view">
+            <field name="name">hr.pay.provision.form</field>
+            <field name="model">hr.pay.provision</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pay Provision">
+              		<field name="company_id" readonly="0" /> <!-- on_change="onchange_date(region_id,provision_id,company_id,date_from,date_to,partner_id,period_id,journal_id)" -->
+              		<field name="region_id" attrs="{'invisible':[('check','=',False)], 'required':[('check','=',True)]}"/>	
+                    <field name="provision_id" required="1" domain="[('company_id','=',company_id)]" on_change="onchange_provision(provision_id)"/>
+                    <field name="reference"/>
+                    <field name="date_from" required="0"/>
+                    <field name="date_to" required="0"/>
+                    <field name="partner_id" invisible = "1"/>
+                    <field name="journal_id" readonly = "0" required="1" domain="[('type','=','salary_employee'),('company_id','=',company_id)]" />
+                    <field name="period_id" required="1" domain="[('company_id','=',company_id)]" />
+                    <field name="employee_id" attrs="{'invisible':[('check','=',True)]}"/>                 
+                    <field name="check" invisible="1"/>
+                    <notebook colspan="4">
+                        <page string="Pay Provision Line">
+	                        <field name="line_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Otra Información" attrs="{'invisible':[('state','=','draft')]}">
+	                        <separator string="Information Account" colspan="4"/>
+	                        <group colspan="4">
+		                        <field name="move_id" readonly="1"/>
+		                        <field name="total_amount"/>
+		                        <field name="debit_note_id"/>
+	                        </group>
+	                        <group colspan="4">
+		                        <group colspan="4" >
+	                        		<separator string="Generate File" colspan="4"/>
+	                        		<newline/>
+			                        <field name="name" invisible="1"/>
+			                        <field name="data" nolabel="1"/>
+		                        </group>
+		                     </group>
+                        </page>
+                        
+                        <page string="Pagos" attrs="{'invisible':[('state','!=','paid')]}">
+	                        <field name="moves_ids" colspan="4" nolabel="1" readonly="1" widget="many2many" domain="[('state','!=','cancel')]">
+                            </field>
+                        </page>
+                        
+                        <page string ="Egresos">
+                            <field name="debit_note_ids" colspan="4" nolabel="1" readonly="1" widget="many2many">
+                            </field>
+                        </page>                        
+                    </notebook>
+                    <group col="6" colspan="4">
+                        <field name="state" widget="statusbar"/>
+                        <newline/>
+                        <button name="%(pay_provision_report)d" string="Print Pay Provision" type="action" icon="gtk-print" states="paid"/>	             
+                        <button name="get_employee_ids" type="object" icon="gtk-execute" string="Generate Pay Provision" states="draft"/>
+                        <button name="close_pay_provision" type="object" icon="terp-camera_test" string="Aprobar Provisión" states="draft"/>
+                        <button name="pay_provision" type="object" icon="terp-camera_test" string="Approve Pay Provision" states="close"/>
+                        <button string="Set to Draft" icon="terp-stock_effects-object-colorize" name="draft_pay_provision_run" type="object" states="close"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_hr_pay_provision_view">
+                <field name="name">Provision Pay</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.pay.provision</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="hr_pay_provision_tree_view"/>
+        </record>
+
+<!-- ADVANCE PROVISION -->   
+       	<record model="ir.ui.view" id="provision_advance_line_tree_view">
+              <field name="name">hr.provision.advance.line.tree</field>
+              <field name="model">hr.provision.advance.line</field>
+              <field name="type">tree</field>
+              <field name="arch" type="xml">
+                  <tree string="Provision Line">
+                  	  <field name="provision_advance_id" invisible="1"/>
+                      <field name="employee_id"/>
+                      <field name="contract_id"/>
+                      <field name="value" required="1" /> 
+                      <field name="total_amount" invisible="0"/>
+                      <field name="partner_id" invisible="1"/>
+                      <field name="mode_id" domain="[('company_id','=',company_id)]"/>
+                      <field name="bank_account_id"/> 
+                  </tree>
+              </field>
+         </record>
+        
+        <record model="ir.ui.view" id="provision_advance_line_form_view">
+              <field name="name">hr.provision.advance.line.form</field>
+              <field name="model">hr.provision.advance.line</field>
+              <field name="type">form</field>
+              <field name="arch" type="xml">
+                  <form string="Provision Line">
+                      <field name="provision_advance_id" invisible="1" />
+                      <field name="employee_id" required="1"/>
+                      <field name="contract_id" required="1" domain="[('employee_id','=',employee_id)]"/>
+                      <field name="total_amount" invisible ="0"/>
+                      <field name="value"/>
+                      <field name="mode_id" on_change="bank_account_change2(mode_id,employee_id)" domain="[('only_payment','=', True)]"/>
+                      <field name="partner_id" invisible="1"/>
+                      <field name="bank_account_id"/>
+                      <field name="move_line_id"/>
+                      <field name="check_id"/>
+                      <separator string="Move Lines" colspan="4"/>
+                      <field name="move_line_ids" widget="many2many" colspan="4" nolabel="1" domain="[('partner_id','=',employee_id.partner_id.id),('reconcile_id','=',False)]">
+	                      <tree string="Move Lines">
+	                      	<field name="name"/>
+	                      	<field name="partner_id"/>
+	                      	<field name="account_id"/>
+	                      	<field name="date"/>
+	                      	<field name="period_id"/>
+	                      	<field name="move_id"/>
+	                      	<field name="debit" sum ="total debit"/>
+	                      	<field name="credit" sum ="total credit"/>
+	                      </tree>
+                      </field>
+                  </form>
+              </field>
+         </record>
+       
+         <record model="ir.ui.view" id="hr_provision_adv_tree_view">
+              <field name="name">hr.provision.advance.tree</field>
+              <field name="model">hr.provision.advance</field>
+              <field name="type">tree</field>
+              <field name="arch" type="xml">
+                  <tree string="Provision Advance">
+                      <field name="adv_provision_id"/>
+                      <field name="date_from"/>
+                      <field name="date_to"/>
+                      <field name="company_id"/>
+                      <field name="journal_id"/>
+                      <field name="state"/>
+                  </tree>
+              </field>
+         </record>
+        
+        <record id="hr_provision_adv_form" model="ir.ui.view">
+            <field name="name">hr.provision.advance.form</field>
+            <field name="model">hr.provision.advance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Provision Advance">
+              		<field name="company_id" readonly="0" />
+              		<field name="region_id"  required="1" />	
+                    <field name="adv_provision_id" required="1" domain="[('company_id','=',company_id)]" />
+                    <field name="ref"/>
+                    <field name="date_from" required="0" />
+                    <field name="date_to" required="0" />
+                    <field name="partner_id" invisible="1" readonly = "0" />
+                    <field name="journal_id" required="1" domain="[('type','=','salary_employee'),('company_id','=',company_id)]" />
+                    <field name="period_id" required="1" domain="[('company_id','=',company_id)]" />  
+                    <notebook colspan="4">
+                        <page string="Provision Advance Line">
+	                        <field name="lines_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Generate Pay" attrs="{'invisible':[('state','=','draft')]}">
+	                        <separator string="Information Account" colspan="4"/>
+	                        <group colspan="4">
+		                        <field name="move_id" readonly="1"/>
+	                        </group>
+                        </page>
+                        <page string="Pago Aprobado" attrs="{'invisible':[('state','!=','paid')]}">
+	                        <separator string="Information Account" colspan="4"/>
+	                        <group colspan="4">
+		                        <field name="move_id2" readonly="1"/>
+	                        </group>
+		                </page>
+		                <page string="Pay Checks" attrs="{'invisible':[('state','!=','paid')]}">
+	                        <field name="check_ids" colspan="4" nolabel="1">
+		                        <tree string="Checks">
+		                        	<field name="name" invisible="0"/>
+		                        	<field name="partner_id"/>
+		                    		<field name="bank_id" height="30" invisible="0"/>
+		                    		<field name="bank_account_id" invisible="0" />
+		                    		<field name="amount" sum="Total amount"/>
+		                    		<field name="deposit_date"/>
+		                    		<field name="type" invisible="1"/>
+		                    		<field name="authorization_credit" invisible="1"/>
+		                    		<field name="state"/>
+		                    	</tree>
+	                        </field>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="4">
+                        <field name="state" widget="statusbar"/>	             
+                        <button name="get_employee_ids" type="object" icon="gtk-execute" string="Generate Pay Provision" states="draft"/>
+                        <button name="close_pay_provision_advance" type="object" icon="terp-camera_test" string="Approve Pay Provision" states="draft"/>
+                        <button name="pay_provision_advance" type="object" icon="terp-camera_test" string="Pay Provision Advance" states="close"/>
+                        <button string="Set to Draft" icon="terp-stock_effects-object-colorize" name="draft_provision_advance_run" type="object" states="close,paid"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+                
+        <record model="ir.actions.act_window" id="action_hr_provision_adv_view">
+                <field name="name">Provision Advance</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.provision.advance</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="hr_provision_adv_tree_view"/>
+        </record>
+    
+    
+    </data>
+</openerp>

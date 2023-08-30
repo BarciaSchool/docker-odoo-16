@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<record id="view_account_tree_month" model="ir.ui.view">
+			<field name="name">Lista de Cuentas</field>
+			<field name="model">account.chart.month</field>
+			<field name="type">tree</field>
+			<field name="field_parent">child_id</field>
+			<field name="arch" type="xml">
+				<tree colors="blue:type == 'view';black:type in ('other','receivable','payable','consolidation');gray:type == 'closed'"
+					string="Chart of accounts" toolbar="1">
+					<field name="code" />
+					<field name="name" />
+					<field name="month_01" />
+					<field name="month_02" />
+					<field name="month_03" />
+					<field name="month_04" />
+					<field name="month_05" />
+					<field name="month_06" />
+					<field name="month_07" />
+					<field name="month_08" />
+					<field name="month_09" />
+					<field name="month_10"/>
+					<field name="month_11"/>
+					<field name="month_12"/>
+					<field name="company_currency_id" />
+					<field name="company_id" groups="base.group_multi_company" />
+					<field name="type" />
+					<field name="parent_id" invisible="1" />
+				</tree>
+			</field>
+		</record>
+		<record id="action_account_tree_month" model="ir.actions.act_window">
+			<field name="name">Lista de Cuentas</field>
+			<field name="res_model">account.chart.month</field>
+			<field name="view_type">tree</field>
+			<field name="view_id" ref="view_account_tree_month" />
+			<field name="domain">[('parent_id','=',False)]</field>
+		</record>
+
+	</data>
+</openerp>

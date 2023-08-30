@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="res_user_sales_form_inherit">
+            <field name="name">res.users.sales.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_salesman.res_user_salesman_form_view" />
+            <field name="arch" type="xml">
+	            <field name="is_supervisor" position="replace">
+	            	<newline/>
+	            	<field name="is_supervisor"/>
+	                <field name="authorization" attrs="{'invisible':[('is_supervisor','!=',True)], 'required':[('is_supervisor','=',True)]}" password="True"/>
+	                <newline/>
+	            </field>
+	            <field name="is_seller" position="after">
+	                <field name="changed_prices" attrs="{'invisible':[('is_seller','!=',True)], 'required':[('is_seller','=',True)]}" />
+					<newline/>
+	                <field name="changed_discount" attrs="{'invisible':[('is_seller','!=',True)], 'required':[('is_seller','=',True)]}" />
+	                <field name="max_discount" attrs="{'invisible':[('is_seller','!=',True)], 'required':[('is_seller','=',True)]}" />
+	                <newline/>
+	                <field name="changed_offer" attrs="{'invisible':[('is_seller','!=',True)], 'required':[('is_seller','=',True)]}" />
+	                <field name="max_offer" attrs="{'invisible':[('is_seller','!=',True)], 'required':[('is_seller','=',True)]}" />
+	                <newline/>                            
+	            </field>
+            </field>
+        </record>        
+    </data>
+</openerp>

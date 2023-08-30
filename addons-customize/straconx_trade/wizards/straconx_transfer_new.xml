@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_stock_wizard_transfer_form">
+			<field name="name">Crear Transferencia a otra Bodega</field>
+			<field name="model">stock.wizard.transfer</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Crear Transferencia a otra Bodega">
+					<group width="150" height="150">
+						<label colspan="4" string="Está acción crea una Solicitud de Transferencia con todos los productos que se encuentren en la importación para que pueda ser enviado a otras bodegas o Tiendas"/>	
+						<newline/>
+						<field name="location_dest_id" required="1" domain="[('usage','=','internal')]"/>
+						<newline/>
+						<group colspan="2">
+							<button special="cancel" string="_Cancel" icon='gtk-cancel'/>
+	                    	<button name="create_transfer" string="Crear Transferencia" type="object" icon="terp-gtk-go-back-rtl"/>
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_stock_wizard_transfer_form" model="ir.actions.act_window">
+			<field name="name">Crear Transferencia a otra Bodega</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.wizard.transfer</field>
+			<field name="view_id" ref="view_stock_wizard_transfer_form"/>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+    
+        <act_window name="Crear Transferencia a otra Bodega"
+            groups ="base.group_document_manager,purchase.group_purchase_user,purchase.group_purchase_manager,stock.group_stock_user,stock.group_stock_manager"
+            res_model="stock.wizard.transfer"
+            src_model="stock.picking"
+            view_mode="form"
+            domain="[('type','=','in')]"
+            target="new"
+            context="{'active_id':active_id}"
+            key2="client_action_multi"
+            id="act_stock_wizard_transfer"/>
+            
+      
+    </data>
+</openerp>

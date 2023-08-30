@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account.view_account_chart" model="ir.ui.view">
+            <field name="name">account.chart.form</field>
+            <field name="model">account.chart</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Account charts">
+                    <group colspan="4">
+                        <field name="company_id" on_change="onchange_fiscalyear(fiscalyear,company_id)" required="1" colspan="4"/>
+                        <newline/>
+                        <field name="fiscalyear" on_change="onchange_fiscalyear(fiscalyear,company_id)" required="1" domain="[('company_id','=',company_id)]"/>
+                        <field name="target_move"/>
+                        <separator string="Periods" colspan="4"/>
+                        <field name="period_from" required="1" domain="[('fiscalyear_id','=',fiscalyear)]"/>
+                        <field name="period_to" required="1" domain="[('fiscalyear_id','=',fiscalyear)]"/>
+                    </group>
+                    <separator string="" colspan="4"/>
+                    <group colspan="4" col="6">
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="terp-gtk-go-back-rtl" string="Open Charts" name="account_chart_open_window" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

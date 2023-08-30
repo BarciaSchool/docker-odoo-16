@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <!--Partner Search-->
+
+       <record id="view_res_partner_filter_straconx" model="ir.ui.view">
+            <field name="name">Search Partners</field>
+            <field name="model">res.partner</field>
+            <field name="type">search</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                   <group col='10' colspan='4'>
+                        <filter string="Customers" name="customer" icon="terp-personal" domain="[('customer','=',1)]" help="Customer Partners" />
+                        <filter string="Suppliers" name="supplier" icon="terp-personal" domain="[('supplier','=',1)]" help="Supplier Partners" groups="purchase.group_purchase_user, account.group_account_user" />
+                        <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="comercial" select="1"/>
+                        <field name="vat" select="1" attrs="{'readonly': [('active2','=',False)]}"/>
+                        <field name="salesman_id" widget="selection" groups="base.group_sale_salesman,base.group_phone_manager"/>
+                        <field name="estado_id" select="2"/>
+                   <newline />
+                        <field name="city" select="1"/>
+                        <field name="codant" select="1"/>
+                        <field name="segmento_id" select="2"/>
+                   </group>
+                   <newline />
+                   <group expand="0" string="Group By...">
+                       <filter string="Salesman" icon="terp-personal" domain="[]" context="{'group_by' : 'salesman_id'}" />
+                       <filter string="Segment" icon="terp-stock" domain="[]" context="{'group_by' : 'segmento_id'}" />
+                       <filter string="Credit State" icon="terp-personal" domain="[]" context="{'group_by' : 'estado_id'}"/>
+                   </group>
+               </search>
+            </field>
+        </record>
+
+<!--Partner Tree-->
+        
+        <record id="view_partner_tree_straconx" model="ir.ui.view">
+            <field name="name">Partner Lists</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Partners">
+                    <field name="name"/>
+                    <field name="comercial"/>
+                    <field name="vat"/>
+                    <field name="segmento_id"/>
+                    <field name="salesman_id"/>
+                    <field name="street"/>
+                    <field name="phone"/>
+                    <field name="city"/>
+                    <field name="estado_id"/>
+                    <field name="credit_limit"/>
+                    <field name="credit"/>
+                    <field name="codant"/>
+                </tree>
+            </field>
+        </record> 
+
+    <!--Partner Form-->
+        <record id="view_partner_form_straconx" model="ir.ui.view">
+            <field name="name">POS Customer</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+            <form string="Partners" col='6'>
+            	<field name="vat" on_change="vat_change(vat)" required="True" select="1" colspan="4" default_focus="1" attrs="{'readonly': [('active2','=',False)]}"/>
+            	<group colspan="6" attrs="{'invisible':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}">
+                 	<field name="name" select="1" required="1"/>
+                </group>
+				<group colspan="6" attrs="{'invisible':[('type_vat','not in',('ci','passport')),('shortcut_company','not in',('NP','FC'))]}">
+                 	<field name="last_name" colspan="2" attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="mother_last_name" colspan="2" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="first_name" colspan="2" attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="second_name" colspan="2" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="name1" colspan="4"/>
+                </group>
+                 <newline/>
+                 <field name="codant" readonly="1" invisible="1"/>
+                 <newline/>
+                 <field name="type_vat" invisible="1"/>
+                 <field name="approb" invisible="1"/>
+                 <field name="origin" invisible="1"/>
+                 <field name="type_company_id" on_change="on_change_type_company_id(type_company_id)" invisible="1"/>
+                 <field name="shortcut_company" invisible="1"/>
+                 <newline/>
+                 <field name="segmento_id" widget="selection"/>
+                 <field name="segmento_category_id"  widget="selection"/>
+                 <field name="property_product_pricelist" readonly="1"  invisible="1"  widget="selection"/>
+                 <newline/>
+                 <field name="property_account_position" colspan="4"  widget="selection" />
+                 <field name="property_payment_term" widget="selection"  readonly="1"  invisible="1"/>
+                 <notebook colspan="4">
+                    <page string="General">
+                        <field name="address" mode="form,tree" colspan="4" nolabel="1" select="1" required="1">
+                            <form string="Address">
+                                <group colspan="4" col="6">
+                                <field name="name" />
+                                </group>
+                                <newline/>
+                                      <group colspan="2" col="4">
+                                        <separator string="Postal Address" colspan="4" col="4"/>
+                                        <field name="type" string="Type" colspan="2" required="1" />
+                                        <field name="street" colspan="4" required="1" />
+                                        <field name="location_id" colspan="4" required="1" />
+                                        <field name="parish" colspan="4" />
+                                        <field name="sector" colspan="4" />
+                                     </group>
+                                     <group colspan="2" col="2">
+                                        <separator string="Communication" colspan="2" col="2" />
+                                        <field name="phone" />
+                                        <field name="phone2" />
+                                        <field name="mobile" />
+                                        <field name="fax" />
+                                        <field name="email" widget="email" required="1" on_change="onchange_email(email)"/>
+                                     </group>
+                                     <newline/>
+                                     <group colspan="4" col="4">
+                                     <separator string="Assigned Users" colspan="4" col="4"/>
+                                     <field name="salesman_assigned" colspan="2" readonly="0"/>
+                                     <field name="collect_assigned" colspan="2" readonly="0"/>
+                                     </group>
+                                     <newline/>
+									<field name="contact_ids" mode="tree,form" nolabel="1"
+										colspan="4">
+										<tree string="Contacts">
+											<field name="name" />
+											<field name="first_name" />
+											<field name="vat" />
+											<field name="title" widget="selection" />
+											<field name="mobile" />
+											<field name="email" />
+											<field name="lang_id" />
+											<field name="partner_id" invisible="1" />
+											<field name="country_id" />
+										</tree>
+									</field>
+                             </form>
+                            <tree string="Addresses">
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="street"/>
+                                <field name="location_id"/>
+                                <field name="phone"/>
+                                <field name="email"/>                               
+                            </tree>
+                        </field>
+                    </page>   
+                    <page string="General Information" groups="base.group_sale_manager,base.group_phone_manager,base.group_pos_manager">
+                    <group col="4" colspan="4">
+                        <separator string="Partner Status" colspan="4"/>
+                            <group col="8" colspan="4">
+                            <field name="customer" readonly="1"/>
+                            <field name="supplier" readonly="1"/>
+                            <field name="active" readonly="1"/>
+                            <field name="active2" invisible="1"/>
+                            <field name="vat_subjected" invisible="1"/>
+                            </group>
+                        <separator string="Comercial Information" colspan="4"/>
+                            <field name="clasev_id" readonly="1"/>
+                            <field name="clasec_id" readonly="1"/>
+                            <field name="actcomercial" readonly="1"/>
+                 			<field colspan="2" name="estado_id" readonly="1"  invisible="1"/>
+                            <field name="payment_type_customer" readonly="1"/>
+                            <field name="datecom" readonly="1"/>
+                            <field name="date" string="Customer since"  readonly="1"/>
+                            <field name="lang" required="True" readonly="1"/>
+                    </group>
+                    </page> 
+                 </notebook>
+            </form>
+            </field>
+        </record>
+
+    
+    <!--Partner Actions-->
+
+        <record id="base.action_partner_form" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="context">{"search_default_customer":1}</field>
+            <field name="search_view_id" ref="view_res_partner_filter_straconx"/>
+            <field name="help">A customer is an entity you do business with, like a company or an organization. A customer can have several contacts or addresses which are the people working for this company. You can use the history tab, to follow all transactions related to a customer: sales order, emails, opportunities, claims, etc. If you use the email gateway, the Outlook or the Thunderbird plugin, don't forget to register emails to each contact so that the gateway will automatically attach incoming emails to the right partner.</field>
+        </record>
+                         
+	<!-- For compability propose, change priority  -->
+	
+		<record id="base.view_partner_tree" model="ir.ui.view">
+			<field name="name">res.partner.tree</field>
+			<field name="model">res.partner</field>
+			<field name="type">tree</field>
+			<field eval="18" name="priority" />
+			<field name="arch" type="xml">
+				<tree string="Partners">
+					<field name="name" />
+					<field name="ref" invisible="1"/>
+					<field name="phone" />
+					<field name="email" />
+					<field name="city" />
+					<field name="country" />
+					<field name="user_id" />					
+					<field name="salesman_id" />
+					<field name="segmento_id" />					
+					<field name="estado_id" />
+				</tree>
+			</field>
+		</record>
+	
+		<record id="base.view_partner_form" model="ir.ui.view">
+			<field name="name">res.partner.form</field>
+			<field name="model">res.partner</field>
+			<field eval="18" name="priority" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Partners" col='6'>
+					<field name="vat" on_change="vat_change(vat)" required="True"
+						select="1" colspan="4" default_focus="1" readonly="1"/>
+					<group colspan="6"
+						attrs="{'invisible':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}">
+						<field name="name" select="1" required="1" readonly="1"/>
+					</group>
+					<group colspan="6"
+						attrs="{'invisible':[('type_vat','not in',('ci','passport')),('shortcut_company','not in',('NP','FC'))]}">
+						<field name="last_name" colspan="2" readonly="1"
+							attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}"
+							on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" />
+						<field name="mother_last_name" colspan="2" readonly="1"
+							on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" />
+						<field name="first_name" colspan="2" readonly="1"
+							attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}"
+							on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" />
+						<field name="second_name" colspan="2" readonly="1"
+							on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" />
+						<field name="name1" colspan="6"  readonly="1"/>
+					</group>
+					<newline />
+					<field name="ref" invisible="1"/>
+                    <field domain="[('domain', '=', 'partner')]" name="title" invisible="1"/>
+                    <field name="lang" invisible="1"/>
+					<field name="comercial" colspan="4" readonly="1" invisible="1" />
+					<field name="codant" readonly="1" invisible="1" />
+					<newline />
+					<field name="type_vat" invisible="1" />
+					<field name="origin" invisible="1" />
+					<field name="shortcut_company" invisible="1"  readonly="1"/>
+					<newline />
+					<field name="segmento_id" readonly="1" invisible="0" />
+					<field name="segmento_category_id" readonly="1" />
+					<notebook colspan="4">
+						<page string="General">
+							<field name="address" mode="form,tree" colspan="4" nolabel="1"
+								select="1" required="1" attrs="{'readonly':[('approb','=',True)]}">
+								<form string="Address">
+									<group colspan="4" col="6">
+										<field name="name" attrs="{'readonly':[('approb','=',True)]}" />
+									</group>
+									<newline />
+									<group colspan="2" col="4">
+										<separator string="Postal Address" colspan="4" col="4" />
+										<field name="type" string="Type" colspan="2" required="1"
+											attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="street" colspan="4" required="1"
+											attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="parish" colspan="4"
+											attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="sector" colspan="4"
+											attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="location_id" colspan="4" required="1"
+											attrs="{'readonly':[('approb','=',True)]}" />
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Communication" colspan="2" col="2" />
+										<field name="phone" attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="phone2" attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="mobile" attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="fax" attrs="{'readonly':[('approb','=',True)]}" />
+										<field name="email" widget="email"
+											attrs="{'readonly':[('approb','=',True)]}" />
+									</group>
+									<newline />
+									<group colspan="4" col="4">
+										<separator string="Assigned Users" colspan="4" col="4" />
+										<field name="salesman_assigned" colspan="2" readonly="1" />
+										<field name="collect_assigned" colspan="2" readonly="1" />
+									</group>
+									<newline />
+									<field name="contact_ids" mode="tree,form" nolabel="1"
+										colspan="4">
+										<tree string="Contacts">
+											<field name="name" />
+											<field name="first_name" />
+											<field name="vat" />
+											<field name="title" widget="selection" />
+											<field name="mobile" />
+											<field name="email" />
+											<field name="lang_id" />
+											<field name="partner_id" invisible="1" />
+											<field name="country_id" />
+										</tree>
+									</field>
+								</form>
+								<tree string="Addresses">
+									<field name="name" />
+									<field name="type" />
+									<field name="street" />
+									<field name="location_id" />
+									<field name="phone" />
+									<field name="email" />
+								</tree>
+							</field>
+							<group  groups="base.group_extended">
+                                    <separator colspan="4" string="Categories"/>
+                                    <field  colspan="4" name="category_id" nolabel="1"/>
+                            </group>
+						</page>
+						<page string="General Information"
+							groups="base.group_sale_manager,base.group_phone_manager,base.group_pos_manager">
+							<group col="4" colspan="4">
+								<separator string="Partner Status" colspan="4" />
+								<group col="8" colspan="4">
+									<field name="customer" readonly="0" />
+									<field name="supplier" readonly="1" />
+									<field name="vat_subjected" invisible="1" />
+								</group>
+								<separator string="Comercial Information" colspan="4" />
+								<field name="clasev_id" readonly="1" />
+								<field name="clasec_id" readonly="1" />
+								<field name="actcomercial" readonly="1" />
+								<field colspan="2" name="estado_id" readonly="1" invisible="1" />
+								<field name="datecom" readonly="1" />
+							</group>
+						</page>
+						<page string="Sales &amp; Purchases" groups="base.group_extended">
+                            <separator string="General Information" colspan="4"/>
+                            <field name="user_id"/>
+                            <field name="active" groups="base.group_extended"/>
+                            <field name="website" widget="url"/>
+                            <field name="date"/>
+                            <field name="parent_id" groups="base.group_extended"/>
+                            <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                            <newline/>
+                        </page>
+						<page string="History" groups="base.group_extended" invisible="True">
+                        </page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<record id="strx_view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+            	<field name="ref" position="replace"/>
+            	<field name="title" position="replace"/>
+            	<field name="lang" position="replace"/>
+            	<field name="property_account_payable" position="after">
+                    <field name="ref"/>
+            		<field name="title"/>
+            		<field name="lang"/>
+                </field>
+            </field>
+        </record>
+
+       <record id="base.view_res_partner_filter" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field eval="18" name="priority"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                   <group col='10' colspan='4'>
+                        <filter string="Customers" name="customer" icon="terp-personal" domain="[('customer','=',1)]" help="Customer Partners"/>
+                        <filter string="Suppliers" name="supplier" icon="terp-personal" domain="[('supplier','=',1)]" help="Supplier Partners"/>
+                        <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="address" select="1"/>
+                        <field name="country" select="1"/>
+                        <field name="category_id" select="1" groups="base.group_extended"/>
+                        <field name="user_id" select="1">
+                            <filter string="My Partners" icon="terp-personal+" domain="[('user_id','=',uid)]"/>
+                        </field>
+                   </group>
+                   <newline />
+                   <group expand="0" string="Group By...">
+                       <filter string="Salesman" icon="terp-personal" domain="[]" context="{'group_by' : 'user_id'}" />
+                   </group>
+               </search>
+            </field>
+        </record>
+</data>
+</openerp>

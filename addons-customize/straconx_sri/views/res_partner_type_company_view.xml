@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="partner_type_company_search_view" model="ir.ui.view">
+	            <field name="name">type.company.search</field>
+	            <field name="model">res.partner.type.company</field>
+	            <field name="type">search</field>
+	            <field name="arch" type="xml">
+	                <search string="Type Company">
+                        <field name="name"/>
+                        <field name="shortcut"/>
+	                </search>
+	            </field>
+	        </record>
+            <record model="ir.ui.view" id="partner_type_company_tree_view">
+                <field name="name">type.company.tree</field>
+                <field name="model">res.partner.type.company</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Type Company">
+                        <field name="name"/>
+                        <field name="shortcut"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="partner_type_company_form_view">
+                <field name="name">type.company.form</field>
+                <field name="model">res.partner.type.company</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Type Company">
+                        <field name="name"/>
+                        <field name="shortcut"/>
+                    </form>
+                </field>
+            </record>
+            
+            <record model="ir.actions.act_window" id="action_partner_type_company_view">
+                <field name="name">Type Company</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner.type.company</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="partner_type_company_search_view"/>
+            </record>
+            
+            <record id="action_partner_type_company_view_tree" model="ir.actions.act_window.view">
+	            <field eval="1" name="sequence"/>
+	            <field name="view_mode">tree</field>
+	            <field name="view_id" ref="partner_type_company_tree_view"/>
+	            <field name="act_window_id" ref="action_partner_type_company_view"/>
+	        </record>
+	
+	        <record id="action_partner_type_company_view_form" model="ir.actions.act_window.view">
+	            <field eval="2" name="sequence"/>
+	            <field name="view_mode">form</field>
+	            <field name="view_id" ref="partner_type_company_form_view"/>
+	            <field name="act_window_id" ref="action_partner_type_company_view"/>
+	        </record>
+    
+    
+    
+    </data>
+</openerp>

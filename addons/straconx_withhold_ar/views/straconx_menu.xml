@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    <menuitem id="withhold_menu" name="Withhold" parent="account.menu_finance" />
+    
+    <menuitem 
+    name="Sales Withhold" 
+    id="withhold_sales"
+	parent="withhold_menu" 
+	action="action_account_withhold_sale" />
+    
+    <menuitem 
+    name="Purchase Withhold" 
+    id="withhold_purchase"
+	parent="withhold_menu" 
+	action="action_account_withhold_purchase" />
+
+    <menuitem 
+    name="Retenciones Recaps" 
+    id="withhold_recaps"
+	parent="withhold_menu" 
+	action="action_account_withhold_recaps" />
+
+	<menuitem 
+    name="Retenciones ISD" 
+    id="withhold_isd"
+	parent="withhold_menu" 
+	action="action_account_withhold_isd" />
+
+
+<!--    <menuitem -->
+<!--    name="Lines Withhold Sales" -->
+<!--    id="withhold_lines_sales" -->
+<!-- 	parent="withhold_menu" -->
+<!-- 	action="action_account_withhold_lines_search_tree"/> -->
+	
+<!--    <menuitem -->
+<!--    name="Lines Withhold Purchase" -->
+<!--    id="withhold_lines_purchase" -->
+<!-- 	parent="withhold_menu" -->
+<!-- 	action="action_account_withhold_lines_search_tree_purchase"/> -->
+	
+	<menuitem
+           name="Withhold"
+           id="credit_risk_withhold"
+           parent="straconx_partners.menu_financial_risk"
+           sequence="8"/>
+  
+<!--    <menuitem -->
+<!-- 	    name="Withhold of Sales" -->
+<!-- 	    id="withhold_sales_credit_risk" -->
+<!-- 		parent="credit_risk_withhold" -->
+<!-- 		action="action_account_withhold_sale" -->
+<!-- 		sequence="1"/> -->
+
+        <menuitem name="Exportar TXT"
+            id="menu_wizard_afip_txt_export" parent="account.final_accounting_reports" 
+            sequence="3"/>              
+        <menuitem name="Datos Retenciones Exportar TXT" action="action_wizard_afip_export"
+            id="menu_wizard_supplier_txt_export" parent="menu_wizard_afip_txt_export" 
+            sequence="3"/>   
+        <menuitem name="Retenciones Exportar TXT" action="action_wizard_afip_files_export"
+            id="menu_wizard_supplier_txt_export_2" parent="menu_wizard_afip_txt_export" 
+            sequence="2"/>  
+    </data>
+</openerp>

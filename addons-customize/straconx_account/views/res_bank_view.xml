@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="base.view_res_bank_tree" model="ir.ui.view">
+			<field name="name">res.bank.tree</field>
+			<field name="model">res.bank</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Banks">
+					<field name="name" />
+					<field name="country" />
+					<field name="bic" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="view_res_bank_emisor" model="ir.ui.view">
+			<field name="name">Credit Card Emisor</field>
+			<field name="model">res.bank.emisor</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Emisor">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="action_res_bank_emisor" model="ir.actions.act_window">
+			<field name="name">Emisor</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.bank.emisor</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+
+		</record>
+
+        <!-- Res Partner Bank -->
+        
+        <record model="ir.ui.view" id="view_partner_form5">
+	        <field name="name">Bank Form</field>
+	        <field name="model">res.partner.bank</field>
+	        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+	        <field name="arch" type="xml">
+	            <field name="bank" position="replace">
+	            	<field name="bank" required="1"/>
+	                <field name="type_account_bank" widget="selection" required="1" on_change="onchange_emisor(state)"/>
+	            </field>
+	            <field name="state" position="replace">
+	            	<field name="state" required="1" on_change="onchange_emisor(state)"/>
+	            </field>
+	        </field>
+    	</record>
+
+    <record id="view_partner_bank_emisor_tree" model="ir.ui.view">
+        <field name="name">Partner Bank Emisor Tree</field>
+        <field name="model">res.partner.bank</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="base.view_partner_bank_tree"/>
+        <field name="arch" type="xml">
+            <field name="acc_number" position="after">
+                <field name="type_account_bank"/>
+            </field>
+        </field>
+    </record>
+
+	</data>
+</openerp>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+
+<!-- DIARIOS CONTABLES -->
+
+
+		<record model="account.journal.type" id="salary_employee">
+			<field name="name">salary_employee</field>
+			<field name="code">salary_employee</field>
+		</record>
+
+		<record model="account.journal.type" id="discount_employee">
+			<field name="name">discount_employee</field>
+			<field name="code">discount_employee</field>
+		</record>
+
+		<record id="diario_salary_empleado" model="account.journal">
+			<field name="code">SEMP</field>
+			<field name="name">Salario de Empleados</field>
+			<field name="view_id">3</field>
+			<field name="type">salary_employee</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale" />
+			<field name="update_posted" eval="True" />
+		</record>
+
+		<record id="diario_descuento_empleado" model="account.journal">
+			<field name="code">DEMP</field>
+			<field name="name">Descuento Empleados</field>
+			<field name="view_id">3</field>
+			<field name="type">discount_employee</field>
+			<field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale" /> 
+			<field name="update_posted" eval="True" />
+		</record>
+
+
+	</data>
+</openerp>

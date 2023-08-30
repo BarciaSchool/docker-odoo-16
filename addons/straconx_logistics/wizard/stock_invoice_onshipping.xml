@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="stock.view_stock_invoice_onshipping" model="ir.ui.view">
+            <field name="name">Delivery Note</field>
+            <field name="model">stock.invoice.onshipping</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+              <form string="Create Invoice Final">
+                    <separator colspan="4" string="Create Invoice Final" />
+                    <newline/>  
+                    <field name="journal_id" domain="[('company_id','=',company_id)]"/>
+                    <newline/>           
+                    <field name="invoice_date2" readonly="1"/>
+                    <newline/>           
+                    <field name="group"/>
+                    <newline/>                    
+                    <field name="flag" invisible="1"/>
+                    <field name="no_driver" invisible="1"/>
+                    <separator string="Internal Info" colspan="1" />
+                    <newline/>
+                    <field name="warehouse_user" attrs="{'required':[('flag','=',True)]}"/>
+                    <newline/>           
+                    <field name="driver_int" attrs="{'required':[('no_driver','!=',False)],'invisible':[('flag','=',True)]}"/>                    
+                    <separator string="Delivery Info" colspan="4" />
+                    <newline/>
+                    <field name="carrier_tracking_ref" attrs="{'required':[('flag','=',True)], 'invisible':[('flag','=',False)]}"/>
+                    <group colspan="4">
+                    <field name="weight_hand" attrs="{'required':[('flag','=',True)], 'invisible':[('flag','=',False)]}"/>
+                    <field name="number_of_packages" attrs="{'required':[('flag','=',True)], 'invisible':[('flag','=',False)]}"/>
+                    </group>
+                    <separator string="" colspan="4" />
+                    <newline/>
+                    <button special="cancel" string="_Cancel" icon='gtk-cancel'/>
+                    <button name="open_invoice" string="Create" type="object" icon="terp-gtk-go-back-rtl"/>
+             </form>
+            </field>
+        </record>
+    </data>
+</openerp>

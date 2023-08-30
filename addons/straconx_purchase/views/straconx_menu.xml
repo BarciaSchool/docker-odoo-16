@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+       
+<!--Purchase and International Trade Menu -->
+    <menuitem 
+        name="Suppliers"
+        id="base.menu_procurement_management_supplier_name" 
+        parent="base.menu_procurement_management_supplier"
+        action="straconx_action_supplier_partner_form" 
+        sequence="1"/>
+
+    <menuitem
+        name="New Purchase"
+        id="menu_purchase_form_action" 
+        action="straconx_purchase_new_form_action" 
+        parent="purchase.menu_procurement_management" 
+        sequence="1" />
+
+	<menuitem 
+		name="Purchases"
+		action="straconx_purchase_action" 
+		id="purchase.menu_purchase_form_action" 
+		parent="purchase.menu_procurement_management"
+		sequence="2" />
+		    
+    <menuitem 
+        name="Products" 
+        id="purchase.menu_procurement_partner_contact_form" 
+        action="product.product_normal_action"
+        sequence="0"
+        parent="purchase.menu_procurement_management_product"/>
+
+    <menuitem 
+        name="Supplier Pricelist" 
+        id="menu_supplier_pricelist_form" 
+        action="product.list_price_product_normal"
+        parent="purchase.menu_procurement_management_product"/>
+
+    <menuitem 
+        name="Sale Pricelist" 
+        id="menu_sale_pricelist_form" 
+        action="straconx_products.straconx_pricelist_action"
+        parent="purchase.menu_procurement_management_product"/>
+
+    <menuitem 
+        name="Details Config"
+        id="menu_purchase_config_straconx"  
+        parent="purchase.menu_purchase_config_purchase" 
+        sequence="1" />
+
+    <menuitem 
+        name="Buyer" 
+        id="buyer_config" 
+        action="straconx_salesman.action_buyer" 
+        parent="purchase.menu_purchase_config_purchase" 
+        sequence="0" />
+
+    <menuitem 
+        name="Purchase Order Category"
+        id="menu_purchase_category_action_form_str" 
+        action="action_purchase_category" 
+        parent="menu_purchase_config_straconx" 
+        sequence="1"/>
+
+<!-- Account Partner -->
+
+	<menuitem 
+		name="Suppliers"
+		id="supplier_finance_payables"  
+		action="straconx_action_supplier_partner_form"
+		parent="account.menu_finance_payables" 
+		sequence="1"/>
+
+<!-- Invoices for purchase -->
+
+	<menuitem 
+        name="Supplier Invoices to Receive"
+        id="purchase.menu_procurement_management_pending_invoice"
+        action="account.action_invoice_tree2"
+        parent="purchase.menu_procurement_management_invoice"
+        sequence="13"/>
+
+<!--  Stock Rules -->
+
+    <menuitem 
+    	action="procurement.action_orderpoint_form" 
+    	id="menu_stock_action_orderpoint" 
+    	parent="purchase.menu_procurement_management_product" 
+    	sequence="6"/>
+    </data>
+</openerp>
+    

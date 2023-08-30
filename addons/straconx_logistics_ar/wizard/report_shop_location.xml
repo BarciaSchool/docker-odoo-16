@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	<record id="stock_shop_location_form" model="ir.ui.view">
+		<field name="name">Shop Location Form Parameters</field>
+		<field name="model">stock.shop.location</field>
+		<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Inventario por Tienda/Bodega">	
+					<group col="6" colspan="3">
+						<field name="shop_id" colspan="4" required="1"/>
+						<newline/>
+						<field name="default_code" colspan="2"
+								on_change="onchange_code(default_code,initial,final)"/>
+						<field name="initial" colspan="2" required="0"
+							on_change="onchange_initial(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<field name="final" colspan="2" required="0"
+							on_change="onchange_final(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<newline/>
+						<field name="categ_id"/>
+						<field name="clas_id"/>
+						<field name="only_stock"/>
+					</group>
+						<field name="id" invisible="1"/>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancelar"
+							type="object" />
+						<button name="location_search" string="Cargar" icon="gtk-media-play"
+							type="object" />
+					</group>
+					<newline/> 
+				</form>
+			</field>
+	</record>
+	
+	<record id="action_stock_shop_location_parameters" model="ir.actions.act_window">
+		<field name="name">Inventario por Tienda/Bodega</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">stock.shop.location</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field eval="False" name="view_id" />
+		<field name="context">{}</field>
+		<field name="target">new</field>
+		<field name="view_id" ref="stock_shop_location_form" />
+	</record>
+<!-- ********************************************************************************************************************************************* -->
+<!-- *********************************************INVENTARIO POR BODEGA Y TIENDA****************************************************************** -->	
+ 		<record id="view_stock_shop_location_form" model="ir.ui.view">
+			<field name="name">Stock Shop Location Form</field>
+			<field name="model">stock.shop.location</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Inventario por Tienda/Bodega">
+					<group col="6" colspan="3">		
+						<field name="shop_id" colspan="4" readonly="1"/>
+						<newline/>
+						<field name="default_code" colspan="2" readonly="1"
+								on_change="onchange_code(default_code,initial,final)"/>
+						<field name="initial" colspan="2" required="0" readonly="1"
+							on_change="onchange_initial(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<field name="final" colspan="2" required="0" readonly="1"
+							on_change="onchange_final(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<newline/>
+						<field name="categ_id" readonly="1"/>
+						<field name="clas_id" readonly="1"/>
+						<field name="only_stock" readonly="1"/>
+					</group>
+					<group colspan="2">
+						<button icon="gtk-cancel" special="cancel" string="Cancelar"
+							type="object" />
+						<button name="do_search_products" string="Buscar Productos" icon="gtk-media-play"
+							type="object" />
+						<button name="%(straconx_stock_shop_logistics)d"
+							string="Imprimir Reporte" type="action" icon="gtk-print"/>
+					</group>
+					<newline/>
+					<field name="product_lines_ids" nolabel="1" readonly="1" widget="one2many"
+					 context="{'loc_id':id,'shop_id':shop_id, 'default_code': default_code, 'initial':initial, 'final':final, 'categ_id':categ_id, 'clas_id':clas_id, 'only_stock':only_stock}" />
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_stock_shop_location_lines_tree" model="ir.ui.view">
+			<field name="name">Productos</field>
+			<field name="model">stock.shop.location.lines</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Inventario por Tienda/Bodega" editable="bottom">
+						<field name="wizard_id" invisible="1"/>
+						<field name="default_code" invisible="1"/>
+						<field name="product_id"/>
+						<field name="qty_purchase" sum="Qty"/>
+				</tree>
+			</field>
+		</record> 
+		
+		<record id="view_stock_shop_location_lines_form" model="ir.ui.view">
+			<field name="name">Productos</field>
+			<field name="model">stock.shop.location.lines</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Inventario por Tienda/Bodega">
+					<field name="default_code" invisible="1"/>
+					<field name="product_id" widget="many2one"/>
+					<newline/>		
+				</form>
+			</field>
+		</record>	
+		
+		<record id="action_stock_shop_location" model="ir.actions.act_window">
+			<field name="name">Stock Shop Location Form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.shop.location</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="context">{}</field>
+			<field name="target">new</field>
+			<field name="view_id" ref="view_stock_shop_location_form" />
+		</record>
+		
+        <!-- act_window
+          context="{'search_default_product_id': [active_id], 'default_product_id': active_id}"
+          id="straconx_logistics.view_kardex_form_wizard"
+          name="Inventario por Tienda/Bodega"
+          res_model="stock.shop.location"
+          src_model="product.product"
+          view_mode="form"
+          target="new"
+          key2="client_action_multi"
+          />
+		
+		<record id="action_res_stock_shop_location1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_stock_shop_location_form" />
+			<field name="act_window_id" ref="action_stock_shop_location" />
+		</record>-->
+
+		<record id="action_stock_shop_location_tree" model="ir.actions.act_window">
+			<field name="name">Productos</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.shop.location.lines</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>			
+			<field name="limit">1000</field>
+		</record> 
+	</data>
+</openerp>

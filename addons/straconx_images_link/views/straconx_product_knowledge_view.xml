@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="product_images_olbs.view_product_form_img_inh" model="ir.ui.view">
+            <field name="name">Imagen para Formularios de Productos</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+				<page string="Sellers" position="after">
+                    <page string="Images">
+						<field name="image_ids" nolabel="1"/>
+					</page>
+                </page>
+            </field>
+        </record>
+	</data>
+</openerp>

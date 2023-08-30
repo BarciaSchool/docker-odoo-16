@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="printer_point_form_view_inherit_sri" model="ir.ui.view">
+            <field name="name">printer.point.form.inherit</field>
+            <field name="inherit_id" ref="straconx_account.printer_point_form_view" />
+            <field name="model">printer.point</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<field name="shop_id" position="after">
+               		<field name="number_sri" required="1"/>
+               		<field name="type_printer" required="1"/>
+               </field>
+            </field>
+        </record>
+        
+        <record id="printer_point_tree_view_inherit_sri" model="ir.ui.view">
+            <field name="name">printer.point.tree.inherit</field>
+            <field name="inherit_id" ref="straconx_account.printer_point_tree_view" />
+            <field name="model">printer.point</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+            	<field name="shop_id" position="after">
+               		<field name="number_sri"/>
+               		<field name="type_printer"/>
+               </field>
+            </field>
+        </record>
+        
+        <record id="printer_point_search_view_inherit_sri" model="ir.ui.view">
+            <field name="name">printer.point.search.inherit</field>
+            <field name="inherit_id" ref="straconx_account.printer_point_search_view" />
+            <field name="model">printer.point</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+            	<field name="shop_id" position="after">
+               		<field name="number_sri"/>
+               		<field name="type_printer"/>
+               </field>
+<!--                <filter string="Shop" position="after"> -->
+<!--                		<filter string="Type Printer" icon="terp-folder-orange" domain="[]" context="{'group_by':'type_printer'}"/> -->
+<!--                </filter> -->
+            </field>
+        </record>
+    </data>
+</openerp>

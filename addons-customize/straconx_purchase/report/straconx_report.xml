@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>    
+        <delete model="ir.actions.report.xml" search="[('report_name','=','purchase.order')]" />
+        <delete model="ir.actions.report.xml" search="[('report_name','=','purchase.quotation')]" />
+        <record id="purchase_report_id" model="ir.actions.report.xml">
+            <field name="name">Orden de Compra</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="report_type">pdf</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Orden_de_Compra</field>
+			<field name="pentaho_filename">straconx_purchase/report/straconx_order_purchase.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+        </record>
+
+        <record id="purchase_image_id" model="ir.actions.report.xml">
+            <field name="name">Orden de Compra con Imágenes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Orden_de_Compra_imagenes</field>
+            <field name="report_type">pdf</field>
+			<field name="pentaho_filename">straconx_purchase/report/straconx_order_purchase_images.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+        </record>
+
+        <record id="purchase_lines_list_id" model="ir.actions.report.xml">
+            <field name="name">Lista de Productos Comprados</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order.line</field>
+            <field name="report_name">Lista de Productos Comprados</field>
+            <field name="report_type">pdf</field>
+			<field name="pentaho_filename">straconx_purchase/report/straconx_purchase_lines.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order.line')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order.line</field>
+			<field name="linked_menu_id" eval="ref('base.next_id_73')" />
+        </record>
+
+        <record id="purchase_state_list_id_min" model="ir.actions.report.xml">
+            <field name="name">Estado de Pedidos Condensado</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Estado de Pedidos Condensado</field>
+            <field name="report_type">xls</field>
+			<field name="pentaho_filename">straconx_purchase/report/straconx_purchase_state.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+			<field name="linked_menu_id" eval="ref('base.next_id_73')" />
+        </record>
+
+
+        <record id="purchase_state_list_id" model="ir.actions.report.xml">
+            <field name="name">Estado de Pedidos</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Estado de Pedidos</field>
+            <field name="report_type">xls</field>
+			<field name="pentaho_filename">straconx_purchase/report/straconx_purchase_state_with_payment.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+			<field name="linked_menu_id" eval="ref('base.next_id_73')" />
+        </record>
+
+
+
+
+    </data>
+</openerp>

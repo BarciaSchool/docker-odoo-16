@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_vendor_receipt_pos_inherit">
+            <field name="name">Customer Payment Voucher inherit Pos</field>
+            <field name="model">account.voucher</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_payments.view_vendor_receipt_pos_form_straconx" />
+            <field name="arch" type="xml">
+	            <field name="received_date" position="after">
+	            	<field name="type_collect_employee" required="1" invisible="1"/>
+	            </field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

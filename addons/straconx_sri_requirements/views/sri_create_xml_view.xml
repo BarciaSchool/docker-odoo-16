@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_sri_reporte_rango_search" model="ir.ui.view">
+			<field name="name">Busqueda de Transacción</field>
+			<field name="model">sri.generate.xml</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Busqueda de Transacción">
+					<field name="name" invisible="1"/>
+					<field name="date_report" />
+					<field name="company_id" />
+					<field name="shop_id" />
+					<field name="printer_id" />
+					<field name="tipo_emision" />
+					<field name="tipo_documento" />
+					<field name="type_transaction_id" />
+				</search>
+			</field>
+		</record>
+		<record id="straconx_sri_reporte_rango_tree" model="ir.ui.view">
+			<field name="name">Lista de Transacciones</field>
+			<field name="model">sri.generate.xml</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Lista de Transacciones">
+					<field name="name" />
+					<field name="date_report" />
+					<field name="company_id" />
+					<field name="shop_id" />
+					<field name="printer_id" />
+					<field name="tipo_emision" />
+					<field name="tipo_documento" />
+					<field name="type_transaction_id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+
+
+
+		<record id="straconx_sri_reporte_rango_form" model="ir.ui.view">
+			<field name="name">sri.generate.xml.view</field>
+			<field name="model">sri.generate.xml</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="SRI Authorization Export XML">
+					<group colspan="2" col="4" >
+							<group colspan="4">
+								<field name="required_auth_old" invisible="1" />
+								<field name="required_auth_new" invisible="1" />								
+								<separator colspan="4" string="SRI Authorization Export" />
+								<field name="company_id" widget="selection" required="1" />
+								<field name="date_report" required="1" string="Fecha de Reporte" />
+								<field name="tipo_emision" required="1" />
+								<field name="type_transaction_id" required="1" string="Tipo de Transacción"
+									on_change="onchange_transaction(type_transaction_id)" options='{"quick_create": false}'
+									domain="[('type','=',tipo_emision)]" />
+								<group colspan="4" col="8">
+									<field name="authorization" attrs="{'invisible':[('required_auth_new','=',False)],'required':[('required_auth_new','=',True)]}"/>
+									<field name="this_shop" attrs="{'invisible':[('this_shop','=',False)]}"/>
+								</group>
+								<newline />
+								<field name="shop_id" on_change="onchange_shop(shop_id)"
+									domain="[('company_id','=',company_id)]"
+									attrs="{'invisible':[('this_shop','=',True)],'required':[('this_shop','!=',True)]}"
+									options="{&quot;quick_create&quot;: false}" />
+								<field name="this_printer" attrs="{'invisible':[('this_shop','=',True)]}" />
+								<field name="printer_id" domain="[('shop_id','=',shop_id)]"
+									options="{&quot;quick_create&quot;: false}"
+									attrs="{'invisible':['|',('this_printer','=',True),('this_shop','=',True)],'required':[('this_printer','!=',True)]}" />
+								<separator string="Tipo de Documento" colspan="4"/>
+								<field name="tipo_documento" colspan="4" nolabel="1"/>
+								<newline/>
+								<group colspan="8">
+									<button icon="gtk-execute" name="get_authorization"
+										string="Obtener autorizaciones" type="object" />
+									<field name="authorization_old" invisible="1"/>
+								</group>
+								<newline />
+								<notebook colspan="4">
+									<page string="Authorizations">
+										<separator string="Old Authorizations" colspan="4"/>
+										<field name="authorization_old_ids" colspan="4" nolabel="1"
+											attrs="{'invisible':[('required_auth_new','=',True)]}"
+											domain="[('printer_id','=',printer_id),('auto_printer','=',1),('name','=',authorization_old)]">
+											<tree string="authorization">
+												<field name="authorization_id" />
+												<field name="name" />
+												<field name="type_printer" invisible="1" />
+												<field name="auto_printer" invisible="1" />
+												<field name="shop_id" />
+												<field name="printer_id" />
+												<field name="prefix_shop" invisible="1" />
+												<field name="prefix_point" invisible="1" />
+												<field name="starting_number" />
+												<field name="ending_number" />
+												<field name="state" />
+												<field name="counter" invisible="1" />
+												<field name="expired" invisible="1" />
+											</tree>
+										</field>
+										<separator string="New Authorizations" colspan="4" />
+										<field name="authorization_ids" colspan="4" nolabel="1"
+											domain="[('printer_id','=',printer_id),('auto_printer','=',1),('name','=',authorization_name)]">
+											<tree string="authorization">
+												<field name="authorization_id" />
+												<field name="name" />
+												<field name="type_printer" invisible="1" />
+												<field name="auto_printer" invisible="1" />
+												<field name="shop_id" />
+												<field name="printer_id" />
+												<field name="prefix_shop" invisible="1" />
+												<field name="prefix_point" invisible="1" />
+												<field name="starting_number" />
+												<field name="ending_number" />
+												<field name="state" />
+												<field name="counter" invisible="1" />
+												<field name="expired" invisible="1" />
+											</tree>
+										</field>
+									</page>
+								</notebook>
+							</group>
+						</group>
+						<newline/>
+						<group colspan="2" col="4" states="choose">
+							<separator string="" colspan="4" />
+							<button icon="gtk-cancel" special="cancel" string="Cerrar" />
+							<button icon="gtk-ok" name="act_export" string="Generar Reporte"
+								type="object" />
+						</group>
+						<newline/>						
+						<group colspan="2" col="4" states="get">
+							<separator string="" colspan="4" />
+								<field name="name" invisible="1" />
+								<field name="data" nolabel="1" filename="name"/>
+								<field invisible="1" name="state" />
+								<button icon="gtk-close" special="cancel" string="Cerrar" />
+						</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_straconx_sri_reporte_rango" model="ir.actions.act_window">
+			<field name="name">Reporte de Rangos</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sri.generate.xml</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="straconx_sri_reporte_rango_search" />
+		</record>
+
+		<record id="action_straconx_sri_reporte_rango_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_sri_reporte_rango_tree" />
+			<field name="act_window_id" ref="action_straconx_sri_reporte_rango" />
+		</record>
+		<record id="action_straconx_sri_reporte_rango_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_sri_reporte_rango_form" />
+			<field name="act_window_id" ref="action_straconx_sri_reporte_rango" />
+		</record>
+	</data>
+</openerp>

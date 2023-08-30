@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="account.journal.type" id="commission">
+            <field name="name">commission</field>
+            <field name="code">commission</field>
+        </record>
+    	<record id="diario_commission_salesman" model="account.journal">
+			<field name="code">DCSAL</field>
+			<field name="name">Diario de Comisiones de Vendedores</field>
+			<field name="view_id">3</field>
+			<field name="type">commission</field>
+		</record>
+    </data>
+</openerp>

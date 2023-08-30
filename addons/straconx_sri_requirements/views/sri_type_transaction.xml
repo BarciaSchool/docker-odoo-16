@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	 <record id="straconx_sri_type_transaction_search" model="ir.ui.view">
+            <field name="name">sri.type.transaction.search</field>
+            <field name="model">sri.type.transaction</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="SRI Type Transaction">
+                	<field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </search>
+            </field>
+        </record>
+        <record id="straconx_sri_type_transaction_tree" model="ir.ui.view">
+            <field name="name">sri.type.transaction.tree</field>
+            <field name="model">sri.type.transaction</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="SRI Type Transaction">
+                	<field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="straconx_sri_type_transaction_form" model="ir.ui.view">
+            <field name="name">sri.type.transaction.form</field>
+            <field name="model">sri.type.transaction</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="SRI Type Transaction">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="required_auth_old"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_straconx_sri_type_transaction" model="ir.actions.act_window">
+            <field name="name">SRI Transaction Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sri.type.transaction</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="straconx_sri_type_transaction_search"/>
+        </record>
+
+        <record id="action_straconx_sri_type_transaction_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="straconx_sri_type_transaction_tree"/>
+            <field name="act_window_id" ref="action_straconx_sri_type_transaction"/>
+        </record>
+        <record id="action_straconx_sri_type_transaction_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="straconx_sri_type_transaction_form"/>
+            <field name="act_window_id" ref="action_straconx_sri_type_transaction"/>
+        </record>
+    
+    
+    </data>
+</openerp>

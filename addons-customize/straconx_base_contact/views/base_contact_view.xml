@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Views for partner job Tree view -->
+
+		<record model="ir.ui.view" id="straconx_view_partner_job_tree">
+			<field name="name">res.partner.job.tree</field>
+			<field name="model">res.partner.job</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Contact Functions">
+					<field name="contact_id" />
+					<field name="sequence_contact" />
+					<field name="function" />
+					<field name="name" />
+					<field name="address_id" />
+					<field name="email" />
+					<field name="phone" />
+					<field name="fax" />
+					<field name="extension" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="straconx_view_partner_job_form">
+			<field name="name">res.partner.job.form</field>
+			<field name="model">res.partner.job</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Contact Functions">
+					<field name="sequence_contact" />
+					<field name="name" select="1" readonly="1" />
+					<field name="address_id" select="1"
+						attrs="{'required': [('name', '!=', False)]}" readonly="1" />
+					<field name="contact_id" select="1" required="1" />
+					<field name="function" select="1" />
+					<field name="email" widget="email" />
+					<field name="phone" />
+					<field name="fax" />
+					<field name="extension" />
+					<field name="state" />
+					<field name="date_start" groups="base.group_user" />
+					<field name="date_stop" groups="base.group_user" />
+				</form>
+			</field>
+		</record>
+
+		<!-- Menuitem for res.partner.job -->
+
+		<record model="ir.actions.act_window" id="straconx_action_res_partner_job">
+			<field name="name">Contact's Jobs</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner.job</field>
+			<field name="view_type">form</field>
+		</record>
+
+		<!-- Views for Contacts Tree View -->
+
+		<record model="ir.ui.view" id="straconx_view_partner_contact_tree">
+			<field name="name">res.partner.contact.tree</field>
+			<field name="model">res.partner.contact</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Partner Contact">
+					<field name="name" />
+					<field name="first_name" />
+					<field name="vat" />
+					<field name="title" />
+					<field name="mobile" />
+					<field name="email" />
+					<field name="lang_id" />
+					<field name="partner_id" />
+					<field name="country_id" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Views for Contacts Form View -->
+
+		<record model="ir.ui.view" id="straconx_view_partner_contact_form">
+			<field name="name">res.partner.contact.form</field>
+			<field name="model">res.partner.contact</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Partner Contact">
+					<group colspan="4" col="4">
+						<field name="partner_id" colspan="4" />
+						<field name="address_id" colspan="4" />
+						<newline />
+						<group colspan="1">
+							<field name="photo" widget='image' nolabel="1" height="150" />
+						</group>
+						<group colspan="3" col="4">
+							<field name="title" select="1" widget="selection"
+								domain="[('domain', '=', 'contact')]" />
+							<field name="vat" />
+							<field name="name" />
+							<field name="first_name" required="1" />
+							<field name="function" string="Función"/>
+							<field name="email" widget="email" />
+							<field name="mobile" />
+							<field name="website" />
+							<field name="birthdate" />
+							<field name="sex" />
+							<field name="country_id" />
+							<field name="lang_id" widget="selection" />
+							<field name="active" />
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="General">
+							<field name="job_ids" colspan="4" nolabel="1" mode="tree,form">
+								<form string="Functions and Addresses">
+									<group colspan="4" col="4">
+										<field name="name" readonly="1" />
+										<field name="address_id" readonly="1" />
+										<field name="sequence_contact" />
+										<field name="function" />
+										<field name="date_start" />
+										<field name="date_stop" />
+										<field name="state" />
+										<field name="active" />
+									</group>
+									<separator string="Communication" colspan="4" />
+									<group colspan="4" col="4">
+										<field name="phone" />
+										<field name="fax" />
+										<field name="email" widget="email" />
+										<field name="extension" />
+										<field name="other" />
+									</group>
+								</form>
+								<tree string="Functions and Addresses">
+									<field name="sequence_contact" string="Seq." />
+									<field name="function" />
+									<field name="phone" />
+									<field name="fax" />
+									<field name="extension" />
+									<field name="other" />
+									<field name="email" />
+									<field name="state" />
+								</tree>
+							</field>
+						</page>
+						<page string="Notes">
+							<field name="comment" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<!-- Views for Contacts Search View -->
+
+		<record model="ir.ui.view" id="straconx_view_partner_contact_search">
+			<field name="name">res.partner.contact.search</field>
+			<field name="model">res.partner.contact</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Partner Contact">
+					<field name="vat" select="1" />
+					<field name="name" select="1" />
+					<field name="first_name" select="1" />
+					<field name="partner_id" select="1" string="Partner" />
+					<field name="address_id" select="1" />
+					<field name="title" select="1" />
+					<field name="country_id" widget="selection" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Views for Contacts Action -->
+
+		<record model="ir.actions.act_window" id="straconx_action_partner_contact">
+			<field name="name">Contacts</field>
+			<field name="res_model">res.partner.contact</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="straconx_view_partner_contact_search" />
+		</record>
+
+		<record id="straconx_action_partner_contact_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_view_partner_contact_tree" />
+			<field name="act_window_id" ref="straconx_action_partner_contact" />
+		</record>
+
+		<record id="straconx_action_partner_contact_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_view_partner_contact_form" />
+			<field name="act_window_id" ref="straconx_action_partner_contact" />
+		</record>
+
+	</data>
+</openerp>

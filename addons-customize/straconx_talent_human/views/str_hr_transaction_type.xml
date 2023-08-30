@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    <!-- transaction type : Expenses -->
+    
+    	<record model="ir.ui.view" id="hr_expenses_type_search_view">
+			<field name="name">Search Expenses</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Expenses">
+					<group col='10' colspan='4'>
+						<filter string="Company" icon="terp-go-home" domain="[]"
+							context="{'group_by':'company_id'}" />
+						<filter string="Type Expense" icon="terp-camera_test" domain="[]"
+							context="{'group_by':'type_expense'}" />
+					</group>
+					<field name="name"/>					
+					<field name="type_expense"/>
+					<field name="company_id" widget="selection"/>
+					<field name="collection_form"/>
+					<field name="is_paid"/>
+					<field name="internal"/>
+				</search>
+			</field>
+		</record>
+    
+    	<record model="ir.ui.view" id="hr_expenses_type_tree_view">
+			<field name="name">hr.expenses.type.tree</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Expenses type">
+					<field name="code" select="1"/>
+					<field name="name" select="1"/>
+					<field name="type_expense" select="1"/>
+					<field name="company_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_expenses_type_form_view">
+			<field name="name">hr.expenses.type.form</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Expenses type">
+					<field name="name" colspan="4"/>
+					<field name="code"/>
+					<field name="type_expense" required="1"/>
+					<field name="type" invisible="1"/>
+					<field name="company_id"/>
+					<field name="debit_account_id" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]" required="1"/>
+					<field name="credit_account_id" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]" required="1"/>
+					<field name="partner_id"/>
+					<field name="generate_lines_employee"/>
+<!-- 					 attrs="{'invisible':[('type_expense','!=','loans')]}" -->
+					<field name="collection_form"/>
+					<field name="is_paid"/>
+					<field name="internal"/>							
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_expenses_type_view">
+			<field name="name">Expenses Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.transaction.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','expenses')]</field>
+			<field name="context">{'default_type':'expenses'}</field>
+			<field name="search_view_id" ref="hr_expenses_type_search_view" />
+		</record>
+		
+		<record id="action_hr_expenses_type_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_expenses_type_tree_view" />
+			<field name="act_window_id" ref="action_hr_expenses_type_view" />
+		</record>
+
+		<record id="action_hr_expenses_type_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_expenses_type_form_view" />
+			<field name="act_window_id" ref="action_hr_expenses_type_view" />
+		</record>
+		
+		
+		<!-- transaction type : Incomes -->
+		
+		<record model="ir.ui.view" id="hr_incomes_type_search_view">
+			<field name="name">Search Incomes</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Incomes">
+					<group col='10' colspan='4'>
+						<filter string="Company" icon="terp-partner" domain="[]"
+							context="{'group_by':'company_id'}" />
+						<filter string="Type Income" icon="terp-camera_test" domain="[]"
+							context="{'group_by':'type_income'}" />
+					</group>				
+					<field name="name" select="1"/>
+					<field name="company_id"/>
+				</search>
+			</field>
+		</record>
+    
+    	<record model="ir.ui.view" id="hr_incomes_type_tree_view">
+			<field name="name">hr.incomes.type.tree</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Incomes type">
+					<field name="code" select="1"/>
+					<field name="name" select="1"/>
+					<field name="type_income"/>
+					<field name="company_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_incomes_type_form_view">
+			<field name="name">hr.incomes.type.form</field>
+			<field name="model">hr.transaction.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Incomes type">
+					<field name="name" colspan="4"/>
+					<field name="code"/>
+					<field name="type_income" required="1"/>
+					<field name="value_extra" attrs="{'invisible':[('type_income','!=','extra_hours')],'required':[('type_income','=','extra_hours')]}"/>
+					<field name="type" invisible="1"/>
+					<field name="debit_account_id" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]" required="0"/>
+					<field name="credit_account_id" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]" required="0"/>
+					<field name="company_id"/>
+					<field name="collection_form"/>					
+					<field name="is_paid"/>
+					<field name="internal"/>
+					<field name="generate_lines_employee"/>					
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_incomes_type_view">
+			<field name="name">Incomes Type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.transaction.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('type','=','incomes')]</field>
+			<field name="context">{'default_type':'incomes'}</field>
+			<field name="search_view_id" ref="hr_incomes_type_search_view" />
+		</record>
+		
+		<record id="action_hr_incomes_type_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_incomes_type_tree_view" />
+			<field name="act_window_id" ref="action_hr_incomes_type_view" />
+		</record>
+
+		<record id="action_hr_incomes_type_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="hr_incomes_type_form_view" />
+			<field name="act_window_id" ref="action_hr_incomes_type_view" />
+		</record>
+    
+    
+    </data>
+</openerp>

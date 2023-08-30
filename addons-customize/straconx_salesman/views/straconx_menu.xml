@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <menuitem 
+            name="Salesman" 
+            id="salesman_menu" 
+            action="action_salesman" 
+            parent="base.menu_sale_config_sales" 
+            sequence="0" />
+            
+        <menuitem 
+            name="Region Zones" 
+            id="region_zones" 
+            action="action_region_zone" 
+            parent="base.menu_localisation" 
+            sequence="11" />
+            
+    </data>
+</openerp>

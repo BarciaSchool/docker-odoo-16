@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<record id="comp_01" model="tax.code.comprobante">
+		<field name="code">1</field>
+		<field name="name">Factura</field>
+		</record>
+
+		<record id="comp_02" model="tax.code.comprobante">
+		<field name="code">2</field>
+		<field name="name">Recibo</field>
+		</record>
+
+		<record id="comp_03" model="tax.code.comprobante">
+		<field name="code">3</field>
+		<field name="name">Nota de Crédito</field>
+		</record>
+
+		<record id="comp_04" model="tax.code.comprobante">
+		<field name="code">4</field>
+		<field name="name">Nota de Débito</field>
+		</record>
+
+		<record id="comp_05" model="tax.code.comprobante">
+		<field name="code">5</field>
+		<field name="name">Otro Comprobante</field>
+		</record>
+
+		<record id="comp_06" model="tax.code.comprobante">
+		<field name="code">6</field>
+		<field name="name">Orden de Pago</field>
+		</record>
+
+		<record id="comp_07" model="tax.code.comprobante">
+		<field name="code">7</field>
+		<field name="name">Recibo de Sueldo</field>
+		</record>
+
+		<record id="comp_08" model="tax.code.comprobante">
+		<field name="code">8</field>
+		<field name="name">Recibo de Sueldo - Devolución</field>
+		</record>
+
+		<record id="comp_09" model="tax.code.comprobante">
+		<field name="code">9</field>
+		<field name="name">Escritura Pública</field>
+		</record>
+
+		<record id="comp_10" model="tax.code.comprobante">
+		<field name="code">10</field>
+		<field name="name">C.1116</field>
+		</record>
+
+		<record id="comp_11" model="tax.code.comprobante">
+		<field name="code">11</field>
+		<field name="name">Factura (16 Dígitos)</field>
+		</record>
+
+		<record id="comp_12" model="tax.code.comprobante">
+		<field name="code">12</field>
+		<field name="name">Recibo de Haberes</field>
+		</record>
+
+		<record id="comp_13" model="tax.code.comprobante">
+		<field name="code">13</field>
+		<field name="name">Recibo de Haberes -Devolución</field>
+		</record>
+
+		<record id="comp_17" model="tax.code.comprobante">
+		<field name="code">17</field>
+		<field name="name">Liquidación de Servicios Públicos - Clase A</field>
+		</record>
+
+		<record id="comp_18" model="tax.code.comprobante">
+		<field name="code">18</field>
+		<field name="name">Liquidación de Servicios Públicos - Clase B</field>
+		</record>
+
+		<record id="comp_19" model="tax.code.comprobante">
+		<field name="code">19</field>
+		<field name="name">Liquidación de Servicios Públicos - Clase A - con valor negativo</field>
+		</record>
+
+		<record id="comp_20" model="tax.code.comprobante">
+		<field name="code">20</field>
+		<field name="name">Liquidación de Servicios Públicos - Clase B - con valor negativo</field>
+		</record>
+
+		<record id="comp_23" model="tax.code.comprobante">
+		<field name="code">23</field>
+		<field name="name">Comprobantes "A" de Compra Primaria para el sector pesquero marítimo</field>
+		</record>
+
+		<record id="comp_24" model="tax.code.comprobante">
+		<field name="code">24</field>
+		<field name="name">Comprobantes "A" de Consignación Primaria para el sector pesquero marítimo</field>
+		</record>
+
+		<record id="comp_25" model="tax.code.comprobante">
+		<field name="code">25</field>
+		<field name="name">Comprobantes "B" de Compra Primaria para el sector pesquero marítimo</field>
+		</record>
+
+		<record id="comp_26" model="tax.code.comprobante">
+		<field name="code">26</field>
+		<field name="name">Comprobantes "B" de Consignación Primaria para el sector pesquero marítimo</field>
+		</record>
+    
+    </data>
+</openerp>

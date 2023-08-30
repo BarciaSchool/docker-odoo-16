@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="stock.view_stock_fill_inventory" model="ir.ui.view">
+			<field name="name">Import Inventory</field>
+			<field name="model">stock.fill.inventory</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Import Inventory">
+					<group colspan="4">
+						<separator
+							string="Import current product inventory from the following location"
+							colspan="4" />
+						<field name="location_id" />
+						<field name="categ_id" />
+						<newline />
+						<field name="code" on_change="onchange_code(code,initial,final)" />
+						<group colspan="2">
+							<field name="initial" on_change="onchange_initial(initial,final)"
+								attrs="{'invisible':['|',('code','=',False),('code','=','')]}" />
+							<field name="final" on_change="onchange_final(initial,final)"
+								attrs="{'invisible':['|',('code','=',False),('code','=','')]}" />
+						</group>
+						<group colspan="4">
+							<button special="cancel" string="_Cancel" icon='gtk-cancel' />
+							<button name="fill_inventory" string="Fill Inventory"
+								type="object"
+								confirm="Dependiendo del número de ítems a cargar, este proceso puede demorar varios minutos"
+								icon="gtk-ok" />
+						</group>
+					</group>
+				</form>
+
+			</field>
+		</record>
+	</data>
+</openerp>

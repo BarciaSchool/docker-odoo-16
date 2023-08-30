@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<wizard id="wiz_stock_card" model="stock.location" name="stock.card"
+		string="Print Stock Card" />
+
+	<wizard id="wiz_stock_card" model="product.product" name="stock.card"
+		string="Print Stock Card" />
+
+	<menuitem parent="stock.next_id_61" type="wizard" action="wiz_stock_card" />
+	
+	<menuitem parent="purchase.menu_procurement_management_product"	type="wizard" action="wiz_stock_card" />
+
+	 <report id="report_kardex_list"
+	     string="Kardex"
+	     model="stock.picking"
+	     name="report.stock.card"
+	     rml="straconx_stock_card/report/stock_card.rml"
+	     header="False"
+	     auto="False" />
+</data>
+</openerp>
+<!-- vim: set fdm=marker : -->

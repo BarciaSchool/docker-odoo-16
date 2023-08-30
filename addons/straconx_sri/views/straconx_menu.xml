@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+	<data>
+
+		<menuitem name="SRI Configuration" id="account_sri_configuration"
+			parent="account.menu_finance_configuration" sequence="10" />
+
+		<menuitem id="sri_authorizations" name="SRI Authorizations"
+			parent="account_sri_configuration" action="action_view_authorization_company"
+			sequence="0" />
+
+		<menuitem id="sri_document_type_menu" name="Documents Types"
+			parent="account_sri_configuration" action="action_sri_document_type_tree_view"
+			sequence="1" />
+
+		<menuitem id="sri_transaction_type_menu" name="Transaction Types"
+			parent="account_sri_configuration" action="action_sri_transaction_type_tree_view"
+			sequence="2" />
+
+		<menuitem id="sri_tax_sustent_menu" name="Tax Sustent"
+			parent="account_sri_configuration" action="action_sri_tax_sustent_tree_view"
+			sequence="3" />
+
+   <menuitem
+           id="menu_straconx_action_wizard_multi_tax_products"
+           action="straconx_action_wizard_multi_tax_products"
+           parent="account_sri_configuration"
+           sequence="6"/>
+			
+	<!-- type Companies partner -->
+        
+    <menuitem 
+        id="straconx_menu_type_company"
+        name="Types Companies"
+        parent="account.menu_finance_accounting"
+        sequence="16" />
+        
+    <menuitem 
+        id="type_company_menu" 
+        name="Type Company"
+        action="action_partner_type_company_view" 
+        parent="straconx_menu_type_company"
+        sequence="0"/>
+        
+    <menuitem id="menu_finance_sri" 
+	name="SRI" 
+	parent="account.menu_finance" 
+	sequence="14"/>
+    
+    
+    </data>
+</openerp>

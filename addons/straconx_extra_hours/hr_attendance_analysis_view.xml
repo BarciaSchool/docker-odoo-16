@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <menuitem id="menu_hr_aa"
+        name="Attendance Analysis"
+        parent="hr.menu_hr_root"
+        groups="base.group_hr_user"
+        sequence="10"
+        />
+
+    <menuitem id="menu_hr_aa_configuration"
+        name="Attendance Analysis"
+        parent="hr.menu_hr_configuration"
+        groups="base.group_hr_user"
+        sequence="10"
+        />
+
+    <menuitem id="menu_hr_aa_reporting"
+        name="Attendance Analysis"
+        parent="hr.menu_hr_reporting"
+        groups="base.group_hr_user"
+        sequence="20"
+        />
+    </data>
+</openerp>
+
+<!--
+     vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+     -->

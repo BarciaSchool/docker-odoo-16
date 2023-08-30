@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+	<data>
+
+		<menuitem action="account.action_invoice_tree2" id="account.menu_action_invoice_tree2"
+			parent="account.menu_finance_payables" sequence="2" />
+			
+		<menuitem name="Supplier Invoices to Receive"
+			id="purchase.menu_procurement_management_pending_invoice" action="account.action_invoice_tree2"
+			parent="purchase.menu_procurement_management_invoice" sequence="15" />
+
+		<menuitem name="Purchase Liquidation"
+			id="menu_action_straconx_purchase_liquidation_invoice" action="action_straconx_purchase_liquidation_invoice"
+			parent="account.menu_finance_payables" sequence="15" />
+
+		<menuitem name="Nota de Ventas de Proveedores"
+			id="menu_action_straconx_sale_note_supplier" action="action_sale_note_purchase"
+			parent="account.menu_finance_payables" sequence="15" />
+
+		<menuitem name="Another Documents" id="menu_action_other_documents_invoice"
+			action="action_other_documents_invoice" parent="account.menu_finance_payables"
+			sequence="15" />
+		
+		<menuitem name="Agencies" id="menu_action_agencies_suppliers"
+			action="base.action_partner_address_form" parent="account.menu_finance_payables"
+			sequence="1" />
+			
+		<menuitem name="Contacts" id="menu_action_contacts_suppliers"
+			action="straconx_base_contact.straconx_action_partner_contact" parent="account.menu_finance_payables"
+			sequence="4" />
+
+		<menuitem name="Líneas de Facturas de Ventas" id="menu_action_straconx_invoice_lines_sales"
+			action="action_straconx_view_account_invoice_lines_filter" parent="straconx_products.account_menu_product"			
+			sequence="5" />
+
+		<menuitem name="Líneas de Facturas de Compras" id="menu_action_straconx_invoice_lines_purchase"
+			action="action_straconx_view_account_invoice_lines_purchase_filter" parent="straconx_products.account_menu_product"			
+			sequence="6" />
+ 			
+		<menuitem name="Líneas de Facturas de Ventas" id="menu_action_straconx_knowledge_lines_sales"
+			action="action_straconx_view_account_invoice_lines_filter" parent="straconx_products.knowledge_menu_product"			
+			sequence="2" />
+
+		<menuitem name="Líneas de Facturas de Compras" id="menu_action_straconx_knowledge_lines_purchase"
+			action="action_straconx_view_account_invoice_lines_purchase_filter" parent="straconx_products.knowledge_menu_product"			
+			sequence="3" />
+
+<!--
+		<menuitem name="Sales Shop Reports" id="menu_action_technical_shops"
+			action="action_invoice_form_reports" parent="knowledge.menu_document_reports"
+			sequence="2" /> -->
+
+	</data>
+</openerp>

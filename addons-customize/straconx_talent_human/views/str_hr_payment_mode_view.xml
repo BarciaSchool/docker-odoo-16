@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_payment_mode_inherit_form">
+            <field name="name">payment.mode.hr.form</field>
+            <field name="model">payment.mode</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_payment.view_payment_mode_form" />
+            <field name="arch" type="xml">
+	            <field name="authorization" position="after">
+	            	<field name="collect_employee"/>
+	            </field>
+            </field>
+        </record> 
+    </data>
+</openerp>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view"
+			id="view_company_inherit_settings_inventory">
+			<field name="name">Account Company Configuration Inherit</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="model">res.company</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<page string="Configuration" position="inside">
+					<separator string="Inventory Difference" colspan="4" />
+					<field name="property_inventory_difference" />
+				</page>
+			</field>
+		</record>
+	</data>
+</openerp>

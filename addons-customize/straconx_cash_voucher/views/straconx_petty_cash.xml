@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="straconx_petty_cash_form">
+			<field name="name">Caja Chica</field>
+			<field name="model">account.bank.statement</field>
+			<field name="type">form</field>
+			<field name="priority" eval="9" />
+			<field name="arch" type="xml">
+				<form string="Petty Cash">
+					<group col="6" colspan="4">
+						<field name="name" select="1" />
+						<field name="company_id" widget="selection" groups="base.group_multi_company" />
+						<field name="journal_id" on_change="onchange_journal_id(journal_id)"
+							domain="[('type','=','pcash')]" select="1" widget="selection" />
+						<field name="collect" invisible="1" />
+						<field name="pay" invisible="1" />
+						<field name="user_id" select="1" readonly="1"
+							on_change="on_change_user(user_id)" />
+						<field name="period_id" attrs="{'readonly': [('state','!=','draft')]}" />
+						<field name="printer_id" domain="[('internal','=',True)]" required="1" />
+						<field name="deposit" invisible="1" />
+						<field name="move_id" invisible="1" />
+						<field name="currency" invisible="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="Cash Transactions" attrs="{'invisible': [('state','=','draft')]}">
+							<field colspan="4" name="line_ids" nolabel="1" context="{'date':date}"
+								readonly="1">
+								<tree editable="bottom" string="Statement lines">
+									<field name="sequence" invisible="1" />
+									<field name="date" groups="base.group_extended" />
+									<field name="name" />
+									<field name="ref" />
+									<field name="partner_id" on_change="onchange_partner_id(partner_id)" />
+									<field name="type" on_change="onchange_type(partner_id, type)"
+										invisible="1" />
+									<field name="payment_id" />
+									<field name="amount" />
+									<field
+										domain="[('journal_id','=',parent.journal_id), ('company_id', '=', parent.company_id)]"
+										name="account_id" />
+									<field name="analytic_account_id"
+										domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]"
+										groups="analytic.group_analytic_accounting" invisible="1" />
+									<field name="move_line_id" invisible="1" />
+								</tree>
+								<form string="Statement lines">
+									<field name="date" />
+									<field name="name" />
+									<field name="ref" />
+									<field name="partner_id" on_change="onchange_partner_id(partner_id)" />
+									<field name="type" on_change="onchange_type(partner_id, type)" />
+									<field name="payment_id" />
+									<field name="amount" />
+									<field
+										domain="[('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view'), ('company_id', '=', parent.company_id)]"
+										name="account_id" />
+									<field name="analytic_account_id"
+										domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]"
+										groups="analytic.group_analytic_accounting" />
+									<field name="sequence" />
+									<field name="move_line_id" />
+									<separator colspan="4" string="Notes" />
+									<field colspan="4" name="note" nolabel="1" />
+								</form>
+							</field>
+						</page>
+						<page string="CashBox">
+							<group col="2" colspan="2" expand="1">
+								<field name="starting_details_ids" nolabel="1" colspan="2"
+									attrs="{'readonly':[('state','!=','draft')]}">
+									<tree string="Opening Balance" editable="bottom">
+										<field name="pieces" />
+										<field name="number"
+											on_change="on_change_sub(pieces,number, parent.balance_end)" />
+										<field name="subtotal" sum="Total" />
+									</tree>
+									<form string="Opening Balance">
+										<field name="pieces" />
+										<field name="number"
+											on_change="on_change_sub(pieces,number, parent.balance_end)" />
+										<field name="subtotal" />
+									</form>
+								</field>
+							</group>
+							<group col="2" colspan="2" expand="1">
+								<field name="ending_details_ids" nolabel="1" colspan="2"
+									attrs="{'readonly':[('state','!=','open')]}">
+									<tree string="Closing Balance" editable="bottom">
+										<field name="pieces" />
+										<field name="number"
+											on_change="on_change_sub(pieces,number, parent.balance_end)" />
+										<field name="subtotal"
+											on_change="on_change_sub(pieces,number, parent.balance_end)"
+											sum="Total" />
+									</tree>
+									<form string="Closing Balance">
+										<field name="pieces" />
+										<field name="number"
+											on_change="on_change_sub(pieces,number, parent.balance_end)" />
+										<field name="subtotal"
+											on_change="on_change_sub(pieces,number, parent.balance_end)" />
+									</form>
+								</field>
+							</group>
+						</page>
+						<page string="Journal Entries" attrs="{'invisible': [('state','!=','confirm')]}">
+							<field colspan="4" name="move_line_ids" nolabel="1"
+								string="Journal Entries" />
+						</page>
+						<page string="Total">
+							<separator string="Total moves" colspan="4" />
+							<field name="total_ids" readonly="1" colspan="4" nolabel="1">
+								<tree string="Total lines">
+									<field name="mode_id" />
+									<field name="type" />
+									<field name="amount" sum="Total" />
+									<field name="payments_ids" />
+								</tree>
+								<form string="Total lines">
+									<field name="mode_id" />
+									<field name="type" />
+									<field name="amount" />
+									<field name="payments_ids" colspan="4" nolabel="1">
+										<tree string="Payments">
+											<field name="partner_id" />
+											<field name="amount" sum="Total payment" />
+										</tree>
+									</field>
+								</form>
+							</field>
+						</page>
+					</notebook>
+					<group col="6" colspan="4">
+						<group col="2" colspan="2">
+							<separator string="Dates" colspan="4" />
+							<field name="date" select="1"
+								attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_date(date, company_id)" />
+							<field name="closing_date" select="1" readonly="1" />
+						</group>
+						<group col="2" colspan="2">
+							<separator string="Movimientos" colspan="4" />
+							<field name="balance_start" readonly="1" string="Opening Balance" />
+							<field name="total_entry_encoding" string="(+) Ingresos de Efectivo" />
+							<field name="total_outlet_encoding" string="(-) Salidas de Efectivo" />
+							<field name="balance_end" />
+						</group>
+					</group>
+					<group col="8" colspan="4">
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm"
+							colspan="2" />
+						<button name="button_cancel" states="confirm,open" string="Cancel"
+							icon="terp-gtk-stop" type="object" groups="base.group_extended" />
+						<button name="button_re_open" states="confirm" string="Re-open"
+							icon="gtk-convert" type="object"
+							groups="base.group_extended,account.group_account_manager" />
+						<button name="button_confirm_cash" states="open" string="Close CashBox"
+							icon="terp-dialog-close" type="object" />
+						<button name="button_open" states="draft" string="Open CashBox"
+							icon="gtk-go-forward" type="object" />
+						<button name="%(action_straconx_petty_cash_report)d"
+							string="Print" type="action" icon="terp-report" colspan="1"
+							attrs="{'invisible':['|',('state', '==', 'draft'),('state','==','draft')]}" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_petty_cash_tree">
+			<field name="name">Lista de Cajas Chicas</field>
+			<field name="model">account.bank.statement</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Petty Cash"
+					colors="red:balance_end_real!=balance_end;blue:state=='draft' and (balance_end_real==balance_end);black:state == 'open'">
+					<field name="name" select="1" />
+					<field name="company_id" />
+					<field name="journal_id" domain="[('type','=','pcash')]" invisible="1"/>
+					<field name="collect" invisible="1" />
+					<field name="pay" invisible="1" />
+					<field name="user_id" select="1" />
+					<field name="date" />
+					<field name="period_id" invisible="1" />
+					<field name="printer_id" />
+					<field name="state" />
+					<field name="balance_start" invisible="1" />
+					<field name="balance_end_real" invisible="1" />
+					<field name="balance_end" invisible="1" />
+					<field name="deposit" invisible="1" />
+					<field name="move_id" invisible="1" />
+					<field name="currency" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_petty_cash_filter">
+			<field name="name">Búsqueda de Cajas Chicas</field>
+			<field name="model">account.bank.statement</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search Cash Statements">
+					<group col="8" colspan="4">
+						<filter string="Draft" name="state_draft" domain="[('state','=','draft')]"
+							icon="terp-document-new" />
+						<filter string="Open" name="state_open" domain="[('state','=','open')]"
+							icon="terp-check" />
+						<filter string="Confirmed" name="state_confirmed" domain="[('state','=','confirm')]"
+							icon="terp-camera_test" />
+						<separator orientation="vertical" />
+						<field name="date" />
+						<field name="name" />
+						<field name="printer_id" />
+						<field name="user_id" />
+						<field name="journal_id" widget="selection" domain="[('type', '=', 'pcash')]" />
+					</group>
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="Journal" context="{'group_by': 'journal_id'}"
+							icon="terp-folder-orange" />
+						<filter string="Responsable" context="{'group_by': 'user_id'}"
+							icon="terp-personal+" />
+						<filter string="State" context="{'group_by': 'state'}"
+							icon="terp-stock_effects-object-colorize" />
+						<separator orientation="vertical" />
+						<filter string="Period" context="{'group_by': 'period_id'}"
+							icon="terp-go-month" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_straconx_petty_cash">
+			<field name="name">Caja Chica</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.bank.statement</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="straconx_petty_cash_filter" />
+            <field name="auto_refresh" eval="10" />
+			<field name="domain">[('journal_id.type','=','pcash'),('printer_id.type','=',True)]</field>
+			<field name="context">{'journal_type':'pcash'}</field>
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_petty_cash_ext1">
+			<field name="sequence" eval="1" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_petty_cash_tree" />
+			<field name="act_window_id" ref="action_straconx_petty_cash" />
+		</record>
+
+		<record model="ir.actions.act_window.view" id="action_straconx_petty_cash_ext2">
+			<field name="sequence" eval="2" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_petty_cash_form" />
+			<field name="act_window_id" ref="action_straconx_petty_cash" />
+		</record>
+
+	</data>
+</openerp>

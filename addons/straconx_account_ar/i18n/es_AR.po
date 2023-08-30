@@ -1,0 +1,343 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_account_ar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-20 02:15+0000\n"
+"PO-Revision-Date: 2016-06-20 02:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:99
+#, python-format
+msgid "Input date no have a defined period.Check period state or create fiscal year!"
+msgstr "¡La fecha ingresada no tiene un período definido! Revise el período o cree el año fiscal correspondiente"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:549
+#, python-format
+msgid "Move name (id): %s (%s)"
+msgstr "Movimiento (id): %s (%s)"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:218
+#, python-format
+msgid "You can not delete a posted journal entry \"%s\"!"
+msgstr "No puede eliminar una entrada de diario aprobada \"%s\"!"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:367
+#, python-format
+msgid "You can not use an inactive account!"
+msgstr "You can not use an inactive account!"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_tax_code
+msgid "Tax Code"
+msgstr "Código impuesto"
+
+#. module: straconx_account_ar
+#: sql_constraint:account.account:0
+msgid "The code of the account must be unique per company !"
+msgstr "El código debe ser único por compañia"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_chart
+msgid "Account chart"
+msgstr "Plan contable"
+
+#. module: straconx_account_ar
+#: model:ir.actions.todo,note:straconx_account_ar.config_call_account_template_ar
+msgid "Generate Chart of Accounts from a Chart Template. You will be asked to pass the name of the company, the chart template to follow, the no. of digits to generate the code for your accounts and Bank account, currency to create Journals. Thus,the pure copy of chart Template is generated.\n"
+"	This is the same wizard that runs from Financial Management/Configuration/Financial Accounting/Financial Accounts/Generate Chart of Accounts from a Chart Template."
+msgstr "Generate Chart of Accounts from a Chart Template. You will be asked to pass the name of the company, the chart template to follow, the no. of digits to generate the code for your accounts and Bank account, currency to create Journals. Thus,the pure copy of chart Template is generated.\n"
+"	This is the same wizard that runs from Financial Management/Configuration/Financial Accounting/Financial Accounts/Generate Chart of Accounts from a Chart Template."
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:61
+#, python-format
+msgid "No sequence defined on the journal !"
+msgstr "No sequence defined on the journal !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:157
+#, python-format
+msgid "Couldn't create move with currency different from the secondary currency of the account \"%s - %s\". Clear the secondary currency field of the account definition if you want to accept all currencies."
+msgstr "Couldn't create move with currency different from the secondary currency of the account \"%s - %s\". Clear the secondary currency field of the account definition if you want to accept all currencies."
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:380
+#, python-format
+msgid "No period found or more than one period found for the given date."
+msgstr "No period found or more than one period found for the given date."
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:406
+#, python-format
+msgid "Can not create an automatic sequence for this piece!\n"
+"Put a sequence in the journal definition for automatic numbering or create a sequence manually for this piece."
+msgstr "Can not create an automatic sequence for this piece!\n"
+"Put a sequence in the journal definition for automatic numbering or create a sequence manually for this piece."
+
+#. module: straconx_account_ar
+#: field:account.account,exchange_use:0
+msgid "Exchange Rate"
+msgstr "Usar Tipo de Cambio"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:233
+#: code:addons/straconx_account_ar/objects/account_move.py:235
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:367
+#, python-format
+msgid "Bad account!"
+msgstr "Bad account!"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:47
+#, python-format
+msgid "You can not validate a non-balanced entry !\n"
+"Make sure you have configured payment terms properly !\n"
+"The latest payment term line should be of the type \"Balance\" !"
+msgstr "You can not validate a non-balanced entry !\n"
+"Make sure you have configured payment terms properly !\n"
+"The latest payment term line should be of the type \"Balance\" !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:242
+#, python-format
+msgid "No se puede modificar entradas que han sido completamente pagadas o cobradas. Por favor, primero anule el cobro o pago realizado."
+msgstr "No se puede modificar entradas que han sido completamente pagadas o cobradas. Por favor, primero anule el cobro o pago realizado."
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:235
+#, python-format
+msgid "You can not modify a posted entry of this journal !\n"
+"You should set the journal to allow cancelling entries if you want to do that."
+msgstr "You can not modify a posted entry of this journal !\n"
+"You should set the journal to allow cancelling entries if you want to do that."
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:47
+#, python-format
+msgid "Integrity Error !"
+msgstr "Integrity Error !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:380
+#, python-format
+msgid "Encoding error"
+msgstr "Encoding error"
+
+#. module: straconx_account_ar
+#: constraint:account.tax.code.template:0
+msgid "Error ! You can not create recursive Tax Codes."
+msgstr "Error ! No puede crear códigos recursivos"
+
+#. module: straconx_account_ar
+#: sql_constraint:account.tax:0
+msgid "Tax Name must be unique per company!"
+msgstr "¡El nombre del impuesto debe ser único por Compañía!"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_tax
+msgid "account.tax"
+msgstr "Impuestos"
+
+#. module: straconx_account_ar
+#: selection:account.account,exchange_use:0
+msgid "rate_sell"
+msgstr "T/C Venta"
+
+#. module: straconx_account_ar
+#: selection:account.account,exchange_use:0
+msgid "rate_fixed"
+msgstr "T/C Fijo"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_account
+msgid "Account"
+msgstr "Producto"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_wizard_multi_charts_accounts
+msgid "wizard.multi.charts.accounts"
+msgstr "asistente.multi.charts.accounts"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:242
+#, python-format
+msgid "¡Error!"
+msgstr "¡Error!"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:78
+#, python-format
+msgid "Shop required !"
+msgstr "Shop required !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:99
+#, python-format
+msgid "Period required !"
+msgstr "Period required !"
+
+#. module: straconx_account_ar
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_account_ar
+#: field:res.currency.rate,rate_avg:0
+msgid "Average Rate"
+msgstr "Tipo de Cambio Promedio"
+
+#. module: straconx_account_ar
+#: selection:account.account,exchange_use:0
+msgid "rate_avg"
+msgstr "T/C Promedio"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:444
+#, python-format
+msgid "Bad account !"
+msgstr "Bad account !"
+
+#. module: straconx_account_ar
+#: selection:account.account,exchange_use:0
+msgid "rate_purchase"
+msgstr "T/C Compra"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:61
+#: code:addons/straconx_account_ar/objects/account_move.py:153
+#: code:addons/straconx_account_ar/objects/account_move.py:157
+#: code:addons/straconx_account_ar/wizard/straconx_account_chart.py:39
+#: code:addons/straconx_account_ar/wizard/straconx_account_chart.py:44
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:233
+#, python-format
+msgid "You can not modify a posted entry of closed periods"
+msgstr "You can not modify a posted entry of closed periods"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:218
+#, python-format
+msgid "UserError"
+msgstr "UserError"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:406
+#, python-format
+msgid "No piece number !"
+msgstr "No piece number !"
+
+#. module: straconx_account_ar
+#: constraint:account.account:0
+#: constraint:account.tax.code:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "Error! No se pueden crear cuentas recursivas."
+
+#. module: straconx_account_ar
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not select an account type with a deferral method different of \"Unreconciled\" for accounts with internal type \"Payable/Receivable\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/wizard/straconx_account_chart.py:44
+#, python-format
+msgid "No existen períodos fiscales para la compañía seleccionada."
+msgstr "No existen períodos fiscales para la compañía seleccionada."
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_tax_template
+msgid "account.tax.template"
+msgstr "Plantilla de Impuestos"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:153
+#, python-format
+msgid "Couldn't create move between different companies"
+msgstr "Couldn't create move between different companies"
+
+#. module: straconx_account_ar
+#: help:res.currency.rate,rate_avg:0
+#: help:res.currency.rate,rate_sell:0
+msgid "The rate of the currency to the currency of rate 1"
+msgstr "The rate of the currency to the currency of rate 1"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:444
+#, python-format
+msgid "You can not use this general account in this journal, check the tab 'Entry Controls' on  the related journal !"
+msgstr "You can not use this general account in this journal, check the tab 'Entry Controls' on  the related journal !"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/objects/account_move.py:78
+#, python-format
+msgid "You need a shop for continue!"
+msgstr "You need a shop for continue!"
+
+#. module: straconx_account_ar
+#: code:addons/straconx_account_ar/wizard/straconx_account_chart.py:39
+#, python-format
+msgid "Debe seleccionar una compañía para continuar."
+msgstr "Debe seleccionar una compañía para continuar."
+
+#. module: straconx_account_ar
+#: field:res.currency.rate,rate_sell:0
+msgid "Sell Rate"
+msgstr "Tipo de Cambio Venta"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_res_currency_rate
+msgid "Currency Rate"
+msgstr "Tasa monetaria"
+
+#. module: straconx_account_ar
+#: model:ir.model,name:straconx_account_ar.model_account_tax_code_template
+msgid "Tax Code Template"
+msgstr "Plantilla códigos de impuestos"
+
+#. module: straconx_account_ar
+#: field:res.currency.rate,rate_sell:0
+msgid "Sell Rate"
+msgstr "Tipo de Cambio Venta"
+
+#. module: straconx_account_ar
+#: field:res.currency.rate,rate_avg:0
+msgid "Average Rate"
+msgstr "Tipo de Cambio Promedio"
+
+#. module: straconx_account_ar
+#: field:res.currency.rate,rate_avg:0
+msgid "Average Rate"
+msgstr "Tipo de Cambio Promedio"
+
+#. module: base
+#: field:res.currency.rate,rate:0
+msgid "Rate"
+msgstr "Tipo de Cambio Compra"
+
+#. module: straconx_account_ar
+#: field:account.account,exchange_use:0
+msgid "Exchange Rate"
+msgstr "Usar Tipo de Cambio"

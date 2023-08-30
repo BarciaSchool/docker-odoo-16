@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="account_pos_invoice_form_form_inherit" model="ir.ui.view">
+			<field name="name">customer.invoice.form.inherit</field>
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="account.pos_invoice_form" />
+			<field name="arch" type="xml">
+				<field name="invoice_line" position="replace">
+					<field colspan="4" name="invoice_line" nolabel="1"
+						on_change="onchange_line_ids(invoice_line)" widget="one2many_list"
+						context="{'type': type}" attrs="{'readonly':[('wizard_auth','=',True)]}">
+						<tree string="Invoice Line" editable="bottom">
+							<field name="sequence"
+								on_change="sequence_change(parent.invoice_line, parent.shop_id)"
+								invisible="1" />
+							<field name="ref_product" invisible="1" />
+							<field name="product_id"
+								on_change="product_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id)" />
+							<field colspan="2" name="name" invisible="1" required="0" />
+							<field name="qty"
+								on_change="onchange_qty(qty,bonus_qty,quantity,product_id, uos_id, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id,None)"
+								required="1" />
+							<field name="bonus_qty"
+								on_change="onchange_bonus_qty(qty,bonus_qty,quantity,product_id, uos_id, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id,None)"
+								attrs="{'invisible':[('product_id', '==', False)]}" />
+							<field name="quantity" nolabel="1" string="Total Quantity"
+								on_change="product_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id)" />
+							<field name="uos_id"
+								on_change="uos_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id)" />
+							<field
+								domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+								name="account_id"
+								on_change="onchange_account_id(product_id, parent.partner_id, parent.type, parent.fiscal_position,account_id,name, company_id, parent.shop_id, parent.currency_id)"
+								invisible="1" required="0" />
+							<field name="price_product"
+								on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+							<field name="discount"
+								on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+							<field name="offer"
+								on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+							<field name="price_unit"
+								on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+							<field name="price_subtotal"
+								on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+							<field name="offer_value_total" invisible="0"
+								groups="base.group_extended" />
+							<field name="cost_subtotal" groups="base.group_extended" />
+							<field name="margin" groups="base.group_extended" />
+							<field
+								domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+								name="account_analytic_id" groups="analytic.group_analytic_accounting"
+								invisible="1" />
+							<field name="company_id" groups="base.group_multi_company"
+								invisible="1" readonly="1" />
+							<field colspan="4" name="invoice_line_tax_id" context="{'type':parent.type}"
+								domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]"
+								invisible="1" />
+							<field name="authorized" invisible="1" />
+						</tree>
+						<form string="Invoice Line">
+							<notebook>
+								<page string="Line">
+									<field name="product_id"
+										on_change="product_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id)"
+										invisible="0" />
+									<field name="categ_id" />
+									<field colspan="4" name="name" required="0" />
+									<field
+										domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+										name="account_id"
+										on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id, name, company_id, parent.shop_id, parent.currency_id)"
+										required="0" />
+									<field
+										domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+										name="account_analytic_id" groups="analytic.group_analytic_accounting" />
+									<field name="qty"
+										on_change="onchange_qty(qty,bonus_qty,quantity,product_id, uos_id, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id,None)"
+										required="1" />
+									<field name="bonus_qty"
+										on_change="onchange_bonus_qty(qty,bonus_qty,quantity,product_id, uos_id, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id,None)"
+										attrs="{'invisible':[('product_id', '==', False)]}" />
+									<newline />
+									<label string="Total Quantity :" align="1.0" />
+									<group colspan="1" col="2">
+										<field name="quantity" nolabel="1"
+											on_change="product_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id, discount, offer, parent.shop_id)" />
+										<field name="uos_id"
+											on_change="uos_id_change(product_id, uos_id, qty, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context, parent.company_id)"
+											nolabel="1" />
+									</group>
+									<field name="price_product"
+										on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+									<field name="discount"
+										on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+									<field name="offer"
+										on_change="onchange_offer(product_id, offer, qty, price_unit,margin,price_product,discount)" />
+									<field name="price_unit" />
+									<field name="price_subtotal" />
+									<field name="company_id" groups="base.group_multi_company"
+										readonly="1" />
+									<separator colspan="4" string="Taxes" />
+									<field colspan="4" name="invoice_line_tax_id" context="{'type':parent.type}"
+										domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]"
+										nolabel="1" />
+								</page>
+								<page string="Notes">
+									<separator string="Notes" colspan="4" />
+									<field colspan="4" name="note" nolabel="1" />
+								</page>
+							</notebook>
+						</form>
+					</field>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--         <record model="ir.ui.view" id="pos_invoice_withhold_form_view"> -->
+<!--             <field name="name">POS Invoice Withhold</field> -->
+<!--             <field name="model">account.invoice</field> -->
+<!--             <field name="type">form</field> -->
+<!--             <field name="inherit_id" ref="account.pos_invoice_form" /> -->
+<!--             <field name="arch" type="xml"> -->
+<!--                 <xpath expr="/form/notebook/page[@string='Payments']" position="after"> -->
+<!--                     <page string="Withhold Lines"> -->
+<!--                     <field name="withhold_id" invisible="1"/> -->
+<!--                     <field name="withhold" invisible="1"/> -->
+<!--                     <separator string="Withhold Lines" colspan="4"/> -->
+<!--                         <field name="withhold_lines_ids" nolabel="1" readonly="1"> -->
+<!--                         	<tree string="Withhold Lines"> -->
+<!-- 								<field name="invoice_id" invisible="1"/> -->
+<!-- 								<field name="tax_id" widget="selection" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" /> -->
+<!-- 								<field name="tax_base" /> -->
+<!-- 								<field name="percentage" /> -->
+<!-- 								<field name="retained_value" /> -->
+<!-- 								<field name="state" /> -->
+<!-- 							</tree> -->
+<!--                         	<form string="Withhold"> -->
+<!-- 								<field name="invoice_id" invisible="1"/> -->
+<!-- 								<field name="tax_id" widget="selection" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" /> -->
+<!-- 								<field name="tax_base" /> -->
+<!-- 								<field name="percentage" /> -->
+<!-- 								<field name="retained_value" /> -->
+<!-- 								<field name="state" /> -->
+<!-- 							</form> -->
+<!--                         </field> -->
+<!--                     </page> -->
+<!--                 </xpath> -->
+                
+<!--                 <xpath expr="/form/notebook/page/group/group//button[@name='action_validate']" position="after"> -->
+<!--                 	<button name="%(straconx_withhold.action_withhold_wizard_sales)d" string="Input Withhold sales" type="action" icon="terp-gtk-jump-to-ltr" attrs="{'invisible':['|',('withhold','=',True),('state','!=','open')]}"/>  -->
+<!--                 	<button name="%(straconx_withhold.action_withhold_wizard_sales)d" string="Input Withhold sales" type="action" icon="terp-gtk-jump-to-ltr" attrs="{'invisible':[('withhold','=',True)]}"/>                	 -->
+<!--                 </xpath> -->
+<!--             </field> -->
+<!--         </record>     -->
+    </data>
+</openerp>

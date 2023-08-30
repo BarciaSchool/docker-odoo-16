@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+<!-- Prices in Suppliers -->
+
+        <record id="product.product_supplierinfo_form_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.form.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Supplier Information">
+                <group colspan="4" col="4">
+                    <field name="name"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="product_name"/>
+                    <field name="product_code"/>
+                    <field name="product_uom"/>
+                    <field name="delay"/>
+                    <field name="sequence"/>
+                    <field name="min_qty"/>
+                    <field name="price_supplier"/>
+                    <field name="company_id" groups="base.group_multi_company" widget="selection" invisible="1"/>
+                    <field colspan="4" name="pricelist_ids" nolabel="1" widget="one2many_list">
+                        <tree editable="bottom" string="Pricelist">
+                            <field name="min_quantity"/>
+                            <field name="price"/>
+                        </tree>
+                        <form>
+                            <field name="min_quantity"/>
+                            <field name="price"/>
+                        </form>
+                    </field>
+                </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="product.product_supplierinfo_tree_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.tree.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Supplier Information">
+                    <field name="sequence" string="Seq"/>
+                    <field name="name"/>
+                    <field name="delay"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="qty"/>
+                    <field name="min_qty"/>
+                    <field name="price_supplier"/>
+                    <field name="company_id" groups="base.group_multi_company" widget="selection" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product.product_supplierinfo_search_view" model="ir.ui.view">
+            <field name="name">product.supplierinfo.search.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Supplier Information">
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="price_supplier"/>
+                    <field name="delay"/>
+                    <field name="min_qty"/>
+					<field name="qty"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="product.list_price_product_normal" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.supplierinfo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="product.product_supplierinfo_search_view"/>
+            <field name="help">Products can be systemd and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on.</field>
+        </record>
+        
+        <record id="product.list_price_product_normal_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="product.product_supplierinfo_tree_view"/>
+            <field name="act_window_id" ref="product.list_price_product_normal"/>
+        </record>
+        
+        <record id="product.list_price_product_normal_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product.product_supplierinfo_form_view"/>
+            <field name="act_window_id" ref="product.list_price_product_normal"/>
+        </record>
+
+</data>
+</openerp>
+    
+
+    

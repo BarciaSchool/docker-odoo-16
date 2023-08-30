@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Add  Product -->
+
+        <record id="view_pos_discount" model="ir.ui.view">
+            <field name="name">Aplicar Oferta</field>
+            <field name="model">invoice.discount</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Apply Discount">
+                    <field name="offer" colspan="4"/>
+                    <separator colspan="4" string=""/>
+                    <group colspan="2"/>
+                    <button icon='gtk-cancel' special="cancel"
+                        string="Close" />
+                    <button name="apply_discount" string="Aplicar Descuento"
+                        colspan="1" type="object" icon="gtk-ok" />
+                </form>
+            </field>
+        </record>
+
+        <record id="action_invoice_pos_discount" model="ir.actions.act_window">
+            <field name="name">Apply Discount</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">invoice.discount</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

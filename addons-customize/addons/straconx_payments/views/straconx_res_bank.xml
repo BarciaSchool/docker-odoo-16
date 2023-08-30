@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="base.view_res_bank_form" model="ir.ui.view">
+			<field name="name">res.bank.form</field>
+			<field name="model">res.bank</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Bank">
+					<group colspan="4" col="6">
+						<field name="name" select="1" />
+						<field name="lname" select="1" colspan="4" />
+						<field name="partner_id" 
+							context="{'form_view_ref':'straconx_purchase.view_res_supplier_partner_form_straconx'}"/>
+						<field name="vat" />
+						<field name="bic" select="1" />
+						<field name="active" select="2" />
+					</group>
+					<newline />
+					<separator string="Address" colspan="2" col="4" />
+					<separator string="Communication" colspan="2" col="4" />
+					<group colspan="2" col="4">
+						<field name="street" select="2" />
+						<field name="street2" select="2" />
+						<field name="zip" />
+						<field name="city" />
+						<field name="country" select="2" />
+						<field name="state" select="2" />
+					</group>
+					<group colspan="2" col="2">
+						<field name="phone" />
+						<field name="fax" />
+						<field name="email" />
+						<field name="website" widget="url" />						
+					</group>
+					<group colspan="4" col="4">
+						<group colspan="2">
+							<separator string="Settings Protested Checks" colspan="4" />
+							<field name="account_protested_id" string="Account Check Protested"
+								colspan="4" domain="[('type','=','receivable')]" />
+							<field name="amount_protested" colspan="4" string="Amount Debit Note" />
+						</group>
+						<group colspan="2">
+							<separator string="Settings Rejected Checks" colspan="4" />
+							<field name="account_rejected_id" string="Account Check Rejected"
+								colspan="4" domain="[('type','=','receivable')]" />
+							<field name="amount_rejected" colspan="4" string="Amount Debit Note" />
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="base.view_partner_bank_search" model="ir.ui.view">
+			<field name="name">res.partner.bank.search</field>
+			<field name="model">res.partner.bank</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Bank Accounts">
+					<filter string="Partner" icon="terp-personal" domain="[]"
+						context="{'group_by':'partner_id'}" />
+					<separator orientation="vertical" />
+					<filter string="Bank" icon="terp-stock_effects-object-colorize"
+						domain="[]" context="{'group_by':'bank'}" />
+					<separator orientation="vertical" />
+					<field name="bank" />
+					<field name="state" />
+					<field name="acc_number" />
+					<field name="partner_id" />
+				</search>
+			</field>
+		</record>
+
+		<record id="base.view_partner_bank_tree" model="ir.ui.view">
+			<field name="name">res.partner.bank.tree</field>
+			<field name="model">res.partner.bank</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Bank Accounts">
+					<field name="bank" />
+					<field name="partner_id" />
+					<field name="state" />
+					<field name="acc_number" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="account.view_partner_bank_form_inherit" model="ir.ui.view">
+			<field name="name">Partner Bank Accounts - Journal</field>
+			<field name="model">res.partner.bank</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="base.view_partner_bank_form" />
+			<field name="arch" type="xml">
+				<field name="acc_number" position="before">
+				</field>
+			</field>
+		</record>
+
+
+		<record id="base.view_partner_bank_form" model="ir.ui.view">
+			<field name="name">res.partner.bank.form</field>
+			<field name="model">res.partner.bank</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Bank account">
+					<field name="state" />
+					<field name="partner_id" select="1" />
+					<newline />
+					<field name="acc_number" select="1" />
+					<newline />
+					<field name="bank" required="1" />
+					<newline />
+					<field name="sequence" />
+					<field name="sequence2" />
+					<field colspan="4" name="name" />
+					<separator colspan="4" string="Bank Account Owner" />
+					<field colspan="4" name="owner_name" />
+					<field colspan="4" name="street" />
+					<field name="city" />
+					<field name="zip" />
+					<field name="phone" />
+					<field completion="1" name="country_id" />
+					<field name="state_id" />
+				</form>
+			</field>
+		</record>
+
+		<record id="action_res_partner_bank_form" model="ir.actions.act_window">
+			<field name="name">Banks Partners</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner.bank</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="base.view_partner_bank_search" />
+		</record>
+
+
+		<record id="action_res_partner_bank_view1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="base.view_partner_bank_tree" />
+			<field name="act_window_id" ref="action_res_partner_bank_form" />
+		</record>
+
+		<record id="action_res_partner_bank_view2" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="base.view_partner_bank_form" />
+			<!-- <field name="act_window_id" ref="base.view_partner_bank_form"/> -->
+			<field name="act_window_id" ref="action_res_partner_bank_form" />
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <!--Agency-->
+
+           <record id="res_partner_title_hd" model="res.partner.title">
+            <field name="domain">agency</field>
+            <field name="name">Headquarters</field>
+            <field name="shortcut">Hd</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="res_partner_title_ag" model="res.partner.title">
+            <field name="domain">agency</field>
+            <field name="name">Agency</field>
+            <field name="shortcut">Ag</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="res_partner_title_wh" model="res.partner.title">
+            <field name="domain">agency</field>
+            <field name="name">Warehouse</field>
+            <field name="shortcut">Wh</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="res_partner_title_sb" model="res.partner.title">
+            <field name="domain">agency</field>
+            <field name="name">Subsidiary</field>
+            <field name="shortcut">Sb</field>
+            <field name="active">True</field>
+        </record>
+
+        <record id="res_partner_title_of" model="res.partner.title">
+            <field name="domain">agency</field>
+            <field name="name">Office</field>
+            <field name="shortcut">Of</field>
+            <field name="active">True</field>
+        </record>
+
+
+        <!--Resource: Credit State-->
+
+        <record id="info_activo" model="res.partner.estado">
+            <field name="name">Activo</field>
+            <field name="shortcut">Act</field>
+        </record>
+
+        <record id="info_facturable" model="res.partner.estado">
+            <field name="name">Facturable</field>
+            <field name="shortcut">Fact</field>
+        </record>
+
+        <record id="info_suspendido" model="res.partner.estado">
+            <field name="name">Suspendido</field>
+            <field name="shortcut">Susp</field>
+        </record>
+
+        <record id="info_inactivo" model="res.partner.estado">
+            <field name="name">Inactivo</field>
+            <field name="shortcut">Inact</field>
+        </record>
+
+        <record id="info_cerrado" model="res.partner.estado">
+            <field name="name">Cerrado</field>
+            <field name="shortcut">Cerr</field>
+        </record>
+        
+        <record id="info_wait_approve" model="res.partner.estado">
+            <field name="name">En proceso de Apertura</field>
+            <field name="shortcut">EsAp</field>
+        </record>
+     </data>
+</openerp>

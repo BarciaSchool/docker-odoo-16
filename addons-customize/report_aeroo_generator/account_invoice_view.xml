@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="view_invoice_report_aeroo_generator_form" model="ir.ui.view">
+            <field name="name">account.invoice.report_aeroo_generator.form</field>
+            <field name="priority" eval="40"/>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <button string="Print Invoice" position="replace">
+                        <button name="print_invoice" string="Print Invoice" type="object"
+                                icon="gtk-print" states="open,paid,proforma,sale,proforma2"/>
+                    </button>
+                    <xpath expr="//page[@string='Other Info']//field[@name='move_id']" position="after">
+                        <field name="splitter_invoice_id"/>
+                        <field name="splitted_invoice_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

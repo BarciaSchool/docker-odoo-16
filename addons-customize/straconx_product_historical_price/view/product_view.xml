@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="0">
+		<record model="ir.ui.view" id="product_normal_view_form_historical">
+			<field name="name">Historical Prices Form</field>
+			<field name="model">product.product</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Products">
+					<group colspan="4" col="6">
+						<group colspan="4" col="4">
+							<separator string="Product Description" colspan="4" />
+							<field name="name" select="2" colspan="4" />
+							<field name="default_code" select="1" readonly="True" />
+							<field name="codant" />
+							<field name="categ_id" select="2" colspan="4" required="True" />
+							<field name="clasification_cat" select="2" colspan="4"
+								required="True" />
+						</group>
+						<group colspan="1" col="2">
+							<separator string="Product Prices" colspan="2" />
+							<field name="list_price" />
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="Historical Cost Price">
+							<group colspan="2" col="2">
+								<separator string="Historical Costs" colspan="2" />
+								<field name="cost_historical" colspan="2" />
+								<field name="cost_historical_ids" nolabel="1" colspan="2">
+									<form string="Historical Cost">
+										<field name="name" />
+										<field name="price" />
+										<field name="product_uom" />
+										<field name="user_id" />
+									</form>
+									<tree string="Historical Cost">
+										<field name="name" />
+										<field name="price" />
+										<field name="product_uom" />
+										<field name="user_id" />
+									</tree>
+								</field>
+							</group>
+							<group colspan="2" col="2">
+								<separator string="Historical Prices" colspan="2" />
+								<field name="list_price_historical" colspan="2" />
+								<newline />
+								<field name="list_price_historical_ids" nolabel="1"
+									colspan="2">
+									<form string="Historical List Price">
+										<field name="name" />
+										<field name="price" />
+										<field name="product_uom" />
+										<field name="user_id" />
+									</form>
+									<tree string="Historical List Price">
+										<field name="name" />
+										<field name="price" />
+										<field name="product_uom" />
+										<field name="user_id" />
+									</tree>
+								</field>
+							</group>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record id="product_normal_action_historical" model="ir.actions.act_window">
+			<field name="name">Products</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.product</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('purchase_ok','=',1)]</field>
+			<field name="search_view_id"
+				ref="product.product_search_form_view" />
+			<field name="help">Products can be purchased and/or sold. They can be
+				raw materials, stockable products, consumables or services. The
+				Product form contains detailed information about your products
+				related to procurement logistics, sales price, product category,
+				suppliers and so on.</field>
+		</record>
+
+		<record id="action_partner_historical_prod1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id"
+				ref="product.product_product_tree_view" />
+			<field name="act_window_id" ref="product_normal_action_historical" />
+		</record>
+		<record id="action_partner_historical_prod2" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="product_normal_view_form_historical" />
+			<field name="act_window_id" ref="product_normal_action_historical" />
+		</record>
+
+		<menuitem name="Historical List Prices" id="menu_product_historical"
+			action="product_normal_action_historical" parent="purchase.menu_procurement_management_product"
+			sequence="2" />
+
+		<record model="ir.ui.view" id="product_normal_view_form_historical_purchase">
+			<field name="name">Historical Prices Form</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id"
+				ref="product.product_normal_form_view" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Information']"
+					position="after">
+					<page string="Historical Cost Price"
+						groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user">
+						<separator string="Historical Prices" colspan="4" />
+						<group colspan="2" col="2">
+							<separator string="Historical Costs" colspan="2" />
+							<field name="cost_historical" colspan="2" />
+							<field name="cost_historical_ids" nolabel="1" colspan="2">
+								<form string="Historical Cost">
+									<field name="name" />
+									<field name="price" />
+									<field name="product_uom" />
+									<field name="user_id" />
+								</form>
+								<tree string="Historical Cost">
+									<field name="name" />
+									<field name="price" />
+									<field name="product_uom" />
+									<field name="user_id" />
+								</tree>
+							</field>
+						</group>
+						<group colspan="2" col="2">
+							<separator string="Historical Prices" colspan="2" />
+							<field name="list_price_historical" colspan="2" />
+							<newline />
+							<field name="list_price_historical_ids" nolabel="1"
+								colspan="2">
+								<form string="Historical List Price">
+									<field name="name" />
+									<field name="price" />
+									<field name="p_net" />
+									<field name="margin" />
+									<field name="product_uom" />
+									<field name="user_id" />
+								</form>
+								<tree string="Historical List Price">
+									<field name="name" />
+									<field name="price" />
+									<field name="p_net" />
+									<field name="margin" />
+									<field name="product_uom" />
+									<field name="user_id" />
+								</tree>
+							</field>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>

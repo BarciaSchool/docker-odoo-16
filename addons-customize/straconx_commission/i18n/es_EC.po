@@ -1,0 +1,567 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_commission
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120808-233336\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-10 15:51+0000\n"
+"PO-Revision-Date: 2012-08-10 15:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_sale_forecast_line_categ
+msgid "Forecast Line Categ"
+msgstr "Forecast Line Categ"
+
+#. module: straconx_commission
+#: view:sale.forecast:0
+#: view:sale.forecast.line:0
+msgid "Group By..."
+msgstr "Group By..."
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_table_commission_line
+#: view:table.commission:0
+msgid "Table Commission Line"
+msgstr "Table Commission Line"
+
+#. module: straconx_commission
+#: field:sale.forecast.line.categ,forecast_rate_categ:0
+msgid "Progress (%)"
+msgstr "Progress (%)"
+
+#. module: straconx_commission
+#: field:sale.forecast,company_id:0
+msgid "Company"
+msgstr "Company"
+
+#. module: straconx_commission
+#: constraint:sale.forecast:0
+msgid "The date to must be greater than the date from"
+msgstr "The date to must be greater than the date from"
+
+#. module: straconx_commission
+#: field:table.commission.line,minimum_value:0
+msgid "Minimum Value"
+msgstr "Minimum Value"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:579
+#, python-format
+msgid "You must select a account of commission in the company"
+msgstr "You must select a account of commission in the company"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+msgid "Generate"
+msgstr "Generate"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:402
+#: code:addons/straconx_commission/objects/sale_forecast.py:411
+#: code:addons/straconx_commission/wizard/commission_for_salesman.py:52
+#: code:addons/straconx_commission/wizard/commission_for_salesman.py:59
+#: code:addons/straconx_commission/wizard/commission_for_salesman.py:62
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_commission
+#: field:table.commission.line,amount:0
+msgid "Amount"
+msgstr "Amount"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:427
+#: code:addons/straconx_commission/objects/sale_forecast.py:450
+#, python-format
+msgid "You must have a account bank by default"
+msgstr "You must have a account bank by default"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+msgid "Commission for Salesman"
+msgstr "Commission for Salesman"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:411
+#, python-format
+msgid "You must selected a Forecast Sales."
+msgstr "You must selected a Forecast Sales."
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_commission_salesman_wizard
+msgid "commission.salesman.wizard"
+msgstr "commission.salesman.wizard"
+
+#. module: straconx_commission
+#: help:table.commission,type:0
+msgid "This field indicate if the value to paid in the commission is a percentaje of the goald or fixed amount"
+msgstr "This field indicate if the value to paid in the commission is a percentaje of the goald or fixed amount"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,amount_paid:0
+msgid "Amount to paid"
+msgstr "Amount to paid"
+
+#. module: straconx_commission
+#: selection:commission.salesman.wizard,computation_type:0
+msgid "Amount Sales"
+msgstr "Amount Sales"
+
+#. module: straconx_commission
+#: field:sale.forecast,period_id:0
+msgid "Fiscal Period"
+msgstr "Fiscal Period"
+
+#. module: straconx_commission
+#: constraint:sale.forecast.line.categ:0
+msgid "The value entered must be more than zero"
+msgstr "The value entered must be more than zero"
+
+#. module: straconx_commission
+#: sql_constraint:sale.forecast.line.categ:0
+msgid "Can not exist a same category between the lines forecast!"
+msgstr "Can not exist a same category between the lines forecast!"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:471
+#: code:addons/straconx_commission/objects/sale_forecast.py:555
+#, python-format
+msgid "you can not cancel the pay because exist check approve"
+msgstr "you can not cancel the pay because exist check approve"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:604
+#, python-format
+msgid "The amount commission must be greater than zero"
+msgstr "The amount commission must be greater than zero"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Forecast Details"
+msgstr "Forecast Details"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Amount Total"
+msgstr "Amount Total"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Computation Type"
+msgstr "Computation Type"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+#: selection:sale.forecast.line,state:0
+msgid "Confirmed"
+msgstr "Confirmed"
+
+#. module: straconx_commission
+#: field:sale.forecast,move_id:0
+msgid "Accounting Entry"
+msgstr "Accounting Entry"
+
+#. module: straconx_commission
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_commission
+#: field:sale.forecast.line,move_line_id:0
+msgid "Move Line"
+msgstr "Move Line"
+
+#. module: straconx_commission
+#: view:sale.forecast:0
+#: view:sale.forecast.line:0
+#: field:sale.forecast.line,state:0
+msgid "State"
+msgstr "State"
+
+#. module: straconx_commission
+#: selection:table.commission,type:0
+msgid "Percentage"
+msgstr "Percentage"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_salesman_salesman
+msgid "salesman"
+msgstr "salesman"
+
+#. module: straconx_commission
+#: field:sale.forecast,one_check:0
+msgid "Only One Check"
+msgstr "Only One Check"
+
+#. module: straconx_commission
+#: selection:commission.salesman.wizard,computation_type:0
+msgid "Amount Invoiced"
+msgstr "Amount Invoiced"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_table_commission
+#: model:ir.ui.menu,name:straconx_commission.menu_table_commission
+#: view:table.commission:0
+#: field:table.commission.line,table_id:0
+msgid "Table Commission"
+msgstr "Table Commission"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Forecasts"
+msgstr "Forecasts"
+
+#. module: straconx_commission
+#: field:commission.salesman.line.wizard,forecast_line_id:0
+#: model:ir.model,name:straconx_commission.model_sale_forecast_line
+#: field:sale.forecast.line.categ,forecast_line_id:0
+msgid "Forecast Line"
+msgstr "Forecast Line"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Details in Category"
+msgstr "Details in Category"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+msgid "Categories"
+msgstr "Categories"
+
+#. module: straconx_commission
+#: view:table.commission:0
+msgid "Table Commission Details"
+msgstr "Table Commission Details"
+
+#. module: straconx_commission
+#: field:res.company,property_account_commission_sales:0
+msgid "Commission Sales Account Customer"
+msgstr "Commission Sales Account Customer"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Category Details"
+msgstr "Category Details"
+
+#. module: straconx_commission
+#: field:table.commission,type:0
+msgid "Type Table"
+msgstr "Type Table"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,date_to:0
+msgid "Date To"
+msgstr "Date To"
+
+#. module: straconx_commission
+#: sql_constraint:salesman.salesman:0
+msgid "The code of the salesman must be unique !"
+msgstr "The code of the salesman must be unique !"
+
+#. module: straconx_commission
+#: constraint:table.commission.line:0
+msgid "The range entered can not be in other range already exists"
+msgstr "The range entered can not be in other range already exists"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Total Commission"
+msgstr "Total Commission"
+
+#. module: straconx_commission
+#: field:sale.forecast,check_id:0
+msgid "Check"
+msgstr "Check"
+
+#. module: straconx_commission
+#: selection:sale.forecast.line,state:0
+msgid "Canceled"
+msgstr "Canceled"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+#: field:commission.salesman.wizard,salesman_ids:0
+#: view:sale.forecast.line:0
+#: field:sale.forecast.line,salesman_id:0
+msgid "Salesman"
+msgstr "Salesman"
+
+#. module: straconx_commission
+#: field:commission.salesman.line.wizard,product_category_id:0
+#: view:commission.salesman.wizard:0
+#: field:sale.forecast.line.categ,product_category_id:0
+msgid "Category"
+msgstr "Category"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,table_commission_id:0
+#: field:salesman.salesman,table_commission_id:0
+msgid "table Commission"
+msgstr "table Commission"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/table_commission.py:68
+#, python-format
+msgid "The maximum amount can not be in other range already exists"
+msgstr "The maximum amount can not be in other range already exists"
+
+#. module: straconx_commission
+#: field:sale.forecast,beneficiary:0
+msgid "Beneficiary"
+msgstr "Beneficiary"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+#: selection:sale.forecast.line,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,date_from:0
+msgid "Date From"
+msgstr "Date From"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:402
+#, python-format
+msgid "The line must have a category of product."
+msgstr "The line must have a category of product."
+
+#. module: straconx_commission
+#: field:table.commission.line,sequence:0
+msgid "sequence"
+msgstr "sequence"
+
+#. module: straconx_commission
+#: model:ir.ui.menu,name:straconx_commission.menu_sale_forecastline
+#: view:sale.forecast.line:0
+msgid "Sales Forecast Line"
+msgstr "Sales Forecast Line"
+
+#. module: straconx_commission
+#: view:sale.forecast:0
+msgid "User"
+msgstr "User"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+msgid "This wizard will generate Commission for all selected Salesman."
+msgstr "This wizard will generate Commission for all selected Salesman."
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Filter on States"
+msgstr "Filter on States"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_sale_forecast
+msgid "Sales Forecast"
+msgstr "Sales Forecast"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:427
+#: code:addons/straconx_commission/objects/sale_forecast.py:450
+#: code:addons/straconx_commission/objects/sale_forecast.py:471
+#: code:addons/straconx_commission/objects/sale_forecast.py:555
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_commission
+#: constraint:table.commission.line:0
+msgid "The minimum and maximum values must be greater that 0 and maximum value can not be less that minimum value"
+msgstr "The minimum and maximum values must be greater that 0 and maximum value can not be less that minimum value"
+
+#. module: straconx_commission
+#: field:table.commission.line,maximum_value:0
+msgid "Maximum Value"
+msgstr "Maximum Value"
+
+#. module: straconx_commission
+#: field:sale.forecast.line.categ,amount_commission:0
+msgid "Amount Commission"
+msgstr "Amount Commission"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Total commission paid"
+msgstr "Total commission paid"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Feedback"
+msgstr "Feedback"
+
+#. module: straconx_commission
+#: field:commission.salesman.wizard,computation_type:0
+msgid "Computation Base On"
+msgstr "Computation Base On"
+
+#. module: straconx_commission
+#: field:commission.salesman.wizard,line_categ_ids:0
+#: field:sale.forecast.line,line_categ_ids:0
+msgid "Details for category"
+msgstr "Details for category"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/table_commission.py:63
+#, python-format
+msgid "The minimum amount can not be in other range already exists"
+msgstr "The minimum amount can not be in other range already exists"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Amount Real Total"
+msgstr "Amount Real Total"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Compute Commission"
+msgstr "Compute Commission"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+#: selection:sale.forecast.line,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: straconx_commission
+#: view:commission.salesman.wizard:0
+#: view:sale.forecast.line:0
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Sale Forecast Line"
+msgstr "Sale Forecast Line"
+
+#. module: straconx_commission
+#: view:sale.forecast:0
+msgid "My Sales Forecast"
+msgstr "My Sales Forecast"
+
+#. module: straconx_commission
+#: view:sale.forecast:0
+msgid "Sale Forecast"
+msgstr "Sale Forecast"
+
+#. module: straconx_commission
+#: view:res.company:0
+msgid "Settings Commission"
+msgstr "Settings Commission"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,segmento_id:0
+#: field:salesman.salesman,segmento_id:0
+#: field:table.commission,segmento_id:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_commission
+#: model:ir.model,name:straconx_commission.model_commission_salesman_line_wizard
+msgid "commission.salesman.line.wizard"
+msgstr "commission.salesman.line.wizard"
+
+#. module: straconx_commission
+#: field:sale.forecast.line.categ,computed_amount:0
+msgid "Real Value"
+msgstr "Real Value"
+
+#. module: straconx_commission
+#: field:sale.forecast,check:0
+msgid "check?"
+msgstr "check?"
+
+#. module: straconx_commission
+#: field:sale.forecast,journal_id:0
+msgid "Journal"
+msgstr "Journal"
+
+#. module: straconx_commission
+#: field:sale.forecast.line,payment_id:0
+msgid "Payment"
+msgstr "Payment"
+
+#. module: straconx_commission
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_commission
+#: field:table.commission,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: straconx_commission
+#: field:table.commission,line_ids:0
+msgid "Table Lines"
+msgstr "Table Lines"
+
+#. module: straconx_commission
+#: selection:table.commission,type:0
+msgid "Fixed Amount"
+msgstr "Fixed Amount"
+
+#. module: straconx_commission
+#: field:sale.forecast,mode_id:0
+msgid "Mode"
+msgstr "Mode"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/wizard/commission_for_salesman.py:52
+#, python-format
+msgid "You must enter salesman and lines of category"
+msgstr "You must enter salesman and lines of category"
+
+#. module: straconx_commission
+#: field:commission.salesman.line.wizard,amount:0
+#: field:sale.forecast.line.categ,amount:0
+msgid "Value Forecasted"
+msgstr "Value Forecasted"
+
+#. module: straconx_commission
+#: model:ir.ui.menu,name:straconx_commission.menu_configurations
+msgid "Configurations"
+msgstr "Configurations"
+
+#. module: straconx_commission
+#: sql_constraint:salesman.salesman:0
+msgid "The name of the salesman must be unique !"
+msgstr "The name of the salesman must be unique !"
+
+#. module: straconx_commission
+#: view:sale.forecast.line:0
+msgid "Results"
+msgstr "Results"
+
+#. module: straconx_commission
+#: code:addons/straconx_commission/objects/sale_forecast.py:581
+#, python-format
+msgid "You must select a journal of commission for this forecast"
+msgstr "You must select a journal of commission for this forecast"
+
+#. module: straconx_commission
+#: model:ir.actions.act_window,name:straconx_commission.action_commission_for_salesman_wizard
+msgid "Commission for salesman"
+msgstr "Commission for salesman"
+

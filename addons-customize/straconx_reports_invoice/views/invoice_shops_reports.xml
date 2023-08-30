@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+            
+		<record id="account.invoice_tree_reports" model="ir.ui.view">
+			<field name="name">account.invoice.tree</field>
+			<field name="model">account.invoice</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="blue:state in ('draft');black:state in ('proforma','proforma2','open');gray:state in ('cancel')"
+					string="Invoice">
+					<field name="shop_id" />
+					<field name="date_invoice" />
+					<field name="period_id" invisible="1"/>
+					<field name="date_due" invisible="1"/>					
+					<field name="number" />
+					<field name="partner_id" invisible="1"/>
+					<field name="user_id" invisible="1"/>
+					<field name="amount_untaxed_s" sum="Untaxed Amount" />
+					<field name="amount_total_vat_s" sum="Taxes Vat Amount" />
+					<field name="amount_total_s" sum="Total Amount" />
+					<field name="residual_s" sum="Total Amount" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+    				    
+    </data>
+</openerp>

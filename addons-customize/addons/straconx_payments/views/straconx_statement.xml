@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <!--Journal View -->
+        
+        <record id="account.view_account_bank_statement_filter" model="ir.ui.view">
+            <field name="name">account.bank.statement</field>
+            <field name="model">account.bank.statement</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Cash Statements">
+                    <group col="8" colspan="4">
+                    	<filter icon="terp-personal+" string="My Shop Cash"
+							name="my_shop_cash" domain="[('shop_id.printer_point_ids.user_ids.id','=', uid)]" 
+							groups="base.group_risk_collector,base.group_risk_manager,account.group_account_manager,account.group_account_user"
+							/>
+						<filter icon="terp-personal" string="My Personal Cash" name="my_user_cash"
+							domain="[('user_id','=',uid)]" help="My invoices" separator="1" />
+						<separator orientation="vertical" />                    
+                        <field name="date"/>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                    </group>
+                    <newline/>
+                       <filter string="Draft" name="state_draft" domain="[('state','=','draft')]" icon="terp-document-new"/>
+                       <filter string="Open" name="state_open" domain="[('state','=','open')]" icon="terp-check"/>
+                       <filter string="Confirmed" name="state_confirmed" domain="[('state','=','confirm')]" icon="terp-camera_test"/>
+                       <separator orientation="vertical"/>
+                        <field name="shop_id"/>                        
+                        <field name="printer_id"/>
+                        <field name="deposit"/>                        
+                    <newline/>                    
+                    <group expand="0" string="Group By...">
+                        <filter string="Shop" context="{'group_by': 'shop_id'}" icon="terp-go-home"/>
+                        <filter string="Journal" context="{'group_by': 'journal_id'}" icon="terp-folder-orange"/>
+                        <filter string="Responsable" context="{'group_by': 'user_id'}" icon="terp-personal+"/>
+                        <filter string="State" context="{'group_by': 'state'}" icon="terp-stock_effects-object-colorize"/>
+                        <filter string="Deposit" context="{'group_by': 'deposit'}" icon="terp-stock_effects-object-colorize"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Period" context="{'group_by': 'period_id'}" icon="terp-go-month"/>
+                        <field name="journal_id" widget="selection" domain="[('type', '=', 'moves')]"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="view_cash_statement_tree_inherit" model="ir.ui.view">
+            <field name="name">account.bank.statement.tree.inherit</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_cash_statement_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+<!--                 <field name="balance_end" position="replace"> -->
+<!--                 	<field name="balance_end" sum="Total Payments"/> -->
+<!--                     <field name="total_other_incomes" sum="Total Other"/> -->
+<!--                 </field> -->
+                <field name="journal_id" position="after">
+                    <field name="user_id" select="1"/>
+                    <field name="shop_id" invisible="1"/>
+					<field name="line_ids" invisible="1"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="account.view_bank_statement_form" model="ir.ui.view">
+            <field name="name">account.bank.statement.form</field>
+            <field name="model">account.bank.statement</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<form string="Bank Statement">
+                    <group col="7" colspan="4">
+                        <field name="name" select="1"/>
+                        <field name="date" select="1" on_change="onchange_date(date, company_id)"/>
+                        <field name="journal_id" domain="[('type', '=', 'moves')]" on_change="onchange_journal_id(journal_id)" select="1" widget="selection"/>
+                        <field name="collect" invisible="1"/>
+                    	<field name="pay" invisible="1"/>
+                        <newline/>
+                        <field name="user_id" select="1" readonly="1" on_change="on_change_user(user_id)"/>
+                        <field name="period_id"/>
+                        <field name="printer_id" required="1" />
+                        <newline/>
+                        <field name="balance_start"/>
+                        <field name="balance_end_real"/>
+                        <field name="currency" invisible="1"/>
+                        <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Transaction" name="statement_line_ids">
+                            <field colspan="4" name="line_ids" nolabel="1" context="{'date':date}">
+                                <tree editable="bottom" string="Statement lines">
+                                    <field name="sequence" readonly="1" invisible="1"/>
+                                    <field name="date" groups="base.group_extended"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="partner_id" on_change="onchange_partner_id(partner_id)"/>
+                                    <field name="type" on_change="onchange_type(partner_id, type)"/>
+                                    <field name="payment_id"/>
+                                    <field domain="[('journal_id','=',parent.journal_id), ('company_id', '=', parent.company_id)]" name="account_id"/>
+                                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting" domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]"/>
+                                    <field name="amount"/>
+                                    <field name="move_line_id"/>
+                                </tree>
+                                <form string="Statement lines">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="partner_id" on_change="onchange_partner_id(partner_id)"/>
+                                    <field name="type" on_change="onchange_type(partner_id, type)"/>
+                                    <field domain="[('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view'), ('company_id', '=', parent.company_id)]" name="account_id"/>
+                                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting" domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]"/>
+                                    <field name="payment_id"/>
+                                    <field name="amount"/>
+                                    <field name="sequence" readonly="0"/>
+                                    <field name="move_line_id"/>
+                                    <separator colspan="4" string="Notes"/>
+                                    <field colspan="4" name="note" nolabel="1"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Journal Entries" name="move_live_ids">
+                            <field colspan="4" name="move_line_ids" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group col="8" colspan="4">
+                        <field name="note" colspan="8" nolabel="1"/>
+                        <newline/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                        <field name="balance_end"/>
+                        <button name="button_cancel" states="confirm" string="Cancel" type="object" icon="gtk-cancel"/>
+                        <button name="button_re_open" states="confirm" string="Re-open" icon="gtk-convert" type="object" groups="base.group_extended,account.group_account_manager"/>
+                        <button name="button_dummy" states="draft" string="Compute" type="object" icon="terp-stock_format-scientific"/>
+                        <button name="button_confirm_bank" states="draft" string="Confirm" type="object" icon="terp-camera_test"/>
+                    </group>
+                </form>
+                </field>
+        </record>
+        
+        <!-- Borrar vistas heredadas que no usamos en las cajas registradoras de efectivos-->
+        <delete model="ir.ui.view" search="[('name','=','account.bank.statement.form.inherit')]"/>
+        <delete model="ir.ui.view" search="[('name','=','account.bank.statement.invoice.form.inherit')]"/>
+        
+        <!-- Borrar menú de cajas registradoras de bancos -->
+        <delete model="ir.ui.menu" search="[('name','=','Bank Statements')]"/>
+        
+        
+        <record id="account.view_bank_statement_form2" model="ir.ui.view">
+            <field name="name">account.bank.statement.form</field>
+            <field name="model">account.bank.statement</field>
+            <field name="type">form</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+            	<form string="Statement Cash">
+                    <group col="4" colspan="4">
+						<field name="company_id" widget="selection" groups="base.group_multi_company" colspan="4"/>
+                        <field name="name" select="1"/>
+                        <field name="user_id" select="1" readonly="1" on_change="on_change_user(user_id)"/>
+                        <field name="period_id" select="1" invisible="1"/>
+                        <field name="shop_id" required="1"/>
+                        <field name="printer_id" required="1" domain="[('shop_id','=',shop_id)]"/>
+                        <field name="journal_id" on_change="onchange_journal_id(journal_id)" domain="[('type','=','moves')]" select="1" widget="selection" invisible="1"/>
+                    	<field name="collect" invisible="1"/>
+                    	<field name="pay" invisible="1"/>
+                    	<field name="deposit" invisible="1"/>
+                    	<field name="move_id" invisible="1"/>
+                        <field name="currency" invisible="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Cash Transactions" attrs="{'invisible': [('state','=','draft')]}">
+                            <field colspan="4" name="line_ids" nolabel="1" context="{'date':date}" readonly="1">
+                                <tree editable="bottom" string="Statement lines">
+                                    <field name="sequence" invisible="1"/>
+                                    <field name="date" groups="base.group_extended"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="partner_id" on_change="onchange_partner_id(partner_id)"/>
+                                    <field name="type" on_change="onchange_type(partner_id, type)"/>
+                                    <field name="payment_id"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field domain="[('journal_id','=',parent.journal_id), ('company_id', '=', parent.company_id)]" name="account_id"/>
+                                    <field name="analytic_account_id" domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]" groups="analytic.group_analytic_accounting" invisible="1"/>
+                                    <field name="move_line_id" invisible="1"/>
+                                </tree>
+                                <form string="Statement lines">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="ref"/>
+                                    <field name="partner_id" on_change="onchange_partner_id(partner_id)"/>
+                                    <field name="type" on_change="onchange_type(partner_id, type)"/>
+                                    <field name="payment_id"/>
+                                    <field name="amount"/>
+                                    <field domain="[('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view'), ('company_id', '=', parent.company_id)]" name="account_id"/>
+                                    <field name="analytic_account_id" domain="[('company_id', '=', parent.company_id), ('type', '&lt;&gt;', 'view')]" groups="analytic.group_analytic_accounting"/>
+                                    <field name="sequence"/>
+                                    <field name="move_line_id"/>
+                                    <separator colspan="4" string="Notes"/>
+                                    <field colspan="4" name="note" nolabel="1"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="CashBox">
+                            <group col="2" colspan="2" expand="1">
+                                <field name="starting_details_ids" nolabel="1" colspan="2" attrs="{'readonly':[('state','!=','draft')]}"
+                                on_change="onchange_line_start_detail_ids(starting_details_ids)">
+                                    <tree string="Opening Balance" editable="bottom">
+                                        <field name="pieces"/>
+                                        <field name="number" on_change="on_change_sub(pieces,number, parent.balance_end)"/>
+                                        <field name="subtotal"/>
+                                    </tree>
+                                    <form string="Opening Balance">
+                                        <field name="pieces"/>
+                                        <field name="number" on_change="on_change_sub(pieces,number, parent.balance_end)"/>
+                                        <field name="subtotal"/>
+                                    </form>
+                                </field>
+                            </group>
+                            <group col="2" colspan="2" expand="1">
+                                <field name="ending_details_ids" nolabel="1" colspan="2" attrs="{'readonly':[('state','!=','open')]}"
+                                on_change="onchange_line_end_detail_ids(ending_details_ids)">
+                                    <tree string="Closing Balance" editable="bottom">
+                                        <field name="pieces"/>
+                                        <field name="number" on_change="on_change_sub(pieces,number, parent.balance_end)"/>
+                                        <field name="subtotal" sum="Total"/>
+                                    </tree>
+                                    <form string="Closing Balance">
+                                        <field name="pieces"/>
+                                        <field name="number" on_change="on_change_sub(pieces,number, parent.balance_end)"/>
+                                        <field name="subtotal"/>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Journal Entries" attrs="{'invisible': [('state','!=','confirm')]}">
+                            <field colspan="4" name="move_line_ids" nolabel="1" string="Journal Entries"/>
+                        </page>
+                        <page string="Total">
+							<separator string="Total moves" colspan="4"/>
+							<field name="total_ids" readonly="1" colspan="4" nolabel="1">
+								<tree string="Total lines">
+	                                <field name="mode_id"/>
+	                                <field name="type"/>
+	                                <field name="amount" sum="Total"/>
+	                                <field name="payments_ids" />
+	                            </tree>
+	                            <form string="Total lines">
+	                                <field name="mode_id"/>
+	                                <field name="type"/>
+	                            	<field name="amount"/>
+	                            	<field name="payments_ids" colspan="4" nolabel="1">
+	                            	<tree string="Payments">
+	                            		<field name="partner_id"/>
+	                            		<field name="amount" sum="Total payment"/>
+	                            	</tree>
+	                            	</field>
+	                            </form>
+							</field>
+			             </page>
+			             <page string="Deposits">
+							<separator string="Deposits Receipts" colspan="4"/>
+			                <field name="deposit_numbers" colspan="4" nolabel="1" readonly="1"/>
+			             </page>
+                    </notebook>
+                    <group col="6" colspan="4">
+                        <group col="2" colspan="2">
+                            <separator string="Dates" colspan="4"/>
+                            <field name="date" select="1" attrs="{'readonly':[('state','!=','draft')]}" on_change="onchange_date(date, company_id)"/>
+                            <group col="4" colspan="2">
+                            	<separator string="Factura y Notas de Crédito" colspan="4"/> 
+                            	<field name="sales_qty" readonly="1"/>
+                            	<field name="sales_amount" readonly="1"/>
+                            </group>
+                            <field name="closing_date" select="1" readonly="1"/>
+                        </group>
+                        <group col="2" colspan="2">
+                            <separator string="Opening Balance" colspan="4"/>
+                            <field name="balance_start" readonly="1" string="Opening Balance"/>
+                            <field name="total_entry_encoding"/>
+                            <field name="total_outlet_encoding"/>
+                            <field name="total_other_incomes" invisible="0"/>
+                        </group>
+                        <group col="2" colspan="2">
+                            <separator string="Closing Balance" colspan="4"/>
+                            <field name="balance_end" on_change="onchange_balance(balance_end,total_deposit)"/>
+                            <field name="total_deposit" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="cash_diferences" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="balance_end_cash" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                    </group>
+                    <group col="12" colspan="6">
+                    	<separator string="Observaciones" colspan="8"/>
+                        <field name="note" colspan="8" nolabel="1"/>
+                        <newline/>                    
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" colspan="2"/>
+                        <button name="button_open" states="draft" string="Open CashBox" icon="gtk-go-forward" type="object"/>
+                        <button name="button_cancel" states="confirm,open" string="Cancel" icon="terp-gtk-stop" type="object" groups="base.group_extended,base.group_pos_manager,account.group_account_manager"/>
+                        <button name="button_re_open" invisible="1" string="Re-open" icon="gtk-convert" type="object" groups="base.group_extended,account.group_account_manager"/>
+						<button name="%(action_reopen_statement_wizard)d" states="confirm" string="Re-open" icon="gtk-convert" type="action" groups="base.group_pos_manager,base.group_pos_collector,base.group_extended,account.group_account_manager"/>
+                        <button name="%(ac_bank_st_report_id)d" string="Imprimir Cierre de Caja " type="action" icon="gtk-print"/>
+						<button name="%(ac_bank_st_report_pos_id_txt)d" string="Imprimir Cierre de Caja en TXT" type="action" icon="gtk-print"/>
+                   		<button name="%(straconx_action_box_out)d" string="Cheque Changed" type="action" icon="terp-stock_format-default" states="open"/>
+                        <button name="%(action_deposit_statement)d" string="Deposit of values" type="action" states="confirm" icon="gtk-ok" attrs="{'invisible':['|',('deposit','=',1),('state','!=','confirm')]}"
+                        			groups="base.group_extended,base.group_pos_manager,account.group_account_manager,base.group_sale_manager,base.group_phone_manager"/>
+                        <button name="button_confirm_cash" states="open" string="Close CashBox" icon="terp-dialog-close" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="account.action_view_bank_statement_tree" model="ir.actions.act_window">
+            <field name="name">Cash Registers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.bank.statement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="view_id" ref="account.view_cash_statement_tree"/>
+            <field name="search_view_id" ref="account.view_account_bank_statement_filter"/>
+            <field name="domain">[('journal_id.type','=','moves')]</field>
+            <field name="context">{'journal_type':'moves','default_pos':1,'search_default_my_shop_cash':0,'search_default_my_user_cash':1,'search_default_state_open':1}</field>
+            <field name="help">A Cash Register allows you to manage cash entries in your cash journals. This feature provides an easy way to follow up cash payments on a daily basis. You can enter the coins that are in your cash box, and then post entries when money comes in or goes out of the cash box.</field></record>
+        <record model="ir.actions.act_window.view" id="account.act_cash_statement2_all">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account.view_bank_statement_form2"/>
+            <field name="act_window_id" ref="account.action_view_bank_statement_tree"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="account.act_cash_statement3_all">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="account.account_cash_statement_graph"/>
+            <field name="act_window_id" ref="account.action_view_bank_statement_tree"/>
+        </record>        
+
+        <record id="account_voucher.view_bank_statement_tree_voucher" model="ir.ui.view">
+            <field name="name">account.bank.statement.voucher.tree.inherit</field>
+            <field name="model">account.bank.statement</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook/page[@name='statement_line_ids']/field[@name='line_ids']/tree/field[@name='amount']" position="after">
+                    <field name="voucher_id" string="Recibo" context="{'line_type': type, 'default_type': amount &lt; 0 and 'payment' or 'receipt', 'type': amount &lt; 0 and 'payment' or 'receipt', 'default_partner_id': partner_id, 'default_journal_id': parent.journal_id, 'default_amount': abs(amount), 'default_reference': ref, 'default_date': date, 'default_name': name}" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

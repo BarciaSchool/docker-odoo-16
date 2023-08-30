@@ -1,0 +1,1219 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_payments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-11-04 21:53+0000\n"
+"PO-Revision-Date: 2011-11-04 21:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.action_deposit_register_view
+msgid "deposit Register"
+msgstr "Registro de Depósito"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_account_payments
+msgid "account.payments"
+msgstr "Pagos"
+
+#. module: straconx_payments
+#: field:receipt.salesman,emission_date:0
+msgid "Emission Date"
+msgstr "Fecha de Emisión"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Payment Ref"
+msgstr "Ref. de Pago"
+
+#. module: straconx_payments
+#: constraint:account.payments:0
+msgid "the amount must be more than 0"
+msgstr "El monto debe ser mayor a 0"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:87
+#, python-format
+msgid "You must select one collector to open the book salesman!"
+msgstr "¡Debe seleccionar un Recaudador para abrir la Recibera!"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: view:account.payments:0
+#: view:account.voucher:0
+#: view:book.salesman:0
+#: view:receipt.salesman:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: selection:account.payments,state:0
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.action_straconx_salesman_book
+#: model:ir.ui.menu,name:straconx_payments.menu_action_straconx_salesman_book
+msgid "Book Salesman"
+msgstr "Recibera de Cobros"
+
+#. module: straconx_payments
+#: model:ir.module.module,shortdesc:straconx_payments.module_meta_information
+msgid "Customization for Sale Management in Ecuador"
+msgstr "Administración de Pagos y Cobros para la República del Ecuador"
+
+#. module: straconx_payments
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_deposit_register
+msgid "deposit.register"
+msgstr "Registro de Depósito"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.act_view_cheque_rejected
+#: model:ir.ui.menu,name:straconx_payments.menu_view_cheque_rejected
+msgid "Rejected Cheques"
+msgstr "Cheques Devueltos"
+
+#. module: straconx_payments
+#: model:ir.module.module,description:straconx_payments.module_meta_information
+msgid "The module adapted to Ecuadorian law."
+msgstr "Módulo de facturación adaptado a la legislación de la República del Ecuador"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:60
+#, python-format
+msgid "You can not open a Cashbox for \"%s\".\n"
+"Please close its related cash register."
+msgstr "No se pueden abrir la Caja Registradora para \"%s\".\n"
+"Por favor, cierre la caja anterior."
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "In this wizard you must specify the total amount deposit ​​to closing the cash box."
+msgstr "In this wizard you must specify the total amount deposit ​​to closing the cash box."
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:289
+#, python-format
+msgid "the sum of the payments is inconsistent with the amount entered!"
+msgstr "!La suma de los pagos es inconsistente con el monto ingresado!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:111
+#, python-format
+msgid "The information of sequence is incorrect!"
+msgstr "¡La información de la secuencia es incorrecta!"
+
+#. module: straconx_payments
+#: view:deposit.register:0
+#: field:payment.mode,others:0
+msgid "Others"
+msgstr "Otras"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Total lines"
+msgstr "Total Líneas"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+#: field:receipt.salesman,book_id:0
+msgid "Salesman Book"
+msgstr "Recibera"
+
+#. module: straconx_payments
+#: field:book.salesman,credit_user_id:0
+msgid "Credit Official"
+msgstr "Oficial de Crédito"
+
+#. module: straconx_payments
+#: view:res.users:0
+msgid "Configuration of cashier"
+msgstr "Configuración de Caja"
+
+#. module: straconx_payments
+#: field:deposit.cash,total_credit_card:0
+msgid "Total Credit Card"
+msgstr "Total Tarjeta de Crédito"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "check to day"
+msgstr "Cheques al Día"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,help:straconx_payments.action_vendor_receipt_straconx
+msgid "Sales payment allows you to register the payments you receive from your customers. In order to record a payment, you must enter the customer, the payment method (=the journal) and the payment amount. OpenERP will propose to you automatically the reconciliation of this payment with the open invoices or sales receipts."
+msgstr "Los cobros de facturas le permite registrar los pagos que recibe de sus clientes. Con el fin de guardar un pago, usted debe ingresar en los registros del cliente, la forma de pago (el diario) y el importe del pago. OpenERP propondrá de forma automática, la conciliación de este pago con las facturas o recibos de cobro."
+
+#. module: straconx_payments
+#: view:receipt.salesman:0
+msgid "Process Date"
+msgstr "Fecha de Proceso"
+
+#. module: straconx_payments
+#: field:account.bank.statement,collect:0
+msgid "Collect"
+msgstr "Recaudador"
+
+#. module: straconx_payments
+#: field:account.payments,amount:0
+#: field:account.total.line,amount:0
+#: field:deposit.register,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Payment Options"
+msgstr "Opciones de Pago"
+
+#. module: straconx_payments
+#: field:account.payments,return_date:0
+#: view:book.salesman:0
+#: field:book.salesman,return_date:0
+msgid "Return Date"
+msgstr "Fecha de devolución"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:425
+#, python-format
+msgid "You have to configure account base code and account tax code on the '%s' tax!"
+msgstr "¡Debe configurar una cuenta y un código de impuesto para el impuesto '%s'!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:474
+#, python-format
+msgid "Can not Unreconcile because the box is closed already!"
+msgstr "¡No se puede eliminar la conciliación porque la Caja ya se encuentra cerrada!"
+
+#. module: straconx_payments
+#: field:account.bank.statement,deposit:0
+msgid "deposit?"
+msgstr "¿Depositar?"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "Detalle de Extracto"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_finance_payment_receipts
+msgid "Payment Receipts"
+msgstr "Recibos de Cobros"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_account_total_line
+msgid "account.total.line"
+msgstr "Total línea"
+
+#. module: straconx_payments
+#: field:account.bank.statement,total_other_incomes:0
+msgid "Other Transaction"
+msgstr "Otras transacciones"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:474
+#, python-format
+msgid "Invalid Action!"
+msgstr "¡Acción no válida!"
+
+#. module: straconx_payments
+#: constraint:payment.mode:0
+msgid "You must select only one type of Payment mode"
+msgstr "Debe seleccionar un tipo de modo de pago"
+
+#. module: straconx_payments
+#: field:res.users,collect:0
+msgid "collect"
+msgstr "Cobros"
+
+#. module: straconx_payments
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr "El código del diario debe ser único por compañía!"
+
+#. module: straconx_payments
+#: field:deposit.cash,account_cash_id:0
+#: field:deposit.cash,account_check_day_id:0
+#: field:deposit.cash,account_credit_card_id:0
+#: field:deposit.cash,account_other_id:0
+msgid "Account to Deposit"
+msgstr "Cuenta a depositar"
+
+#. module: straconx_payments
+#: field:deposit.cash,total_check_to_day:0
+msgid "Total check to Day"
+msgstr "Total Cheques al Día"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Payment Information"
+msgstr "Información de Comprobante"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: view:book.salesman:0
+#: selection:book.salesman,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_payments
+#: field:payment.mode,to_deposit:0
+msgid "to Deposit"
+msgstr "A depositar"
+
+#. module: straconx_payments
+#: field:account.voucher,salesman_id:0
+#: view:book.salesman:0
+#: field:book.salesman,salesman_id:0
+#: view:receipt.salesman:0
+#: field:receipt.salesman,salesman_id:0
+msgid "Collector"
+msgstr "Recaudador"
+
+#. module: straconx_payments
+#: view:deposit.register:0
+#: field:payment.mode,check:0
+msgid "Check"
+msgstr "Cheque"
+
+#. module: straconx_payments
+#: view:payment.mode:0
+msgid "Other Settings"
+msgstr "Otras Configuraciones"
+
+#. module: straconx_payments
+#: selection:account.payments,type:0
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: straconx_payments
+#: field:book.salesman,from_seq:0
+msgid "From"
+msgstr "Desde"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: straconx_payments
+#: field:deposit.cash,total_check_date:0
+msgid "Total check date"
+msgstr "Total Cheques a Fecha"
+
+#. module: straconx_payments
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: view:account.voucher:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:280
+#, python-format
+msgid "Please verify that an account is defined in the journal."
+msgstr "¡Por favor, verifique que existe una cuenta en el diario contable!"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_payment_mode
+#: view:payment.mode:0
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+#: view:receipt.salesman:0
+msgid "Salesman Receipts"
+msgstr "Recibos"
+
+#. module: straconx_payments
+#: field:account.payments,mode_id:0
+#: field:account.total.line,mode_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_payments
+#: field:deposit.cash,deposit_other:0
+msgid "Deposit other"
+msgstr "Otros Depósitos"
+
+#. module: straconx_payments
+#: constraint:book.salesman:0
+msgid "the sequences information is incorrect"
+msgstr "¡La información de la secuencia es incorrecta!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:198
+#: code:addons/straconx_payments/objects/account_bank_statement.py:293
+#: code:addons/straconx_payments/objects/straconx_voucher.py:289
+#: code:addons/straconx_payments/objects/straconx_voucher.py:296
+#: code:addons/straconx_payments/wizard/deposit_cash.py:89
+#, python-format
+msgid "Error !"
+msgstr "¡Error!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:294
+#, python-format
+msgid "The account entries lines are not in valid state."
+msgstr "La líneas contables no se encuentran en un estado válido."
+
+#. module: straconx_payments
+#: view:payment.mode:0
+msgid "Payment mode type"
+msgstr "Tipo de Modos de Pago"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+msgid "delivery date"
+msgstr "Fecha de Envío"
+
+#. module: straconx_payments
+#: field:account.payments,deposit_date:0
+msgid "Deposit Date"
+msgstr "Fecha de depósito"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:46
+#, python-format
+msgid "You do not have permission to open a cash register."
+msgstr "No tiene autorización para abrir una Caja Registradora."
+
+#. module: straconx_payments
+#: sql_constraint:receipt.salesman:0
+msgid "The number of receipt must be unique!"
+msgstr "¡El número de recibo debe ser único!"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Other Information"
+msgstr "Otra Información"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: selection:account.payments,state:0
+msgid "Hold"
+msgstr "Pendiente"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:55
+#, python-format
+msgid "You must define a journal type moves"
+msgstr "Debe definir un Diario contable de Movimientos"
+
+#. module: straconx_payments
+#: field:account.payments,vouch_id:0
+msgid "Voucher"
+msgstr "Documento"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: view:account.voucher:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:205
+#, python-format
+msgid "the user is not assigned a default cash box"
+msgstr "El usuario no tiene una caja predeterminada asignada"
+
+#. module: straconx_payments
+#: field:account.bank.statement,nb_print:0
+#: field:account.journal,nb_print:0
+msgid "Number of Print"
+msgstr "Número de Impresión"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:425
+#, python-format
+msgid "No Account Base Code and Account Tax Code!"
+msgstr "¡No existe una cuenta base y un código de impuestos!"
+
+#. module: straconx_payments
+#: field:account.voucher,bank_statement:0
+#: view:deposit.register:0
+#: field:receipt.salesman,bank_statement:0
+msgid "Cash Box"
+msgstr "Caja"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "Deposit"
+msgstr "Depositar"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Paid Amount"
+msgstr "Monto Pagado"
+
+#. module: straconx_payments
+#: constraint:account.bank.statement.line:0
+msgid "The amount of the voucher must be the same amount as the one on the statement line"
+msgstr "El importe del recibo debe ser el mismo importe que el de la línea del extracto"
+
+#. module: straconx_payments
+#: field:deposit.cash,total_cash:0
+msgid "Total cash"
+msgstr "Total Efectivo"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:251
+#, python-format
+msgid "You must have an open box to generate a voucher!"
+msgstr "¡Debe abrir primero una Caja Registradora para registrar un Comprobante de Caja!"
+
+#. module: straconx_payments
+#: field:account.voucher,process_date:0
+#: field:receipt.salesman,process_date:0
+msgid "Proccess Date"
+msgstr "Fecha de Proceso"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+msgid "Receipts Salesman"
+msgstr "Recibos"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+#: selection:book.salesman,state:0
+#: view:receipt.salesman:0
+#: selection:receipt.salesman,state:0
+msgid "Missing"
+msgstr "Extraviado"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: view:account.payments:0
+#: field:account.payments,state:0
+#: view:account.voucher:0
+#: view:book.salesman:0
+#: field:book.salesman,state:0
+#: view:receipt.salesman:0
+#: field:receipt.salesman,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "To Review"
+msgstr "A revisar"
+
+#. module: straconx_payments
+#: field:book.salesman,delivery_date:0
+msgid "Delivery Date"
+msgstr "Fecha de Despacho"
+
+#. module: straconx_payments
+#: selection:book.salesman,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: straconx_payments
+#: field:deposit.register,date:0
+msgid "Date deposit"
+msgstr "Fecha de depósito"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+#: view:deposit.register:0
+#: field:payment.mode,credit_card:0
+msgid "Credit Card"
+msgstr "Tarjeta de Crédito"
+
+#. module: straconx_payments
+#: field:deposit.register,cash_id:0
+#: model:ir.actions.act_window,name:straconx_payments.action_new_bank_statement_tree
+msgid "Cash Register"
+msgstr "Caja Registradora"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:46
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:48
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:55
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:60
+#, python-format
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: field:account.voucher,payments:0
+#: field:receipt.salesman,voucher_id:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_payments
+#: field:deposit.cash,total_other:0
+msgid "Total others"
+msgstr "Total Otros"
+
+#. module: straconx_payments
+#: field:account.bank.statement,printer_id:0
+msgid "Cash Collecter"
+msgstr "Caja Recaudadora"
+
+#. module: straconx_payments
+#: view:open.statement:0
+msgid "No"
+msgstr "No"
+
+#. module: straconx_payments
+#: field:book.salesman,receipt_ids:0
+#: model:ir.actions.act_window,name:straconx_payments.action_straconx_salesman_receipt
+#: model:ir.ui.menu,name:straconx_payments.menu_action_straconx_salesman_receipt
+msgid "Receipt Salesman"
+msgstr "Recibo"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_book_salesman
+msgid "book.salesman"
+msgstr "Reciberas"
+
+#. module: straconx_payments
+#: field:account.payments,received_date:0
+#: field:account.voucher,received_date:0
+#: field:receipt.salesman,received_date:0
+msgid "Received Date"
+msgstr "Fecha de Recepción"
+
+#. module: straconx_payments
+#: field:account.payments,beneficiary:0
+#: field:account.voucher,beneficiary:0
+msgid "Beneficiary"
+msgstr "Beneficario"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:299
+#, python-format
+msgid "You have to define an analytic journal on the '%s' journal!"
+msgstr "Debe definir un centro de costo en el diario contable de '%s'!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:279
+#, python-format
+msgid "Configuration Error !"
+msgstr "¡Error de Configuración!"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: view:book.salesman:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_payments
+#: view:open.statement:0
+msgid "Are you sure you want to open the statements ?"
+msgstr "¿Abrir una Nueva Caja Registradora?"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:90
+#, python-format
+msgid "You must select one Credit official to open the book salesman!"
+msgstr "¡Debe seleccionar un Oficial de Crédito para abrir una Recibera!"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Search Cash Statements"
+msgstr "Buscar Cierres de Caja"
+
+#. module: straconx_payments
+#: field:payment.mode,authorization:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_view_cheque_hold
+msgid "Hold Cheques"
+msgstr "Cheques por depósitar"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+msgid "Salesman Books"
+msgstr "Reciberas"
+
+#. module: straconx_payments
+#: field:account.payments,required_document:0
+#: field:payment.mode,required_document:0
+msgid "Required Document"
+msgstr "¿Requiere número de documento?"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: selection:account.payments,state:0
+#: view:account.voucher:0
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "cash"
+msgstr "Efectivo"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+#: view:receipt.salesman:0
+#: selection:receipt.salesman,state:0
+msgid "Annulled"
+msgstr "Anular"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: model:ir.actions.act_window,name:straconx_payments.action_deposit_cash
+msgid "Deposit of values"
+msgstr "Depósito de Valores"
+
+#. module: straconx_payments
+#: field:account.payments,payment_date:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Are you sure to unreconcile this record ?"
+msgstr "Seguro de romper la conciliación del registro ?"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Journal Items"
+msgstr "Items de Diario"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Extended Filters..."
+msgstr "Filtros extendidos..."
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Unreconcile"
+msgstr "Romper Conciliación"
+
+#. module: straconx_payments
+#: field:account.payments,authorization:0
+#: field:account.payments,authorization_credit:0
+msgid "authorization"
+msgstr "Autorización"
+
+#. module: straconx_payments
+#: field:deposit.cash,receipt_cash:0
+#: field:deposit.cash,receipt_check:0
+#: field:deposit.cash,receipt_credit_card:0
+#: field:deposit.cash,receipt_other:0
+#: field:deposit.register,receipt:0
+msgid "Deposit Receipt Number"
+msgstr "Número de Papeleta"
+
+#. module: straconx_payments
+#: field:account.voucher,receipt_id:0
+msgid "Receipt Collector"
+msgstr "Recaudador"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:198
+#, python-format
+msgid "You not have permission to open a box."
+msgstr "No tiene autorización para abrir una Caja."
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:214
+#, python-format
+msgid "You can not have two open register for the same point printer"
+msgstr "No puede tener dos Cajas Registradoras abierta para el mismo Punto de Impresión"
+
+#. module: straconx_payments
+#: view:account.payments:0
+msgid "Cheque"
+msgstr "Cheque"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.act_view_cheque_hold
+msgid "Hold payment"
+msgstr "Cheques por depositar"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:312
+#, python-format
+msgid "Statement %s is confirmed, journal items are created."
+msgstr "Registro %s es confirmado, el diario correspondiente ha sido creado."
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_all_menu_all_register
+#: model:ir.ui.menu,name:straconx_payments.menu_all_register_pos
+msgid "Statements Registers"
+msgstr "Registros de Cajas"
+
+#. module: straconx_payments
+#: field:payment.mode,debit_account_id:0
+msgid "Debit Account"
+msgstr "Cuenta de Débito"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_voucher.py:296
+#: code:addons/straconx_payments/wizard/deposit_cash.py:89
+#, python-format
+msgid "Please define a sequence on the journal !"
+msgstr "¡Por favor, defina una secuencia en el diario contable!"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:201
+#, python-format
+msgid "You can delete receipt in state Open"
+msgstr "No se puede borrar un recibo en estado abierto"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:205
+#: code:addons/straconx_payments/objects/account_bank_statement.py:214
+#, python-format
+msgid "Error"
+msgstr "¡Error!"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Statement lines"
+msgstr "Líneas extracto"
+
+#. module: straconx_payments
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Invoices and outstanding transactions"
+msgstr "Facturas y operaciones pendientes"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: field:account.voucher,total_payments:0
+msgid "Total Payments"
+msgstr "Total Payments"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:114
+#, python-format
+msgid "You can not give this book while there is another book salesman active!"
+msgstr "¡No puede elegir esta recibera cuando pertenece a otro asesor comercial activo!"
+
+#. module: straconx_payments
+#: field:deposit.register,mode_id:0
+msgid "Type deposit"
+msgstr "Tipo de depósito"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/account_bank_statement.py:299
+#, python-format
+msgid "No Analytic Journal !"
+msgstr "!Sin Diario de Centro de Costos!"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+#: selection:book.salesman,state:0
+#: view:receipt.salesman:0
+#: selection:receipt.salesman,state:0
+msgid "Process"
+msgstr "Procesado"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:153
+#, python-format
+msgid "You can not cancel book salesman with receipts used!"
+msgstr "¡No se puede cancelar una Recibera con recibos utilizados!"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: model:ir.model,name:straconx_payments.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: straconx_payments
+#: field:receipt.salesman,name:0
+msgid "Number"
+msgstr "Número"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_account_bank_statement
+#: view:receipt.salesman:0
+msgid "Bank Statement"
+msgstr "Extracto Bancario"
+
+#. module: straconx_payments
+#: field:payment.mode,credit_account_id:0
+msgid "Credit Account"
+msgstr "Cuenta de Crédito"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.act_view_cheque_protested
+#: model:ir.ui.menu,name:straconx_payments.menu_view_cheque_protested
+msgid "Protested Cheques"
+msgstr "Cheques Protestados"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Search Vouchers"
+msgstr "Buscar comprobantes"
+
+#. module: straconx_payments
+#: field:account.payments,required_bank:0
+#: field:payment.mode,required_bank:0
+msgid "Required Bank"
+msgstr "¿Requiere Banco?"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: view:book.salesman:0
+#: selection:receipt.salesman,state:0
+msgid "Cancel"
+msgstr "Cancelado"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_res_users
+msgid "res.users"
+msgstr "res.usuarios"
+
+#. module: straconx_payments
+#: field:deposit.cash,deposit_cash:0
+msgid "Deposit cash"
+msgstr "Depósito de Efectivo"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: view:book.salesman:0
+#: selection:book.salesman,state:0
+#: view:receipt.salesman:0
+#: selection:receipt.salesman,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+#: model:ir.actions.act_window,name:straconx_payments.action_vendor_receipt_straconx
+#: model:ir.ui.menu,name:straconx_payments.menu_encode_entries_by_voucher_straconx
+msgid "Customer Payment"
+msgstr "Pago de Cliente"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: selection:account.payments,state:0
+msgid "Protested"
+msgstr "Protestado"
+
+#. module: straconx_payments
+#: field:account.bank.statement,pay:0
+msgid "Pay"
+msgstr "Pagos"
+
+#. module: straconx_payments
+#: help:account.bank.statement,total_other_incomes:0
+msgid "Total other transactions"
+msgstr "Total Otras Transacciones"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_open_config
+#: model:ir.ui.menu,name:straconx_payments.menu_open_config_pos
+msgid "Statements Register Management"
+msgstr "Administración de Cajas"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_payment_method.py:82
+#, python-format
+msgid "You must define first a partner!"
+msgstr "¡Debe definir primero una Empresa!"
+
+#. module: straconx_payments
+#: field:deposit.cash,deposit_card:0
+msgid "Deposit credit card"
+msgstr "Depósito de Vouchers de Tarjetas de Crédito"
+
+#. module: straconx_payments
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr "El nombre del diaro debe ser único por compañía!"
+
+#. module: straconx_payments
+#: field:book.salesman,to_seq:0
+msgid "To"
+msgstr "Hasta"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "Other"
+msgstr "Otros"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/wizard/straconx_open_statement.py:48
+#, python-format
+msgid "The user do not have cash box default to open a cash register."
+msgstr "Su usuario no tiene autorización para abrir una Caja Registradora."
+
+#. module: straconx_payments
+#: view:deposit.register:0
+#: model:ir.ui.menu,name:straconx_payments.deposit_register_menu
+#: model:ir.ui.menu,name:straconx_payments.menu_deposit_register
+msgid "Deposit Register"
+msgstr "Registro de Depósito"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_finance_salesman_book
+msgid "Salesman book"
+msgstr "Administración de Recibos de Cobros"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.action_new_bank_statement_all_tree
+msgid "Cash Registers"
+msgstr "Registradores de Efectivo"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Payment Method"
+msgstr "Metodo de Pago"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: model:ir.ui.menu,name:straconx_payments.menu_cheques
+msgid "Cheques"
+msgstr "Cheques"
+
+#. module: straconx_payments
+#: field:res.users,pay:0
+msgid "pay"
+msgstr "Pagos"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: view:account.voucher:0
+#: model:ir.model,name:straconx_payments.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_payments
+#: view:account.payments:0
+msgid "Search Cheques"
+msgstr "Buscar Cheques"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Internal Notes"
+msgstr "Notas Internas"
+
+#. module: straconx_payments
+#: field:account.bank.statement,total_deposit:0
+msgid "Total Deposit"
+msgstr "Total Depósitos"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Credits"
+msgstr "Créditos"
+
+#. module: straconx_payments
+#: field:account.payments,bank_account_id:0
+msgid "Account Bank"
+msgstr "Cuenta Bancaria"
+
+#. module: straconx_payments
+#: field:account.bank.statement.line,payment_id:0
+#: view:account.payments:0
+#: selection:account.payments,type:0
+#: view:account.voucher:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: field:account.payments,bank_id:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Posted"
+msgstr "Contabilizado"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: straconx_payments
+#: field:account.payments,name:0
+msgid "Document No."
+msgstr "Documento No."
+
+#. module: straconx_payments
+#: field:book.salesman,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_payments
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía elegida no se encuentra entre las permitidas para el usuario."
+
+#. module: straconx_payments
+#: view:receipt.salesman:0
+msgid "Search Salesman Receipt"
+msgstr "Buscar Recibos"
+
+#. module: straconx_payments
+#: field:account.total.line,cash_id:0
+#: view:deposit.register:0
+#: field:deposit.register,printer_id:0
+#: field:payment.mode,cash:0
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: straconx_payments
+#: view:deposit.cash:0
+msgid "Check date"
+msgstr "Fecha de cheque"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_payment_method.py:82
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:201
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción no válida!"
+
+#. module: straconx_payments
+#: view:book.salesman:0
+msgid "Search Salesman Book"
+msgstr "Buscar Reciberas"
+
+#. module: straconx_payments
+#: field:account.payments,type:0
+msgid "Mode"
+msgstr "Modo"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_open_statement
+#: model:ir.ui.menu,name:straconx_payments.menu_open_statement_pos
+msgid "Open Cash Registers"
+msgstr "Abrir Caja Registradoras"
+
+#. module: straconx_payments
+#: view:open.statement:0
+msgid "Yes"
+msgstr "Si"
+
+#. module: straconx_payments
+#: field:book.salesman,padding:0
+msgid "padding"
+msgstr "Relleno"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_receipt_salesman
+msgid "receipt.salesman"
+msgstr "Recibo de Cobro"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+msgid "Total moves"
+msgstr "Total Movimientos"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.act_view_cheque_in
+msgid "All Payment"
+msgstr "Todos los Pagos"
+
+#. module: straconx_payments
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:87
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:90
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:111
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:114
+#: code:addons/straconx_payments/objects/straconx_receipt_voucher.py:153
+#: code:addons/straconx_payments/objects/straconx_voucher.py:251
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: straconx_payments
+#: field:deposit.cash,deposit_check:0
+msgid "Deposit check"
+msgstr "Depósito de Cheques"
+
+#. module: straconx_payments
+#: field:res.users,is_cashier:0
+msgid "Is cashier?"
+msgstr "¿Es cajero?"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_deposit_cash
+msgid "deposit.cash"
+msgstr "Efectivo"
+
+#. module: straconx_payments
+#: model:ir.ui.menu,name:straconx_payments.menu_view_cheque_in
+msgid "All Cheques"
+msgstr "Todos los cheques"
+
+#. module: straconx_payments
+#: view:account.payments:0
+#: field:account.payments,partner_id:0
+#: view:account.voucher:0
+#: view:receipt.salesman:0
+#: field:receipt.salesman,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_payments
+#: view:account.voucher:0
+msgid "Open Balance"
+msgstr "Abrir Balance"
+
+#. module: straconx_payments
+#: model:ir.model,name:straconx_payments.model_open_statement
+#: view:open.statement:0
+msgid "Open Statements"
+msgstr "Abrir Registros"
+
+#. module: straconx_payments
+#: view:account.bank.statement:0
+#: field:account.bank.statement,total_ids:0
+msgid "Total"
+msgstr "Total"
+
+#. module: straconx_payments
+#: field:res.users,cash_box_default_id:0
+msgid "Cash Box Default"
+msgstr "Caja Predeterminada"
+
+#. module: straconx_payments
+#: model:ir.actions.act_window,name:straconx_payments.straconx_action_open_statement
+msgid "Open Cash Register"
+msgstr "Abrir Caja Registradoras"
+

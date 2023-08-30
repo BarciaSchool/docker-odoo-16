@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+        <wizard id="wizard_connect_to_journal"
+            name="hr.aa.connect_to_journal"
+            model="hr.aa.attendance_waj"
+            string="Connect to Journals" />
+    </data>
+</openerp>
+
+<!--
+     vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+     -->

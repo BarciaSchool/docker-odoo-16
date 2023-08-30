@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="account_invoice_purchase_form_view">
+			<field name="name">Purchase Invoice Withhold</field>
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="account.invoice_supplier_form" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/notebook/page[@string='Payments']"
+					position="after">
+					<page string="Withhold Lines">
+						<separator string="Withholds" colspan="4" />
+						<field name="withhold_id" colspan="2" context="{'form_view_ref':'straconx_withhold_ar.view_withhold_purchase_form'}" />
+						<button name="add_withhold" string="Agregar 332" type="object" attrs="{'invisible': [('withhold','=',True)]}" icon="gtk-convert"/>
+						<button name="delete_withhold" string="Eliminar 332" type="object" icon="gtk-convert"/>
+						<newline />                                        
+						<separator string="Withhold Lines Information" colspan="4" />
+						<field name="withhold_lines_ids" nolabel="1" readonly="1"
+							colspan="4">
+							<tree string="Withhold Lines">
+								<field name="invoice_id" invisible="1" />
+								<field name="tax_id" widget="selection"
+									domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" />
+								<field name="tax_base" />
+								<field name="percentage" />
+								<field name="retained_value" />
+								<field name="state" />
+							</tree>
+							<form string="Withhold">
+								<field name="invoice_id" invisible="1" />
+								<field name="tax_id" widget="selection"
+									domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" />
+								<field name="tax_base" />
+								<field name="percentage" />
+								<field name="retained_value" />
+								<field name="state" />
+							</form>
+						</field>
+						<field name="withhold" invisible="1" />
+					</page>
+				</xpath>
+				<xpath
+					expr="/form/notebook/page/group/group//button[@name='action_open_draft']"
+					position="after">
+					<button name="%(action_withhold_wizard_purchase)d" string="Input Data Withhold"
+						type="action" icon="terp-gtk-jump-to-ltr"
+						attrs="{'invisible':['|','|',('withhold','=',True),('state','!=','open'),('origin_transaction','=','international')]}" />
+					<button name="print_withhold" string="Print Withhold"
+						attrs="{'invisible':[('withhold_id','=',False)]}"
+						icon="gtk-print" type="object" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>

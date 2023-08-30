@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+         <record id="pentaho_label_report_id" model="ir.actions.report.xml">
+            <field name="name">pentaho.label.report.id</field>
+            <field name="report_name">pentaho.label.report.id</field>
+            <field name="pentaho_filename">straconx_labels/reports/labels_txt.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','label.wizard.product')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">txt</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >label.wizard.product</field>
+        </record>
+        
+         <ir_set>
+            <field eval="'action'" name="key" />
+            <field eval="'client_print_multi'" name="key2" />
+            <field eval="['pentaho_label_report_id']" name="models" />
+            <field name="name">Print Product Labels</field>
+            <field eval="'ir.actions.report.xml,'+str(pentaho_label_report_id)" name="value" />
+            <field eval="True" name="isobject" />
+            <field eval="True" name="replace" />
+        </ir_set>
+        
+    </data>
+</openerp>

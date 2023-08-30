@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    <record id="hr.view_employee_filter" model="ir.ui.view">
+            <field name="name">Employees</field>
+            <field name="model">hr.employee</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Employees">
+                    <filter icon="terp-personal+" domain="[('unemployee','=',False)]" name="active" string="Active"/>
+                    <separator orientation="vertical" />
+                    <field name="name"/>
+                    <field name="department_id" widget="selection">
+                    <filter icon="terp-personal+" domain="[('department_id','=',context.get('department_id',False))]" string="My Departments Employee"/>
+                    </field>
+                    <field name="job_id" widget="selection"/>
+                    <field name="parent_id"/>
+                    <newline />
+                    <group expand="0" string="Group By...">
+                    <filter string="Manager" icon="terp-personal" domain="[]" context="{'group_by':'parent_id'}"/>
+                    <separator orientation="vertical" />
+                    <filter string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                    <filter string="Job" icon="terp-gtk-select-all" domain="[]" context="{'group_by':'job_id'}"/>
+                    <filter string="Company" icon="terp-go-home" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                    </group>
+                </search>
+             </field>
+         </record>
+    
+    	<record id="hr.view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Employee">
+                    <group colspan="4" col="8">
+                        <group colspan="4" col="8">
+                        <field colspan="8" name="name" invisible="1"/>
+                        <field colspan="8" name="name1" readonly="1"/>
+                        <newline/>
+                        <field colspan="4" name="first_name" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" required="1"/>
+                        <field colspan="4" name="second_name" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" required="1"/>
+                        <newline/>
+                        <field colspan="4" name="last_name" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" required="1"/>
+                        <field colspan="4" name="mother_last_name" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)" required="1"/>
+                        <newline/>
+                        <field name="user_id" on_change="onchange_user(user_id)" colspan="4"/>
+                        <field name="partner_id" on_change="onchange_partner(partner_id)" colspan="4" required="1"
+                        domain="[('type_vat','!=','ruc')]" options='{"quick_create": false}'                                                  
+                        context="{'form_view_ref':'straconx_talent_human.view_employee_res_partner_form','tree_view_ref' :'straconx_talent_human.view_employee_res_partner_tree','search_view_ref':'straconx_talent_human.view_employee_res_partner_search','default_employee':1}"
+                        />
+                        <newline/>
+                        <field name="job_id" colspan="4"/>
+                        <field name="department_id" colspan="4"/>
+                        <newline/>                        
+                        <field name="company_id" widget="selection" on_change="onchange_company(company_id)" colspan="4" required="1"/>
+                        <field name="bank_account_id" colspan="4" 
+                        context="{'default_default_bank':1,'default_type_account_bank':'OTRAS','default_partner_id':partner_id}"/>
+                        <newline/>
+                       	<field name="unemployee"/>
+                       	<field name="inability"/>
+                       	<field name="substitute"/>
+                       	<field name="substitute_id" 
+                       	attrs="{'invisible':[('substitute','=',False)], 'required':[('substitute','=',True)]}" 
+                       	domain="[('employee_id','=',active_id),('is_inhab','=',True)]"
+                       	context="{'default_employee_id' : active_id}"/>                       	
+                        </group>
+                        <group colspan="2" col="1">
+                            <field name="photo" widget='image' nolabel="1"/>
+                        </group>
+                        
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Job Information">
+	                        <group col="2" colspan="2">
+	                            <separator string="Job Information" col="4" colspan="2"/>
+	                            <field name="address_id" on_change="onchange_address_id(address_id)" nolabel="1"/>
+	                            <newline/>
+	                            <group col="4" colspan="2" >
+	                            <field name="shop_id" domain="[('company_id','=',company_id)]" on_change="onchange_shop_id(shop_id)" required="1"/>
+	                            <field name="work_email" widget="email" />                            
+	                            <newline/>
+	                            <field name="work_phone"/>
+	                            <field name="mobile_phone"/>
+	                            <newline/>
+	                            <field name="parent_id" colspan="4"/>
+	                            </group>
+	                            <separator string="Other Info" colspan="2"/>
+	                            <group col="4" colspan="2" >
+	                            <field name="vehicle" />
+	                        	<field name="vehicle_distance" />	                            
+	                            </group>
+	                        </group>
+                        </page>
+                        <page string="Personal Information">
+                            <group col="2" colspan="2">
+                                <separator colspan="2" string="Employee IDs"/>
+                                <field name="vat" readonly="True"/>
+                                <field name="passport_id"/>
+                                <field name="otherid"/>
+                            </group>
+                            <group col="2" colspan="2" >
+                                <separator string="Birth Information" colspan="2"/>
+                                <field name="location_id" colspan="2"/>
+                                <group col="4" colspan="2" >
+                                <field name="birthday"/>
+                                <field name="age"/>
+                                <field name="gender"/>
+                                <field name="marital"/>
+                                </group>
+                            </group>
+                            <newline/>
+                            <group col="2" colspan="4">
+                                <separator string="Contact Information" colspan="2"/>
+                                <field name="address_home_id" colspan="2" required="1" domain="[('partner_id','=',partner_id)]"/>
+                                <group col="4" colspan="2" >
+                                <field name="personal_email" widget="email"/>
+                                <field name="bbmesenger_id"/>
+                                <field name="home_phone"/>
+                                <field name="home_mobile"/>
+                                <field name="emergency_home_phone"/>
+                                <field name="emergency_home_mobile"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Family Burden">
+                                <field name="child_ids" nolabel="1" />
+                        </page>
+                        <page string="Education Level">
+                                <field name="education_ids" nolabel="1"/>
+                        </page>
+                        <page string="Contracts">
+                            <field name="contract_ids" nolabel="1" context="{'default_employee_id':active_id, 'form_view_ref':'hr_contract.hr_contract_view_form'}">
+                                <tree string="Contracts" colors="grey:contract_active==False">
+                                    <field name="name" />
+                                    <field name="type_id" />
+                                    <field name="job_id"/>
+                    				<field name="department_id"/>
+                                    <field name="date_start" />
+                                    <field name="date_end" />
+                                    <field name="wage" />
+                                    <field name="contract_active"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Employee History Notes">
+                            <field name="employee_history_id" colspan="4" nolabel="1">
+                            <tree string="Employee History" colors="red:state=='open';blue:state=='pending';gray:state=='cancel'">
+                                 <field name="name"/>
+                                 <field name="date_note"/>
+                                 <field name="user_id"/>
+                                 <field name="state"/>
+                            </tree>
+                            <form string="Employee History">
+                                <group colspan="4" col="6">
+                                     <field name="name"/>
+                                     <field name="date_note"/>
+                                     <newline/>
+                                     <field name="message" colspan="4"/>
+                                     <newline/>
+                                     <field name="user_id"/>
+                                     <field name="state"/>
+                                 </group>
+                            </form>
+                        </field> 
+                        </page>
+                        <page string="Employee History Health">
+                            <separator string="Disability" colspan="4"/>
+                            <field name="disability" attrs="{'required':[('inability','=',True)]}"/>
+                            <separator string="Health Information" colspan="4"/>
+                            <field name="health_history_id" colspan="4" nolabel="1">
+                            <tree string="Employee History">
+                                 <field name="date_revision"/>
+                                 <field name="name"/>
+                                 <field name="doctor"/>
+                            </tree>
+                            <form string="Employee History">
+                                <group colspan="4" col="6">
+                                     <field name="name"/>
+                                     <field name="date_revision"/>
+                                     <newline/>
+                                     <field name="message" colspan="4"/>
+                                     <newline/>
+                                     <field name="doctor"/>
+                                 </group>
+                            </form>
+                        </field> 
+                        </page>
+
+                        <page string="Categories" >
+                            <field name="category_ids" nolabel="1"/>
+                        </page>
+                        <!--page string="Notes">
+                            <field colspan="4" nolabel="1" name="notes"/>
+                        </page-->
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <delete model="ir.ui.view" search="[('name','=','hr.employee.form1')]"/>
+        <delete model="ir.ui.view" search="[('name','like','hr.hr.employee.view.form2')]"/>
+
+        <record id="hr_evaluation.hr_hr_employee_view_form" model="ir.ui.view">
+            <field name="name">hr.hr.employee.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <page string="Employee History Notes" position="before">
+                    <page string="Appraisal" groups="base.group_hr_user">
+                        <field name="evaluation_plan_id" on_change="onchange_evaluation_plan_id(evaluation_plan_id, evaluation_date)"/>
+                        <field name="evaluation_date"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+        
+        <record id="hr_holidays.view_employee_form_leave_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.leave.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="remaining_leaves"/>
+                    <field name="current_leave_id"/>
+                    <field name="current_leave_state" attrs="{'invisible':[('current_leave_id','=',False)]}"/>
+                </field>
+            </field>
+        </record>
+
+        
+    </data>
+</openerp>
+

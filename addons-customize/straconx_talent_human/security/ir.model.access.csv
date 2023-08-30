@@ -1,0 +1,11 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_employee_category_user","hr.employee.category.user","hr.model_hr_employee_category","base.group_hr_user",1,1,1,1
+"access_hr_res_partner_address","res.partner.address","base.model_res_partner_address","base.group_hr_manager",1,1,1,1
+"access_hr_res_partner","res.partner","base.model_res_partner","base.group_hr_manager",1,1,1,0
+"access_hr_national_holiday","hr.holidays.national","straconx_talent_human.model_hr_holidays_national","base.group_hr_manager",1,1,1,1
+"access_hr_employee_debit_note","hr.employee.debit_note","straconx_debit_notes.model_account_debit_note","base.group_hr_user",1,1,1,1
+"access_hr_employee_debit_note_line","hr.employee.debit_note_line","straconx_debit_notes.model_account_debit_note_line","base.group_hr_user",1,1,1,1
+"access_manager_hr_employee_debit_note","hr.employee.debit_note","straconx_debit_notes.model_account_debit_note","base.group_hr_manager",1,1,1,1
+"access_manager_hr_employee_debit_note_line","hr.employee.debit_note_line","straconx_debit_notes.model_account_debit_note_line","base.group_hr_manager",1,1,1,1
+"access_hr_employee_model_hr_period_group_hr_user","hr.employee.hr_period","model_hr_period","base.group_hr_user",1,0,0,0
+"access_hr_employee_model_hr_period_group_hr_manager","hr.employee.hr_period","model_hr_period","base.group_hr_manager",1,1,1,1

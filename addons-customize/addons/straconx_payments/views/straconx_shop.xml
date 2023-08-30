@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		#---------------------------------------------------------
+		# Type of Shop
+		#---------------------------------------------------------
+                
+		<record id="view_shop_form_inherit_payment" model="ir.ui.view">
+			<field name="name">sale.shop.inherit</field>
+			<field name="inherit_id" ref="sale.view_shop_form" />
+			<field name="model">sale.shop</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<page string="General Information" position="after">
+					<page string="Payments">
+						<field colspan="4" name="payment_type_ids" nolabel="1" domain="[('only_receipt','=',True)]"/>
+					</page>
+				</page>
+			</field>
+		</record>
+	</data>
+</openerp>

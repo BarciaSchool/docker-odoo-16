@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="straconx_multi_sales_view" model="ir.ui.view">
+			<field name="name">Invoice Reports</field>
+			<field name="model">wizard.multi.sales</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Select a item for Report">
+					<group colspan="3" col="6">
+						<field name="order_by" required="1" colspan="2" />
+						<field name="date_from" required="1"/>
+						<field name="date_to"  required="1"/>
+					</group>
+					<group col="6" colspan="3">
+						<button icon="gtk-cancel" special="cancel" string="Cancel" />
+						<button icon="gtk-print" name="check_report" string="Print"
+							type="object" default_focus="1" />
+						<button icon="gtk-print" name="check_report_excel" string="Export"
+							type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<act_window id="action_multi_sales_view" name="Invoice Reports"
+			view_mode="form" view_type="form" res_model="wizard.multi.sales"
+			src_model="account.invoice" target="new" />
+
+		<menuitem name="Print invoice reports" action="action_multi_sales_view"
+			parent="account.menu_finance_generic_reporting" icon="STOCK_PRINT"
+			id="menu_invoice_multi_report" />
+
+		<record id="account_invoice_multi_report" model="ir.actions.report.xml">
+			<field name="name">Print Invoice Selection</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">wizard.multi.sales</field>
+			<field name="report_name">report.invoice.shop</field>
+			<field name="report_type">aeroo</field>
+			<field name="in_format">oo-odt</field>
+			<field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')" />
+			<field name="parser_loc">straconx_reports_invoice/report/straconx_multi_sales.py</field>
+			<field name="report_rml">straconx_reports_invoice/report/straconx_multi_sales.ods</field>
+			<field name="parser_state">loc</field>
+			<field name="tml_source">file</field>
+		</record>
+
+		<record id="account_invoice_multi_report_excel" model="ir.actions.report.xml">
+			<field name="name">Export Invoice Selection</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">wizard.multi.sales</field>
+			<field name="report_name">report.invoice.shop.excel</field>
+			<field name="report_type">aeroo</field>
+			<field name="in_format">oo-ods</field>
+			<field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_xls_odt')" />
+			<field name="parser_loc">straconx_reports_invoice/report/straconx_multi_sales.py</field>
+			<field name="report_rml">straconx_reports_invoice/report/straconx_multi_sales.ods</field>
+			<field name="parser_state">loc</field>
+			<field name="tml_source">file</field>
+		</record>
+
+	</data>
+</openerp>

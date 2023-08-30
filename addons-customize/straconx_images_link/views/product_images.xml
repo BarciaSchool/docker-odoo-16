@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="product_images_inherit_olbs_tree" model="ir.ui.view">
+			<field name="name">product.images.inherit.olbs.tree</field>
+			<field name="model">product.images</field>
+			<field name="inherit_id" ref="product_images_olbs.view_product_image_tree" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="name" position="after">
+					<field name="extention" />
+					<field name="main" />
+				</field>
+			</field>
+		</record>
+
+		<record id="product_images_inherit_olbs_form" model="ir.ui.view">
+			<field name="name">product.images.inherit.olbs.form</field>
+			<field name="model">product.images</field>
+			<field name="inherit_id" ref="product_images_olbs.view_product_image_form" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="name" position="replace">
+					<field name="name" />
+				</field>
+				<field name="file" position="replace">
+					<field name="file" widget="image" nolabel="1" colspan="4" />
+					<field name="file_db_store" filename="name"
+                        on_change="onchange_file_db_store(file_db_store,name,extention,url,link)" />
+				</field>
+				<field name="link" position="replace">
+					<field name="link" eval="True" invisible="1" />
+					<newline />
+					<field name="main" colspan="2" />
+				</field>
+				<field name="url" position="replace">
+					<field name="url" invisible="1" />
+				</field>
+			</field>
+		</record>
+
+	</data>
+
+</openerp>

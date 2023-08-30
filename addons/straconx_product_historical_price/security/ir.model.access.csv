@@ -1,0 +1,12 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_historical","product_historical_price","model_product_historic_price","base.group_user",1,0,0,0
+"access_product_historical_partner_manager","product_historical_price_partner_manager","model_product_historic_price","base.group_partner_manager",1,1,1,1
+"access_product_historical_partner_user","product_historical_price_partner_user","model_product_historic_price","base.group_document_user",1,1,1,1
+"access_product_historical_partner_cost_user","product_historical_price_cost_partner_user","model_product_historic_cost","base.group_document_user",1,1,1,1
+"access_product_historical_document_manager","product_historical_price_document_manager","model_product_historic_price","base.group_document_manager",1,1,1,1
+"access_product_historical_document_cost_manager","product_historical_cost_document_manager","model_product_historic_cost","base.group_document_manager",1,1,1,1
+"access_product_historical_purchase_user","product_historical_price_purchase_user","model_product_historic_price","purchase.group_purchase_user",1,1,1,1
+"access_product_historical_partner_cost_user","product_historical_price_cost_purchase_user","model_product_historic_cost","purchase.group_purchase_user",1,1,1,1
+"access_product_historical_partner_pos_collector","product_historical_price_cost_pos_collector","model_product_historic_cost","base.group_pos_collector",1,1,0,0
+"access_product_historical_partner_pos_user","product_historical_price_cost_pos_user","model_product_historic_cost","base.group_pos_user",1,1,0,0
+"access_product_historical_partner_pos_manager","product_historical_price_cost_pos_manager","model_product_historic_cost","base.group_pos_manager",1,1,0,0

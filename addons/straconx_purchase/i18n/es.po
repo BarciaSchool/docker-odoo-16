@@ -1,0 +1,1899 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-11-04 22:20+0000\n"
+"PO-Revision-Date: 2011-11-04 22:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.buyer_config
+msgid "Buyer"
+msgstr "Asesor de Compras"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Product Prices"
+msgstr "Precios"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_manufacturer
+msgid "Product Manufacturer"
+msgstr "Fabricante"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Producto Nuevo"
+msgstr "Producto Nuevo"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Base Prices"
+msgstr "Precios base"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Internal Information"
+msgstr "Información interna"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:333
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:367
+#, python-format
+msgid "Warning!"
+msgstr "¡Precaución!"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,editor_ids:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Schedule Other Call"
+msgstr "Planificar otra llamada"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Phone Call"
+msgstr "Llamada de teléfono"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_tradetax_action_form_str
+msgid "Product Tradetax"
+msgstr "Aranceles de Productos"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "UOM"
+msgstr "UdM"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+#: report:straconx.purchase.quotation:0
+msgid "Expected Date"
+msgstr "Fecha prevista"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:112
+#, python-format
+msgid "You have to select a partner in the purchase form !\n"
+"Please set one partner before choosing a product."
+msgstr "¡Debe seleccionar un Proveedor para esta compra!\n"
+"Por favor, seleccione un Proveedor antes de elegir un producto."
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:457
+#, python-format
+msgid "There is no purchase journal defined for this company: \"%s\" (id:%d)"
+msgstr "No existe un diario de compras definido para esta compañía: \"%s\" (id:%d)"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_codcomp
+#: model:ir.model,name:straconx_purchase.model_product_codcomp
+msgid "Competition Product Code"
+msgstr "Código de Competidores"
+
+#. module: straconx_purchase
+#: field:product.clasification,parent_id:0
+#: field:product.codcomp,parent_id:0
+msgid "Parent Category"
+msgstr "Categoría Padre"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,discount:0
+msgid "Discount (%)"
+msgstr "Descuento (%)"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Leads and Opportunities"
+msgstr "Iniciativas y oportunidades"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Total Untaxed amount"
+msgstr "Total importe base"
+
+#. module: straconx_purchase
+#: field:product.product,link_ids4:0
+msgid "Adapted Products"
+msgstr "Adaptaciones"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:513
+#, python-format
+msgid "Please put a partner on the picking list if you want to generate invoice."
+msgstr "Por favor, ingrese un Proveedor en el Picking List para generar una Factura."
+
+#. module: straconx_purchase
+#: field:product.clasification,name:0
+#: field:product.codcomp,name:0
+#: view:product.product:0
+#: field:purchase.order.line,categ_id:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Relations"
+msgstr "Relaciones"
+
+#. module: straconx_purchase
+#: field:product.manufacturer.rel,product_id:0
+msgid "Book"
+msgstr "Modelo"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Import"
+msgstr "Importación"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Purchase Properties"
+msgstr "Propiedades de compra"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: straconx_purchase
+#: selection:product.product,timport:0
+msgid "Fast Importation"
+msgstr "Importación rápida"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Fecha Emisión"
+msgstr "Fecha Emisión"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Escalate"
+msgstr "Escalado"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_account
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_logistics
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_sale
+msgid "Products can be purchased and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on."
+msgstr "Los productos pueden ser comprados y / o vendidos. Pueden ser materias primas, productos inventariable, material fungible o servicios. El formulario del producto contiene información detallada sobre sus productos relacionados con la logística de contratación, precio de venta, categoría de los productos, proveedores, etc."
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "General Info"
+msgstr "Información General"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Sale Description"
+msgstr "Descripción de venta"
+
+#. module: straconx_purchase
+#: field:product.product,creation_date:0
+msgid "Creation date"
+msgstr "Fecha de creación"
+
+#. module: straconx_purchase
+#: field:purchase.order,solicited:0
+msgid "Solicited by"
+msgstr "Solicitado por"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Cancel Purchase Order"
+msgstr "Cancelar pedido de compra"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Quotations"
+msgstr "Presupuestos"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,quantityapl:0
+#: field:purchase.order,totalquantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Comercial Information"
+msgstr "Información Comercial"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_action_manufacturer_form
+#: view:product.product:0
+msgid "Applications Models"
+msgstr "Modelos y Aplicaciones"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Detalle de Factura"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Search Purchase Order"
+msgstr "Buscar pedido de compra"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Purchase Order Lines"
+msgstr "Líneas pedido de compra"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Partner Status"
+msgstr "Estado de la Empresa"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Total Quantity"
+msgstr "Total Cantidad"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Bank account"
+msgstr "Cuenta bancaria"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,born_date:0
+msgid "Start year"
+msgstr "Año Origen"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Dirección:"
+msgstr "Dirección:"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "Aditional Info"
+msgstr "Información Adicional"
+
+#. module: straconx_purchase
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "A"
+msgstr "A"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Purchase Taxes"
+msgstr "Impuestos de compras"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Purchase Control"
+msgstr "Control de compra"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Desde el Proveedor:"
+msgstr "Desde el Proveedor:"
+
+#. module: straconx_purchase
+#: field:product.manufacturerattribute,value:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: straconx_purchase
+#: field:product.applicationmodel,name:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: straconx_purchase
+#: field:product.product,manufacturer_pname:0
+msgid "Manufacturer product name"
+msgstr "Nombre del Producto"
+
+#. module: straconx_purchase
+#: field:product.product,series:0
+msgid "Series"
+msgstr "Series"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Solicitada por"
+msgstr "Solicitada por"
+
+#. module: straconx_purchase
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_purchase
+#: selection:purchase.order,tpurchase:0
+msgid "Purchase"
+msgstr "Compra de Inventario"
+
+#. module: straconx_purchase
+#: field:product.manufacturer.rel,author_id:0
+msgid "Author"
+msgstr "Fabricante"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Productos Relacionados"
+msgstr "Productos Relacionados"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,model_name:0
+msgid "Application Model"
+msgstr "Modelo"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Not Invoiced"
+msgstr "No Facturado"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.straconx_action_supplier_partner_form
+#: model:ir.ui.menu,name:straconx_purchase.menu_account_supplier_account
+#: view:purchase.order:0
+#: view:res.partner:0
+msgid "Supplier"
+msgstr "Supplier"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Costo Original"
+msgstr "Costo Original"
+
+#. module: straconx_purchase
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Total Unidades:"
+msgstr "Total Unidades:"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Product reference"
+msgstr "Referencia"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: report:straconx.purchase.order:0
+msgid "Marca"
+msgstr "Marca"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_system
+msgid "Products can be systemd and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on."
+msgstr "Products can be systemd and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on."
+
+#. module: straconx_purchase
+#: field:purchase.order.line,discount_order:0
+msgid "$ Discount"
+msgstr "$ Descuento"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_tradetax_action_form
+msgid "Products tradetax"
+msgstr "Aranceles"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_purchase_category
+#: model:ir.model,name:straconx_purchase.model_purchase_category
+msgid "Purchase Category"
+msgstr "Categoría de Compras"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "To Purchase"
+msgstr "A comprar"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_prefix_action_form_str
+#: view:product.prefix:0
+msgid "Product Prefix"
+msgstr "Prefijos de Productos"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_series_action_form
+msgid "Products Series"
+msgstr "Series"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Manually Corrected"
+msgstr "Corregido manualmente"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Meetings"
+msgstr "Reuniones"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,volume_total:0
+msgid "Total Volume"
+msgstr "Volumen Total"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Previous"
+msgstr "Anterior"
+
+#. module: straconx_purchase, product
+#: field:product.product,link_ids1:0
+msgid "New Products"
+msgstr "Nuevos Productos"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,subarea_name:0
+msgid "Application Subarea"
+msgstr "Subárea"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Invoice Control"
+msgstr "Control factura"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Next"
+msgstr "Siguiente"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_application_str
+msgid "Product Models and Applications"
+msgstr "Product Models and Applications"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Id. Fiscal:"
+msgstr "Id. Fiscal:"
+
+#. module: straconx_purchase
+#: field:purchase.order,type_purchase:0
+#: view:res.partner:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Untaxed amount"
+msgstr "Base imponible"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: field:product.product,material:0
+msgid "Material"
+msgstr "Material"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Total :"
+msgstr "Total :"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_library
+msgid "Product Library"
+msgstr "Catálogo de Productos"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Product factory"
+msgstr "Código de Fábrica"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "General Informations"
+msgstr "Información General"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Order Date"
+msgstr "Fecha pedido"
+
+#. module: straconx_purchase
+#: selection:purchase.order,tpurchase:0
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Empresa:"
+msgstr "Empresa:"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: view:res.partner:0
+msgid "Supplier Information"
+msgstr "Información del proveedor"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "Request for Quotation :"
+msgstr "Requerimiento de Proforma:"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:187
+#, python-format
+msgid "You have to select a product UOM in the same category than the purchase UOM of the product"
+msgstr "Debe seleccionar un producto con una Unidad de Medida en la misma categoría que la Unidad de Medida de Compra de este producto"
+
+#. module: straconx_purchase
+#: view:product.clasification:0
+#: view:product.codcomp:0
+#: view:purchase.category:0
+msgid "Product Categories"
+msgstr "Categorías de Productos"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:187
+#, python-format
+msgid "Wrong Product UOM !"
+msgstr "UdM errada para el producto!"
+
+#. module: straconx_purchase
+#: view:product.sufix:0
+msgid "Product sufix"
+msgstr "Sufijo"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Create a Partner"
+msgstr "Crear una empresa"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_dimen_form
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_manufacturer_form
+#: model:ir.ui.menu,name:straconx_purchase.knowledge_menu_models
+#: model:ir.ui.menu,name:straconx_purchase.salesman_menu_models
+#: field:product.manufacturer,book_ids:0
+#: field:product.product,author_ids:0
+msgid "Models"
+msgstr "Modelos"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Fecha Llegada"
+msgstr "Fecha Llegada"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: field:product.template,codcomp:0
+msgid "Cod Comp"
+msgstr "Código de Competidores"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Supplier History Notes"
+msgstr "Supplier History Notes"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Exception"
+msgstr "Excepción"
+
+#. module: straconx_purchase
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "B"
+msgstr "B"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: field:product.product,datecom:0
+msgid "Comercial Life"
+msgstr "Vida comercial"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_prefix
+msgid "Partner Product Prefix"
+msgstr "Prefijos"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.straconx_menu_purchase_form_action
+msgid "Purchases"
+msgstr "Compras"
+
+#. module: straconx_purchase
+#: field:product.application,code:0
+#: field:product.applicationarea,code:0
+#: field:product.applicationmodel,code:0
+#: field:product.applicationsubarea,code:0
+#: field:product.attribute,code:0
+#: field:product.clasification,code:0
+#: field:product.codcomp,code:0
+#: field:product.collection,code:0
+#: field:product.library,code:0
+#: field:product.material,code:0
+#: field:product.prefix,code:0
+#: field:product.series,code:0
+#: field:product.sufix,code:0
+#: field:purchase.category,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_purchase
+#: field:product.template,codant:0
+msgid "Former Code"
+msgstr "Código anterior"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "Qty"
+msgstr "Cantidad"
+
+#. module: straconx_purchase
+#: field:product.product,sufix:0
+msgid "Sufix"
+msgstr "Sufijo"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+#: view:res.partner:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "R.U.C.:"
+msgstr "R.U.C.:"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_purchase
+#: view:product.series:0
+msgid "Product series"
+msgstr "Series"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Other Info"
+msgstr "Otra Información"
+
+#. module: straconx_purchase
+#: model:ir.actions.report.xml,name:straconx_purchase.report_straconx_purchase_quotation
+msgid "Request for Quotation"
+msgstr "Solicitud de presupuesto"
+
+#. module: straconx_purchase
+#: field:product.product,timport:0
+msgid "Types of Trade Import"
+msgstr "Tipo de Importación"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Inventory Valuation"
+msgstr "Valoración Inventario"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Purchase Description"
+msgstr "Descripción de compra"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Customer Information"
+msgstr "Customer Information"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Type of Purchase"
+msgstr "Tipo de compra"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "To Sell"
+msgstr "A vender"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Subtotal:"
+msgstr "Subtotal:"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Purchase History"
+msgstr "Historial de Compras"
+
+#. module: straconx_purchase
+#: field:product.application,name:0
+#: field:product.applicationarea,name:0
+#: field:product.applicationsubarea,name:0
+#: field:product.attribute,name:0
+#: field:product.collection,name:0
+#: field:product.library,name:0
+#: field:product.material,name:0
+#: field:product.prefix,name:0
+#: field:product.series,name:0
+#: field:product.sufix,name:0
+#: field:purchase.category,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Stockable"
+msgstr "Almacenable"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Bodega:"
+msgstr "Bodega:"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,weight:0
+msgid "Gross weight"
+msgstr "Peso bruto"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Enviar a:"
+msgstr "Enviar a:"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Accounting"
+msgstr "Administración Financiera"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "To Approve"
+msgstr "Para aprobar"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Accesorios"
+msgstr "Accesorios"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+#: field:product.manufacturer,note:0
+msgid "Comments"
+msgstr "Comentarios"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+#: view:res.partner:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:333
+#, python-format
+msgid "You do not have shop assigned, please check"
+msgstr "No tiene una Tienda asignada, por favor, verifique"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Product name"
+msgstr "Nombre"
+
+#. module: straconx_purchase
+#: field:purchase.order,tpurchase:0
+msgid "Purchase type"
+msgstr "Tipo de Compra"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.straconx_purchase_action
+#: model:ir.actions.act_window,help:straconx_purchase.straconx_purchase_new_form_action
+msgid "Use this menu to search within your purchase orders by references, supplier, products, etc. For each purchase order, you can track the products received, and control the supplier invoices."
+msgstr "Utilice este menú para buscar sus órdenes de compra por: referencia, proveedor, producto, etc Para cada orden de compra, usted puede rastrear los productos recibidos, y el control de las facturas de proveedores."
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_clasification
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_clasification_str
+msgid "Product Clasification"
+msgstr "Clasificación de Productos "
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:110
+#, python-format
+msgid "No Pricelist !"
+msgstr "¡Sin Lista de Precios!"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Total Descuento:"
+msgstr "Total Descuento:"
+
+#. module: straconx_purchase
+#: field:product.applicationmodel,parent_id:0
+#: view:product.product:0
+#: view:purchase.order:0
+msgid "Brand"
+msgstr "Marca"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "International Trade"
+msgstr "Comercio Internacional"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "Model Name"
+msgstr "Modelo"
+
+#. module: straconx_purchase
+#: field:product.manufacturerattribute,measurements_id:0
+msgid "Measurements"
+msgstr "Medida"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Cant."
+msgstr "Cant."
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Costo Unitario"
+msgstr "Costo Unitario"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_account
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_knowledge
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_logistics
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_sale
+#: model:ir.actions.act_window,name:straconx_purchase.product_normal_action_system
+#: model:ir.ui.menu,name:straconx_purchase.account_menu_product
+#: model:ir.ui.menu,name:straconx_purchase.knowledge_menu_product
+#: model:ir.ui.menu,name:straconx_purchase.knowledge_menu_products
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_system
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_system_product
+#: view:product.product:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Convert to Purchase Order"
+msgstr "Convertir a pedido de compra"
+
+#. module: straconx_purchase
+#: field:product.product,calsale:0
+msgid "Cal Sales"
+msgstr "Calificación Ventas"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Held"
+msgstr "Ocupado"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Reset to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_purchase
+#: field:product.product,link_ids3:0
+msgid "Accesories Products"
+msgstr "Accesorios"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Adaptaciones de Producto"
+msgstr "Adaptaciones de Producto"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Movimientos"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Bank account owner"
+msgstr "Titular de la cuenta bancaria"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+#: report:straconx.purchase.quotation:0
+msgid "Fax:"
+msgstr "Fax:"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:446
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:456
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_clasification
+msgid "Product clasifications"
+msgstr "Clasificaciones de Productos"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Orden de Compra N°"
+msgstr "Orden de Compra N°"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "Regards,"
+msgstr "Saludos,"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Consumable"
+msgstr "Consumible"
+
+#. module: straconx_purchase
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_purchase
+#: help:purchase.order.line,weight:0
+#: help:purchase.order.line,weight_total:0
+msgid "The gross weight in Kg."
+msgstr "El peso bruto en Kg."
+
+#. module: straconx_purchase
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "C"
+msgstr "C"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_applicationmodel
+msgid "product.applicationmodel"
+msgstr "Aplicación de Modelos"
+
+#. module: straconx_purchase
+#: field:purchase.category,info_required:0
+msgid "Info Aditional in Purchase"
+msgstr "¿Requiere información adicional en Compra?"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Functions and Addresses"
+msgstr "Cargos y Direcciones"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Procurement"
+msgstr "Adquisición"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Not Held"
+msgstr "No ocupado"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_models
+msgid "Product Application Models"
+msgstr "Modelos y Aplicaciones de Productos"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Autorizado por:"
+msgstr "Autorizado por:"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_sufix_action_form
+msgid "Products Sufix"
+msgstr "Sufijo"
+
+#. module: straconx_purchase
+#: field:product.prefix,partner_id:0
+#: field:product.series,partner_id:0
+#: field:product.sufix,partner_id:0
+msgid "clasification"
+msgstr "Clasificación"
+
+#. module: straconx_purchase
+#: field:product.product,calinv:0
+msgid "Cal Stock"
+msgstr "Calificación Inventario"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Observaciones:"
+msgstr "Observaciones:"
+
+#. module: straconx_purchase
+#: field:purchase.order,authorized:0
+msgid "Authorized by"
+msgstr "Autorizado por"
+
+#. module: straconx_purchase
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_collection
+msgid "Product Collection"
+msgstr "Colecciones"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Sales Calification"
+msgstr "Calificación de Ventas"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "________________________"
+msgstr "________________________"
+
+#. module: straconx_purchase
+#: help:product.applicationmodel,parent_id:0
+#: help:product.clasification,parent_id:0
+#: help:product.codcomp,parent_id:0
+msgid "Name of the parent category"
+msgstr "Nombre de la categoría padre"
+
+#. module: straconx_purchase
+#: field:product.tradetax,tax4:0
+msgid "FDI %"
+msgstr "FDI %"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_attribute
+#: model:ir.actions.act_window,name:straconx_purchase.action_product_material
+#: model:ir.model,name:straconx_purchase.model_product_manufacturerattribute
+#: view:product.manufacturerattribute:0
+msgid "Product Attributes"
+msgstr "Atributos del producto"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_series_action_form_str
+#: view:product.series:0
+#: view:product.tradetax:0
+msgid "Product Series"
+msgstr "Series de Productos"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_material
+#: model:ir.ui.menu,name:straconx_purchase.menu_action_product_material_form_str
+msgid "Product Material"
+msgstr "Materiales"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Phone Calls"
+msgstr "Llamadas telefónicas"
+
+#. module: straconx_purchase
+#: field:purchase.order,totaldiscount:0
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: straconx_purchase
+#: field:product.product,manufacturer_factory:0
+msgid "Manufacturer factory code"
+msgstr "Código de Fábrica"
+
+#. module: straconx_purchase
+#: field:product.applicationmodel,active:0
+#: field:product.clasification,active:0
+#: field:product.codcomp,active:0
+#: field:product.library,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:446
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr "No existe una cuenta de compras definidas para este producto: \"%s\" (id:%d)"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Properties"
+msgstr "Propiedades"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:512
+#, python-format
+msgid "Error, no partner !"
+msgstr "¡Error, sin proveedor!"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "TVA:"
+msgstr "RUC:"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Seq."
+msgstr "Sec."
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Extra Information"
+msgstr "Información Adicional"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Ciudad:"
+msgstr "Ciudad:"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_purchase_form_action
+msgid "New Purchase"
+msgstr "Nueva Orden de Compra"
+
+#. module: straconx_purchase
+#: view:product.product:0
+#: view:res.partner:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_purchase
+#: field:product.tradetax,tax3:0
+msgid "ICE %"
+msgstr "ICE %"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,oem:0
+msgid "OEM"
+msgstr "OEM"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_purchase
+#: model:ir.module.module,description:straconx_purchase.module_meta_information
+msgid "Customization for Purchase Management in Ecuador. Add a object called Buyer, International Trade, Products, Knowledge and modified Purchase workflow for Comercial Companies."
+msgstr "Personalización de Gestión de Compras en el Ecuador. Agrega un objeto llamado comprador, comercio internacional, productos, Gestión de Conocimiento y modifica el flujo de procesos de compras de las Empresas comerciales."
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.straconx_purchase_action
+#: model:ir.actions.act_window,name:straconx_purchase.straconx_purchase_new_form_action
+msgid "Purchase Orders"
+msgstr "Pedidos de compra"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_application
+msgid "product.application"
+msgstr "Aplicaciones de Productos"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.product_normal_action_knowledge
+msgid "Products can be purchased and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, knowledges price, product category, suppliers and so on."
+msgstr "Los productos pueden ser adquiridos y / o vendidos. Pueden ser materias primas, productos almacenables, consumibles y servicios. La forma del producto contiene información detallada sobre sus productos relacionados con la logística de adquisición, precio conocimientos, categorías de productos, proveedores, etc."
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_products_config_straconx
+#: model:ir.ui.menu,name:straconx_purchase.menu_purchase_config_straconx
+msgid "Details Config"
+msgstr "Otras Configuraciones"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,death_date:0
+msgid "End year"
+msgstr "Año Final"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Stock Calification"
+msgstr "Calificación de Inventarios"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Stock"
+msgstr "Inventarios"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_product
+#: model:ir.ui.menu,name:straconx_purchase.account_products
+#: field:product.manufacturerattribute,product_id:0
+#: view:product.product:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_purchase
+#: field:product.tradetax,tax5:0
+msgid "Salvaguarda %"
+msgstr "Salvaguarda %"
+
+#. module: straconx_purchase
+#: model:ir.actions.report.xml,name:straconx_purchase.report_straconx_purchase_order
+msgid "Print Orders"
+msgstr "Imprimir Órdenes"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_purchase
+#: sql_constraint:purchase.order:0
+msgid "Error! Expired days must be greater than 0."
+msgstr "¡Error! Días de expiración deben ser mayor a 0."
+
+#. module: straconx_purchase
+#: sql_constraint:purchase.order:0
+msgid "Error! Wait days must be greater than 0."
+msgstr "¡Error! Días de espera deben ser mayor a 0."
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_applicationsubarea
+msgid "product.applicationsubarea"
+msgstr "Subárea de aplicación"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Order"
+msgstr "Orden"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr "Dirección postal"
+
+#. module: straconx_purchase
+#: field:product.product,manufacturer_pref:0
+msgid "Manufacturer product code"
+msgstr "Código del Producto"
+
+#. module: straconx_purchase
+#: sql_constraint:product.application:0
+#: sql_constraint:product.applicationmodel:0
+msgid "The code of the application must be unique !"
+msgstr "The code of the application must be unique !"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "Expected Delivery address:"
+msgstr "Dirección de envío esperada:"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_purchase_category_action_form_str
+msgid "Purchase Order Category"
+msgstr "Categorías de Pedidos"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Productos Equivalentes"
+msgstr "Productos Equivalentes"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Search Supplier"
+msgstr "Buscar Proveedor"
+
+#. module: straconx_purchase
+#: field:product.product,tradetax:0
+#: field:purchase.order.line,tradetax:0
+msgid "Tradetax"
+msgstr "Arancel"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "More info"
+msgstr "Más información"
+
+#. module: straconx_purchase
+#: view:product.tradetax:0
+msgid "Product Arancel"
+msgstr "Arancel"
+
+#. module: straconx_purchase
+#: field:product.product,link_ids2:0
+msgid "Principal Products"
+msgstr "Productos Principales"
+
+#. module: straconx_purchase
+#: field:purchase.order,expired_day:0
+msgid "Expired day"
+msgstr "Días de Expiración"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Nombre:"
+msgstr "Nombre:"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Delivery"
+msgstr "Entrega"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_manufacturer_rel
+msgid "product.manufacturer.rel"
+msgstr "Fabricante de Productos"
+
+#. module: straconx_purchase
+#: view:product.manufacturerattribute:0
+msgid "Product Dimensions"
+msgstr "Dimensiones del Producto"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Applications"
+msgstr "Aplicaciones"
+
+#. module: straconx_purchase
+#: field:purchase.order,categ_id:0
+msgid "Brands"
+msgstr "Marcas"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Approve Purchase"
+msgstr "Aprobar Compra"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_sufix
+msgid "Partner Product Sufix"
+msgstr "Sufijos"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Correo Elect.:"
+msgstr "Correo Elect.:"
+
+#. module: straconx_purchase
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "D"
+msgstr "D"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_purchase_order
+#: view:purchase.order:0
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: straconx_purchase
+#: view:product.attribute:0
+#: view:product.material:0
+#: view:product.product:0
+#: field:product.product,attribute_ids:0
+msgid "Attributes"
+msgstr "Attributes"
+
+#. module: straconx_purchase
+#: field:purchase.order,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:166
+#, python-format
+msgid "The selected supplier has a minimal quantity set to %s, you cannot purchase less."
+msgstr "El proveedor seleccionado requiere compras por cantidades mínimas de %s, no se puede comprar en menor cantidades."
+
+#. module: straconx_purchase
+#: report:straconx.purchase.quotation:0
+msgid "Tel.:"
+msgstr "Tel.:"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:166
+#, python-format
+msgid "Warning"
+msgstr "Precaución"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Call Summary"
+msgstr "Resumen de llamadas"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Teléfono:"
+msgstr "Teléfono:"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:359
+#, python-format
+msgid "Your User doesn't have Cash Box assigned"
+msgstr "El usuario no tiene una Caja asignada"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,help:straconx_purchase.straconx_action_supplier_partner_form
+msgid "A customer is an entity you do business with, like a company or an organization. A customer can have several contacts or addresses which are the people working for this company. You can use the history tab, to follow all transactions related to a customer: sales order, emails, opportunities, claims, etc. If you use the email gateway, the Outlook or the Thunderbird plugin, don't forget to register emails to each contact so that the gateway will automatically attach incoming emails to the right partner."
+msgstr "Un cliente es una entidad con quien hace negocios, como una empresa o una organización. Un cliente puede tener varios contactos o direcciones que son las personas que trabajan para esta empresa. Puede utilizar la pestaña historial para seguir todas las transacciones relacionadas con un cliente: pedidos de venta, correos electrónicos, oportunidades, reclamaciones, etc. Si utiliza la pasarela de correo electrónico, el conector Outlook o Thunderbird, no olvide introducir el correo electrónico de cada contacto de modo que la pasarela adjuntará automáticamente los correos electrónicos entrantes a la empresa correcta."
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+#: field:product.manufacturer,name:0
+msgid "Application"
+msgstr "Aplicación"
+
+#. module: straconx_purchase
+#: field:product.tradetax,tax2:0
+msgid "IVA %"
+msgstr "IVA %"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:112
+#, python-format
+msgid "No Partner!"
+msgstr "¡Sin Proveedor!"
+
+#. module: straconx_purchase
+#: field:purchase.order,wait_day:0
+msgid "Wait day"
+msgstr "Días de espera"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Account Banks and Credit Cards "
+msgstr "Cuentas Bancaria y Tarjetas de Crédito"
+
+#. module: straconx_purchase
+#: field:product.manufacturer,area_name:0
+msgid "Application Area"
+msgstr "Área"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Solicited"
+msgstr "Solicitado"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Catalog"
+msgstr "Catálogo"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_codcomp_str
+msgid "Comp Codes"
+msgstr "Código de Competidores"
+
+#. module: straconx_purchase
+#: selection:product.product,timport:0
+msgid "Normal Importation"
+msgstr "Importación Normal"
+
+#. module: straconx_purchase
+#: field:product.tradetax,name:0
+msgid "Nombre Partida"
+msgstr "Nombre Partida"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "% Desc."
+msgstr "% Desc."
+
+#. module: straconx_purchase
+#: field:product.product,online:0
+msgid "Visible on website"
+msgstr "Visible en website"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Total Discount"
+msgstr "Total Descuento"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Emitido por:"
+msgstr "Emitido por:"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Descriptions"
+msgstr "Descripciones"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Images"
+msgstr "Imágenes"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Impuestos:"
+msgstr "Impuestos:"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Weigths"
+msgstr "Peso"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Términos de Pago"
+msgstr "Términos de Pago"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:367
+#, python-format
+msgid "You must create a Purchase Shop before you create a purchase order"
+msgstr "Debe crear una Tienda tipo Matriz antes de crear una orden de compra"
+
+#. module: straconx_purchase
+#: field:product.tradetax,code_id:0
+msgid "Partida"
+msgstr "Partida"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "Area Name"
+msgstr "Área"
+
+#. module: straconx_purchase
+#: model:ir.ui.menu,name:straconx_purchase.menu_product_sufix_action_form_str
+msgid "Product Sufix"
+msgstr "Sufijos de Productos"
+
+#. module: straconx_purchase
+#: field:product.product,manufacturer:0
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: straconx_purchase
+#: help:product.codcomp,name:0
+msgid "Name of the category"
+msgstr "Nombre de la categoría"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Customer History"
+msgstr "Historial del Cliente"
+
+#. module: straconx_purchase
+#: field:product.tradetax,tax1:0
+msgid "Advalorem %"
+msgstr "Advalorem %"
+
+#. module: straconx_purchase
+#: field:product.manufacturerattribute,attribute_id:0
+msgid "Attribute"
+msgstr "Atributo"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: straconx_purchase
+#: field:product.product,prefix:0
+msgid "Prefix"
+msgstr "Prefijo"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_series
+#: model:ir.model,name:straconx_purchase.model_product_tradetax
+msgid "Partner Product Series"
+msgstr "Serie"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: straconx_purchase
+#: model:ir.module.module,shortdesc:straconx_purchase.module_meta_information
+msgid "Purchase and International Trade Management for Ecuador"
+msgstr "Compras y Comercio exterior para Ecuador"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Sales Properties"
+msgstr "Propiedades de Venta"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Categorization"
+msgstr "Categorización"
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.product_prefix_action_form
+msgid "Products Prefix"
+msgstr "Prefijos"
+
+#. module: straconx_purchase
+#: field:product.product,link_ids:0
+msgid "Equivalent Products"
+msgstr "Productos Equivalentes"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_attribute
+#: model:ir.ui.menu,name:straconx_purchase.menu_action_product_dm_form_str
+msgid "Product Attribute"
+msgstr "Atributo"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Delivery & Invoicing"
+msgstr "Envío y Facturación"
+
+#. module: straconx_purchase
+#: field:product.attribute,description:0
+#: field:product.material,description:0
+#: field:product.prefix,description:0
+#: field:product.series,description:0
+#: field:product.sufix,description:0
+#: field:product.tradetax,description:0
+#: view:res.partner:0
+#: report:straconx.purchase.quotation:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: purchase
+#: report:purchase.order:0
+msgid "Order Reference"
+msgstr "Nombre"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Product Description"
+msgstr "Descripción del Producto"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,volume:0
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,weight_total:0
+msgid "Total Weight"
+msgstr "Total Peso"
+
+#. module: straconx_purchase
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Sale Taxes"
+msgstr "Impuestos en venta"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Schedule a Meeting"
+msgstr "Planificar una reunión"
+
+#. module: straconx_purchase
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "E"
+msgstr "E"
+
+#. module: straconx_purchase
+#: field:product.product,manufacturer_country:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_purchase
+#: view:purchase.order:0
+msgid "Total amount"
+msgstr "Importe total"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Convert to Opportunity"
+msgstr "Convertir a oportunidad"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_applicationarea
+msgid "product.applicationarea"
+msgstr "product.applicationarea"
+
+#. module: straconx_purchase
+#: model:ir.model,name:straconx_purchase.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Recibido por:"
+msgstr "Recibido por:"
+
+#. module: straconx_purchase
+#: view:product.manufacturer:0
+msgid "Models Applications"
+msgstr "Modelos de Aplicación"
+
+#. module: straconx_purchase
+#: field:product.product,clasification_cat:0
+msgid "clasification Product"
+msgstr "Clasificación"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Bank Details"
+msgstr "Detalles de banco"
+
+#. module: straconx_purchase
+#: view:res.partner:0
+msgid "Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_purchase
+#: report:straconx.purchase.order:0
+msgid "Pretotal:"
+msgstr "Pretotal:"
+
+#. module: straconx_purchase
+#: code:addons/straconx_purchase/objects/straconx_purchase.py:110
+#, python-format
+msgid "You have to select a pricelist or a supplier in the purchase form !\n"
+"Please set one before choosing a product."
+msgstr "¡Debe seleccionar una Lista de Precios para esta compra!\n"
+"Por favor, seleccione una Lista de Precios antes de elegir un producto."
+
+#. module: straconx_purchase
+#: model:ir.actions.act_window,name:straconx_purchase.action_manufacturer_new_form
+#: model:ir.ui.menu,name:straconx_purchase.menu_action_author_form_new
+msgid "New Models"
+msgstr "Añadir Modelo"
+
+#. module: straconx_purchase
+#: view:product.applicationmodel:0
+msgid "Application Models"
+msgstr "Modelos y Aplicaciones"
+
+#. module: straconx_purchase
+#: help:purchase.order.line,volume:0
+#: help:purchase.order.line,volume_total:0
+msgid "The volume in m3."
+msgstr "El volumen en m3."
+
+#. module: straconx_purchase
+#: view:product.product:0
+msgid "Account Properties"
+msgstr "Propiedades Contables"
+

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!--Account Partner -->
+<!-- 		<record id="view_partner_gen_form" model="ir.ui.view">
+			<field name="name">res.partner.gen.form</field>
+			<field name="model">res.partner</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Partners" col='6'>
+					<field name="name" colspan="4" select="1" />
+					<field name="vat" on_change="vat_change(vat)" required="True"
+						attrs="{'readonly': [('active2','=',False)]}" />
+					<newline />
+					<field name="codant" />
+					<field name="segmento_id" />
+					<field name="segmento_category_id" readonly="0" />
+					<field name="type_vat" invisible="0" />
+					<newline />
+					<field name="origin" />
+					<field name="estado_id" />
+					<field name="lang" required="True" />
+					<field colspan="2" name="category_id" widget="selection" />
+					<field name="tax_sustent" />
+					<field name="property_account_position" invisible="0" />
+					<notebook colspan="6">
+						<page string="General">
+							<field name="address" mode="form,tree" colspan="4" nolabel="1"
+								select="1">
+								<form string="Address">
+									<group colspan="4" col="6">
+										<field name="name" />
+									</group>
+									<newline />
+									<group colspan="2" col="4">
+										<separator string="Postal Address" colspan="4" col="4" />
+										<field name="type" string="Type" colspan="2" />
+										<field name="street" colspan="4" />
+										<field name="location_id" colspan="4" />
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Communication" colspan="2" col="2" />
+										<field name="phone" />
+										<field name="mobile" />
+										<field name="fax" />
+										<field name="email" widget="email" required="1" />
+									</group>
+									<newline />
+									<group colspan="4" col="4">
+										<separator string="Assigned Users" colspan="4" col="4" />
+										<field name="salesman_assigned" colspan="2" />
+										<field name="collect_assigned" colspan="2" />
+									</group>
+									<newline />
+									<field name="contact_ids" mode="tree,form" nolabel="1"
+										colspan="4">
+										<tree string="Contacts">
+											<field name="name" />
+											<field name="first_name" />
+											<field name="vat" />
+											<field name="title" widget="selection" />
+											<field name="mobile" />
+											<field name="email" required="1" />
+											<field name="lang_id" />
+											<field name="partner_id" invisible="1" />
+											<field name="country_id" />
+										</tree>
+									</field>
+								</form>
+								<tree string="Addresses">
+									<field name="type" />
+									<field name="zip" />
+									<field name="city" />
+									<field name="country_id" />
+									<field name="phone" />
+									<field name="contact_ids" />
+								</tree>
+							</field>
+						</page>
+						<page string="Accounting">
+							<group col="6" colspan="4">
+								<field name="customer" />
+								<field name="supplier" />
+								<field name="active" />
+								<field name="active2" invisible="1" />
+								<field name="is_consignement" attrs="{'invisible':[('customer','=',False)]}" />
+								<field name="permit_changed" />
+								<field name="employee" />
+								<field name="vat_subjected" invisible="1" />
+							</group>
+							<group col="2" colspan="2">
+								<separator string="Customer Accounting Properties"
+									colspan="2" />
+								<field name="property_account_receivable" groups="base.group_extended" />
+								<field name="payment_type_customer" widget="selection" />
+								<field name="property_payment_term" widget="selection" />
+							</group>
+							<group col="2" colspan="2">
+								<separator string="Supplier Accounting Properties"
+									colspan="2" />
+								<field name="property_account_payable" groups="base.group_extended" />
+								<field name="payment_type_supplier" widget="selection" />
+								<field name="property_payment_term_supplier" widget="selection" />
+
+							</group>
+							<group col="2" colspan="2">
+								<separator string="Customer Credit" colspan="2" />
+								<field name="credit" />
+								<field name="credit_limit" groups="base.group_extended" />
+							</group>
+							<group col="2" colspan="2">
+								<separator string="Supplier Debit" colspan="2" />
+								<field name="debit" />
+							</group>
+							<field colspan="4" context="{'address': address}" name="bank_ids"
+								nolabel="1">
+								<form string="Bank account">
+									<field name="state" />
+									<newline />
+									<field name="acc_number" select="1" />
+									<newline />
+									<field name="bank" />
+									<newline />
+									<field name="sequence" />
+									<field colspan="4" name="name" />
+									<separator colspan="4" string="Bank account owner" />
+									<field colspan="4" name="owner_name" />
+									<field colspan="4" name="street" />
+									<newline />
+									<field name="zip" />
+									<field name="city" />
+									<newline />
+									<field completion="1" name="country_id" />
+									<field name="state_id" />
+								</form>
+								<tree string="Bank Details">
+									<field name="state" />
+									<field name="bank" />
+									<field name="owner_name" />
+									<field name="acc_number" />
+								</tree>
+							</field>
+						</page>
+						<page string="Authorizations">
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="comment" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_partner_gen_tree" model="ir.ui.view">
+			<field name="name">res.partner.gen.tree</field>
+			<field name="model">res.partner</field>
+			<field name="type">tree</field>
+			<field eval="16" name="priority" />
+			<field name="arch" type="xml">
+				<tree string="Partners">
+					<field name="name" />
+					<field name="vat" string="RUC - CI" />
+					<field name="city" />
+					<field name="street" />
+					<field name="phone" />
+					<field name="salesman_id" />
+					<field name="segmento_id" />
+					<field name="credit_limit" />
+				</tree>
+			</field>
+		</record> -->
+
+		<record id="action_partner_gen_customer" model="ir.actions.act_window">
+			<field name="name">Account Partners</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('customer','=',1)]</field>
+			<field name="context">{"search_default_customer":1}</field>
+			<field name="search_view_id" ref="view_res_partner_filter_straconx"/>
+		</record>
+		<record id="action_partner_gen_customer_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_partner_tree_straconx" />
+			<field name="act_window_id" ref="action_partner_gen_customer" />
+		</record>
+
+		<record id="action_partner_gen_customer_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_partner_form_straconx" />
+			<field name="act_window_id" ref="action_partner_gen_customer" />
+		</record>
+
+<!-- 		<record id="action_partner_gen_supplier" model="ir.actions.act_window">
+			<field name="name">Account Supplier</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('supplier','=',1)]</field>
+		</record>
+		<record id="action_partner_gen_supplier_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_partner_tree_straconx" />
+			<field name="act_window_id" ref="action_partner_gen_supplier" />
+		</record>
+
+		<record id="action_partner_gen_supplier_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_partner_gen_form" />
+			<field name="act_window_id" ref="action_partner_gen_supplier" />
+		</record>
+ -->
+	</data>
+</openerp>

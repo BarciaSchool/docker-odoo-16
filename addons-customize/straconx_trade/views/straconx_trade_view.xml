@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<!-- International Trade -->
+
+        <record model="ir.ui.view" id="view_it_calendar">
+            <field name="name">Calendario de Compras</field>
+            <field name="model">purchase.trade</field>
+            <field name="type">calendar</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="Calendar View" date_start="origin_order" date_stop="arrival_date" color="address_id">
+                    <field name="origin"/>
+                    <field name="type"/>
+                    <field name="address_id"/>
+                </calendar>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_it_search">
+			<field name="name">Búsqueda de Importaciones</field>
+			<field name="model">purchase.trade</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="International Trade Liquidation">
+					<group col='10' colspan='4'>
+						<filter string="Delivery Partner" icon="terp-partner"
+							domain="[]" context="{'group_by':'delivery_partner'}" />
+						<filter string="User" icon="terp-partner" domain="[]"
+							context="{'group_by':'user_id'}" />
+						<filter string="State" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'state'}" />
+						<filter string="Country" icon="terp-gtk-jump-to-rtl"
+							domain="[]" context="{'group_by':'country_id'}" />
+						<filter string="Order Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'origin_order'}" />
+						<filter string="Confirmation Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'confirm_date'}" />
+						<separator orientation="vertical" />
+						<field name="dui" />
+						<field name="user_id" />
+						<field name="state" />
+					</group>
+					<newline />
+					<group expand="0" string="More filters..." colspan="4" col="10">
+						<field name="delivery_partner" />
+						<field name="origin_order" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_it_tree">
+			<field name="name">Lista de Importaciones</field>
+			<field name="model">purchase.trade</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="International Trade Liquidation" colors="blue:state in ('draft','waiting_date');red:state in ('paid_dui','progress','waiting_mail');black:state in ('done');gray:state in ('cancel')">
+					<field name="confirm_date" />
+					<field name="dui" />
+					<field name="delivery_partner" />
+					<field name="user_id" />
+					<field name="origin_order" />
+					<field name="country_id" />
+					<field name="amount_fob" />
+					<field name="factor_trade" />
+					<field name="amount_total" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_purchase_trade_form">
+			<field name="name">Liquidación de Importaciones</field>
+			<field name="model">purchase.trade</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="International Trade Liquidation">
+					<group colspan="4" col="4">						
+						<group colspan="4" col="4">							
+							<field name="type_liquidation" required="1" colspan="4" on_change="onchange_line_ids(purchase_ids,type_liquidation)"/>
+							<field name="shop_id" required="1" />
+							<field name="dui" required="1" string="Refrendo" />							
+							<field name="endorsement" invisible="1" />
+							<field name="delivery_partner" required="1" />
+							<field name="method" required="1" />
+							<field name="user_id" required="1" domain="[('is_buyer','=',1)]" />
+							<field name="deposit_partner" />
+							<field name="country_id" required="1" />
+							<field name="location_id" required="1" widget="selection"
+								domain="[('usage','=','internal')]" />
+							<field name="origin_order" />
+							<field name="arrival_date" />
+						</group>
+					<group colspan="4" col="4">
+						<field name="state" />
+						<button name="button_cancel" string="Cancel Trade"
+							states="paid_dui,waiting_date,progress,waiting_mail,done" icon="gtk-cancel" type="object" />
+						<button name="button_one_step" string="Aprobar Liquidación"
+							confirm="Confirmar todo el proceso en un solo paso: ¿Generar DAO, Liquidar importación, Crear Picking y Enviar Correo Electrónico?"
+							attrs="{'invisible': ['|',('one_step','!=',True),('state','=','done')]}"
+							states="draft" icon="terp-camera_test" type="object" />
+						<button name="button_generate_pay" string="Generate DAO Payment"
+							attrs="{'invisible': ['|',('one_step','=',True),('state','!=','draft')]}"
+							icon="terp-camera_test" type="object" />
+						<button name="button_approve" string="Confirm Trade"
+							attrs="{'invisible': ['|',('one_step','=',True),('state','!=','paid_dui')]}"
+							icon="terp-camera_test" type="object" />
+						<button name="button_done" string="Liquidate purchase"
+							attrs="{'invisible': ['|',('one_step','=',True),('state','!=','progress')]}"
+							icon="gtk-go-forward" type="object" />
+						<button name="button_set_to_draft" string="Set to draft"
+							attrs="{'invisible': [('state','!=','cancel')]}"
+							icon="gtk-convert" type="object" />
+						<button name="button_send_mail" string="Send Mail"
+							attrs="{'invisible': ['|',('one_step','=',True),('state','!=','waiting_mail')]}"
+							icon="terp-mail-message-new" type="object" />
+						<button name="%(trade_report_id)d" string="Print Liquidation"
+							type="action" icon="gtk-print" states="done" />
+					</group>
+					</group>
+					<notebook colspan="4">
+						<page string="DAO Information">
+							<group col="4" colspan="2">
+							<group col="4" colspan="2">
+							<group col="4" colspan="2">
+							<separator string="Purchase Invoice" colspan="4"/>
+							<field name="purchase_ids" on_change="onchange_line_ids(purchase_ids,type_liquidation)" nolabel="1" colspan="4" widget="many2many" domain="[('tpurchase','=','trade'),('origin_transaction','=','international'),('state','not in',('draft','cancel')),('liquidated','!=',True)]" context="{'form_view_ref':'account.invoice_supplier_form'}">
+								<tree>
+									<field name="invoice_number"/>
+									<field name="partner_id"/>
+									<field name="date_invoice"/>
+									<field name="account_quantity" sum="Quantity"/>
+									<field name="amount_untaxed" sum="Amount Untaxed"/>
+									<field name="state"/>
+									<field name="liquidated"/>
+								</tree>
+							</field>
+<newline/>
+								<group colspan="3" col="6">
+									<separator string="Aditional Amounts" colspan="2"/>
+									<separator string="Liquidation" colspan="2"/>
+									<separator string="Other Costs/Expenses" colspan="2"/>
+									<field name="amount_fob"/>
+									<field name="amount_duty"/>
+									<field name="amount_insurance"/>
+
+									<field name="transport_ad"/>
+									<field name="tax_1"/>
+									<field name="amount_delivery"/>
+
+									<field name="insurance_ad"/>
+									<field name="tax_2"/>
+									<field name="amount_adjustment" readonly="1"/>
+
+
+									<field name="adjustment"/>
+									<field name="amount_safeguards"/>									
+									<field name="tax_3"/>
+								</group>
+							</group>
+<newline/>
+							<group col="4" colspan="2" string="Totales">
+									<field name="total_cif"/>
+									<field name="total_dui"/>
+									<field name="amount_total"/>
+									<field name="factor_trade"/>							
+							</group>
+							</group>
+							<group col="2" colspan="2">
+							<separator string="Products"/>
+<newline/>
+							<field name="purchase_line_ids" nolabel="1" widget="many2many" domain="[('invoice_id','in', purchase_ids[0][2])]">
+								<tree string="Details of Products Purchase" editable="bottom">
+									<field name="product_id"/>
+									<field name="uos_id"/>
+									<field name="quantity"/>
+									<field name="price_unit" string="FOB Price"/>
+									<field name="amount_total_unit"/>
+									<field name="amount_total" sum="Total Amount"/>									
+								</tree>
+								<form string="Details of Products Purchase">
+									<field name="product_id"/>
+									<field name="uos_id"/>
+									<field name="quantity"/>
+									<field name="price_unit" string="FOB Price"/>
+									<field name="amount_total_unit"/>
+									<field name="amount_total" sum="Total Amount"/>
+								</form>
+							</field>
+							</group>
+							</group>
+						</page>
+						<page string="Other Expenses">
+							<separator string="Other Invoice" colspan="4"/>
+							<field name="others_expenses_ids" nolabel="1" colspan="4" widget="many2many" domain="[('tpurchase','=','trade'),('state','not in',('draft','cancel')),('origin_transaction','=','local'),('liquidated','!=',True)]" context="{'form_view_ref':'account.invoice_supplier_form'}">
+								<tree>
+									<field name="invoice_number"/>
+									<field name="partner_id"/>
+									<field name="date_invoice"/>
+									<field name="amount_untaxed" sum="Amount Untaxed"/>
+									<field name="state"/>
+									<field name="liquidated"/>
+								</tree>
+							</field>
+						</page>
+						<page string="Other Info">
+							<group col="6" colspan="6">
+								<separator string="Other Information" colspan="4"/>
+								<newline/>
+								<newline/>
+								<group col="2">
+									<field name="company_id"/>
+								</group>
+								<group col="2">
+									<field name="journal_id"/>
+								</group>
+								<group col="2">
+									<field name="period_id"/>
+								</group>
+								<newline/>
+								<group col="2">
+									<field name="move_id"/>
+								</group>
+								<group col="2">
+									<field name="dui_id" context="{'form_view_ref':'straconx_invoice.other_documents_supplier_form'}"/>									
+								</group>
+								<group col="2">
+									<field name="confirm_date" readonly="1"/>									
+								</group>
+								<newline/>
+								<group col="2">
+									<field name="incoterm"/>
+								</group>
+								<group col="2">
+									<field name="one_step"/>
+								</group>
+								<group col="2">
+									<field name="landed_id" readonly="1"/>
+								</group>
+							</group>
+							<newline/>
+							<separator string="Notes" colspan="4"/>
+							<field name="notes" nolabel="1" colspan="4"/>
+						</page>
+						<page string="Pickings">
+							<separator string="Picking Reference" colspan="4"/>
+							<field name="picking_id" readonly="1" nolabel="1" context="{'form_view_ref':'straconx_trade.straconx_view_picking_in_international_view_form',            'tree_view_ref':'straconx_trade.straconx_view_picking_in_international_tree'}"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="straconx_action_itrade_form">
+			<field name="name">New International Trade</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">purchase.trade</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="view_purchase_trade_form" />
+		</record>
+
+		<record id="straconx_action_itrade_tree" model="ir.actions.act_window">
+			<field name="name">International Trade</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">purchase.trade</field>
+			<field name="limit">100</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="view_id" ref="view_it_search" />
+			<field name="context">{'search_default_user_id':uid}</field>
+		</record>
+
+		<record id="straconx_action_itrade_tree_view1_all" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_it_tree" />
+			<field name="act_window_id" ref="straconx_action_itrade_tree" />
+		</record>
+
+		<record id="straconx_action_itrade_tree_view2_all" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_purchase_trade_form" />
+			<field name="act_window_id" ref="straconx_action_itrade_tree" />
+		</record>
+
+	</data>
+</openerp>

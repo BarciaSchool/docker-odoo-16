@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="view_stock_shop_form" model="ir.ui.view">
+			<field name="name">Stock Shop Form</field>
+			<field name="model">stock.shop</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Stock Shop">
+					<group col="6" colspan="3">
+						<field name="default_code" colspan="2"
+								on_change="onchange_code(default_code,initial,final)"/>
+						<field name="initial" colspan="2" required="0"
+							on_change="onchange_initial(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<field name="final" colspan="2" required="0"
+							on_change="onchange_final(initial,final)"
+							attrs="{'invisible':['|',('default_code','=',False),('default_code','=','')]}" />
+						<newline/>
+						<field name="product_id" colspan="4"/>					
+						<field name="new_products"/>
+						<newline/>
+						<field name="categ_id"/>
+						<field name="clas_id"/>
+						<field name="only_stock"/>
+					</group>
+					<group colspan="4">
+						<button icon="gtk-cancel" special="cancel" string="Cancelar"
+							type="object" />
+						<button name="do_search_products" string="Buscar Productos" icon="gtk-media-play"
+							type="object" />
+						<button name="%(straconx_stock_shop)d"
+							string="Imprimir Reporte" type="action" icon="gtk-print"/>
+						<button name="%(straconx_stock_shop_image)d"
+							string="Imprimir Reporte con Imágenes" type="action" icon="gtk-print"/>
+					</group>
+					<newline/>
+					<field name="product_lines_ids" nolabel="1" readonly="1" widget="one2many"/>
+				</form>
+			</field>
+		</record>
+		
+		<record id="view_stock_shop_lines_tree" model="ir.ui.view">
+			<field name="name">Productos</field>
+			<field name="model">stock.shop.lines</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Inventario por Tienda" editable="bottom">
+					<field name="default_code" invisible="1"/>
+					<field name="product_id"/>
+					<field name="qty_purchase" sum="Qty"/>
+					<button name='%(action_make_procurment_wizard)d' string='Pedido' icon='gtk-add' type='action'/>
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="view_stock_shop_lines_form" model="ir.ui.view">
+			<field name="name">Productos</field>
+			<field name="model">stock.shop.lines</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Inventario por Tienda">
+					<field name="default_code" invisible="1"/>
+					<field name="product_id" widget="many2one"/>
+					<newline/>		
+				</form>
+			</field>
+		</record>		
+
+
+		<record id="action_stock_shop" model="ir.actions.act_window">
+			<field name="name">Inventario por Tienda</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.shop</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="limit">1000</field>
+		</record>
+
+		<record id="action_res_stock_shop1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_stock_shop_form" />
+			<field name="act_window_id" ref="action_stock_shop" />
+		</record>
+
+		<record id="action_stock_shop_tree" model="ir.actions.act_window">
+			<field name="name">Productos</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.shop.lines</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>			
+			<field name="limit">1000</field>
+		</record>
+		
+	</data>
+</openerp>

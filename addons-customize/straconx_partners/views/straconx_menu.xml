@@ -1,0 +1,126 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    <!--Delete Account Partners-->
+
+    <delete 
+        model="ir.ui.menu" 
+        id="account.menu_account_customer"/>
+    
+    <delete 
+        model="ir.ui.menu" 
+        id="account.menu_account_supplier"/>
+
+    <menuitem 
+        name="Agencies" 
+        id="menu_partner_title_agency" 
+        action="action_partner_title_agency" 
+        parent="base.menu_config_address_book" 
+        sequence="1"/>
+
+    <menuitem 
+        name="Functions" 
+        id="menu_partner_title_functions" 
+        action="action_partner_title_functions" 
+        parent="base.menu_config_address_book" 
+        sequence="2"/>
+
+
+    <!--Account Partners-->
+
+    <menuitem 
+        name="Customers" 
+        id="menu_account_customer_account" 
+        parent="account.menu_finance_receivables" 
+        action="action_partner_gen_customer" 
+        sequence="0"/>
+        
+          
+    <!--Configurations-->
+
+    <menuitem
+        name="Credit Risk Management" 
+        id="menu_financial_risk"
+        icon="terp-stock_format-default" 
+        web_icon="images/risk.png"
+        web_icon_hover="images/risk-hover.png"
+		groups ="base.group_risk_manager,base.group_risk_user,base.group_recovery_user,base.group_recovery_manager,base.group_risk_collector"
+        sequence="9"/>
+                  
+    <menuitem 
+        name="Configuration" 
+        id="menu_finance_config" 
+        parent="menu_financial_risk" 
+        sequence="10"/>
+
+    <menuitem 
+        name="Address Book" 
+        id="base.menu_config_address_book"
+        parent="menu_finance_config" 
+        sequence="1"/>
+        
+    <menuitem 
+        name="Others Sales Setup" 
+        id="menu_config_others" 
+        parent="menu_finance_config" 
+        sequence="3"/>
+
+    <menuitem 
+        name="Segment"
+        id="menu_info_segmento" 
+        action="action_info_segmento_straconx" 
+        parent="menu_config_others"
+        sequence="1"/>
+
+    <menuitem 
+        name="Credit Clasification"
+        id="menu_info_clasec" 
+        action="action_info_clasec_straconx" 
+        parent="menu_config_others"
+        sequence="2"/>        
+
+    <menuitem 
+        name="Sales Clasification"    
+        id="menu_info_clasev" 
+        action="action_info_clasev_straconx" 
+        parent="menu_config_others"
+        sequence="3"/>                
+
+    <menuitem
+        name="Status"
+        id="menu_info_estado" 
+        action="action_info_estado_straconx" 
+        parent="menu_config_others"
+        sequence="4"/>                
+
+    <menuitem 
+        name="Comercial Activities"
+        id="menu_info_activities" 
+        action="action_info_activities_straconx" 
+        parent="menu_config_others"
+        sequence="5"/>
+
+    <menuitem 
+        name="Collectors" 
+        id="menu_config_collectors" 
+        parent="menu_finance_config" 
+        sequence="3"/>
+
+
+ <!--    <menuitem 
+       name="Collector" 
+       id="menu_credit_collector"
+       action="straconx_salesman.action_collector"
+       parent="straconx_partners.menu_config_collectors" 
+       sequence="0"/> -->
+                       
+    
+    <!--Update Partners in Sales-->
+        <menuitem
+            action="action_partner_gen_customer"
+            id="base.menu_partner_form"
+            parent="base.menu_address_book"
+            sequence="1"/>
+    </data>
+</openerp>
+    

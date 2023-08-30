@@ -1,0 +1,523 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* st_hr_ec
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.2\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-08-06 22:39+0000\n"
+"PO-Revision-Date: 2011-08-06 17:53-0500\n"
+"Last-Translator: Christopher Ormaza <cormaza@ecuadorenlinea.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:593
+#, python-format
+msgid "To Basic Payable Salary / "
+msgstr "Por pago de Salario Básico / "
+
+#. module: st_hr_ec
+#: field:hr.education.level,title:0
+msgid "Title"
+msgstr "Título"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Master's"
+msgstr "Master"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:705
+#, python-format
+msgid "Adjustment Entry"
+msgstr "Movimiento de Ajuste"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Bachelor's"
+msgstr "Universitario"
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Advantages"
+msgstr "Ventajas"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Nómina"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:374
+#, python-format
+msgid "By"
+msgstr "Por"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,status:0
+msgid "Abandoned"
+msgstr "Abandonado"
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: st_hr_ec
+#: constraint:hr.employee:0
+msgid "Error ! You cannot select a department for which the employee is the manager."
+msgstr "¡Error! No puede seleccionar un departamento que tenga el empleado como responsable."
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:251
+#, python-format
+msgid "Please check configuration of %s, payroll head is missing"
+msgstr "Por favor verifique la configuración de %s, la cabecera de nómina no esta asignada"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,status:0
+msgid "Ongoing"
+msgstr "En curso"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:333
+#: code:addons/st_hr_ec/objects/payslip.py:340
+#: code:addons/st_hr_ec/objects/payslip.py:343
+#: code:addons/st_hr_ec/objects/payslip.py:360
+#: code:addons/st_hr_ec/objects/payslip.py:397
+#: code:addons/st_hr_ec/objects/payslip.py:541
+#: code:addons/st_hr_ec/objects/payslip.py:548
+#: code:addons/st_hr_ec/objects/payslip.py:551
+#: code:addons/st_hr_ec/objects/payslip.py:565
+#: code:addons/st_hr_ec/objects/payslip.py:589
+#, python-format
+msgid "Warning !"
+msgstr "Advertencia !"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Higher education"
+msgstr "Universidad Incompleta"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_education_level
+msgid "hr.education.level"
+msgstr "hr.education.level"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Tipo de ausencia"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "Línea de nómina"
+
+#. module: st_hr_ec
+#: constraint:hr.employee:0
+msgid "Validation Error: Invalid Identification No"
+msgstr "Error de Validación: Número de cédula erroneo"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:589
+#, python-format
+msgid "Please define Employee Payable Account for %s."
+msgstr "Por favor defina la cuenta por pagar del Empleado %s."
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:676
+#, python-format
+msgid "Please Configure Partners Receivable Account!!"
+msgstr "Por favor configure la cuenta por cobrar de la empresa!!"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:526
+#, python-format
+msgid "Please define bank account for %s !"
+msgstr "Por favor defina la cuenta bancaria de %s !"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:374
+#, python-format
+msgid " account"
+msgstr " account"
+
+#. module: st_hr_ec
+#: field:hr.education.level,status:0
+msgid "State"
+msgstr "Estado"
+
+#. module: st_hr_ec
+#: view:hr.education.level:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: st_hr_ec
+#: field:hr.education.level,employee_id:0
+#: field:hr.family.burden,employee_id:0
+#: model:ir.model,name:st_hr_ec.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:251
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: st_hr_ec
+#: field:hr.family.burden,relationship:0
+msgid "Relationship"
+msgstr "Relación"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Secondary education"
+msgstr "Educación Secundaria"
+
+#. module: st_hr_ec
+#: field:hr.education.level,education_area_id:0
+msgid "Education Area"
+msgstr "Área de Estudios"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:333
+#: code:addons/st_hr_ec/objects/payslip.py:541
+#, python-format
+msgid "Please define fiscal year for perticular contract"
+msgstr "Por favor defina el año fiscal para el contrato particular"
+
+#. module: st_hr_ec
+#: view:hr.employee:0
+#: view:hr.family.burden:0
+msgid "Family Burden"
+msgstr "Cargas Familiares"
+
+#. module: st_hr_ec
+#: view:hr.education.level:0
+msgid "Info"
+msgstr "Info"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Ph.D."
+msgstr "Doctorado"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:135
+#: code:addons/st_hr_ec/objects/payslip.py:150
+#, python-format
+msgid "Variable Error !"
+msgstr "Error de Variable !"
+
+#. module: st_hr_ec
+#: field:hr.employee,age:0
+msgid "Age"
+msgstr "Edad"
+
+#. module: st_hr_ec
+#: view:hr.education.level:0
+msgid "Education Levels"
+msgstr "Niveles de Educación"
+
+#. module: st_hr_ec
+#: field:hr.employee,last_name:0
+#: field:hr.family.burden,last_name:0
+msgid "Last Name"
+msgstr "Apellido Paterno"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:340
+#: code:addons/st_hr_ec/objects/payslip.py:548
+#, python-format
+msgid "Fiscal Year is not defined for slip date %s"
+msgstr "El año fisca no esta definido para la fecha de la nómina %s"
+
+#. module: st_hr_ec
+#: model:ir.module.module,shortdesc:st_hr_ec.module_meta_information
+msgid "Ecuadorian Human Resources"
+msgstr "Recursos Humanos en Ecuador"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:569
+#, python-format
+msgid "By Basic Salary / "
+msgstr "Por Salario Básico / "
+
+#. module: st_hr_ec
+#: field:hr.education.level,start_date:0
+#: field:payroll.employees.detail,date_from:0
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Trial Period"
+msgstr "Periodo de pruebas"
+
+#. module: st_hr_ec
+#: constraint:hr.employee:0
+msgid "Payable Account of Partner must be same employee_account!"
+msgstr "La cuenta por pagar de la empresa debe ser la misma que la cuenta del empleado!"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:526
+#: code:addons/st_hr_ec/objects/payslip.py:529
+#: code:addons/st_hr_ec/objects/payslip.py:639
+#: code:addons/st_hr_ec/objects/payslip.py:658
+#: code:addons/st_hr_ec/objects/payslip.py:676
+#, python-format
+msgid "Configuration Error !"
+msgstr "Error de Configuración !"
+
+#. module: st_hr_ec
+#: field:hr.education.level,at_present:0
+msgid "At present?"
+msgstr "Actualmente?"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:397
+#, python-format
+msgid "Please Confirm all Expense Invoice appear for Reimbursement"
+msgstr "Por favor confirme todas las facturas de gastos para que aparezcan en los reembolsos"
+
+#. module: st_hr_ec
+#: view:hr.employee:0
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: st_hr_ec
+#: field:hr.employee,wife_id:0
+msgid "Wife / Husband"
+msgstr "Esposo(a)"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:529
+#, python-format
+msgid "Please define partner in bank account for %s !"
+msgstr "Por favor defina una cuenta bancaria para %s !"
+
+#. module: st_hr_ec
+#: selection:hr.family.burden,relationship:0
+msgid "Child"
+msgstr "Hijo"
+
+#. module: st_hr_ec
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr "¡Error! No se puede crear una jerarquía recursiva de empleados."
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_payroll_employees_detail
+msgid "payroll.employees.detail"
+msgstr "payroll.employees.detail"
+
+#. module: st_hr_ec
+#: view:payroll.employees.detail:0
+msgid "Year Salary"
+msgstr "Año del Salario"
+
+#. module: st_hr_ec
+#: field:hr.payslip.line,account_id_act:0
+msgid "Payable Account"
+msgstr "Cuenta por Pagar"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:565
+#, python-format
+msgid "Please define Salary Account for %s."
+msgstr "Por favor defina una cuenta para el Salario de %s."
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:135
+#: code:addons/st_hr_ec/objects/payslip.py:150
+#, python-format
+msgid "Variable Error: %s "
+msgstr "Error de Variable: %s "
+
+#. module: st_hr_ec
+#: selection:hr.education.level,level:0
+msgid "Primary education"
+msgstr "Educación Primaria"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:357
+#, python-format
+msgid "account"
+msgstr "account"
+
+#. module: st_hr_ec
+#: view:hr.education.level:0
+msgid "Period"
+msgstr "Período"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:417
+#, python-format
+msgid "Payment of Other Payable amounts to"
+msgstr "Pago de otros montos por pagar para"
+
+#. module: st_hr_ec
+#: field:hr.education.level,institution:0
+msgid "Institution"
+msgstr "Institución"
+
+#. module: st_hr_ec
+#: selection:hr.family.burden,relationship:0
+msgid "Wife/Husband"
+msgstr "Esposo(a)/Conviviente"
+
+#. module: st_hr_ec
+#: view:payroll.employees.detail:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: st_hr_ec
+#: field:hr.employee,mother_last_name:0
+msgid "Mother Last Name"
+msgstr "Apellido Materno"
+
+#. module: st_hr_ec
+#: field:hr.family.burden,birth_date:0
+msgid "Birth Date"
+msgstr "Fecha de Nacimiento"
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Information"
+msgstr "Información"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:345
+#, python-format
+msgid "Payment of Salary to"
+msgstr "Pago de Salario para "
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:357
+#, python-format
+msgid "To"
+msgstr "Para"
+
+#. module: st_hr_ec
+#: model:ir.module.module,description:st_hr_ec.module_meta_information
+msgid "Human Resources for Ecuadorian localisation"
+msgstr "Localización para Recursos Humanos en Ecuador"
+
+#. module: st_hr_ec
+#: view:payroll.employees.detail:0
+msgid "Print Report"
+msgstr "Imprimir Reporte"
+
+#. module: st_hr_ec
+#: model:ir.actions.act_window,name:st_hr_ec.action_payroll_employees_detail
+msgid "Employees Salary Statement"
+msgstr "Declaración Salarial de Empleados"
+
+#. module: st_hr_ec
+#: view:hr.education.level:0
+#: field:hr.education.level,level:0
+#: view:hr.employee:0
+msgid "Education Level"
+msgstr "Nivel de Educación"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:702
+#, python-format
+msgid "Adjustment:"
+msgstr "Ajuste:"
+
+#. module: st_hr_ec
+#: selection:hr.family.burden,relationship:0
+msgid "Couple"
+msgstr "Pareja"
+
+#. module: st_hr_ec
+#: field:hr.employee,second_name:0
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_family_burden
+msgid "hr.family.burden"
+msgstr "hr.family.burden"
+
+#. module: st_hr_ec
+#: selection:hr.education.level,status:0
+msgid "Graduated"
+msgstr "Graduado"
+
+#. module: st_hr_ec
+#: model:ir.model,name:st_hr_ec.model_hr_education_area
+msgid "hr.education.area"
+msgstr "hr.education.area"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:360
+#, python-format
+msgid "Employee Bank Account is not defined for %s"
+msgstr "La cuenta bancaria no esta definida para %s"
+
+#. module: st_hr_ec
+#: field:hr.education.level,end_date:0
+#: field:payroll.employees.detail,date_to:0
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: st_hr_ec
+#: field:hr.education.area,name:0
+#: field:hr.family.burden,name:0
+msgid "Name"
+msgstr "Primer Nombre"
+
+#. module: st_hr_ec
+#: field:hr.education.level,country_id:0
+msgid "Country"
+msgstr "Pais"
+
+#. module: st_hr_ec
+#: view:payroll.employees.detail:0
+#: field:payroll.employees.detail,employee_ids:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:343
+#: code:addons/st_hr_ec/objects/payslip.py:551
+#, python-format
+msgid "Period is not defined for slip date %s"
+msgstr "El período no esta definido para la fecha de la nómina %s"
+
+#. module: st_hr_ec
+#: model:ir.actions.report.xml,name:st_hr_ec.nomina_general_report_id
+msgid "Nomina General"
+msgstr "Nomina General"
+
+#. module: st_hr_ec
+#: field:hr.employee,education_ids:0
+msgid "Childrens"
+msgstr "Hijos/Convivientes"
+
+#. module: st_hr_ec
+#: view:hr.contract:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: st_hr_ec
+#: code:addons/st_hr_ec/objects/payslip.py:639
+#: code:addons/st_hr_ec/objects/payslip.py:658
+#, python-format
+msgid "Please Configure Partners Payable Account!!"
+msgstr "Por favor configure la cuenta por pagar de la empresa!!"
+

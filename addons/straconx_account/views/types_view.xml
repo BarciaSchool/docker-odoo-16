@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+            <!-- journal types -->
+            <record model="ir.ui.view" id="account_journal_type_tree">
+                <field name="name">account.journal.type.tree</field>
+                <field name="model">account.journal.type</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Journal Type">
+                    	<field name="code"/>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="account_journal_type_form">
+                <field name="name">account.journal.type.form</field>
+                <field name="model">account.journal.type</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Journal Type">
+                        <field name="code" select="1"/>
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_account_journal_type">
+                <field name="name">account.journal.type</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.journal.type</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="account_journal_type_tree"/>
+            </record>
+			
+			
+			<!-- account types -->
+			
+			<record model="ir.ui.view" id="account_account_type_internal_tree">
+                <field name="name">account.account.type.tree</field>
+                <field name="model">account.account.type.internal</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Account Type">
+                    	<field name="code"/>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="account_account_type_internal_form">
+                <field name="name">account.account.type.form</field>
+                <field name="model">account.account.type.internal</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Account Type">
+                        <field name="code" select="1"/>
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_account_account_type_internal">
+                <field name="name">account type Internal</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.account.type.internal</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="account_account_type_internal_tree"/>
+            </record>
+    
+    </data>
+</openerp>

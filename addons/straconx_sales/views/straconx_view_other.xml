@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    
+    <record id="product.product_variant_form_view" model="ir.ui.view">
+            <field name="name">product.variant.form</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field eval="27" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Product Variant">
+                     <field name="product_tmpl_id" select="1"/>
+                    <field name="active" select="1"/>
+                    <field name="variants" select="1"/>
+                    <field name="default_code" select="1"/>
+                    <field name="price_margin" select="1"/>
+                    <field name="price_extra" select="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="product.product_variant_tree_view" model="ir.ui.view">
+            <field name="name">product.variant.tree</field>
+            <field name="model">product.product</field>
+            <field name="type">tree</field>
+            <field eval="27" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Product Variant">
+                    <field name="product_tmpl_id"/>
+                    <field name="active"/>
+                    <field name="variants"/>
+                    <field name="default_code"/>
+                    <field name="price_margin"/>
+                    <field name="price_extra"/>
+                </tree>
+            </field>
+        </record>
+            
+    </data>
+</openerp>

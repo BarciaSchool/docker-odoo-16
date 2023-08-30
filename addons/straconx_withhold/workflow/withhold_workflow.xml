@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="workflow" id="withhold_workflow">
+			<field name="name">workflow.withhold</field>
+			<field name="osv">account.withhold</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<record id="act_draft" model="workflow.activity">
+			<field name="wkf_id" ref="withhold_workflow" />
+			<field name="flow_start">True</field>
+			<field name="name">draft</field>
+		</record>
+
+		<record id="act_approve" model="workflow.activity">
+			<field name="wkf_id" ref="withhold_workflow" />
+			<field name="name">approve</field>
+			<field name="kind">function</field>
+			<field name="action">action_aprove()</field>
+			<field name="split_mode">OR</field>
+		</record>
+		
+		<record id="act_annulled" model="workflow.activity">
+			<field name="wkf_id" ref="withhold_workflow" />
+			<field name="name">annulled</field>
+			<field name="kind">function</field>
+			<field name="action">action_annulled()</field>
+			<field name="split_mode">OR</field>
+		</record>
+		
+		<!-- Transitions -->
+		
+		<record id="draft_to_approve" model="workflow.transition">
+			<field name="act_from" ref="act_draft" />
+			<field name="act_to" ref="act_approve" />
+			<field name="signal">button_approve</field>
+			<field name="condition">True</field>
+		</record>
+
+		
+		<record id="approve_to_annulled" model="workflow.transition">
+			<field name="act_from" ref="act_approve" />
+			<field name="act_to" ref="act_annulled" />
+			<field name="signal">button_annulled</field>
+			<field name="condition">True</field>
+		</record>
+		
+		<record id="draft_to_annulled" model="workflow.transition">
+			<field name="act_from" ref="act_draft" />
+			<field name="act_to" ref="act_annulled" />
+			<field name="signal">draft_annulled</field>
+			<field name="condition">True</field>
+		</record>
+		
+	</data>
+</openerp>

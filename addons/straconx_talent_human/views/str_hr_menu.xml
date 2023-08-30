@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data >
+
+		<menuitem name="Tools" id="base.menu_tools" parent="hr.menu_hr_root"
+			sequence="12"/>
+
+		<menuitem name="Incomes and Expenses Employee" id="menu_transaction_configuration"
+			parent="hr.menu_hr_configuration" sequence="4" />
+
+		<menuitem name="Expenses Types" id="menu_expenses_configuration_action"
+			action="action_hr_expenses_type_view" parent="menu_transaction_configuration"
+			sequence="1" />
+
+		<menuitem name="Incomes Types" id="menu_incomes_configuration_action"
+			action="action_hr_incomes_type_view" parent="menu_transaction_configuration"
+			sequence="2" />
+
+		<menuitem name="Wages Sectorial Commision Tables" id="menu_sectorial_configuration"
+			parent="hr.menu_hr_configuration" sequence="10" />
+
+		<menuitem name="Legal Basic Wages and Provisions" id="menu_sectorial_legal_action"
+			parent="menu_sectorial_configuration" action="straconx_hr_legal_action"
+			sequence="1" />
+
+		<menuitem name="Sectorial Commision" id="menu_sectorial_configuration_action"
+			parent="menu_sectorial_configuration" action="straconx_hr_commision_action"
+			sequence="3" />
+
+		<menuitem name="Sectorial Tables" id="menu_sectorial_table_action"
+			parent="menu_sectorial_configuration" action="straconx_hr_table_action"
+			sequence="2" />
+
+		<!--Menu discount for employees. Include discount, advances and loans -->
+
+		<menuitem name="Incomes Employees" id="menu_income_employees"
+			parent="hr.menu_hr_root" sequence="4" />
+
+		<menuitem name="Extra Hours" id="menu_extra_action" parent="menu_income_employees"
+			action="action_hr_extra" sequence="1" />
+
+		<menuitem name="Others" id="menu_other_action" parent="menu_income_employees"
+			action="action_hr_incomes_generate" sequence="2" />
+
+
+		<menuitem name="Discount Employees" id="menu_discount_employees"
+			parent="hr.menu_hr_root" sequence="4" />
+
+		<menuitem name="Discount" id="menu_discount_action" parent="menu_discount_employees"
+			action="action_hr_discount" sequence="1" />
+
+		<menuitem name="Advance" id="menu_advance_action" parent="menu_discount_employees"
+			action="action_hr_advance" sequence="2" />
+
+		<menuitem name="Loans" id="menu_loans_action" parent="menu_discount_employees"
+			action="action_hr_loans" sequence="3" />
+
+		<menuitem name="Loans Generate Lines" id="menu_loans_generate_action"
+			parent="menu_discount_employees" action="action_hr_loans_generate" sequence="4" />
+
+		<menuitem name="Estado de Cuenta por Colaborador" id="menu_discount_lines_action"
+			parent="menu_discount_employees" action="action_hr_discount_lines" sequence="5" />
+
+
+<!-- 		<menuitem name="Discount Generate Document" id="menu_discount_document_action" -->
+<!-- 			parent="menu_discount_employees" action="action_hr_discount_document" -->
+<!-- 			sequence="8" /> -->
+
+		<menuitem name="Pay Provision" id="menu_pay_config_provision"
+			parent="hr.menu_hr_configuration" sequence="7" />
+
+		<menuitem name="type Pay Provision" id="menu_type_provision_action"
+			parent="menu_pay_config_provision" action="action_hr_provision_view"
+			sequence="1" />
+
+		<menuitem name="Pay Provision" id="menu_pay_provision"
+			parent="hr.menu_hr_root" sequence="7" />
+
+		<menuitem name="Pay Provision" id="menu_pay_provision_action"
+			parent="menu_pay_provision" action="action_hr_pay_provision_view"
+			sequence="2" />
+			
+		<menuitem name="Provisions Advance" id="menu_provision_advance_action"
+			parent="menu_pay_provision" action="action_hr_provision_adv_view"
+			sequence="8" />
+			
+		<menuitem name="Liquidation of Vacation" id="menu_liq_vacation_action"
+			parent="menu_pay_provision"  action="action_hr_provision_adv_view" sequence="9" />
+
+		<!-- cheque for employee -->
+
+		<menuitem name="Check Employees" id="menu_check_employees"
+			parent="account.menu_finance_bank_and_cash" sequence="7" />
+
+		<menuitem name="Check Employees" id="menu_check_employees_action"
+			parent="menu_check_employees" action="act_view_cheque_employee"
+			sequence="1" />
+
+		<menuitem name="Check Provision" id="menu_check_provision_action"
+			parent="menu_check_employees" action="act_view_cheque_provision"
+			sequence="2" />
+
+		<!-- Payments Period -->
+
+		<menuitem name="Payment Periods" id="menu_payment_period_configuration"
+			parent="hr.menu_hr_configuration" sequence="4" />
+
+		<menuitem name="Fiscal Years" action="action_hr_fiscalyear_form" id="menu_action_hr_fiscalyear_form"
+			parent="menu_payment_period_configuration" 
+			sequence="1"/>
+		
+					
+		<menuitem name="Payments Periods" id="menu_payment_period_action"
+			parent="menu_payment_period_configuration" action="action_hr_period_payment_view"
+			sequence="2" />
+
+		<!-- menu payslip line -->
+		<menuitem action="hr_payroll.action_view_hr_payslip_form" id="hr_payroll.menu_department_tree" parent="hr_payroll.menu_hr_root_payroll" sequence="2"/>
+		<menuitem action="hr_payroll.action_hr_payslip_run_tree" id="hr_payroll.menu_hr_payslip_run" parent="hr_payroll.menu_hr_root_payroll" sequence="1"/>
+		<menuitem action="action_hr_payslip_line_view" id="menu_payslip_line_tree"	name="Payslip Line" parent="hr_payroll.menu_hr_root_payroll" sequence="3"/>
+
+		<menuitem action="hr.open_module_tree_department" id="hr.menu_hr_department_tree" parent="hr.menu_hr_main" sequence="9" />
+		<menuitem action="hr.action_hr_job" id="hr.menu_hr_job_tree" parent="hr.menu_hr_main" sequence="8" />
+
+		<!-- menu Holidays -->
+		   
+	    <menuitem name="Leaves" parent="hr.menu_hr_root" id="hr_holidays.menu_open_ask_holidays" sequence="5"/>
+		
+<!--         <menuitem name="National Holidays" id="hr_national_holidays" sequence="0" action="action_hr_national_holidays" parent="hr.menu_open_view_attendance_reason_config"/>  -->
+
+	</data>
+</openerp>
+    

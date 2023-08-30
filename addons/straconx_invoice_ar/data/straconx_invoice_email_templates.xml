@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="0">
+        
+        <!--Email template -->
+        <record id="account.email_differences_account_move" model="email.template">
+            <field name="name">Diferencia en el movimiento contable</field>
+            <field name="email_from">${object.shop_id.partner_address_id.email}</field>
+            <field name="subject">Diferencia en el movimiento contable de la factura ${object.invoice_number}</field>
+			<field name="email_to">${object.company_id.counter_id.address[0].email}</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang"></field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p>Saludos ${object.company_id.counter_id.name or ''}</p>
+    
+    <p>El movimiento contable de la factura ${object.invoice_number} tiene una diferencia de pago mayor a 0.05 centavos.</p>        
+    <br/>
+    <p>Se ha aprobado y pagado dicha factura para no incomodar al cliente, pero se recomieda revisar el movimiento contable para detectar fallas que originen esa diferencia de valores.</p>
+    <br/>
+</div>
+            ]]></field>
+            <field name="body_text"><![CDATA[
+	Saludos ${object.company_id.counter_id.name or ''}
+    
+    El movimiento contable ${object.move_id.name} tiene una diferencia de pago mayor a 0.05 centavos.        
+    Se ha aprobado y pagado dicha factura para no incomodar al cliente, pero se recomieda revisar el movimiento contable para detectar fallas que originen esa diferencia de valores.
+
+            ]]></field>
+        </record>		
+    </data>
+</openerp>

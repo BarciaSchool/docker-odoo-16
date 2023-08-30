@@ -1,0 +1,852 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_partners
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-20 07:33+0000\n"
+"PO-Revision-Date: 2013-01-20 07:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_partner_title_agency
+msgid "Partner Titles"
+msgstr "Título de empresa"
+
+#. module: straconx_partners
+#: field:res.partner.job,title:0
+msgid "Title"
+msgstr "Cargo"
+
+#. module: straconx_partners
+#: model:res.partner.title,name:straconx_partners.res_partner_title_ag
+msgid "Agency"
+msgstr "Sucursal"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_partners
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La identificación específicada ya existe para otra empresa registrada."
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Assigned Users"
+msgstr "Usuarios asignados"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_segmento_category
+msgid "res.partner.segmento.category"
+msgstr "Categoría del Segmento"
+
+#. module: straconx_partners
+#: selection:res.partner.job,sex:0
+msgid "Woman"
+msgstr "Femenino"
+
+#. module: straconx_partners
+#: constraint:res.partner.address:0
+msgid "Only must exist a address type default by partner"
+msgstr "Solo puede existir un dirección de tipo predeterminada por Empresa"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_partner_title_agency
+msgid "Agencies"
+msgstr "Sucursales"
+
+#. module: straconx_partners
+#: field:res.partner.reference,credit_time:0
+msgid "Credit Time"
+msgstr "Tiempo de Crédito"
+
+#. module: straconx_partners
+#: selection:res.partner.credit.history,state:0
+msgid "Resolve"
+msgstr "Resuelto"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_info_clasec_straconx
+msgid "Clase Crediticia"
+msgstr "Clase Crediticia"
+
+#. module: straconx_partners
+#: model:res.partner.title,name:straconx_partners.res_partner_title_hd
+msgid "Headquarters"
+msgstr "Matriz"
+
+#. module: straconx_partners
+#: model:res.partner.title,name:straconx_partners.res_partner_title_sb
+msgid "Subsidiary"
+msgstr "Subsidiaria"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Supplier Accounting Properties"
+msgstr "Propiedades Contables de Proveedor"
+
+#. module: straconx_partners
+#: field:res.partner.reference,since:0
+msgid "From Year"
+msgstr "Desde el año"
+
+#. module: straconx_partners
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "RUC - CI"
+msgstr "Identificación"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Supplier Partners"
+msgstr "Proveedores"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_segmento
+msgid "res.partner.segmento"
+msgstr "Segmento"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Customer since"
+msgstr "Cliente desde"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner
+#: field:res.partner.credit.history,partner_id:0
+#: field:res.partner.job,partner_id:0
+#: field:res.partner.reference,partner_id:0
+#: field:res.partner.reference,reference_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_partners
+#: field:res.partner.credit.history,name:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Customer Partners"
+msgstr "Clientes"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_partner_title_functions
+msgid "Functions"
+msgstr "Funciones"
+
+#. module: straconx_partners
+#: field:res.partner,is_consignement:0
+msgid "Is consignement"
+msgstr "¿Consignación?"
+
+#. module: straconx_partners
+#: field:res.partner.clasec,shortcut:0
+#: field:res.partner.clasev,shortcut:0
+#: field:res.partner.comactivities,shortcut:0
+#: field:res.partner.estado,shortcut:0
+#: field:res.partner.segmento,shortcut:0
+#: field:res.partner.segmento.category,shortcut:0
+msgid "Shortcut"
+msgstr "Código"
+
+#. module: straconx_partners
+#: help:res.partner,actcomercial:0
+msgid "Comercial Activities for this partner."
+msgstr "Actividades Comerciales de la Empresa."
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_partner_gen_customer
+msgid "Account Partners"
+msgstr "Empresas"
+
+#. module: straconx_partners
+#: field:res.partner,location:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: straconx_partners
+#: model:res.partner.title,name:straconx_partners.res_partner_title_wh
+msgid "Warehouse"
+msgstr "Bodega"
+
+#. module: straconx_partners
+#: field:res.partner.job,sex:0
+msgid "Sex"
+msgstr "Sexo"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Bank asccount owner"
+msgstr "Titular de la cuenta bancaria"
+
+#. module: straconx_partners
+#: selection:res.partner.job,sex:0
+msgid "Men"
+msgstr "Hombres"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Search Partner"
+msgstr "Buscar empresa"
+
+#. module: straconx_partners
+#: field:res.partner.credit.history,user_id:0
+msgid "User Responsible"
+msgstr "Usuario responsable"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,help:straconx_partners.action_partner_title_agency
+msgid "Manage the partner titles you want to have available in your system. The partner titles is the agency of the companies: Headquarter, Agency, Office, etc."
+msgstr "Administrar los tipos de empresa que desea esten disponibles en su sistema, tales como Matriz, Sucursales, Agencia, etc."
+
+#. module: straconx_partners
+#: code:addons/straconx_partners/objects/straconx_customer.py:220
+#: code:addons/straconx_partners/objects/straconx_customer.py:223
+#, python-format
+msgid "Invalid action !"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_finance_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_info_clasev_straconx
+msgid "Clase Comercial"
+msgstr "Clase Comercial"
+
+#. module: straconx_partners
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del SRI debe ser único!"
+
+#. module: straconx_partners
+#: field:res.partner.job,website:0
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: straconx_partners
+#: field:res.partner,shortcut_company:0
+msgid "shortcut company"
+msgstr "Código"
+
+#. module: straconx_partners
+#: field:res.partner.address,job_ids:0
+msgid "Functions and Addresses"
+msgstr "Cargos y Direcciones"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_inactivo
+msgid "Inactivo"
+msgstr "Inactivo"
+
+#. module: straconx_partners
+#: field:res.partner.job,comment:0
+#: field:res.partner.reference,credit_comment:0
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: straconx_partners
+#: view:res.partner.clasec:0
+#: view:res.partner.clasev:0
+#: view:res.partner.estado:0
+msgid "Clase de Clientes"
+msgstr "Clase de Clientes"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_suspendido
+msgid "Suspendido"
+msgstr "Suspendido"
+
+#. module: straconx_partners
+#: field:res.partner.reference,confirm_people:0
+msgid "People"
+msgstr "Persona que entrega la referencia"
+
+#. module: straconx_partners
+#: field:res.partner,last_name:0
+msgid "Last Name"
+msgstr "Apellido Paterno"
+
+#. module: straconx_partners
+#: field:res.partner,mother_last_name:0
+msgid "Mother Last Name"
+msgstr "Apellido Materno"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,help:straconx_partners.action_partner_title_functions
+msgid "Manage the partner functions you want to have available in your system. The partner functions is jobs: Manager, CEO, Account, etc."
+msgstr "Administra la funciones que existen en la empresa y desea este disponible en el sistema, tales como Presidente, Gerente, Contador, etc."
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_partner_title_functions
+msgid "Partner Functions"
+msgstr "Funciones"
+
+#. module: straconx_partners
+#: field:res.partner,datecom:0
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_info_clasec
+#: field:res.partner.clasec,name:0
+#: field:res.partner.estado,name:0
+msgid "Credit Clasification"
+msgstr "Clasificación Crediticia"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_partner_gen_supplier
+msgid "Account Supplier"
+msgstr "Proveedor"
+
+#. module: straconx_partners
+#: field:res.partner,beneficiary:0
+msgid "Beneficiary"
+msgstr "Beneficiario"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_comactivities
+msgid "res.partner.comactivities"
+msgstr "Actividades Comerciales"
+
+#. module: straconx_partners
+#: selection:res.partner.credit.history,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_info_estado
+#: field:res.partner.credit.history,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_account_customer_account
+#: view:res.partner:0
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: straconx_partners
+#: field:res.partner,comercial:0
+msgid "Comercial"
+msgstr "Comercial"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_wait_approve
+msgid "En proceso de Apertura"
+msgstr "En proceso de Apertura"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_credit_history
+msgid "res.partner.credit.history"
+msgstr "Historial Crediticio"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_activo
+msgid "Activo"
+msgstr "Activo"
+
+#. module: straconx_partners
+#: field:res.partner.credit.history,date_note:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_function
+msgid "res.partner.function"
+msgstr "Funciones"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_clasec
+msgid "res.partner.clasec"
+msgstr "Clase Crediticia"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_info_estado_straconx
+msgid "Estado"
+msgstr "Estado"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Customer Accounting Properties"
+msgstr "Propiedades de contabilidad del cliente"
+
+#. module: straconx_partners
+#: field:res.partner.job,lang_id:0
+msgid "Language"
+msgstr "Lenguaje"
+
+#. module: straconx_partners
+#: field:res.partner.segmento,is_default:0
+msgid "Default"
+msgstr "Predeterminado"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_facturable
+msgid "Facturable"
+msgstr "Facturable"
+
+#. module: straconx_partners
+#: field:res.partner.job,vat:0
+msgid "VAT code"
+msgstr "Identificación"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_reference
+msgid "res.partner.reference"
+msgstr "Referencia"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_info_clasev
+#: field:res.partner.clasev,name:0
+msgid "Sales Clasification"
+msgstr "Clasificación de Ventas"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Comercial Information"
+msgstr "Información Comercial"
+
+#. module: straconx_partners
+#: field:res.partner,codant:0
+msgid "Former Code"
+msgstr "Código anterior"
+
+#. module: straconx_partners
+#: model:res.partner.title,name:straconx_partners.res_partner_title_of
+msgid "Office"
+msgstr "Oficina"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_info_activities_straconx
+#: model:ir.ui.menu,name:straconx_partners.menu_info_activities
+#: field:res.partner,actcomercial:0
+#: view:res.partner.comactivities:0
+#: field:res.partner.comactivities,name:0
+msgid "Comercial Activities"
+msgstr "Actividades Comerciales"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: straconx_partners
+#: selection:res.partner.credit.history,state:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_partners
+#: selection:res.partner.credit.history,state:0
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: straconx_partners
+#: selection:res.partner.credit.history,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_partners
+#: field:res.partner.job,birthdate:0
+msgid "Birth Date"
+msgstr "Fecha de Nacimiento"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Authorizations"
+msgstr "Autorizaciones"
+
+#. module: straconx_partners
+#: field:res.partner,first_name:0
+#: field:res.partner.job,first_name:0
+msgid "First Name"
+msgstr "Primer Nombre"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_job
+msgid "Contact Partner Function"
+msgstr "Funciones del Contacto"
+
+#. module: straconx_partners
+#: field:res.partner,potential:0
+msgid "Potential"
+msgstr "Potencial"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Partner Status"
+msgstr "Estado de la Empresa"
+
+#. module: straconx_partners
+#: model:ir.actions.act_window,name:straconx_partners.action_info_segmento_straconx
+#: field:res.partner,segmento_id:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_estado
+msgid "res.partner.estado"
+msgstr "Estado"
+
+#. module: straconx_partners
+#: constraint:res.partner.address:0
+msgid "The number sri must be only numbers"
+msgstr "El número del SRI debe contener solo números"
+
+#. module: straconx_partners
+#: constraint:res.partner.segmento:0
+msgid "Only there must be a default segment"
+msgstr "Solo puede existir un segmento predeterminado"
+
+#. module: straconx_partners
+#: field:res.partner.reference,credit:0
+msgid "Credit Ammount"
+msgstr "Monto de Crédito"
+
+#. module: straconx_partners
+#: field:res.partner.credit.history,message:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Bank account"
+msgstr "Cuenta bancaria"
+
+#. module: straconx_partners
+#: view:res.partner:0
+#: field:res.partner,estado_id:0
+msgid "Credit State"
+msgstr "Estado Crediticio"
+
+#. module: straconx_partners
+#: field:res.partner,second_name:0
+#: field:res.partner.job,second_name:0
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#. module: straconx_partners
+#: field:res.partner.segmento.category,name:0
+msgid "Partner Industries Category"
+msgstr "Categoría de Industria"
+
+#. module: straconx_partners
+#: field:res.partner,segmento_category_id:0
+msgid "Segmento Industries Category"
+msgstr "Categoría del Segmento"
+
+#. module: straconx_partners
+#: field:res.partner,credit_history_id:0
+msgid "Credit History Notes"
+msgstr "Notas del Historial Crediticio"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_partners
+#: field:res.partner.job,country_id:0
+msgid "Nationality"
+msgstr "Nacionalidad"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_info_segmento
+#: view:res.partner:0
+#: field:res.partner.segmento,name:0
+msgid "Segment"
+msgstr "Segmento"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_bank
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_partners
+#: field:res.partner,name1:0
+msgid "Name"
+msgstr "Razón Social"
+
+#. module: straconx_partners
+#: model:ir.model,name:straconx_partners.model_res_partner_clasev
+msgid "res.partner.clasev"
+msgstr "Clase Comercial"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_config_others
+msgid "Others Sales Setup"
+msgstr "Otras configuraciones de Ventas"
+
+#. module: straconx_partners
+#: field:res.partner,clasec_id:0
+msgid "ClaseC"
+msgstr "Clase Crediticia"
+
+#. module: straconx_partners
+#: field:res.partner,permit_changed:0
+msgid "Permit Changed?"
+msgstr "¿Permite cambiar cheques en caja?"
+
+#. module: straconx_partners
+#: help:res.partner,property_stock_consignement:0
+msgid "This stock location will be used, instead of the default one, as the destination location for goods you send to this partner"
+msgstr "Esta ubicación de inventario sera usada, en lugar de la predeterminada, como destino de los bienes que usted despache a este cliente."
+
+#. module: straconx_partners
+#: field:res.partner,clasev_id:0
+msgid "ClaseV"
+msgstr "Clase Comercial"
+
+#. module: straconx_partners
+#: field:res.partner,approb:0
+msgid "Approve"
+msgstr "Aprobado"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr "Dirección postal"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Bank Details"
+msgstr "Detalles de banco"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Salesman"
+msgstr "Vendedor"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Supplier Debit"
+msgstr "Debito de Proveedor"
+
+#. module: straconx_partners
+#: model:res.partner.estado,name:straconx_partners.info_cerrado
+msgid "Cerrado"
+msgstr "Cerrado"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_financial_risk
+msgid "Credit Risk Management"
+msgstr "Riesgo Crediticio"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Customer Credit"
+msgstr "Haber del cliente"
+
+#. module: straconx_partners
+#: field:res.partner,street:0
+msgid "Street"
+msgstr "Calle"
+
+#. module: straconx_partners
+#: view:res.partner.segmento:0
+msgid "Segmento de Clientes"
+msgstr "Segmento de Clientes"
+
+#. module: straconx_partners
+#: view:res.partner:0
+msgid "Accounting"
+msgstr "Administración Financiera"
+
+#. module: straconx_partners
+#: field:res.partner,property_stock_consignement:0
+msgid "Consignement Location"
+msgstr "Ubicación de Consignación"
+
+#. module: straconx_partners
+#: field:res.partner,credit_references_id:0
+msgid "Credit References"
+msgstr "Referencias Crediticias"
+
+#. module: base
+#: field:res.partner.address,partner_id:0
+msgid "Partner Name"
+msgstr "Razón Social"
+
+#. module: base
+#: selection:res.partner.address,type:0
+msgid "Default"
+msgstr "Matriz"
+
+#. module: base
+#: selection:res.partner.address,type:0
+msgid "Invoice"
+msgstr "Facturación"
+
+#. module: base
+#: selection:res.partner.address,type:0
+msgid "Contact"
+msgstr "Sucursal"
+
+#. module: base
+#: selection:res.partner.address,type:0
+msgid "Other"
+msgstr "Otra dirección"
+
+#. module: base
+#: selection:res.partner.address,type:0
+msgid "Delivery"
+msgstr "Bodega"
+
+#. module: base
+#: view:ir.attachment:0
+#: field:ir.attachment,company_id:0
+#: field:ir.default,company_id:0
+#: field:ir.property,company_id:0
+#: field:ir.sequence,company_id:0
+#: field:ir.values,company_id:0
+#: view:res.company:0
+#: field:res.currency,company_id:0
+#: field:res.partner,company_id:0
+#: field:res.partner.address,company_id:0
+#: field:res.partner.bank,company_id:0
+#: view:res.users:0
+#: field:res.users,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. modules: base, crm
+#: field:res.partner,subname:0
+#: field:res.partner.address,name:0
+#: field:crm.lead,contact_name:0
+msgid "Contact Name"
+msgstr "Nombre Comercial"
+
+#. modules: straconx_states, crm, base
+#: field:crm.lead,parish:0
+#: field:res.partner.address,parish:0
+msgid "Parish"
+msgstr "Parroquia"
+
+#. modules: straconx_states, crm
+#: field:crm.lead,phone2:0
+#: field:res.partner.address,phone2:0
+msgid "Phone 2"
+msgstr "Teléfono 2"
+
+#. modules: straconx_partners, crm, straconx_states, base_calendar, base
+#: view:calendar.event:0
+#: field:calendar.event,location:0
+#: field:calendar.todo,location:0
+#: field:crm.lead,location_id:0
+#: field:crm.meeting,location:0
+#: field:res.partner,location:0
+#: field:res.partner.address,location_id:0
+#, python-format
+msgid "Location"
+msgstr "Lugar"
+
+#. modules: base, straconx_talent_human, straconx_partners, straconx_states
+#: field:res.partner,vat:0
+#: field:create.partner.from.user,vat:0
+msgid "VAT"
+msgstr "Identificación"
+
+#. modules: base, straconx_talent_human, straconx_partners, straconx_states
+#: view:res.partner:0
+#: field:res.partner,origin:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: straconx_partners
+#: field:res.partner,type_vat:0
+msgid "Identification Type"
+msgstr "Tipo de Identificación"
+
+#. module: straconx_partners
+#: code:addons/straconx_partners/objects/straconx_customer.py:223
+#, python-format
+msgid "Specified VAT Number is invalid"
+msgstr "El número de identificación ingresado es inválido"
+
+#. module: straconx_partners
+#: model:ir.ui.menu,name:straconx_partners.menu_config_collectors
+msgid "Collectors"
+msgstr "Recaudadores"
+
+#. module: straconx_partners
+#: code:addons/straconx_partners/objects/straconx_customer.py:220
+#, python-format
+msgid "Specified VAT Number already exists for any other registered partner"
+msgstr "La identificación ingresada ya existe para otra Empresa, por favor verificar."
+
+#. modules: straconx_states, base, straconx_partners
+#: field:res.partner.address,phone:0
+msgid "Phone"
+msgstr "Teléfono"
+
+#. modules: straconx_states, base, straconx_partners
+#: field:res.partner.address,street:0
+msgid "Street"
+msgstr "Calle"
+
+#. modules: straconx_states, base, straconx_partners
+#: field:res.partner.address,mobile:0
+msgid "Mobile"
+msgstr "Celular"

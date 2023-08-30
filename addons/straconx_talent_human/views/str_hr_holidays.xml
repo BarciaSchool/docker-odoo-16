@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="hr_holidays.edit_holiday_new">
+			<field name="name">Leave Request</field>
+			<field name="model">hr.holidays</field>
+			<field name="type">form</field>
+			<field name="priority">1</field>
+			<field name="arch" type="xml">
+				<form string="Leave Request">
+					<group col="8" colspan="4">
+						<field name="company_id" widget="selection" colspan="8" required="1"/>
+						<newline />
+						<field name="holiday_status_id" on_change="onchange_sec_id(holiday_status_id)"
+							context="{'employee_id':employee_id}" widget="selection" />
+						<field name="name"
+							attrs="{'readonly':[('state','!=','draft'),('state','!=','confirm')]}"
+							invisible="1" />
+						<field name="holiday_type" on_change="onchange_type(holiday_type)"
+							colspan="2"
+							readonly="1" string="Mode" groups="base.group_hr_manager" invisible="1"/>
+						<field name="category_id"
+							attrs="{'required':[('holiday_type','=','category')], 'readonly':[('state','!=','draft')]}"
+							invisible="1" />
+						<field name="employee_id" attrs="{'required':[('holiday_type','=','employee')]}"
+							on_change="onchange_employee_id(employee_id,company_id)"
+							colspan="6"
+							domain="[('company_id','=',company_id),('unemployee','=',False)]" />
+						<field name="contract_id" attrs="{'readonly':[('holiday_type','=','category')]}"
+							required="1" domain="[('employee_id','=',employee_id)]"
+							invisible="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="General">
+							<field name="date_from"
+								on_change="onchange_date_from(date_to, date_from,employee_id)"
+								required="1" />
+							<field name="date_to"
+								on_change="onchange_date_from(date_to, date_from,employee_id)"
+								required="1" />
+							<field name="number_of_days" />
+							<field name="number_of_hours" />
+							<field name="department_id"
+								attrs="{'readonly':[('holiday_type','=','category')]}"
+								invisible="1" />
+							<field name="number_of_days_temp" invisible="1" />
+							<field name="double_validation" invisible="1" />
+							<newline />
+							<field name="manager_id" />
+							<field name="manager_id2"
+								attrs="{'invisible':[('double_validation', '!=', True)]}" />
+							<separator string="Reasons" colspan="4" />
+							<field name="notes" nolabel="1" colspan="4" />
+							<newline />
+							<field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate"
+								statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}'
+								colspan="2" />
+							<group colspan="2" col="6">
+								<button string="Refuse" name="refuse" states="confirm,validate1"
+									type="workflow" icon="gtk-no" groups="base.group_hr_user,base.group_hr_manager" />
+								<button string="Confirm" name="confirm" states="draft"
+									type="workflow" icon="gtk-yes" />
+								<button string="Approve" name="validate" states="confirm"
+									type="workflow" icon="gtk-apply" groups="base.group_hr_user" />
+								<button string="Approved" name="second_validate" states="validate1"
+									type="workflow" icon="gtk-apply" groups="base.group_hr_user" />
+								<button string="Set to Draft" name="set_to_draft" states="refuse,validate"
+									type="object" icon="gtk-convert" groups="base.group_hr_user" />
+							</group>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="hr_holidays.view_holiday_allocation_tree">
+			<field name="name">hr.holidays.allocation.tree</field>
+			<field name="model">hr.holidays</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree
+					colors="red:state == 'refuse';blue:state == 'draft';black:state in ('confirm','validate','validate1')"
+					string="Allocation Requests">
+					<field name="holiday_type" />
+					<field name="employee_id" />
+					<!-- <field name="category_id"/> -->
+					<field name="department_id" invisible="1" />
+					<field name="holiday_status_id" />
+					<field name="name" />
+					<field name="number_of_days" string="Number of Days" sum="Remaining Days" />
+					<field name="manager_id" invisible="1" />
+					<field name="user_id" invisible="1" />
+					<!--field name="type"/ -->
+					<field name="state" />
+					<field name="date_from" invisible="1" />
+					<button string="Approve" name="validate" states="confirm"
+						type="workflow" icon="gtk-apply" groups="base.group_hr_user,base.group_hr_manager" />
+					<button string="Approved" name="second_validate" states="validate1"
+						type="workflow" icon="gtk-apply" groups="base.group_hr_user,base.group_hr_manager" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_holidays.edit_holiday_status_form">
+			<field name="name">hr.holidays.status.form</field>
+			<field name="model">hr.holidays.status</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Leave Type">
+					<group colspan="4" col="6">
+						<field name="name" />
+						<field name="color_name" />
+						<field name="categ_id" widget="selection" groups="base.group_extended" />
+					</group>
+					<notebook colspan="4">
+						<page string="Details">
+							<group colspan="2" col="2" name="selection">
+								<separator string="Esquema" colspan="2" />
+								<field name="is_paid" />
+								<field name="paid_cia" attrs="{'invisible':[('is_paid', '=', False)]}" />
+								<field name="double_validation" />
+								<field name="limit" />
+							</group>
+							<group name="second" colspan="2" col="2">
+								<separator string="Misc" colspan="2" />
+								<field name="active" />
+							</group>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_holidays.view_holiday_status_normal_tree">
+			<field name="name">hr.holidays.status.normal.tree</field>
+			<field name="model">hr.holidays.status</field>
+			<field name="type">tree</field>
+			<field name="priority">35</field>
+			<field name="arch" type="xml">
+				<tree string="Leave Type">
+					<field name="name" />
+					<field name="is_paid" />
+					<field name="limit" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="hr_national_holidays_tree">
+			<field name="name">National Holidays List</field>
+			<field name="model">hr.holidays.national</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="National Holidays">
+					<field name="name" required="1" />
+					<field name="date" required="1" />
+					<field name="shop_ids" nolabel="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_national_holidays_form">
+			<field name="name">National Holidays Form</field>
+			<field name="model">hr.holidays.national</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="National Holidays">
+					<group col="4" colspan="2">
+						<field name="name" required="1" />
+						<field name="date" required="1" />
+						<newline />
+						<field name="shop_ids" nolabel="1" colspan="4">
+						</field>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_national_holidays">
+			<field name="name">National Holidays</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.holidays.national</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="hr_national_holidays_tree" />
+		</record>
+
+	</data>
+</openerp>

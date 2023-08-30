@@ -1,0 +1,200 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_vat
+#	* base_vat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-10 02:47+0000\n"
+"PO-Revision-Date: 2013-09-10 02:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_vat
+#: field:res.company,vat_check_vies:0
+msgid "VIES VAT Check"
+msgstr "Revisar Identificación"
+
+#. module: base_vat
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. modules: straconx_vat, base_vat
+#: sql_constraint:res.partner:0
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La cédula / RUC específicada ya existe para otra empresa registrada."
+
+#. module: straconx_vat
+#: selection:res.partner,type_vat:0
+msgid "Consumidor"
+msgstr "Consumidor"
+
+#. module: straconx_vat
+#: selection:res.partner,origin:0
+msgid "International"
+msgstr "International"
+
+#. module: straconx_vat
+#: selection:res.partner,origin:0
+msgid "Local"
+msgstr "Local"
+
+#. module: straconx_vat
+#: selection:res.partner,type_vat:0
+msgid "Cedula"
+msgstr "Cedula"
+
+#. module: straconx_vat
+#: view:company.installer:0
+msgid "Configure"
+msgstr "Configure"
+
+#. module: straconx_vat
+#: code:addons/straconx_vat/objects/straconx_vat.py:81
+#: code:addons/straconx_vat/objects/straconx_vat.py:91
+#, python-format
+msgid "The vat exists"
+msgstr "La identificación ya existe para otra Persona y/o Empresa."
+
+#. module: straconx_vat
+#: view:company.installer:0
+msgid "title"
+msgstr "tipo"
+
+#. module: straconx_vat
+#: field:company.installer,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_vat
+#: constraint:company.installer:0
+msgid "The number of RUC is incorrect"
+msgstr "El número del RUC es incorrecto"
+
+#. module: straconx_vat
+#: view:company.installer:0
+msgid "In the Ecuadorian norm for companies to ask the SRI to operate the RUC that will be necessary for your reports. This condition is essential"
+msgstr "La legislación tributaria ecuatoriana requiere que el Servicio de Rentas Internas (SRI) asigne a la empresa un Registro Único de Contribuyentes (RUC) para su funcionamiento."
+
+#. module: straconx_vat
+#: code:addons/straconx_vat/objects/straconx_vat.py:81
+#: code:addons/straconx_vat/objects/straconx_vat.py:91
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción Inválida !"
+
+#. module: straconx_vat
+#: field:res.partner,type_vat:0
+msgid "Identification Type"
+msgstr "Tipo de Identificación"
+
+#. module: straconx_vat
+#: model:ir.model,name:straconx_vat.model_company_installer
+msgid "company.installer"
+msgstr "Instalador de Compañía"
+
+#. module: straconx_vat
+#: selection:res.partner,type_vat:0
+msgid "Pasaporte"
+msgstr "Pasaporte"
+
+#. module: base_vat
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_vat
+#: field:company.installer,name:0
+msgid "CEDULA/RUC"
+msgstr "CEDULA/RUC"
+
+#. module: straconx_vat
+#: view:company.installer:0
+msgid "Config RUC company"
+msgstr "Configurar RUC de la Empresa"
+
+#. module: base_vat
+#: model:ir.model,name:base_vat.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_vat
+#: model:ir.actions.act_window,name:straconx_vat.action_company_installer
+msgid "RUC company Configuration"
+msgstr "Configuración del RUC de la Empresa"
+
+#. module: straconx_vat
+#: view:company.installer:0
+msgid "RUC of company Configuration"
+msgstr "Configuración del RUC de la Empresa"
+
+#. module: base_vat
+#: code:addons/base_vat/base_vat.py:110
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: base_vat
+#: view:res.partner:0
+msgid "Check VAT"
+msgstr "Verificar Tipo de Identificación"
+
+#. modules: straconx_vat, base_vat
+#: constraint:res.partner:0
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_vat
+#: field:res.partner,origin:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: base_vat
+#: code:addons/base_vat/base_vat.py:146
+#, python-format
+msgid "This VAT number does not seem to be valid.\n"
+"Note: the expected format is %s"
+msgstr "El número de Identifación no es válido.\n"
+"El formato esperado es CC = Código del País, ## = Números.\n"
+"Recuerde que el RUC debe llevar 13 dígitos, la cédula de identidad 10 dígitos\n"
+"o empezar con PA para un pasaporte. Caso contrario, puede usar al cliente Consumidor Final"
+
+#. module: straconx_vat
+#: selection:res.partner,type_vat:0
+msgid "RUC"
+msgstr "RUC"
+
+#. module: straconx_vat
+#: field:company.installer,config_logo:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: base_vat
+#: help:res.company,vat_check_vies:0
+msgid "If checked, Partners VAT numbers will be fully validated against EU's VIES service rather than via a simple format validation (checksum)."
+msgstr "Si o activa, El IVA será validado contra el servicio de VIES"
+
+#. module: base_vat
+#: help:res.partner,vat_subjected:0
+msgid "Check this box if the partner is subjected to the VAT. It will be used for the VAT legal statement."
+msgstr "Marque esta opción si la empresa está sujeta al IVA. Será utilizado para la declaración legal del IVA."
+
+#. modules: straconx_vat, base_vat
+#: model:ir.model,name:base_vat.model_res_partner
+#: model:ir.model,name:straconx_vat.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: base_vat
+#: field:res.partner,vat_subjected:0
+msgid "VAT Legal Statement"
+msgstr "Sujeto a IVA"

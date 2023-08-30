@@ -1,0 +1,103 @@
+<openerp>
+    <data noupdate="1">
+
+<!-- Category -->
+
+            <record id="categ_transporte" model="product.category">
+                <field name="code">TRAN</field>
+                <field name="name">TRANSPORTE</field>
+                <field name="active">TRUE</field>
+            </record>
+            
+            <record id="clasif_transporte" model="product.clasification">
+                <field name="code">TRAN001</field>
+                <field name="name">TRANSPORTE</field>
+                <field name="active">TRUE</field>
+            </record>
+<!-- Product -->
+
+        <record id="product_transporte" model="product.product">
+            <field name="list_price">2.99</field>
+            <field name="standard_price">0.99</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="default_code">TRANSP0001</field>
+            <field name="name">TRANSPORTE</field>
+            <field name="categ_id" ref="categ_transporte"/>
+        </record>
+
+
+        <record id="RETIRO_PERSONAL" model="delivery.carrier">
+            <field name="id">32</field>        
+            <field name="name">RETIRO PERSONAL</field>
+            <field name="partner_id" model="res.partner" ref="base.main_partner"/>
+            <field name="product_id"  model="product.product" ref="product_transporte"/>
+        </record>
+
+        <record id="TE x RETIRO PERSONAL" model="delivery.grid">
+            <field name="name">TE x RETIRO PERSONAL</field>
+            <field name="carrier_id" ref="RETIRO_PERSONAL"/>
+        </record>
+        <record id="RETIRO PERSONAL_CC1" model="delivery.grid.line">
+            <field name="name">CC1</field>
+            <field name="grid_id" ref="TE x RETIRO PERSONAL"/>
+            <field name="variable_factor">price</field>
+            <field name="type">price</field>
+            <field name="operator">&lt;=</field>
+            <field eval="200" name="max_value"/>
+            <field eval="0" name="list_price"/>
+            <field eval="0" name="standard_price"/>
+        </record>
+        <record id="RETIRO PERSONAL_CC2" model="delivery.grid.line">
+            <field name="name">CC2</field>
+            <field name="grid_id" ref="TE x RETIRO PERSONAL"/>
+            <field name="variable_factor">price</field>
+            <field name="type">price</field>
+            <field name="operator">>=</field>
+            <field eval="200" name="max_value"/>
+            <field eval="0" name="list_price"/>
+            <field eval="0" name="standard_price"/>
+        </record> 
+
+        <record id="TRANSPORTE_INTERNO" model="delivery.carrier">
+            <field name="id">33</field>        
+            <field name="name">TRANSPORTE INTERNO</field>
+            <field name="partner_id" model="res.partner" ref="base.main_partner"/>
+            <field name="product_id" model="product.product" ref="product_transporte"/>
+        </record>
+
+        <record id="TE x TRANSPORTE INTERNO" model="delivery.grid">
+            <field name="name">TE x TRANSPORTE INTERNO</field>
+            <field name="carrier_id" ref="TRANSPORTE_INTERNO"/>
+        </record>
+        <record id="TRANSPORTE INTERNO_CC1" model="delivery.grid.line">
+            <field name="name">CC1</field>
+            <field name="grid_id" ref="TE x TRANSPORTE INTERNO"/>
+            <field name="variable_factor">price</field>
+            <field name="type">price</field>
+            <field name="operator">&lt;=</field>
+            <field eval="200" name="max_value"/>
+            <field eval="0" name="list_price"/>
+            <field eval="0" name="standard_price"/>
+        </record>
+        <record id="TRANSPORTE INTERNO_CC2" model="delivery.grid.line">
+            <field name="name">CC2</field>
+            <field name="grid_id" ref="TE x TRANSPORTE INTERNO"/>
+            <field name="variable_factor">price</field>
+            <field name="type">price</field>
+            <field name="operator">>=</field>
+            <field eval="200" name="max_value"/>
+            <field eval="0" name="list_price"/>
+            <field eval="0" name="standard_price"/>
+        </record> 
+
+
+        <record forcecreate="True" id="property_delivery_carrier" model="ir.property">
+            <field name="name">property_delivery_carrier</field>
+            <field name="fields_id" search="[('model','=','res.partner'),('name','=','property_delivery_carrier')]"/>
+            <field eval="'delivery.carrier,'+str(RETIRO_PERSONAL)" name="value_reference"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+</data>
+</openerp>

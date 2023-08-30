@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<delete model="ir.ui.view" search="[('name','=','hr.payslip.run.form.inherit')]"/>
+    
+    	<record id="hr_payroll.hr_payslip_run_form" model="ir.ui.view">
+            <field name="name">hr.payslip.run.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payslips Run">
+                    <group col="8" colspan="6">
+                        <field name="company_id" on_change="onchange_journal(company_id)" colspan="4"/>
+                        <field name="journal_id"  invisible="1"/>
+                        <field name="reference" on_change="onchange_days_pay_id(reference)" domain="[('company_id','=',company_id),('state','=','draft')]" required="1" colspan="4" options='{"quick_create": false}'/>
+                        <field name="date_start" on_change="onchange_days_pay_id(reference)"/>
+                        <field name="date_end" on_change="onchange_days_pay_id(reference)"/>
+                        <field name="days"/>
+                        <field name="total"/>
+                        <field name="total_bank" invisible="1"/>
+                        <field name="em" invisible="1"/>
+                        <field name="payment" invisible="1"/>
+                        <field name="mode_id" domain="['|','|',('cash','=',1),('check','=',1),('only_payment','=',1),('company_id','=',company_id)]"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Payslips">
+                        <field name="slip_ids" colspan="4" nolabel="1" widget="many2many">
+	                            <tree colors="blue:state in ('confirm','hr_check','accont_check');black:state == 'new';gray:state == 'cancel'" string="Payslips">
+	                                <field name="number"/>
+	                                <field name="employee_id"/>
+	                                <field name="date_from"/>
+	                                <field name="date_to"/>
+	                                <field name="total_payslip_lines" sum="Total"/>	                                
+	                                <field name="state"/>
+	                                <field name="company_id" widget="selection" invisible="1"/>
+	                                <field name="mode_id"/>
+	                                <field name="payslip_run_id" invisible="1"/>
+	                            </tree>
+                          </field>
+                        </page>
+                        <page string ="Pagos">
+                            <field name="moves_ids" colspan="4" nolabel="1" readonly="1" widget="many2many" domain="[('state','!=','cancel')]">
+                            </field>
+                        </page>
+                        <page string ="Egresos">
+                            <field name="debit_note_ids" colspan="4" nolabel="1" readonly="1" widget="many2many">
+                            </field>
+                        </page>
+                    </notebook>
+                    <group colspan="4">
+                    	<group colspan="1">
+                    		<field name="state" widget="statusbar"/>
+	                        <newline/>
+	                        <field name="move_id" readonly="1"/>
+	                        <newline/>
+	                        <field name="name" invisible="1"/>
+	                        <field name="data" string="Archivo Pago" filename="name"/>
+                    	</group>
+                        <group colspan="3" col="6">
+	                        <button name="get_employee_ids" type="object" states="draft" icon="gtk-execute" string="Generate Payslips" />
+	                        <button name="close_payslip_run" type="object" icon="terp-camera_test" string="Approve Payslips" states="draft"/>
+	                        <button string="Change Draft Payslips Employees" name="draft_payslip_cancel_run" type="object" icon="gtk-convert" states="close" confirm="Are you sure to change state draft all payslips employees? This take a long time."/>
+	                        <button string="Export File" icon="gtk-ok" name="create_payroll_file" type="object" states="close"/>	                        
+	                        <newline/>
+	                        <button name="%(payslip_list_report)d" string="Print Payslip Report" type="action" icon="gtk-print"   attrs="{'invisible':[('payment','=',True)]}"/>
+	                        <button name="%(payslip_list_qreport)d" string="Print Payslip QReport" type="action" icon="gtk-print" attrs="{'invisible':[('payment','=',False)]}"/>
+	                        <button name="%(payslip_list_report_excel)d" string="Export Payslip Report" type="action" icon="gtk-print"   attrs="{'invisible':[('payment','=',True)]}"/>
+	                        <newline/>
+	                        <button name="%(payslip_list_prov)d" string="Print Payslip Prov" type="action" icon="gtk-print" attrs="{'invisible':[('payment','=',True)]}"/>
+	                        <button name="%(payslip_list_qreport_excel)d" string="Export Payslip QReport" type="action" icon="gtk-print" attrs="{'invisible':[('payment','=',False)]}"/>
+	                        <button name="%(payslip_list_prov_excel)d" string="Export Payslip Prov" type="action" icon="gtk-print" attrs="{'invisible':[('payment','=',True)]}"/>
+						</group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="hr_payroll.hr_payslip_run_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.run.tree</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Payslips Batches">
+                    <field name="reference"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="total" sum="total payslip run"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_payroll.hr_payslip_run_filter" model="ir.ui.view">
+            <field name="name">hr.payslip.run.search</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Payslip Batches">
+                    <group>           
+                    <filter string="Companies" name="company_id" groups="base.group_multi_company" icon="terp-go-home" context="{'group_by':'company_id'}"/>
+                    <filter string="Reference" name="reference" icon="terp-month" context="{'group_by':'reference'}"/>
+                    <filter icon="terp-stock_effects-object-colorize" string="State"  context="{'group_by':'state'}"/>     
+                    <separator orientation="vertical"/>
+                    <field name="reference"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                    <filter icon="terp-document-new" string="Draft" domain="[('state','=','draft')]" help="Draft Payslip Batches"/>
+                    <filter icon="terp-camera_test" string="Done" domain="[('state','=','close')]" help="Done Payslip Batches"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+					</group>
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_payroll_account.hr_payslip_run_search_inherit" model="ir.ui.view">
+            <field name="name">hr.payslip.run.search.inherit</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_filter"/>
+            <field name="arch" type="xml">
+                <field name="date_end" position="after">
+                    <field name="journal_id" widget="selection"/>
+                </field>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

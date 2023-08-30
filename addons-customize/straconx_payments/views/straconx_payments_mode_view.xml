@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="account_payment.view_payment_mode_search" model="ir.ui.view">
+            <field name="name">payment.mode.search</field>
+            <field name="model">payment.mode</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Payment Mode">
+					<group col="8" colspan="4">
+					<filter icon="terp-check" name="only_receipt" string="Only Receipt"
+						domain="[('only_receipt','=',True)]"/>
+					<filter icon="terp-accessories-archiver-minus" name="only_payment" string="Only Payments"
+						domain="[('only_payment','=',True)]"/>	                 	
+                    <field name="name"/>
+                    <field name="account_bank_id"/>
+                 	<field name="bank_id" />
+                    <field name="company_id" widget='selection' groups="base.group_multi_company"/>
+                    </group>                    
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                      <filter string="Only Receipts" icon="terp-folder-orange" domain="[]" context="{'group_by':'only_receipt'}"/>
+                      <filter string="Only Payments" icon="terp-folder-orange" domain="[]" context="{'group_by':'only_payment'}"/>
+                      <filter string="Bank Account " icon="terp-folder-orange" domain="[]" context="{'group_by':'account_bank_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="account_payment.view_payment_mode_tree" model="ir.ui.view">
+            <field name="name">payment.mode.tree</field>
+            <field name="model">payment.mode</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Mode">
+                    <field name="only_receipt"/>
+	                <field name="only_payment"/>
+                    <field name="name"/>
+                    <field name="account_bank_id"/>
+                 	<!--  <field name="bank_id" />  -->                    
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+                    
+    	<record id="account_payment.view_payment_mode_form" model="ir.ui.view">
+            <field name="name">payment.mode.form</field>
+            <field name="model">payment.mode</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment Mode">
+                    <field name="name" required="1"/>
+                    <field name="company_id" widget='selection'/>                    
+                    <field name="sequence" required="1"/>
+                    <field name="sri_code" required="1"/>    
+					<field name="active"/>                                    
+                    <newline/>
+                    <field name="debit_account_id" select="1" required="1" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]"/>
+                    <field name="credit_account_id" select="1" required="1" domain="[('type','!=','view'), ('type','!=','consolidation'),('company_id','=',company_id)]"/>
+                    <group colspan="4">
+	                    <separator string="Payment mode type" colspan="4"/>
+	                    <field name="cash"/>
+	                    <field name="deposit"/>
+	                    <field name="discount"/>
+	                    <field name="check"/>
+	                    <field name="credit_card"/>
+	                    <field name="others"/>
+	            		<field name="credit_notes"/>
+	                    <field name="pos"/>
+	                    <newline/>
+	                    <field name="mode_withhold"/>
+	                    <field name="mode_withhold_vat"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4">
+	                    <separator string="Other Settings" colspan="4"/>
+	                    <field name="required_bank"/>
+                   		<field name="required_seq"/>
+                   		<field name="required_document"/>                   		
+	                    <field name="to_deposit"/>
+	                    <field name="authorization"/>
+	                 	<field name="required_line_account"/>
+	                 	<newline/>
+	                    <field name="only_receipt"/>
+	                 	<field name="only_payment"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4">
+	                 	<separator string="Bank Account" colspan="4"/>
+	                 	<field name="account_bank_id" attrs="{'required': [('check','=',True),('only_payment','=',True)]}"/>
+	                 	<field name="default"/>
+	                 	<!-- <field name="bank_id" string="Talonario de Cheques" domain="[('name','=',account_bank_id),('state','=','open')]" attrs="{'required': [('check','=',True),('only_payment','=',True)]}"/> -->
+                        <separator string="Talonarios de cheques" colspan="4"/>
+                        <field name="bank_ids" nolabel="1" colspan="4" readonly="1">
+                            <tree string="Talonarios de cheques">
+                                <field name="name"/>
+                                <field name="salesman_id"/>
+                                <field name="state"/>
+                                <field name="bank"/>
+                                <field name="s_sequence"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_payment.action_payment_mode_form" model="ir.actions.act_window">
+            <field name="name">Payment Mode</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">payment.mode</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account_payment.view_payment_mode_search"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="account_payment.action_payment_mode_tree">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="account_payment.view_payment_mode_tree"/>
+            <field name="act_window_id" ref="account_payment.action_payment_mode_form"/>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="account_payment.action_payment_mode_formul">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="account_payment.view_payment_mode_form"/>
+            <field name="act_window_id" ref="account_payment.action_payment_mode_form"/>
+        </record>
+        
+        <delete model="ir.ui.view" search="[('name','=','payment.mode.form.require_bank_account')]"/>
+    	<delete model="ir.ui.menu" search="[('name','=','Payment Type')]"/>
+    </data>
+</openerp>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="ei_view_attachment_account_tree" model="ir.ui.view">
+			<field name="name">Documentos Autorizados</field>
+			<field name="model">ir.attachment</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Attachments">
+					<field name="partner_id" />
+					<field name="type_model" />
+					<field name="res_name" string="Documento" />
+					<field name="create_date" string="Fecha" />
+					<field name="number_auth" />
+					<field name="access_key" />
+					<field name="sign_state" />
+					<field name="datas_fname" invisible="1" />
+					<field name="datas_signed" filename="datas_fname" string="Archivo XML" invisible="1" />
+					<field name="authorized_url" filename="datas_fname" string="Archivo XML" invisible="1" />
+					<button name="print_document" string="Imprimir RIDE" type="object" icon="gtk-print"/>
+				</tree>
+			</field>
+		</record>
+
+        <record id="ei_view_attachment_account_form" model="ir.ui.view">
+            <field name="name">Documentos Autorizados</field>
+            <field name="model">ir.attachment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<form string="Attachments">
+                    <group colspan="4" col="6">
+                    </group>
+                    <notebook colspan="4">
+                    <page string="Attachment">
+                    <group col="4" colspan="4">
+                        <separator string="Información Tributaria" colspan="4"/>
+                        <newline/>
+                        <group col="2" colspan="4">
+						<field name="partner_id" />
+                        <field name="type_model" />
+                            <field name="datas_fname" select="1" string="Documento"/>
+                            <group colspan="2" col="4">
+								<field name="datas_unsigned" filename="datas_fname" string="Archivo XML Base" attrs="{'invisible': [('sign_state','=','2')]}"/>
+								<field name="xmlbase_url" filename="datas_fname" string="Archivo XML Base" attrs="{'invisible': [('sign_state','!=','2')]}"/>
+								<newline/>
+								<field name="datas" filename="datas_fname" string="Archivo Firmado" attrs="{'invisible': [('sign_state','=','2')]}"/>
+								<field name="signed_url" filename="datas_fname" string="Archivo Respuesta" attrs="{'invisible': [('sign_state','!=','2')]}"/>
+	                            <newline/>
+	                            <field name="datas_signed" filename="datas_fname" string="Archivo Respuesta" attrs="{'invisible': [('sign_state','=','2')]}"/>
+	                            <field name="authorized_url" filename="datas_fname" string="Archivo XML" attrs="{'invisible': [('sign_state','!=','2')]}"/>
+								<newline/>
+								<field name="ride_url" filename="ride_name" string="Documento RIDE para Imprimir"  attrs="{'invisible': [('sign_state','!=','2')]}"/>
+
+								<button name="send_document" string="Enviar Correo" type="object" icon="gtk-print"/>
+
+								<button name="print_document" string="Imprimir RIDE" type="object" icon="gtk-print"/>
+
+							</group>
+						
+							<field name="number_auth"/>
+							<field name="access_key"/>
+							<field name="sri_date"/>
+							<field name="sign_state" />
+                        </group>
+                    </group>
+                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+		<record id="ei_view_attachment_account_search" model="ir.ui.view">
+			<field name="name">Búsqueda de documentos</field>
+			<field name="model">ir.attachment</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Documentos">
+					<group colspan="4" col="10">
+						<separator orientation="vertical" />
+						<field name="partner_id"/>
+						<field name="res_name" string="Documento" />
+						<field name="type_model" />
+						<field name="number_auth" />
+						<field name="access_key" />
+						<field name="sign_state" />
+						<field name="create_date" string="Fecha" />
+					</group>
+					<newline />
+					<group expand="1" string="Agrupar por...">
+						<filter string="Tipo de Documento"
+							help="Agrupa los documentos por tipo de acuerdo al código del SRI"
+							icon="terp-stock_symbol-selection" domain="[]"
+							context="{'group_by':'type_model'}" />
+						<filter string="Mes"
+							help="Agrupa los documentos de acuerdo a su mes de generación"
+							icon="terp-go-month" domain="[]" context="{'group_by':'create_date'}" />
+						<filter string="Empresa"
+							help="Agrupa los documentos por empresa"
+							icon="terp-partner" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<filter string="Estado"
+							help="Agrupa los documentos de acuerdo al estado"
+							icon="terp-stock_format-scientific" domain="[]" context="{'group_by':'sign_state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="ei_action_account_attachment" model="ir.actions.act_window">
+			<field name="name">Documentos Autorizados</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ir.attachment</field>
+			<field name="view_type">form</field>
+			<field name="auto_search" eval="False"/>
+			<field name="search_view_id" ref="ei_view_attachment_account_search" />
+			<field name="domain">[('electronic','=',True),('sign_state','=','2')]</field>
+		</record>
+		
+		<record id="ei_action_attachment_account_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="ei_view_attachment_account_tree" />
+			<field name="act_window_id" ref="ei_action_account_attachment" />
+		</record>
+
+		<record id="ei_action_attachment_account_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="ei_view_attachment_account_form" />
+			<field name="act_window_id" ref="ei_action_account_attachment" />
+		</record>		
+						
+		<record id="ei_action_account_noautorized" model="ir.actions.act_window">
+			<field name="name">Documentos No Autorizados</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">ir.attachment</field>
+			<field name="view_type">form</field>
+			<field name="auto_search" eval="False"/>
+			<field name="search_view_id" ref="ei_view_attachment_account_search" />
+			<field name="domain">[('electronic','=',True),('sign_state','!=','2')]</field>
+		</record>
+
+		<record id="ei_action_attachment_no_account_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="ei_view_attachment_account_tree" />
+			<field name="act_window_id" ref="ei_action_account_noautorized" />
+		</record>
+
+		<record id="ei_action_attachment_no_account_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="ei_view_attachment_account_form" />
+			<field name="act_window_id" ref="ei_action_account_noautorized" />
+		</record>
+
+	    <act_window name="Enviar Documento Electrónico"
+	            res_model="mail.compose.message"
+	            src_model="ir.attachment"
+	            view_mode="form"
+	            target="new"
+	            key2="client_action_multi"
+	            id="action_partner_electronic_mail"
+	            context="{'mail.compose.message.mode':'mass_mail'}"/>
+
+	</data>
+</openerp>

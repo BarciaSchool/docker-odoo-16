@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<record id="petty_cash" model="account.journal.type">
+			<field name="code">pcash</field>
+			<field name="name">Caja Chica</field>
+			<field name="sri_type_control">internal</field>
+		</record>
+		
+		<record id="petty_cash_journal" model="account.journal">
+            <field name="name">Caja Chica</field>
+            <field name="code">PCASH</field>
+            <field name="type">pcash</field>
+            <field name="view_id" ref="account.account_journal_view"/>
+            <field name="analytic_journal_id" model="account.analytic.journal" ref="account.analytic_journal_sale"/>
+			<field name="update_posted" eval="True"/>
+        </record>
+
+	</data>
+</openerp>

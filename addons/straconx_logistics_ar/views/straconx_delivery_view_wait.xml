@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Picking Form, Search and Tree: Invoice Later -->
+		<record id="straconx_view_picking_later_form" model="ir.ui.view">
+			<field name="name">Picking for Invoice later</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Internal Picking list">
+					<group colspan="2" col="4">
+
+						<field name="name" readonly="1" colspan="2" />
+						<field name="origin" colspan="2" />
+						<!--field name="backorder_id" readonly="1" colspan="2"/ -->
+						<field name="date" attrs="{'readonly':[('state','!=','draft')]}" />
+					</group>
+					<group colspan="4" col="4">
+						<field name="shop_id" required="1" colspan="2" />
+						<field name="carrier_id" required="1" on_change="onchange_carrier(carrier_id)" />
+						<newline />
+						<field name="partner_id" required="1" colspan="2" attrs="{'readonly':[('state','!=','draft')]}" />
+						<field name="address_id" on_change="onchange_partner_in(address_id)" context="{'contact_display':'partner'}" required="1" attrs="{'readonly':[('state','!=','draft')]}" />
+						<newline />
+						<field name="salesman_id" required="0" />
+						<field name="segmento_id" required="1" />
+						<field name="local_address_partner" string="Local del Cliente" invisible="1" />
+						<field name="address_partner" string="Dirección del Cliente" invisible="1" />
+						<!--button name="action_backorder" states="confirmed" string="Convert 
+							Backorder" type="object" icon="gtk-cancel"/ -->
+					</group>
+					<notebook colspan="4">
+						<page string="Products">
+							<field colspan="4" name="move_lines" nolabel="1" widget="one2many_list" default_get="{'move_line':move_lines}">
+								<tree string="Stock Moves">
+									<field name="ref_product" />
+									<field name="product_id" />
+									<field name="categ_id" />
+									<field name="ubication_id"/>
+									<field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+									<field name="product_uom" string="UoM" />
+									<field name="location_id" domain="[('usage','=','internal')]" widget="selection" />
+									<field name="location_dest_id" domain="[('usage','=','customer')]" widget="selection" />
+									<field name="state" />
+								</tree>
+								<form string="Stock Moves">
+									<group colspan="2" col="4">
+										<separator colspan="4" string="Move Information" />
+										<field name="name" invisible="1" colspan="4" />
+										<field name="ref_product" />
+										<field name="price_unit" readonly="1" />
+										<field name="product_id" on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty)" colspan="4" />
+										<field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+										<field name="product_uom" string="Unit Of Measure" />
+										<field name="ubication_id" string="Ubication" on_change="onchange_ubication_id(product_id, ubication_id)" domain="[('product_ids.product_id','=',product_id)]" required="1" />
+										<field name="prodlot_id" domain="[('product_id','=',product_id)]" groups="base.group_extended" />
+										<field groups="base.group_extended" name="product_packaging" domain="[('product_id','=',product_id)]" invisible="1" />
+										<group colspan="3" col="6">
+											<field name="is_backorder" />
+											<button name="%(stock.track_line)d" string="Split in production lots" groups="base.group_extended" type="action" context="{'product_id': parent.product_id}" icon="terp-stock_effects-object-colorize" states="draft,waiting,confirmed,assigned" />
+											<button name="%(stock.move_scrap)d" string="Lost Sales" type="action" icon="gtk-convert" context="{'scrap': True}" states="draft,waiting,confirmed" colspan="1" />
+										</group>
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Locations" colspan="2" />
+										<field name="location_id" domain="[('usage','=','internal')]" widget="selection" />
+										<field name="location_dest_id" domain="[('usage','=','customer')]" widget="selection" />
+										<field name="ubication_ids" nolabel="1" colspan="2">
+											<tree string="Product Ubications">
+												<field name="location_ubication_id" />
+												<field name="ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</tree>
+											<form string="Product Ubications">
+												<field name="location_ubication_id" />
+												<field name="ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</form>
+										</field>
+									</group>
+									<label string="" colspan="4" />
+									<field name="state" />
+									<group col="4" colspan="2">
+										<button name="%(stock.track_line)d" string="Split in production lots" groups="base.group_extended" type="action" icon="terp-stock_effects-object-colorize" states="draft,waiting,confirmed,assigned" />
+										<button name="%(stock.move_scrap)d" string="Lost Sales" type="action" icon="gtk-convert" context="{'scrap': True}" states="draft,waiting,confirmed" colspan="1" />
+									</group>
+									<group col="4" colspan="2" groups="base.group_extended">
+										<button name="action_cancel" states="assigned" string="Cancel" type="object" icon="gtk-cancel" />
+										<button name="action_confirm" states="draft" string="Confirm" type="object" icon="gtk-apply" />
+										<button name="cancel_assign" states="assigned" string="Cancel Availability" type="object" icon="gtk-find" />
+									</group>
+								</form>
+							</field>
+							<group col="10" colspan="4" groups="stock.group_stock_manager">
+								<field name="state" readonly="1" />
+								<button name="button_cancel" states="assigned,confirmed,draft" string="_Cancel" icon="gtk-cancel" confirm="Are you sure to cancel this picking ?" />
+								<button name="draft_force_assign" states="draft" string="Process Later" type="object" icon="gtk-apply" />
+								<button name="action_drafted" string="Set to draft" states="done" icon="gtk-convert" type="object" />
+								<button name="draft_validate" states="draft" string="Process Now" type="object" icon="gtk-media-play" />
+								<button name="action_assign" states="confirmed" string="Check Availability" type="object" icon="gtk-find" />
+								<button name="action_process" states="assigned" string="Process" groups="stock.group_stock_user" type="object" icon="gtk-go-forward" />
+								<button name="%(stock.action_stock_invoice_onshipping)d" string="Create Invoice" attrs="{'invisible': ['|',('invoice_state','=','invoiced'),('type','=','in')]}" type="action" icon="terp-gtk-go-back-rtl" />
+								<!--button name="%(stock.act_stock_return_picking)d" string="Return 
+									Products" states="done" type="action" icon="gtk-execute"/ -->
+								<button name="%(action_delivery_note)d" string="Create Delivery Note" attrs="{'invisible': [('delivery_status','=','sent')]}" type="action" icon="terp-accessories-archiver" />
+								<button name="%(delivery_report_log_id)d" string="Print Delivery Guide" type="action" icon="gtk-print" />
+								<button name="delivery_annulled" string="Annulled Delivery Note" states="done" attrs="{'invisible': [('delivery_status','!=','sent')]}" type="object" icon="terp-stock_effects-object-colorize" groups="stock.group_stock_manager" />
+							</group>
+						</page>
+						<page string="Customer Invoices">
+							<field colspan="4" name="invoice_ids" nolabel="1" domain="[('type','=','out_invoice')]" />
+						</page>
+						<page string="Additional info" groups="base.group_extended,base.group_multi_company">
+							<field name="auto_picking" groups="base.group_extended" />
+							<field name="invoice_state" groups="base.group_extended" />
+							<field name="date_done" groups="base.group_extended" />
+							<field name="move_type" groups="base.group_extended" />
+							<field name="type" groups="base.group_extended" />
+							<field name="digiter_id" required="1" />
+							<field name="warehouse_id" required="1" />
+							<field name="delivery_status" />
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="note" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="straconx_view_picking_later_search" model="ir.ui.view">
+			<field name="name">Picking for Invoice later</field>
+			<field name="model">stock.picking</field>
+			<field name="type">search</field>
+			<!--field eval="1" name="priority"/ -->
+			<field name="arch" type="xml">
+				<search string="Picking list">
+					<group col="8" colspan="4">
+						<filter icon="terp-dolar" name="to_invoice" string="To Invoice"
+							domain="[('invoice_state','=','2binvoiced')]" help="Internal Pickings to invoice" />
+						<filter icon="terp-dolar" name="invoiced" string="Invoiced" domain="[('invoice_state','=','invoiced')]" help="Internal Pickings Invoiced" />
+						<separator orientation="vertical" />
+						<filter icon="terp-personal+" string="My Picking Orders" name="pos" domain="[('shop_id.printer_point_ids.user_ids.id','=', uid)]" />
+						<separator orientation="vertical" />
+						<field name="invoice_later" domain="[('invoice_later','=',True)]" invisible="1" />
+						<field name="shop_id" select="2" />
+						<field name="carrier_id" select="2" />
+						<field name="partner_id" select="2" />
+						<field name="name" />
+						<field name="origin" />
+						<field name="date" />
+					</group>
+					<newline />
+					<group expand="0" string="More Filters" colspan="4" col="8">
+						<filter icon="terp-check" name="available" string="Available" domain="[('state','=','assigned')]" help="Assigned Delivery Orders" />
+						<filter icon="terp-camera_test" name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]" help="Confirmed Delivery Orders" />
+						<separator orientation="vertical" />
+						<filter icon="terp-accessories-archiver-minus" string="Back Orders" domain="[('backorder_id', '!=', False)]" help="Is a Back Order" groups="base.group_extended" />
+					</group>
+					<newline />
+					<group expand="0" string="Group By..." colspan="4" col="8">
+						<filter string="Carrier" icon="terp-partner" domain="[]" context="{'group_by':'carrier_id'}" />
+						<separator orientation="vertical" />
+						<filter string="Shop" icon="terp-partner" domain="[]" context="{'group_by':'shop_id'}" />
+						<separator orientation="vertical" />
+						<filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_id'}" />
+						<separator orientation="vertical" />
+						<filter string="State" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}" />
+						<separator orientation="vertical" />
+						<filter string="Order Date" icon="terp-go-month" domain="[]" context="{'group_by':'date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="straconx_view_picking_later_tree" model="ir.ui.view">
+			<field name="name">Picking for Invoice later</field>
+			<field name="model">stock.picking</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<!--tree colors="blue:state in ('draft');grey:state in ('cancel');red:state 
+					not in ('cancel', 'done') and date &lt; current_date" string="Delivery Orders" -->
+				<tree
+					colors="blue:invoice_state in ('2binvoiced');grey:invoice_state in ('cancel', 'invoiced') and date &lt;current_date"
+					string="Delivery Orders">
+					<field name="carrier_id" />
+					<field name="shop_id" />
+					<field name="origin" />
+					<field name="partner_id" />
+					<field name="digiter_id" />
+					<field name="name" />
+					<field name="date" />
+					<field name="invoice_state" />
+					<field name="state" />
+					<button name="%(stock.action_stock_invoice_onshipping)d" string="Create Invoice" attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}" type="action" icon="terp-gtk-go-back-rtl" />
+					<button name="action_process" states="assigned" string="Process" type="object" icon="gtk-go-forward" />
+					<button name="%(action_delivery_note)d" string="Create Delivery Note" attrs="{'invisible': [('delivery_status','=','sent')]}" type="action" icon="terp-accessories-archiver" />
+					<button name="%(delivery_report_log_id)d" string="Print Delivery Guide" type="action" icon="gtk-print" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="straconx_action_picking_later_tree" model="ir.actions.act_window">
+			<field name="name">Picking for Invoice later</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="domain">[('type','=','out'),('state','=','done'),('invoice_later','=',True)]</field>
+			<field name="context">{'contact_display':'partner_address','search_default_pos':1,"search_default_to_invoice":1}</field>
+			<field name="search_view_id" ref="straconx_view_picking_later_search"/>
+			<field name="help">This is the list of all delivery orders that have
+				to be prepared, according to your different sales orders and your
+				logistics rules.</field>
+		</record>
+
+		<record id="action_picking_wait_tree_later_view1_waiting"
+			model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_view_picking_later_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_later_tree" />
+		</record>
+
+		<record id="action_picking_wait_tree_later_view2_waiting"
+			model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_view_picking_later_form" />
+			<field name="act_window_id" ref="straconx_action_picking_later_tree" />
+		</record>
+
+	</data>
+</openerp>

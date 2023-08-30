@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+        <record id="view_location_form" model="ir.ui.view">
+            <field name="name">stock.location.form</field>
+            <field name="model">stock.location</field>
+            <field name="type">form</field>
+            <field eval="2" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Stock Location">
+                <group colspan="4">
+                     <field name="name"/>
+                     <field name="usage"/>
+                     <field name="location_id"/>
+                 </group>
+                    <notebook>
+                    <page string="General">
+                        <group col="4" colspan="2">
+                            <separator string="Additional Information" colspan="4"/>
+                            <field name="address_id" context="{'contact_display':'partner'}" colspan="4"/>
+                            <field name="company_id" groups="base.group_multi_company" widget="selection" colspan="4"/>
+                            <field name="icon" groups="base.group_extended" colspan="4"/>
+                            <field name="scrap_location" groups="base.group_extended"/>
+                            <field name="active" groups="base.group_extended"/>
+                        </group>
+                        <group col="2" colspan="2" groups="base.group_extended">
+                            <separator string="Chained Locations" colspan="2"/>
+                            <field name="chained_location_type"/>
+                            <field name="chained_location_id"  attrs="{'required':[('chained_location_type','=','fixed')], 'invisible':[('chained_location_type','!=','fixed')]}" string="Chained Location"/>
+                            <field name="chained_auto_packing"/>
+                            <field name="chained_delay"/>
+                            <field name="chained_journal_id"/>
+                            <field name="chained_picking_type"/>
+                            <field name="chained_company_id" widget="selection"/>
+                        </group>
+                        <group col="2" colspan="2">
+                            <separator string="Accounting Information" colspan="2" groups="base.group_extended"/>
+                            <field name="valuation_in_account_id" attrs="{'readonly':[('usage','not in',('inventory','transit','production'))]}" groups="base.group_extended"/>
+                            <field name="valuation_out_account_id" attrs="{'readonly':[('usage','not in',('inventory','transit','production'))]}" groups="base.group_extended"/>
+                        </group>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field colspan="4" name="comment" nolabel="1"/>
+                    </page>
+                    <page string="Locations">
+                    <separator string="Locations" colspan="4"/>
+                    <field name="location_ids" colspan="4" nolabel="1">
+                    <form string="Locations">
+                        <group colspan="6" col="6">
+                            <field name="name" colspan="4" select="1" required="1"/>
+
+<!--                            <field name="usage"/>-->
+                            <field name="width" required="1"/>
+                            <field name="long_ubication" required="1"/>
+                            <field name="height" required="1"/>
+<!--                            <field name="capacity"/>-->
+                        </group>
+                        <separator string="Products assigned" colspan="4"/>
+                        <!--field name="products_ids" nolabel="1" select="1"/-->
+                        <field name="product_ids" nolabel="1" select="1">
+                            <tree string="Product Ubications">
+                                <field name="ubication_id" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="categ_id"/>
+                                <field name="qty"/>
+                            </tree>
+                            <form string="Product Ubications">
+                                <field name="ubication_id" invisible="1"/>
+                                <field name="product_id" required="1"/>
+                                <field name="categ_id"/>
+                                <field name="qty" required="1"/>
+                            </form>
+                        </field>
+                    </form>
+                    </field>
+                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="ubication_tree_view">
+            <field name="name">ubication.tree</field>
+            <field name="model">ubication</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ubications">
+                    <field name="name"/>
+                    <field name="location_id" domain="[('usage','!=','internal')]" />
+                    <field name="shop_ubication_id" invisible="1"/>
+                    <field name="width"/>
+                    <field name="long_ubication"/>
+                    <field name="height"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ubication_form_view">
+            <field name="name">ubication.form</field>
+            <field name="model">ubication</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Ubications">
+                    <group colspan="4" col="4">
+                    <field name="name" select="1" required="1"/>
+                    <field name="location_id" on_change="onchange_shop_location(location_id)" domain="[('usage','=','internal')]" widget="selection" required="1" select="1"/>
+					<field name="shop_ubication_id" invisible="1"/>
+                    <newline/>
+                    <group colspan="4" col="8">
+                    <field name="width" required="1"/>
+                    <field name="long_ubication" required="1"/>
+                    <field name="height" required="1"/>
+                    </group>
+                </group>
+                <separator string="Products assigned" colspan="4"/>
+                <field name="product_ids" nolabel="1">
+                    <tree string="Product Ubications">
+                        <field name="ubication_id" invisible="1"/>
+                        <field name="product_id"/>
+                        <field name="categ_id"/>
+                        <field name="qty" sum="Total Qty"/>
+                    </tree>
+                    <form string="Product Ubications">
+                        <field name="ubication_id" invisible="1"/>
+                        <field name="product_id" required="1"/>
+                        <field name="categ_id"/>
+                        <field name="qty" sum="Total Qty"/>
+                    </form>
+                </field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_ubications_form">
+                <field name="name">Ubications</field>
+                <field name="res_model">ubication</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="ubication_tree_view"/>
+        </record>
+        
+
+        <record model="ir.ui.view" id="product_ubication_tree_view">
+            <field name="name">product.ubication.tree</field>
+            <field name="model">product.ubication</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Ubications">
+                    <field name="ubication_id"/>
+                    <field name="product_id"/>
+                    <field name="shop_ubication_id" invisible="1"/>                    
+                    <field name="categ_id"/>
+                    <field name="qty" sum="Total Qty"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="product_ubication_form_view">
+            <field name="name">product.ubication.form</field>
+            <field name="model">product.ubication</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Ubications">
+                    <field name="ubication_id" required="1"/>
+                    <field name="product_id" required="1"/>
+                    <field name="shop_ubication_id" invisible="1"/>
+                    <field name="categ_id"/>
+                    <field name="qty" sum="Total Qty"/>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record id="product_ubication_search" model="ir.ui.view">
+            <field name="name">product.ubication.select</field>
+            <field name="model">product.ubication</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Ubication Products">
+                   <group string="Group By...">
+                   		<filter string="Con inventario" icon="terp-check" domain="[('qty','!=',0)]"/>
+                   		<filter string="Sin inventario" icon="gtk-cancel" domain="[('qty','=',0)]"/>
+                        <filter string="Bodega" icon="terp-go-home" domain="[]" context="{'group_by':'location_ubication_id'}"/>                   	
+                        <separator orientation="vertical"/>
+                    	<field name="location_ubication_id" string="Bodega"/>
+                    	<field name="ubication_id" string="Ubication"/>
+                        <newline/>
+						<filter string="Productos" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'product_id'}"/>                    	
+                    	<filter string="Ubicación" icon="terp-stock" domain="[]" context="{'group_by':'ubication_id'}"/>
+                    	<filter string="Categoria" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'categ_id'}"/>                        
+                        <field name="default_code"/>
+						<field name="product_id"/>
+                    	<field name="categ_id"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+        
+        
+        <record model="ir.ui.view" id="product_ubication_tree_report_view">
+            <field name="name">product.ubication.tree</field>
+            <field name="model">product.ubication</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Ubications">
+                	<field name="codant" invisible="1"/>
+                	<field name="default_code" invisible="1"/>
+                	<field name="product_id"/>
+                    <field name="categ_id" invisible="1"/>
+                    <field name="location_ubication_id" string="Bodega"/>
+                    <field name="ubication_id"/>
+                    <field name="qty" sum="Total Qty"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="product_ubication_form_report_view">
+            <field name="name">product.ubication.form</field>
+            <field name="model">product.ubication</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Ubications">
+                    <field name="codant" invisible="1"/>
+                    <field name="default_code" invisible="0"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="categ_id"/>
+                    <field name="ubication_id" readonly="1" />
+                    <field name="location_ubication_id" string="Bodega"/>
+                    <field name="qty" sum="Total Qty"/>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_product_ubications_view">
+                <field name="name">Products Ubications</field>
+                <field name="res_model">product.ubication</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="product_ubication_search"/>
+				<field name="view_id" eval="False"/>
+        </record>
+        
+        <record id="action_product_ubications_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="product_ubication_tree_report_view" />
+			<field name="act_window_id" ref="action_product_ubications_view" />
+		</record>
+
+		<record id="action_product_ubications_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="product_ubication_form_report_view" />
+			<field name="act_window_id" ref="action_product_ubications_view" />
+		</record>
+        
+    </data>
+</openerp>

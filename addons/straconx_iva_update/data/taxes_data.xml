@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+	
+<!-- INGRESAR FORMULARIO 104 VENTAS -->
+
+		<!-- IMPUESTOS VENTAS e INGRESOS TARIFA 14%-->
+			
+		<record id='t423' model='account.tax.code'>
+			<field name='name'>VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 14%</field>
+			<field name='code'>t423</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA COBRADO')]"/>
+		</record>	
+		<record id='imp423_sale' model='account.tax'>				
+			<field name='name'>VENTAS LOCALES (EXCLUYE ACTIVOS FIJOS) GRAVADAS TARIFA 14%</field>
+			<field name='description'>423</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='base_code_id' ref='t423'/>
+			<field name='tax_code_id' ref='t423'/>
+			<field name='ref_base_code_id' ref='t423'/>
+			<field name='ref_tax_code_id' ref='t423'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>sale</field>
+			<field name='tax_type'>vat</field>
+		</record>
+
+		<record id='t424' model='account.tax.code'>
+			<field name='name'>VENTAS DE ACTIVOS FIJOS GRAVADAS TARIFA 14%</field>
+			<field name='code'>t424</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA COBRADO')]"/>
+		</record>	
+		<record id='imp424_sale' model='account.tax'>			
+			<field name='name'>VENTAS DE ACTIVOS FIJOS GRAVADAS TARIFA 14%</field>
+			<field name='description'>424</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='base_code_id' ref='t424'/>
+			<field name='tax_code_id' ref='t424'/>
+			<field name='ref_base_code_id' ref='t424'/>
+			<field name='ref_tax_code_id' ref='t424'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>sale</field>
+			<field name='tax_type'>vat</field>
+		</record>
+
+		<record id='t455' model='account.tax.code'>
+			<field name='name'>NOTAS DE CREDITO TARIFA 14% POR COMPENSAR PROXIMO MES (INFORMATIVO)</field>
+			<field name='code'>t455</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA COBRADO')]"/>
+		</record>	
+		<record id='imp455_sale' model='account.tax'>			
+			<field name='name'>NOTAS DE CREDITO TARIFA 14% POR COMPENSAR PROXIMO MES (INFORMATIVO)</field>
+			<field name='description'>455</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','20107010103')]"/>
+			<field name='base_code_id' ref='t455'/>
+			<field name='tax_code_id' ref='t455'/>
+			<field name='ref_base_code_id' ref='t455'/>
+			<field name='ref_tax_code_id' ref='t455'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>sale</field>
+			<field name='tax_type'>vat</field>
+		</record>
+
+
+
+		<record id='t520_14' model='account.tax.code'>
+			<field name='name'>ADQUISICIONES Y PAGOS (EXCLUYE ACTIVOS FIJOS) GRAVADOS TARIFA 14% (CON DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='code'>t520_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>	
+		<record id='imp520_14_purchase' model='account.tax'>			
+			<field name='name'>ADQUISICIONES Y PAGOS (EXCLUYE ACTIVOS FIJOS) GRAVADOS TARIFA 14% (CON DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='description'>520_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t520_14'/>
+			<field name='tax_code_id' ref='t520_14'/>
+			<field name='ref_base_code_id' ref='t520_14'/>
+			<field name='ref_tax_code_id' ref='t520_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>
+		</record>
+	
+		<record id='t521_14' model='account.tax.code'>
+			<field name='name'>ADQUISICIONES LOCALES DE ACTIVOS FIJOS GRAVADOS TARIFA 14% (CON DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='code'>t521_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>
+		
+		<record id='imp521_14_purchase' model='account.tax'>			
+			<field name='name'>ADQUISICIONES LOCALES DE ACTIVOS FIJOS GRAVADOS TARIFA 14% (CON DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='description'>521_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t521_14'/>
+			<field name='tax_code_id' ref='t521_14'/>
+			<field name='ref_base_code_id' ref='t521_14'/>
+			<field name='ref_tax_code_id' ref='t521_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>			
+		</record>
+			
+		<record id='t522_14' model='account.tax.code'>
+			<field name='name'>OTRAS ADQUISICIONES Y PAGOS GRAVADOS TARIFA 14% (SIN DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='code'>t522_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>
+		<record id='imp522_14_purchase' model='account.tax'>			
+			<field name='name'>OTRAS ADQUISICIONES Y PAGOS GRAVADOS TARIFA 14% (SIN DERECHO A CREDITO TRIBUTARIO)</field>
+			<field name='description'>522_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t522_14'/>
+			<field name='tax_code_id' ref='t522_14'/>
+			<field name='ref_base_code_id' ref='t522_14'/>
+			<field name='ref_tax_code_id' ref='t522_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>
+		</record>	
+		
+		<record id='t523_14' model='account.tax.code'>
+			<field name='name'>IMPORTACIONES DE SERVICIOS GRAVADOS TARIFA 14%</field>
+			<field name='code'>t523_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>
+		<record id='imp523_14_purchase' model='account.tax'>
+			
+			<field name='name'>IMPORTACIONES DE SERVICIOS GRAVADOS TARIFA 14%</field>
+			<field name='description'>523_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t523_14'/>
+			<field name='tax_code_id' ref='t523_14'/>
+			<field name='ref_base_code_id' ref='t523_14'/>
+			<field name='ref_tax_code_id' ref='t523_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>
+		</record>	
+		
+		<record id='t524_14' model='account.tax.code'>
+			<field name='name'>IMPORTACIONES DE BIENES (EXCLUYE ACTIVOS FIJOS) GRAVADOS TARIFA 14%</field>
+			<field name='code'>t524_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>
+		<record id='imp524_14_purchase' model='account.tax'>			
+			<field name='name'>IMPORTACIONES DE BIENES (EXCLUYE ACTIVOS FIJOS) GRAVADOS TARIFA 14%</field>
+			<field name='description'>524_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t524_14'/>
+			<field name='tax_code_id' ref='t524_14'/>
+			<field name='ref_base_code_id' ref='t524_14'/>
+			<field name='ref_tax_code_id' ref='t524_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>
+		</record>	
+
+		<record id='t525_14' model='account.tax.code'>
+			<field name='name'>IMPORTACIONES DE ACTIVOS FIJOS GRAVADOS TARIFA 14%</field>
+			<field name='code'>t525_14</field>
+			<field name='sign'>1</field>
+			<field name='tax_type'>vat</field>
+			<field name='parent_id' model="account.tax.code" search="[('name','=','IVA PAGADO')]"/>
+		</record>
+		
+		<record id='imp525_14_purchase' model='account.tax'>			
+			<field name='name'>IMPORTACIONES DE ACTIVOS FIJOS GRAVADOS TARIFA 14%</field>
+			<field name='description'>525_14</field>
+			<field eval='0.14' name='amount'/>
+			<field name='type'>percent</field>
+			<field name='account_collected_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='account_paid_id' model="account.account" search="[('code','=','10105010101')]"/>
+			<field name='base_code_id' ref='t525_14'/>
+			<field name='tax_code_id' ref='t525_14'/>
+			<field name='ref_base_code_id' ref='t525_14'/>
+			<field name='ref_tax_code_id' ref='t525_14'/>
+			<field eval='1' name='tax_sign'/>
+			<field eval='1' name='base_sign'/>
+			<field eval='-1' name='ref_tax_sign'/>
+			<field eval='-1' name='ref_base_sign'/>
+			<field name='type_tax_use'>purchase</field>
+			<field name='tax_type'>vat</field>
+		</record>	
+	</data>
+</openerp>

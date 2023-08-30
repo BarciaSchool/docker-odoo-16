@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+
+<!--Color-->  
+
+        <record id="view_product_color_search" model="ir.ui.view">
+                <field name="name">Color Search</field>
+                <field name="model">product.color</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Product color">
+                        <field name="name" required="1"/>
+                    </search>
+                </field>
+        </record>
+
+        <record id="view_product_color_tree" model="ir.ui.view">
+                <field name="name">Color List</field>
+                <field name="model">product.color</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Product color">
+						<field name="name" />
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_product_color_form" model="ir.ui.view">
+                <field name="name">Color Form</field>
+                <field name="model">product.color</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Product color">
+                        <field name="name" required="1"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_product_color" model="ir.actions.act_window">
+            <field name="name">Product Color</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.color</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_product_color_search"/>
+        </record>
+
+        <record id="action_res_color1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_color_tree"/>
+            <field name="act_window_id" ref="action_product_color"/>
+        </record>
+        <record id="action_res_color2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_color_form"/>
+            <field name="act_window_id" ref="action_product_color"/>
+        </record>
+    
+
+    <!--Manufacturers-->  
+
+        <record id="view_product_manufacturer_search" model="ir.ui.view">
+                <field name="name">Manufacturer Search</field>
+                <field name="model">res.manufacturer</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Product Manufacturer">
+                        <field name="name" required="1"/>
+                        <field name="manufacturer_country" required="1"/>
+                        <field name="partner_id" invisible="1"/>
+                    </search>
+                </field>
+        </record>
+
+        <record id="view_product_manufacturer_tree" model="ir.ui.view">
+                <field name="name">Manufacturer List</field>
+                <field name="model">res.manufacturer</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Product Manufacturer">
+						<field name="name" />
+                        <field name="manufacturer_country" />
+                        <field name="partner_id" invisible="1"/>
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_product_manufacturer_form" model="ir.ui.view">
+                <field name="name">Manufacturer Form</field>
+                <field name="model">res.manufacturer</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Product Manufacturer">
+                        <field name="name" required="1"/>
+                        <field name="manufacturer_country" required="1"/>
+                        <field name="partner_id" invisible="1"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_product_manufacturer" model="ir.actions.act_window">
+            <field name="name">Product Manufacturer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.manufacturer</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_product_manufacturer_search"/>
+        </record>
+
+        <record id="action_res_manufacturer1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_manufacturer_tree"/>
+            <field name="act_window_id" ref="action_product_manufacturer"/>
+        </record>
+        <record id="action_res_manufacturer2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_manufacturer_form"/>
+            <field name="act_window_id" ref="action_product_manufacturer"/>
+        </record>
+
+
+        <!--Product clasifications-->  
+
+        <record id="view_product_clasification_search" model="ir.ui.view">
+                <field name="name">product.clasification.search</field>
+                <field name="model">product.clasification</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Product Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                    </search>
+                </field>
+        </record>
+
+        <record id="view_product_clasification_tree" model="ir.ui.view">
+                <field name="name">product.clasification.tree</field>
+                <field name="model">product.clasification</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Product Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="parent_id"/>
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_product_clasification_form" model="ir.ui.view">
+                <field name="name">product.clasification.form</field>
+                <field name="model">product.clasification</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Product Categories">
+                        <field name="code" select="2"/>
+                        <field name="name" select="2"/>
+                        <field name="parent_id" select="2"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_product_clasification" model="ir.actions.act_window">
+            <field name="name">Product Clasification</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.clasification</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_product_clasification_search"/>
+        </record>
+
+        <record id="action_product_class1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_clasification_tree"/>
+            <field name="act_window_id" ref="action_product_clasification"/>
+        </record>
+        <record id="action_product_class2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_clasification_form"/>
+            <field name="act_window_id" ref="action_product_clasification"/>
+        </record>
+
+    <!--Product Materials -->        
+
+        <record id="view_material_form" model="ir.ui.view">
+                <field name="name">product.material.form</field>
+                <field name="model">product.material</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Attributes">
+                        <field name="code" select="1"/>
+                        <field name="name" select="1"/>
+                        <field name="description" select="1"/>
+                    </form>
+                </field>
+        </record>
+        
+        <record id="view_material_tree" model="ir.ui.view">
+                <field name="name">product.material.tree</field>
+                <field name="model">product.material</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Attributes">
+                        <field name="code"/>                    
+                        <field name="name"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="action_product_material" model="ir.actions.act_window">
+                <field name="name">Product Attributes</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">product.material</field>
+                <field name="view_type">form</field>
+        </record>
+
+</data>
+</openerp>
+    

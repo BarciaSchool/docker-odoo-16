@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+		<menuitem name="Tarjeta de Crédito" id="menu_account_view_creditcard"
+			sequence="11" parent="account.menu_finance"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment" />
+
+		<menuitem name="Pagos de T/C" id="menu_view_account_creditcard_mode_in"
+			action="straconx_payments.act_view_credicard_mode_in" parent="menu_account_view_creditcard"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="1" />
+
+		<menuitem name="Depósitos de T/C" id="menu_view_account_creditcard_mode_deposit"
+			action="straconx_payments.action_deposit_credit_card_view" parent="menu_account_view_creditcard"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="2" />
+
+		<menuitem action="action_invoice_credit_card" id="menu_action_invoice_credit_card" 
+			name="Facturas de T/C"
+			parent="menu_account_view_creditcard"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="3"/>
+
+		<menuitem action="straconx_withhold.action_account_withhold_recaps" id="menu_action_withhold_credit_card" 
+			name="Retenciones de Recaps"
+			parent="menu_account_view_creditcard"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="3"/>
+
+
+		<!-- Risk Credit Card Menu -->
+		<menuitem name="Credit Card" id="menu_view_creditcard"
+			parent="straconx_partners.menu_financial_risk"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="5" />
+
+		<menuitem name="Credit Card Payments" id="menu_view_creditcard_mode_in"
+			action="straconx_payments.act_view_credicard_mode_in" parent="menu_view_creditcard"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="1" />
+
+		<menuitem name="Credit Card Deposit" id="menu_view_creditcard_mode_deposit"
+			action="straconx_payments.action_deposit_credit_card_view" parent="menu_view_creditcard"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="2" />
+
+		<menuitem action="action_invoice_credit_card" id="menu_action_invoice_credit_card_risk" 
+			name="Credit Card Invoice"
+			parent="menu_view_creditcard"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="3"/>
+
+		<!-- Deposit Register -->
+
+		<menuitem name="Registro de Depósitos" id="menu_deposit_register"
+			parent="straconx_partners.menu_financial_risk"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="3" />
+
+		<menuitem id="deposit_register_menu" name="Depósitos"
+			parent="menu_deposit_register" action="straconx_payments.action_deposit_register_view"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager" />
+
+		<menuitem id="deposit_register_check_menu" name="Depósitos de Cheques"
+			parent="menu_deposit_register" action="straconx_payments.action_deposit_register_check_view" />
+
+		<menuitem id="deposit_register_check_finance_menu" name="Depósitos de Cheques"
+			parent="straconx_payments.menu_fin_cheques" action="straconx_payments.action_deposit_register_check_view" />
+    
+    </data>
+</openerp>

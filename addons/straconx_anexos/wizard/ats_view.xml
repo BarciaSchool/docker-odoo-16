@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_anexo_export" model="ir.ui.view">
+            <field name="name">Asistente de Generación de ATS</field>
+            <field name="model">sri.ats</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="ATS Export">
+                    <group col="8">
+                        <group colspan="3">
+                            <newline/>
+                            <label colspan="6" width="250" string="Este asistente genera automáticamente la información del"/>
+                            <label colspan="6" width="250" string="ANEXO TRANSACCIONAL SIMPLIFICADO- ATS "/>
+                        </group>
+                        <separator orientation="vertical" rowspan="15"/>
+                        <group colspan="4">
+                            <group colspan="4" states="choose">
+                                <separator colspan="4" string="ATS Export"/>
+                                <field name="company_id" widget="selection" required="1"/>
+                                <field name="period_id" domain="[('company_id','=',company_id),('state','!=','done')]" options='{"quick_create": false}'/>
+                            </group>
+                            <group colspan="4" states="get">
+                                <separator string=" " colspan="4"/>
+                                <field name="name" invisible="1" colspan="4"/>
+                                <field name="data" nolabel="1" filename="name"/> 
+                                <field invisible="1" name="state"/>
+                            </group>
+                        </group>
+                        <group colspan="8" col="8" states="choose">
+                            <separator string="" colspan="8"/>
+                            <label colspan="6" width="220"/>
+                            <button icon="gtk-cancel" special="cancel" string="_Close"/>
+                            <button icon="gtk-ok" name ="act_export" string="_Export" type="object"
+                            confirm="This may take a few minutes"/>
+                        </group>
+                         <group colspan="8" col="8" states="get">
+                            <separator string="" colspan="8"/>
+                            <label colspan="7" width="220"/>
+                            <button icon="gtk-close" special="cancel" string="_Close"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_anexo_export" model="ir.actions.act_window">
+            <field name="name">Exportar ATS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sri.ats</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

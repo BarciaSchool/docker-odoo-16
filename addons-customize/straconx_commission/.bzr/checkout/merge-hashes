@@ -1,0 +1,39 @@
+BZR merge-modified list format 1
+file_id: straconx_salesman.py-20120525013153-alcy9bna9dybzbxe-4
+hash: b9f6525f24155345595a20375dee775141e6906d
+
+file_id: straconx_company.xml-20120525013153-alcy9bna9dybzbxe-9
+hash: c1109e6f634df2c77c8c609416b4943e6d99f2e5
+
+file_id: table_commission.py-20120525013153-alcy9bna9dybzbxe-5
+hash: 34ba6891795dc60bcf87b56faf58cf083c494c5f
+
+file_id: sale_forecast_wizard-20120425033922-gagtv42p1nxt4u6s-31
+hash: 61423c8e70da84796802355ad8a8233191dcb554
+
+file_id: sale_forecast.py-20120425033922-gagtv42p1nxt4u6s-33
+hash: 873e891a4fe06d862c96b7022e00aae936f93376
+
+file_id: straconx_salesman.xm-20120525013153-alcy9bna9dybzbxe-10
+hash: f5f05dc96306c4d522513fa31881084a3c00950c
+
+file_id: straconx_segmento.xm-20130108222211-t9btagym7xuwyzp9-1
+hash: d0fdbb61e76f2c26299046e814f86b812efc5dcf
+
+file_id: commission_for_sales-20120528230325-kv82hgd6l87jvkhx-3
+hash: 579818e02e39683a1975ebe1d69b7c6358749e52
+
+file_id: commission_for_sales-20120528230325-kv82hgd6l87jvkhx-4
+hash: 2c053916ef76934571225e9f3922a55a59dee15e
+
+file_id: sale_forecast_view.x-20120525013153-alcy9bna9dybzbxe-8
+hash: 3cdb2652cb2fac26b12c6101a153dee3c01689db
+
+file_id: straconx_segmento.py-20130108222211-t9btagym7xuwyzp9-2
+hash: ea71ed8c182a411060cd7e69f1620f5a715d98ba
+
+file_id: __init__.py-20120425033922-gagtv42p1nxt4u6s-32
+hash: 2f90dfc55fba6023eca7320b9c2136b6699a25b4
+
+file_id: __openerp__.py-20120425033922-gagtv42p1nxt4u6s-4
+hash: d54a88db388f92c6c5acd84d93bd0b73ead0881a

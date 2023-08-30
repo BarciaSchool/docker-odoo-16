@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<wizard
+          string="Print invoice list"
+          model="account.invoice"
+          name="account.invoice.lists.report"
+          menu="False"
+          id="wizard_invoice_list_report"/>
+
+	<menuitem
+          name="Print invoice list"
+          parent="account.menu_finance_generic_reporting"
+          action="wizard_invoice_list_report"
+          type="wizard"
+          icon="STOCK_PRINT"
+          id="menu_invoice_lists_report"/>
+
+        <record id="account_invoice_list_report" model="ir.actions.report.xml">
+            <field name="name">Print Invoice List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">account.invoice.lists.report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')"/>
+            <field name="parser_loc">straconx_reports_invoice/report/straconx_invoice_report.py</field>
+            <field name="report_rml">straconx_reports_invoice/report/straconx_invoice_list.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key" />
+            <field eval="'client_print_multi'" name="key2" />
+            <field eval="['account_invoice']" name="models" />
+            <field name="name">Print Invoice List</field>
+            <field eval="'ir.actions.report.xml,'+str(account_invoice_list_report)" name="value" />
+            <field eval="True" name="isobject" />
+            <field eval="True" name="replace" />
+        </ir_set>
+
+        <record id="account_invoice_list_report_excel" model="ir.actions.report.xml">
+            <field name="name">Export Invoice List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">excel.account.invoice.lists.report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_xls_odt')"/>
+            <field name="parser_loc">straconx_reports_invoice/report/straconx_invoice_report.py</field>
+            <field name="report_rml">straconx_reports_invoice/report/straconx_invoice_list.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <ir_set>
+            <field eval="'action'" name="key" />
+            <field eval="'client_print_multi'" name="key2" />
+            <field eval="['account_invoice_list_report_excel']" name="models" />
+            <field name="name">Excel Invoice List</field>
+            <field eval="'ir.actions.report.xml,'+str(account_invoice_list_report_excel)" name="value" />
+            <field eval="True" name="isobject" />
+            <field eval="True" name="replace" />
+        </ir_set>
+
+</data>
+</openerp>
+<!-- vim: set fdm=marker : -->

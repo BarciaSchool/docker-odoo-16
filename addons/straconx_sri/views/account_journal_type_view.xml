@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="account_journal_type_form_inherit" model="ir.ui.view">
+            <field name="name">account.journal.type.form.inherit</field>
+            <field name="model">account.journal.type</field>
+            <field name="inherit_id" ref="straconx_account.account_journal_type_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              	<field name="name" position="after">
+              		<field name="sri_type_control" required="1" select="1"/>
+              		<field name="sri_type_document" required="0" select="1"/>
+              	</field>
+            </field>
+        </record>
+    
+    <record id="account_journal_type_tree_inherit" model="ir.ui.view">
+            <field name="name">account.journal.type.tree.inherit</field>
+            <field name="model">account.journal.type</field>
+            <field name="inherit_id" ref="straconx_account.account_journal_type_tree" />
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+              	<field name="name" position="after">
+              		<field name="sri_type_control"/>
+              		<field name="sri_type_document"/>              		
+              	</field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

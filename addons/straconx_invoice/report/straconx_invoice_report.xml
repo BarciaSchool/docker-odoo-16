@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="product_invoice_reports_shop_id" model="ir.actions.report.xml">
+			<field name="name">Venta de Productos x Tienda</field>
+			<field name="report_name">product.invoice.report.shop.id</field>
+			<field name="pentaho_filename">straconx_invoice/report/product_lines_shop.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+		<record id="year_invoice_reports_shop_id" model="ir.actions.report.xml">
+			<field name="name">Venta Mensual por Tienda</field>
+			<field name="report_name">venta_mensual_tienda</field>
+			<field name="pentaho_filename">straconx_invoice/report/year_invoice_shop.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+		<record id="account_invoice_list_report" model="ir.actions.report.xml">
+			<field name="name">Facturas y N/C por Tiendas</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.invoice</field>
+			<field name="report_name">facturas_y_nc_tiendas</field>
+			<field name="pentaho_filename">straconx_invoice/report/straconx_invoice_list.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="report_type">pdf</field>
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+		<record id="product_invoice_categ_id" model="ir.actions.report.xml">
+			<field name="name">Venta de Productos por Categoría</field>
+			<field name="report_name">product.invoice.categ.report.id</field>
+			<field name="pentaho_filename">straconx_invoice/report/product_lines_category.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+		<record id="product_invoice_total_categ_id" model="ir.actions.report.xml">
+			<field name="name">Venta por Categoría</field>
+			<field name="report_name">	</field>
+			<field name="pentaho_filename">straconx_invoice/report/product_lines_categories.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+		<record id="product_invoice_clasification_id" model="ir.actions.report.xml">
+			<field name="name">Venta de Productos por Clasificación</field>
+			<field name="report_name">product.invoice.clasification.report.id</field>
+			<field name="pentaho_filename">straconx_invoice/report/product_lines_clasification.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+		<record id="year_invoice_reports_categ_id" model="ir.actions.report.xml">
+			<field name="name">Venta Mensual por Categoría</field>
+			<field name="report_name">venta_mensual_categoria</field>
+			<field name="pentaho_filename">straconx_invoice/report/year_invoice_categ.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+
+		<record id="straconx_invoice_sum_partner" model="ir.actions.report.xml">
+			<field name="name">Venta por Cliente</field>
+			<field name="report_name">venta_mensual_cliente</field>
+			<field name="pentaho_filename">straconx_invoice/report/straconx_sum_invoices_partner.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="straconx_invoice_sum_partner_shop" model="ir.actions.report.xml">
+			<field name="name">Venta por Cliente por Tienda</field>
+			<field name="report_name">venta_mensual_cliente_tienda</field>
+			<field name="pentaho_filename">straconx_invoice/report/straconx_sum_invoices_partner_shop.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice</field>
+		</record>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<menuitem id="straconx_withhold.withhold_reports" sequence="90" name="Retenciones de Clientes" parent="account.final_accounting_reports" />    
+    
+        <record id="withhold_report_id" model="ir.actions.report.xml">
+            <field name="name">Retenciones</field>
+            <field name="report_name">Retenciones_Proveedor</field>            
+            <field name="pentaho_filename">straconx_withhold/report/straconx_withhold.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+        </record>
+
+        <record id="withhold_list_id" model="ir.actions.report.xml">
+            <field name="name">Retenciones Recibidas</field>
+            <field name="report_name">retenciones_ventas</field>            
+            <field name="pentaho_filename">straconx_withhold/report/straconx_withhold_list.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+            <field name="linked_menu_id" eval="ref('straconx_withhold.withhold_reports')" />
+        </record>
+
+        <record id="withhold_sales_credit_risk" model="ir.actions.report.xml">
+            <field name="name">Retenciones Recibidas</field>
+            <field name="report_name">retenciones_ventas</field>            
+            <field name="pentaho_filename">straconx_withhold/report/straconx_withhold_list.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+            <field name="linked_menu_id" eval="ref('straconx_withhold.credit_risk_withhold')" />
+        </record>
+
+        <record id="withhold_purchase_id" model="ir.actions.report.xml">
+            <field name="name">Retenciones Emitidas</field>
+            <field name="report_name">retenciones_compras</field>            
+            <field name="pentaho_filename">straconx_withhold/report/straconx_withhold_purchase_list.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+            <field name="linked_menu_id" eval="ref('straconx_withhold.withhold_reports')" />            
+        </record>
+        
+        <record id="withhold_recaps_id" model="ir.actions.report.xml">
+            <field name="name">Retenciones de Recaps</field>
+            <field name="report_name">retenciones_recaps</field>            
+            <field name="pentaho_filename">straconx_withhold/report/straconx_withhold_recaps_list.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.withhold')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.withhold</field>
+            <field name="linked_menu_id" eval="ref('straconx_withhold.withhold_reports')" />            
+        </record>
+
+    </data>
+</openerp>

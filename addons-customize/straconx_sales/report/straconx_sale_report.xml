@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <report id="report_sale_order_straconx"
+            string="Print Sale Order"
+            model="sale.order"
+            name="sale.order.straconx"
+            rml="straconx_sales/report/sale_order.rml"
+            header = "1"
+            menu = "False"
+            auto="False"/>
+    
+        <report id="report_quo_order_straconx"
+            string="Print Quotation Order"
+            model="sale.order"
+            name="quo.order.straconx"
+            rml="straconx_sales/report/quotation_order.rml"
+            header = "1"
+            menu = "False"
+            auto="False"/>
+
+        <report id="report_account_invoice_straconx"
+            string="Print Sale Invoice"
+            model="account.invoice"
+            name="account.invoice.straconx"
+            rml="straconx_sales/report/account_print_invoice.rml"
+            menu = "False"
+            auto="False"/>
+
+        <record id="proforma_report_id" model="ir.actions.report.xml">
+            <field name="name">Imprimir Proforma</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">proforma_report_id</field>
+            <field name="pentaho_filename">straconx_invoice/report/straconx_proforma.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >account.invoice</field>
+        </record>
+      
+         <record id="straconx_invoice.product_invoice_reports_id" model="ir.actions.report.xml">
+            <field name="name">Venta de Productos</field>
+            <field name="report_name">product.sales.report.id</field>
+            <field name="pentaho_filename">straconx_invoice/report/product_lines.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')"/>
+            <field name="model" >account.invoice.line</field>
+        </record>        
+
+		<record id="straconx_invoice.product_invoice_reports_id" model="ir.actions.report.xml">
+			<field name="name">Venta Consolidada por Categoría</field>
+			<field name="report_name">product.invoice.report.id</field>
+			<field name="pentaho_filename">straconx_invoice/report/category_product_lines.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+			<field name="model">account.invoice.line</field>
+		</record>
+
+        <record id="pos_shop_report_id" model="ir.actions.report.xml">
+            <field name="name">Reporte de Ventas por Tienda</field>
+            <field name="report_name">invoices_shop</field>
+            <field name="pentaho_filename">straconx_invoice/report/invoices_period_shop.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />           
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>        
+
+        <delete model="ir.actions.report.xml" search="[('report_name','=','sale.order')]" />
+        <delete model="ir.actions.report.xml" search="[('report_name','=','account.invoice')]" />
+        <delete model="ir.values" search="[('name','=','Imprimir Proforma')]" />
+    </data>
+</openerp>

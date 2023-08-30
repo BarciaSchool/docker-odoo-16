@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="view_create_partner_from user" model="ir.ui.view">
+	      <field name="name">Create Partner</field>
+	      <field name="model">create.partner.from.user</field>
+	      <field name="type">form</field>
+	      <field name="arch" type="xml">
+	        <form string="Create Partner">
+              <group width="500" height="100" colspan="2">
+               	<separator colspan="2" string="Please Write the vat number for create the partner by this user" />
+              	<newline/>
+                <field name="vat" required="0" attrs="{'required': [('exists','=',False)],'readonly': [('exists','=',True)]}"/>
+                <field name="exists" invisible="1"/>
+              </group>
+              <newline/>
+              <group colspan="2">
+	                <button name="create_partner_from_user" string="Create Partner" icon='gtk-ok' type="object"/>
+	                <button icon="gtk-cancel" special="cancel" string="_Cancel" />
+               	</group>
+             </form>
+	      </field>
+	    </record>
+	    
+	    
+		<record id="action_create_partner_from user" model="ir.actions.act_window">
+            <field name="name">Create Partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">create.partner.from.user</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_create_partner_from user" />
+            <field name="target">new</field>
+        </record>
+    
+    
+    </data>
+</openerp>

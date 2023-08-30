@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record id="view_picking_report_aeroo_generator_form" model="ir.ui.view">
+            <field name="name">stock.picking.report_aeroo_generator.form</field>
+            <field name="priority" eval="40"/>
+            <field name="model">stock.picking</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="delivery.view_delivery_order_inherit_stock"/>
+            <field name="arch" type="xml">
+                <data>
+                    <button string="Delivery Order" position="replace">
+                        <button name="print_picking" type="object" string="Print Delivery Order" icon="gtk-print" states="done"/>
+                    </button>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

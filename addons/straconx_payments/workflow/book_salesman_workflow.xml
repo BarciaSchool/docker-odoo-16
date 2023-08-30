@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="workflow" id="book_salesman_workflow">
+			<field name="name">workflow.book.salesman</field>
+			<field name="osv">book.salesman</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<record id="act_draft_book" model="workflow.activity">
+			<field name="wkf_id" ref="book_salesman_workflow" />
+			<field name="flow_start">True</field>
+			<field name="name">draft</field>
+		</record>
+		
+		
+		<record id="act_open_book" model="workflow.activity">
+			<field name="wkf_id" ref="book_salesman_workflow" />
+			<field name="name">open</field>
+			<field name="kind">function</field>
+			<field name="action">action_open()</field>
+			<field name="split_mode">OR</field>
+		</record>
+
+		<record id="act_process_book" model="workflow.activity">
+			<field name="wkf_id" ref="book_salesman_workflow" />
+			<field name="name">process</field>
+			<field name="kind">function</field>
+			<field name="action">action_process()</field>
+			<field name="split_mode">OR</field>
+		</record>
+
+
+		<record id="act_missing_book" model="workflow.activity">
+			<field name="wkf_id" ref="book_salesman_workflow" />
+			<field name="name">missing</field>
+			<field name="kind">function</field>
+			<field name="action">action_missing()</field>
+		</record>
+
+		<record id="act_canceled_book" model="workflow.activity">
+			<field name="wkf_id" ref="book_salesman_workflow" />
+			<field name="name">canceled</field>
+			<field name="kind">function</field>
+			<field name="action">action_canceled()</field>
+		</record>
+		
+		<!-- Transitions -->
+		
+		<record id="draft_to_open_book" model="workflow.transition">
+			<field name="act_from" ref="act_draft_book" />
+			<field name="act_to" ref="act_open_book" />
+			<field name="signal">button_open</field>
+			<field name="condition">check_information()</field>
+		</record>
+		
+		<record id="open_to_process_book" model="workflow.transition">
+			<field name="act_from" ref="act_open_book" />
+			<field name="act_to" ref="act_process_book" />
+			<field name="signal">button_process</field>
+			<field name="condition">True</field>
+		</record>
+
+
+		<record id="open_to_missing_book" model="workflow.transition">
+			<field name="act_from" ref="act_open_book" />
+			<field name="act_to" ref="act_missing_book" />
+			<field name="signal">button_missing</field>
+			<field name="condition">True</field>
+		</record>
+
+		<record id="open_to_cancel_book" model="workflow.transition">
+			<field name="act_from" ref="act_open_book" />
+			<field name="act_to" ref="act_canceled_book" />
+			<field name="signal">button_canceled</field>
+			<field name="condition">True</field>
+		</record>
+		
+	</data>
+</openerp>

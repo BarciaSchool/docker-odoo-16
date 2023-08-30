@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+        
+	<!-- Transitions -->
+
+	<record id="straconx_credit_risk.trans_risk_router_to_router" model="workflow.transition">
+		<field name="act_from" ref="straconx_credit_risk.act_risk_router"/>
+		<field name="act_to" ref="sale.act_router"/>
+		<field name="condition">verify_state() and verify_auth()</field>
+	</record>
+	<record id="straconx_credit_risk.trans_risk_router_to_wait_risk_approval" model="workflow.transition">
+		<field name="act_from" ref="straconx_credit_risk.act_risk_router"/>
+		<field name="act_to" ref="straconx_credit_risk.act_wait_risk_approval"/>
+		<field name="condition">not verify_state() and verify_auth()</field>
+	</record>
+
+</data>
+</openerp>
+

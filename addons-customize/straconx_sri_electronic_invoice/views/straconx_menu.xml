@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>         
+
+		<menuitem id="sri_contingency" name="Claves de Contingencia"
+			parent="straconx_sri.account_sri_configuration" action="action_sri_contingency_view"
+			sequence="1" />
+<!-- 	Menu Finanzas -->
+		<menuitem id="menu_account_document" name="Documentos Electrónicos"
+			sequence="13" parent="account.menu_finance"
+			groups="account.group_account_manager,account.group_account_user" />
+
+		<menuitem action="ei_action_account_attachment" id="menu_ei_action_account_attachment"
+			sequence="1"
+			name="Documentos Autorizados" groups="account.group_account_manager,account.group_account_user"
+			parent="menu_account_document" />
+
+		<menuitem action="ei_action_account_noautorized" id="menu_ei_action_account_noautorized"
+			sequence="1"
+			name="Documentos No Autorizados" groups="account.group_account_manager,account.group_account_user"
+			parent="menu_account_document" />
+
+<!-- 	Menu POS -->
+		<menuitem id="menu_account_document_pos" name="Documentos Electrónicos"
+			sequence="13" parent="account.menu_point_root"
+			groups="base.group_pos_manager"/>
+
+		<menuitem action="ei_action_account_attachment" id="menu_ei_action_account_attachment_pos"
+			sequence="1"
+			name="Documentos Autorizados"
+			parent="menu_account_document_pos" />
+
+		<menuitem action="ei_action_account_noautorized" id="menu_ei_action_account_noautorized_pos"
+			sequence="1"
+			name="Documentos No Autorizados"
+			parent="menu_account_document_pos" />
+
+			
+    </data>
+</openerp>

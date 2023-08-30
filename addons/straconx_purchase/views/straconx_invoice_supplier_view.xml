@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_purchase.documents_supplier_form" model="ir.ui.view">
+			<field name="name">account.invoice.supplier.form</field>
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field name="priority">2</field>
+			<field name="arch" type="xml">
+				<form string="Supplier Invoice">
+					<group col="8" colspan="4">
+						<field name="shop_id" domain="[('company_id','=', company_id)]" on_change="onchange_shop(company_id, shop_id, type,context)" colspan="4" required="1" />
+						<field name="account_analytic_id" on_change="onchange_shop(company_id, shop_id, type,context)" required="1" />
+						<newline />
+						<field string="Supplier" name="partner_id"
+							domain="[('type_vat','not in',('ci','consumidor')),('supplier', '=', True)]"
+							on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)"
+							context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'form_view_ref':'straconx_purchase.view_res_supplier_partner_form_straconx'}"
+							options='{"quick_create": false}' />
+						<field domain="[('partner_id','=',partner_id)]" name="address_invoice_id"
+							context="{'default_partner_id': partner_id}" options='{"quick_create": false}'
+							colspan="4" />
+						<newline />
+						<field name="tpurchase"
+						on_change="onchange_type_document(document_type, type, tpurchase, context)"
+						required="1" />
+						<field name="electronic" string="Documento Electrónico"/>
+						<field name="date_invoice2"
+							on_change="onchange_date2(date_invoice2,company_id,context)"
+							context = "{'change_date':True, 'date_invoice':date_invoice}"
+							required="1" invisible="1"/>
+						<field name="date_invoice"
+							on_change="onchange_date2(date_invoice2,company_id,context)"
+							context = "{'change_date':True, 'date_invoice':date_invoice}"
+							required="1" />
+						<field name="date_due" />
+						<newline />						
+						<field name="invoice_number_in" required="1"
+							on_change="onchange_number_in(invoice_number_in,type,address_invoice_id,journal_id,origin_transaction,date_invoice,printer_id,shop_id,electronic,context)" />
+						<field name="authorization_purchase" 
+							attrs="{'invisible':['|',('electronic','=',True),('origin_transaction','=','internatoinal')],'required':[('electronic','!=',True),('origin_transaction','!=','international')]}"
+							on_change="onchange_auth_purchase(authorization_purchase,invoice_number_in,address_invoice_id,journal_id,date_invoice,electronic,context)"
+							domain="[('address_id','=',address_invoice_id),('state','=',1),('company_id','=',None)]"/>							
+						<field name="authorization"
+							attrs="{'invisible':[('electronic','!=',True)],'required':[('electronic','=',True)]}"
+							on_change="onchange_auth_purchase(authorization,invoice_number_in,address_invoice_id,journal_id,date_invoice,electronic,context)" 
+							domain="[('address_id','=',address_invoice_id),('state','=',1),('company_id','=',None)]"/>
+						<field name="access_key"
+							attrs="{'invisible':[('electronic','!=',True)]}"
+						/>
+						<newline />
+						<field name="payment_term" required="1" 
+						options="{&quot;quick_create&quot;: false}"/>
+						<field name="check_total" required="1" />
+						<newline />
+						<field
+							domain="[('company_id', '=', company_id), ('type', '=', 'payable')]"
+							name="account_id" groups="account.group_account_user" />
+						<field name="tax_sustent" required="1" />
+						<field name="check_total" required="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="Invoice">
+							<field colspan="4"
+								context="{'address_invoice_id': address_invoice_id, 'partner_id': partner_id, 'price_type': 'price_type' in dir() and price_type or False, 'type': type, 'tpurchase':tpurchase}"
+								name="invoice_line" nolabel="1" on_change="onchange_line_ids(invoice_line)">
+								<tree string="Invoice Line">
+									<field name="product_id"
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'tpurchase':parent.tpurchase}"
+										invisible="0" />									
+			                    	<field name="name" 
+				                    	on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'tpurchase':parent.tpurchase}"
+				                    	invisible="0"/>
+				                    <field name="categ_id"/>
+			                    	<field domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]" name="account_id" on_change="onchange_account_id(product_id, parent.partner_id, parent.type, parent.fiscal_position,account_id,name,parent.company_id,parent.shop_id, parent.currency_id)"/>
+			                    	<field name="quantity" on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}"/>
+			                    	<field name="uos_id" on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, parent.shop_id)"/>
+									<field name="price_product" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" invisible="0"/>
+			                    	<field name="discount" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}" invisible="0" />
+			                    	<field name="offer" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}" />
+			                    	<field name="price_unit" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}" invisible="0" />
+			                    	<field name="price_subtotal" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}" />
+			                    	<field name="margin" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" context="{'price_product': price_product, 'tpurchase':parent.tpurchase}" invisible="1"/>
+			                    	<field colspan="4" name="invoice_line_tax_id" invisible="1" />
+								</tree>
+								<form string="Invoice Line">
+									<field name="product_id"
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product,'invoice_line_tax_id': invoice_line_tax_id}" invisible="0" />
+									<field name="categ_id" />
+									<field colspan="4" name="name" 
+										on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id,context , parent.company_id,discount,offer, parent.shop_id)"
+										context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}"
+									/>
+									<field
+										domain="[('company_id', '=', parent.company_id), ('journal_id', '=', parent.journal_id), ('type', '&lt;&gt;', 'view')]"
+										name="account_id"
+										on_change="onchange_account_id(product_id,parent.partner_id,parent.type,parent.fiscal_position,account_id, name, parent.company_id, parent.shop_id, parent.currency_id)" />
+									<field
+										domain="[('type','&lt;&gt;','view'), ('company_id', '=', parent.company_id), ('parent_id', '!=', False)]"
+										name="account_analytic_id" groups="analytic.group_analytic_accounting" />
+									<label string="Quantity :" align="1.0" />
+									<group colspan="1" col="2">
+										<field name="quantity" nolabel="1"
+											on_change="product_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, discount, offer, parent.shop_id)"
+											 context="{'price_product': price_product, 'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}" />
+										<field name="uos_id"
+											on_change="uos_id_change(product_id, uos_id, quantity, name, parent.type, parent.partner_id, parent.fiscal_position, price_unit, parent.address_invoice_id, parent.currency_id, context ,parent.company_id, parent.shop_id)"
+											context="{'form_view_ref':'straconx_products.product_account_product_form_view','price_product': price_product, 'invoice_line_tax_id': invoice_line_tax_id}"
+											nolabel="1" />
+									</group>
+											<field name="employee_id" />
+											<field name="price_product"
+											on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)"
+											context="{'price_product': price_product, 'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}"
+										invisible="0" />
+									<field name="discount"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)"
+											context="{'price_product': price_product, 'tpurchase':parent.tpurchase, 'invoice_line_tax_id': invoice_line_tax_id}"
+										invisible="0" />
+									<field name="offer"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" 
+											context="{'price_product': price_product,'tpurchase':parent.tpurchase, 'invoice_line_tax_id': invoice_line_tax_id}"
+										/>
+									<field name="price_unit"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" 
+											context="{'price_product': price_product, 'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}"									
+										/>
+									<field name="price_subtotal"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" 
+											context="{'price_product': price_product,'tpurchase':parent.tpurchase, 'invoice_line_tax_id': invoice_line_tax_id}"
+										/>
+									<field name="margin"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" 
+											context="{'price_product': price_product,'tpurchase':parent.tpurchase, 'invoice_line_tax_id': invoice_line_tax_id}"									
+										/>
+									<field name="iva_value"
+										on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)" 
+											context="{'price_product': price_product,'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}"									
+										/>
+						 			<field name="company_id" groups="base.group_multi_company"
+										readonly="1" />
+									<separator colspan="4" string="Taxes" />
+									<field colspan="4" name="invoice_line_tax_id" context="{'price_product': price_product,'tpurchase':parent.tpurchase,'invoice_line_tax_id': invoice_line_tax_id}"
+										domain="[('parent_id','=',False),('company_id', '=', parent.company_id)]" on_change="onchange_offer(product_id, offer, quantity, price_unit,margin,price_product,discount,invoice_line_tax_id,price_iva)"
+										nolabel="1" />			
+								</form>								
+							</field>
+							<group col="4" colspan="4">
+								<group colspan="4" col="8">
+									<separator string="Invoice Information" colspan="8" />
+									<field name="state" />
+									<field name="pretotal" />
+									<field name="amount_untaxed"/>
+									<field name="amount_total_vat"/>
+									<field name="amount_total"/>
+									<field name="account_quantity"/>									
+									<field name="residual"/>
+								</group>
+							</group>
+						</page>
+						<page string="Tax Info">
+							<group colspan="3" col="6">
+								<separator string="Tax Information Withhold" colspan="6" />
+								<newline/>
+								<field name="amount_tax_withhold_vat" />
+								<field name="amount_tax_withhold" />
+								<field name="amount_tax_other" />
+							</group>
+							<newline/>							
+							<group col="2" colspan="4">
+								<field name="tax_line" nolabel="1">
+									<tree editable="bottom" string="Taxes">
+										<field name="name" />
+										<field name="account_id" groups="account.group_account_invoice" />
+										<field name="base"
+											on_change="base_change(base,parent.currency_id,parent.company_id,parent.date_invoice)"
+											readonly="1" />
+										<field name="amount"
+											on_change="amount_change(amount,parent.currency_id,parent.company_id,parent.date_invoice)" />
+										<field invisible="True" name="base_amount" />
+										<field invisible="True" name="tax_amount" />
+										<field name="factor_base" invisible="True" />
+										<field name="factor_tax" invisible="True" />
+									</tree>
+								</field>
+							</group>
+						</page>
+						<page string="Other Info">
+							<separator colspan="4" string="Tax Information" />
+							<field name="amount_base_vat_00" />
+							<field name="amount_base_vat_12" />
+							<field name="amount_base_vat_untaxes" />
+							<separator colspan="4" string="Invoice Information" />
+							<field name="origin_transaction" required="1" />
+							<field name="country_id"
+								attrs="{'required':[('origin_transaction','=','international')]}" />
+							<field domain="[('partner_id', '=', partner_id)]" name="partner_bank_id"
+								on_change="onchange_partner_bank(partner_bank_id)" />
+							<field name="company_id"
+								on_change="onchange_company_id(company_id,partner_id,type,invoice_line,date_invoice2,currency_id)"
+								widget="selection" groups="base.group_multi_company" />
+							<field name="segmento_id" widget="selection"></field>
+							<newline />
+							<field name="journal_id" on_change="onchange_journal_id(journal_id,context)" />
+							<field name="type" invisible="1" />
+							<field name="currency_id"/>
+							<field name="fiscal_position" widget="selection" />
+							<field name="name" />
+							<field name="period_id" domain="[('state', '=', 'draft'),('company_id','=',company_id)]"
+								groups="account.group_account_manager" />
+							<field name="origin" groups="base.group_extended" />
+							<field domain="[('partner_id','=',partner_id)]" name="address_contact_id"
+								groups="base.group_extended" />
+							<newline />
+							<field name="user_id" string="Buyer"/>
+							<field name="vat" />
+							<field name="move_id" groups="account.group_account_user" />
+							<field name="document_type" required="1"
+								on_change="onchange_type_document(document_type, type, tpurchase, context)" />
+							<field name="reconciled" invisible="1"/>
+							<separator colspan="4" string="Additional Information" />
+							<field colspan="4" name="comment" nolabel="1" />
+						</page>
+						<page string="Payments" groups="base.group_extended,account.group_account_manager">
+							<field name="payment_ids" colspan="4" nolabel="1">
+								<tree string="Payments">
+									<field name="date" string="Payment Date" />
+									<field name="ref" />
+									<field name="name" groups="base.group_extended" />
+									<field name="journal_id" />
+									<field name="debit" />
+									<field name="credit" />
+									<field name="amount_currency" groups="base.group_extended" />
+									<field name="currency_id" groups="base.group_extended" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>

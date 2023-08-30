@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="view_partner_form_straconx_orders" model="ir.ui.view">
+            <field name="name">res.partner.orders.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+            <form string="Partners" col='6'>
+                 <field name="name" colspan="4" select="1"/>
+                 <field name="vat" required="True" select="1"/>
+                 <newline/>
+                 <field name="comercial" colspan="4" select="2"/>
+                 <field name="ref"/>
+                 <notebook colspan="4">
+                    <page string="General">
+                        <field name="address" mode="form,tree" colspan="4" nolabel="1" select="1">
+                            <form string="Address">
+                                <group colspan="4" col="6">
+                                <field name="name"/>
+                                    </group>
+                                    <newline/>
+                                      <group colspan="2" col="4">
+                                        <separator string="Postal Address" colspan="4" col="4" />
+                                        <field name="type" string="Type" colspan="2"/>
+                                        <field name="street" colspan="4"/>
+                                        <field name="salesman_assigned" colspan="4" />
+                                        <field name="collect_assigned" colspan="4" />
+                                        <field name="location_id" colspan="4" />
+                                     </group>
+                                     <group colspan="2" col="2">
+                                        <separator string="Communication" colspan="2" col="2" />
+                                        <field name="phone"/>
+                                        <field name="mobile"/>
+                                        <field name="fax"/>
+                                        <field name="email" widget="email"/>
+                                     </group>
+                                <field name="contact_ids" mode="tree,form" nolabel="1"
+										colspan="4">
+										<tree string="Contacts">
+											<field name="name" />
+											<field name="first_name" />
+											<field name="vat" />
+											<field name="title" widget="selection" />
+											<field name="mobile" />
+											<field name="email" />
+											<field name="lang_id" />
+											<field name="partner_id" invisible="1" />
+											<field name="country_id" />
+										</tree>
+									</field>
+                            </form>
+                            <tree string="Addresses">
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="street"/>
+                                <field name="location_id"/>
+                                <field name="phone"/>
+                                <field name="email"/>                               
+                            </tree>
+                        </field>
+                   </page>   
+                   <page string="Information">
+                        <separator string="Status" colspan="4"/>
+                        <field name="customer" select="1"/>
+                        <field name="supplier"/>
+                        <field name="employee"/>
+                        <field name="active" groups="base.group_extended"/>
+                        <separator string="General Information" colspan="4"/>
+                        <field name="website" widget="url"/>
+                        <field name="date"/>
+                        <field name="lang" required="True"/>
+                        <newline/>
+                        <field name="category_id"/>                        
+                    </page>
+                    <page string="History" groups="base.group_extended" invisible="True">
+                    </page>
+                    <page string="Notes">
+                        <field colspan="4" name="comment" nolabel="1"/>
+                    </page>
+                 </notebook>
+            </form>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

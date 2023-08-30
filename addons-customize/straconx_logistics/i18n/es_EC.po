@@ -1,0 +1,2818 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_logistics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-21 07:12+0000\n"
+"PO-Revision-Date: 2013-02-21 07:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_logistics
+#: field:stock.inventory.motive,code:0
+msgid "code"
+msgstr "Código"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_make_procurement
+msgid "Make Procurements"
+msgstr "Solicitar abastecimiento"
+
+#. module: straconx_logistics
+#: view:product.product:0
+msgid "Product Locations"
+msgstr "Ubicación de Productos"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Set to draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_logistics
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_delivery_grid_line
+msgid "Delivery Grid Line"
+msgstr "Línea cuadrícula envío"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Local del Cliente"
+msgstr "Local del Cliente"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,incoming_qty:0
+msgid "Incoming Qty"
+msgstr "Cantidades de Entrada"
+
+#. module: straconx_logistics
+#: field:delivery.grid,line_ids:0
+msgid "Grid Line"
+msgstr "Línea de Precios del Transportista"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Picking list"
+msgstr "Lista Movimientos"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_move_scrap
+msgid "Scrap Products"
+msgstr "Productos Desperdicio/Chatarra"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+#: view:stock.picking:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: straconx_logistics
+#: field:stock.delivery,number:0
+msgid "Guide Number"
+msgstr "Número"
+
+#. module: straconx_logistics
+#: field:delivery.carrier,no_driver:0
+msgid "No required Driver"
+msgstr "No requiere conductor"
+
+#. module: straconx_logistics
+#: view:delivery.grid:0
+#: field:delivery.grid,country_ids:0
+msgid "Countries"
+msgstr "Países"
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+msgid "Bodega"
+msgstr "Bodega"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:456
+#, python-format
+msgid "Missing partial picking data for move #%s"
+msgstr "Lista de despacho parcial no disponible para el movimiento #%s"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,variable_factor:0
+msgid "Variable Factor"
+msgstr "Factor Variable"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:282
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:299
+#, python-format
+msgid "Your user need a shop for continue."
+msgstr "Su usuario requiere que se le asigne una tienda para continuar."
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery orders to invoice"
+msgstr "Guías de Remisión para facturar"
+
+#. module: straconx_logistics
+#: help:stock.invoice.incoming,invoice_number_in:0
+msgid "Unique number of the invoice."
+msgstr "Número único de factura."
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Assigned Delivery Orders"
+msgstr "Ordenes de Entrega asignadas"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_refund_motives_form
+msgid "Refund Motives"
+msgstr "Motivos"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex,ubication_id:0
+#: view:product.ubication:0
+#: field:product.ubication,ubication_id:0
+#: view:stock.picking:0
+#: field:ubication,location_id:0
+msgid "Ubication"
+msgstr "Ubicación"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,print_status_dn:0
+#: field:stock.picking,print_status:0
+#: field:stock.picking,print_status_dn:0
+msgid "Print Status"
+msgstr "Estado de Impresión"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,price_type:0
+msgid "Fixed"
+msgstr "Fijo"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/stock_invoice_incoming.py:70
+#, python-format
+msgid "Warning !"
+msgstr "¡Precaución!"
+
+#. module: straconx_logistics
+#: help:ubication,name:0
+msgid "Ubication: location+ rack + row + case"
+msgstr "Ubicación: Bodega + Percha + Fila + Columnas"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Counting Inventory"
+msgstr "Conteo de Productos"
+
+#. module: straconx_logistics
+#: field:stock.inventory,reference:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Convert Backorder"
+msgstr "Convertir Backorder"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_ubications_form
+#: model:ir.model,name:straconx_logistics.model_ubication
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_ubications_form_str
+#: model:ir.ui.menu,name:straconx_logistics.menu_ubications
+#: field:product.product,ubication_ids:0
+#: view:ubication:0
+msgid "Ubications"
+msgstr "Direcciones"
+
+#. module: straconx_logistics
+#: field:account.invoice,carrier_tracking_ref:0
+#: field:stock.invoice.incoming,carrier_tracking_ref:0
+#: field:stock.invoice.onshipping,carrier_tracking_ref:0
+#: field:stock.picking,carrier_tracking_ref:0
+msgid "Carrier Tracking Ref"
+msgstr "Guía de Transporte"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_internal_in
+msgid "Internal IN Pickings"
+msgstr "Recepción de Transferencia"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_stock_shop
+#: view:stock.shop:0
+msgid "Stock Shop"
+msgstr "Inventario por Tiendas"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "More Filters"
+msgstr "Filtros adicionales"
+
+#. module: straconx_logistics
+#: view:delivery.grid.line:0
+msgid "Grid Lines"
+msgstr "Líneas de la cuadrícula"
+
+#. module: straconx_logistics
+#: field:stock.picking,address_partner:0
+msgid "Address_partner"
+msgstr "Dirección de Empresa"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:106
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:110
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:112
+#: code:addons/straconx_logistics/objects/straconx_stock.py:185
+#: code:addons/straconx_logistics/objects/straconx_stock.py:187
+#: code:addons/straconx_logistics/objects/straconx_stock.py:194
+#: code:addons/straconx_logistics/objects/straconx_stock.py:198
+#: code:addons/straconx_logistics/objects/straconx_stock.py:286
+#: code:addons/straconx_logistics/objects/straconx_stock.py:292
+#: code:addons/straconx_logistics/objects/straconx_stock.py:328
+#: code:addons/straconx_logistics/objects/straconx_stock.py:442
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:579
+#, python-format
+msgid "Warning!"
+msgstr "¡Aviso!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/stock_invoice_incoming.py:156
+#: code:addons/straconx_logistics/wizard/stock_invoice_onshipping.py:84
+#, python-format
+msgid "No Invoices were created"
+msgstr "No se han creado facturas"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_res_partner
+#: view:lost.sales:0
+#: view:stock.picking:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_logistics
+#: help:product.product,height:0
+msgid "Define the height of product to occupy on the ubication of the Location"
+msgstr "Define el alto del producto que ocupa en la ubicación dentro del Almacén"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_internal
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_internal_out
+msgid "Internal Moves display all inventory operations you\n"
+"				have to perform in your warehouse. All operations can be categorized\n"
+"				into stock journals, so that each worker has his own list of\n"
+"				operations to perform in his own journal. Most operations are\n"
+"				prepared automatically by OpenERP according to your preconfigured\n"
+"				logistics rules, but you can also record manual stock operations.\n"
+"			"
+msgstr "Internal Moves display all inventory operations you\n"
+"				have to perform in your warehouse. All operations can be categorized\n"
+"				into stock journals, so that each worker has his own list of\n"
+"				operations to perform in his own journal. Most operations are\n"
+"				prepared automatically by OpenERP according to your preconfigured\n"
+"				logistics rules, but you can also record manual stock operations.\n"
+"			"
+
+#. module: straconx_logistics
+#: field:stock.delivery,digiter_id:0
+#: field:stock.picking,digiter_id:0
+msgid "Digiter"
+msgstr "Usuario Dígitador"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:81
+#, python-format
+msgid "Can not %s draft/proforma/cancel invoice."
+msgstr "No se puede devolver la factura %s en estado borrador, proforma o cancelada."
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+msgid "Search Ubication Products"
+msgstr "Buscar Ubicación de Productos"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Consigment Picking list"
+msgstr "Pickinglist de Consignación"
+
+#. module: straconx_logistics
+#: field:product.product,long:0
+#: field:ubication,long_ubication:0
+msgid "Long"
+msgstr "Largo"
+
+#. module: straconx_logistics
+#: field:stock.delivery,state:0
+#: view:stock.picking:0
+#: field:stock.picking.user,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+msgid "Accounting Information"
+msgstr "Información Contable"
+
+#. module: straconx_logistics
+#: help:stock.delivery,number:0
+msgid "Unique number of the delivery guide, computed automatically when the invoice is created."
+msgstr "Número único de la guía de remisión, definido automáticamente cuando la factura es creada."
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Export Count"
+msgstr "Exportar Conteo"
+
+#. module: straconx_logistics
+#: field:lost.sales,uom_id:0
+msgid "UOM"
+msgstr "UdM"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_internal
+msgid "Internal In Orders"
+msgstr "Recepción de Transferencias"
+
+#. module: straconx_logistics, stock
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_internal_confirm_form
+msgid "Confirm Transfer Orders"
+msgstr "Solicitud de Transferencia"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/stock_fill_inventory.py:196
+#, python-format
+msgid "No product in this location."
+msgstr "No existe el producto en esta ubicación que cumplan con los parámetros de búsqueda."
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,grid_id:0
+msgid "Grid"
+msgstr "Matriz"
+
+#. module: straconx_logistics
+#: field:stock.inventory.line,transaction:0
+msgid "Transaction Result"
+msgstr "Resultado de Transacción"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:268
+#, python-format
+msgid "No Shop!"
+msgstr "Sin tienda!"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,dn_invoiced:0
+#: field:stock.picking,dn_invoiced:0
+msgid "Is invoiced?"
+msgstr "¿Fue facturada?"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_supplier_invoices
+msgid "Supplier Invoices to Receive"
+msgstr "Facturas proveedor a recibir"
+
+#. module: straconx_logistics
+#: field:account.invoice,picking_id:0
+msgid "Picking Id"
+msgstr "# Picking"
+
+#. module: straconx_logistics
+#: field:product.ubication,shop_ubication_id:0
+#: field:ubication,shop_ubication_id:0
+msgid "Shop location"
+msgstr "Tienda asignada"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:201
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:204
+#, python-format
+msgid "the products need a ubication in warehouse. "
+msgstr "El producto necesita una ubicación en la bodega."
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:229
+#, python-format
+msgid "You can not cancel inventory which has any account move with posted state."
+msgstr "No se puede cancelar inventarios que tiene movimientos contables aprobados."
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_internal
+msgid "Internal Moves"
+msgstr "Movimientos internos"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_delivery_guide
+#: view:stock.delivery:0
+#: field:stock.picking,delivery_guide_id:0
+msgid "Delivery Guide"
+msgstr "Guía de Remisión"
+
+#. module: straconx_logistics
+#: view:product.product:0
+msgid "dimensions that occupy on Ubication"
+msgstr "Dimensiones del producto en la Ubicación"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_excel_log_id
+msgid "Export Excel Inventory Report"
+msgstr "Exportar Reporte de Inventario a Excel"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.incoming,type_journal:0
+msgid "Purchase Liquidation"
+msgstr "Liquidación de Compras"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Export Inventory Moves"
+msgstr "Exportar Movimientos de Inventarios"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+msgid "Additional Information"
+msgstr "Información Adicional"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+#: field:lost.sales,categ_id:0
+#: field:product.ubication,categ_id:0
+#: field:stock.fill.inventory,categ_id:0
+#: field:stock.inventory,categ_id:0
+#: field:stock.inventory.line,categ_id:0
+#: view:stock.move:0
+#: field:stock.move,categ_id:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:95
+#, python-format
+msgid "No grid available !"
+msgstr "¡No existe matriz de precios disponible!"
+
+#. module: straconx_logistics
+#: field:stock.picking,invoice_later:0
+msgid "Invoice Later?"
+msgstr "¿Facturar posteriormente?"
+
+#. module: straconx_logistics
+#: view:stock.invoice.incoming:0
+msgid "SRI Information"
+msgstr "Información SRI"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Posted Inventory"
+msgstr "Inventario enviado"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:194
+#, python-format
+msgid "The Partner doesn't have a consignement location defined!"
+msgstr "¡La Empresa no tiene una ubicación de consignación definida!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Move Information"
+msgstr "Información de movimiento"
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+msgid "Categoria"
+msgstr "Categoría"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_product_kardex
+#: model:ir.ui.menu,name:straconx_logistics.st_product_kardex_form
+#: field:product.stock.kardex.line,kardex_id:0
+msgid "Kardex"
+msgstr "Kardex"
+
+#. module: straconx_logistics
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,warehouse_id_delivery:0
+#: field:stock.picking,warehouse_id:0
+#: field:stock.picking,warehouse_id_delivery:0
+msgid "Warehouse Grocer"
+msgstr "Usuario Despachador"
+
+#. module: straconx_logistics
+#: field:account.invoice,driver_int:0
+#: field:stock.invoice.onshipping,driver_int:0
+#: field:stock.picking,driver_int:0
+msgid "Driver"
+msgstr "Conductor"
+
+#. module: straconx_logistics
+#: selection:stock.inventory.line,transaction:0
+#: field:stock.picking,internal_out:0
+msgid "OUT"
+msgstr "Salida"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Linea de inventario"
+
+#. module: straconx_logistics
+#: field:stock.move,move_id:0
+msgid "Reference Account Move"
+msgstr "Movimiento contable"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:140
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:163
+#, python-format
+msgid "Invalid action!"
+msgstr "Acción Inválida!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:217
+#, python-format
+msgid "The internal picking in already be in state done, please cancel this picking"
+msgstr "El picking interno se encuentra en estado realizado, por favor cancelar este picking"
+
+#. module: straconx_logistics
+#: field:make.procurement,location_dest_id:0
+#: field:stock.picking.user,location_dest_id:0
+msgid "Location destination"
+msgstr "Locación de Destino"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,flag:0
+#: field:stock.invoice.onshipping,flag:0
+msgid "flag"
+msgstr "flag"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:85
+#, python-format
+msgid "You must defined location Origin and destination, please check."
+msgstr "Usted debe definir un ubicación de origen y destino. Por favor, revisar."
+
+#. module: straconx_logistics
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr "¡La referencia debe ser única por Compañia!"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,max_value:0
+msgid "Maximum Value"
+msgstr "Valor Máximo"
+
+#. module: straconx_logistics
+#: field:lost.sales,qty:0
+#: field:stock.inventory.line,product_amount:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Process Now"
+msgstr "Procesar Ahora"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_picking_cancel_tree
+msgid "Cancel Orders"
+msgstr "Órdenes Canceladas"
+
+#. module: straconx_logistics
+#: field:product.product,height:0
+#: field:ubication,height:0
+msgid "Height"
+msgstr "Alto"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_refund_invoices
+msgid "Refund Invoices"
+msgstr "Devolución de Facturas"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_delivery_guide.py:60
+#, python-format
+msgid "Need a authorization for create delivery guide."
+msgstr "Requiere una autorización del SRI para crear la guía de remisión."
+
+#. module: straconx_logistics
+#: field:delivery.carrier,partner_id:0
+msgid "Carrier Partner"
+msgstr "Empresa"
+
+#. module: straconx_logistics
+#: view:res.partner:0
+msgid "Sales & Purchases"
+msgstr "Ventas & Compras"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/stock_invoice_incoming.py:70
+#, python-format
+msgid "Either there are no moves linked to the picking or Accounting Journals are misconfigured!"
+msgstr "No existe movimientos relacionados al picking o el Diario contable se encuentra mal configurado!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+#: field:stock.picking,segmento_id:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_logistics
+#: field:stock.picking,date_expected:0
+msgid "Scheduled Date"
+msgstr "Fecha Programada"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Validate Inventory"
+msgstr "Validar inventario"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_delivery_notes_tree
+msgid "Sent Delivery Notes"
+msgstr "Enviar Guías de Remisión"
+
+#. module: straconx_logistics
+#: help:delivery.carrier,active:0
+msgid "If the active field is set to False, it will allow you to hide the delivery carrier without removing it."
+msgstr "Si el campo 'Activo' se encuentra desmarcado, oculta el costo del transportista sin que sea removido."
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.lost_sales_logistic_menu
+#: model:ir.ui.menu,name:straconx_logistics.lost_sales_purchase_menu
+#: model:ir.ui.menu,name:straconx_logistics.lost_sales_sales_menu
+msgid "lost sales"
+msgstr "Ventas Pérdidas"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_delivery_grid_form
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_delivery_grid_form
+msgid "Delivery Pricelist"
+msgstr "Tarifas de envío"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,journal_id_delivery:0
+#: field:stock.invoice.incoming,journal_id:0
+#: field:stock.picking,journal_id_delivery:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,type:0
+#: selection:delivery.grid.line,variable_factor:0
+msgid "Weight * Volume"
+msgstr "Peso * Volume"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Export and Observations"
+msgstr "Exportar Observaciones"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:117
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:158
+#, python-format
+msgid "You must create location type transit by the transfers."
+msgstr "Usted debe crear un ubicación tipo 'Tránsito' para transferencias."
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:161
+#, python-format
+msgid "The Shop must be a Cash Box assigned with authorization for Delivery Journals"
+msgstr "La Tienda debe tener una Caja asignada con una autorización para las guías de remisión"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_product_stock_kardex_line
+msgid "product.stock.kardex.line"
+msgstr "Línea de Kárdex"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Invoice State"
+msgstr "Estado de facturación"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Back Orders"
+msgstr "Back Orders"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_make_procurment_wizard
+msgid "Make Procurement"
+msgstr "Crear abastecimiento"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:220
+#, python-format
+msgid "Need a shop with a central warehouse."
+msgstr "Necesita una tienda con Bodega Central asignada."
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:106
+#, python-format
+msgid "You must choose a date in the stock inventory!"
+msgstr "¡Usted debe elegir una fecha en el inventario!"
+
+#. module: straconx_logistics
+#: view:product.product:0
+msgid "Product locations"
+msgstr "Ubicación de Productos"
+
+#. module: straconx_logistics
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_moves_excel_id
+#: view:stock.inventory:0
+msgid "Export Account Moves"
+msgstr "Exportar Movimientos Contables"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_internal_out
+msgid "Internal OUT Pickings"
+msgstr "Envío de Transferencia"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,price_type:0
+msgid "Price Type"
+msgstr "Tipo de Precio"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_invoice_incoming
+msgid "stock.invoice.incoming"
+msgstr "Recepción de Compras"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_product_stock_kardex
+msgid "product.stock.kardex"
+msgstr "Kárdex"
+
+#. module: straconx_logistics
+#: field:product.ubication,codant:0
+msgid "CodAnt"
+msgstr "Cod. Ant."
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_shop
+msgid "stock.shop"
+msgstr "Inventario por Tienda"
+
+#. module: straconx_logistics
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La cédula / RUC específicada ya existe para otra empresa registrada."
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,operator:0
+msgid ">="
+msgstr ">="
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_print_id
+#: view:stock.inventory:0
+msgid "Print Inventory Sheet"
+msgstr "Imprimir Hoja de Inventario"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Physical Inventory"
+msgstr "Inventario Físico"
+
+#. module: straconx_logistics
+#: field:stock.shop,total:0
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+#: view:ubication:0
+msgid "Products assigned"
+msgstr "Productos asignados"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.incoming,tpurchase:0
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_sale
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_technical
+msgid "Shop Stock"
+msgstr "Inventario por Tienda"
+
+#. module: straconx_logistics
+#: field:stock.delivery,date:0
+msgid "Delivery Guide date"
+msgstr "Fecha de la guía de remisión"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,ubication_id_init:0
+msgid "Init Ubication"
+msgstr "Ubicación Inicial"
+
+#. module: straconx_logistics
+#: view:stock.invoice.incoming:0
+msgid "Receiver"
+msgstr "Receptor"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:292
+#, python-format
+msgid "The number of lost sales can not be more the request of the move!"
+msgstr "¡La cantidad de la venta pérdida no puede ser mayor al requerido en el movimiento!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:228
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:238
+#: code:addons/straconx_logistics/objects/straconx_stock.py:240
+#: code:addons/straconx_logistics/objects/straconx_stock.py:257
+#, python-format
+msgid "UserError"
+msgstr "Error de Usuario"
+
+#. module: straconx_logistics
+#: model:product.category,name:straconx_logistics.categ_transporte
+msgid "TRANSPORTE"
+msgstr "TRANSPORTE"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:381
+#, python-format
+msgid "Products to Process"
+msgstr "Producto para Procesar"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:241
+#, python-format
+msgid "You can only delete draft moves."
+msgstr "Solo se pueden eliminar movimientos en borrador."
+
+#. module: straconx_logistics
+#: sql_constraint:ubication:0
+msgid "Error! Long must be greater than 0."
+msgstr "Error! Largo debe ser mayor que 0."
+
+#. module: straconx_logistics
+#: view:delivery.auth.wizard:0
+#: view:stock.invoice.incoming:0
+#: view:stock.picking:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: straconx_logistics
+#: field:delivery.grid,name:0
+msgid "Grid Name"
+msgstr "Matriz del Transportista"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:198
+#, python-format
+msgid "The shop doesn't have a stock location defined!"
+msgstr "¡La tienda no tiene una bodega definida!"
+
+#. module: straconx_logistics
+#: field:stock.picking,weight_net:0
+msgid "Net Weight"
+msgstr "Peso Neto"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,type:0
+#: field:stock.invoice.onshipping,type:0
+#: field:stock.picking.user,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_logistics
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "¡La dirección seleccionada solo puede tener una tienda asignada!"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_delivery_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_all_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_backorder_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_cancel_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_in_all_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_in_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_later_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_pos_done_tree
+#: model:ir.actions.act_window,help:straconx_logistics.straconx_action_picking_tree
+msgid "This is the list of all delivery orders that have\n"
+"				to be prepared, according to your different sales orders and your\n"
+"				logistics rules.\n"
+"			"
+msgstr "This is the list of all delivery orders that have\n"
+"				to be prepared, according to your different sales orders and your\n"
+"				logistics rules.\n"
+"			"
+
+#. module: straconx_logistics
+#: view:delivery.grid:0
+msgid "Grid definition"
+msgstr "Definición de la cuadrícula"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_picking_user
+msgid "stock.picking.user"
+msgstr "Inventario por tienda"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Are you sure to BackOrder the Items marked?"
+msgstr "¿Se encuentra seguro de convertir en Backorders los productos marcados?"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "General Informations"
+msgstr "Información general"
+
+#. module: straconx_logistics
+#: selection:stock.inventory.line,transaction:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,printer_id:0
+#: field:stock.invoice.incoming,printer_id:0
+#: field:stock.picking,printer_id:0
+msgid "Printer Point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.report_picking_list
+msgid "Print Pickinglist"
+msgstr "Imprimir Lista de Despacho"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Order Date"
+msgstr "Fecha de orden"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:979
+#, python-format
+msgid "the carrier does not have a product selected by default!"
+msgstr "¡El transportista no tiene seleccionado un producto predeterminado de transporte!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:286
+#, python-format
+msgid "Please provide a positive quantity to scrap!"
+msgstr "Por favor, ingrese una cantidad positiva para eliminar!"
+
+#. module: straconx_logistics
+#: sql_constraint:stock.inventory.line:0
+msgid "This product already exists in this ubication for this inventory, please check"
+msgstr "Este producto ya existe en la ubicación para este inventario, por favor revisar."
+
+#. module: straconx_logistics
+#: selection:stock.invoice.incoming,tpurchase:0
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_delivery_guides
+msgid "Delivery Guides"
+msgstr "Guías de Remisión"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,transfer_qty:0
+msgid "Transfer Qty"
+msgstr "Cant. Transferida"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "All Delivery Orders"
+msgstr "Todas las Órdenes"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:83
+#, python-format
+msgid "Can not %s invoice which is already reconciled, invoice should be unreconciled first. You can only Refund this invoice"
+msgstr "No se puede abrir la factura %s que se encuentra reconciliada, solo puede crear una devolución de la misma."
+
+#. module: straconx_logistics
+#: view:product.stock.kardex:0
+msgid "Kardex Move"
+msgstr "Movimiento de Kardex"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "My POS Sales"
+msgstr "Mis Ventas POS"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Is a Back Order"
+msgstr "Es un BackOrder?"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.delivery_report_log_id
+msgid "Print Delivery Guide not invoiced"
+msgstr "Imprimir Guía de Remisión"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+#: view:stock.picking:0
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.onshipping,type:0
+msgid "Sending Goods"
+msgstr "Enviar productos"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_delivery_guide.py:65
+#, python-format
+msgid "Need a picking for create delivery guide."
+msgstr "Requiere un picking list para crear la guía de remisión."
+
+#. module: straconx_logistics
+#: view:delivery.grid:0
+msgid "Delivery grids"
+msgstr "Cuadrículas de envío"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,delivery_status:0
+#: field:stock.picking,delivery_status:0
+msgid "Delivery Status"
+msgstr "Estado de Despacho"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Cancel Availability"
+msgstr "Cancelar disponibilidad"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery Notes"
+msgstr "Guía de Remisión"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:66
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:98
+#, python-format
+msgid "Order not in draft state !"
+msgstr "¡La orden no se encuentra en estado borrador!"
+
+#. module: straconx_logistics
+#: sql_constraint:ubication:0
+msgid "Error! Height must be greater than 0."
+msgstr "Error! Alto debe ser mayor que 0."
+
+#. module: straconx_logistics
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código debe ser único"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_invoice_onshipping
+msgid "Stock Invoice Onshipping"
+msgstr "Factura de Stock en el envío"
+
+#. module: straconx_logistics
+#: selection:stock.move.scrap,type_lost:0
+msgid "Another Warehouse"
+msgstr "En otra bodega"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_inventory_motive_form
+msgid "Inventory Motive"
+msgstr "Motivo de Inventario"
+
+#. module: straconx_logistics, product
+#: view:stock.shop:0
+msgid "New Arrivals"
+msgstr "Nuevos Productos"
+
+#. module: straconx_logistics
+#: view:stock.shop:0
+msgid "Only with Stock"
+msgstr "Solo con Inventario disponible"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_logistics
+#: field:lost.sales,partner_id:0
+msgid "Client"
+msgstr "Cliente"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_shop.py:126
+#, python-format
+msgid "You must defined a shop for your user."
+msgstr "Debe definir una tienda para su usuario."
+
+#. module: straconx_logistics
+#: help:product.product,width:0
+msgid "Define the width of product to occupy on the ubication of the Location"
+msgstr "Define el ancho que el producto ocupa en la ubicación dentro de la bodega"
+
+#. module: straconx_logistics
+#: help:delivery.auth.wizard,authorization_id:0
+#: help:stock.delivery,authorization_id:0
+#: help:stock.picking,authorization_id:0
+msgid "This Number is necesary for SRI reports"
+msgstr "Este número es requerido para reportes del SRI"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,delivery_qty:0
+msgid "Delivery Qty"
+msgstr "Cant. Envíada"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Split in production lots"
+msgstr "Dividir en lotes de producción"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_location
+#: field:product.stock.kardex,location_id:0
+#: field:product.ubication,location_ubication_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_picking_done_tree
+msgid "Done Orders"
+msgstr "Órdenes para facturar"
+
+#. module: straconx_logistics
+#: sql_constraint:stock.inventory.motive:0
+msgid "The code of the motive must be unique per company !"
+msgstr "¡El código del motivo debe ser único por compañía!"
+
+#. module: straconx_logistics
+#: selection:stock.move.scrap,type_lost:0
+msgid "Other"
+msgstr "Otros"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Process Later"
+msgstr "Procesar Después"
+
+#. module: straconx_logistics
+#: view:delivery.auth.wizard:0
+msgid "Internal Info"
+msgstr "Información Interna"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_done
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_pos_done_tree
+msgid "Invoice / Sent Delivery Orders"
+msgstr "Órdenes para facturar"
+
+#. module: straconx_logistics
+#: field:product.ubication,qty:0
+msgid "Qty Product"
+msgstr "Cantidad"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:95
+#, python-format
+msgid "No grid matching for this carrier !"
+msgstr "¡No existen listas de precios para este transportista!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "To Sent"
+msgstr "A Enviar"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,invoice_number_in:0
+msgid "Invoice Number"
+msgstr "Número"
+
+#. module: straconx_logistics
+#: field:stock.shop,create_date_product:0
+msgid "Create Date"
+msgstr "Fecha de Creación"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:187
+#, python-format
+msgid "You must first choose a Shop!"
+msgstr "Debe seleccionar primero una tienda!"
+
+#. module: straconx_logistics
+#: selection:delivery.auth.wizard,delivery_status:0
+#: selection:stock.delivery,state:0
+#: selection:stock.picking,delivery_status:0
+msgid "Sent"
+msgstr "Enviado"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:165
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:239
+#, python-format
+msgid "The quantity of the product %s exceed the available capacity at the location %s"
+msgstr "La cantidad del producto %s excede la capacidad disponible de la ubicación %s"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_delivery.py:162
+#, python-format
+msgid "No line matched this order in the choosed delivery grids !"
+msgstr "¡No existen líneas que coincidan con los precios de los transportistas!"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_fill_inventory
+msgid "Import Inventory"
+msgstr "Importar Inventario"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:268
+#, python-format
+msgid "Location need a shop for continue. Assign a shop.."
+msgstr "La bodega requiere una tienda para continuar. Por favor, asigne una tienda."
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,name:0
+#: field:product.ubication,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Internal Pickings Invoiced"
+msgstr "Picking facturados"
+
+#. module: straconx_logistics
+#: view:account.invoice:0
+msgid "Logistics Information"
+msgstr "Información Logística"
+
+#. module: straconx_logistics
+#: sql_constraint:ubication:0
+msgid "Error! Ubications name are uniques"
+msgstr "¡Error! La ubicación debe ser única"
+
+#. module: straconx_logistics
+#: view:stock.inventory.motive:0
+msgid "Motive Inventory"
+msgstr "Motivo del Inventario"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+msgid "form_string"
+msgstr "Formulario"
+
+#. module: straconx_logistics
+#: field:account.invoice,more_information:0
+#: field:delivery.carrier,more_information:0
+#: field:stock.picking,more_information:0
+msgid "More Information"
+msgstr "Información Adicional"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_dif_id
+msgid "Print Inventory Count"
+msgstr "Imprimir Conteo del Inventario"
+
+#. module: straconx_logistics
+#: view:sale.shop:0
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: straconx_logistics
+#: view:stock.invoice.incoming:0
+msgid "Delivery Purchase Info"
+msgstr "Información del Envío"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_moves_id
+#: view:stock.inventory:0
+msgid "Print Account Moves"
+msgstr "Imprimir Movimientos Contables"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:73
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:87
+#, python-format
+msgid "the products exceed the capacity of the ubication %s"
+msgstr "Los productos exceden la capacidad de la ubicación %s"
+
+#. module: straconx_logistics
+#: field:stock.move.scrap,type_lost:0
+msgid "Type Lost"
+msgstr "Tipo de Pérdida"
+
+#. module: straconx_logistics
+#: field:make.procurement,shop_id_dest:0
+#: field:stock.picking,shop_id_dest:0
+msgid "Shop Destiny"
+msgstr "Tienda Destino"
+
+#. module: straconx_logistics
+#: field:stock.move,weight_net:0
+msgid "Net weight"
+msgstr "Peso Neto"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_customer_refund
+msgid "Customer Refund Invoices"
+msgstr "Notas de Crédito de Clientes"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+#: view:product.ubication:0
+#: view:stock.picking:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_logistics
+#: view:stock.location:0
+msgid "Chained Locations"
+msgstr "Ubicaciones encadenadas"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,tpurchase:0
+msgid "Purchase type"
+msgstr "Tipo de Compra"
+
+#. module: straconx_logistics, stock
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_in_all_tree
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_picking_all_tree
+msgid "All Orders"
+msgstr "Todos las Órdenes"
+
+#. module: straconx_logistics, stock
+#: model:ir.ui.menu,name:stock.menu_action_picking_tree
+msgid "Waiting Orders"
+msgstr "Órdenes para despachar"
+
+#. module: straconx_logistics, stock
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_internal_transfer
+msgid "Internal Confirm Transfer Pickings"
+msgstr "Solicitud de Transferencias"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Print Count"
+msgstr "Imprimir Conteo"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex,categ_id:0
+#: field:product.stock.kardex.line,categ_id:0
+msgid "Brand"
+msgstr "Marca"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_logistics
+#: view:res.partner:0
+msgid "Deliveries Properties"
+msgstr "Propiedades de Envíos"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Are you sure to cancel this picking ?"
+msgstr "¿Se encuentra seguro de cancelar este picking?"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_picking_tree4
+msgid "Picking to be invoiced"
+msgstr "Pickinglist para ser facturado"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_lost_sales
+msgid "lost.sales"
+msgstr "Ventas Pérdidas"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Products "
+msgstr "Productos "
+
+#. module: straconx_logistics
+#: help:delivery.grid,sequence:0
+msgid "Gives the sequence order when displaying a list of delivery grid."
+msgstr "Obtiene la secuencia cuando se muestra una lista de la red de despacho."
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_view_product
+#: field:lost.sales,product_id:0
+msgid "Producto"
+msgstr "Producto"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Notes"
+msgstr "Observaciones"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,help:straconx_logistics.action_delivery_grid_form
+msgid "The delivery price list allows you to compute the cost and sales price of the delivery according to the weight of the products and other criteria. You can define several price lists for one delivery method, per country or a zone in a specific country defined by a postal code range."
+msgstr "La lista de precios por entrega le permite calcular el coste y precio de venta de la entrega en función del peso de los productos y de otros criterios. Puede definir varios precios por un método de entrega, por país, o por zona de un país específico, definido por un rango de códigos postales."
+
+#. module: straconx_logistics
+#: field:delivery.grid,zip_to:0
+msgid "To Zip"
+msgstr "A la Casilla Postal"
+
+#. module: straconx_logistics
+#: field:stock.shop,default_code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+#: view:stock.picking:0
+#: field:ubication,product_ids:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_logistics
+#: field:stock.inventory.line,ubication_id:0
+#: field:stock.move,ubication_id:0
+msgid "Ubication Case"
+msgstr "Dirección"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_delivery_carrier_form
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_delivery_carrier_form
+#: field:res.partner,property_delivery_carrier:0
+msgid "Delivery Method"
+msgstr "Método de envío"
+
+#. module: straconx_logistics
+#: field:product.product,width:0
+#: field:ubication,width:0
+msgid "Width"
+msgstr "Ancho"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_delivery_guide.py:60
+#: code:addons/straconx_logistics/objects/straconx_delivery_guide.py:65
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:357
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:361
+#: code:addons/straconx_logistics/objects/straconx_stock_shop.py:126
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:85
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:117
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:158
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:282
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:299
+#, python-format
+msgid "Invalid Action!"
+msgstr "Acción Inválida!"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,help:straconx_logistics.action_delivery_carrier_form
+msgid "Create and manage the delivery methods you need for your sales activities. Each delivery method can be assigned to a price list which computes the price of the delivery according to the products sold or delivered."
+msgstr "Cree y gestione los métodos de entrega que necesite para su actividad de ventas. Cada método de entrega puede ser asignado a una lista de precios que calcula el precio de la entrega en función de los productos vendidos o entregados."
+
+#. module: straconx_logistics
+#: field:account.invoice,warehouse_id:0
+#: field:account.invoice,warehouse_user:0
+#: field:stock.invoice.incoming,warehouse_user:0
+#: field:stock.invoice.onshipping,warehouse_user:0
+#: field:stock.picking,warehouse_user:0
+msgid "Warehouse User"
+msgstr "Usuario de Logística"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Internal Pickings to invoice"
+msgstr "Movimientos para facturar"
+
+#. module: straconx_logistics
+#: view:sale.shop:0
+msgid "Another Information"
+msgstr "Información Adicional"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,partner_address_id:0
+msgid "Address Partner"
+msgstr "Sucursal"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_product_ubications_view
+msgid "Products Ubications"
+msgstr "Ubicación del Producto"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_delivery_grid
+msgid "Delivery Grid"
+msgstr "Cuadrícula de envío"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_inventory_motive
+msgid "stock.inventory.motive"
+msgstr "Motivos del Inventario"
+
+#. module: straconx_logistics
+#: view:delivery.auth.wizard:0
+#: view:stock.invoice.incoming:0
+msgid "Create"
+msgstr "Crear"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:209
+#: model:ir.model,name:straconx_logistics.model_stock_inventory
+#, python-format
+msgid "Inventory"
+msgstr "Inventario"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Movimientos"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Cancel Inventory"
+msgstr "Cancelar el inventario"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:81
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:83
+#, python-format
+msgid "Error !"
+msgstr "¡Error!"
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+msgid "Productos"
+msgstr "Productos"
+
+#. module: straconx_logistics
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,nb_print_dn:0
+#: field:stock.picking,nb_print:0
+#: field:stock.picking,nb_print_dn:0
+msgid "Number of Print"
+msgstr "Número de Impresión"
+
+#. module: straconx_logistics
+#: field:stock.shop,clas_id:0
+msgid "Clasification"
+msgstr "Clasificación"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Dirección del Cliente"
+msgstr "Dirección del Cliente"
+
+#. module: straconx_logistics
+#: selection:delivery.auth.wizard,delivery_status:0
+#: selection:stock.delivery,state:0
+#: view:stock.picking:0
+#: selection:stock.picking,delivery_status:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_logistics
+#: view:stock.move:0
+msgid "Weights"
+msgstr "Pesos"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_stock_delivery
+msgid "stock.delivery"
+msgstr "Guías de Remisión"
+
+#. module: straconx_logistics
+#: sql_constraint:stock.delivery:0
+msgid "Number for delivery guide must be unique!"
+msgstr "El número de la guía de remisión debe ser único!"
+
+#. module: straconx_logistics
+#: field:account.invoice,number_of_packages:0
+#: field:stock.invoice.incoming,number_of_packages:0
+#: field:stock.invoice.onshipping,number_of_packages:0
+#: field:stock.picking,number_of_packages:0
+msgid "Number of Packages"
+msgstr "Número de Paquetes"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Force Availability"
+msgstr "Forzar disponibilidad"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Internal Picking list"
+msgstr "Lista movimiento internos"
+
+#. module: straconx_logistics
+#: constraint:stock.move:0
+msgid "You can not move products from or to a location of the type view."
+msgstr "No se puede mover productos desde o hacia una ubicación de tipo vista."
+
+#. module: straconx_logistics
+#: field:product.stock.kardex,date_start:0
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Unit Of Measure"
+msgstr "Unidad de medida"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:1025
+#, python-format
+msgid "Please put a partner on the picking list if you want to generate Delivery Note."
+msgstr "Por favor, seleccione una empresa en el picking list si desea generar una Guía de Remisión."
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Print Delivery Guide"
+msgstr "Imprimir Guía de Remisión"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Print Moves"
+msgstr "Imprimir Movimientos"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:215
+#, python-format
+msgid "No Delivery Notes were created"
+msgstr "No fue creada la Guía de Remisión"
+
+#. module: straconx_logistics
+#: field:stock.picking,consigment:0
+msgid "consigment"
+msgstr "consignación"
+
+#. module: straconx_logistics
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía elegida no se encuentra entre las permitidas para el usuario."
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_dif_excel_id
+msgid "Print Inventory Count Excel"
+msgstr "Exportar Conteo a Excel"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/make_procurement_product.py:220
+#, python-format
+msgid "Warehouse Required!"
+msgstr "Requiere una Bodega!"
+
+#. module: straconx_logistics
+#: field:stock.picking,salesman_id:0
+msgid "Assigned Salesman"
+msgstr "Asesor Comercial"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,authorization_id:0
+#: field:stock.delivery,authorization_id:0
+#: field:stock.invoice.incoming,authorization_purchase:0
+#: field:stock.picking,authorization_id:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_logistics
+#: field:stock.delivery,picking_id:0
+#: field:stock.picking,pick_pendding_id:0
+msgid "Picking Pendding"
+msgstr "Picking Pendiente"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,end_qty:0
+msgid "End Qty"
+msgstr "Cantidad Final"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_delivery_tree
+msgid "Sent Delivery Orders"
+msgstr "Enviar Guías de Remisión"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex,kardex_move_line_ids:0
+msgid "Kardex Lines"
+msgstr "Líneas del Kárdex"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:361
+#, python-format
+msgid "You can not change this picking to draft because exist invoices related in state open or paid."
+msgstr "No se puede cambiar este picking a borrador porque existe facturas relacionadas en estado abierto o pagado"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,location_id_init:0
+msgid "Init Location"
+msgstr "Ubicación Inicial"
+
+#. module: straconx_logistics
+#: field:delivery.carrier,active:0
+#: field:delivery.grid,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:853
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:1024
+#, python-format
+msgid "Error, no partner !"
+msgstr "¡Error, seleccione un cliente/proveedor!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery Notes cancel"
+msgstr "Guías de Remisión Canceladas"
+
+#. module: straconx_logistics
+#: help:res.partner,property_delivery_carrier:0
+msgid "This delivery method will be used when invoicing from picking."
+msgstr "El transportista que se usará para la facturación de este picking list."
+
+#. module: straconx_logistics
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:357
+#, python-format
+msgid "You can not change this picking to draft because exist delivery note in state sent."
+msgstr "No se puede cambiar este picking a borrador porque existe una guía de remisión en estado envíado."
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:129
+#, python-format
+msgid "Data Insufficient !"
+msgstr "¡Insuficiente información!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Process"
+msgstr "Procesar"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_customer_invoices
+#: view:stock.picking:0
+msgid "Customer Invoices"
+msgstr "Facturas de Cliente"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Incoming Receive list"
+msgstr "Lista de Productos a recibir"
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+msgid "Confirm Inventory"
+msgstr "Confirmar el inventario"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+#: view:stock.location:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_logistics
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_logistics
+#: field:stock.move,ref_product:0
+msgid "Reference Product"
+msgstr "Referencia"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery Notes draft"
+msgstr "Guías de Remisión en borrador"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:854
+#, python-format
+msgid "Please put a partner on the picking list if you want to generate invoice."
+msgstr "Por favor, seleccione una empresa en el picking list si desea generar una Factura."
+
+#. module: straconx_logistics
+#: field:stock.move,is_backorder:0
+msgid "Is Backorder?"
+msgstr "¿Es un Backorder?"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_kardex_form
+msgid "Product Kardex"
+msgstr "Kárdex del Producto"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,operator:0
+msgid "<="
+msgstr "<="
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_consigment
+#: view:stock.picking:0
+msgid "Consigment Orders"
+msgstr "Ordenes de Consignación"
+
+#. module: straconx_logistics
+#: view:product.product:0
+msgid "Stock"
+msgstr "Inventarios"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Supplier Invoices"
+msgstr "Facturas del Proveedor"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_product_product
+#: view:lost.sales:0
+#: field:product.stock.kardex,product_id:0
+#: field:product.stock.kardex.line,product_id:0
+#: field:product.ubication,product_id:0
+#: field:stock.shop,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_logistics
+#: sql_constraint:stock.delivery:0
+msgid "Exists another delivery guide with this picking, please, check!"
+msgstr "Existe otra guía de remisión con este pickinglist, por favor revisar!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:140
+#, python-format
+msgid "Not exist authorization for assigned Cash, please check"
+msgstr "No existe autorización para la caja asignada, por favor, revisar."
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_supplier_refund
+msgid "Supplier Refund Invoices"
+msgstr "Devoluciones facturas de Proveedores"
+
+#. module: straconx_logistics
+#: field:ubication,name:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex,date_end:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,init_qty:0
+msgid "Init Qty"
+msgstr "Cant. Inicial"
+
+#. module: straconx_logistics
+#: field:stock.move,qty_inv:0
+msgid "Inventory Move Quantity"
+msgstr "Cantidad de Inventario a Mover"
+
+#. module: straconx_logistics
+#: field:stock.invoice.onshipping,no_driver:0
+msgid "driver"
+msgstr "Conductor"
+
+#. module: straconx_logistics
+#: constraint:sale.shop:0
+msgid "The percentage utility margin must be a positive number"
+msgstr "El porcentaje de utilidad debe ser un número positivo"
+
+#. module: straconx_logistics
+#: help:product.product,long:0
+msgid "Define the long of product to occupy on the ubication of the Location"
+msgstr "Define el largo del producto que ocupa en la ubicación dentro del Almacén"
+
+#. module: straconx_logistics
+#: selection:stock.inventory.line,transaction:0
+#: field:stock.picking,internal_in:0
+msgid "IN"
+msgstr "Entrada"
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+msgid "ubication"
+msgstr "Ubicación"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,delivery_date:0
+#: field:stock.picking,delivery_date:0
+msgid "Delivery Note date"
+msgstr "Fecha de Guía de Remisión"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,delivery_number:0
+#: field:stock.picking,delivery_number:0
+msgid "Delivery Number"
+msgstr "Número de Guía"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:66
+#: code:addons/straconx_logistics/wizard/delivery_sale_order.py:98
+#, python-format
+msgid "The order state have to be draft to add delivery lines."
+msgstr "La orden debe encontrarse en estado de borrador para añadir líneas de despacho."
+
+#. module: straconx_logistics
+#: sql_constraint:product.ubication:0
+msgid "This product already exists in this ubication, please check"
+msgstr "El producto ya existe en esta ubicación, por favor, verificar"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_log_id
+msgid "Print Inventory Report"
+msgstr "Imprimir Inventario"
+
+#. module: straconx_logistics
+#: view:delivery.grid:0
+#: field:delivery.grid,state_ids:0
+msgid "States"
+msgstr "Provincias"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_internal_out
+msgid "Internal Out Orders"
+msgstr "Transfererencia Enviadas"
+
+#. module: straconx_logistics
+#: field:delivery.carrier,price:0
+#: selection:delivery.grid.line,type:0
+#: selection:delivery.grid.line,variable_factor:0
+msgid "Price"
+msgstr "Precio"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_product_ubication.py:49
+#, python-format
+msgid "the products need a height, width and long greater to 0 "
+msgstr "El producto requiere un largo, ancho y alto mayor que 0"
+
+#. module: straconx_logistics
+#: field:lost.sales,ref_sale:0
+msgid "Ref sale Order"
+msgstr "Ref. Pedido de Venta"
+
+#. module: straconx_logistics
+#: view:delivery.grid:0
+msgid "Destination"
+msgstr "Destino"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+msgid "Chained Location"
+msgstr "Ubicación encadenada"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_delivery.py:162
+#, python-format
+msgid "No price available !"
+msgstr "¡Sin precio disponible!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:110
+#, python-format
+msgid "You must choose a product in the inventory line!"
+msgstr "Debe elegir un producto en la línea de inventario!"
+
+#. module: straconx_logistics
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "To Invoice"
+msgstr "A facturar"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,type:0
+#: selection:delivery.grid.line,variable_factor:0
+#: field:product.product,volume:0
+#: field:stock.picking,volume:0
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:238
+#, python-format
+msgid "You can delete only in draft status the inventory."
+msgstr "Solo se puede borrar inventarios en estado de borrador."
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_delivery_note
+msgid "Create Delivery Notes"
+msgstr "Pedidos para enviar con Guías de Remisión"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/stock_fill_inventory.py:196
+#, python-format
+msgid "Message !"
+msgstr "Mensaje !"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.report_shipping_straconx
+msgid "Delivery order"
+msgstr "Orden entrega"
+
+#. module: straconx_logistics
+#: report:ir.actions.report.xml:straconx_logistics.delivery_report_log_id
+msgid "internal"
+msgstr "Transferencias Interna"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_product_ubication
+msgid "product.ubication"
+msgstr "Ubicación de Productos"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:163
+#, python-format
+msgid "Not exist authorization for the document, please check"
+msgstr "No existe autorización para el documento, por favor, revisar"
+
+#. module: straconx_logistics
+#: view:stock.invoice.incoming:0
+msgid "Create Document Invoice"
+msgstr "Crear Factura"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:119
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:143
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:171
+#: code:addons/straconx_logistics/objects/straconx_stock.py:401
+#: code:addons/straconx_logistics/objects/straconx_stock.py:436
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:471
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:65
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:108
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:117
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,ubication_id_dest:0
+msgid "Dest Ubication"
+msgstr "Ubicación de Destino"
+
+#. module: straconx_logistics
+#: field:lost.sales,date:0
+msgid "Date Lost"
+msgstr "Fecha"
+
+#. module: straconx_logistics
+#: field:stock.picking,local_address_partner:0
+msgid "Local Address"
+msgstr "Dirección Local"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Confirmed Delivery Orders"
+msgstr "Guías de Remisión Confirmadas"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:436
+#, python-format
+msgid "The product doesn't have a percentage sale in the category for calculate the price sale"
+msgstr "El producto no tiene un porcentaje de venta en la marca para calcular el precio de venta"
+
+#. module: straconx_logistics
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,shop_id:0
+#: view:lost.sales:0
+#: field:lost.sales,shop_id:0
+#: field:make.procurement,shop_id:0
+#: field:stock.invoice.incoming,shop_id:0
+#: view:stock.picking:0
+#: field:stock.picking,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_logistics
+#: view:product.product:0
+#: view:product.ubication:0
+#: view:stock.location:0
+#: view:stock.picking:0
+#: view:ubication:0
+msgid "Product Ubications"
+msgstr "Ubicaciones de Productos"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.incoming,type_journal:0
+msgid "Purchase Invoice"
+msgstr "Facturas de Compras"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.onshipping,type:0
+msgid "Getting Goods"
+msgstr "Obtener bienes"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+msgid "Stock Location"
+msgstr "Ubicación de inventario"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:217
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:970
+#, python-format
+msgid "Warning"
+msgstr "Precaución"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,operator:0
+msgid "Operator"
+msgstr "Operador"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_all_tree
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_backorder_tree
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_cancel_tree
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_tree
+#: model:ir.ui.menu,name:straconx_logistics.st_delivery
+#: view:stock.picking:0
+msgid "Delivery Orders"
+msgstr "Órdenes de entrega"
+
+#. module: straconx_logistics, stock
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_tree
+#: model:ir.ui.menu,name:straconx_logistics.st_delivery
+#: view:stock.picking:0
+msgid "Delivery Orders"
+msgstr "Despacho de Pedidos"
+
+
+#. module: straconx_logistics, stock
+#: model:ir.ui.menu,name:stock.menu_stock_warehouse_mgmt
+#: view:stock.picking:0
+msgid "Delivery Orders"
+msgstr "Gestión de Pedidos"
+
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery orders already processed"
+msgstr "Guías de Remisión ya fueron procesadas"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:478
+#, python-format
+msgid "Incorrect amount !"
+msgstr "¡Monto incorrecto!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Check Availability"
+msgstr "Comprobar disponibilidad"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+msgid "Motive of lost sale"
+msgstr "Motivo de las Ventas Pérdidas"
+
+#. module: straconx_logistics
+#: field:sale.shop,central_warehouse:0
+msgid "Is Central Warehouse"
+msgstr "¿Es una Bodega Central?"
+
+#. module: straconx_logistics
+#: field:stock.shop,categ_id:0
+msgid "Categ"
+msgstr "Categoría"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.action_lost_sales_view
+#: model:ir.ui.menu,name:straconx_logistics.menu_lost_sale_logistic
+#: model:ir.ui.menu,name:straconx_logistics.menu_lost_sale_purchase
+#: model:ir.ui.menu,name:straconx_logistics.menu_lost_sale_sale
+#: view:lost.sales:0
+#: view:stock.picking:0
+msgid "Lost Sales"
+msgstr "Ventas Pérdidas"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Print Picking List"
+msgstr "Imprimir Pickinglist"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_stock_invoice_incoming
+msgid "Create invoice"
+msgstr "Crear factura"
+
+#. module: straconx_logistics
+#: help:delivery.grid,active:0
+msgid "If the active field is set to False, it will allow you to hide the delivery grid without removing it."
+msgstr "Si el campo 'Activo' se encuentra desmarcado, oculta la línea de costo del transportista sin que sea removido."
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.delivery_transfer_log_id
+msgid "Internal Transfer"
+msgstr "Transferencias Internas"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Print Internal Transfer"
+msgstr "Imprimir transferencia"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:258
+#, python-format
+msgid "You can cancel related picking or inventory."
+msgstr "Usted debe cancelar el picking o inventario relacionado."
+
+#. module: straconx_logistics
+#: view:product.ubication:0
+#: view:ubication:0
+msgid "Total Qty"
+msgstr "Cantidad Total"
+
+#. module: straconx_logistics
+#: view:stock.shop:0
+msgid "Pedido"
+msgstr "Pedido"
+
+#. module: straconx_logistics
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "Solo puede existir un diario por tipo en cada tienda."
+
+#. module: straconx_logistics
+#: field:make.procurement,location_id:0
+#: field:stock.picking.user,location_id:0
+msgid "Location Origin"
+msgstr "Ubicación de Origen"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Additional info"
+msgstr "Información Adicional"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Date Expected"
+msgstr "Fecha esperada"
+
+#. module: straconx_logistics
+#: field:account.invoice,weight_hand:0
+#: selection:delivery.grid.line,type:0
+#: selection:delivery.grid.line,variable_factor:0
+#: field:stock.invoice.incoming,weight_hand:0
+#: field:stock.invoice.onshipping,weight_hand:0
+#: field:stock.move,weight:0
+#: field:stock.picking,weight:0
+#: field:stock.picking,weight_hand:0
+msgid "Weight"
+msgstr "Peso"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_logistics_invoices
+#: field:stock.picking,invoice_ids:0
+msgid "Invoices"
+msgstr "Facturas y Guías de Remisión"
+
+#. module: straconx_logistics
+#: field:stock.move,ubication_ids:0
+msgid "Ubications Items"
+msgstr "Ítem en la Ubicación"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+#: field:lost.sales,note:0
+#: field:stock.inventory,motive:0
+#: field:stock.inventory.motive,name:0
+#: view:stock.move.scrap:0
+#: field:stock.move.scrap,note:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: straconx_logistics
+#: field:lost.sales,salesman_id:0
+msgid "Salesman"
+msgstr "Asesor Comercial"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: straconx_logistics
+#: selection:stock.move.scrap,type_lost:0
+msgid "No Stock"
+msgstr "Sin inventario"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/wizard/straconx_account_invoice_refund.py:130
+#, python-format
+msgid "No Period found on Invoice!"
+msgstr "No períodos activos encontrados en la factura!"
+
+#. module: straconx_logistics
+#: selection:stock.invoice.onshipping,type:0
+msgid "Internal"
+msgstr "Interna"
+
+#. module: straconx_logistics
+#: selection:delivery.auth.wizard,delivery_status:0
+#: selection:stock.delivery,state:0
+#: view:stock.picking:0
+#: selection:stock.picking,delivery_status:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Create Invoice"
+msgstr "Creación Factura"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_orders_to_invoice_sales
+msgid "Orders to invoice"
+msgstr "Ordenes para Facturar"
+
+#. module: straconx_logistics
+#: field:stock.inventory.line,qty_diff:0
+msgid "Qty dif"
+msgstr "Diferencias"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_incoming
+#: model:ir.ui.menu,name:straconx_logistics.st_incoming_purchase
+msgid "Incoming Shipment"
+msgstr "Ingreso de Pedidos"
+
+#. module: straconx_logistics
+#: view:delivery.auth.wizard:0
+#: view:stock.invoice.incoming:0
+#: view:stock.picking:0
+msgid "Create Delivery Note"
+msgstr "Crear Guía de Remisión"
+
+#. module: straconx_logistics
+#: field:stock.inventory,user_id:0
+#: field:stock.picking.user,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,price_type:0
+#: field:delivery.grid.line,type:0
+msgid "Variable"
+msgstr "Variable"
+
+#. module: straconx_logistics
+#: field:delivery.carrier,product_id:0
+msgid "Delivery Product"
+msgstr "Producto Despachado"
+
+#. module: straconx_logistics
+#: view:delivery.grid.line:0
+msgid "Condition"
+msgstr "Condición"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,standard_price:0
+msgid "Cost Price"
+msgstr "Costo"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,type_journal:0
+msgid "Type Document"
+msgstr "Tipo de Documento"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,date_mov:0
+msgid "Move Date"
+msgstr "Fecha de Movimientos"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "My Picking Orders"
+msgstr "Mis Pickinglist"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_product_ubication_knowledge
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_product_ubication_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_product_ubication_purchase
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_product_ubication_sales
+msgid "Products By Ubications"
+msgstr "Productos por Ubicación"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock.py:185
+#, python-format
+msgid "You must first choose Partner Consigment!"
+msgstr "¡Debe elegir una Empresa autorizada a consignar!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:979
+#: code:addons/straconx_logistics/wizard/stock_invoice_incoming.py:156
+#: code:addons/straconx_logistics/wizard/stock_invoice_onshipping.py:84
+#: code:addons/straconx_logistics/wizard/straconx_delivery_note.py:215
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_logistics
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Internal Orders"
+msgstr "Órdenes Internas"
+
+#. module: straconx_logistics
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_logistics
+#: constraint:product.product:0
+msgid "has a standard price is greater than list Price"
+msgstr "El costo es mayor que el precio de venta"
+
+#. module: straconx_logistics
+#: view:stock.location:0
+#: field:stock.location,location_ids:0
+#: view:stock.picking:0
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: straconx_logistics
+#: field:delivery.grid,zip_from:0
+msgid "Start Zip"
+msgstr "Desde la Casilla Postal"
+
+#. module: straconx_logistics
+#: view:lost.sales:0
+#: view:sale.shop:0
+msgid "General Information"
+msgstr "Información General"
+
+#. module: straconx_logistics
+#: selection:stock.move.scrap,type_lost:0
+msgid "Product in catalog"
+msgstr "Producto de catálogo"
+
+#. module: straconx_logistics
+#: model:ir.model,name:straconx_logistics.model_delivery_auth_wizard
+msgid "delivery.auth.wizard"
+msgstr "Asistente de Despacho de Pedidos"
+
+#. module: straconx_logistics
+#: sql_constraint:ubication:0
+msgid "Error! Width must be greater than 0."
+msgstr "Error! Ancho debe ser mayor que 0."
+
+#. module: straconx_logistics
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:478
+#, python-format
+msgid "You can not dispatching an amount greater than available in the ubication, please dispatching the existing of the ubication."
+msgstr "No se puede despachar una cantidad mayor a la disponible en la ubicación, por favor, despache solo la existente."
+
+#. module: straconx_logistics
+#: view:stock.inventory:0
+#: field:stock.inventory,note:0
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.st_consiment
+msgid "Consigment Moves"
+msgstr "Movimientos de Consignación"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery State"
+msgstr "Estado de Despacho"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_later_tree
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_picking_later_tree
+#: model:ir.ui.menu,name:straconx_logistics.menu_straconx_action_picking_later_sales
+msgid "Picking for Invoice later"
+msgstr "Órdenes para facturar posterior"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_consigment_in
+#: model:ir.ui.menu,name:straconx_logistics.menu_consigment_in
+msgid "Consigment Orders In"
+msgstr "Devolución de Consignación"
+
+#. module: straconx_logistics
+#: model:ir.ui.menu,name:straconx_logistics.menu_delivery
+msgid "Delivery"
+msgstr "Envío"
+
+#. module: straconx_logistics
+#: field:product.ubication,default_code:0
+msgid "Ref."
+msgstr "Código"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_print_excel_id
+#: view:stock.inventory:0
+msgid "Export Inventory Sheet"
+msgstr "Exportar Hoja de Inventario"
+
+#. module: straconx_logistics
+#: field:delivery.auth.wizard,picking_id:0
+#: field:lost.sales,picking_id:0
+#: field:stock.picking.user,picking_id:0
+msgid "Picking"
+msgstr "Picking"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_stock_picking.py:971
+#, python-format
+msgid "The carrier %s (id: %d) has no delivery grid!"
+msgstr "El transportista %s (id: %d) no tiene una lista de precios!"
+
+#. module: straconx_logistics
+#: code:addons/straconx_logistics/objects/straconx_inventory.py:209
+#, python-format
+msgid "is done."
+msgstr "Realizado."
+
+#. module: straconx_logistics
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Delivery Notes sent"
+msgstr "Guías de Remisión Enviadas"
+
+#. module: straconx_logistics
+#: field:account.invoice,carrier_id:0
+#: view:delivery.carrier:0
+#: field:delivery.carrier,name:0
+#: field:delivery.grid,carrier_id:0
+#: model:ir.model,name:straconx_logistics.model_delivery_carrier
+#: field:make.procurement,carrier_id:0
+#: field:stock.invoice.incoming,carrier_id:0
+#: view:stock.picking:0
+#: field:stock.picking,carrier_id:0
+msgid "Carrier"
+msgstr "Transportista"
+
+#. module: straconx_logistics
+#: field:stock.invoice.incoming,invoice_date2:0
+#: field:stock.invoice.onshipping,invoice_date2:0
+msgid "Invoiced date"
+msgstr "Fecha Facturada"
+
+#. module: straconx_logistics
+#: view:sale.shop:0
+msgid "Configuration of sales"
+msgstr "Configuración de Ventas"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Annulled Delivery Note"
+msgstr "Anular Guía de Remisión"
+
+#. module: straconx_logistics
+#: field:product.stock.kardex.line,location_id_dest:0
+msgid "Dest Location"
+msgstr "Bodega de Destino"
+
+#. module: straconx_logistics
+#: field:delivery.carrier,grids_id:0
+msgid "Delivery Grids"
+msgstr "Matriz de Despacho"
+
+#. module: straconx_logistics
+#: field:delivery.grid,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: straconx_logistics
+#: field:delivery.grid.line,list_price:0
+msgid "Sale Price"
+msgstr "Precio de Venta"
+
+#. module: straconx_logistics
+#: selection:delivery.grid.line,operator:0
+msgid "="
+msgstr "="
+
+#. module: straconx_logistics
+#: field:make.procurement,view_picking:0
+msgid "Views Picking"
+msgstr "Ver Pickinglist"
+
+#. module: stock
+#: selection:stock.move,state:0
+#: selection:stock.picking,state:0
+#: report:stock.picking.list:0
+msgid "Waiting Availability"
+msgstr "Esperando disponibilidad"
+
+#. module: stock
+#: selection:stock.move,state:0
+#: selection:stock.picking,state:0
+#: report:stock.picking.list:0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: stock
+#: selection:stock.picking,state:0
+msgid "Waiting Another Operation"
+msgstr "Esperando otra operación"
+
+#. module: stock
+#: view:stock.picking:0
+#: selection:stock.picking,state:0
+msgid "Ready to Process"
+msgstr "Listo para procesar"
+
+#. module: stock
+#: view:stock.inventory.line.split:0
+#: view:stock.move.consume:0
+#: view:stock.move.scrap:0
+#: view:stock.move.split:0
+#: view:stock.picking:0
+msgid "Cancel"
+msgstr "Anular"
+
+#. module: stock
+#: selection:report.stock.inventory,state:0
+#: selection:report.stock.move,state:0
+#: selection:stock.inventory,state:0
+#: selection:stock.move,state:0
+#: selection:stock.picking,state:0
+msgid "Cancelled"
+msgstr "Anulado"
+
+
+#. module: stock
+#: model:ir.actions.report.xml,name:stock.report_picking_list
+msgid "Packing list"
+msgstr "Transferencias"
+
+#. module: straconx_logistics
+#: code:addons/straconx_invoice/wizard/straconx_delivery_note.py:65
+#: code:addons/straconx_invoice/wizard/straconx_delivery_note.py:108
+#, python-format
+msgid "You must be selected in the shop %s the journal respective for this document."
+msgstr "Debe seleccionar en la tienda %s el diario respectivo para este documento"
+
+#. module: stock, account, straconx_invoice
+#: view:account.invoice:0
+msgid "Picking associated"
+msgstr "Picking asociados"
+
+#. module: stock
+#: model:ir.ui.menu,name:stock.menu_stock_root
+msgid "Warehouse"
+msgstr "Logística"
+
+
+#. module: straconx_logistics, stock
+#: view:stock.picking:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: stock, straconx_logistics
+#: model:ir.actions.act_window,name:stock.action_picking_tree4
+#: model:ir.ui.menu,name:stock.menu_action_picking_tree4
+msgid "Incoming Orders"
+msgstr "Entrada de Pedidos"
+
+#. module: straconx_logistics
+#: model:ir.actions.act_window,name:straconx_logistics.straconx_action_picking_in_tree
+#: model:ir.ui.menu,name:straconx_logistics.menu_action_picking_purchase_tree4
+msgid "Incoming Orders"
+msgstr "Entrada de Pedidos"
+
+#. module: stock
+#: field:stock.inventory,name:0
+msgid "Inventory Reference"
+msgstr "Número"
+
+#. module: straconx_logistics
+#: field:stock.inventory,location_id:0
+msgid "Location"
+msgstr "Bodega"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Shop Dest"
+msgstr "Tienda Destino"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Location"
+msgstr "Bodega"
+
+#. module: straconx_logistics
+#: view:stock.picking:0
+msgid "Location Dest"
+msgstr "Bodega Destino"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.inventory_report_dif_excel_id
+msgid "Print Inventory Count Excel"
+msgstr "Exportar Conteo a Excel"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.product_inventory_category_report
+msgid "Print Inventory Count Excel"
+msgstr "Inventario valorizado por categoría"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.product_inventory_listprice_report
+msgid "List Price Report"
+msgstr "Lista de Precios"
+
+#. module: straconx_logistics
+#: model:ir.actions.report.xml,name:straconx_logistics.product_inventory_value_report_sale_id
+msgid "Valued Stock Reports"
+msgstr "Inventario valorizado"
+
+#. module: stock
+#: selection:report.stock.inventory,location_type:0
+#: model:stock.location,name:stock.location_production
+#: selection:stock.location,usage:0
+msgid "Production"
+msgstr "Producción"
+
+#. module: stock, straconx_logistics
+#: selection:stock.inventory,state:0
+#: view:stock.picking:0
+msgid "Counting"
+msgstr "En conteo"

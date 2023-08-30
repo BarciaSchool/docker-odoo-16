@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="sequence_type_form_inherit">
+            <field name="name">Sequence Type Inherit</field>
+            <field name="model">ir.sequence.type</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.sequence_type_form_view" />
+            <field name="arch" type="xml">
+                <field name='sri_doc' position="after">
+                	<field name='tax_document_id' attrs="{'required':[('sri_doc','=',True)]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

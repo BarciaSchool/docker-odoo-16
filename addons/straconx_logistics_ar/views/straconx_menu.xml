@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!--Incoming Shipment -->
+
+		<menuitem name="Incoming Shipment" id="st_incoming"
+			parent="stock.menu_stock_warehouse_mgmt" sequence="1" />
+
+		<menuitem name="Incoming Orders" action="straconx_action_picking_in_tree"
+			id="stock.menu_action_picking_tree4" parent="st_incoming" sequence="1" />
+
+		<menuitem name="All Orders" action="straconx_action_picking_in_all_tree"
+			id="stock.menu_action_picking_tree5" parent="st_incoming" sequence="2" />
+
+		<menuitem name="Notas de Crédito" action="straconx_action_picking_in_all_credit_notes"
+			id="stock.menu_action_picking_credit_note" parent="st_incoming" sequence="3" />
+
+		<!--Internal Moves -->
+		<menuitem name="Internal Moves" id="st_internal"
+			parent="stock.menu_stock_warehouse_mgmt" sequence="2" />
+
+		<menuitem name="Internal Confirm Transfer Pickings" action="straconx_action_picking_internal_confirm_form"
+			id="menu_action_internal_transfer" parent="st_internal" sequence="1" />
+
+		<menuitem name="Internal OUT Pickings" action="straconx_action_picking_internal_out"
+			id="menu_action_internal_out" parent="st_internal" sequence="2" />
+
+		<menuitem name="Internal IN Pickings" action="straconx_action_picking_internal"
+			id="menu_action_internal_in" parent="st_internal" sequence="3" />
+
+		<menuitem name="Consigment Moves" id="st_consiment"
+			parent="stock.menu_stock_warehouse_mgmt" sequence="3" />
+
+		<menuitem name="Consigment Orders Out" action="straconx_action_picking_consigment"
+			id="stock.menu_action_picking_tree6" parent="st_consiment" sequence="1" />
+
+<!-- 		<menuitem name="Consigment Orders In" action="straconx_action_picking_consigment_in" -->
+<!-- 			id="menu_consigment_in" parent="st_consiment" sequence="2" /> -->
+						
+		<!--Delivery Orders -->
+		<menuitem name="Delivery Orders" id="st_delivery" action="straconx_action_picking_tree"
+			parent="stock.menu_stock_warehouse_mgmt" sequence="3" />
+
+		<menuitem name="Waiting Orders" action="straconx_action_picking_tree"
+			id="stock.menu_action_picking_tree" parent="st_delivery" sequence="1" />
+
+		<menuitem name="Done Orders" action="straconx_action_picking_done"
+			id="menu_action_picking_done_tree" parent="st_delivery" sequence="2" />
+
+		<menuitem name="Picking for Invoice later" action="straconx_action_picking_later_tree"
+			id="menu_action_picking_later_tree" parent="st_delivery" sequence="3" />
+
+		<menuitem name="Sent Delivery Notes" action="straconx_action_delivery_tree"
+			id="menu_action_delivery_notes_tree" parent="st_delivery" sequence="4" />
+
+		<!--menuitem name="BackOrders" action="straconx_action_picking_backorder_tree" 
+			id="menu_action_picking_backorder_tree" parent="st_delivery" sequence="5" 
+			/ -->
+
+		<menuitem name="Cancel Orders" action="straconx_action_picking_cancel_tree"
+			id="menu_action_picking_cancel_tree" parent="st_delivery" sequence="6" />
+
+		<menuitem name="All Orders" action="straconx_action_picking_all_tree"
+			id="menu_action_picking_all_tree" parent="st_delivery" sequence="7" />
+
+		<!--Ubications -->
+		<menuitem name="Ubications" id="menu_ubications" parent="stock.menu_stock_root"	sequence="7"/>
+
+
+		<menuitem name="Ubications" id="menu_action_ubications_form_str"
+			action="action_ubications_form" parent="menu_ubications" sequence="7" />
+
+
+		<!-- Delivery Carriers -->
+		<menuitem name="Delivery" id="menu_delivery" parent="stock.menu_stock_configuration"
+			sequence="4" />
+
+		<menuitem id="menu_action_delivery_carrier_form" action="action_delivery_carrier_form"
+			parent="menu_delivery" />
+
+		<menuitem id="menu_action_delivery_grid_form" action="action_delivery_grid_form"
+			parent="menu_delivery" />
+
+
+		<!--Incoming Shipment -->
+
+		<menuitem name="Incoming Shipment" id="st_incoming_purchase"
+			parent="base.menu_purchase_root" sequence="1" />
+
+		<menuitem name="Incoming Orders" action="straconx_action_picking_in_tree"
+			id="menu_action_picking_purchase_tree4" parent="st_incoming_purchase"
+			sequence="1" />
+
+		<!--Logistics Invoices -->
+
+		<menuitem name="Invoices" id="menu_logistics_invoices"
+			parent="stock.menu_stock_root" sequence="6" />
+
+		<menuitem name="Customer Invoices" id="menu_customer_invoices"
+			action="account.action_invoice_tree1" parent="menu_logistics_invoices"
+			sequence="2" />
+
+		<menuitem name="Supplier Invoices to Receive" id="menu_supplier_invoices"
+			action="account.action_invoice_tree2" parent="menu_logistics_invoices"
+			sequence="3" />
+
+		<menuitem name="Delivery Guides" id="menu_delivery_guides"
+			action="straconx_action_delivery_guide" parent="menu_logistics_invoices"
+			sequence="3" />
+
+		<!--Refund Menu Logistics -->
+
+		<menuitem name="Refund Invoices" id="st_refund_invoices"
+			parent="stock.menu_stock_root" sequence="4" />
+
+		<menuitem name="Customer Refund Invoices" action="account.action_invoice_tree3"
+			id="st_customer_refund" parent="st_refund_invoices" sequence="1" />
+
+		<menuitem name="Supplier Refund Invoices" action="account.action_invoice_tree4"
+			id="st_supplier_refund" parent="st_refund_invoices" sequence="2" />
+
+		<menuitem name="Refund Motives"
+			action="action_inventory_motive_form" id="st_refund_motives_form"
+			parent="stock.menu_stock_configuration" sequence="5" />
+
+
+		<!-- Menu for order to invoice wait in sales -->
+
+		<menuitem name="Orders to invoice later" id="orders_to_invoice_sales"
+			parent="base.menu_base_partner" sequence="6" />
+			
+		<menuitem id="action_picking_done_sales" name="Done Orders" 
+			parent="orders_to_invoice_sales" action="straconx_action_picking_done"
+			sequence="1" />
+
+		<menuitem id="action_picking_later_sales" name="Picking for Invoice later" 
+			parent="orders_to_invoice_sales" action="straconx_action_picking_later_tree"
+			sequence="2" />
+
+		<!-- Menu of consigment picking in sales -->
+
+		<!-- <menuitem -->
+		<!-- name="Consigment Orders" -->
+		<!-- action="straconx_action_picking_consigment" -->
+		<!-- id="menu_action_picking_consigment" -->
+		<!-- parent="straconx_sales.consignment_order_menu" -->
+		<!-- sequence="3"/> -->
+
+		<!-- productos por ubicaciones -->
+
+		<menuitem name="Products By Ubications" action="action_product_ubications_view"
+			id="menu_action_product_ubication_logistics" parent="stock.menu_stock_product"
+			sequence="3" />
+
+		<menuitem name="Products By Ubications" action="action_product_ubications_view"
+			id="menu_action_product_ubication_purchase" parent="purchase.menu_procurement_management_product"
+			sequence="4" />
+
+		<menuitem name="Products By Ubications" action="action_product_ubications_view"
+			id="menu_action_product_ubication_knowledge" parent="straconx_products.knowledge_menu_product"
+			sequence="2" />
+
+		<menuitem name="Products By Ubications" action="action_product_ubications_view"
+			id="menu_action_product_ubication_sales" parent="base.menu_product"
+			sequence="3" />
+
+		<!--Shop Stock Menu -->
+
+		<menuitem name="Shop Stock" id="menu_action_sale"
+			action="action_stock_shop" parent="base.menu_product"
+			sequence="3" />
+			
+		<menuitem name="Shop Stock" id="menu_action_logistics"
+			action="action_stock_shop" parent="stock.menu_stock_product"
+			sequence="3" />
+		
+		<menuitem name="Inventario por Bodega" id="menu_action_sale_location"
+			action="action_stock_shop_location_parameters" parent="base.menu_product"
+			sequence="3" />	
+			
+		<menuitem name="Inventario por Bodega" id="menu_action_sale_location_logistics"
+			action="action_stock_shop_location_parameters" parent="stock.menu_stock_product"
+			sequence="3" />	
+
+	</data>
+</openerp>

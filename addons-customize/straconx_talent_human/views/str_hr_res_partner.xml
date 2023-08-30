@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+       <record id="view_employee_res_partner_search" model="ir.ui.view">
+            <field name="name">Search Partners</field>
+            <field name="model">res.partner</field>
+            <field name="type">search</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search Partner">
+                   <group col='10' colspan='4'>
+                        <filter string="Customers" name="customer" icon="terp-personal" domain="[('customer','=',1)]" help="Customer Partners" />
+                        <filter string="Employee" name="employee" icon="terp-personal" domain="[('employee','=',1)]" help="Employee Partners" />
+                        <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="vat" select="1"/>
+                        <field name="codant" select="1"/>
+                   </group>
+               </search>
+            </field>
+        </record>
+        
+        <record id="view_employee_res_partner_tree" model="ir.ui.view">
+            <field name="name">Employee Partners Lists</field>
+            <field name="model">res.partner</field>
+            <field name="type">tree</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Partners">
+                    <field name="name"/>
+                    <field name="comercial"/>
+                    <field name="vat"/>
+                    <field name="street"/>
+                    <field name="phone"/>
+                    <field name="city"/>
+                </tree>
+            </field>
+        </record> 
+
+    <!--Partner Form-->
+        <record id="view_employee_res_partner_form" model="ir.ui.view">
+            <field name="name">Employee Partners Form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+            <form string="Partners" col='4'>
+            	<field name="vat" on_change="vat_change(vat)" required="True" select="1" colspan="2" default_focus="1"/>
+            	<field name="employee" readonly="1" invisible="0" select="1" colspan="2"/>
+				<group colspan="4" attrs="{'invisible':[('type_vat','not in',('ci','passport')),('shortcut_company','not in',('NP','FC'))]}">
+                 	<field name="last_name" colspan="2" attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="mother_last_name" colspan="2" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="first_name" colspan="2" attrs="{'required':['|',('type_vat','in',('ci','passport')),('shortcut_company','in',('NP','FC'))]}" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="second_name" colspan="2" on_change="onchange_name(first_name,second_name,last_name,mother_last_name)"/>
+                 	<field name="name1" colspan="4"/>
+                 	<field name="name" select="1" required="1" invisible="1"/>
+                </group>
+                 <newline/>
+                 <field name="comercial" readonly="1" invisible="1"/>
+                 <field name="codant" readonly="1" invisible="1"/>
+                 <newline/>
+                 <field name="type_vat" invisible="1"/>
+                 <field name="approb" invisible="1"/>
+                 <field name="origin" invisible="1"/>
+                 <field name="type_company_id" on_change="on_change_type_company_id(type_company_id)" invisible="1"/>
+                 <field name="shortcut_company" invisible="1"/>
+                 <newline/>
+                 <field name="segmento_id" invisible="1"/>
+                 <field name="segmento_category_id" invisible="1"/>
+                 <field name="property_product_pricelist" readonly="1"  invisible="1"/>
+                 <newline/>
+                 <field name="property_account_position" colspan="4" invisible="1" />
+                 <field name="property_payment_term" widget="selection"  readonly="1"  invisible="1"/>
+                 <notebook colspan="4">
+                    <page string="General">
+                        <field name="address" mode="form,tree" colspan="4" nolabel="1" select="1" required="1" attrs="{'readonly':[('approb','=',True)]}">
+                            <form string="Address">
+                                <group colspan="4" col="6">
+                                <field name="name" />
+                                </group>
+                                <newline/>
+                                      <group colspan="2" col="4">
+                                        <separator string="Postal Address" colspan="4" col="4"/>
+                                        <field name="type" string="Type" colspan="2" required="1" />
+                                        <field name="street" colspan="4" required="1" />
+                                        <field name="location_id" colspan="4" required="1" />
+                                        <field name="parish" colspan="4" />
+                                        <field name="sector" colspan="4" />                                        
+                                     </group>
+                                     <group colspan="2" col="2">
+                                        <separator string="Communication" colspan="2" col="2" />
+                                        <field name="phone" />
+                                        <field name="phone2" />
+                                        <field name="mobile" />
+                                        <field name="fax" />
+                                        <field name="email" widget="email" />
+                                     </group>
+                                     <newline/>
+                                     <group colspan="4" col="4">
+                                     <separator string="Assigned Users" colspan="4" col="4"/>
+                                     <field name="salesman_assigned" colspan="2" readonly="1"/>
+                                     <field name="collect_assigned" colspan="2" readonly="1"/>
+                                     </group>
+                                     <newline/>
+									<field name="contact_ids" mode="tree,form" nolabel="1"
+										colspan="4">
+										<tree string="Contacts">
+											<field name="name" />
+											<field name="first_name" />
+											<field name="vat" />
+											<field name="title" widget="selection" />
+											<field name="mobile" />
+											<field name="email" />
+											<field name="lang_id" />
+											<field name="partner_id" invisible="1" />
+											<field name="country_id" />
+										</tree>
+									</field>
+                             </form>
+                            <tree string="Addresses">
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="street"/>
+                                <field name="location_id"/>
+                                <field name="phone"/>
+                                <field name="email"/>                               
+                            </tree>
+                        </field>
+                    </page>   
+                    <page string="General Information" groups="base.group_sale_manager,base.group_phone_manager,base.group_pos_manager">
+                    <group col="4" colspan="4">
+                        <separator string="Partner Status" colspan="4"/>
+                            <group col="8" colspan="4">
+                            <field name="customer" readonly="1"/>
+                            <field name="supplier" readonly="1"/>
+                            <field name="active" readonly="1"/>
+                            <field name="vat_subjected" invisible="1"/>
+                            </group>
+                        <separator string="Comercial Information" colspan="4"/>
+                            <field name="clasev_id" readonly="1"/>
+                            <field name="clasec_id" readonly="1"/>
+                            <field name="actcomercial" readonly="1"/>
+                 			<field colspan="2" name="estado_id" readonly="1"  invisible="1"/>
+                            <field name="payment_type_customer" readonly="1"/>
+                            <field name="datecom" readonly="1"/>
+                            <field name="date" string="Customer since"  readonly="1"/>
+                            <field name="lang" required="True" readonly="1"/>
+                    </group>
+                    </page> 
+                 </notebook>
+            </form>
+            </field>
+        </record>
+
+		<record id="action_view_employee_res_partner_search" model="ir.actions.act_window">
+			<field name="name">Employee Partner</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field eval="False" name="filter" />
+			<field name="view_id" ref="view_employee_res_partner_search" />
+			<field name="context">{"search_default_employee":1,"default_employee":1}</field>
+			<field name="search_view_id" ref="view_employee_res_partner_search" />
+		</record>
+
+</data>
+</openerp>

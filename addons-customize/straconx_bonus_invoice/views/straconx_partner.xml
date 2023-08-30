@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="view_partner_gen_form_inherit" model="ir.ui.view">
+			<field name="name">res.partner.gen.form.inherit</field>
+			<field name="model">res.partner</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="straconx_partners.view_partner_form_straconx" />
+			<field name="arch" type="xml">
+				<field name="property_account_position" position="after">
+					<field name="last_bonus_qty" colspan="1" attrs="{'invisible':[('customer','=',False)]}" on_change="onchange_last_bonus_qty(last_bonus_qty)"/>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</openerp>

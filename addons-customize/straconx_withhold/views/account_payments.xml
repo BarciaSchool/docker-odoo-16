@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="straconx_payments_withhold_inherit">
+            <field name="name">account.payments.inherit</field>
+            <field name="model">account.payments</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_payments.view_credit_card_1_form" />
+            <field name="arch" type="xml">
+            	<field name="number_deposit" position="after">
+            		<field name="withhold"/>
+            	</field>
+            </field>
+        </record>
+    </data>
+</openerp>

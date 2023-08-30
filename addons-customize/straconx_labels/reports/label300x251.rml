@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(255.0,71.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.0" y1="0.0" width="255" height="71"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="6,-1" stop="6,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="11,-1" stop="11,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla2">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Tabla4">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Courier" fontSize="6.0" leading="8" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P2" fontName="Courier" fontSize="6.0" leading="8" alignment="CENTER"/>
+    <paraStyle name="P3" fontName="Courier" fontSize="6.0" leading="8" alignment="CENTER"/>
+    <paraStyle name="P4" fontName="Courier-Bold" fontSize="8.0" leading="10" alignment="CENTER"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Header" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table Contents" fontName="Helvetica"/>
+    <paraStyle name="terp_header" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <blockTable colWidths="85.0,85.0,85.0" style="Tabla1">
+      <tr>
+        <td>
+          <blockTable colWidths="85.0" style="Tabla2">
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">código</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P4">
+                  <font face="Helvetica">PVP: $ 23.00</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Código de barra</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Descripción del producto</font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="P1">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <blockTable colWidths="85.0" style="Tabla3">
+            <tr>
+              <td>
+                <para style="P3">código</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P4">
+                  <font face="Helvetica">PVP: $ 23.00</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Código de barra</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Descripción del producto</font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+        <td>
+          <blockTable colWidths="85.0" style="Tabla4">
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">código</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P4">
+                  <font face="Helvetica">PVP: $ 23.00</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Código de barra</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P2">
+                  <font face="Helvetica">Descripción del producto</font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="Table Contents">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>

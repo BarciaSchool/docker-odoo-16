@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<!-- Definición de posiciones fiscales Régimen Ecuatoriano y Retención 
+			de IR 25%, 10%, 8%, 2% y 1% -->
+
+		<!-- Fiscal Position Templates -->
+		<record id="fp_naturalesnoobl" model="account.fiscal.position">
+			<field name="name">PERSONAS NATURALES NO OBLIGADAS A LLEVAR CONTABILIDAD</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_naturalesobl" model="account.fiscal.position">
+			<field name="name">PERSONAS NATURALES OBLIGADAS A LLEVAR CONTABILIDAD</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_persjur" model="account.fiscal.position">
+			<field name="name">PERSONAS JURIDICAS</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_contrespec" model="account.fiscal.position">
+			<field name="name">CONTRIBUYENTES ESPECIALES</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_extranjero" model="account.fiscal.position">
+			<field name="name">EMPRESAS EXTRANJERAS</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<record id="fp_estateles" model="account.fiscal.position">
+			<field name="name">EMPRESAS ESTATALES</field>
+			<field name="company_id">1</field>
+		</record>
+
+		<!-- Reemplazo de cuentas contables de acuerdo a la posición fiscal -->
+
+		<record id='afpc_2' model='account.fiscal.position.account'>
+			<field name='account_src_id' search="[('code','=','20103010101')]" model="account.account" />
+			<field name='account_dest_id' search="[('code','=','20103020101')]" model="account.account" />
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpc_3' model='account.fiscal.position.account'>
+			<field name='account_src_id' search="[('code','=','10103060101')]" model="account.account" />
+			<field name='account_dest_id' search="[('code','=','10103070101')]" model="account.account" />
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+
+		<!-- Reemplazo de impuestos de acuerdo a la posición fiscal -->
+
+
+<!-- FORMULARIO 104 -->
+
+		<!-- record id='afpt_4' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','516'),('type_tax_use','=','purchase'),('tax_type','=','vat')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record-->
+		<record id='afpt_5' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','517'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_6' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','518'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_7' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','541'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_8' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','542'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_9' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','543'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+
+<!-- IMPUESTO A LA RENTA -->
+
+		<record id='afpt_10' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','332H'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_11' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','500'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_12' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','501'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_13' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','502'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_14' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','503'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_15' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_16' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504A'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_17' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504B'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_18' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504C'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_19' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504D'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_20' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504E'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_21' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504F'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_22' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504G'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_23' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','504H'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_24' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_25' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505A'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_26' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505B'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_27' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505C'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_28' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505D'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_29' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505E'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_30' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','505F'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_31' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','509'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<!-- record id='afpt_32' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','509A'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record-->
+		<record id='afpt_33' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','510'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_34' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','511'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_35' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','512'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_36' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','513'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_37' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','513A'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_38' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','514'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_39' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','515'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_40' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','516'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_41' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','517'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_42' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','518'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_43' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','519'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_44' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_45' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520A'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_46' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520B'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_47' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520D'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_48' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520E'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_49' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520F'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_50' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','520G'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_51' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','521'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_52' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','522A'),('type_tax_use','=','purchase')]" model='account.tax'/>		
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_53' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','522B'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_54' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','522C'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_55' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','523A'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_56' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','523B'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<!-- record id='afpt_57' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','523C'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record>
+		<record id='afpt_58' model='account.fiscal.position.tax'>
+			<field name='tax_src_id' search="[('description','=','524'),('type_tax_use','=','purchase')]" model='account.tax'/>
+			<field name='position_id' ref='straconx_sri.fp_extranjero' />
+		</record-->
+	</data>
+</openerp>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+	<data>
+
+
+        <record id="straconx_comunicaciones_sender" model="ir.mail_server">
+            <field name="name">buenhogar_electronic</field>
+            <field name="smtp_host">smtp.gmail.com</field>
+            <field eval="465" name="smtp_port"/>
+            <field eval="10" name="sequence"/>
+            <field name="smtp_encryption">ssl</field>
+            <field name="smtp_user">comunicaciones@buenhogar.com.ec</field>
+            <field name="smtp_pass">sistemas2015</field>
+	    </record>
+
+
+        <record id="straconx_loyalty.data_customer" model="email.template">
+            <field name="name">Comunicación a Cliente</field>
+            <field name="email_from">${object.company_id.document_email}</field>
+            <field name="subject">Bonohogar # ${object.name}</field>
+			<field name="email_to">${object.partner_id.address[0].email}</field>
+            <field name="model_id" ref="straconx_loyalty.model_sales_loyalty_partner"/>
+			<field name="mail_server_id" ref="straconx_comunicaciones_sender"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang"></field>
+            <field name="body_html"><![CDATA[
+<table width="650" align="center"
+	style="font-family:Helvetica;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="border-collapse:collapse">
+				<table width="100%">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table style="width:644px">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse">
+								<table style="display:inline-block;float:left">
+									<tbody>
+										<tr>
+											<td style="border-collapse:collapse">
+												<a href="http://www.almacenesbuenhogar.com/web/">
+													<img src="http://www.almacenesbuenhogar.com/web/logo.png" alt="Almacenes Buenhogar" border="0" width="180" height="90">
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table style="display:inline-block;float:right;text-align:right">
+									<tbody>
+										<tr>
+											<td
+												style="border-collapse:collapse;float:right;color:rgb(80,79,78);font-family:'Trebuchet MS',Arial,Helvetica,sans-serif">
+												<p>
+													${object.partner_id.name}
+													<br>
+														ID No:
+														<span class="il">${object.partner_id.vat[2:]}</span>
+													<br>
+														BH #:
+														<span class="il">${object.name}</span>
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table bgcolor="#4C4D4F" style="width:644px">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse;padding-left:5px;text-align:center">
+								<a style="color:rgb(255,255,255);text-decoration:none;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;font-size:24px"
+									target="_blank">APROVECHE LA OPORTUNIDAD</a>
+							</td>
+							<td bgcolor="#4C4D4F"
+								style="border-collapse:collapse;text-align:center;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif">
+								<a style="color:rgb(255,255,255);text-decoration:none" target="_blank"/>
+							</td>
+							<td bgcolor="#4C4D4F" style="border-collapse:collapse">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table align="center" style="padding-top:10px;padding-bottom:10px">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse;text-align:center">
+								<div
+									style="color:#00b4a4; font-size:40px; font-family:'Trebuchet MS',Arial,Helvetica,sans-serif; margin:0px; padding:0px">
+									Tiene un Bonohogar disponible para usar </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table align="center">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse">
+								<table style="display:inline-block;float:left;width:310px">
+									<tbody>
+										<tr>
+											<td bgcolor="#00CCCC"
+												style="border-collapse:collapse;text-align:center;background-color:rgb(235,235,235);border:1px solid rgb(219,219,219);border-top-left-radius:15px;border-top-right-radius:15px;border-bottom-right-radius:15px;border-bottom-left-radius:15px;padding:15px 5px">
+												<div
+													style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78);font-size:22pt;margin:0px;padding:0px">{object.partner_id.name} </br>Usted ha acumulado</div>
+												<div
+													style="font-weight:bold;color:rgb(239,49,37);font-size:58px;margin:0px;padding:0px;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif">
+													<sup style="font-size:36px;vertical-align:text-top">$</sup>
+													${object.actual_bonus}
+												</div>
+												<p
+													style="font-size:14px; color:#00b4a4; font-family:'Trebuchet MS',Arial,Helvetica,sans-serif">
+													Que puede utilizar en compras desde
+													<br>
+														<span style="font-weight:bold;font-size:28px">
+															<sup style="font-size:28px;vertical-align:text-top">$</sup>
+															<span class="il">${round(object.minimun_purchase)}</span>
+														</span>
+												</p>
+											  <div>
+														<br>
+													</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table align="center"
+									style="display:inline-block;float:left;padding-left:13px;width:275px">
+									<tbody>
+										<tr>
+											<td
+												style="border-collapse:collapse;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78)">
+												<div
+													style="font-size:19pt;color:rgb(80,79,78);padding-top:0px;margin:0px">
+													Bonohogar # 
+													<span>&nbsp;
+													</span>
+													<br>
+														<span class="il">${object.name}</span>
+												</div>
+												<p style="font-size:14px">Por sus compras efectuadas entre el 1 de noviembre y 31 de diciembre del 2015, usted acumuló ese valor que puede redimir desde el 4 de enero del 2016 al 31 de marzo del 2016.</p>
+												<p style="font-size:14px">
+													<strong>Imprima este correo o llévelo en su Celular. Preséntelo en el momento de realizar su compra.</strong>
+												</p>
+												<div>
+													<br>
+												</div>
+												<div>
+													<br>
+												</div>
+												<div>&nbsp;
+													<br>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#00b4a4" style="border-collapse:collapse;text-align:center">
+								<p
+									style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif; color:#FFF">
+									
+									<a
+										href="http://www.almacenesbuenhogar.com"
+										style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78)"
+										target="_blank">Visite nuestras tiendas y aplíquelo para comprar productos de la temporada 2016</a>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table
+					style="border-top-width:1px;border-top-style:solid;border-top-color:rgb(219,219,219);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(219,219,219);padding:10px;width:624px;margin-top:10px">
+					<tbody>
+						<tr>
+							<td style="border-collapse:collapse">
+								<p
+									style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78);font-size:35pt;font-weight:bold;margin:5px 0px">
+									<span style="font-weight:100; font-size:25pt; color:#00b4a4">Usar su BONOHOGAR es sencillo:</span>
+				        </p>
+								<table
+									style="background-color:rgb(235,235,235);display:inline-block;width:190px;margin-right:10px;height:100px;vertical-align:text-top;float:left">
+									<tbody>
+										<tr>
+											<td style="border-collapse:collapse">
+												<p
+													style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(102,102,102);font-size:18px;margin-top:5px;padding-left:5px">
+													<span style="color:#00b4a4; font-weight:bold">
+														Elija el producto
+													</span>
+														en nuestra tiendas (que no estén en promoción).
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table
+									style="background-color:rgb(235,235,235); display:inline-block; width:190px; margin-right:10px; height:100px; vertical-align:text-top; float:left">
+									<tbody>
+										<tr>
+											<td style="border-collapse:collapse">
+												<p
+													style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif; color:rgb(102,102,102); font-size:18px; margin-top:5px; padding-left:5px">
+													<span style="color:#00b4a4; font-weight:bold">
+														Presente este correo
+														<span>
+														</span>
+													</span>en el momento de pagar.
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table
+									style="background-color:rgb(235,235,235); display:inline-block; height:100px; width:190px; vertical-align:text-top; float:left">
+	  <tbody>
+										<tr>
+											<td style="border-collapse:collapse">
+												<p
+													style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif; color:rgb(102,102,102); font-size:18px; margin-top:5px; padding-left:5px">
+													<span style="color:#00b4a4; font-weight:bold">
+														Disfrute su compra
+													</span>
+													y no olvide de regresar a nuestras Tiendas.
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table width="100%">
+					<tbody>
+						<tr>
+							<td
+								style="border-collapse:collapse;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78);padding-top:10px">
+								<p style="font-size:12px">
+									<strong>DETALLES DE LA PROMOCION</strong>
+									<br>
+										* La oferta es válida desde el 4 de enero del 2016 al 30 de junio del 2016.
+										* El valor del Bonohogar solo puede ser usado de manera completa en compras desde $20 en adelante hasta por un 30% del valor de la misma.
+										* El Bonohogar debe ser utilizado en una única compra.
+										* Luego de la fecha de expiración, el Bonohogar ya no sera válido.
+										* Las compras efectuadas con Bonohogar no tendrán derecho a devolución o cambio.
+										* No aplican a productos que tengan otro descuentos y/o promociones.
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
+						<tr>
+							<td
+								style="border-collapse:collapse;font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78);font-size:12px">
+								<p>
+									<b> SUSCRIPCION DE CORREO ELECTRONICO</b>
+									<br>
+										Este correo ha sido enviado a:
+										<a target="_blank">
+											<span class="il">${object.partner_id.address[0].email}</span>
+										</a>
+										<br>
+											<br>
+												<span>Ha recibido este correo porque lo ha registrado en sus compras en Almacenes Buenhogar E.W. Cia. Ltda.</span>
+												<br>
+													<span>Si no desea seguir recibiéndolo, por favor dele click en el siguiente vínculo:
+														<a
+															href="http://www.almacenesbuenhogar.com"
+															style="font-family:'Trebuchet MS',Arial,Helvetica,sans-serif;color:rgb(80,79,78)"
+															target="_blank">No recibir más promociones</a>
+													</span>
+												<p style="font-size:14px">
+												</p>
+													</a>
+												<div>
+													<br>
+												</div>
+												<div>
+													<br>
+												</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+            ]]></field>
+        </record>
+
+
+		<record id="ir_cron_sales_partner_send_document" model="ir.cron">
+			<field eval="&quot;&quot;&quot;sales_partner_send_document&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;days&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Envía correo de promociones&quot;&quot;&quot;" name="name"/>
+			<field eval="-1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d 07:%M:%S')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="True" name="active"/>
+			<field eval="1" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;sales.loyalty.partner&quot;&quot;&quot;" name="model"/>
+		</record>
+
+
+	</data>
+</openerp>

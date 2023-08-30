@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+        <record id="account_budgets_analytic_account_xls" model="ir.actions.report.xml">
+            <field name="name">Plan de Cuentas de Costo por Cuenta Contable</field>
+            <field name="report_name">plan_budgets_analytic_account</field>
+            <field name="pentaho_filename">straconx_budgets/report/03_straconx_analytic_account_group.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.final_accounting_reports')"/>            
+        </record>   
+
+        <record id="account_budgets_company_report_xls" model="ir.actions.report.xml">
+            <field name="name">Anual</field>
+            <field name="report_name">presupuesto_compania</field>
+            <field name="pentaho_filename">straconx_budgets/report/01_straconx_budget_company.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account_analytic_account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('budget_report_company')"/>
+        </record>   
+
+        <record id="account_budgets_resumen_account_account_xls" model="ir.actions.report.xml">
+            <field name="name">Cuentas Analítica y Contable</field>
+            <field name="report_name">presupuesto_resumido_costo_contable</field>
+            <field name="pentaho_filename">straconx_budgets/report/09_straconx_resume_department_account_account.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_company')"/>            
+        </record>     
+
+        <record id="account_budgets_resumen_account_partner_xls" model="ir.actions.report.xml">
+            <field name="name">Cta. Anal. y Cont. por Empresa</field>
+            <field name="report_name">presupuesto_resumido_costo_contable_empresa</field>
+            <field name="pentaho_filename">straconx_budgets/report/14_straconx_resume_department_account_account_detail.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_company')"/>            
+        </record>  
+
+        <record id="account_budgets_department_report_xls" model="ir.actions.report.xml">
+            <field name="name">Anual</field>
+            <field name="report_name">presupuesto_anual_departamento</field>
+            <field name="pentaho_filename">straconx_budgets/report/02_straconx_budget_department.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account_analytic_account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_department')"/>            
+        </record>   
+
+        <record id="account_budgets_ledger_consolidated_report_xls" model="ir.actions.report.xml">
+            <field name="name">Mensual</field>
+            <field name="report_name">presupuesto_mensual_departamento</field>
+            <field name="pentaho_filename">straconx_budgets/report/06_straconx_department_analytic.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_department')"/>            
+        </record>   
+        
+        <record id="account_budgets_resumen_department_report_xls" model="ir.actions.report.xml">
+            <field name="name">Resumido</field>
+            <field name="report_name">budgets_resume_department</field>
+            <field name="pentaho_filename">straconx_budgets/report/07_straconx_resume_department.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_department')"/>            
+        </record>   
+
+        <record id="account_budgets_resumen_account_area_report_xls" model="ir.actions.report.xml">
+            <field name="name">Por Cuenta Analítica</field>
+            <field name="report_name">presupuesto_resumido_cuentas</field>
+            <field name="pentaho_filename">straconx_budgets/report/08_straconx_resume_department_account.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_department')"/>            
+        </record>   
+        
+        <record id="account_budgets_resumen_account_account_department_xls" model="ir.actions.report.xml">
+            <field name="name">Cuentas Analítica y Contable</field>
+            <field name="report_name">presupuesto_departamento_costo_contable</field>
+            <field name="pentaho_filename">straconx_budgets/report/10_straconx_resume_department_account_account_department.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_department')"/>            
+        </record>   
+
+        <record id="account_budgets_resumen_offer_xls" model="ir.actions.report.xml">
+            <field name="name">Oferta</field>
+            <field name="report_name">presupuesto_resumido_oferta</field>
+            <field name="pentaho_filename">straconx_budgets/report/11_straconx_budget_cost_center.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_project')"/>            
+        </record>   
+
+        <record id="account_budgets_resumen_shop_cost_xls" model="ir.actions.report.xml">
+            <field name="name">Cuentas Analítica</field>
+            <field name="report_name">presupuesto_tiendas_costos</field>
+            <field name="pentaho_filename">straconx_budgets/report/12_straconx_resume_shop_department_account.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.analytic.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('budget_report_shop')"/>            
+        </record>   
+        
+    </data>
+</openerp>

@@ -1,0 +1,210 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_budgets_projects
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-03 17:41+0000\n"
+"PO-Revision-Date: 2016-05-03 17:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:33
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:52
+#, python-format
+msgid "The account type phase only can a type cost as parent_id"
+msgstr "Las cuentas tipo Fase solo pueden tener una cuenta tipo Costo como Padre."
+
+#. module: straconx_budgets_projects
+#: constraint:account.move.line:0
+msgid "Company must be the same for its related account and period."
+msgstr "La compañía debe ser la misma para su cuenta y periodos relacionados"
+
+#. module: straconx_budgets_projects
+#: model:ir.actions.act_window,name:straconx_budgets_projects.action_account_analytic_phase
+#: model:ir.ui.menu,name:straconx_budgets_projects.account_analytic_phase
+msgid "Analytic Phases"
+msgstr "Fases Analíticas"
+
+#. module: straconx_budgets_projects
+#: field:account.move.line,wbs_phase:0
+#: field:crossovered.budget.lines,wbs_phase:0
+msgid "Subphase/Work"
+msgstr "Subfase/Tarea"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_account_analytic_journal
+msgid "Analytic Journal"
+msgstr "Diario Analítico"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.phase,type_phase:0
+msgid "Phase Type"
+msgstr "Tipo de Fase"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.phase,parent_id:0
+msgid "Parent"
+msgstr "Padre"
+
+#. module: straconx_budgets_projects
+#: selection:account.analytic.phase,type_phase:0
+msgid "Phase"
+msgstr "Fase"
+
+#. module: straconx_budgets_projects
+#: constraint:account.move.line:0
+msgid "You can not create journal items on an account of type view."
+msgstr "No puede crear asientos en una cuenta de tipo vista"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.phase,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_crossovered_budget_lines
+msgid "Budget Line"
+msgstr "Línea Presupuestal"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.journal,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_budgets_projects
+#: selection:account.analytic.phase,type_phase:0
+msgid "Work"
+msgstr "Tarea"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_crossovered_budget
+msgid "Budget"
+msgstr "Presupuesto"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_account_move_line
+msgid "Journal Items"
+msgstr "Lineas de Asientos Contables"
+
+#. module: straconx_budgets_projects
+#: field:account.budget.post,req_dep:0
+msgid "Req. Depart."
+msgstr "Requiere Departamento"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:35
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:54
+#, python-format
+msgid "The account type subphase only can a type phase as parent_id"
+msgstr "Las cuentas tipo Subfase solo puede tener una cuenta tipo Fase como Padre"
+
+#. module: straconx_budgets_projects
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr "¡Valor crédito o débito erróneo en apunte contable!"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:31
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:33
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:35
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:37
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:39
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:50
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:52
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:54
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:56
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:58
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_budgets_projects
+#: selection:account.analytic.phase,type_phase:0
+msgid "Subphase"
+msgstr "Subfase"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_account_budget_post
+msgid "Budgetary Position"
+msgstr "Posición presupuestaria"
+
+#. module: straconx_budgets_projects
+#: constraint:account.move.line:0
+msgid "You can not create journal items on closed account."
+msgstr "No puede crear asientos en cuentas cerradas"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.phase,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_budgets_projects
+#: field:crossovered.budget,project_id:0
+msgid "Offer/Project"
+msgstr "Oferta/Proyecto"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:37
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:56
+#, python-format
+msgid "The account type task only can a type subphase as parent_id"
+msgstr "La cuentas tipo Tareas solo puede tener un tipo de cuent Subfase como Padre"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.phase,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:39
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:58
+#, python-format
+msgid "The account can not recursive parent_id"
+msgstr "Las cuentas no pueden ser recursivas"
+
+#. module: straconx_budgets_projects
+#: constraint:account.move.line:0
+msgid "The selected account of your Journal Entry forces to provide a secondary currency. You should remove the secondary currency on the account or select a multi-currency view on the journal."
+msgstr "La cuenta selecionada de su diario obliga a tener una moneda secundaria. Usted debería eliminar la moneda secundaria de la cuenta o asignar una vista de multi-moneda al diario."
+
+#. module: straconx_budgets_projects
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal."
+msgstr "¡La fecha de su asiento no está en el periodo definido! Usted debería cambiar la fecha o borar este esta restricción del diario."
+
+#. module: straconx_budgets_projects
+#: selection:account.analytic.phase,type_phase:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: straconx_budgets_projects
+#: model:ir.model,name:straconx_budgets_projects.model_account_analytic_phase
+msgid "account.analytic.phase"
+msgstr "Cuentas Analíticas Fases"
+
+#. module: straconx_budgets_projects
+#: field:account.analytic.journal,partner_id:0
+#: field:crossovered.budget,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_budgets_projects
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:31
+#: code:addons/straconx_budgets_projects/objects/strx_account_phase.py:50
+#, python-format
+msgid "The account type cost can not a parent_id"
+msgstr "Las cuentas tipo Costo no pueden tener Padre"
+
+#. module: straconx_purchase
+#: field:purchase.order.line,account_analytic_id:0
+msgid "Analytic Account"
+msgstr "Cuenta de Gasto"
+

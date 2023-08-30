@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_invoice_shops_lines.group_pos_manager,reports.invoice.shop,model_reports_invoice_shop,base.group_pos_manager,1,1,1,1
+access_reports_invoice_shops_lines.group_pos_manager,reports.invoice.shop.line,model_reports_invoice_shop_line,base.group_pos_manager,1,1,1,1
+access_wizard_product_ubication.group_pos_manager,wizard.product.ubication,model_wizard_product_ubication,base.group_pos_manager,1,1,1,1
+access_wizard_product_ubication_lines.group_pos_manager,wizard.product.ubication.lines,model_wizard_product_ubication_lines,base.group_pos_manager,1,1,1,1
+access_wizard_product_ubication.group_stock_user,wizard.product.ubication.stock_user,model_wizard_product_ubication,stock.group_stock_user,1,1,1,1
+access_wizard_product_ubication_lines.group_stock_user,wizard.product.ubication.lines.stock_user,model_wizard_product_ubication_lines,stock.group_stock_user,1,1,1,1
+access_wizard_product_ubication.group_stock_manager,wizard.product.ubication.stock_manager,model_wizard_product_ubication,stock.group_stock_manager,1,1,1,1
+access_wizard_product_ubication_lines.group_stock_manager,wizard.product.ubication.lines.stock_manager,model_wizard_product_ubication_lines,stock.group_stock_manager,1,1,1,1
+access_reports_payments_shop_lines.group_pos_manager,reports.payments.shop.line,model_reports_payments_shop_line,base.group_pos_manager,1,1,1,1
+access_reports_payments_shop.group_pos_manager,reports.payments.shop,model_reports_payments_shop,base.group_pos_manager,1,1,1,1
+access_reports_discounts_shop_lines.group_pos_manager,reports.discounts.shop.line,model_reports_discounts_shop_line,base.group_pos_manager,1,1,1,1
+access_reports_discounts_shop.group_pos_manager,reports.discounts.shop,model_reports_discounts_shop,base.group_pos_manager,1,1,1,1

@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+
+    <!--Purchase Type-->
+        <record model='purchase.category' id='int'>
+            <field name='code'>IMP</field>
+            <field name='name'>IMPORTACIÓN</field>
+            <field name='origin'>international</field>
+        </record>
+        
+        <record model='purchase.category' id='pro'>
+            <field name='code'>PRO</field>
+            <field name='name'>COMPRA PROCURA</field>
+            <field name='origin'>local</field> 
+        </record> 
+
+        <record model='purchase.category' id='loc'>
+            <field name='code'>LOC</field>
+            <field name='name'>COMPRA LOCAL</field> 
+            <field name='origin'>local</field>
+        </record>
+
+        <record model='purchase.category' id='rap'>
+            <field name='code'>RES</field>
+            <field name='name'>PRODUCTOS CONSEP</field>
+            <field name='origin'>international</field> 
+        </record>
+        
+        <record model='purchase.category' id='adm'>
+            <field name='code'>INT</field>
+            <field name='name'>COMPRA ADMINISTRATIVA</field>
+            <field name='origin'>local</field> 
+        </record>    
+           
+
+</data>
+</openerp>

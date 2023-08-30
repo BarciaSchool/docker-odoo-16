@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="account_cash_voucher_inherit_view" model="ir.ui.view">
+			<field name="name">Asistente para Nuevo Voucher Herencia</field>
+			<field name="model">straconx.cash.vouchers.wizard</field>
+			<field name="inherit_id"
+				ref="straconx_cash_voucher_ar.straconx_cash_vouchers_form_wizard" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//field[@name='wizard_line']/tree//field[@name='cost_journal']"
+					position="after">
+					<field name="wbs_phase" />
+				</xpath>
+				<xpath
+					expr="//field[@name='wizard_line']/form//field[@name='cost_journal']"
+					position="after">
+					<field name="wbs_phase" required = "1"
+						domain="[('type_phase','&lt;&gt;','cost'),('type_phase','&lt;&gt;','phase'), ('parent_id', '!=', False)]"
+						options="{&quot;quick_create&quot;: false}" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>
+
+

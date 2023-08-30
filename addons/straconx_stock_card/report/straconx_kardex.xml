@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+        <record id="logistics_kardex_pdf_id" model="ir.actions.report.xml">
+            <field name="name">Imprimir Kardex</field>
+            <field name="report_name">report_kardex_pdf</field>
+            <field name="pentaho_filename">straconx_stock_card/report/straconx_kardex.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">product.stock.kardex</field>            
+            <field name="report_type">pdf</field>            
+            <field name="pentaho_report_model_id" search="[('model','=','product.stock.kardex')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+
+        <record id="logistics_kardex_xls_id" model="ir.actions.report.xml">
+            <field name="name">Exportar Kardex</field>
+            <field name="report_name">report_kardex_xls</field>
+            <field name="pentaho_filename">straconx_stock_card/report/straconx_kardex.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">product.stock.kardex</field>            
+            <field name="report_type">pdf</field>            
+            <field name="pentaho_report_model_id" search="[('model','=','product.stock.kardex')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+   
+    </data>
+</openerp>

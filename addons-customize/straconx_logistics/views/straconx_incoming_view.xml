@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- New Picking Search and Tree: Status Confirmed and Available -->
+		<record id="straconx_view_picking_in_search" model="ir.ui.view">
+			<field name="name">stock.picking.in.search</field>
+			<field name="model">stock.picking</field>
+			<field name="type">search</field>
+			<!--field eval="1" name="priority"/ -->
+			<field name="arch" type="xml">
+				<search string="Picking list">
+					<group col="8" colspan="4">
+						<filter icon="terp-check" name="done" string="Realizado"
+							domain="[('state','=','done')]" help="Done Delivery Orders" />
+						<filter icon="terp-check" name="available" string="Available"
+							domain="[('state','=','assigned')]" help="Assigned Delivery Orders" />
+						<filter icon="terp-camera_test" name="confirmed" string="Confirmed"
+							domain="[('state','=','confirmed')]" help="Confirmed Delivery Orders" />
+						<separator orientation="vertical" />
+						<filter icon="terp-accessories-archiver-minus" string="Back Orders"
+							domain="[('backorder_id', '!=', False)]" help="Is a Back Order"
+							groups="base.group_extended" />
+						<separator orientation="vertical" />
+						<field name="shop_id" select="2" />
+						<field name="partner_id" select="2" />
+						<field name="name" />
+						<field name="date" />						
+						<newline />
+						<separator orientation="horizontal" />
+						<field name="origin" />
+						<field name="invoice_state" />					
+					</group>
+					<newline />
+					<group expand="0" string="Group By..." colspan="4" col="8">
+						<!--filter string="Carrier" icon="terp-partner" domain="[]" context="{'group_by':'carrier_id'}"/> 
+							<separator orientation="vertical" / -->
+						<filter string="Shop" icon="terp-partner" domain="[]"
+							context="{'group_by':'shop_id'}" />
+						<separator orientation="vertical" />
+						<filter string="Partner" icon="terp-partner" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<separator orientation="vertical" />
+						<filter string="State" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'state'}" />
+						<separator orientation="vertical" />
+						<filter string="Order Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'date'}" />
+						<filter string="Estado de Factura" icon="terp-stock_effects-object-colorize"
+							domain="[]" context="{'group_by':'invoice_state'}" />
+
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="straconx_view_picking_in_tree" model="ir.ui.view">
+			<field name="name">stock.picking.in.tree</field>
+			<field name="model">stock.picking</field>
+			<field name="type">tree</field>
+			<!--field eval="1" name="priority"/ -->
+			<field name="arch" type="xml">
+				<tree
+					colors="blue:state in ('draft');grey:state in ('cancel');red:state not in ('cancel', 'done') and date &lt; current_date"
+					string="Delivery Orders">
+					<field name="partner_id" />
+					<field name="shop_id" />
+					<field name="name" />
+					<field name="origin" />
+					<field name="date" />
+					<field name="state" />
+<!-- 					<button name="action_process" states="assigned" string="Process" -->
+<!-- 						type="object" icon="gtk-go-forward" /> -->
+				</tree>
+			</field>
+		</record>
+
+		<record id="straconx_view_picking_in_form" model="ir.ui.view">
+			<field name="name">Picking Incoming Form</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<!--field eval="1" name="priority"/ -->
+			<field name="arch" type="xml">
+				<form string="Incoming Receive list">
+					<group colspan="1" col="2">
+						<group colspan="2" col="4">
+							<field name="shop_id" required="1" />
+							<field name="name" readonly="1" />
+							<field name="partner_id" required="1" colspan="4"
+								on_change="onchange_partner_id(partner_id)"
+								attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="address_id" on_change="onchange_partner_in(address_id)"
+								context="{'contact_display':'partner_id'}" required="1" colspan="4"
+								attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="date" attrs="{'readonly':[('state','!=','draft')]}" />
+							<field name="origin" />
+							<field name="backorder_id" 
+								readonly="1"/>
+							<field name="warehouse_id" string="Recibido por" required="1" invisible="0" />
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="Products">
+							<field name="move_lines" nolabel="1"
+								widget="one2many_list" default_get="{'move_line':move_lines}">
+								<tree string="Stock Moves" editable="bottom">
+									<field name="name" invisible="1"/>
+									<field name="product_id"
+										context="{'shop_id':parent.shop_id}"
+										on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty,'in',context)" />
+									<field name="ref_product" invisible="1" />
+									<field name="price_unit" readonly="1" invisible="1"/>
+									<field name="product_qty"
+										on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+									<field name="product_uom" string="Unit Of Measure" />
+									<field name="product_uos_qty" groups="product.group_uos" on_change="onchange_uos_quantity(product_id, product_uos_qty, product_uos, product_uom)" invisible="1"/>
+									<field name="ubication_id" string="Ubication" required="1"
+										domain="[('location_id','=',location_dest_id)]" />
+									<field name="state" invisible="1"/>
+									<field name="location_id"
+										on_change="onchange_locations_internal(product_id, 'in',parent.location_id,parent.location_dest_id, False,False)"
+										domain="['|',('usage','=','supplier'),('usage','=','customer')]"
+										widget="selection" invisible="1"/>
+									<field name="location_dest_id" widget="selection"
+										domain="[('usage','=','internal')]" invisible="1"/>
+								</tree>
+								<form string="Stock Moves">
+									<group colspan="2" col="4">
+										<separator colspan="4" string="Move Information" />
+										<field name="name" invisible="1" colspan="4" />
+										<field name="product_id"
+											context="{'shop_id':parent.shop_id}"
+											on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty,'in',context)"
+											colspan="4" />
+											<newline/>
+										<field name="ref_product" />
+										<field name="price_unit" readonly="1" />
+										<field name="product_qty"
+											on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+										<field name="product_uom" string="Unit Of Measure" />
+										<field name="product_uos_qty" groups="product.group_uos" on_change="onchange_uos_quantity(product_id, product_uos_qty, product_uos, product_uom)" invisible="1"/>
+										<field name="ubication_id" string="Ubication" required="1"
+											domain="[('location_id','=',location_dest_id)]" />
+										<field name="prodlot_id" domain="[('product_id','=',product_id)]"
+											groups="base.group_extended" />
+										<field groups="base.group_extended" name="product_packaging"
+											domain="[('product_id','=',product_id)]" 
+											invisible="1" />
+										<newline/>
+										<field name="state" />
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Locations" colspan="2" />
+										<field name="location_id"
+											on_change="onchange_locations_internal(product_id, 'in',parent.location_id,parent.location_dest_id, False,False)"
+											domain="['|',('usage','=','supplier'),('usage','=','customer')]"
+											widget="selection" />
+										<field name="location_dest_id" widget="selection"
+											domain="[('usage','=','internal')]" />
+										<field name="ubication_ids" nolabel="1" colspan="2">
+											<tree string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</tree>
+											<form string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</form>
+										</field>
+									</group>
+								</form>
+							</field>
+							<group col="12" colspan="6">
+								<field name="state" readonly="1" />
+								<button name="button_cancel" states="assigned,confirmed,draft"
+									string="_Cancel" icon="gtk-cancel" confirm="Are you sure to cancel this picking ?" />
+								<button name="draft_force_assign" states="draft" string="Process Later"
+									type="object" icon="gtk-apply" />
+								<button name="draft_validate" states="draft" string="Process Now"
+									type="object" icon="gtk-media-play" />
+								<button name="action_assign" states="confirmed" string="Check Availability"
+									type="object" icon="gtk-find" />
+								<button name="force_assign" states="confirmed" string="Force Availability"
+									type="object" icon="gtk-jump-to" />
+								<button name="action_process" states="assigned" string="Process"
+									groups="stock.group_stock_user" type="object" icon="gtk-go-forward" />
+								<button name="action_drafted" string="Set to draft"
+									states="done,cancel" icon="gtk-convert" type="object" />
+								<button name="%(straconx_stock_pickinglist_income_pdf)d"
+									string="Imprimir Ingreso" attrs="{'invisible': [('state','!=','done')]}"
+									type="action" icon="gtk-print" />
+								<button
+									name="%(straconx_logistics.straconx_action_stock_invoice_incoming)d"
+									string="Create Invoice"
+									attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}"
+									type="action" icon="terp-gtk-go-back-rtl" />
+							</group>
+						</page>
+						<page string="Supplier Invoices">
+							<field colspan="4" name="invoice_ids" nolabel="1"
+								domain="[('type','=','in_invoice')]"
+								context="{'form_view_ref' : 'account.invoice_supplier_form', 'tree_view_ref' : 'straconx_invoice.straconx_invoice_supplier_tree'}" />
+						</page>
+						<page string="Additional info" groups="base.group_extended,base.group_multi_company">
+							<field name="auto_picking" groups="base.group_extended" />
+							<field name="invoice_state" groups="base.group_extended" />
+							<field name="date_done" groups="base.group_extended" />
+							<field name="move_type" groups="base.group_extended" />
+							<field name="type" groups="base.group_extended" />
+							<field name="company_id" groups="base.group_multi_company"
+								widget="selection" />
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="note" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record id="straconx_action_picking_in_tree" model="ir.actions.act_window">
+			<field name="name">Incoming Orders</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="domain">[('type','=','in')]</field>
+			<field name="context">{'contact_display': 'partner_address','search_defualt_available':1,'defualt_available':1,}</field>
+			<field name="search_view_id" ref="straconx_view_picking_in_search" />
+			<field name="help">This is the list of all delivery orders that have
+				to be prepared, according to your different sales orders and your
+				logistics rules.
+			</field>
+		</record>
+
+		<record id="action_picking_tree_in_view1_waiting" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_view_picking_in_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_in_tree" />
+		</record>
+
+		<record id="action_picking_tree_in_view2_waiting" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_view_picking_in_form" />
+			<field name="act_window_id" ref="straconx_action_picking_in_tree" />
+		</record>
+
+		<record id="straconx_action_picking_in_all_tree" model="ir.actions.act_window">
+			<field name="name">All Orders</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="domain">[('type','=','in'),('credit_note','=',False)]</field>
+			<field name="context">{'contact_display': 'partner_address'}</field>
+			<field name="search_view_id" ref="straconx_view_picking_in_search" />
+			<field name="help">This is the list of all delivery orders that have
+				to be prepared, according to your different sales orders and your
+				logistics rules.
+			</field>
+		</record>
+
+		<record id="action_picking_tree_in_view1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_view_picking_in_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_in_all_tree" />
+		</record>
+
+		<record id="action_picking_tree_in_view2" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_view_picking_in_form" />
+			<field name="act_window_id" ref="straconx_action_picking_in_all_tree" />
+		</record>
+
+		<record id="straconx_action_picking_in_all_credit_notes" model="ir.actions.act_window">
+			<field name="name">Picking de Notas de Crédito</field>
+			<field name="res_model">stock.picking</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="domain">[('credit_note','=',True)]</field>
+			<field name="context">{'contact_display': 'partner_address'}</field>
+			<field name="search_view_id" ref="straconx_view_picking_in_search" />
+			<field name="help">This is the list of all delivery orders that have
+				to be prepared, according to your different sales orders and your
+				logistics rules.
+			</field>
+		</record>
+
+		<record id="action_picking_tree_in_cn_view1" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_view_picking_in_tree" />
+			<field name="act_window_id" ref="straconx_action_picking_in_all_credit_notes" />
+		</record>
+
+		<record id="action_picking_tree_in_cn_view2" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_view_picking_in_form" />
+			<field name="act_window_id" ref="straconx_action_picking_in_all_credit_notes" />
+		</record>
+
+
+		<act_window domain="[('purchase_id', '=', active_id)]"
+			id="purchase.act_purchase_order_2_stock_picking" name="Receptions"
+			res_model="stock.picking" src_model="purchase.order"
+			context="{'search_view_ref':'straconx_view_picking_in_search'}" />
+		<!--groups="base.group_extended" context="{'contact_display': 'partner'}"/ -->
+
+		<!-- For compability of picking -->
+
+		<record id="stock.view_picking_in_form" model="ir.ui.view">
+			<field name="name">stock.picking.incoming.form</field>
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<!--field eval="1" name="priority"/ -->
+			<field name="arch" type="xml">
+				<form string="Incoming Receive list">
+					<group colspan="4" col="6">
+						<field name="name" readonly="1" colspan="2" />
+						<field name="backorder_id" readonly="1" groups="base.group_extended"
+							colspan="2" />
+						<field name="origin" colspan="2" />
+					</group>
+					<group colspan="4" col="4">
+						<field name="shop_id" required="1" colspan="4" />
+						<newline />
+						<field name="partner_id" required="1" colspan="4"
+							attrs="{'readonly':[('state','!=','draft')]}" />
+						<field name="address_id" on_change="onchange_partner_in(address_id)"
+							context="{'contact_display':'partner'}" required="1"
+							attrs="{'readonly':[('state','!=','draft')]}" />
+						<field name="local_address_partner" string="Local del Cliente"
+							invisible="1" />
+						<field name="address_partner" string="Dirección del Cliente"
+							invisible="1" />
+						<field name="warehouse_id" required="1" />
+					</group>
+					<group colspan="2" col="4">
+						<field name="date" attrs="{'readonly':[('state','!=','draft')]}" />
+						<newline />
+					</group>
+					<notebook colspan="4">
+						<page string="Products">
+							<field colspan="4" name="move_lines" nolabel="1"
+								widget="one2many_list" default_get="{'move_line':move_lines}">
+								<tree string="Stock Moves">
+									<field name="ref_product" />
+									<field name="product_id" />
+									<field name="categ_id" />
+									<field name="ubication_id" />
+									<field name="product_qty"
+										on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+									<field name="product_uom" string="UoM" />
+									<field name="product_uos_qty" groups="product.group_uos" on_change="onchange_uos_quantity(product_id, product_uos_qty, product_uos, product_uom)" invisible="1"/>
+									<field name="location_id" domain="[('usage','=','supplier')]"
+										widget="selection" />
+									<field name="location_dest_id" domain="[('usage','=','internal')]"
+										widget="selection" />
+									<field name="state" />
+								</tree>
+								<form string="Stock Moves">
+									<group colspan="2" col="4">
+										<separator colspan="4" string="Move Information" />
+										<field name="name" invisible="1"/>
+										<field name="product_id"
+											on_change="onchange_product_id(product_id,location_id,location_dest_id, parent.address_id,product_qty,parent.type)"
+											colspan="4" />
+											<newline/>
+										<field name="ref_product" />
+										<field name="price_unit" readonly="1" />
+										<field name="product_qty"
+											on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)" />
+										<field name="product_uom" string="Unit Of Measure" />
+										<field name="product_uos_qty" groups="product.group_uos" on_change="onchange_uos_quantity(product_id, product_uos_qty, product_uos, product_uom)" invisible="1"/>
+										<field name="ubication_id" string="Ubication" required="1"
+											domain="[('location_id','=',location_dest_id)]" />
+										<field name="prodlot_id" domain="[('product_id','=',product_id)]"
+											groups="base.group_extended" />
+										<field groups="base.group_extended" name="product_packaging"
+											domain="[('product_id','=',product_id)]" invisible="1" />
+										<newline/>
+										<group colspan="2" col="2">
+										<button name="%(stock.track_line)d" string="Split in production lots"
+											groups="base.group_extended" type="action"
+											context="{'product_id': parent.product_id}" icon="terp-stock_effects-object-colorize"
+											states="draft,waiting,confirmed,assigned" />
+										</group>
+									</group>
+									<group colspan="2" col="2">
+										<separator string="Locations" colspan="2" />
+										<field name="location_id" domain="[('usage','=','supplier')]"
+											widget="selection" />
+										<field name="location_dest_id" widget="selection"
+											domain="[('usage','=','internal')]" />
+										<field name="ubication_ids" nolabel="1" colspan="2">
+											<tree string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</tree>
+											<form string="Product Ubications">
+												<field name="ubication_id" />
+												<field name="location_ubication_id" />
+												<field name="product_id" invisible="1" />
+												<field name="qty" />
+											</form>
+										</field>
+									</group>
+									<label string="" colspan="4" />
+									<field name="state" />
+									<group col="4" colspan="2" groups="base.group_extended">
+										<button name="action_cancel" states="assigned" string="Cancel"
+											type="object" icon="gtk-cancel" />
+										<button name="action_confirm" states="draft" string="Confirm"
+											type="object" icon="gtk-apply" />
+										<button name="force_assign" states="confirmed" string="Force Availability"
+											type="object" icon="gtk-jump-to" />
+										<button name="cancel_assign" states="assigned"
+											string="Cancel Availability" type="object" icon="gtk-find" />
+									</group>
+								</form>
+							</field>
+							<group col="10" colspan="4">
+								<field name="state" readonly="1" />
+								<button name="button_cancel" states="assigned,confirmed,draft"
+									string="_Cancel" icon="gtk-cancel" confirm="Are you sure to cancel this picking ?" />
+								<button name="draft_force_assign" states="draft" string="Process Later"
+									type="object" icon="gtk-apply" />
+								<button name="draft_validate" states="draft" string="Process Now"
+									type="object" icon="gtk-media-play" />
+								<button name="action_assign" states="confirmed" string="Check Availability"
+									type="object" icon="gtk-find" />
+								<button name="force_assign" states="confirmed" string="Force Availability"
+									type="object" icon="gtk-jump-to" />
+								<button name="action_process" states="assigned" string="Process"
+									groups="stock.group_stock_user" type="object" icon="gtk-go-forward" />
+								<button name="action_drafted" string="Set to draft"
+									states="done" icon="gtk-convert" type="object" />
+								<button
+									name="%(straconx_action_stock_invoice_incoming)d"
+									string="Create Invoice"
+									attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}"
+									type="action" icon="terp-gtk-go-back-rtl" />
+							</group>
+						</page>
+						<page string="Supplier Invoices">
+							<field colspan="4" name="invoice_ids" nolabel="1"
+								domain="[('type','=','in_invoice')]"
+								context="{'form_view_ref':'account.invoice_supplier_form', 'tree_view_ref' : 'straconx_invoice.view_invoice_supplier_tree'}" />
+						</page>
+						<page string="Additional info" groups="base.group_extended,base.group_multi_company">
+							<field name="auto_picking" groups="base.group_extended" />
+							<field name="invoice_state" groups="base.group_extended" />
+							<field name="date_done" groups="base.group_extended" />
+							<field name="move_type" groups="base.group_extended" />
+							<field name="type" groups="base.group_extended" />
+							<field name="company_id" groups="base.group_multi_company"
+								widget="selection" />
+						</page>
+						<page string="Notes">
+							<field colspan="4" name="note" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+
+	</data>
+</openerp>

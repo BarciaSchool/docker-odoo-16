@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--  Box Entries -->
+
+		<record id="straconx_view_pos_box_out" model="ir.ui.view">
+            <field name="name">Change Box Out</field>
+            <field name="model">change.check</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Output Operation">
+				    	<separator string="Please fill these fields for entries to the box:" colspan="4"/>
+				    	<field name="shop_id" required="1" colspan="4"/>
+				    	<field name="partner_id" domain="[('permit_changed','=',True)]" on_change="onchange_partner(partner_id,context)" colspan="4" required="1"/>
+						<field name='bank_account_id' domain="[('partner_id','=',partner_id),('state','=','bank')]" required="1"/>
+				    	<field name="number" required="1"/>
+				    	<field name="amount" required="1"/>						
+				    	<field name="date" required="1"/>
+				    	<field name="mode_id" domain="[('cash','=',True)]" required="1" readonly="0" invisible="0"/>
+				    	<field name="name" invisible="1"/>
+				    	<field name="journal_id" invisible="1"/>
+				    	<separator colspan="4"/>
+				    	<group colspan="4" col="4">
+				    	    <group col="2" colspan="2"/>
+					 		<button icon="gtk-stop" special="cancel" string="Cancel" />
+	                		<button name="get_out" string="Take Money" colspan="1" type="object" icon="terp-dolar" />
+                	    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="straconx_action_box_out" model="ir.actions.act_window">
+         	<field name="name">Change Box Out</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">change.check</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'external':True}</field>
+            <field name="target">new</field>
+        </record>
+
+	</data>
+</openerp>

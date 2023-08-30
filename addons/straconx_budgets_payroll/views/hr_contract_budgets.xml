@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="budget_contract_view_form" model="ir.ui.view">
+            <field name="name">Proyectos en Contratos</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+            <field name="model">hr.contract</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook/page/group[@name='salary']" position="replace">
+                    <group colspan="4" name="salary">
+	                    <separator colspan="4" string="Salary" />
+	                    <label align="0.0" colspan="4"
+	                        string="Add wage for employee, this value receive the employee by month and can not be a negative number." />
+	                    <field name="wage" />
+	                    <field name="pay_reserve_funds" />
+	                    <field name="pay_reserve_xiii" />
+	                    <field name="pay_reserve_xiv" />
+	                    <group colspan="4" col="2">
+	                        <field name="wage_historic" colspan="2" />
+	                        <separator string="Proyectos" colspan="4" />
+	                        <field name="budgets_ids" nolabel="1" colspan="4" context="{'form_view_ref':'budget_contract_lines_view_form','tree_view_ref':'budget_contract_lines_view_tree'}"/>	                      
+	                    </group>
+	                </group>
+                </xpath>
+                
+                <xpath expr="/form/notebook/page[@string='Incomes and Expenses']" position="after">
+                    <page string="Salarios Históricos">
+                        <group colspan="4" col="4">
+                                <group colspan="4">
+                                    <separator string="Salarios" colspan="4" />
+                                    <field name="lines_historic_ids" nolabel="1" colspan="4">
+                                        <tree string="Wage Historical">
+                                            <field name="name" />
+                                            <field name="wage" />
+                                            <field name="user_id" />
+                                        </tree>
+                                        <form string="Wage Historical">
+                                            <field name="name" />
+                                            <field name="wage" />
+                                            <field name="user_id" />
+                                        </form>
+                                    </field>
+                                </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="budget_contract_lines_view_form" model="ir.ui.view">
+            <field name="name">Proyectos en Contratos Form</field>
+            <field name="model">straconx.budgets.payroll</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority" />
+            <field name="arch" type="xml">
+                <form>
+                    <field name="project_id"/>
+                    <field name="period_id" domain="[('state','=','draft')]"/>
+                    <field name="wbs_phase_id"
+                        domain="[('type_phase','!=','cost'),('type_phase','!=','phase'), ('parent_id', '!=', False)]"                       
+                        options="{'quick_create':False,'create':False }" />
+                     <field 
+                        domain="[('type','!=','view'), ('parent_id', '!=', False)]"
+                        name="analytic_id" />
+                    <field name="desde" domain="[('state','=','draft')]"/>
+                    <field name="hasta" domain="[('state','=','draft')]"/>
+                    <field name="percentage" />
+                    <field name="state" />
+                </form>
+            </field>
+       </record>
+       
+       <record id="budget_contract_lines_view_tree" model="ir.ui.view">
+            <field name="name">Proyectos en Contratos Tree</field>
+            <field name="model">straconx.budgets.payroll</field>
+            <field name="type">tree</field>
+            <field eval="1" name="priority" />
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="project_id"/>
+                    <field name="period_id" domain="[('state','=','draft')]"/>
+                    <field name="wbs_phase_id"
+                        domain="[('type_phase','!=','cost'),('type_phase','!=','phase'), ('parent_id', '!=', False)]"                       
+                        options="{'quick_create':False,'create':False }" />
+                    <field 
+                        domain="[('type','!=','view'), ('parent_id', '!=', False)]"
+                        name="analytic_id" />
+                    <field name="percentage" sum="Total Amount"/>
+                    <field name="desde" domain="[('state','=','draft')]"/>
+                    <field name="hasta" domain="[('state','=','draft')]"/>
+                    <field name="state" />
+                </tree>
+            </field>
+       </record>
+    </data>
+</openerp>   

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+	<data>
+		<record id="straconx_logistics.view_kardex_form" model="ir.ui.view">
+			<field name="name">Kardex de Productos</field>
+			<field name="model">product.stock.kardex</field>
+			<field name="type">form</field>
+			<field eval="16" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Kardex">
+					<group colspan="4" col="4">
+						<field name="company_id" colspan="4" required="1" widget="selection"/>
+						<field name="location_id" colspan="4" string="Bodega" required="1" domain="[('usage','!=','view')]" widget="selection"/>
+						<field name="product_id" required="1" options='{"quick_create": false}'/>
+						<field name="categ_id" readonly="1"  widget="selection"/>
+						<newline />
+						<field name="date_start" required="1"/>
+						<field name="date_end" required="1"/>
+						<newline />
+<!-- 						<field name="ubication_id" string="Ubicación" /> -->
+					</group>
+					<newline />
+					<group col="8" colspan="4">
+						<button name="search_lines" string="Buscar Movimientos"
+							type="object" icon="gtk-apply" />
+						<button name="%(logistics_kardex_pdf_id)d" string="Imprimir Kardex"
+							type="action" icon="gtk-print" />
+						<button name="%(logistics_kardex_xls_id)d" string="Exportar Kardex"
+							type="action" icon="gtk-convert" />
+						<button icon="gtk-cancel" special="cancel" string="Cancelar" />
+					</group>
+								<field name="init_qty" readonly="1"/>
+								<field name="end_qty" readonly="1"/>
+					<group colspan="6">
+						<field colspan="4" mode="tree,form" name="kardex_move_line_ids"
+							nolabel="1" widget="one2many_list" readonly="True">
+							<tree>
+								<field name="type" string="Tipo"/>
+								<field name="date_mov" string="Fecha" />
+								<field name="ref" string="Referencia"/>
+								<field name="partner_id" string="Empresa"/>
+								<field name="location_id_init" string="Bodega Origen"/>
+								<field name="ubication_id_init" invisible="1"/>
+								<field name="location_id_dest" string="Bodega Destino"/>
+								<field name="ubication_id_dest" invisible="1"/>
+								<field name="incoming_qty" sum="Entradas" string="Entradas" />
+								<field name="delivery_qty" sum="Salidas" string="Salidas"/>
+								<field name="transfer_qty" invisible="1" />
+								<field name="balance" string="Saldo"/>
+							</tree>
+							<form>
+								<field name="type" string="Tipo"/>
+								<field name="date_mov" string="Fecha" />
+								<field name="ref" string="Referencia"/>
+								<field name="partner_id" string="Empresa"/>
+								<field name="picking_id" string="Picking"/>
+								<field name="location_id_init" string="Bodega Origen"/>
+								<field name="ubication_id_init" invisible="1"/>
+								<field name="location_id_dest" string="Bodega Destino"/>
+								<field name="ubication_id_dest" invisible="1"/>
+								<field name="incoming_qty" string="Entradas"/>
+								<field name="delivery_qty" string="Salidas"/>
+								<field name="transfer_qty" invisible="1" />
+								<field name="balance" string="Saldo"/>
+							</form>
+						</field>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="straconx_logistics.action_kardex_form">
+			<field name="name">Kardex de Productos</field>
+			<field name="res_model">product.stock.kardex</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="context">{}</field>
+			<field name="target">new</field>
+			<field name="view_id" ref="straconx_logistics.view_kardex_form" />
+		</record>
+
+        <act_window
+            context="{'search_default_product_id': [active_id], 'default_product_id': active_id}"
+            id="straconx_logistics.view_kardex_form_wizard"
+            name="Kárdex x Producto"
+            res_model="product.stock.kardex"
+            src_model="product.product"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            />
+
+	</data>
+</openerp>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+       <record id="refund_report_id" model="ir.actions.report.xml">
+            <field name="name">Nota_de_Crédito</field>
+            <field name="report_name">Nota_de_Credito</field>            
+            <field name="pentaho_filename">straconx_credit_notes/report/straconx_credit_note.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+       <record id="refund_report_pos_id" model="ir.actions.report.xml">
+            <field name="name">Nota_de_Crédito POS</field>
+            <field name="report_name">nota_de_credito_pos</field>            
+            <field name="pentaho_filename">straconx_credit_notes/report/straconx_credit_note.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">txt</field>
+            <field name="pentaho_report_output_type">txt</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+        
+        <delete model="ir.values" search="[('name','=','Nota_de_Crédito')]" />
+        <delete model="ir.values" search="[('name','=','Nota_de_Crédito POS')]" />
+
+
+    </data>
+</openerp>

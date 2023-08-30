@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		 <record id="view_product_information_form" model="ir.ui.view">
+            <field name="name">product.information.form</field>
+            <field name="model">product.information</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product More Information">
+               		<group colspan="4">
+                		<label colspan="4" string="Product More Information"/>
+                 	</group>
+                 	<group colspan="4">
+                 		<group colspan="2" col="2">
+                  			<separator colspan="4" string="Date Purchase"/>
+                 			<field name="date_purchase" />
+							<field name="month_purchase" />
+							<field name="year_purchase" />
+                     	</group>
+                     	<group colspan="2" col="2">
+                  			<separator colspan="4" string="Date Sale"/>
+							<field name="date_sale" />
+							<field name="month_sale" />
+							<field name="year_sale" />
+                     	</group>
+                  	</group>
+				  	<group colspan="4">
+				  		<label string="" colspan="2"/>
+				  		<button special="cancel" string="Ok"  icon="gtk-ok"/>
+				  	</group>
+				</form>
+            </field>
+        </record>
+        
+	    <record id="action_product_information_view" model="ir.actions.act_window">
+	            <field name="name">Product Information</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">product.information</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">form</field>
+	            <field name="target">new</field>
+        </record>
+	</data>
+</openerp>

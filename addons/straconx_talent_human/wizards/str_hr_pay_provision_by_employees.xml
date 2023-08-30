@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_hr_pay_provision_by_employees" model="ir.ui.view">
+            <field name="name">hr_pay_provision_employees</field>
+            <field name="model">hr.pay.provision.employees</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Provision by Employees">
+                    <label colspan="4" nolabel="1" string="This wizard will generate Pay Provision for all selected employee(s) based on the dates specified on this form." />
+                    <group colspan="4" >
+                        <separator string="Employees" colspan="4"/>
+                        <newline/>
+                        <field name="employee_ids" nolabel="1" />
+                    </group>
+                    <separator string="" colspan="4" />
+                    <group colspan="4" col="6">
+                        <label string ="" colspan="2"/>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button  icon="gtk-execute" string="Generate" name="compute_sheet" type="object"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_hr_pay_provision_by_employees" model="ir.actions.act_window">
+            <field name="name">Generate Pay Provision</field>
+            <field name="res_model">hr.pay.provision.employees</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_pay_provision_by_employees"/>
+            <field name="target">new</field>
+        </record>
+
+<!-- ADVANCE PROVISION -->
+
+		<record id="view_hr_provision_advance_by_employees" model="ir.ui.view">
+            <field name="name">hr_provision_advance_employees</field>
+            <field name="model">hr.provision.advance.employees</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Provision by Employees">
+                    <label colspan="4" nolabel="1" string="This wizard will generate Pay Provision for all selected employee(s) based on the dates specified on this form." />
+                    <group colspan="4" >
+                        <separator string="Employees" colspan="4"/>
+                        <newline/>
+                        <field name="employee_ids" nolabel="1" />
+                    </group>
+                    <separator string="" colspan="4" />
+                    <group colspan="4" col="6">
+                        <label string ="" colspan="2"/>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-execute" string="Generate" name="compute_sheet_advance" type="object"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_hr_provision_advance_by_employees" model="ir.actions.act_window">
+            <field name="name">Generate Pay Provision</field>
+            <field name="res_model">hr.provision.advance.employees</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_provision_advance_by_employees"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

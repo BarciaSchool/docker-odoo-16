@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Purchase -->		
+		<record id="base.menu_purchase_root" model="ir.ui.menu">
+			<field name="action" ref="purchase.purchase_form_action"/>
+		</record>
+	</data>
+</openerp>
+

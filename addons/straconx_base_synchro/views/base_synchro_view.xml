@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- 	Base Synchro Server -->
+        <record id="view_base_synchro_server_tree" model="ir.ui.view">
+            <field name="name">base.synchro.server.tree</field>
+            <field name="model">base.synchro.server</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Synchronized server">
+                    <field name="name"/>
+                    <field name="server_url"/>
+                    <field name="server_port"/>
+                    <field name="server_db"/>
+					<field name="last_synchro"/>                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_base_synchro_server_form" model="ir.ui.view">
+            <field name="name">base.synchro.server.form</field>
+            <field name="model">base.synchro.server</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Synchronized server">
+	                <field name="name" select="1"/>
+	                <field name="active"/>
+	                <field name="server_url" select="1"/>
+	                <field name="server_port"/>
+	                <field name="login" select="1"/>
+	                <field name="password" password="True"/>
+	                <field name="server_db" select="1"/>
+	                <field name="last_synchro" select="1" required="1"/>
+	                <button name="check_connection" string="Test Connection" icon="gtk-go-forward" colspan="2" type="object"/>
+	                <button name="write_sql_servers" string="Excute Synchro" icon="terp-gtk-go-back-rtl" colspan="2" type="object"/>
+	                <separator string="Objects must be synchronized" colspan="2"/>	                
+	                <separator string="Objects without altered sequence" colspan="2"/>
+	                <field name="obj_ids" colspan="2" nolabel="1"/>
+	                <field name="obj_without_sync" colspan="2" nolabel="1"/>	                
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_base_synchro_server_tree" model="ir.actions.act_window">
+            <field name="name">Servers to be synchronized</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.server</field>
+            <field name="view_type">form</field>
+        </record>
+
+
+
+<!--view_base_synchro_obj starts-->
+
+        <record id="view_regclass_search" model="ir.ui.view">
+            <field name="name">base.synchro.search</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Synchronized objects">
+                    <group>
+                      <field name="model_id"/>
+                      <field name="synchronize_date"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By">
+                      <filter string="Object to synchronize" icon="terp-stock_align_left_24" domain="[]" context="{'group_by':'model_id'}"/>
+                      <separator orientation="vertical"/>
+                      <filter string="Latest synchronization" icon="terp-go-month" domain="[]" context="{'group_by':'synchronize_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="view_regclass_form" model="ir.ui.view">
+            <field name="name">base.synchro.obj.form</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Transfer Details">
+                    <field name="name" select="1"/>
+                    <field name="active" select="2"/>
+                    <field name="server_id" select="2"/>
+                    <field name="model_id" select="1"/>
+                    <field name="action"/>
+                    <field name="headquarter"/>
+                    <field name="sequence"/>
+                    <field colspan="4" name="domain"/>
+                    <field name="synchronize_date"/>
+                    <newline/>
+                    <field name="avoid_ids" colspan="4" nolabel="1">
+                        <tree string="Fields" editable="bottom">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_regclass_tree" model="ir.ui.view">
+            <field name="name">base.synchro.obj.tree</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Synchronized objects">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="server_id"/>
+                    <field name="action"/>
+                    <field name="headquarter"/>                    
+                    <field name="synchronize_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="actions_regclass_tree" model="ir.actions.act_window">
+            <field name="name">Filters</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.obj</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_regclass_tree"/>
+            <field name="search_view_id" ref="view_regclass_search"/>
+        </record>
+
+<!-- 	Base Synchro Obj Lines -->
+                
+        <record id="ir_filters_transfer_line_form" model="ir.ui.view">
+            <field name="name">base.synchro.obj.line.form</field>
+            <field name="model">base.synchro.obj.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Transfered Ids Details">
+                    <group>
+                      <field name="name"/>
+                      <field name="obj_id"/>
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By">
+                      <filter string="Object" icon="terp-stock_align_left_24" domain="[]" context="{'group_by':'obj_id'}"/>
+                      <separator orientation="vertical"/>
+                      <filter string="Date" icon="terp-go-month" domain="[]" context="{'group_by':'name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_transfer_line_tree" model="ir.ui.view">
+            <field name="name">base.synchro.obj.line.tree</field>
+            <field name="model">base.synchro.obj.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Transfered Ids Details">
+                    <field name="name" select="1"/>
+                    <field name="obj_id" select="1"/>
+                    <field name="local_id" select="2"/>
+                    <field name="remote_id" select="2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_transfer_line_form" model="ir.ui.view">
+            <field name="name">base.synchro.obj.line.form</field>
+            <field name="model">base.synchro.obj.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Transfered Ids Details">
+                    <field name="name" select="1"/>
+                    <field name="obj_id" select="1"/>
+                    <field name="local_id" readonly="1" select="2"/>
+                    <field name="remote_id" readonly="1" select="2"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="actions_transfer_line_form" model="ir.actions.act_window">
+            <field name="name">Filters</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.obj.line</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_transfer_line_tree"/>
+            <field name="search_view_id" ref="ir_filters_transfer_line_form"/>
+        </record>
+
+
+        <record id="action_base_synchro_obj_line_tree" model="ir.actions.act_window">
+            <field name="name">Synchronized instances</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">base.synchro.obj.line</field>
+            <field name="view_type">form</field>
+        </record>
+
+
+		<record id="view_shop_form_inherit" model="ir.ui.view">
+			<field name="name">sale.shop</field>
+			<field name="model">sale.shop</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="sale.view_shop_form"/>
+			<field name="arch" type="xml">
+				<field name="purchase_manager" position="after">
+					<field name="it_manager" required="1"/>
+				</field>
+			</field>
+		</record>
+
+    </data>
+</openerp>

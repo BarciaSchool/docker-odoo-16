@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<!-- Product -->
+
+		<record model="ir.ui.view" id="product_form_discount2">
+			<field name="name">product_form_discount2</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view" />
+			<field name="arch" type="xml">
+				<field name="list_price" position="after">
+					<field name="discount_percent" readonly="0" />
+					<field name="discount_price" readonly="1" />
+				</field>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="product.product_supplierinfo_form_view">
+            <field name="name">product.supplierinfo.form.view</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Supplier Information">
+                    <field name="name" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}" options='{"quick_create": false}'/>
+                    <field name="product_id"/>
+                    <field name="sequence"/>
+                    <field name="product_name" groups="base.group_extended"/>
+                    <field name="product_code" groups="base.group_extended"/>
+                    <field name="min_qty" invisible="1"/>
+                    <field name="product_uom"/>
+                    <field name="delay"/>
+                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    <field colspan="4" groups="base.group_extended" name="pricelist_ids" nolabel="1" widget="one2many_list">
+                        <tree editable="bottom" string="Pricelist">
+                            <field name="partner_id" invisible="1"/>
+                            <field name="product_id" invisible="1"/>
+                            <field name="min_quantity"/>
+                            <field name="price"/>
+                        </tree>
+                        <form>
+                            <field name="partner_id"/>
+                            <field name="product_id"/>
+                            <field name="min_quantity"/>
+                            <field name="price"/>
+                        </form>
+                    </field>
+                </form>
+            </field>
+        </record>
+	</data>
+</openerp>

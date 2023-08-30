@@ -1,0 +1,781 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_credit_risk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-08 01:46+0000\n"
+"PO-Revision-Date: 2012-10-08 01:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_credit_risk
+#: field:res.partner,draft_invoices_amount:0
+msgid "Draft Invoices"
+msgstr "Facturas en Borrador"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Approve Order"
+msgstr "Aprobar el pedido"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_credit_risk
+#: sql_constraint:res.partner:0
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! La cédula / RUC específicada ya existe para otra empresa registrada."
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Assigned Users"
+msgstr "Usuarios asignados"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Information Authorization"
+msgstr "Información sobre la Autorización"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Progress"
+msgstr "Progreso"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:118
+#, python-format
+msgid "Warning: Invoices Dues.\n"
+"\n"
+"This partner has a invoices dues of %(limit).2f over a debt of %(debt).2f."
+msgstr "Warning: Invoices Dues.\n"
+"\n"
+"This partner has a invoices dues of %(limit).2f over a debt of %(debt).2f."
+
+#. module: straconx_credit_risk
+#: field:res.partner,total_risk_percent:0
+msgid "Credit Usage (%)"
+msgstr "Uso de Crédito (%)"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Offer"
+msgstr "Oferta"
+
+#. module: straconx_credit_risk
+#: field:res.partner,total_debt:0
+msgid "Total Debt"
+msgstr "Total Deuda"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Agencies"
+msgstr "Sucursales"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Order date"
+msgstr "Fecha de pedido"
+
+#. module: straconx_credit_risk
+#: field:res.partner,available_risk:0
+msgid "Available Credit"
+msgstr "Crédito Disponible"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Verify Order"
+msgstr "Verificar Orden"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Cancel Order"
+msgstr "Cancelar pedido"
+
+#. module: straconx_credit_risk
+#: field:sale.order,amount_invoiced:0
+#: field:sale.order.line,amount_invoiced:0
+msgid "Invoiced Amount"
+msgstr "Monto de Factura"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+#: view:sale.order:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Sale Order"
+msgstr "Orden de Venta"
+
+#. module: straconx_credit_risk
+#: model:ir.actions.act_window,name:straconx_credit_risk.action_partner_risk_form
+msgid "Risk Partners"
+msgstr "Riesgo de Empresas"
+
+#. module: straconx_credit_risk
+#: field:res.partner,protested_cheques:0
+msgid "Checks Protested"
+msgstr "Cheques protestados"
+
+#. module: straconx_credit_risk
+#: field:res.partner,circulating_amount:0
+msgid "Payments Sent to Bank"
+msgstr "Pagos enviados al Banco"
+
+#. module: straconx_credit_risk
+#: constraint:res.partner:0
+msgid "This partner already exist"
+msgstr "Esta Empresa ya existe"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "RUC - CI"
+msgstr "RUC - CI"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:109
+#, python-format
+msgid "Credit Limit Exceeded"
+msgstr "Exceso del límite de crédito"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+#: view:sale.order:0
+msgid "Segment"
+msgstr "Segmento"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Meetings"
+msgstr "Reuniones"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Held"
+msgstr "Ocupado"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Reset to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Call Summary"
+msgstr "Resumen de llamadas"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Customer since"
+msgstr "Clientes desde"
+
+#. module: straconx_credit_risk
+#: model:ir.model,name:straconx_credit_risk.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_credit_risk
+#: model:ir.model,name:straconx_credit_risk.model_sale_order
+#: view:sale.order:0
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Schedule Other Call"
+msgstr "Planificar otra llamada"
+
+#. module: straconx_credit_risk
+#: model:ir.actions.act_window,name:straconx_credit_risk.action_order_wait_risk
+msgid "Waiting Risk Approval"
+msgstr "Esperando aprobación de Riesgo"
+
+#. module: straconx_credit_risk
+#: model:ir.model,name:straconx_credit_risk.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Previous"
+msgstr "Anterior"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Authorize sale"
+msgstr "Autorización de Venta"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Phone Call"
+msgstr "Llamada de teléfono"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Next"
+msgstr "Siguiente"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Qty"
+msgstr "Ctdad"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Bank account owner"
+msgstr "Titular de la cuenta bancaria"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "My Sale Orders"
+msgstr "My Sale Orders"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Information Credit Denied"
+msgstr "Information Credit Denied"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Search Partner"
+msgstr "Buscar empresa"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Confirm Order"
+msgstr "Confirmar pedido"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Other Information"
+msgstr "Información adicional"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_credit_risk
+#: field:res.partner,unpayed_amount:0
+msgid "Expired Unpaid Payments"
+msgstr "Expired Unpaid Payments"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Total Qty"
+msgstr "Cantidad Total"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Order Date"
+msgstr "Fecha de orden"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Credit Application"
+msgstr "Credit Application"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Credit Risk File"
+msgstr "Credit Risk File"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Functions and Addresses"
+msgstr "Cargos y Direcciones"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Not Held"
+msgstr "No ocupado"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Leads and Opportunities"
+msgstr "Iniciativas y oportunidades"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Partner Status"
+msgstr "Estado de la Empresa"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: straconx_credit_risk
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_action_order_wait_risk
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_management_risk
+msgid "Risk Credit Management"
+msgstr "Riesgo Crédito"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+#: view:sale.order:0
+msgid "Salesman"
+msgstr "Vendedor"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Customer Partners"
+msgstr "Clientes"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: straconx_credit_risk
+#: field:res.partner,pending_amount:0
+msgid "Unexpired Pending Payments"
+msgstr "Unexpired Pending Payments"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Customer References"
+msgstr "Customer References"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Total Taxes"
+msgstr "Total de Impuestos"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Conditions"
+msgstr "Condiciones"
+
+#. module: straconx_credit_risk
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_finance_receivables_risks
+#: model:ir.ui.menu,name:straconx_credit_risk.risk_menu_sales
+#: view:res.partner:0
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Create a Partner"
+msgstr "Crear una empresa"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Packings"
+msgstr "Empaques"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Escalate"
+msgstr "Escalado"
+
+#. module: straconx_credit_risk
+#: field:sale.order,date_denied:0
+msgid "Ordered Date"
+msgstr "Ordered Date"
+
+#. module: straconx_credit_risk
+#: field:res.partner,rejected_cheques:0
+msgid "Checks Rejected"
+msgstr "Checks Rejected"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Sales History"
+msgstr "Sales History"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Sales Orders"
+msgstr "Pedidos de ventas"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+#: view:sale.order:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Quotation"
+msgstr "Proforma"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "General Info"
+msgstr "General Info"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+#: view:sale.order:0
+msgid "Compute"
+msgstr "Compute"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Seq."
+msgstr "Sec."
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:101
+#, python-format
+msgid "Suspend Partner"
+msgstr "Suspend Partner"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Extra Information"
+msgstr "Información Adicional"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Customer History"
+msgstr "Historial del Cliente"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Account Banks and Credit Cards"
+msgstr "Account Banks and Credit Cards"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Quotations"
+msgstr "Proformas"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "History"
+msgstr "Historial"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Comercial Information"
+msgstr "Información Comercial"
+
+#. module: straconx_credit_risk
+#: model:ir.actions.act_window,name:straconx_credit_risk.action_order_all_credit
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_action_order_all_credit
+msgid "All Sale Order"
+msgstr "All Sale Order"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Sale Authorizated by:"
+msgstr "Venta autorizada por:"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Sales order lines"
+msgstr "Líneas de Ordenes de Venta"
+
+#. module: straconx_credit_risk
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_customer_invoices_credit
+msgid "Customer Invoices"
+msgstr "Facturas de Cliente"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:63
+#: code:addons/straconx_credit_risk/objects/sale_order.py:99
+#, python-format
+msgid "This partner has suspended. Please, talk with credit official"
+msgstr "This partner has suspended. Please, talk with credit official"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Sales Order that haven't yet been confirmed"
+msgstr "Sales Order that haven't yet been confirmed"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:125
+#, python-format
+msgid "Protested Cheques"
+msgstr "Protested Cheques"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "References"
+msgstr "Referencias"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Denied Order"
+msgstr "Orden de venta Negada"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:117
+#, python-format
+msgid "Invoice Dues"
+msgstr "Invoice Dues"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_credit_risk
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr "¡La orden de referencia debe ser única por Compañía!"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Categorization"
+msgstr "Categorización"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Total Tax Excluded"
+msgstr "Total de impuestos excluidos"
+
+#. module: straconx_credit_risk
+#: model:ir.actions.wizard,name:straconx_credit_risk.open_risk_wizard_straconx
+#: model:ir.actions.wizard,name:straconx_credit_risk.open_straconx_risk_wizard
+msgid "View Risk Information"
+msgstr "View Risk Information"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Bank account"
+msgstr "Cuenta bancaria"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Credit History Notes"
+msgstr "Credit History Notes"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:76
+#, python-format
+msgid "The quotation '%s' has been denied for credit risk."
+msgstr "The quotation '%s' has been denied for credit risk."
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Phone Calls"
+msgstr "Llamadas telefónicas"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Inventory Properties"
+msgstr "Propiedades de inventario"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Schedule a Meeting"
+msgstr "Planificar una reunión"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:126
+#, python-format
+msgid "Warning: Protested Cheques.\n"
+"\n"
+"This partner has a Protested Cheques of %(limit).2f over a debt of %(debt).2f."
+msgstr "Warning: Protested Cheques.\n"
+"\n"
+"This partner has a Protested Cheques of %(limit).2f over a debt of %(debt).2f."
+
+#. module: straconx_credit_risk
+#: constraint:sale.order.line:0
+msgid "The qty of line must be a integer number"
+msgstr "The qty of line must be a integer number"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Convert to Opportunity"
+msgstr "Convertir a oportunidad"
+
+#. module: straconx_credit_risk
+#: model:ir.ui.menu,name:straconx_credit_risk.menu_credit_report
+msgid "Reports"
+msgstr "Reportes"
+
+#. module: straconx_credit_risk
+#: field:sale.order,note_denied:0
+msgid "Description Denied"
+msgstr "Description Denied"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Logistic"
+msgstr "Logística"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:110
+#, python-format
+msgid "Warning: Credit Limit Exceeded.\n"
+"\n"
+"This partner has a credit limit of %(limit).2f and already has a debt of %(debt).2f."
+msgstr "Warning: Credit Limit Exceeded.\n"
+"\n"
+"This partner has a credit limit of %(limit).2f and already has a debt of %(debt).2f."
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Search Sales Order"
+msgstr "Buscar pedidos de ventas"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr "Dirección postal"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Bank Details"
+msgstr "Detalles de banco"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Customer Credit"
+msgstr "Haber del cliente"
+
+#. module: straconx_credit_risk
+#: code:addons/straconx_credit_risk/objects/sale_order.py:102
+#, python-format
+msgid "This partner has suspend for due invoices. Please, talk with credit department."
+msgstr "This partner has suspend for due invoices. Please, talk with credit department."
+
+#. module: straconx_credit_risk
+#: field:res.partner,pending_orders_amount:0
+msgid "Uninvoiced Orders"
+msgstr "Uninvoiced Orders"
+
+#. module: straconx_credit_risk
+#: view:sale.order:0
+msgid "Total Tax Included"
+msgstr "Total de impuestos incluidos"
+
+#. module: straconx_credit_risk
+#: view:res.partner:0
+msgid "Credit References"
+msgstr "Credit References"
+
+#. module: straconx_credit_risk, sale
+#: field:sale.order,estado_id:0
+msgid "Credit State"
+msgstr "Estado Crediticio"

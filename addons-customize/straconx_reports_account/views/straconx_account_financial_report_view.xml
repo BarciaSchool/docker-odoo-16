@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="account.straconx_accounting_report_view" model="ir.ui.view">
+			<field name="name">Accounting Report</field>
+			<field name="model">accounting.financial.reports</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Report Options">
+					<label nolabel="1" string="" />
+					<newline />
+					<field name="chart_account_id" widget='selection'
+						on_change="onchange_chart_id(chart_account_id, context)" />
+					<field name="company_id" invisible="1" />
+					<field name="fiscalyear_id" domain="[('company_id','=',company_id)]" required="1" />
+					<field name="target_move" />
+					<field name="account_report_id" domain="[('level','=',0),('type','=','sum')]" required="1" readonly="1"/>
+					<field name="filter" on_change="onchange_filter(filter, fiscalyear_id)" colspan="2"/>
+					<field name="level" colspan="2"/>
+					<group colspan="4">
+					<field name="debit_credit" attrs="{'invisible': [('enable_filter','=',True)]}"  colspan="2"/>					
+					<field name="only_data"  colspan="2"/>
+					</group>
+					<field name="enable_filter" invisible="1"/>
+					<group attrs="{'invisible':[('filter', '!=', 'filter_date')]}" colspan="4">
+					<separator string="Fechas" colspan="4" />
+					<field name="date_from"
+						attrs="{'readonly':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}"
+						colspan="2" />
+					<field name="date_to"
+						attrs="{'readonly':[('filter', '!=', 'filter_date')], 'required':[('filter', '=', 'filter_date')]}"
+						colspan="2" />
+					</group>
+					<group attrs="{'invisible':[('filter', '!=', 'filter_period')]}" colspan="4">
+						<separator string="Períodos" colspan="4" />
+						<field name="period_from" domain="[('fiscalyear_id', '=', fiscalyear_id)]"
+							attrs="{'readonly':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}"
+							colspan="2" />
+						<field name="period_to" domain="[('fiscalyear_id', '=', fiscalyear_id)]"
+							attrs="{'readonly':[('filter','!=','filter_period')], 'required':[('filter', '=', 'filter_period')]}"
+							colspan="2" />
+					</group>
+					<newline />
+					<group col="8" colspan="4">
+						<button name="get_lines" string="Buscar Movimientos" type="object" icon="gtk-apply"/>
+						<button name="%(account_balance_report_id)d" string=" Imprimir Estado Financiero" type="action" icon="gtk-print"/>										
+						<button name="%(account_balance_report_xls_id)d" string="Exportar Estado Financiero" type="action" icon="gtk-convert"/>
+						<button icon="gtk-cancel" special="cancel" string="Cancel"/>
+					</group>
+					<newline />
+					<field name="move_balance_lines" nolabel="1" colspan="4" readonly="1"  context="{'group_by': 'account_type'}">
+						<tree colors="blue:account_type == 'view';black:account_type in ('other','receivable','payable','consolidation');gray:account_type == 'closed'" string="Movimientos Contable" toolbar="1">
+								<field name="code"/>
+								<field name="name"/>
+								<field name="account_type" invisible="1"/>
+								<field name="account_id" invisible="1"/>
+								<field name="level" invisible="1"/>								
+								<field name="debit"/>
+								<field name="credit"/>
+								<field name="balance"/>						
+						</tree>
+						<form string="Movimientos Contable">
+								<field name="code"/>
+								<field name="name"/>
+								<field name="level" invisible="1"/>
+								<field name="account_id" colspan="4"/>
+								<newline/>
+								<field name="debit"/>
+								<field name="credit"/>
+								<field name="account_type"/>
+								<field name="balance"/>						
+						</form>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record id="account.action_account_report_bs" model="ir.actions.act_window">
+			<field name="name">Balance General</field>
+			<field name="res_model">accounting.financial.reports</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="account.straconx_accounting_report_view" />
+			<field name="target">current</field>	
+			<field name="context" eval="{'default_account_report_id':ref('account.account_financial_report_balancesheet0')}" />
+		</record>
+
+		<record id="account.action_account_report_pl" model="ir.actions.act_window">
+			<field name="name">Pérdidas y Ganancias</field>
+			<field name="res_model">accounting.financial.reports</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="account.straconx_accounting_report_view" />
+			<field name="target">current</field>
+			<field name="context"
+				eval="{'default_account_report_id':ref('account.account_financial_report_profitandloss0')}" />
+		</record>
+
+        <record id="account.account_financial_report_trialbalance" model="account.financial.report">
+            <field name="name">Trial Balance</field>
+            <field name="type">sum</field>
+        </record>
+
+        <record id="account_financial_report_balance0" model="account.financial.report">
+            <field name="name">Balance Account</field>
+            <field name="parent_id" ref="account.account_financial_report_trialbalance"/>
+            <field name="display_detail">detail_with_hierarchy</field>
+            <field name="type">account_type</field>
+			<field name="account_type_ids" 			
+			eval="[(4, ref('account.data_account_type_bank')),
+				  (4, ref('account.data_account_type_receivable')),
+				  (4, ref('account.data_account_type_payable')),
+				  (4, ref('account.data_account_type_stock')),
+				  (4, ref('account.data_account_type_taxes')),
+				  (4, ref('account.data_account_type_inmo')),
+				  (4, ref('account.data_account_type_taxes')),
+				  (4, ref('account.data_account_type_capital')),
+				  (4, ref('account.data_account_type_costs')),
+				  (4, ref('account.data_account_type_asset')),
+				  (4, ref('account.data_account_type_liability')),
+				  (4, ref('account.data_account_type_income')),
+				  (4, ref('account.data_account_type_expense')),
+				  (4, ref('account.data_account_type_cash')),
+				  (4, ref('account.data_account_type_results'))]"/>
+        
+        
+        </record>
+
+		<record id="account.action_account_trial_report" model="ir.actions.act_window">
+			<field name="name">Trial Balance</field>
+			<field name="res_model">accounting.financial.reports</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="account.straconx_accounting_report_view" />
+			<field name="target">current</field>
+			<field name="context"
+				eval="{'default_account_report_id':ref('account.account_financial_report_trialbalance')}" />
+		</record>
+	</data>
+</openerp>

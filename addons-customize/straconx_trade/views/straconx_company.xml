@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="account.view_company_inherit_1_form">
+			<field name="name">Liquidación de Importaciones - Compañía</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="model">res.company</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<page string="Configuration" position="inside">
+					<group col="2" colspan="2">
+						<separator string="Reserve And Profit/Loss Account"
+							colspan="2" />
+						<field name="property_reserve_and_surplus_account" colspan="2" />
+						<separator string="Trade Liquidation Configuration"
+							colspan="2" />
+						<field name="property_account_move_duty" />
+						<field name="property_account_tax_duty" />
+						<field name="property_account_duty_account" />
+						<field name="property_account_duty" />
+						<field name="partner_id_trade" required="1"/>
+						<field name="review_qty" string="¿Verificar las cantidades ingresadas?"/>
+						<field name="one_step" string="¿Aprobar todo el proceso en un solo paso?"/>
+					</group>
+				</page>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.actions.wizard" id="open_straconx_risk_wizard">
+        <field name="name">View Risk Information</field>
+        <field name="wiz_name">open_risk_window_straconx</field>
+    </record>
+
+</data>
+</openerp>

@@ -1,0 +1,844 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data noupdate="1">
+
+		<record id='color_02' model='product.color'>
+			<field name='name'>ACICORIA</field>
+		</record>
+		<record id='color_03' model='product.color'>
+			<field name='name'>AGUAMARINA</field>
+		</record>
+		<record id='color_04' model='product.color'>
+			<field name='name'>ALBAYALDE</field>
+		</record>
+		<record id='color_05' model='product.color'>
+			<field name='name'>ALBERO</field>
+		</record>
+		<record id='color_06' model='product.color'>
+			<field name='name'>ALICE BLUE</field>
+		</record>
+		<record id='color_07' model='product.color'>
+			<field name='name'>ALMAGRE</field>
+		</record>
+		<record id='color_08' model='product.color'>
+			<field name='name'>ALMENDRA PÁLIDO </field>
+		</record>
+		<record id='color_09' model='product.color'>
+			<field name='name'>AMARILLO</field>
+		</record>
+		<record id='color_010' model='product.color'>
+			<field name='name'>AMARILLO DE PLATA</field>
+		</record>
+		<record id='color_011' model='product.color'>
+			<field name='name'>AMARILLO HANSA</field>
+		</record>
+		<record id='color_012' model='product.color'>
+			<field name='name'>AMARILLO INDIO</field>
+		</record>
+		<record id='color_013' model='product.color'>
+			<field name='name'>AMARILLO MONOAZO</field>
+		</record>
+		<record id='color_014' model='product.color'>
+			<field name='name'>AMARILLO NÁPOLES</field>
+		</record>
+		<record id='color_015' model='product.color'>
+			<field name='name'>AMARILLO NARANJA</field>
+		</record>
+		<record id='color_016' model='product.color'>
+			<field name='name'>AMARILLO SELECTIVO</field>
+		</record>
+		<record id='color_017' model='product.color'>
+			<field name='name'>AMATISTA</field>
+		</record>
+		<record id='color_018' model='product.color'>
+			<field name='name'>ÁMBAR</field>
+		</record>
+		<record id='color_019' model='product.color'>
+			<field name='name'>AMBROSÍA</field>
+		</record>
+		<record id='color_020' model='product.color'>
+			<field name='name'>ANARANJADO</field>
+		</record>
+		<record id='color_021' model='product.color'>
+			<field name='name'>AÑIL</field>
+		</record>
+		<record id='color_022' model='product.color'>
+			<field name='name'>ANTE</field>
+		</record>
+		<record id='color_023' model='product.color'>
+			<field name='name'>ARENA</field>
+		</record>
+		<record id='color_024' model='product.color'>
+			<field name='name'>ARENA LIGERA </field>
+		</record>
+		<record id='color_025' model='product.color'>
+			<field name='name'>AUREOLINA</field>
+		</record>
+		<record id='color_026' model='product.color'>
+			<field name='name'>AZUL</field>
+		</record>
+		<record id='color_027' model='product.color'>
+			<field name='name'>AZUL ACIANO</field>
+		</record>
+		<record id='color_028' model='product.color'>
+			<field name='name'>AZUL ALICIA </field>
+		</record>
+		<record id='color_029' model='product.color'>
+			<field name='name'>AZUL BONDI</field>
+		</record>
+		<record id='color_030' model='product.color'>
+			<field name='name'>AZUL BRANDEIS</field>
+		</record>
+		<record id='color_031' model='product.color'>
+			<field name='name'>AZUL CADETE </field>
+		</record>
+		<record id='color_032' model='product.color'>
+			<field name='name'>AZUL CAPOTA </field>
+		</record>
+		<record id='color_033' model='product.color'>
+			<field name='name'>AZUL CIELO </field>
+		</record>
+		<record id='color_034' model='product.color'>
+			<field name='name'>AZUL CLARO </field>
+		</record>
+		<record id='color_035' model='product.color'>
+			<field name='name'>AZUL COBALTO</field>
+		</record>
+		<record id='color_036' model='product.color'>
+			<field name='name'>AZUL COLUMBIA</field>
+		</record>
+		<record id='color_037' model='product.color'>
+			<field name='name'>AZUL DE PRUSIA</field>
+		</record>
+		<record id='color_038' model='product.color'>
+			<field name='name'>AZUL ETON</field>
+		</record>
+		<record id='color_039' model='product.color'>
+			<field name='name'>AZUL FRANCIA</field>
+		</record>
+		<record id='color_040' model='product.color'>
+			<field name='name'>AZUL HERÁLDICO </field>
+		</record>
+		<record id='color_041' model='product.color'>
+			<field name='name'>AZUL MAJORELLE</field>
+		</record>
+		<record id='color_042' model='product.color'>
+			<field name='name'>AZUL MAYA</field>
+		</record>
+		<record id='color_043' model='product.color'>
+			<field name='name'>AZUL MEDIANOCHE </field>
+		</record>
+		<record id='color_044' model='product.color'>
+			<field name='name'>AZUL MEDIO </field>
+		</record>
+		<record id='color_045' model='product.color'>
+			<field name='name'>AZUL NAVAL </field>
+		</record>
+		<record id='color_046' model='product.color'>
+			<field name='name'>AZUL OSCURO </field>
+		</record>
+		<record id='color_047' model='product.color'>
+			<field name='name'>AZUL PIZARRA </field>
+		</record>
+		<record id='color_048' model='product.color'>
+			<field name='name'>AZUL POLVO </field>
+		</record>
+		<record id='color_049' model='product.color'>
+			<field name='name'>AZUL REAL </field>
+		</record>
+		<record id='color_050' model='product.color'>
+			<field name='name'>AZUL TIFFANY</field>
+		</record>
+		<record id='color_051' model='product.color'>
+			<field name='name'>AZUL ULTRAMAR</field>
+		</record>
+		<record id='color_052' model='product.color'>
+			<field name='name'>AZUL VERDE</field>
+		</record>
+		<record id='color_053' model='product.color'>
+			<field name='name'>AZUL VIOLETA </field>
+		</record>
+		<record id='color_054' model='product.color'>
+			<field name='name'>AZUR</field>
+		</record>
+		<record id='color_055' model='product.color'>
+			<field name='name'>BANDERAS DEL CARIBE</field>
+		</record>
+		<record id='color_056' model='product.color'>
+			<field name='name'>BATTLESHIP GREY</field>
+		</record>
+		<record id='color_057' model='product.color'>
+			<field name='name'>BEIS</field>
+		</record>
+		<record id='color_058' model='product.color'>
+			<field name='name'>BEIGE</field>
+		</record>
+		<record id='color_059' model='product.color'>
+			<field name='name'>BEIS ZAMBULLIDA </field>
+		</record>
+		<record id='color_060' model='product.color'>
+			<field name='name'>BERMEJO</field>
+		</record>
+		<record id='color_061' model='product.color'>
+			<field name='name'>BERMELLÓN</field>
+		</record>
+		<record id='color_062' model='product.color'>
+			<field name='name'>BISQUE</field>
+		</record>
+		<record id='color_063' model='product.color'>
+			<field name='name'>BISTRE</field>
+		</record>
+		<record id='color_064' model='product.color'>
+			<field name='name'>BLANCO</field>
+		</record>
+		<record id='color_065' model='product.color'>
+			<field name='name'>BLANCO ANTIGUO </field>
+		</record>
+		<record id='color_066' model='product.color'>
+			<field name='name'>BLANCO DE CINC</field>
+		</record>
+		<record id='color_067' model='product.color'>
+			<field name='name'>BLANCO FANTASMA </field>
+		</record>
+		<record id='color_068' model='product.color'>
+			<field name='name'>BLANCO FLORAL </field>
+		</record>
+		<record id='color_069' model='product.color'>
+			<field name='name'>BLANCO NAVAJO</field>
+		</record>
+		<record id='color_070' model='product.color'>
+			<field name='name'>BLANCO ORQUÍDEA </field>
+		</record>
+		<record id='color_071' model='product.color'>
+			<field name='name'>BLANCO PLANTACIÓN </field>
+		</record>
+		<record id='color_072' model='product.color'>
+			<field name='name'>BLANCO PORCELANA </field>
+		</record>
+		<record id='color_073' model='product.color'>
+			<field name='name'>BLANCO PURO </field>
+		</record>
+		<record id='color_074' model='product.color'>
+			<field name='name'>BLANCO SUTIL </field>
+		</record>
+		<record id='color_075' model='product.color'>
+			<field name='name'>BLANCO VELA </field>
+		</record>
+		<record id='color_076' model='product.color'>
+			<field name='name'>BORGOÑA</field>
+		</record>
+		<record id='color_077' model='product.color'>
+			<field name='name'>BRONCEADO</field>
+		</record>
+		<record id='color_078' model='product.color'>
+			<field name='name'>BRONCEADO CARMELO </field>
+		</record>
+		<record id='color_079' model='product.color'>
+			<field name='name'>BURDEOS</field>
+		</record>
+		<record id='color_080' model='product.color'>
+			<field name='name'>BURLYWOOD</field>
+		</record>
+		<record id='color_081' model='product.color'>
+			<field name='name'>CADET</field>
+		</record>
+		<record id='color_082' model='product.color'>
+			<field name='name'>CADET BLUE</field>
+		</record>
+		<record id='color_083' model='product.color'>
+			<field name='name'>CADET GREY</field>
+		</record>
+		<record id='color_084' model='product.color'>
+			<field name='name'>CAFÉ</field>
+		</record>
+		<record id='color_085' model='product.color'>
+			<field name='name'>CAFÉ CORTADO CÓSMICO</field>
+		</record>
+		<record id='color_086' model='product.color'>
+			<field name='name'>CAJÓN DE ARENA </field>
+		</record>
+		<record id='color_087' model='product.color'>
+			<field name='name'>CAL HELADA</field>
+		</record>
+		<record id='color_088' model='product.color'>
+			<field name='name'>CALABAZA</field>
+		</record>
+		<record id='color_089' model='product.color'>
+			<field name='name'>CAOBA</field>
+		</record>
+		<record id='color_090' model='product.color'>
+			<field name='name'>CAQUI</field>
+		</record>
+		<record id='color_091' model='product.color'>
+			<field name='name'>CARBÓN</field>
+		</record>
+		<record id='color_092' model='product.color'>
+			<field name='name'>CARDINAL</field>
+		</record>
+		<record id='color_093' model='product.color'>
+			<field name='name'>CARDO</field>
+		</record>
+		<record id='color_094' model='product.color'>
+			<field name='name'>CARMESÍ</field>
+		</record>
+		<record id='color_095' model='product.color'>
+			<field name='name'>CARMÍN</field>
+		</record>
+		<record id='color_096' model='product.color'>
+			<field name='name'>CARMÍN DE ALIZARINA</field>
+		</record>
+		<record id='color_097' model='product.color'>
+			<field name='name'>CARNACIÓN</field>
+		</record>
+		<record id='color_098' model='product.color'>
+			<field name='name'>CARNE O PIEL</field>
+		</record>
+		<record id='color_099' model='product.color'>
+			<field name='name'>CARTAMINA</field>
+		</record>
+		<record id='color_0100' model='product.color'>
+			<field name='name'>CASTAÑO</field>
+		</record>
+		<record id='color_0101' model='product.color'>
+			<field name='name'>CELESTE</field>
+		</record>
+		<record id='color_0102' model='product.color'>
+			<field name='name'>CENIZO</field>
+		</record>
+		<record id='color_0103' model='product.color'>
+			<field name='name'>CERCETA</field>
+		</record>
+		<record id='color_0104' model='product.color'>
+			<field name='name'>CERÚLEO</field>
+		</record>
+		<record id='color_0105' model='product.color'>
+			<field name='name'>CHARTREUSE</field>
+		</record>
+		<record id='color_0106' model='product.color'>
+			<field name='name'>CHIFFON LIMÓN </field>
+		</record>
+		<record id='color_0107' model='product.color'>
+			<field name='name'>CHOCOLATE</field>
+		</record>
+		<record id='color_0108' model='product.color'>
+			<field name='name'>CIRUELA</field>
+		</record>
+		<record id='color_0109' model='product.color'>
+			<field name='name'>CONCHA MARINA </field>
+		</record>
+		<record id='color_0110' model='product.color'>
+			<field name='name'>CORAL</field>
+		</record>
+		<record id='color_0111' model='product.color'>
+			<field name='name'>CORAL CLARO </field>
+		</record>
+		<record id='color_0112' model='product.color'>
+			<field name='name'>CORDOBÁN</field>
+		</record>
+		<record id='color_0113' model='product.color'>
+			<field name='name'>CORDÓN VIEJO </field>
+		</record>
+		<record id='color_0114' model='product.color'>
+			<field name='name'>CREMA</field>
+		</record>
+		<record id='color_0115' model='product.color'>
+			<field name='name'>CREMA DE MENTA </field>
+		</record>
+		<record id='color_0116' model='product.color'>
+			<field name='name'>CIAN</field>
+		</record>
+		<record id='color_0117' model='product.color'>
+			<field name='name'>DUKE BLUE</field>
+		</record>
+		<record id='color_0118' model='product.color'>
+			<field name='name'>ESCALA DE GRISES </field>
+		</record>
+		<record id='color_0119' model='product.color'>
+			<field name='name'>ESCARLATA</field>
+		</record>
+		<record id='color_0120' model='product.color'>
+			<field name='name'>ESMERALDA</field>
+		</record>
+		<record id='color_0121' model='product.color'>
+			<field name='name'>FALLOW</field>
+		</record>
+		<record id='color_0122' model='product.color'>
+			<field name='name'>FUCSIA</field>
+		</record>
+		<record id='color_0123' model='product.color'>
+			<field name='name'>FUSTA DE PAPAYA </field>
+		</record>
+		<record id='color_0124' model='product.color'>
+			<field name='name'>GAINSBORO</field>
+		</record>
+		<record id='color_0125' model='product.color'>
+			<field name='name'>GAMUZA</field>
+		</record>
+		<record id='color_0126' model='product.color'>
+			<field name='name'>GHOST WHITE</field>
+		</record>
+		<record id='color_0127' model='product.color'>
+			<field name='name'>GRANATE</field>
+		</record>
+		<record id='color_0128' model='product.color'>
+			<field name='name'>GRIS</field>
+		</record>
+		<record id='color_0129' model='product.color'>
+			<field name='name'>GRIS BRILLANTE </field>
+		</record>
+		<record id='color_0130' model='product.color'>
+			<field name='name'>GRIS CENIZA</field>
+		</record>
+		<record id='color_0131' model='product.color'>
+			<field name='name'>GRIS CLARO </field>
+		</record>
+		<record id='color_0132' model='product.color'>
+			<field name='name'>GRIS DE DAVY</field>
+		</record>
+		<record id='color_0133' model='product.color'>
+			<field name='name'>GRIS DE PAYNE</field>
+		</record>
+		<record id='color_0134' model='product.color'>
+			<field name='name'>GRIS FRÍO</field>
+		</record>
+		<record id='color_0135' model='product.color'>
+			<field name='name'>GRIS OSCURO </field>
+		</record>
+		<record id='color_0136' model='product.color'>
+			<field name='name'>GRIS PIZARRA </field>
+		</record>
+		<record id='color_0137' model='product.color'>
+			<field name='name'>GRIS ROCA </field>
+		</record>
+		<record id='color_0138' model='product.color'>
+			<field name='name'>GULES</field>
+		</record>
+		<record id='color_0139' model='product.color'>
+			<field name='name'>GUTA O GUTAGAMBA</field>
+		</record>
+		<record id='color_0140' model='product.color'>
+			<field name='name'>HERRUMBRE</field>
+		</record>
+		<record id='color_0141' model='product.color'>
+			<field name='name'>HÍGADO</field>
+		</record>
+		<record id='color_0142' model='product.color'>
+			<field name='name'>HOJALDRE DE MELOCOTÓN </field>
+		</record>
+		<record id='color_0143' model='product.color'>
+			<field name='name'>HORIZONTE LEJANO </field>
+		</record>
+		<record id='color_0144' model='product.color'>
+			<field name='name'>HUMO BLANCO </field>
+		</record>
+		<record id='color_0145' model='product.color'>
+			<field name='name'>ICTERINE</field>
+		</record>
+		<record id='color_0146' model='product.color'>
+			<field name='name'>JUNQUILLO</field>
+		</record>
+		<record id='color_0147' model='product.color'>
+			<field name='name'>LADRILLO REFRACTARIO </field>
+		</record>
+		<record id='color_0148' model='product.color'>
+			<field name='name'>LAVA</field>
+		</record>
+		<record id='color_0149' model='product.color'>
+			<field name='name'>LAVANDA</field>
+		</record>
+		<record id='color_0150' model='product.color'>
+			<field name='name'>LAVANDA RUBOR </field>
+		</record>
+		<record id='color_0151' model='product.color'>
+			<field name='name'>LAVENDER BLUSH</field>
+		</record>
+		<record id='color_0152' model='product.color'>
+			<field name='name'>LEMON CHIFFON</field>
+		</record>
+		<record id='color_0153' model='product.color'>
+			<field name='name'>LEÓN</field>
+		</record>
+		<record id='color_0154' model='product.color'>
+			<field name='name'>LEONADO</field>
+		</record>
+		<record id='color_0155' model='product.color'>
+			<field name='name'>LIGERAMENTE RUBORIZADO </field>
+		</record>
+		<record id='color_0156' model='product.color'>
+			<field name='name'>LILA</field>
+		</record>
+		<record id='color_0157' model='product.color'>
+			<field name='name'>LIMÓN</field>
+		</record>
+		<record id='color_0158' model='product.color'>
+			<field name='name'>LINO</field>
+		</record>
+		<record id='color_0159' model='product.color'>
+			<field name='name'>LIRIO</field>
+		</record>
+		<record id='color_0160' model='product.color'>
+			<field name='name'>LLAMA</field>
+		</record>
+		<record id='color_0161' model='product.color'>
+			<field name='name'>MAGENTA</field>
+		</record>
+		<record id='color_0162' model='product.color'>
+			<field name='name'>MAGENTA OSCURO </field>
+		</record>
+		<record id='color_0163' model='product.color'>
+			<field name='name'>MARFIL</field>
+		</record>
+		<record id='color_0164' model='product.color'>
+			<field name='name'>MARFIL COLMILLO </field>
+		</record>
+		<record id='color_0165' model='product.color'>
+			<field name='name'>MARRÓN</field>
+		</record>
+		<record id='color_0166' model='product.color'>
+			<field name='name'>MARRÓN ARENOSO </field>
+		</record>
+		<record id='color_0167' model='product.color'>
+			<field name='name'>MARRÓN MONTURA </field>
+		</record>
+		<record id='color_0168' model='product.color'>
+			<field name='name'>MARRÓN ROSÁCEO </field>
+		</record>
+		<record id='color_0169' model='product.color'>
+			<field name='name'>MELOCOTÓN HELADO </field>
+		</record>
+		<record id='color_0170' model='product.color'>
+			<field name='name'>MERENGUE TOSTADO </field>
+		</record>
+		<record id='color_0171' model='product.color'>
+			<field name='name'>MIKADO YELLOW</field>
+		</record>
+		<record id='color_0172' model='product.color'>
+			<field name='name'>MOCASÍN</field>
+		</record>
+		<record id='color_0173' model='product.color'>
+			<field name='name'>MORADO</field>
+		</record>
+		<record id='color_0174' model='product.color'>
+			<field name='name'>NÁCAR</field>
+		</record>
+		<record id='color_0175' model='product.color'>
+			<field name='name'>NARANJA</field>
+		</record>
+		<record id='color_0176' model='product.color'>
+			<field name='name'>NARANJA CAQUI</field>
+		</record>
+		<record id='color_0177' model='product.color'>
+			<field name='name'>NARANJA OSCURO </field>
+		</record>
+		<record id='color_0178' model='product.color'>
+			<field name='name'>NATA LÍQUIDA </field>
+		</record>
+		<record id='color_0179' model='product.color'>
+			<field name='name'>NEGRO</field>
+		</record>
+		<record id='color_0180' model='product.color'>
+			<field name='name'>NEGRO BUJÍA</field>
+		</record>
+		<record id='color_0181' model='product.color'>
+			<field name='name'>NEGRO DE CARBÓN</field>
+		</record>
+		<record id='color_0182' model='product.color'>
+			<field name='name'>NEGRO DE HUMO</field>
+		</record>
+		<record id='color_0183' model='product.color'>
+			<field name='name'>NIEBLA MATUTINA </field>
+		</record>
+		<record id='color_0184' model='product.color'>
+			<field name='name'>NIEVE</field>
+		</record>
+		<record id='color_0185' model='product.color'>
+			<field name='name'>OCRE</field>
+		</record>
+		<record id='color_0186' model='product.color'>
+			<field name='name'>OLD LACE</field>
+		</record>
+		<record id='color_0187' model='product.color'>
+			<field name='name'>OLIVA PÁLIDO </field>
+		</record>
+		<record id='color_0188' model='product.color'>
+			<field name='name'>ORO</field>
+		</record>
+		<record id='color_0189' model='product.color'>
+			<field name='name'>ORQUÍDEA</field>
+		</record>
+		<record id='color_0190' model='product.color'>
+			<field name='name'>PERSIAN ORANGE</field>
+		</record>
+		<record id='color_0191' model='product.color'>
+			<field name='name'>PINK-ORANGE</field>
+		</record>
+		<record id='color_0192' model='product.color'>
+			<field name='name'>PLATA O ARGÉN</field>
+		</record>
+		<record id='color_0193' model='product.color'>
+			<field name='name'>PLOMO</field>
+		</record>
+		<record id='color_0194' model='product.color'>
+			<field name='name'>PLUMA DE AVESTRUZ </field>
+		</record>
+		<record id='color_0195' model='product.color'>
+			<field name='name'>PORTLAND ORANGE</field>
+		</record>
+		<record id='color_0196' model='product.color'>
+			<field name='name'>PÚRPURA</field>
+		</record>
+		<record id='color_0197' model='product.color'>
+			<field name='name'>PÚRPURA DE TIRO</field>
+		</record>
+		<record id='color_0198' model='product.color'>
+			<field name='name'>PÚRPURA MEDIO </field>
+		</record>
+		<record id='color_0199' model='product.color'>
+			<field name='name'>RASTRO POLVORIENTO </field>
+		</record>
+		<record id='color_0200' model='product.color'>
+			<field name='name'>REMOLACHA</field>
+		</record>
+		<record id='color_0201' model='product.color'>
+			<field name='name'>ROJO</field>
+		</record>
+		<record id='color_0202' model='product.color'>
+			<field name='name'>ROJO ANARANJADO </field>
+		</record>
+		<record id='color_0203' model='product.color'>
+			<field name='name'>ROJO DE FALUN</field>
+		</record>
+		<record id='color_0204' model='product.color'>
+			<field name='name'>ROJO FERRARI</field>
+		</record>
+		<record id='color_0205' model='product.color'>
+			<field name='name'>ROJO INDIO </field>
+		</record>
+		<record id='color_0206' model='product.color'>
+			<field name='name'>ROJO NARANJA</field>
+		</record>
+		<record id='color_0207' model='product.color'>
+			<field name='name'>ROJO OSCURO </field>
+		</record>
+		<record id='color_0208' model='product.color'>
+			<field name='name'>ROJO PERSA</field>
+		</record>
+		<record id='color_0209' model='product.color'>
+			<field name='name'>ROJO PÚRPURA</field>
+		</record>
+		<record id='color_0210' model='product.color'>
+			<field name='name'>ROJO TOSCANO</field>
+		</record>
+		<record id='color_0211' model='product.color'>
+			<field name='name'>ROJO VENECIANO</field>
+		</record>
+		<record id='color_0212' model='product.color'>
+			<field name='name'>ROJO VIOLETA </field>
+		</record>
+		<record id='color_0213' model='product.color'>
+			<field name='name'>ROJOS</field>
+		</record>
+		<record id='color_0214' model='product.color'>
+			<field name='name'>ROSA</field>
+		</record>
+		<record id='color_0215' model='product.color'>
+			<field name='name'>ROSA CORAL</field>
+		</record>
+		<record id='color_0216' model='product.color'>
+			<field name='name'>ROSA MEXICANO</field>
+		</record>
+		<record id='color_0217' model='product.color'>
+			<field name='name'>ROSADO</field>
+		</record>
+		<record id='color_0218' model='product.color'>
+			<field name='name'>ROSADO CÁLIDO </field>
+		</record>
+		<record id='color_0219' model='product.color'>
+			<field name='name'>ROSADO CLARO </field>
+		</record>
+		<record id='color_0220' model='product.color'>
+			<field name='name'>ROSADO HÚMEDO </field>
+		</record>
+		<record id='color_0221' model='product.color'>
+			<field name='name'>ROSADO POLVORIENTO </field>
+		</record>
+		<record id='color_0222' model='product.color'>
+			<field name='name'>ROSADO PROFUNDO </field>
+		</record>
+		<record id='color_0223' model='product.color'>
+			<field name='name'>RUFO</field>
+		</record>
+		<record id='color_0224' model='product.color'>
+			<field name='name'>SABLE</field>
+		</record>
+		<record id='color_0225' model='product.color'>
+			<field name='name'>SALMÓN</field>
+		</record>
+		<record id='color_0226' model='product.color'>
+			<field name='name'>SANGUÍNEO</field>
+		</record>
+		<record id='color_0227' model='product.color'>
+			<field name='name'>SEA SHELL</field>
+		</record>
+		<record id='color_0228' model='product.color'>
+			<field name='name'>SECUOYA</field>
+		</record>
+		<record id='color_0229' model='product.color'>
+			<field name='name'>SEDA DE GRANO </field>
+		</record>
+		<record id='color_0230' model='product.color'>
+			<field name='name'>SEPIA</field>
+		</record>
+		<record id='color_0231' model='product.color'>
+			<field name='name'>SIENA</field>
+		</record>
+		<record id='color_0232' model='product.color'>
+			<field name='name'>SIENA TOSTADA</field>
+		</record>
+		<record id='color_0233' model='product.color'>
+			<field name='name'>SINOPLE</field>
+		</record>
+		<record id='color_0234' model='product.color'>
+			<field name='name'>SOMBRA CALIENTE </field>
+		</record>
+		<record id='color_0235' model='product.color'>
+			<field name='name'>SPRING GREEN</field>
+		</record>
+		<record id='color_0236' model='product.color'>
+			<field name='name'>STEEL BLUE</field>
+		</record>
+		<record id='color_0237' model='product.color'>
+			<field name='name'>SUNSET</field>
+		</record>
+		<record id='color_0238' model='product.color'>
+			<field name='name'>TAN</field>
+		</record>
+		<record id='color_0239' model='product.color'>
+			<field name='name'>TAWNY</field>
+		</record>
+		<record id='color_0240' model='product.color'>
+			<field name='name'>THISTLE</field>
+		</record>
+		<record id='color_0241' model='product.color'>
+			<field name='name'>TOMATE</field>
+		</record>
+		<record id='color_0242' model='product.color'>
+			<field name='name'>TRIGO</field>
+		</record>
+		<record id='color_0243' model='product.color'>
+			<field name='name'>TUFTS BLUE</field>
+		</record>
+		<record id='color_0244' model='product.color'>
+			<field name='name'>TURQUESA</field>
+		</record>
+		<record id='color_0245' model='product.color'>
+			<field name='name'>TURQUESA MEDIO </field>
+		</record>
+		<record id='color_0246' model='product.color'>
+			<field name='name'>TURQUESA OSCURO </field>
+		</record>
+		<record id='color_0247' model='product.color'>
+			<field name='name'>TURQUESA PÁLIDO </field>
+		</record>
+		<record id='color_0248' model='product.color'>
+			<field name='name'>TURQUÍ</field>
+		</record>
+		<record id='color_0249' model='product.color'>
+			<field name='name'>UPSDELL RED</field>
+		</record>
+		<record id='color_0250' model='product.color'>
+			<field name='name'>VARA DE ORO </field>
+		</record>
+		<record id='color_0251' model='product.color'>
+			<field name='name'>VELO DE BODA </field>
+		</record>
+		<record id='color_0252' model='product.color'>
+			<field name='name'>VERANO CALIENTE </field>
+		</record>
+		<record id='color_0253' model='product.color'>
+			<field name='name'>VERDE</field>
+		</record>
+		<record id='color_0254' model='product.color'>
+			<field name='name'>VERDE AMARILLENTO </field>
+		</record>
+		<record id='color_0255' model='product.color'>
+			<field name='name'>VERDE AMARILLO</field>
+		</record>
+		<record id='color_0256' model='product.color'>
+			<field name='name'>VERDE BOSQUE </field>
+		</record>
+		<record id='color_0257' model='product.color'>
+			<field name='name'>VERDE CENIZA</field>
+		</record>
+		<record id='color_0258' model='product.color'>
+			<field name='name'>VERDE CÉSPED </field>
+		</record>
+		<record id='color_0259' model='product.color'>
+			<field name='name'>VERDE CLARO </field>
+		</record>
+		<record id='color_0260' model='product.color'>
+			<field name='name'>VERDE DE PARÍS</field>
+		</record>
+		<record id='color_0261' model='product.color'>
+			<field name='name'>VERDE DE SCHEELE</field>
+		</record>
+		<record id='color_0262' model='product.color'>
+			<field name='name'>VERDE HOOKER</field>
+		</record>
+		<record id='color_0263' model='product.color'>
+			<field name='name'>VERDE LIMA </field>
+		</record>
+		<record id='color_0264' model='product.color'>
+			<field name='name'>VERDE MAR </field>
+		</record>
+		<record id='color_0265' model='product.color'>
+			<field name='name'>VERDE OLIVA</field>
+		</record>
+		<record id='color_0266' model='product.color'>
+			<field name='name'>VERDE OLIVA MILITAR </field>
+		</record>
+		<record id='color_0267' model='product.color'>
+			<field name='name'>VERDE OLIVA OSCURO </field>
+		</record>
+		<record id='color_0268' model='product.color'>
+			<field name='name'>VERDE OSCURO </field>
+		</record>
+		<record id='color_0269' model='product.color'>
+			<field name='name'>VERDE PÁLIDO </field>
+		</record>
+		<record id='color_0270' model='product.color'>
+			<field name='name'>VERDE PRIMAVERA </field>
+		</record>
+		<record id='color_0271' model='product.color'>
+			<field name='name'>VERDE PRIMAVERA MEDIO</field>
+		</record>
+		<record id='color_0272' model='product.color'>
+			<field name='name'>VERDE VELO </field>
+		</record>
+		<record id='color_0273' model='product.color'>
+			<field name='name'>VERDE VERONÉS</field>
+		</record>
+		<record id='color_0274' model='product.color'>
+			<field name='name'>VIOLETA</field>
+		</record>
+		<record id='color_0275' model='product.color'>
+			<field name='name'>VIOLETA OSCURO </field>
+		</record>
+		<record id='color_0276' model='product.color'>
+			<field name='name'>VIOLÍN</field>
+		</record>
+		<record id='color_0277' model='product.color'>
+			<field name='name'>VIRIDIÁN</field>
+		</record>
+		<record id='color_0278' model='product.color'>
+			<field name='name'>WENGE</field>
+		</record>
+		<record id='color_0279' model='product.color'>
+			<field name='name'>WHEAT</field>
+		</record>
+		<record id='color_0280' model='product.color'>
+			<field name='name'>WINE</field>
+		</record>
+
+	</data>
+</openerp>

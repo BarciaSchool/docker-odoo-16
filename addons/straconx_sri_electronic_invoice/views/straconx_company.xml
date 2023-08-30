@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        <record model="ir.ui.view" id="view_company_form_electronic_images">
+            <field name="name">Directorio de Facturación Electrónica</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <notebook  position="inside">
+            		<page string="Facturación Electrónica">
+                        <field name="electronic_path" required="1"/>
+                        <newline/>
+                        <field name="files_path" required="1"/>
+                        <newline/>
+                        <field name="sri_url" required="1"/>
+                        <newline/>
+                        <field name="document_email" required="1"/>
+                        <newline/>
+                        <field name="image_email"/>
+                        <newline/>
+                        <field name="color_head"/>
+                        <newline/>
+                        <field name="only_principal_shop"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+	</data>
+</openerp>

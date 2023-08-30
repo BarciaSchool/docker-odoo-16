@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>		
+		 <record id="move_list_id" model="ir.actions.report.xml">
+            <field name="name">Move Report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.move</field>
+            <field name="report_name">Move Report</field>
+	        <field name="pentaho_filename">straconx_account/report/straconx_move_report.prpt</field>            
+       		<field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','account.move')]" model="ir.model" />
+        </record>
+    </data>
+</openerp>

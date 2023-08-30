@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+                
+        <record model="ir.ui.view" id="account_invoice_supplier_trade_form">
+            <field name="name">Purchase Trade Invoice</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/notebook/page[@string='Payments']" position="after">
+                    <page string="Information of Trade" groups="account.group_account_manager">
+                       	<field name="trade_id1" readonly="0" string="Compras"/>
+                        <field name="trade_id2" readonly="0" string="Transporte"/>
+                        <field name="trade_id3" readonly="0" string="Seguros"/>
+                        <field name="trade_id4" readonly="0" string="Otros Gastos"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

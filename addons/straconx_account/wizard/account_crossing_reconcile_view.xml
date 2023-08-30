@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="account_crossing_reconcile_view" model="ir.ui.view">
+             <field name="name">Account Crossing Reconcile</field>
+             <field name="model">account.crossing.reconcile</field>
+             <field name="type">form</field>
+             <field name="arch" type="xml">
+                <form string="Crossing Reconciliation">
+                	<group width="600">
+	                    <separator string="Reconciliation" colspan="4"/>
+	                    <label colspan="4" nolabel="1" string="This wizard allows you to make reconciliations by accounts crossing from lines accounting already created."/>
+                    </group>
+                    <newline/>
+                    <group>
+                        <field name="account_id" required="1" on_change="onchange_account(account_id, type_reconcile)"/>
+                        <field name="type_reconcile" required="1" on_change="onchange_account(account_id, type_reconcile)"/>
+                        <field name="move_line_id" required="1" on_change="onchange_move_line(move_line_id, type_reconcile)"/>
+                        <field name="amount" readonly="1"/>
+                        <separator string="Moves Lines to Reconcile" colspan="4"/>
+                        <field name="move_lines_ids" colspan="4" nolabel="1"/>
+                    </group>
+                    <newline/>
+                     <separator string="Write-Off Move" colspan="4"/>
+                     <group colspan="4">
+                     	<field name="allow_write_off" />
+                     	<field name="writeoff_acc_id" attrs="{'readonly':[('allow_write_off', '!=', True)]}"/>
+                     </group>
+                    <group attrs="{'readonly':[('allow_write_off', '!=', True)]}" colspan="4">
+                    	<field name="partner_id" attrs="{ 'required':[('allow_write_off', '=', True)]}"/>
+                        <field name="journal_id" attrs="{ 'required':[('allow_write_off', '=', True)]}"/>
+                        <field name="period_id" attrs="{ 'required':[('allow_write_off', '=', True)]}"/>
+                    </group>
+                    <separator string ="" colspan="4"/>
+                    <group colspan="2" col="4">
+                         <button special="cancel" string="Cancel" icon="gtk-cancel"/>
+                        <button name="reconcile" string="Reconcile" type="object" icon="terp-stock_effects-object-colorize"/>
+                     </group>
+                </form>
+             </field>
+         </record>
+
+        <record id="action_account_crossing_reconcile" model="ir.actions.act_window">
+             <field name="name">Account Crossing Reconcile</field>
+             <field name="res_model">account.crossing.reconcile</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="view_type">form</field>
+             <field name="view_mode">tree,form</field>
+             <field name="view_id" ref="account_crossing_reconcile_view"/>
+             <field name="context">{}</field>
+             <field name="target">new</field>
+       </record>
+       
+       <menuitem
+            name="Crossing Reconciliation"
+            action="action_account_crossing_reconcile"
+            id="menu_crossing_reconcile"
+            parent="account.periodical_processing_reconciliation"
+            groups="base.group_extended"/>
+
+        <record id="account_crossing_reconcile_view1" model="ir.ui.view">
+             <field name="name">Automatic Crossing unreconcile</field>
+             <field name="model">account.crossing.reconcile</field>
+             <field name="type">form</field>
+             <field name="arch" type="xml">
+                <form string="Reconciliation result">
+                    <label colspan="4" nolabel="1" string="Successful Operation."/>
+                    <group colspan="4" col="6">
+                        <separator colspan="6"/>
+                        <button special="cancel" string="Ok" icon="terp-dialog-close" default_focus="1"/>
+                     </group>
+                </form>
+             </field>
+         </record>
+
+        <record id="account.validate_account_move_view" model="ir.ui.view">
+            <field name="name">Post Journal Entries</field>
+            <field name="model">validate.account.move</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="Post Journal Entries">
+                <separator string="Post Journal Entries of a Journal" colspan="4"/>
+                <label string="All draft account entries in this journal and period will be validated. It means you won't be able to modify their accounting fields anymore." colspan="4"/>
+                <field name="company_id"/>
+                <newline/>
+                <field name="journal_id" domain="[('company_id','=',company_id)]"/>
+                <newline/>
+                <field name="period_id"  domain="[('company_id','=',company_id)]"/>
+                <separator colspan="4"/>
+                <group colspan="4" col="6">
+                    <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                    <button icon="terp-camera_test" string="Approve" name="validate_move" type="object"/>
+               </group>
+               </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

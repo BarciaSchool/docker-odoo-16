@@ -1,0 +1,337 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<!-- Knowledge Product Form -->
+
+       <record model="ir.ui.view" id="product.product_kanban_view">
+            <field name="name">Kwnoledge Product Kanban</field>
+            <field name="model">product.product</field>
+            <field name="type">kanban</field>
+            <field name="sequence">3</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="color"/>
+                    <field name="type"/>
+                    <field name="product_image"/>
+                    <field name="list_price"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} #{border || ''}">
+                                <div class="oe_kanban_box oe_kanban_color_border" style="display:block; height:150px; width:190px">
+                                    <div class="oe_kanban_box_header oe_kanban_color_bgdark oe_kanban_color_border oe_kanban_draghandle oe_kanban_title" style="display:block; height:70px; width:190px">                                    
+									<a type="edit">(<field name="default_code"/>)-<field name="name"/></a>
+                                    </div>
+                                    <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger">
+                                        <img t-att-src="kanban_image('product.product', 'product_image', record.id.value)" width="70" height="70" style="float: left; padding: 2px 2px 2px 2px"/>
+                                        <div t-if="record.type.raw_value == 'service'">No Stock</div>
+                                        <t t-if="record.type.raw_value != 'service'">
+                                            <div>Stock: <field name="p_qty"/></div>
+                                            <div>PVP  : <field name="total_price"/></div>
+                                            <div>Costo: <field name="total_cost"/></div>
+                                        </t>
+                                        <div class="oe_kanban_clear"/>
+                                    </div>
+                                    <div class="oe_kanban_buttons_set oe_kanban_color_border oe_kanban_color_bglight oe_kanban_box_show_onclick">
+                                        <div class="oe_kanban_left">
+                                            <a string="Edit" icon="gtk-edit" type="edit"/>
+                                        </div>
+                                        <div class="oe_kanban_clear"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+		<record model="ir.ui.view" id="product.product_search_form_view">
+			<field name="name">Búsqueda de Productos</field>
+			<field name="model">product.product</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product">
+					<filter string='Category' icon="terp-stock_symbol-selection"
+						domain="[]" context="{'group_by' : 'categ_id'}" />
+					<filter icon="terp-go-week" string="New Arrivals"
+						domain="[('create_date','&lt;', time.strftime('%%Y-%%m-%%d 23:59:59')),('create_date','&gt;=',(datetime.date.today()-datetime.timedelta(days=20)).strftime('%%Y-%%m-%%d 00:00:00'))]" />
+					<separator orientation="vertical" />
+					<filter string="Stockable" icon="terp-accessories-archiver"
+						domain="[('type','=','product')]" />
+					<filter string="Catalog" icon="terp-accessories-archiver"
+						domain="[('type','=','catalog')]" />
+					<filter string="Service" icon="terp-accessories-archiver"
+						domain="[('type','=','service')]" />
+					<separator orientation="vertical" />
+					<field name="default_code" />
+					<field name="name" />
+					<field name="categ_id" select="2" operator="child_of" />
+					<field name="clasification_cat" select="2" operator="child_of"/>
+					<newline/>
+					<field name="pricelist_id" widget="selection" context="{'pricelist': self}" />
+					<newline/>
+					<group expand="0" string="More filters..." colspan="11" col="11">
+						<filter string="To Sell" icon="terp-accessories-archiver-minus"
+							domain="[('sale_ok','=',1)]" />
+						<filter string="To Purchase" icon="terp-accessories-archiver+"
+							domain="[('purchase_ok', '=', 1)]" />
+						<filter string="Is comercial" domain="[('categ_id.is_comercial', '=', True)]" />
+						<filter string="Is administrative" domain="[('categ_id.is_comercial', '=', False)]" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="product.product_product_tree_view">
+			<field name="name">Lista de Productos</field>
+			<field name="model">product.product</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="red:qty_available&lt;=0;gray:state in ['draft', 'end', 'obsolete'];blue:type in ['service']; orange:type in ['catalog']"
+					string="Products">
+					<field name="default_code" />
+					<field name="name" />
+					<field name="type" domain="[('type','in',['catalog','product','service'])]" invisible="1" />
+					<field name="categ_id" />
+					<field name="clasification_cat" />
+					<field name="qty_available" />
+					<field name="list_price" />
+					<field name="standard_price" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="product.product_normal_form_view">
+			<field name="name">Formulario de Productos</field>
+			<field name="type">form</field>
+			<field name="model">product.product</field>
+			<field name="priority">0</field>
+			<field name="arch" type="xml">
+				<form string="Products">
+					<group colspan="4" col="8">
+						<group colspan="4" col="8">
+							<group colspan="2" col="4">
+								<group colspan="4" col="8">
+									<field name="categ_id" required="True"/>
+									<field name="clasification_cat" required="True"/>
+									<field name="default_code" required="1"/>
+									<field name="material" />
+								</group>
+									<newline />
+								<group colspan="4" col="4">
+									<field name="name" />
+								</group>
+							</group>
+						</group>
+					</group>
+					<notebook colspan="4">
+						<page string="General">
+							<group colspan="2" col="4">
+								<group colspan="1" col="2">
+									<separator string="Supplier Information" colspan="2" />
+									<field name="manufacturer_pname" />
+									<field name="manufacturer" on_change="onchange_country(manufacturer, company_id)" />
+									<field name="manufacturer_country" on_change="onchange_country(manufacturer,company_id)" />
+									<group colspan="2" col="4" name="uom" string="Unit of Measure">
+									<label string="Se compra en "/> <field name="uos_coeff" nolabel="1" /> <field name="uom_po_id" nolabel="1"/>
+									<newline/>
+									<label string="que contiene "/><field name="packing_q" nolabel="1" /> <field name="uom_id" nolabel="1"/>
+									<newline/>
+									<label string="para venderse en "/><field name="packing_p" nolabel="1" /> <field name="uos_id" on_change="onchange_uom(uom_id,uom_po_id)" nolabel="1"/>									
+									</group>
+									<field name="color" />										
+									<field name="ean13" />
+									<field name="create_date" />
+									<field name="state" />
+									<group colspan="2" col="4">
+									<field name="sale_ok" invisible="0" />
+									<field name="purchase_ok" invisible="0" />
+									</group>									
+									<separator colspan="4" string="Sale Description" />
+									<field colspan="4" name="description_sale" nolabel="1" />
+									<field name="company_id" invisible="1" />
+
+								</group>
+								<group colspan="2" col="4">
+									<group colspan="1" col="2">
+										<separator string="List Prices" colspan="2" />
+										<field name="standard_price" string="Costo"
+											context="{'cost_method': average}" attrs="{'readonly':[('cost_method','=','average')]}"
+											groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user"/>
+										<field name="p_net"
+											groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user"
+											on_change="onchange_price(p_net,discount_percent,subtotal_cost)" />
+										<field name="lst_price_1" invisible="1"/>
+										<field name="list_price" readonly='True'/>
+										<field name="iva_price"
+											on_change="onchange_price(p_net,discount_percent,subtotal_cost)" />
+										<field name="total_price" />
+										<field name="margin_base"
+											groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user"
+											attrs="{'readonly':[('cost_method','=','average')]}" />
+										<field name="qty_available" string="Inventario Real"/>
+										<field name="virtual_available" string="Inventario Virtual"/>
+									</group>
+									<newline/>
+									<button name="%(straconx_products.action_product_information_view)d" string="Información adicional" type="action" icon="gtk-ok"  colspan="2"/>
+									<newline/>
+								</group>
+							</group>
+							<group colspan="1" col="2">
+								<separator string="Image" />
+								<field name="product_image" colspan="4" img_width="240"
+									img_height="200" width="240" height="200" widget="image"
+									nolabel="1" />
+							</group>
+						</page>
+						<page string="Information">
+							<group colspan="2" col="2">
+								<separator string="Procurement" colspan="2" />
+								<field name="type" />
+								<field name="procure_method" />
+								<field name="supply_method" />
+								<field name="calsale" string="Sales Calification" />
+								<field name="calinv" string="Stock Calification" />
+								<field name="year" />
+								<separator string="Internal Information" colspan="4" />
+								<field name="product_manager" select="2" />
+								<field name="datecom" string="Comercial Life" />
+								<field name="active" invisible="0"/>
+							</group>
+							<group colspan="2" col="2">
+								<separator string="Base Prices" colspan="4" />
+								<field domain="[('cost_method', '=', 'average')]" name="cost_method"
+									context="{'cost_method': average}" attrs="{'readonly':[('cost_method','=','average')]}" />
+								<newline />
+								<separator string="Weigths" colspan="2" />
+								<field digits="(14, 3)" name="weight"
+									attrs="{'readonly':[('type','=','service')]}" />
+								<field digits="(14, 3)" name="weight_net"
+									attrs="{'readonly':[('type','=','service')]}" />
+								<field digits="(14, 3)" name="volume"
+									attrs="{'readonly':[('type','=','service')]}" />									
+							</group>
+						</page>
+						<page string="Sellers">
+							<field colspan="4" name="seller_ids" nolabel="1"
+								context="{'default_product_id':id}" />
+						</page>
+						<page string="Accounting" groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user">
+							<separator string="Sales Properties" colspan="2" />
+							<separator string="Purchase Properties" colspan="2" />
+							<field name="property_account_income"
+								domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" 
+								attrs="{'readonly':[('sale_ok','=',0)], 'required':[('type','in',('service','admin_service'))]}" />								
+							<field name="property_account_expense"
+								domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" 
+								attrs="{'required':[('type','in',('service','admin_service'))]}" />
+							<separator string="Inventory Valuation" colspan="4" />
+							<group colspan="2" col="2">
+								<field name="valuation" required="True" />
+							</group>
+							<group colspan="2" col="2">
+								<field name="property_stock_account_input"
+									attrs="{'readonly':[('valuation', '!=', 'real_time')],'invisible':[('type','in',('service','admin_service'))]}"
+									domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" />
+								<field name="property_stock_account_output"
+									attrs="{'readonly':[('valuation', '!=', 'real_time')],'invisible':[('type','in',('service','admin_service'))]}"
+									domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" />
+							</group>
+							<newline />
+							<separator string="Sale Taxes" colspan="2" />
+							<separator string="Purchase Taxes" colspan="2" />
+							<field name="taxes_id" nolabel="1" colspan="2" required="1"
+								attrs="{'required':[('type','in',('service','admin_service'))]}" />
+							<field name="supplier_taxes_id" nolabel="1" required="1" colspan="2" 
+								attrs="{'required':[('type','in',('service','admin_service'))]}"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+
+        <record id="product.product_normal_action" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="limit">300</field>
+            <field name="auto_search" eval="False" />
+            <field name="view_id" ref="product.product_product_tree_view"/>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+            <field name="help">You must define a Product for everything you buy or sell. Products can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on.</field>
+        </record>
+
+
+		<record model="ir.ui.view" id="product.product_product_uom_search_view">
+			<field name="name">Búsqueda de Productos</field>
+			<field name="model">product.product</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product">
+					<filter string='Category' icon="terp-stock_symbol-selection"
+						domain="[]" context="{'group_by' : 'categ_id'}" />
+					<filter icon="terp-go-week" string="New Arrivals"
+						domain="[('create_date','&lt;', time.strftime('%%Y-%%m-%%d 23:59:59')),('create_date','&gt;=',(datetime.date.today()-datetime.timedelta(days=20)).strftime('%%Y-%%m-%%d 00:00:00'))]" />
+					<separator orientation="vertical" />
+					<filter string="Stockable" icon="terp-accessories-archiver"
+						domain="[('type','=','product')]" />
+					<filter string="Catalog" icon="terp-accessories-archiver"
+						domain="[('type','=','catalog')]" />
+					<filter string="Service" icon="terp-accessories-archiver"
+						domain="[('type','=','service')]" />
+					<separator orientation="vertical" />
+					<field name="default_code" />
+					<field name="name" />
+					<newline/>
+				</search>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="product.product_product_uom_tree_view">
+			<field name="name">Lista de Productos x Unidades de Medida</field>
+			<field name="model">product.product</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="red:qty_available&lt;=0;gray:state in ['draft', 'end', 'obsolete'];blue:type in ['service']; orange:type in ['catalog']"
+					editable="bottom" string="Products">
+					<field name="default_code" />
+					<field name="name" />
+					<field name="type" domain="[('type','in',['catalog','product','service'])]" invisible="1" />
+					<field name="categ_id" />
+					<field name="clasification_cat" />
+					<field name="qty_available"/>
+					<field name="uos_coeff" string="Se compra en"/> <field name="uom_po_id" nolabel="1"/>
+					<field name="packing_q" string="Que contiene"/> <field name="uom_id" nolabel="1"/>
+					<field name="packing_p" string="para venderse en "/> <field name="uos_id" on_change="onchange_uom(uom_id,uom_po_id)" nolabel="1"/>									
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+        <record id="action_product_product_uom_tree_view" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="product.product_product_uom_tree_view"/>
+            <field name="search_view_id" ref="product.product_product_uom_search_view"/>
+        </record>
+
+
+	<delete model='ir.ui.view' id="stock.view_normal_stock_property_form"/>
+	<delete model='ir.ui.view' id="stock.view_normal_property_form"/>
+	<delete model='ir.ui.view' id="procurement.product_normal_form_view"/>
+	<delete model='ir.ui.view' id="stock.view_product_standard_price_form"/>
+	<delete model='ir.ui.view' id="account.product_template_form_view"/>
+	<delete model='ir.ui.view' id="account.product_normal_form_view"/>
+	<delete model='ir.ui.view' id="stock.view_normal_property_acc_form"/>
+	</data>
+</openerp>
+    

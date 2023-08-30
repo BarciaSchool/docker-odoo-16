@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		 <record id="view_auth_refund_form" model="ir.ui.view">
+            <field name="name">authorization.refund.form</field>
+            <field name="model">authorization.refund</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Authorization for Refund">
+               	<group colspan="4">
+                    <newline/>
+                     <label colspan="4" string="Digit the Code of Supervisor for Authorized the Refund"/>
+                 </group>
+                  <group colspan="4">
+                  <separator colspan="4" string=""/>
+                     <field name="code" on_change="onchange_code(code)" required="True" password="True"/>
+                     <newline/>
+                     <field name="supervisor_id" widget="selection" readonly="1"/>
+                  </group>
+				  <group colspan="4" col="6">
+				  	<label string="" colspan="2"/>
+				  	<button special="cancel" string="Cancel"  icon="gtk-cancel"/>
+					<button name="button_validate" string="Validate" icon="gtk-go-forward" type="object"/>
+				  </group>
+				</form>
+            </field>
+        </record>
+        
+	    <record id="action_auth_refund" model="ir.actions.act_window">
+	            <field name="name">Validate Refund</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">authorization.refund</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">form</field>
+	            <field name="target">new</field>
+        </record>
+	</data>
+</openerp>

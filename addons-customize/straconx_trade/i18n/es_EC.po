@@ -1,0 +1,1538 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_trade
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-23 06:29+0000\n"
+"PO-Revision-Date: 2012-10-23 06:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:176
+#, python-format
+msgid "You can define a account for Payable Duty Account in Company Properties"
+msgstr "Debe definir una cuenta de Cuenta de Pago de DAO en la Compañía."
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_duty:0
+#: help:purchase.trade,amount_duty:0
+msgid "Amount Duty"
+msgstr "Valor Aranceles"
+
+#. module: straconx_trade
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr "¡La referencia debe ser única por Compañia!"
+
+#. module: straconx_trade
+#: field:purchase.trade,location_id:0
+msgid "Destination"
+msgstr "Destino"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Pickings"
+msgstr "Pickings"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Type of Liquidation"
+msgstr "Tipo de Liquidación"
+
+#. module: straconx_trade
+#: field:account.invoice.line,tradetax:0
+#: field:product.product,tradetax:0
+#: field:product.tradetax.line,tradetax_id:0
+#: field:purchase.order.line,tradetax:0
+msgid "Tradetax"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: view:stock.picking:0
+msgid "Set to draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_trade
+#: field:purchase.trade,confirm_date:0
+msgid "Confirmation Date"
+msgstr "Fecha de confirmación"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Other Costs/Expenses"
+msgstr "Otros Costos y Gastos"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.straconx_action_picking_in_international_all_tree
+#: model:ir.actions.act_window,name:straconx_trade.straconx_action_picking_in_international_tree
+msgid "Incoming International Orders"
+msgstr "Ingreso de Importaciones"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:262
+#, python-format
+msgid "Amount of Purchase Invoices is 0."
+msgstr "El monto de Factura de Compras es 0"
+
+#. module: straconx_trade
+#: help:purchase.trade,insurance_ad:0
+msgid "Use this field if you no have a invoice for Insurance"
+msgstr "Use este campo si no tiene una factura de Seguros"
+
+#. module: straconx_trade
+#: field:purchase.trade,deposit_partner:0
+msgid "Deposit Warehouse"
+msgstr "Almacen / Depósito"
+
+#. module: straconx_trade
+#: selection:purchase.trade,state:0
+msgid "Waiting Schedule"
+msgstr "Esperando Liquidación"
+
+#. module: straconx_trade
+#: selection:purchase.trade,state:0
+#: view:purchase.trade:0
+msgid "Send Mail"
+msgstr "Enviar correo electrónico"
+
+#. module: straconx_trade
+#: field:account.invoice.line,tpurchase:0
+msgid "Purchase type"
+msgstr "Tipo de Compra"
+
+#. module: straconx_trade
+#: field:account.invoice,trade_id4:0
+msgid "Trade Order others"
+msgstr "Otras órdenes de comercio exterior"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid " "
+msgstr " "
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Total Other Cost"
+msgstr "Total de Otros Costos"
+
+#. module: straconx_trade
+#: field:purchase.trade,arrival_date:0
+msgid "Arrival Date"
+msgstr "Fecha de arribo"
+
+#. module: straconx_trade
+#: constraint:stock.move:0
+msgid "You can not move products from or to a location of the type view."
+msgstr "No se puede mover productos a localidades que son tipos Vista."
+
+#. module: straconx_trade
+#: field:purchase.trade,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_trade
+#: field:purchase.trade,delivery_partner:0
+msgid "Broker"
+msgstr "Agente"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:270
+#, python-format
+msgid "Amount of Delivery Invoices is 0."
+msgstr "El monto de Facturas de transporte es 0."
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_landed_cost.py:84
+#, python-format
+msgid "Does not exist reference to the line %s"
+msgstr "No existe referencia a la línea %s"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:182
+#, python-format
+msgid "You can define a account for tax Duties Account in Company Properties"
+msgstr "Debe definir una cuenta de Impuestos de Aranceles en Compañía"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.straconx_action_itrade_tree
+#: model:ir.ui.menu,name:straconx_trade.menu_itrade
+msgid "International Trade"
+msgstr "Comercio Exterior"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_international_picking_in_form
+#: model:ir.ui.menu,name:straconx_trade.menu_purchase_international
+msgid "International Incoming Orders"
+msgstr "Ingreso de Importaciones"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Picking list"
+msgstr "Lista Movimientos"
+
+#. module: straconx_trade
+#: field:purchase.trade,user_id:0
+msgid "Buyer"
+msgstr "Asesor de Compra"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_stock_partial_picking
+msgid "Partial Picking Processing Wizard"
+msgstr "Asistente para el procesamiento de recogida parcial"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_tax_duty
+msgid "Tax duty"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:278
+#: code:addons/straconx_trade/objects/straconx_trade.py:286
+#, python-format
+msgid "Amount of Insurance Invoices is 0."
+msgstr "Monto de Facturas de Seguros es 0."
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "UoM"
+msgstr "UdM"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Total Cost"
+msgstr "Costo Total"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Process Now"
+msgstr "Procesar Ahora"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:84
+#, python-format
+msgid "You must create a Debit Note Journal"
+msgstr "Debe crear un diario de Nota de Débito"
+
+#. module: straconx_trade
+#: field:account.invoice,trade_id1:0
+msgid "Trade Order Purchase"
+msgstr "Orden de Compra Internacional"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Confirm Trade"
+msgstr "Confirmar Liquidación"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: field:purchase.trade,notes:0
+#: view:stock.picking:0
+msgid "Notes"
+msgstr "Observaciones"
+
+#. module: straconx_trade
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: straconx_trade
+#: field:stock.move,debit_note_id:0
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_invoice.py:148
+#: code:addons/straconx_trade/objects/straconx_invoice.py:166
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:87
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:90
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:93
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:96
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:99
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:102
+#: code:addons/straconx_trade/objects/straconx_trade.py:176
+#: code:addons/straconx_trade/objects/straconx_trade.py:178
+#: code:addons/straconx_trade/objects/straconx_trade.py:180
+#: code:addons/straconx_trade/objects/straconx_trade.py:182
+#: code:addons/straconx_trade/objects/straconx_trade.py:184
+#: code:addons/straconx_trade/objects/straconx_trade.py:262
+#: code:addons/straconx_trade/objects/straconx_trade.py:264
+#: code:addons/straconx_trade/objects/straconx_trade.py:270
+#: code:addons/straconx_trade/objects/straconx_trade.py:272
+#: code:addons/straconx_trade/objects/straconx_trade.py:278
+#: code:addons/straconx_trade/objects/straconx_trade.py:280
+#: code:addons/straconx_trade/objects/straconx_trade.py:286
+#: code:addons/straconx_trade/objects/straconx_trade.py:288
+#: code:addons/straconx_trade/objects/straconx_trade.py:469
+#: code:addons/straconx_trade/objects/straconx_trade.py:514
+#: code:addons/straconx_trade/objects/straconx_trade.py:524
+#: code:addons/straconx_trade/objects/straconx_trade.py:526
+#: code:addons/straconx_trade/objects/straconx_trade.py:532
+#: code:addons/straconx_trade/objects/straconx_trade.py:538
+#: code:addons/straconx_trade/objects/straconx_trade.py:544
+#: code:addons/straconx_trade/objects/straconx_trade.py:550
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_trade
+#: field:landed.cost,amount:0
+#: selection:landed.cost,method:0
+#: field:landed.cost.line,amount:0
+#: selection:purchase.trade,method:0
+msgid "Amount"
+msgstr "Valor"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Assigned Delivery Orders"
+msgstr "Ordenes de Envío asignadas"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: view:stock.picking:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:102
+#, python-format
+msgid "There is no inventory variation account defined on the product category: \"%s\" (id: %d)"
+msgstr "No existe una cuenta de variación de inventarios definido en esta categoría de productos: \"%s\" (id: %d)"
+
+#. module: straconx_trade
+#: field:stock.picking,trade_id:0
+msgid "Purchase Trade"
+msgstr "Compra Internacional"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_insurance:0
+msgid "Amount Insurance"
+msgstr "Monto Seguro"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Confirmed Delivery Orders"
+msgstr "Ordenes de Envío confirmadas"
+
+#. module: straconx_trade
+#: field:account.invoice.line,cost_expense_unit:0
+msgid "Cost Expense Unit"
+msgstr "Unidad de Gasto"
+
+#. module: straconx_trade
+#: help:purchase.trade,incoterm:0
+msgid "Incoterm which stands for 'International Commercial terms' implies its a series of sales terms which are used in the commercial transaction."
+msgstr "Incoterm es el diminutivo de 'Términos de Comercio Internacional' que incluyen una series de términos que son usados en una transacción comercial"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Process"
+msgstr "Procesar"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Product Ubications"
+msgstr "Ubicaciones de Productos"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:87
+#, python-format
+msgid "Can not create Journal Entry, Output Account defined on this product and Variant account on category of this product are same."
+msgstr "No se puede crear una entrada de Diario, ya la cuenta definida de salida de productos y varaiante de productos en la categoría son las mismas."
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Liquidation"
+msgstr "Liquidación"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_landed_cost_line
+msgid "landed.cost.line"
+msgstr "Línea de Costo Prorrateado"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: straconx_trade
+#: field:res.company,property_account_duty:0
+msgid "Payable Account Duty"
+msgstr "Cuenta de Pago de Aranceles"
+
+#. module: straconx_trade
+#: field:account.invoice.line,ref_product:0
+msgid "Reference Product"
+msgstr "Referencia del Producto"
+
+#. module: straconx_trade
+#: field:landed.cost.line,total_volume:0
+msgid "Total Volume"
+msgstr "Volumen Total"
+
+#. module: straconx_trade
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_cif:0
+msgid "Amount CIF"
+msgstr "Valor CIF"
+
+#. module: straconx_trade
+#: field:stock.move,authorized:0
+msgid "authorized"
+msgstr "autorizado"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Delivery Partner"
+msgstr "Consignatario"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Authorizate"
+msgstr "Autorizado"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Expense Order Cost"
+msgstr "Costeo de Unidades"
+
+#. module: straconx_trade
+#: field:purchase.trade,adjustment:0
+msgid "Adjustment"
+msgstr "Ajustes"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Delivery Orders"
+msgstr "Órdenes de entrega"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_total:0
+msgid "Amount Total"
+msgstr "Total Liquidación"
+
+#. module: straconx_trade
+#: report:ir.actions.report.xml:straconx_trade.trade_report_id
+msgid "open"
+msgstr "abierto"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: straconx_trade
+#: view:product.tradetax:0
+msgid "Product Arancel"
+msgstr "Arancel"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:264
+#: code:addons/straconx_trade/objects/straconx_trade.py:272
+#: code:addons/straconx_trade/objects/straconx_trade.py:280
+#: code:addons/straconx_trade/objects/straconx_trade.py:288
+#, python-format
+msgid "Invoices are cancelled."
+msgstr "Facturas están canceladas."
+
+#. module: straconx_trade
+#: selection:purchase.trade,state:0
+msgid "Paid DAO"
+msgstr "Pago de DAO"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:180
+#, python-format
+msgid "You can define a account for Move Duty Account in Company Properties"
+msgstr "Debe definir una cuenta Cuenta de Movimiento de Aranceles en Compañías"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Check Availability"
+msgstr "Comprobar disponibilidad"
+
+#. module: straconx_trade
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_trade
+#: field:res.company,property_account_duty_account:0
+msgid "Account Duty"
+msgstr "Cuenta de Aranceles"
+
+#. module: straconx_trade
+#: field:stock.move,qty_receive:0
+msgid "Qty Receive"
+msgstr "Ctd. Recibido"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_product_tradetax_action_form_str
+msgid "Product Tradetax"
+msgstr "Partidas arancelarias"
+
+#. module: straconx_trade
+#: field:stock.picking,authorized:0
+msgid "Authorized"
+msgstr "Autorizado"
+
+#. module: straconx_trade
+#: field:purchase.trade,endorsement:0
+msgid "Endorsement"
+msgstr "Refrendo"
+
+#. module: straconx_trade
+#: field:account.invoice.line,international:0
+#: field:purchase.order.line,international:0
+#: field:stock.picking,international:0
+msgid "International"
+msgstr "Internacional"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: field:purchase.trade,delivery_expenses_ids:0
+msgid "Delivery Expenses"
+msgstr "Gastos de Transporte"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Available"
+msgstr "Disponible"
+
+#. module: straconx_trade
+#: field:tax.duty,credit_account_id:0
+msgid "Credit Account"
+msgstr "Cuenta de Crédito"
+
+#. module: straconx_trade
+#: view:account.invoice:0
+msgid "Information of Trade"
+msgstr "Información de Comercio Exterior"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:524
+#, python-format
+msgid "Invoice already been paid."
+msgstr "Facturas ya fueron pagadas."
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Lost Sales"
+msgstr "Ventas Pérdidas"
+
+#. module: straconx_trade
+#: field:landed.cost.line,cost_unit:0
+msgid "Cost Per Unit"
+msgstr "Costo por Unidad"
+
+#. module: straconx_trade
+#: constraint:product.product:0
+msgid "has a standard price is greater than list Price"
+msgstr "el costo es mayor que el precio de venta"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Picking Reference"
+msgstr "Picking(s) de la Liquidación"
+
+#. module: straconx_trade
+#: field:account.invoice.line,amount_others:0
+msgid "Others Costs"
+msgstr "Otros Costos"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_adjustment:0
+msgid "Amount adjustment"
+msgstr "Monto de Ajustes"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Total Allocated Cost"
+msgstr "Total Costo asignado"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Other Information"
+msgstr "Otra Información"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:184
+#: code:addons/straconx_trade/objects/straconx_trade.py:514
+#, python-format
+msgid "You can define a partner for pay of Trade duties and taxes"
+msgstr "Debe definir una cuenta de pago para aranceles."
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Liquidate purchase"
+msgstr "Liquidar Importación"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_itrade_form_action
+msgid "New International Trade Liquidation"
+msgstr "Nueva Liquidación de Importaciones"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Cancel Picking"
+msgstr "Cancelar Picking"
+
+#. module: straconx_trade
+#: field:account.invoice,trade_id2:0
+msgid "Trade Order delivery"
+msgstr "Orden de Compra enviada"
+
+#. module: straconx_trade
+#: selection:landed.cost,state:0
+msgid "Posted"
+msgstr "Posteado"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: straconx_trade
+#: field:purchase.trade,total_dui:0
+msgid "Total DAO"
+msgstr "Total DAO"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+#: field:landed.cost,lines:0
+msgid "Items"
+msgstr "Productos"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: view:stock.picking:0
+msgid "Order Date"
+msgstr "Fecha de Orden"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: view:stock.picking:0
+msgid "Confirmation Date"
+msgstr "Fecha de confirmación"
+
+#. module: straconx_trade
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_trade
+#: view:product.tradetax:0
+msgid "Product Series"
+msgstr "Series de Productos"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:54
+#, python-format
+msgid "You need authorization to process because the quantities received are different than expected"
+msgstr "Necesita autorización para procesar el picking porque las cantidades recibidas son diferentes a las esperadas"
+
+#. module: straconx_trade
+#: field:purchase.trade,fob:0
+msgid "FOB"
+msgstr "FOB"
+
+#. module: straconx_trade
+#: field:res.company,partner_id_trade:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_trade
+#: field:product.tradetax,name:0
+msgid "Nombre Partida"
+msgstr "Nombre Partida"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:328
+#: code:addons/straconx_trade/objects/straconx_trade.py:366
+#: code:addons/straconx_trade/objects/straconx_trade.py:374
+#, python-format
+msgid "Configure payable, tax and dutty account for company"
+msgstr "Hay que configurar una cuenta de impuestos y aranceles para la Compañía."
+
+#. module: straconx_trade
+#: selection:account.invoice.line,tpurchase:0
+msgid "Expense"
+msgstr "Gastos"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Force Availability"
+msgstr "Forzar disponibilidad"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Additional info"
+msgstr "Información Adicional"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Aditional Amounts"
+msgstr "Montos Adicionales"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:96
+#, python-format
+msgid "There is no stock output account defined for this product or its category: \"%s\" (id: %d)"
+msgstr "No existe una cuenta de salida definida para este producto en esta categoría: \"%s\" (id: %d)"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Print Liquidation"
+msgstr "Imprimir Liquidación"
+
+#. module: straconx_trade
+#: field:purchase.trade,tax_1:0
+msgid "IVA"
+msgstr "IVA"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: view:stock.picking:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.straconx_action_itrade_form
+msgid "New International Trade"
+msgstr "Nueva Liquidación de Importaciones"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+#: field:purchase.trade,purchase_ids:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_account_invoice_line
+#: field:stock.move,invoice_line_id:0
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_trade
+#: field:purchase.trade,insurance_ad:0
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: straconx_trade
+#: field:landed.cost,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: straconx_trade
+#: field:tax.duty,applicability:0
+msgid "Applicability"
+msgstr "Aplicabilidad"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_product_tradetax
+msgid "Partner Product Series"
+msgstr "Serie"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Cancel Trade"
+msgstr "Cancelar Liquidación"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Is a Back Order"
+msgstr "¿Es un Backorder?"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Unit Of Measure"
+msgstr "Unidad de medida"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_itrade_tree_action
+#: view:purchase.trade:0
+msgid "International Trade Liquidation"
+msgstr "Liquidación de Importaciones"
+
+#. module: straconx_trade
+#: field:purchase.trade,total_cif:0
+msgid "Total CIF"
+msgstr "Total CIF"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+#: field:purchase.trade,landed_id:0
+msgid "Landed Cost"
+msgstr "Costos Prorrateados"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Cancel Availability"
+msgstr "Cancelar disponibilidad"
+
+#. module: straconx_trade
+#: selection:account.invoice.line,tpurchase:0
+msgid "Trade Expense"
+msgstr "Gastos de Importación"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Lines Costs"
+msgstr "Línea de costo"
+
+#. module: straconx_trade
+#: field:product.tradetax.line,tax_percentage:0
+msgid "Percentage Tax %"
+msgstr "% Impuestos"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "FOB Price"
+msgstr "Precio FOB"
+
+#. module: straconx_trade
+#: selection:landed.cost,state:0
+#: selection:purchase.trade,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_trade
+#: field:product.tradetax.line,applicability:0
+msgid "applicability"
+msgstr "aplicabilidad"
+
+#. module: straconx_trade
+#: field:stock.move,price_unit_trade:0
+msgid "Unit Price Trade"
+msgstr "Costo Unitario de Importación"
+
+#. module: straconx_trade
+#: field:res.company,property_account_move_duty:0
+msgid "Account Move Duty"
+msgstr "Cuenta de Movimiento de Aranceles"
+
+#. module: straconx_trade
+#: field:landed.cost,other:0
+msgid "Other"
+msgstr "Otro"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Supplier Invoices"
+msgstr "Facturas del Proveedor"
+
+#. module: straconx_trade
+#: field:landed.cost,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: straconx_trade
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código predeterminado debe ser único"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_landed_cost
+msgid "landed.cost"
+msgstr "Costos Prorrateados"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.act_new_landed_cost
+#: model:ir.ui.menu,name:straconx_trade.menu_new_landed_cost
+msgid "New Landed Costs"
+msgstr "Nuevo Prorrateo de Costos"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.act_view_landed_cost
+#: model:ir.ui.menu,name:straconx_trade.menu_landed_costs
+#: model:ir.ui.menu,name:straconx_trade.menu_view_landed_cost
+#: view:landed.cost:0
+#: field:landed.cost.line,cost_id:0
+msgid "Landed Costs"
+msgstr "Costos prorrateados"
+
+#. module: straconx_trade
+#: constraint:purchase.trade:0
+msgid "The adjustment must be a positive number"
+msgstr "El ajuste debe ser un número positivo"
+
+#. module: straconx_trade
+#: constraint:stock.move:0
+msgid "You try to assign a lot which is not from the same product"
+msgstr "Está intentando asignar un lote que no es del mismo producto"
+
+#. module: straconx_trade
+#: field:purchase.trade,origin_order:0
+msgid "Ordered Date"
+msgstr "Fecha de Origen"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+#: view:purchase.trade:0
+msgid "Total Amount"
+msgstr "Monto Total"
+
+#. module: straconx_trade
+#: model:ir.actions.report.xml,name:straconx_trade.trade_report_id
+msgid "Trade Report"
+msgstr "Liquidación de Importación"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Insurances Expenses"
+msgstr "Gastos de Seguro"
+
+#. module: straconx_trade
+#: field:account.invoice,liquidated:0
+msgid "liquidated"
+msgstr "liquidado"
+
+#. module: straconx_trade
+#: field:account.invoice.line,amount_tax_vat:0
+msgid "Amount Tax Vat"
+msgstr "IVA"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.tax_duty_action_form
+#: view:tax.duty:0
+msgid "Tax Duty"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Other Invoice"
+msgstr "Otras Facturas"
+
+#. module: straconx_trade
+#: field:purchase.trade,dui_id:0
+msgid "DAO id"
+msgstr "Liquidación DAO"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_trade
+#: field:landed.cost,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:178
+#, python-format
+msgid "You can define a account for tax VAT Duty Account in Company Properties"
+msgstr "Defina una cuenta para IVA en Compañías"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Post"
+msgstr "Postear"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:99
+#, python-format
+msgid "There is no journal defined on the product category: \"%s\" (id: %d)"
+msgstr "No existe un Diario definido para esta categoría de producto: \"%s\" (id: %d)"
+
+#. module: straconx_trade
+#: field:landed.cost,method:0
+#: field:purchase.trade,method:0
+msgid "Allocation Method"
+msgstr "Método de Costeo"
+
+#. module: straconx_trade
+#: field:landed.cost.line,total_weight:0
+msgid "Total weight"
+msgstr "Total peso"
+
+#. module: straconx_trade
+#: field:purchase.trade,dui:0
+msgid "DAO"
+msgstr "DAO"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: straconx_trade
+#: help:purchase.trade,transport_ad:0
+msgid "Use this field if you no have a invoice for Delivery"
+msgstr "Use este campo si no tiene una factura para Transporte"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "To Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:54
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:63
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:78
+#: code:addons/straconx_trade/objects/straconx_trade.py:328
+#: code:addons/straconx_trade/objects/straconx_trade.py:366
+#: code:addons/straconx_trade/objects/straconx_trade.py:374
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_trade
+#: view:account.invoice:0
+msgid "Compras"
+msgstr "Compras"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Unit Cost aditional"
+msgstr "Costo Unitario adicional"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Generate DAO Payment"
+msgstr "Generar pago de DAO"
+
+#. module: straconx_trade
+#: field:tax.duty,debit_account_id:0
+msgid "Debit Account"
+msgstr "Cuenta de Débito"
+
+#. module: straconx_trade
+#: view:account.invoice:0
+msgid "Seguros"
+msgstr "Seguros"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Amount Untaxed"
+msgstr "Monto sin Impuestos"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,name:straconx_trade.product_tradetax_action_form
+msgid "Products tradetax"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_landed_cost.py:84
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:84
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_international_picking_in_log
+msgid "international Incoming Orders"
+msgstr "Ordenes de Compra Internacionales Entrantes"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:63
+#, python-format
+msgid "You can not change the picking to draft because exist to debit note related"
+msgstr "No se puede cambiar el picking a borrador porque existe una nota de débito relacionada"
+
+#. module: straconx_trade
+#: field:purchase.trade,others_expenses_ids:0
+msgid "Others Expenses"
+msgstr "Otros Gastos"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Total Other Cost Unit"
+msgstr "Total Costo Unitario"
+
+#. module: straconx_trade
+#: selection:landed.cost,method:0
+#: field:landed.cost.line,product_qty:0
+#: view:purchase.trade:0
+#: selection:purchase.trade,method:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_trade
+#: field:product.tradetax.line,duty_id:0
+msgid "Duty"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_trade
+#: field:tax.duty,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_trade
+#: selection:landed.cost,method:0
+#: selection:purchase.trade,method:0
+msgid "Weight"
+msgstr "Peso"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Products List"
+msgstr "Lista de Productos"
+
+#. module: straconx_trade
+#: selection:product.tradetax.line,applicability:0
+#: selection:tax.duty,applicability:0
+msgid "Cost more Expenses more Duty"
+msgstr "Costos + Gastos + Aranceles"
+
+#. module: straconx_trade
+#: model:ir.actions.act_window,help:straconx_trade.straconx_action_picking_in_international_all_tree
+#: model:ir.actions.act_window,help:straconx_trade.straconx_action_picking_in_international_tree
+msgid "This is the list of all delivery orders that have to be prepared, according to your different sales orders and your logistics rules."
+msgstr "Esta es la lista de órdenes de envíos que deben de ser preparadas, en función de sus pedidos de venta y sus reglas logísticas."
+
+#. module: straconx_trade
+#: field:landed.cost.line,other:0
+#: field:landed.cost.line,other_unit:0
+msgid "Other Cost"
+msgstr "Otros Costos"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Incoming Receive list"
+msgstr "Lista de Productos a recibir"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Details of Products Purchase"
+msgstr "Detalle de Productos Adquiridos"
+
+#. module: straconx_trade
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "DAO Information"
+msgstr "Información del DAO"
+
+#. module: straconx_trade
+#: selection:purchase.trade,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+#: view:stock.picking:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Delivery Invoice"
+msgstr "Facturas de Despacho"
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Total Cost Unit"
+msgstr "Total Costo Unitario"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Move Information"
+msgstr "Información de movimiento"
+
+#. module: straconx_trade
+#: field:account.invoice.line,amount_total_unit:0
+#: field:account.invoice.line,amount_total_unit_quantity:0
+msgid "Amount total unit"
+msgstr "Costo Unitario"
+
+#. module: straconx_trade
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr "¡La orden de referencia debe ser única por Compañía!"
+
+#. module: straconx_trade
+#: selection:purchase.trade,state:0
+msgid "In Progress"
+msgstr "En proceso"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:90
+#, python-format
+msgid "Can not create Journal Entry, Input Account defined on this product and Variant account on category of this product are same."
+msgstr "No se puede crear una entrada de Diario, ya la cuenta definida de entrada de productos y varaiante de productos en la categoría son las mismas."
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Other Info"
+msgstr "Otra Información"
+
+#. module: straconx_trade
+#: field:product.tradetax,code_id:0
+msgid "Partida"
+msgstr "Partida"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Movimientos"
+
+#. module: straconx_trade
+#: constraint:stock.move:0
+msgid "You must assign a production lot for this product"
+msgstr "Debe asignar un lote de producción para este producto"
+
+#. module: straconx_trade
+#: sql_constraint:tax.duty:0
+msgid "The code of Duty must be unique"
+msgstr "El código de Aranceles debe ser único"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_others:0
+msgid "Amount Others"
+msgstr "Otros Costos"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:526
+#, python-format
+msgid "Invoice is open. Please, change state of invoice."
+msgstr "El pago realizado al Operador Aduanero se encuentra abierto. Por favor, cancelelo para continuar con la operación."
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Process Later"
+msgstr "Procesar Después"
+
+#. module: straconx_trade
+#: field:purchase.trade,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_trade
+#: field:landed.cost.line,cost:0
+msgid "Allocated Cost"
+msgstr "Costo Asignado"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_total_liquidation:0
+msgid "Total Liquidation"
+msgstr "Total Liquidación"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_picking.py:78
+#, python-format
+msgid "You can not receive quantity negative or equals to 0"
+msgstr "No se puede recibir cantidades en cero o negativas"
+
+#. module: straconx_trade
+#: field:landed.cost.line,price_unit:0
+msgid "Unit Price"
+msgstr "Precio Unitario"
+
+#. module: straconx_trade
+#: field:account.invoice.line,amount_total:0
+msgid "Amount total"
+msgstr "Monto total"
+
+#. module: straconx_trade
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_trade
+#: field:purchase.trade,incoterm:0
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_product_product
+#: field:landed.cost.line,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_fob:0
+msgid "Amount Fob"
+msgstr "Valor FOB"
+
+#. module: straconx_trade
+#: field:product.tradetax,description:0
+#: field:tax.duty,name:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: straconx_trade
+#: view:account.invoice:0
+msgid "Otros Gastos"
+msgstr "Otros Gastos"
+
+#. module: straconx_trade
+#: selection:landed.cost,state:0
+#: selection:purchase.trade,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: straconx_trade
+#: field:purchase.trade,state:0
+msgid "Trade Order State"
+msgstr "Estado de la Liquidación"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Ubication"
+msgstr "Ubication"
+
+#. module: straconx_trade
+#: field:purchase.trade,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_purchase_trade
+msgid "purchase.trade"
+msgstr "Liquidación de Importaciones"
+
+#. module: straconx_trade
+#: field:purchase.trade,transport_ad:0
+msgid "Delivery"
+msgstr "Transporte"
+
+#. module: straconx_trade
+#: field:purchase.trade,country_id:0
+msgid "Origin Country"
+msgstr "País de Origen"
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_delivery:0
+msgid "Amount Delivery"
+msgstr "Valor de Despacho"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_stock_move.py:93
+#, python-format
+msgid "There is no stock input account defined for this product or its category: \"%s\" (id: %d)"
+msgstr "No existe la cuenta de entrada definida para este producto o su categoría: \"%s\" (id: %d)"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Other Expenses"
+msgstr "Otros Gastos"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Purchase Invoice"
+msgstr "Factura de Compra"
+
+#. module: straconx_trade
+#: view:account.invoice:0
+msgid "Transporte"
+msgstr "Transporte"
+
+#. module: straconx_trade
+#: selection:product.tradetax.line,applicability:0
+#: selection:tax.duty,applicability:0
+msgid "Cost more Expenses"
+msgstr "Costo + Gastos"
+
+#. module: straconx_trade
+#: field:purchase.trade,insurance_expenses_ids:0
+msgid "Insurance Expenses"
+msgstr "Gastos de Seguro"
+
+#. module: straconx_trade
+#: field:purchase.trade,purchase_line_ids:0
+msgid "Invoiced Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_trade
+#: field:purchase.trade,picking_id:0
+msgid "Related Picking"
+msgstr "Picking relacionados"
+
+#. module: straconx_trade
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_trade
+#: field:landed.cost,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_stock_partial_move
+msgid "Partial Move Processing Wizard"
+msgstr "Asistente de Movimientos de Inventarios"
+
+#. module: straconx_trade
+#: sql_constraint:purchase.order:0
+msgid "Error! Expired days must be greater than 0."
+msgstr "¡Error! Días de expiración deben ser mayor a 0."
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_trade
+#: help:stock.partial.move,cost:0
+msgid "Unit Cost for this product line"
+msgstr "Costo Unitario para esta línea del producto"
+
+#. module: straconx_trade
+#: sql_constraint:purchase.order:0
+msgid "Error! Wait days must be greater than 0."
+msgstr "¡Error! Días de espera deben ser mayor a 0."
+
+#. module: straconx_trade
+#: view:landed.cost:0
+msgid "Item"
+msgstr "Producto"
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_product_tradetax_line
+msgid "product.tradetax.line"
+msgstr "Línea de Aranceles"
+
+#. module: straconx_trade
+#: field:landed.cost.line,invoice_line_id:0
+msgid "Invoice Line Reference"
+msgstr "Referencia de Línea de Factura"
+
+#. module: straconx_trade
+#: field:res.company,property_account_tax_duty:0
+msgid "Account Tax VAT Duty"
+msgstr "Cuenta de Impuestos"
+
+#. module: straconx_trade
+#: model:ir.ui.menu,name:straconx_trade.menu_international_picking_in_all_form
+msgid "All International Incoming Orders"
+msgstr "Todos los Pedidos de Compras Internacionales"
+
+#. module: straconx_trade
+#: field:account.invoice.line,amount_tax_duty:0
+msgid "Amount Tax Duty"
+msgstr "Monto de Aranceles"
+
+#. module: straconx_trade
+#: view:stock.picking:0
+msgid "Back Orders"
+msgstr "Back Orders"
+
+#. module: straconx_trade
+#: field:account.invoice,trade_id3:0
+msgid "Trade Order insurance"
+msgstr "Seguros"
+
+#. module: straconx_trade
+#: selection:landed.cost,method:0
+#: selection:purchase.trade,method:0
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: straconx_trade
+#: code:addons/straconx_trade/objects/straconx_trade.py:532
+#: code:addons/straconx_trade/objects/straconx_trade.py:538
+#: code:addons/straconx_trade/objects/straconx_trade.py:544
+#: code:addons/straconx_trade/objects/straconx_trade.py:550
+#, python-format
+msgid "The invoice already paid."
+msgstr "La factura fue cancelada."
+
+#. module: straconx_trade
+#: field:purchase.trade,amount_dui:0
+msgid "Amount DAO"
+msgstr "Monto DAO"
+
+#. module: straconx_trade
+#: field:stock.move,flag:0
+msgid "flag"
+msgstr "flag"
+
+#. module: straconx_trade
+#: view:product.tradetax:0
+#: field:product.tradetax,line_ids:0
+msgid "Taxes Duties"
+msgstr "Aranceles"
+
+#. module: straconx_trade
+#: field:stock.partial.move,cost:0
+msgid "Cost"
+msgstr "Costos"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "Insurance Invoice"
+msgstr "Factura de Seguro"
+
+#. module: straconx_trade
+#: selection:account.invoice.line,tpurchase:0
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: straconx_trade
+#: view:purchase.trade:0
+msgid "More filters..."
+msgstr "Más filtros..."
+
+#. module: straconx_trade
+#: model:ir.model,name:straconx_trade.model_tax_duty
+msgid "tax.duty"
+msgstr "Aranceles"
+

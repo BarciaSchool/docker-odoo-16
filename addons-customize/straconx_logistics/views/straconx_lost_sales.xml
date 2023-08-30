@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="lost_sales_search_view">
+			<field name="name">Search Lost Sales</field>
+			<field name="model">lost.sales</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Lost Sales">
+					<filter name="product_id" string="Product" icon="terp-partner"
+						domain="[]" context="{'group_by':'product_id'}" />
+					<filter name="categ_id" string="Category" icon="terp-accessories-archiver"
+						domain="[]" context="{'group_by':'categ_id'}" />
+					<filter name="shop_id" string="Shop" icon="terp-personal"
+						domain="[]" context="{'group_by':'shop_id'}" />
+					<filter name="partner_id" string="Partner" icon="terp-partner"
+						domain="[]" context="{'group_by':'partner_id'}" />
+					<separator orientation="vertical" />
+					<field name="product_id" />
+					<field name="categ_id" />
+					<field name="date" />
+					<field name="shop_id" />
+					<newline />
+					<group expand="0" string="Group By...">
+						<field name="qty" />
+						<field name="uom_id" />
+						<field name="partner_id" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="lost_sales_tree_view">
+			<field name="name">lost.sales.tree</field>
+			<field name="model">lost.sales</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Lost Sales">
+					<field name="product_id" />
+					<field name="categ_id" />
+					<field name="qty" />
+					<field name="uom_id" />
+					<field name="date" />
+					<field name="partner_id" />
+					<field name="shop_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="lost_sales_form_view">
+			<field name="name">lost.sales.form</field>
+			<field name="model">lost.sales</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_string">
+					<group colspan="2">
+						<field name="product_id" select="1" colspan="4" readonly="1" />
+						<field name="qty" readonly="1" />
+						<field name="uom_id" readonly="1" />
+					</group>
+					<group colspan="2">
+						<field name="categ_id" />
+						<field name="ref_sale" select="1" colspan="4" readonly="1" />
+						<field name="picking_id" select="1" colspan="4" readonly="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="General">
+							<separator string="General Information" colspan="4" />
+							<field name="shop_id" select="1" colspan="4" readonly="1" />
+							<field name="partner_id" select="1" readonly="1" />
+							<field name="salesman_id" readonly="1" />
+							<field name="date" select="1" readonly="1" />
+						</page>
+						<page string="Motive">
+							<separator string="Motive of lost sale" colspan="4" />
+							<field name="note" colspan="4" nolabel="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_lost_sales_view">
+			<field name="name">Lost Sales</field>
+			<field name="res_model">lost.sales</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field eval="False" name="view_id" />
+			<field name="search_view_id" ref="lost_sales_search_view" />
+		</record>
+
+		<record id="action_lost_sales_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="lost_sales_tree_view" />
+			<field name="act_window_id" ref="action_lost_sales_view" />
+		</record>
+
+		<record id="action_lost_sales_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="lost_sales_form_view" />
+			<field name="act_window_id" ref="action_lost_sales_view" />
+		</record>
+
+
+		<!-- menu POS -->
+<!--		<menuitem name="Lost Sales" id="menu_lost_sale_pos"-->
+<!--			parent="straconx_sales.menu_point_root" sequence="3" />-->
+<!--		<menuitem id="lost_sales_pos_menu" name="lost sales" parent="menu_lost_sale_pos"-->
+<!--			action="action_lost_sales_view" />-->
+
+		<!-- menu sales order -->
+		<menuitem name="Lost Sales" id="menu_lost_sale_sale" parent="base.menu_base_partner"
+			sequence="3" />
+		<menuitem id="lost_sales_sales_menu" name="lost sales"
+			parent="menu_lost_sale_sale" action="action_lost_sales_view" />
+
+		<!-- menu logistic -->
+		<menuitem name="Lost Sales" id="menu_lost_sale_logistic"
+			parent="stock.menu_stock_root" sequence="3" />
+		<menuitem id="lost_sales_logistic_menu" name="lost sales"
+			parent="menu_lost_sale_logistic" action="action_lost_sales_view" />
+
+		<!-- menu purchase -->
+		<menuitem name="Lost Sales" id="menu_lost_sale_purchase"
+			parent="base.menu_purchase_root" sequence="3" />
+		<menuitem id="lost_sales_purchase_menu" name="lost sales"
+			parent="menu_lost_sale_purchase" action="action_lost_sales_view" />
+
+	</data>
+</openerp>

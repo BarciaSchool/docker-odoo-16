@@ -1,0 +1,345 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+    <!--Competition Product Code -->    
+
+        <record id="view_product_codcomp_tree" model="ir.ui.view">
+                <field name="name">product.codcomp.tree</field>
+                <field name="model">product.codcomp</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Product Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="parent_id"/>
+                        <field name="active"/>
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_product_codcomp_form" model="ir.ui.view">
+                <field name="name">product.codcomp.form</field>
+                <field name="model">product.codcomp</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Product Categories">
+                        <field name="code" select="2"/>
+                        <field name="name" select="2"/>
+                        <field name="parent_id" select="2"/>
+                <field name="active" select="2"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_product_codcomp" model="ir.actions.act_window">
+                <field name="name">Competition Product Code</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">product.codcomp</field>
+                <field name="view_type">form</field>
+        </record>
+
+
+    <!--Product Attributes -->    
+
+        <record id="view_material_form" model="ir.ui.view">
+                <field name="name">product.material.form</field>
+                <field name="model">product.material</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Attributes">
+                        <field name="code" select="1"/>
+                        <field name="name" select="1"/>
+                        <field name="description" select="1"/>
+                    </form>
+                </field>
+        </record>
+        
+        <record id="view_material_tree" model="ir.ui.view">
+                <field name="name">product.material.tree</field>
+                <field name="model">product.material</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Attributes">
+                        <field name="code"/>                    
+                        <field name="name"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="action_product_material" model="ir.actions.act_window">
+                <field name="name">Product Attributes</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">product.material</field>
+                <field name="view_type">form</field>
+        </record>
+
+    <!--Product Materials -->    
+
+        <record id="view_attribute_form" model="ir.ui.view">
+                <field name="name">product.attribute.form</field>
+                <field name="model">product.attribute</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Attributes">
+                        <field name="code" select="1"/>
+                        <field name="name" select="1"/>
+                        <field name="description" select="1"/>
+                    </form>
+                </field>
+        </record>
+        
+        <record id="view_attribute_tree" model="ir.ui.view">
+                <field name="name">product.attribute.tree</field>
+                <field name="model">product.attribute</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Attributes">
+                        <field name="code"/>                    
+                        <field name="name"/>
+                        <field name="description"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="action_product_attribute" model="ir.actions.act_window">
+                <field name="name">Product Attributes</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">product.attribute</field>
+                <field name="view_type">form</field>
+        </record>
+
+    <!--Product Models-->  
+
+        <record id="view_product_models_search" model="ir.ui.view">
+                <field name="name">product.applicationmodel.search</field>
+                <field name="model">product.applicationmodel</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Application Models">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="parent_id"/>
+                        <field name="active"/>
+                    </search>
+                </field>
+        </record>
+        
+        <record id="view_product_models_tree" model="ir.ui.view">
+                <field name="name">product.applicationmodel.tree</field>
+                <field name="model">product.applicationmodel</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Application Models">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="parent_id"/>
+                        <field name="active"/>
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_product_models_form" model="ir.ui.view">
+                <field name="name">product.applicationmodel.form</field>
+                <field name="model">product.applicationmodel</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Application Models">
+                        <field name="code" select="2"/>
+                        <field name="name" select="2"/>
+                        <field name="parent_id" select="2"/>
+                        <field name="active" select="2"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_product_models" model="ir.actions.act_window">
+            <field name="name">Product Application Models</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.applicationmodel</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_product_models_search"/>
+        </record>
+
+        <record id="action_product_models1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_models_tree"/>
+            <field name="act_window_id" ref="action_product_models"/>
+        </record>
+        <record id="action_product_models2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_models_form"/>
+            <field name="act_window_id" ref="action_product_models"/>
+        </record>
+
+        
+    <!-- Product Manufacturer Attributes -->
+    
+        <record model="ir.ui.view" id="product_manufacturer_attribute_tree_view">
+            <field name="name">product.manufacturer.attribute.tree</field>
+            <field name="model">product.manufacturerattribute</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Product Attributes">
+                    <field name="name" />
+                    <!-- field name="attribute_id"/>
+                    <field name="value"/>
+                    <field name="measurements_id"/-->
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_manufacturer_attribute_form_view">
+            <field name="name">product.manufacturer.attribute.form</field>
+            <field name="model">product.manufacturerattribute</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Dimensions">
+                    <field name="name" />
+                    <field name="attribute_id" required="1"/>
+                    <field name="value" required="1"/>
+                    <field name="measurements_id" required="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_dimen_form">
+                <field name="name">Models</field>
+                <field name="res_model">product.manufacturerattribute</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="view_type">form</field>
+        </record>
+    
+    <!-- Product Applications Models -->
+
+        <record model="ir.ui.view" id="manufacturer_form">
+            <field name="name">product.manufacturer.form</field>
+            <field name="model">product.manufacturer</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Models Applications">
+                        <notebook>
+                            <page string="General Informations">
+                                <separator string="General Info"/>
+                                <newline/>                                                                
+                                <group colspan="2" col="4">
+                                    <field name="name" select="1"/>
+                                    <field name="model_name" select="1"/> 
+                                    <field name="area_name"/>
+                                    <field name="subarea_name"/>
+                                </group>
+                                    <newline/>
+                                <separator string="Aditional Info"/>
+                                    <newline/>
+                                <group colspan="8" col="8">
+                                    <field name="quantityapl"/>
+                                    <field name="oem"/>
+                                    <field name="born_date"/>
+                                    <field name="death_date"/>
+                                </group>
+                                <separator string="Application" colspan="4"/>
+                                <field name="book_ids" nolabel="1" colspan="4" select="1">
+                                    <tree string="Models Applications">
+                                        <field name="name"/>
+                                        <field name="categ_id"/>
+                                        <field name="clasification_cat"/>
+                                        <field name="qty_available"/>
+                                        <field name="lst_price"/>
+                                        <field name="uom_id"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="More info">
+                            <separator string="Partners" colspan="4"/>
+                                <field name="editor_ids"  nolabel="1" colspan="4" select="1">
+                                    <tree string="Models Applications">
+                                        <field name="name" width="200"/>
+                                        <field name="address"/>
+                                        <field name="email"/>
+                                        <field name="city"/>
+                                    </tree>
+                                </field>
+                            <separator string="Comments" colspan="4"/>
+                                <field name="note"  nolabel="1" colspan="4"/>
+                            </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="manufacturer_tree">
+            <field name="name">product.manufacturer.tree</field>
+            <field name="model">product.manufacturer</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Models Applications">
+                <field name="name"/>
+                <field name="model_name"/> 
+                <field name="area_name"/>
+                <field name="subarea_name"/>
+                <field name="born_date"/>
+                <field name="death_date"/>
+                <field name="quantityapl"/>
+                <field name="oem"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="manufacturer_search">
+            <field name="name">product.manufacturer.search</field>
+            <field name="model">product.manufacturer</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Models Applications">
+                    <group col='10' colspan='4'>
+                        <filter name="model_name" icon="terp-emblem-important" string="Model Name" context="{'group_by':'model_name'}"/> 
+                        <filter name="area_name"   icon="terp-emblem-important" string="Area Name"  context="{'group_by':'area_name'}"/>
+                        <separator orientation="vertical"/>                        
+                        <field name="name"/>
+                        <field name="model_name"/>
+                        <field name="area_name"/>
+                        <field name="subarea_name"/>
+                        <field name="born_date"/>
+                        <field name="death_date"/>
+                        <field name="oem"/>
+                    </group>                        
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_manufacturer_form">
+            <field name="name">Models</field>
+            <field name="res_model">product.manufacturer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="manufacturer_search"/>
+        </record>
+        
+        <record id="action_manufacturer_form1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="manufacturer_tree"/>
+            <field name="act_window_id" ref="action_manufacturer_form"/>
+        </record>
+        <record id="action_manufacturer_form2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="manufacturer_form"/>
+            <field name="act_window_id" ref="action_manufacturer_form"/>
+        </record>
+    
+        <record model="ir.actions.act_window" id="action_manufacturer_new_form">
+            <field name="name">New Models</field>
+            <field name="res_model">product.manufacturer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="manufacturer_form"/>
+        </record>
+
+</data>
+</openerp>
+    

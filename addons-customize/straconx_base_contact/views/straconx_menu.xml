@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+		<menuitem action="base.action_partner_address_form" id="base.menu_partner_address_form"
+			groups="base.group_extended" name="Agencies" parent="base.menu_address_book"
+			sequence="4" />
+
+		<menuitem name="Contacts" id="menu_partner_contact_form"
+			action="straconx_action_partner_contact" parent="base.menu_address_book"
+			sequence="5" />
+
+		<!--Contacts for Suppliers -->
+		<menuitem icon="terp-purchase" id="base.menu_purchase_root"
+			name="Purchases" sequence="3" />
+
+		<menuitem id="base.menu_procurement_management_supplier"
+			name="Address Book" parent="base.menu_purchase_root" sequence="3" />
+
+		<menuitem id="base.menu_procurement_management_supplier_name"
+			name="Suppliers" parent="base.menu_procurement_management_supplier"
+			action="base.action_partner_supplier_form" sequence="1" />
+
+		<menuitem name="Contacts" id="menu_purchases_partner_contact_form"
+			action="straconx_action_partner_contact" parent="base.menu_procurement_management_supplier"
+			sequence="2" />
+
+	</data>
+</openerp>

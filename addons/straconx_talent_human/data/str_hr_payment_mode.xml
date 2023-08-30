@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="payment_mode_discount_col" model="payment.mode">
+            <field name="name">DESCUENTO COLABORADOR</field>
+            <field name="company_id">1</field>
+            <field name="debit_account_id" model="account.account" search="[('code','=','10102050101')]" />
+            <field name="credit_account_id" model="account.account" search="[('code','=','10102050101')]" />
+            <field name="cash" eval="False"/>
+            <field name="other" eval="True"/>
+            <field name="only_receipt">1</field>
+            <field name="collect_employee">1</field>
+            <field name="discount_employee">1</field>
+        </record>
+         
+    </data>
+</openerp>

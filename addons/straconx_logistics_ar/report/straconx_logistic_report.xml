@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<!-- Submenú para Reportes Logísticos -->
+
+		<menuitem name="Lista de Precios" id="str_pricelist_reports"
+			parent="stock.next_id_61" sequence="1" />
+		<menuitem name="Inventario Valorizado" id="str_stock_reports"
+			parent="stock.next_id_61" sequence="2" />
+		<menuitem name="Transferencias" id="str_transfer_reports"
+			parent="stock.next_id_61" sequence="3" />
+
+		<record id="delivery_report_log_id" model="ir.actions.report.xml">
+			<field name="name">Guía de Remisión (PDF)</field>
+			<field name="report_name">delivery_guide_not_invoiced</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_delivery_guide.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.delivery')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.delivery</field>
+		</record>
+
+		<record id="delivery_report_log_txt_id" model="ir.actions.report.xml">
+			<field name="name">Guía de Remisión (TXT)</field>
+			<field name="report_name">delivery_guide_txt</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_delivery_guide.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.delivery')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">txt</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.delivery</field>
+		</record>
+
+		<record id="delivery_transfer_log_id" model="ir.actions.report.xml">
+			<field name="name">Transferencias (txt)</field>
+			<field name="report_name">internal_transfer</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_internal.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">txt</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+		<record id="delivery_transfer_log_pdf" model="ir.actions.report.xml">
+			<field name="name">Transferencias (pdf)</field>
+			<field name="report_name">Internal Transfer</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_internal.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+		<record id="product_inventory_listprice_report" model="ir.actions.report.xml">
+			<field name="name">Lista de Precios</field>
+			<field name="report_name">list_price_inventory</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/list_price_inventory_valued.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.move')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('str_pricelist_reports')" />
+			<field name="model">stock.move</field>
+		</record>
+		<record id="product_inventory_report_shop_id" model="ir.actions.report.xml">
+			<field name="name">Inventario en Unidades x Tienda</field>
+			<field name="report_name">product.inventory.shop.id</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/stock_inventory_shop.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.move')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('str_stock_reports')" />
+			<field name="model">stock.move</field>
+		</record>
+		<record id="product_inventory_value_report_shop_id" model="ir.actions.report.xml">
+			<field name="name">Inventario Valorizado x Tienda</field>
+			<field name="report_name">product.inventory.value.report.shop.id</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/stock_inventory_shop_valued.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.move')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('str_stock_reports')" />
+			<field name="model">stock.move</field>
+		</record>
+         <record id="product_stock_category_shop" model="ir.actions.report.xml">
+            <field name="name">Inventario Consolidado por Categoría</field>
+            <field name="report_name">stock.category</field>
+            <field name="pentaho_filename">straconx_logistics_ar/report/stock_inventory_categ_valued.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.move')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('str_stock_reports')"/>
+            <field name="model" >stock.move</field>
+        </record>
+		<record id="inventory_report_print_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Hoja de Inventario</field>
+			<field name="report_name">Print Inventory Sheet</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_count.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_print_excel_id" model="ir.actions.report.xml">
+			<field name="name">Exportar Inventario (xls)</field>
+			<field name="report_name">Export Inventory Sheet</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_count.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_dif_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Hoja de Conteo</field>
+			<field name="report_name">Print Inventory Count</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_differences.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_dif_excel_id" model="ir.actions.report.xml">
+			<field name="name">Exportar Hoja de Conteo(xls)</field>
+			<field name="report_name">Export Inventory Count</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_differences.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_moves_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Movimientos Contables</field>
+			<field name="report_name">Print Account Moves</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_account.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_moves_excel_id" model="ir.actions.report.xml">
+			<field name="name">Exportar Movimientos Contables(xls)</field>
+			<field name="report_name">Export Account Moves</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_account.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_log_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Reporte de Inventario</field>
+			<field name="report_name">Print Inventory Report</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_account_move.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+		<record id="inventory_report_excel_log_id" model="ir.actions.report.xml">
+			<field name="name">Exportar Reporte de Inventario</field>
+			<field name="report_name">Export Inventory Report</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_inventory_account_move.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.inventory</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist" model="ir.actions.report.xml">
+			<field name="name">Pickinglist (txt)</field>
+			<field name="report_name">picking_txt</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">txt</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist_pdf" model="ir.actions.report.xml">
+			<field name="name">Pickinglist (pdf)</field>
+			<field name="report_name">Lista de Despacho</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist_customer" model="ir.actions.report.xml">
+			<field name="name">Orden de Entrega (txt)</field>
+			<field name="report_name">orden_customer</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_customer.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">txt</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist_consignation_pdf" model="ir.actions.report.xml">
+			<field name="name">Salida de Consignación (pdf)</field>
+			<field name="report_name">picking_consignation</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_consignation.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist_income_pdf" model="ir.actions.report.xml">
+			<field name="name">Ingreso de Mercadería de Proveedores</field>
+			<field name="report_name">print_incoming_picking</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_incoming.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.picking</field>
+		</record>
+
+		<record id="straconx_stock_pickinglist_customer_pdf" model="ir.actions.report.xml">
+			<field name="name">Orden de Entrega (pdf)</field>
+			<field name="report_name">Orden de Entrega</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_picking_customer.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="straconx_stock_shop" model="ir.actions.report.xml">
+			<field name="name">Inventario por Tienda</field>
+			<field name="report_name">stock_shop</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_shop.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.shop')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.shop</field>
+		</record>
+
+		<record id="straconx_stock_shop_logistics" model="ir.actions.report.xml">
+			<field name="name">Inventario por Tienda/Bodega</field>
+			<field name="report_name">stock_shop_location</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_shop_logistics.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.shop')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.shop.location</field>
+		</record>
+
+		<record id="straconx_stock_shop_image" model="ir.actions.report.xml">
+			<field name="name">Inventario con Imágenes</field>
+			<field name="report_name">stock_shop_image</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_stock_shop_image.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.shop')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.shop</field>
+		</record>
+
+		<record id="straconx_category_image" model="ir.actions.report.xml">
+			<field name="name">Productos por Categoría con Imágenes</field>
+			<field name="report_name">product_category_image</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_product_images.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','product.product')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">product.product</field>
+		</record>
+
+		<record id="straconx_invoice_image" model="ir.actions.report.xml">
+			<field name="name">Productos por Facturas con Imágenes</field>
+			<field name="report_name">product_invoice_image</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_product_images_invoice.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','product.product')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">product.product</field>
+		</record>
+
+		<record id="straconx_invoice_list" model="ir.actions.report.xml">
+			<field name="name">Productos por Facturas</field>
+			<field name="report_name">product_invoice_list</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_product_list_invoice.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','product.product')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">product.product</field>
+		</record>
+
+
+		<record id="delivery_report_pos_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Guías de Remisión POS</field>
+			<field name="report_name">delivery_guide_invoiced_pos</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_invoice_delivery_guide.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">txt</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="delivery_report_pdf_id" model="ir.actions.report.xml">
+			<field name="name">Imprimir Guías de Remisión (PDF)</field>
+			<field name="report_name">delivery_guide_invoiced</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/straconx_invoice_delivery_guide.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<report id="report_shipping_straconx" model="stock.picking"
+			name="straconx.sale.shipping" multi="True"
+			rml="straconx_logistics_ar/report/shipping.rml" header="False" string="Delivery order" />
+
+		<record id="product_internal_transfer_status_id" model="ir.actions.report.xml">
+			<field name="name">Transferencias Pendientes</field>
+			<field name="report_name">Transferencias Pendientes</field>
+			<field name="pentaho_filename">straconx_logistics_ar/report/stock_internal_transfer_status.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.picking')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('str_transfer_reports')" />
+			<field name="model">stock.picking</field>
+		</record>
+
+		<delete model="ir.values" search="[('name','=','Transferencias (txt)')]" />
+		<delete model="ir.values" search="[('name','=','Transferencias (pdf)')]" />
+		<delete model="ir.values" search="[('name','=','Pickinglist (txt)')]" />
+		<delete model="ir.values" search="[('name','=','Pickinglist (pdf)')]" />
+		<delete model="ir.values" search="[('name','=','Guía de Remisión sin facturar')]" />
+		<delete model="ir.values" search="[('name','=','Guía de Remisión (PDF)')]" />
+		<delete model="ir.values" search="[('name','=','Guía de Remisión (TXT)')]" />
+		<delete model="ir.values" search="[('name','=','Imprimir Hoja de Inventario')]" />
+		<delete model="ir.values" search="[('name','=','Exportar Inventario (xls)')]" />
+		<delete model="ir.values" search="[('name','=','Imprimir Hoja de Conteo')]" />
+		<delete model="ir.values" search="[('name','=','Exportar Hoja de Conteo(xls)')]" />
+		<delete model="ir.values" search="[('name','=','Imprimir Movimientos Contables')]" />
+		<delete model="ir.values"
+			search="[('name','=','Exportar Movimientos Contables(xls)')]" />
+		<delete model="ir.values" search="[('name','=','Imprimir Reporte de Inventario')]" />
+		<delete model="ir.values" search="[('name','=','Exportar Reporte de Inventario')]" />
+		<delete model="ir.values" search="[('name','=','Orden de Entrega (txt)')]" />
+		<delete model="ir.values" search="[('name','=','Orden de Entrega (pdf)')]" />
+		<delete model="ir.values" search="[('name','=','Inventario por Tienda')]" />
+		<delete model="ir.values" search="[('name','=','Inventario con Imágenes')]" />
+		<delete model="ir.values"
+			search="[('name','=','Productos por Categoría con Imágenes')]" />
+		<delete model="ir.values"
+			search="[('name','=','Productos por Facturas con Imágenes')]" />
+		<delete model="ir.values" search="[('name','=','Productos por Facturas')]" />
+		<delete model="ir.values" search="[('name','=','Imprimir Guías de Remisión POS')]" />
+		<delete model="ir.values"
+			search="[('name','=','Imprimir Guías de Remisión (PDF)')]" />
+		<delete model="ir.values" search="[('name','=','Salida de Consignación (pdf)')]" />
+		<delete model="ir.values"
+			search="[('name','=','Ingreso de Mercadería de Proveedores')]" />
+		<delete model="ir.actions.report.xml" search="[('report_name','=','stock.inventory.move')]" />
+		<delete model="ir.values" search="[('name','=','Salida de Consignación (pdf)')]" />
+	</data>
+</openerp>

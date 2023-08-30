@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<guiaRemision id="comprobante" version="1.0.0">
+  <infoTributaria>
+    <ambiente>2</ambiente>
+    <tipoEmision>1</tipoEmision>
+    <razonSocial>ALMACENES BUENHOGAR E.W. CIA. LTDA.</razonSocial>
+    <ruc>0991141081001</ruc>
+    <claveAcceso>1910201506099114108100120050070000000041910201512</claveAcceso>
+    <codDoc>06</codDoc>
+    <estab>005</estab>
+    <ptoEmi>007</ptoEmi>
+    <secuencial>000000004</secuencial>
+    <dirMatriz>CHIMBORAZO 420 Y CLEMENTE BALLEN</dirMatriz>
+  </infoTributaria>
+  <infoGuiaRemision>
+    <dirEstablecimiento>AV. FRANCISCO DE ORELLANA MZ. 105 SOLAR 7 LOCAL 9</dirEstablecimiento>
+    <dirPartida>AV. FRANCISCO DE ORELLANA MZ. 105 SOLAR 7 LOCAL 9</dirPartida>
+    <razonSocialTransportista>ALMACENES BUENHOGAR E.W. CIA. LTDA.</razonSocialTransportista>
+    <tipoIdentificacionTransportista>04</tipoIdentificacionTransportista>
+    <rucTransportista>0991141081001</rucTransportista>
+    <obligadoContabilidad>SI</obligadoContabilidad>
+    <contribuyenteEspecial>00048</contribuyenteEspecial>
+    <fechaIniTransporte>19/10/2015</fechaIniTransporte>
+    <fechaFinTransporte>19/10/2015</fechaFinTransporte>
+    <placa>POX CON</placa>
+  </infoGuiaRemision>
+  <destinatarios>
+    <destinatario>
+      <identificacionDestinatario>0991141081001</identificacionDestinatario>
+      <razonSocialDestinatario>ALMACENES BUENHOGAR E.W. CIA. LTDA.</razonSocialDestinatario>
+      <dirDestinatario>CHIMBORAZO 420 Y CLEMENTE BALLEN</dirDestinatario>
+      <motivoTraslado>TRASLADO ENTRE SUCURSALES</motivoTraslado>
+      <codEstabDestino>001</codEstabDestino>
+      <ruta>GUAYAQUIL - GUAYAQUIL</ruta>
+      <detalles>
+        <detalle>
+          <codigoInterno>TERG098#07</codigoInterno>
+          <descripcion>BID102    TERGAL A RAYAS  COLOR   NARANJA</descripcion>
+          <cantidad>8.00</cantidad>
+        </detalle>
+      </detalles>
+    </destinatario>
+  </destinatarios>
+  <infoAdicional>
+    <campoAdicional nombre="identificacionRemitente">0912521010</campoAdicional>
+    <campoAdicional nombre="nombreRemitente">ALEXANDRA QUINDE SOTO</campoAdicional>
+  </infoAdicional>
+</guiaRemision>

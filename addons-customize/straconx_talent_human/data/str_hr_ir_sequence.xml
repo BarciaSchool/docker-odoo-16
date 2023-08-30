@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp><data noupdate='1'>
+
+        <record id="seq_type_internal_cvcold" model="ir.sequence.type">
+            <field name="name">Descuento Colaborador</field>
+            <field name="code">cv.collaborator.discount</field>
+           <field name="company_id" ref='base.main_company' model='res.company'/>
+        </record>
+
+        <record id="seq_internal_cvcold" model="ir.sequence">
+            <field name="name">Descuento Colaboradores</field>
+            <field name="code">cv.collaborator.discount</field>
+   <field name="company_id" ref='base.main_company' model='res.company'/>
+            <field name="prefix">CVCD#</field>
+            <field name="padding">10</field>
+        </record>
+
+        <record id="hr_transaction_type_discount_cv" model="hr.transaction.type">
+            <field name="name">DESCUENTOS Y VALES COLABORADORES</field>
+            <field name="code">cvdiscount</field>
+           <field name="company_id" ref='base.main_company' model='res.company'/>
+            <field name="type_expense">discount</field>
+            <field name="debit_account_id" model="account.account" search="[('code','=','10102050107')]"/>
+            <field name="credit_account_id" model="account.account" search="[('code','=','10102050107')]"/>
+        </record>
+
+</data></openerp>

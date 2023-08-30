@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+       <record id="bonus_inherit" model="ir.ui.view">
+            <field name="name">Añade forma de pago Bonos en Pagos POS</field>
+            <field name="model">wizard.invoice.pay</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_sales.view_payment_pos_form_straconx"/>
+            <field name="arch" type="xml">
+				<field name="credit_card" position="after">
+					<field name="bonus" invisible="1"/>
+				</field>
+				<field name="credit_note_id" position="after">
+					<field name="campaing_id" 
+						attrs="{'invisible':[('bonus','!=',1)],'required':[('bonus','=',1)]}"
+						on_change="on_change_bonus_id(partner_id,campaing_id,bonus,amount,parent.amount,context)"/>
+					<field name="bonus_id"
+						domain = "[('partner_id','=',partner_id)]"
+						attrs="{'invisible':[('bonus','!=',1)],'required':[('bonus','=',1)]}"/>
+				</field>
+            </field>
+        </record>
+
+       <record id="payment_mod_inherit" model="ir.ui.view">
+            <field name="name">Añade forma de pago Bonos</field>
+            <field name="model">payment.mode</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account_payment.view_payment_mode_form"/>
+            <field name="arch" type="xml">
+				<field name="credit_card" position="after">
+					<field name="bonus"/>
+				</field>
+            </field>
+        </record>
+
+
+
+
+	</data>
+</openerp>

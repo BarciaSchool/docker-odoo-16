@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    	<!--Purchases Category -->
+
+        <record id="view_purchase_category_search" model="ir.ui.view">
+                <field name="name">purchase.category.search</field>
+                <field name="model">purchase.category</field>
+                <field name="type">search</field>
+                <field name="arch" type="xml">
+                    <search string="Product Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="origin"/>
+                        <field name="info_required"/>
+                    </search>
+                </field>
+        </record>
+
+        <record id="view_purchase_category_tree" model="ir.ui.view">
+                <field name="name">purchase.category.tree</field>
+                <field name="model">purchase.category</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Product Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="origin"/>                       
+                    </tree>
+                </field>
+        </record>
+                
+        <record id="view_purchase_category_form" model="ir.ui.view">
+                <field name="name">purchase.category.form</field>
+                <field name="model">purchase.category</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Product Categories">
+                        <field name="code" select="2"/>
+                        <field name="name" select="2"/>
+                        <field name="origin" required="1"/>
+                        <field name="info_required"/>
+                    </form>
+                </field>
+        </record>
+            
+        <record id="action_purchase_category" model="ir.actions.act_window">
+                <field name="name">Purchase Category</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">purchase.category</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            	<field name="search_view_id" ref="view_purchase_category_search"/>
+        </record>
+        
+       <record id="action_purchase_category_1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_purchase_category_tree"/>
+            <field name="act_window_id" ref="action_purchase_category"/>
+        </record>
+        
+        <record id="action_purchase_category_2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_purchase_category_form"/>
+            <field name="act_window_id" ref="action_purchase_category"/>
+        </record>
+    
+    
+    </data>
+</openerp>

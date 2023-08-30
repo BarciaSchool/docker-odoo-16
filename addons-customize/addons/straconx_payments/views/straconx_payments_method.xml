@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="view_cheque_tree" model="ir.ui.view">
+            <field name="name">account.payments.tree</field>
+            <field name="model">account.payments</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Cheques">
+                	<field name="name"/>
+                	<field name="beneficiary"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="mode_id"/>
+                    <field name="bank_id" height="30" invisible="0"/>
+                    <field name="bank_account_id" invisible="0" />
+                    <field name="amount" sum="Total amount"/>
+                    <field name="received_date"/>
+                    <field name="user_id"/>
+                    <field name="deposit_date"/>
+                    <field name="type" invisible="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="authorization_credit" invisible="1"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_cheque_form" model="ir.ui.view">
+            <field name="name">account.payments.form</field>
+            <field name="model">account.payments</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Cheque">
+                	<field name="company_id" invisible="1"/>
+                    <field name="partner_id" invisible="0"/>
+                    <field name="check" invisible="1"/>
+                    <separator colspan="4" string="Payment"/>
+                    <field name="mode_id" required="1" on_change="on_change_mode_payment(mode_id,partner_id,None,type,company_id,parent.date,parent.shop_id,parent.payments,context)" widget="selection" domain="[('check','=',True)]"/>
+                    <field name="amount" required="1"/>
+                    <field name="amount_received" on_change="on_change_amount_receive(amount_received,amount,mode_id)" attrs="{'invisible':[('cash','!=',1)],'required':[('cash','=',1)]}"/>
+				    <field name="change" attrs="{'invisible':[('cash','!=',1)]}"/>
+                    <field name="beneficiary"/>
+                    <group colspan="4">
+                    <separator colspan="4"/>
+                    <field name="required_bank" invisible="1"/>
+                    <field name="required_document" invisible="1"/>
+                    <field name="authorization" invisible="1"/>
+                    <field name="cash" invisible="1"/>
+                    <field name="statement_line_id" invisible="1"/>
+                    <field name="bank_account_id" attrs="{'invisible':[('required_bank','!=',1)],'required':[('required_bank','=',1)]}" 
+                    on_change="on_change_account_bank(bank_account_id,partner_id,company_id,None)" domain="[('partner_id','=',partner_id)]"/>
+                    <field name="bank_id" attrs="{'invisible':[('required_bank','!=',1)]}"/>
+                    <field name="name" attrs="{'invisible':[('required_document','!=',1)],'required':[('required_document','=',1)]}"/>
+                    <field name="authorization_credit" attrs="{'invisible':[('authorization','!=',1)],'required':[('authorization','=',1)]}"/>
+                    </group>
+                    <separator colspan="4" string="Dates"/>
+                    <field name="received_date" readonly="1"/>
+                    <field name="deposit_date" attrs="{'readonly':[('state','!=','draft')], 'required':[('state','=','draft')]}"/>
+                    <field name="payment_date" readonly="1"/>
+                    <field name="return_date" readonly="1"/>
+                    <field name="exchanged_date" readonly="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="type" invisible="1" readonly="1"/>
+                    <field name="state"/>
+                    <newline/>
+                    <group col="8" colspan="4">
+                    <!-- label colspan="2" string=" "/-->
+                    	<button string="Paid" name="button_paid" type="object" states="hold" invisible="0"/>
+                    	<button name="%(action_change_date)d" string="Change Date" states="hold" type="action" icon="terp-stock_format-scientific"/>
+                    	<button name="%(action_refund)d" string="Protested Check" states="paid" type="action" context="{'type': 'protested'}" icon="terp-stock_format-default"/>
+                    	<button name="%(action_refund)d" string="Rejected Check" states="paid" type="action" context="{'type': 'rejected'}" icon="terp-stock_format-default"/>
+                    	<button name="%(action_refund)d" string="Change Check" states="hold" type="action" context="{'type': 'customer_changed'}" icon="terp-stock_format-default"/>                    	
+                    	<button name="%(action_change_check)d" string="Exchanged Check" states="hold" type="action" context="{'type': 'exchanged'}" icon="terp-stock_format-default"/>
+                    	<button name="button_cancel_changed" string="Cancel Exchanged" states="exchanged" type="object" icon="terp-stock_effects-object-colorize"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cheque_filter" model="ir.ui.view">
+            <field name="name">account.payments.select</field>
+            <field name="model">account.payments</field>
+            <field name="type">search</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Cheques">
+                    <group col='8' colspan='4'>
+                        <filter string="Modo de Pago" icon="terp-stock_effects-object-colorize" context="{'group_by':'mode_id'}"/>
+                        <filter string="Estado" icon="terp-dolar" domain="[]" context="{'group_by':'state'}"/>
+   						<separator orientation="vertical"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="bank_id" widget="selection"/>
+                        <field name="beneficiary"/>
+                        <field name="amount"/>
+                    </group>
+                    <newline/>
+					<group expand="0" string="More filters..." colspan="4" col="10">
+                        <filter icon="terp-document-new" name="hold" string="Hold" domain="[('state','=','hold')]" help="Hold Cheques"/>
+                        <filter icon="terp-document-new" name="paid" string="Paid" domain="[('state','=','paid')]" help="Paid Cheques"/>
+                        <filter icon="terp-document-new" name="rejected" string="Rejected" domain="[('state','=','rejected')]" help="Rejected Cheques"/>
+                        <filter icon="terp-document-new" name="protested" string="Protested" domain="[('state','=','protested')]" help="Protested Cheques"/>
+                        <field name="shop_id" widget="selection"/>
+                        <field name="user_id"/>
+                        <field name="deposit_date"/>
+                        <field name="received_date"/>
+                    </group>  
+                    <newline/>                  
+                    <group expand="0" string="Group By..." colspan="4" col="10">
+                        <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="Bank" icon="terp-dolar" domain="[]" context="{'group_by':'bank_id'}"/>
+                        <filter string="Tienda" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'shop_id'}"/>
+                        <filter string="Fecha de Depósito" icon="terp-go-month" domain="[]" context="{'group_by':'deposit_date'}"/>
+                        <filter string="User" icon="terp-partner" domain="[]" context="{'group_by':'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        
+        <!--act_window id="act_view_cheque_in" name="All Payment" res_model="account.payments" view_type="form" view_mode="tree" domain="[('type','=','receipt')]"/-->
+        
+        <record model="ir.actions.act_window" id="act_view_cheque_in">
+                <field name="name">All Checks Payment</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+                <!--field name="view_id" ref="view_cheque_tree"/-->
+                <field name="domain">[('check','=',True),('type','=','receipt')]</field>
+                <field name="context">{}</field>                
+        </record>
+
+        <record id="act_view_cheque_in_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_in"/>
+        </record>
+        
+		<record id="act_view_cheque_in_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_in"/>
+		</record>
+        
+        
+        <!--act_window id="act_view_cheque_hold" name="Hold payment" res_model="account.payments" view_type="form" view_mode="tree" domain="[('state','=','hold')]"/-->
+        
+        <record model="ir.actions.act_window" id="act_view_cheque_hold">
+                <field name="name">Hold payment</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+				<field name="domain">[('check','=',True),('type','=','receipt')]</field>
+                <field name="context">{'search_default_hold': 1,'search_default_type': 'receipt'}</field>
+        </record>
+        
+        <record id="act_view_cheque_hold_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_hold"/>
+        </record>
+        
+		<record id="act_view_cheque_hold_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_hold"/>
+		</record>
+        
+        
+        <record model="ir.actions.act_window" id="act_view_cheque_paid">
+                <field name="name">Paid Cheques</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+				<field name="domain">[('check','=',True),('type','=','receipt')]</field>
+                <field name="context">{'search_default_paid': 1,'search_default_type': 'receipt'}</field>
+
+        </record>
+        
+        <record id="act_view_cheque_paid_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_paid"/>
+        </record>
+        
+		<record id="act_view_cheque_paid_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_paid"/>
+		</record>
+        
+        <!--act_window id="act_view_cheque_protested" name="Protested Cheques" res_model="account.payments" view_type="form" view_mode="tree" domain="[(('state','=','protested'))]"/-->
+        
+        <record model="ir.actions.act_window" id="act_view_cheque_protested">
+                <field name="name">Protested Cheques</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+                <field name="domain">[('check','=',True),('type','=','receipt')]</field>
+                <field name="context">{'search_default_protested': 1,'search_default_type': 'receipt'}</field>
+        </record>
+        
+        <record id="act_view_cheque_protested_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_protested"/>
+        </record>
+        
+		<record id="act_view_cheque_protested_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_protested"/>
+		</record>
+        
+        <!--act_window id="act_view_cheque_rejected" name="Rejected Cheques" res_model="account.payments" view_type="form" view_mode="tree" domain="[(('state','=','rejected'))]"/-->
+        
+        <record model="ir.actions.act_window" id="act_view_cheque_rejected">
+                <field name="name">Rejected Cheques</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+                <field name="domain">[('check','=',True),('type','=','receipt')]</field>
+                <field name="context">{'search_default_rejected': 1,'search_default_type': 'receipt'}</field>
+        </record>
+        
+        <record id="act_view_cheque_rejected_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_rejected"/>
+        </record>
+        
+		<record id="act_view_cheque_rejected_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_rejected"/>
+		</record>
+    
+    
+		<!-- All Payments -->
+		
+		<record id="view_payments_mode_tree" model="ir.ui.view">
+            <field name="name">Payments Tree</field>
+            <field name="model">account.payments</field>
+            <field name="type">tree</field>
+            <field name="priority">8</field>
+            <field name="arch" type="xml">
+                <tree string="Payments">
+                    <field name="mode_id"/>                
+                    <field name="partner_id" invisible="0"/>
+                    <field name="vouch_name"/>
+                    <field name="bank_id" height="30" invisible="0"/>
+                    <field name="bank_account_id" invisible="0" />
+                    <field name="name"/>
+                    <field name="amount" sum="Total amount"/>
+                    <field name="user_id"/>
+                    <field name="deposit_date"/>
+					<field name="received_date"/>
+                    <field name="type" invisible="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="authorization_credit" invisible="1"/>
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_payments_mode_form" model="ir.ui.view">
+            <field name="name">Payments Mode</field>
+            <field name="model">account.payments</field>
+            <field name="type">form</field>
+            <field name="priority">8</field>
+            <field name="arch" type="xml">
+                <form string="Payments">
+                	<field name="company_id" invisible="1"/>
+                    <field name="partner_id" invisible="0" readonly="1"/>
+                    <field name="check" invisible="0"/>
+                    <separator colspan="4" string="Payment"/>
+                    <field name="mode_id"  readonly="1" required="1" widget="selection"/>
+                    <field name="amount"  readonly="1" required="1"/>
+                    <field name="amount_received"  readonly="1" attrs="{'invisible':[('cash','!=',1)],'required':[('cash','=',1)]}"/>
+				    <field name="change"  readonly="1" attrs="{'invisible':[('cash','!=',1)]}"/>
+                    <group colspan="4">
+                    <separator colspan="4"/>
+                    <field name="required_bank" invisible="1" readonly="1" />
+                    <field name="required_document" invisible="1" readonly="1" />
+                    <field name="authorization" invisible="1" readonly="1" />
+                    <field name="cash" invisible="1" readonly="1" />
+                    <field name="bank_account_id"  readonly="1"/>
+                    <field name="bank_id"  readonly="1"/>
+                    <field name="name"  readonly="1" />
+                    <field name="authorization_credit"  readonly="1"/>
+                    </group>
+                    <separator colspan="4" string="Dates"/>
+                    <field name="received_date" readonly="1"/>
+                    <field name="deposit_date" readonly="1"/>
+                    <field name="payment_date" readonly="1"/>
+                    <field name="return_date" readonly="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="type" invisible="1" readonly="1"/>
+                    <field name="state"/>
+                    <newline/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_payments_mode_filter" model="ir.ui.view">
+            <field name="name">account.payments.select</field>
+            <field name="model">account.payments</field>
+            <field name="type">search</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <search string="Search Cheques">
+                    <group col='8' colspan='4'>
+						<field name="mode_id" widget="selection"/>
+                        <separator orientation="vertical"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="deposit_date"/>
+                        <field name="name"/>
+                    </group>
+                    <newline/>
+					<group expand="0" string="More filters..." colspan="4" col="10">
+                        <filter icon="terp-document-new" name="hold" string="Hold" domain="[('state','=','hold')]" help="Hold Cheques"/>
+                        <filter icon="terp-document-new" name="paid"  string="Paid" domain="[('state','=','paid')]" help="Paid Cheques"/>
+                        <filter icon="terp-document-new" name="rejected"  string="Rejected" domain="[('state','=','rejected')]" help="Rejected Cheques"/>
+                        <filter icon="terp-document-new" name="protested"  string="Protested" domain="[('state','=','protested')]" help="Protested Cheques"/>
+                        <separator orientation="vertical"/>
+                        <field name="bank_id" widget="selection"/>
+                        <field name="received_date"/>
+                        <field name="user_id"/>
+                    </group>  
+                    <newline/>                  
+                    <group expand="0" string="Group By..." colspan="4" col="10">
+                        <filter string="Partner" icon="terp-partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="Bank" icon="terp-partner" domain="[]" context="{'group_by':'bank_id'}"/>
+                        <filter string="State" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        <filter string="User" icon="terp-partner" domain="[]" context="{'group_by':'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_view_payments_mode_in">
+                <field name="name">All Mode Payment</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_payments_mode_filter"/>
+                <field name="domain">[('type','=','payment')]</field>
+                <field name="context">{'search_default_type': 'receipt'}</field>
+        </record>
+
+        <record id="act_view_payments_mode_in_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_payments_mode_tree"/>
+            <field name="act_window_id" ref="act_view_payments_mode_in"/>
+        </record>
+        
+		<record id="act_view_payments_mode_in_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_payments_mode_form"/>
+            <field name="act_window_id" ref="act_view_payments_mode_in"/>
+		</record>1
+		
+		<record id="view_credit_card_1_form" model="ir.ui.view">
+            <field name="name">account.payments.form</field>
+            <field name="model">account.payments</field>
+            <field name="type">form</field>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Credit Card">
+                	<field name="company_id" invisible="1"/>
+                    <field name="check" invisible="1"/>
+                    <field name="credit_card" invisible="1"/>
+                    <group colspan="4" attrs="{'invisible':[('credit_card','!=',1)]}">
+						<field name="number_deposit" attrs="{'required':[('credit_card','=',1)]}"/>
+						<field name="amount_commission"/>
+					</group>
+					<field name="partner_id" readonly="1"/>
+					<field name="bank_id" height="30" readonly="1" />
+					<field name="bank_account_id" readonly="1" />
+					<field name="amount" readonly="1"/>
+					<field name="name" readonly="1" />
+					<field name="authorization_credit" readonly="1" />
+					<separator colspan="4" string="Dates"/>
+                    <field name="received_date" readonly="1"/>
+                    <field name="deposit_date" readonly="1"/>
+                    <field name="payment_date" readonly="1"/>
+                    <field name="return_date" readonly="1"/>
+                    <field name="vouch_id" domain="[('type','=',type)]" invisible="1"/>
+                    <field name="type" invisible="1" readonly="1"/>
+                    <field name="state"/>
+				</form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_view_cheque_out">
+                <field name="name">Cheques Emitidos</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">account.payments</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cheque_filter"/>
+                <field name="domain">[('check','=',True),('type','=','payment')]</field>
+                <field name="context">{}</field>
+        </record>
+
+        <record id="act_view_cheque_in_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_cheque_tree"/>
+            <field name="act_window_id" ref="act_view_cheque_out"/>
+        </record>
+        
+		<record id="act_view_cheque_in_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_cheque_form"/>
+            <field name="act_window_id" ref="act_view_cheque_out"/>
+		</record>
+
+		    
+    </data>
+</openerp>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+
+		<!--menuitem name="Cash consolidation" id="menu_cash_root" sequence="18"
+            icon="terp-partner"
+            groups="account.group_account_user,account.group_account_invoice,account.group_account_manager"/-->
+            
+        <menuitem name="Point of Sale" id="account.menu_point_root" sequence="2"
+            icon="terp-go-home"
+            web_icon="images/pos.png"
+            web_icon_hover="images/pos-hover.png"
+            groups="base.group_pos_manager,base.group_pos_user,base.group_pos_collector"/>
+            
+ 		<menuitem name="Cash consolidation" id="menu_cash" sequence="1"
+            parent="account.menu_point_root"/>
+            
+		<menuitem name="Cash consolidation" id="menu_cash_action" sequence="1"
+			action="action_cash_consolidation_view"
+            parent="menu_cash"/>
+            
+         <menuitem name="Open Cash Consolidation" action="action_open_cash_consolidation"
+			id="menu_open_cash_action" parent="menu_cash" sequence="2"/>
+            
+        <menuitem name="Configuration" id="menu_configuration" sequence="16"
+            parent="account.menu_point_root"/>
+            
+		<menuitem name="Move Type" id="menu_move_type_action" sequence="1"
+			action="action_move_type_view"
+            parent="menu_configuration"/>
+
+		<menuitem name="Invoice Type" id="menu_invoice_type_action" sequence="1"
+			action="action_invoice_type_view"
+            parent="menu_configuration"/>
+                
+    </data>
+</openerp>

@@ -1,0 +1,52 @@
+<openerp>
+	<data noupdate="0">
+		<record id='JOB001' model='hr.job'>
+			<field search="[('name','=','SISTEMAS')]" model='hr.department'	name='department_id' />
+			<field name='name'>JEFE DE PROYECTO</field>
+			<field name='state'>open</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+		</record>
+		
+		<record id='JOB002' model='hr.job'>
+			<field search="[('name','=','CONTABILIDAD')]" model='hr.department' name='department_id' />
+			<field name='name'>CONTADOR GENERAL</field>
+			<field name='state'>open</field>
+	        <field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+		</record>
+		
+		<record id='JOB003' model='hr.job'>
+			<field search="[('name','=','SISTEMAS')]" model='hr.department' name='department_id' />
+			<field name='name'>ASISTENTE DE PROGRAMACION</field>
+			<field name='state'>open</field>
+	        <field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />		
+		</record>
+		
+		<record id='JOB004' model='hr.job'>
+			<field search="[('name','=','SISTEMAS')]" model='hr.department' name='department_id' />
+			<field name='name'>PROGRAMADOR JUNIOR</field>
+			<field name='state'>open</field>
+	  		<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />		
+		</record>
+		
+		<record id='JOB005' model='hr.job'>
+			<field search="[('name','=','ADMINISTRACION')]" model='hr.department' name='department_id' />
+			<field name='name'>ASISTENTE ADMINISTRATIVO</field>
+			<field name='state'>open</field>
+				<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+		</record>
+		
+		<record id='JOB006' model='hr.job'>
+			<field search="[('name','=','SISTEMAS')]" model='hr.department' name='department_id' />
+			<field name='name'>PROGRAMADOR SENIOR</field>
+			<field name='state'>open</field>
+				<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+		</record>
+		
+	</data>
+</openerp>

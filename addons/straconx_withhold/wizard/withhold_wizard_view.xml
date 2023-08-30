@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="withhold_wizard_sales_form" model="ir.ui.view">
+            <field name="name">withhold.wizard.sales.form</field>
+            <field name="model">account.withhold.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Retention">
+                    <group colspan="4" width="900" height="350">
+                    	<field name="partner_id" readonly="1"/>
+                    	<field name="address_id" required="1"/>
+                    	<field name="number" required="1" on_change="onchange_number_out(number,transaction_type,address_id,journal_id,date,context)"/>
+                        <field name="authorization_id" required="1" domain="[('address_id','=',address_id),('state','=',1),('company_id','=',None)]"
+                        	on_change="onchange_auth_sale(authorization_id,number,address_id,journal_id)"/>
+                        <field name="shop_id" required="1" on_change="onchange_shop(company_id, shop_id, transaction_type,context)"/>
+                        <field name="printer_id" required="1"/>
+                        <field name="automatic" invisible="1" />
+						<field name="pre_printer" invisible="1" />
+                        <field name="date" required="1" on_change="onchange_date(date,company_id)" />
+                        <field name="invoice_id" readonly="1" />
+                        <newline/>
+                        <notebook colspan="4">
+                        	<page string="lines withhold">
+		                        <field name="lines_ids" colspan="6" rowspan="8" nolabel="1">
+		                            <tree string="Withhold Lines" editable="top">
+										<field name="id_lines" invisible="1" />
+										<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+											on_change="on_change_tax(parent.invoice_id, tax_id)"/>
+										<field name="tax_base" sum="Total Base"/>
+										<field name="percentage" readonly="1" />
+										<field name="retained_value" sum="Total Retained" readonly="1"/>
+									</tree>
+									<form string="Withhold Lines">
+										<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+											on_change="on_change_tax(parent.invoice_id, tax_id)"/>
+										<field name="tax_base" />
+										<field name="percentage" readonly="1"/>
+										<field name="retained_value" readonly="1"/>
+									</form>
+		                        </field>
+	                        </page>
+	                        <page string="Other Information">
+	                       		<field name="period_id" required="1"/>
+	                        	<field name="journal_id" required="1" widget="selection" domain="[('type','=','withhold')]" />
+								<field name="company_id" groups="base.group_multi_company"/>
+								<field name="transaction_type" select="1" readonly="1" groups="base.group_extended"/>
+								<field name="user_id" required="1"/>
+								<field name="account_analytic_id"/>
+	                        </page>
+                        </notebook>
+                    </group>
+                    <newline/>
+                    <group  colspan="4" width="900">
+                        <button icon="gtk-cancel" special="cancel" string="_Cancel" />
+                        <button name="approve_withhold" string="Approve Now" icon="gtk-apply" type="object" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_withhold_wizard_sales" model="ir.actions.act_window">
+            <field name="name">Agree withhold sales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.withhold.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="withhold_wizard_sales_form" />
+            <field name="target">new</field>
+        </record>
+
+        <record id="withhold_wizard_purchase_form" model="ir.ui.view">
+            <field name="name">withhold.wizard.purchase.form</field>
+            <field name="model">account.withhold.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Withhold">
+                    <group colspan="4" width="900" height="350">
+                    	<field name="shop_id" required="1" on_change="onchange_shop(company_id, shop_id, transaction_type,context)"/>
+                        <field name="printer_id" required="1" domain="[('shop_id','=',shop_id)]" on_change="onchange_cash(company_id, shop_id, transaction_type, printer_id, journal_id, context)"/>
+                    	<field name="partner_id" readonly="1"/>
+                    	<field name="address_id" required="1"/>
+                    	<field name="number" select="1"
+							attrs="{'required':[('pre_printer','!=',True),('automatic','!=',True),('electronic','!=',True)],
+									'readonly':['|',('automatic','=',True),('electronic','=',True)]}" 
+							on_change="onchange_number(number, transaction_type, shop_id, printer_id, journal_id, company_id, date)"/>
+                        <field name="authorization" string="Authorization" />
+						<field name="authorization_id" string="Authorization" invisible="1" />
+						<field name="date" required="1" />
+                        <field name="automatic" invisible="1" />
+                        <field name="electronic" invisible="1" />
+						<field name="pre_printer" invisible="0" />
+                        <field name="invoice_id" readonly="1" />
+                       	<field name="journal_id" required="1" widget="selection" domain="[('type','=','withhold')]" />
+						<field name="company_id" groups="base.group_multi_company" required="1"/>
+                        <newline/>
+                        <notebook colspan="4">
+                        	<page string="lines withhold">
+		                        <field name="lines_ids" colspan="6" rowspan="8" nolabel="1">
+		                            <tree string="Withhold Lines" editable="top">
+										<field name="id_lines" invisible="1" />
+										<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+											on_change="on_change_tax(parent.invoice_id, tax_id)"/>
+										<field name="tax_base" sum="Total Base"/>
+										<field name="percentage" readonly="1" />
+										<field name="retained_value" sum="Total Retained" readonly="1"/>
+									</tree>
+									<form string="Withhold Lines">
+										<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+											on_change="on_change_tax(parent.invoice_id, tax_id)"/>
+										<field name="tax_base" />
+										<field name="percentage" readonly="1"/>
+										<field name="retained_value" readonly="1"/>
+									</form>
+		                        </field>
+	                        </page>
+	                        <page string="Other Information">
+								<field name="transaction_type" select="1" readonly="1" groups="base.group_extended"/>
+								<field name="user_id" required="1"/>
+								<field name="account_analytic_id"/>
+	                        </page>
+                        </notebook>
+                    </group>
+                    <newline/>
+                    <group  colspan="4" width="900">
+                        <button icon="gtk-cancel" special="cancel" string="_Cancel" />
+                        <button name="approve_withhold" string="Approve Now" icon="gtk-apply" type="object" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_withhold_wizard_purchase" model="ir.actions.act_window">
+            <field name="name">Agree withhold purchase</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.withhold.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="withhold_wizard_purchase_form" />
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>

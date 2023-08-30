@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        
+        <record id="seq_type_deposit_register" model="ir.sequence.type">
+            <field name="name">Deposit Register</field>
+            <field name="code">deposit.register</field>
+        </record>
+
+        <record id="seq_deposit_register" model="ir.sequence">
+            <field name="name">Deposit Register</field>
+            <field name="code">deposit.register</field>
+            <field name="prefix">DR/%(year)s/%(month)s/</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</openerp>

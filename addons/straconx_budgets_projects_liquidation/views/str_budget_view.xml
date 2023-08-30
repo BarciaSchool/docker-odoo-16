@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<record id="straconx_budgets_projects.budget_purchase_liquidation_form" model="ir.ui.view">
+			<field name="name">Modificación de Liquidación de Compras</field>
+			<field name="inherit_id" ref="straconx_invoice.straconx_purchase_liquidation_supplier_form" />
+			<field name="model">account.invoice</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="/form/notebook/page/field[@name='invoice_line']/tree/field[@name='name']" position="after">
+					<field name="department_id" />
+				</xpath>
+
+				<xpath
+					expr="/form/notebook/page/field[@name='invoice_line']/form/notebook/page/field[@name='cost_journal']" position="after">
+					<field name="wbs_phase"
+						required="1"
+						domain="[('type_phase','&lt;&gt;','cost'),('type_phase','&lt;&gt;','phase'), ('parent_id', '!=', False)]"						
+						options="{'quick_create':False}"  />
+				</xpath>
+
+			</field>
+		</record>
+	</data>
+</openerp>
+
+

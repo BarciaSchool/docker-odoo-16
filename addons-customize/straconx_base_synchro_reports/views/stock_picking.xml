@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_base_synchro.migrate_stock_picking_form" model="ir.ui.view">
+			<field name="name">Migrar Transferencias</field>
+			<field name="model">migrate.stock.picking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Migrar Transferencias">
+					<field name="picking_id" colspan="4" />
+					<newline/>
+					<button icon='gtk-cancel' special="cancel" string="_Cancel" />
+					<button name="action_migrate" string="Migrar Transferencias Pendientes" colspan="1"
+						type="object" icon="gtk-ok" />
+				</form>
+			</field>
+		</record>
+
+		<record id="straconx_base_synchro.action_migrate_stock_picking_form" model="ir.actions.act_window">
+			<field name="name">Migrar Transferencias</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">migrate.stock.picking</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<record id="straconx_base_synchro.action_migrate_stock_picking_todo" model="ir.actions.todo">
+			<field name="name">Migrar Transferencias</field>
+			<field name="action_id" ref="straconx_base_synchro.action_migrate_stock_picking_form" />
+			<field name="category_id" ref="base.category_administration_config" />
+			<field name="sequence">3</field>
+			<field name="type">manual</field>
+		</record>
+
+		<record id="straconx_base_synchro.straconx_view_logistics_send_synchro" model="ir.ui.view">
+			<field name="name">Enviar Transferencias</field>
+			<field name="inherit_id" ref="straconx_logistics.view_picking_internal_out_form" />
+			<field name="model">stock.picking</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<button name="action_drafted" position="before">
+					<button name="action_send_new" string="Enviar transferencia"
+						confirm="Esta acción enviará la reposición a la tienda de destino y enviará automáticamente un correo electrónico de soporte."
+						attrs="{'invisible': ['|',('confirm_transfer','=',True),('state','!=','done')]}"
+						type="object" icon="gtk-media-play" />
+				</button>
+				<button name="%(straconx_logistics.delivery_transfer_log_id)d" position="replace"> 
+					<button name="%(straconx_logistics.delivery_transfer_log_id)d" string="Imprimir Transferencia (txt)"
+						attrs="{'invisible': [('confirm_transfer','!=',True)]}"
+						type="action" icon="gtk-print" />
+					<button name="%(straconx_logistics.delivery_transfer_log_pdf)d" string="Imprimir Transferencia (pdf)"
+						attrs="{'invisible': [('confirm_transfer','!=',True)]}"
+						type="action" icon="gtk-print" />
+				</button>
+				<button name="%(straconx_logistics.delivery_transfer_log_pdf)d" position="replace"/> 
+				<field name="confirm_reposition" position="after">
+					<field name="confirm_transfer" invisible="1"/>
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

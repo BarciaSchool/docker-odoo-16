@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+    <data noupdate="0">
+  
+		<!-- Salary Rules -->
+		<record id='SALARIO_MENSUAL' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>1</field>
+			<field name='code'>SALARIO</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>1</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>SALARIO</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &#62; 16</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day
+r=0.0
+holidays = 0.00
+if leaves:
+	for le in leaves:
+		if le.code=='Vacaciones':
+			r+=(contract.wage*le.number_of_days/day_end)
+holidays = r
+result =contract.wage*date_payslip/day_end - holidays</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010101')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='True' />
+		</record>
+
+		<record id='HE100R' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>3</field>
+			<field name='code'>HE100</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>3</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>HORAS EXTRAS 100</field>
+			<field name='condition_python'>
+result = False
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE100':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE100':
+         		r+=(contract.wage/240)*2*he.number_of_hours
+result= r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010102')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		<record id='HE50R' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>4</field>
+			<field name='code'>HE50</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>4</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>HORAS EXTRAS 50</field>
+			<field name='condition_python'>
+result = False
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+         		r+=((contract.wage/240)*1.5)*he.number_of_hours
+result= r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010102')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		<record id='ALIM' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>6</field>
+			<field name='code'>ALIM</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>6</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>ALIMENTACION</field>
+			<field name='condition_python'>
+result = False
+if inputs:
+	for al in inputs:
+		if al.code=='AL':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if inputs:
+	for al in inputs:
+		if al.code=='AL':
+			r+=al.amount
+result= r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010103')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='MOVILIZACION' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>7</field>
+			<field name='code'>MOVILIZACION</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>7</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>MOVILIZACION</field>
+			<field name='condition_python'>
+result = False
+if inputs:
+	for tr in inputs:
+		if tr.code=='TPR':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if inputs:
+	for tr in inputs:
+		if tr.code=='TPR':
+			r+=tr.amount
+result= r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010113')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='ANTQUIN' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>8</field>
+			<field name='code'>ANTQUIN</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>8</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>ANTICIPO DE QUINCENA</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &lt;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day - 15
+else:
+	date_payslip = worked_days.WORK100.number_of_days
+result = date_to.day &gt; 16 and contract.wage &gt; 0 and date_payslip &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+result =-contract.wage*(day_end/30)*(contract.company_id.pay_bi_monthly/100)</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','10104040101')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='True' />
+		</record>
+		
+		<record id='MULTA' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>9</field>
+			<field name='code'>MULTA</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>9</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>MULTAS</field>
+			<field name='condition_python'>
+result = False
+if discounts:
+	for disc in discounts:
+		if disc.code=='MUL':
+			result= True</field>
+			<field name='amount_python_compute'>
+r=0.0
+for disc in discounts:
+	if disc.code=='MUL':
+		r+=disc.amount
+result = -r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','4108010102')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='IESS' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>10</field>
+			<field name='code'>IESS</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>10</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>IESS PERSONAL 9.45%</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)*-9.45/100</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030101')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='PQUIROGRA' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>11</field>
+			<field name='code'>PQUIROGRA</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>11</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>PRESTAMOS QUIROGRAFARIOS</field>
+			<field name='condition_python'>
+result = False
+if discounts:
+	for loan in discounts:
+		if loan.code=='PQ':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if discounts:
+	for loan in discounts:
+		if loan.code=='PQ':
+			r+= loan.amount
+result=- r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030105')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='PHIPOTEC' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>12</field>
+			<field name='code'>PHIPOTEC</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>12</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>PRESTAMOS HIPOTECARIOS</field>
+			<field name='condition_python'>
+result = False
+if discounts:
+	for loan in discounts:
+		if loan.code=='PH':
+			result=True</field>
+			<field name='amount_python_compute'>
+r=0.0
+if discounts:
+	for loan in discounts:
+		if loan.code=='PH':
+			r+= loan.amount
+result=- r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030106')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030106')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='DESC' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>14</field>
+			<field name='code'>DESC</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>14</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>DESCUENTOS</field>
+			<field name='condition_python'>
+result = False
+if discounts:
+	for disc in discounts:
+		if disc.internal==True:
+			result= True</field>
+			<field name='amount_python_compute'>
+r=0.0
+for disc in discounts:
+	if disc.internal==True:
+		r+=disc.amount
+result = - r</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','DESCUENTOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','10102050107')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','10102050107')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='FRESERVA' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>5</field>
+			<field name='code'>FRESERVA</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>5</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>FONDO DE RESERVA-PAGAR</field>
+			<field name='condition_python'>
+if contract.duration >= 1:			
+	date_to = datetime.strptime(contract.date_start,"%Y-%m-%d")
+	date_pl = datetime.strptime(payslip.date_to,"%Y-%m-%d")
+	date_new = date_to + timedelta(days=365)
+	result = (date_new &lt;= date_pl and contract.pay_reserve_funds is False and date_pl.day &gt; 16)
+else:
+	result = False	
+</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(contract.wage+r)/12</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','INGRESOS')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040105')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010106')]" />
+			<field name='is_provision' eval='False' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='FRESERVA_PROV' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>15</field>
+			<field name='code'>FRESERVA_PROV</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>15</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>FONDO DE RESERVA-PROVISIONAR</field>
+			<field name='condition_python'>
+if contract.duration >=1:
+	date_to=datetime.strptime(contract.date_start,"%Y-%m-%d")
+	date_pl = datetime.strptime(payslip.date_to,"%Y-%m-%d")
+	date_new = date_to + timedelta(days=365)
+	result = date_new &lt; date_pl and contract.pay_reserve_funds is True and date_pl.day &gt; 16
+else:
+	result = False</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(contract.wage+r)/12.00</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030107')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010106')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='DEC-TERC' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>16</field>
+			<field name='code'>DEC-TERC</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>16</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>DECIMO TERCERO</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0
+</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)/12.0</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040101')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010104')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='DEC-CUARTO' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>17</field>
+			<field name='code'>DEC-CUARTO</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>17</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>DECIMO CUARTO</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0
+</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day
+result=((contract.company_id.basic_salary*date_payslip)/day_end)/12</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040102')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010105')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		<record id='VAC' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>18</field>
+			<field name='code'>VAC</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>18</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>VACACIONES</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)/24</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107040103')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010110')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		<record id='IECE' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>19</field>
+			<field name='code'>IECE</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>19</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>IECE 0.50%</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)*0.50/100</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030103')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010108')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='SETEC' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>20</field>
+			<field name='code'>SETEC</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>20</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>SETEC 0.50%</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)*0.50/100</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030104')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010109')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+		
+		<record id='IESS-11_15' model='hr.salary.rule'>
+			<field name='condition_select'>python</field>
+			<field name='sequence'>21</field>
+			<field name='code'>IESS-11.15</field>
+			<field name='amount_select'>code</field>
+			<field name='sequence'>21</field>
+			<field name='appears_on_payslip'>True</field>
+			<field name='condition_range'>contract.wage</field>
+			<field name='active'>True</field>
+			<field name='name'>IESS PATRONAL 11.15%</field>
+			<field name='condition_python'>
+if contract.company_id.schedule_pay == 'bi-monthly':
+	dayadd = 15
+else:
+	dayadd = 0
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+date_from=datetime.strptime(payslip.date_from,"%Y-%m-%d")
+date_contract = datetime.strptime(contract.date_start,"%Y-%m-%d")
+date_pay = (date_to - date_contract).days
+if date_pay &#60;=(date_to.day - 1):
+	date_payslip = date_to.day - date_contract.day
+else:
+	date_payslip = worked_days.WORK100.number_of_days + dayadd
+result = date_to.day &gt; 16 and contract.wage &gt; 0</field>
+			<field name='amount_python_compute'>
+date_to=datetime.strptime(payslip.date_to,"%Y-%m-%d")
+if date_to.month==2 or date_to.day in (28,29,31):
+	day_end = 30
+else:
+	day_end = date_to.day			
+r=0.0
+if extra_hours:
+	for he in extra_hours:
+		if he.code=='HE50':
+			r+=(contract.wage/240)* he.number_of_hours*1.5
+        if he.code=='HE100':
+			r+=(contract.wage/240)* he.number_of_hours*2
+result=(((contract.wage+r)*date_payslip)/day_end)*11.15/100</field>
+			<field name='company_id' model='res.company'
+				search="[('name','=','STRATEGIC CONEXION STRACONX S.A.')]" />
+			<field name='analytic_account_id' model='account.analytic.account'
+				search="[('code','=','')]" />
+			<field name='category_id' model='hr.salary.rule.category'
+				search="[('name','=','PROVISIONES')]" />
+			<field name='account_credit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','20107030102')]" />
+			<field name='account_debit' model='account.account'
+				search="[('company_id','=','STRATEGIC CONEXION STRACONX S.A.'),('code','=','5103010107')]" />
+			<field name='is_provision' eval='True' />
+			<field name='generate_move' eval='True' />
+			<field name='calculate_wage' eval='False' />
+		</record>
+
+
+   <record id="ecuadorian_structure_quimicamp" model="hr.payroll.structure">
+            <field name="code">SALST</field>
+            <field name="name">ESQUEMA SALARIAL STRACONX</field>
+            <field name="rule_ids" eval="[(6, 0,[ref('SALARIO_MENSUAL'),
+												ref('HE100R'),
+												ref('HE50R'),
+												ref('FRESERVA'),
+												ref('ALIM'),
+												ref('MOVILIZACION'),
+												ref('MULTA'),
+												ref('IESS'),
+												ref('PQUIROGRA'),
+												ref('PHIPOTEC'),
+												ref('DESC'),
+												ref('FRESERVA_PROV'),
+												ref('DEC-TERC'),
+												ref('DEC-CUARTO'),
+												ref('VAC'),
+												ref('IECE'),
+												ref('SETEC'),
+												ref('IESS-11_15')
+            							])]"/> 
+            <field name="company_id" ref='base.main_company' model='res.company'/>               
+        </record>
+    </data>
+</openerp>
+		

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="mrp.report_bom_structure" model="ir.actions.report.xml">
+            <field name="name">Lista de Materiales</field>
+            <field name="report_name">Lista de Materiales</field>
+            <field name="pentaho_filename">straconx_mrp/report/straconx_bom.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','mrp.bom')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >mrp.bom</field>
+        </record>
+
+        
+<!--         <delete model="ir.values" search="[('name','=','Transferencias (txt)')]" /> -->
+    </data>
+</openerp>

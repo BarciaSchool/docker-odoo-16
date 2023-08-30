@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="view_withhold_search" model="ir.ui.view">
+			<field name="name">account.withhold.select</field>
+			<field name="model">account.withhold</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search Withhold">
+					<group col="10" colspan="4">
+						<filter icon="terp-personal+" string="My Shop Wittholds"
+							name="my_withhold" domain="[('printer_id.user_ids.id','=', uid)]" />
+						<filter icon="terp-personal" string="My Processed Wittholds"
+							domain="[('user_id','=',uid)]" help="My Processed Wittholds"
+							name="my_process" separator="1" />
+						<separator orientation="vertical" />
+						<field name="partner_id" />
+						<field name="number" />
+						<field name="date" />
+						<field name="process_date" />
+					</group>
+					<newline />
+					<group expand="0" string="More filters...">
+						<filter name="draft" icon="terp-document-new" string="Draft"
+							domain="[('state','=','draft')]" help="Draft Withhold" />
+						<filter name="Annulled" icon="terp-dolar_ok!" string="Unpaid"
+							domain="[('state','=','annulled')]" help="Annulled Withhold" />
+						<filter name="approved" icon="terp-gtk-media-pause" string="Aproved"
+							domain="[('state','=','approved')]" help="Approve Withhold" />
+						<separator orientation="vertical" />
+						<field name="address_id" />
+						<field name="shop_id" />
+						<field name="printer_id" />
+						<field name="state" />						
+					</group>
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="Partner" icon="terp-partner" domain="[]"
+							context="{'group_by':'partner_id'}" />
+						<filter string="Shop" icon="terp-folder-orange" domain="[]"
+							context="{'group_by':'shop_id'}" />
+						<filter string="Point Of Sales" icon="terp-folder-orange"
+							domain="[]" context="{'group_by':'printer_id'}" />
+						<filter string="User" icon="terp-partner" domain="[]"
+							context="{'group_by':'user_id'}" />
+						<filter string="Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'date'}" />
+						<filter string="Process Date" icon="terp-go-month" domain="[]"
+							context="{'group_by':'process_date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_withhold_purchase_form">
+			<field name="name">account.withhold.purchase.form</field>
+			<field name="model">account.withhold</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Withhold">
+					<field name="shop_id" on_change="onchange_shop(company_id, shop_id, transaction_type,context)" colspan="2" required="1"/>
+					<field name="printer_id"
+						on_change="onchange_cash(company_id, shop_id, transaction_type, printer_id, journal_id, context)" required="1"/>
+					<field name="partner_id" required="1" domain="[('supplier','=',1)]" on_change="on_change_partner(partner_id, transaction_type)"/>
+					<field name="address_id" required="1" />
+					<field name="number_purchase" select="1"
+						attrs="{'readonly':['|',('electronic','=',True),('automatic','=',True)], 
+								'required':[('pre_printer','!=',True),('automatic','!=',True),('electronic','!=',True)]}" 
+						on_change="onchange_number(number_purchase, transaction_type, shop_id, printer_id, journal_id, company_id, date,context)"/>
+					<field name="authorization" string="Authorization" />
+					<field name="authorization_purchase" string="Authorization" invisible="1" />
+					<field name="date" required="1" on_change="onchange_date(date,company_id)" />
+					<field name="automatic" invisible="1" />
+					<field name="electronic" invisible="1" />
+					<field name="pre_printer" 
+						attrs="{'invisible':['|',('automatic','=',True),('electronic','=',True)]}" />												
+					<field name="sri_annulled" attrs="{'invisible':[('electronic','!=',True)]}" />
+					<group colspan="2">
+						<field name="invoice_id" attrs="{'invisible':[('flag','=',1)],'required':[('flag','!=',1)]}"
+							domain="[('partner_id','=',partner_id),('type','=','in_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"/>
+						<button name="get_lines_withhold" states="draft" string="Get Lines Withhold" type="object" icon="terp-stock_format-scientific" colspan="2"/>
+					</group>
+					<notebook colspan="4">
+						<page string="invoices" attrs="{'invisible':[('flag','!=',1)]}">
+							<separator string="Invoices" colspan="4" />
+							<field name="invoice_ids" colspan="4" nolabel="1" widget="many2many" domain="[('partner_id','=',partner_id),('type','=','in_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"/>
+						</page>
+						<page string="Withhold Lines">
+							<separator string="Withhold Lines" colspan="4" />
+							<field name="withhold_line_ids" colspan="4" nolabel="1">
+								<tree string="Withhold Lines" editable="top">
+									<field name="invoice_id" required="1" domain="[('partner_id','=',parent.partner_id),('type','=','in_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_id" widget="selection" domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" sum="Total Base"/>
+									<field name="percentage" />
+									<field name="retained_value" sum="Total Retained"/>
+									<field name="state" />
+								</tree>
+								<form string="Withhold Lines">
+									<field name="invoice_id" required="1" domain="[('partner_id','=',parent.partner_id),('type','=','in_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('purchase','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" />
+									<field name="percentage" />
+									<field name="retained_value" />
+									<field name="move_line_id" />
+									<field name="state" />
+								</form>
+							</field>
+						</page>
+						<page string="other information">
+							<field name="fiscalyear_id" required="1"/>
+							<field name="period_id" required="1"/>
+							<field name="journal_id" required="1" widget="selection" domain="[('type','=','withhold')]" />
+							<field name="company_id" groups="base.group_multi_company" on_change="on_change_company(company_id, transaction_type)"/>
+							<field name="fiscal_position_id" invisible="1" string="Fiscal position Company"/>
+							<field name="flag" invisible="1"/>
+							<field name="move_id"/>
+							<field name="process_date" />
+							<field name="transaction_type" select="1" readonly="1" />
+							<field name="user_id" required="1" />
+							<field name="total_iva"/>
+							<field name="total_renta"/>
+							<field name="total" />
+							<field name="account_analytic_id" />
+						</page>
+					</notebook>
+					<group col="6" colspan="4">
+						<field name="state" string='State' />
+						<button name="button_approve" states="draft" string="Approved"
+							icon="gtk-go-forward" />
+						<button name="button_annulled" states="approved" string="Annulled"
+							icon="gtk-cancel" />
+						<button name="button_set_draft" states="" string="Set to draft"
+							attrs="{'invisible':[('state','=','draft')]}"
+							icon="terp-stock_effects-object-colorize" type="object" />
+						<button name="print_withhold" string="Print Withhold" 
+							attrs="{'invisible':[('state','!=','approved')]}" icon="gtk-print" type="object"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_withhold_sale_form">
+			<field name="name">account.withhold.sale.form</field>
+			<field name="model">account.withhold</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Withhold">
+					<field name="partner_id" required="1" domain="[('customer','=',1)]" on_change="on_change_partner(partner_id)"/>
+					<field name="address_id" required="1" domain="[('partner_id','=',partner_id)]" />
+					<field name="fiscal_position_id" invisible="1"/>
+					<field name="number_sale" select="1"
+						on_change="onchange_number_out(number_sale,transaction_type,address_id,journal_id,date,context)"
+						required="1" />
+					<field name="flag" invisible="1" />
+					<field name="automatic" invisible="1" />
+					<field name="pre_printer" invisible="1" />
+					<field name="authorization" string="Authorization" invisible="0" />
+					<field name="authorization_sale" string="Authorization" invisible="1" required="1" 
+						on_change="onchange_auth_sale(authorization_sale,number_sale,address_id,journal_id)" 
+						domain="[('address_id','=',address_id),('state','=',1),('company_id','=',None)]"/>
+					<field name="shop_id" required="1" on_change="onchange_shop(company_id, shop_id, transaction_type,context)"/>
+					<field name="printer_id" required="1" />
+					<field name="date" required="1" />
+					<group colspan="2">
+						<field name="invoice_id" attrs="{'invisible':[('flag','=',1)],'required':[('flag','!=',1)]}"
+							domain="[('partner_id','=',partner_id),('type','=','out_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"/>
+						<button name="get_lines_withhold" states="draft" string="Get Lines Withhold" type="object" icon="terp-stock_format-scientific" colspan="2"/>
+					</group>
+					<notebook colspan="4">
+						<page string="invoices" attrs="{'invisible':[('flag','!=',1)]}">
+							<separator string="Invoices" colspan="4" />
+							<field name="invoice_ids" colspan="4" nolabel="1" widget="many2many" domain="[('partner_id','=',partner_id),('type','=','out_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"/>
+						</page>
+						<page string="Withhold Lines">
+							<separator string="Withhold Lines" colspan="4" />
+							<field name="withhold_line_ids" colspan="4" nolabel="1">
+								<tree string="Withhold Lines" editable="top">
+									<field name="invoice_id" required="1" domain="[('partner_id','=',parent.partner_id),('type','=','out_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_id" widget="selection" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" sum="Total Base"/>
+									<field name="percentage" />
+									<field name="retained_value" sum="Total Retained"/>
+									<field name="state" />
+								</tree>
+								<form string="Withhold Lines">
+									<field name="invoice_id" required="1" domain="[('partner_id','=',parent.partner_id),('type','=','out_invoice'),'|',('withhold_id.state','!=','approved'),('withhold_id','=',False),('state','not in',('draft','cancel'))]"
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_code_id.tax_type','in',('withhold','withhold_vat'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" />
+									<field name="percentage" />
+									<field name="retained_value" />
+									<field name="move_line_id" />
+									<field name="state" />
+								</form>
+							</field>
+						</page>
+						<page string="other information">
+							<field name="fiscalyear_id" required="1"/>
+							<field name="period_id" required="1"/>
+							<field name="journal_id" required="1" widget="selection" domain="[('type','=','withhold')]" />
+							<field name="company_id" groups="base.group_multi_company"/>
+							<field name="move_id" />
+							<field name="process_date" />
+							<field name="transaction_type" select="1" readonly="1" />
+							<field name="user_id" required="1" />
+							<field name="total_iva"/>
+							<field name="total_renta"/>
+							<field name="total" />
+						</page>
+					</notebook>
+					<group col="6" colspan="4">
+						<field name="state" string='State' />
+						<button name="button_approve" states="draft" string="Approved"
+							icon="gtk-go-forward" />
+						<button name="button_annulled" states="approved" string="Annulled"
+							icon="gtk-cancel" />
+						<button name="button_set_draft" states="annulled" string="Set to draft"
+							icon="terp-stock_effects-object-colorize" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_withhold_recaps_form">
+			<field name="name">Retenciones de Instituciones Financieras</field>
+			<field name="model">account.withhold</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Withhold">
+					<field name="shop_id" required="1" on_change="onchange_shop(company_id, shop_id, transaction_type,context)"/>
+					<field name="printer_id" required="1" />
+					<field name="automatic" invisible="1" />
+					<field name="flag" invisible="1" />
+					<field name="electronic" invisible="0" />
+					<field name="pre_printer" invisible="0" />
+					<field name="partner_id" required="1" domain="[('supplier','=',1)]" on_change="on_change_partner(partner_id)"/>
+					<field name="address_id" required="1" domain="[('partner_id','=',partner_id)]" />
+					<field name="fiscal_position_id" invisible="1"/>
+					<field name="number" select="1"
+						on_change="onchange_number_out(number_sale,transaction_type,address_id,journal_id,date,context)"
+						required="1" />
+					<field name="authorization" string="Authorization"
+						attrs="{'readonly':[('electronic','!=',True)], 
+								'required':[('electronic','=',True)]}"/>
+					<field name="authorization_sale" string="Authorization" invisible="1" 					
+						attrs="{'required':[('electronic','!=',True)]}"
+						on_change="onchange_auth_sale(authorization_sale,number_sale,address_id,journal_id)" 
+						domain="[('address_id','=',address_id),('state','=',1),('company_id','=',None)]"/>
+					<field name="date" required="1" />
+					<field name="bank_account_id" 
+						domain="[('type','in',('liquidity','payable'))]"
+						attrs="{'required':[('transaction_type','=','isd')],'invisible':[('transaction_type','!=','isd')]}"/>
+					<notebook colspan="4">
+						<page string="Withhold Lines">
+							<separator string="Withhold Lines" colspan="4" />
+							<field name="withhold_line_ids" colspan="4" nolabel="1">
+								<tree string="Withhold Lines" editable="bottom">
+									<field name="tax_id" 
+										domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_type','in',('withhold','withhold_vat','other'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" sum="Total Base"/>
+									<field name="percentage" />
+									<field name="retained_value" sum="Total Retained"/>
+									<field name="state" />
+								</tree>
+								<form string="Withhold Lines">
+									<field name="tax_id" domain="[('child_ids','=',False),('type_tax_use','in',('sale','all')),('tax_type','in',('withhold','withhold_vat','other'))]" 
+										on_change="on_change_invoice(invoice_id, tax_id, parent.invoice_id, parent.flag)"/>
+									<field name="tax_base" />
+									<field name="percentage" />
+									<field name="retained_value" />
+									<field name="move_line_id" />
+									<field name="state" />
+								</form>
+							</field>
+						</page>
+						<page string="other information">
+							<field name="fiscalyear_id" required="1"/>
+							<field name="period_id" required="1"/>
+							<field name="journal_id" required="1" widget="selection" domain="[('type','=','withhold')]" />
+							<field name="company_id" groups="base.group_multi_company"/>
+							<field name="move_id" />
+							<field name="process_date" />
+							<field name="transaction_type" select="1" readonly="1" />
+							<field name="user_id" required="1" />
+							<field name="total_iva"/>
+							<field name="total_renta"/>
+							<field name="total" />
+						</page>
+					</notebook>
+					<group col="6" colspan="4">
+						<field name="state" string='State' />
+						<button name="button_approve" states="draft" string="Approved"
+							icon="gtk-go-forward" />
+						<button name="button_annulled" states="approved" string="Annulled"
+							icon="gtk-cancel" />
+						<button name="button_set_draft" states="annulled" string="Set to draft"
+							icon="terp-stock_effects-object-colorize" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_account_withhold_tree">
+			<field name="name">account.withhold.tree</field>
+			<field name="model">account.withhold</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Withhold"
+					colors="blue:state in ('draft');gray:state in ('annulled')">
+					<field name="number" />
+					<field name="partner_id" />
+					<field name="address_id" invisible="1" />
+					<field name="shop_id" />
+					<field name="printer_id" />
+					<field name="date" />
+					<field name="process_date" />
+					<field name="transaction_type" invisible="1" />
+					<field name="user_id" />
+					<field name="total" sum="Total Retention" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="action_account_withhold_sale">
+			<field name="name">Withhold Sales</field>
+			<field name="res_model">account.withhold</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('transaction_type','=','sale')]</field>
+			<field name="context">{'transaction_type':'sale','search_default_date':
+				time.strftime('%Y-%m-%d'),'search_default_my_process':1}</field>
+			<field name="search_view_id" ref="view_withhold_search" />
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_sale_withhold_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_tree" />
+			<field name="act_window_id" ref="action_account_withhold_sale" />
+		</record>
+
+		<record id="action_sale_withhold_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_withhold_sale_form" />
+			<field name="act_window_id" ref="action_account_withhold_sale" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_account_withhold_recaps">
+			<field name="name">Retenciones de Recaps</field>
+			<field name="res_model">account.withhold</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('transaction_type','=','recaps')]</field>
+			<field name="context">{'transaction_type':'recaps','search_default_date':time.strftime('%Y-%m-%d'),'search_default_my_process':1}</field>
+			<field name="search_view_id" ref="view_withhold_search" />
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_sale_recaps_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_tree" />
+			<field name="act_window_id" ref="action_account_withhold_recaps" />
+		</record>
+
+		<record id="action_sale_recaps_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_withhold_recaps_form" />
+			<field name="act_window_id" ref="action_account_withhold_recaps" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_account_withhold_isd">
+			<field name="name">Retenciones de ISD</field>
+			<field name="res_model">account.withhold</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('transaction_type','=','isd')]</field>
+			<field name="context">{'transaction_type':'isd','search_default_date':time.strftime('%Y-%m-%d'),'search_default_my_process':1}</field>
+			<field name="search_view_id" ref="view_withhold_search" />
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_sale_isd_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_tree" />
+			<field name="act_window_id" ref="action_account_withhold_isd" />
+		</record>
+
+		<record id="action_sale_isd_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_withhold_recaps_form" />
+			<field name="act_window_id" ref="action_account_withhold_isd" />
+		</record>
+
+
+		<record model="ir.actions.act_window" id="action_account_withhold_purchase">
+			<field name="name">Withhold Purchases</field>
+			<field name="res_model">account.withhold</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('transaction_type','=','purchase')]</field>
+			<field name="context">{'transaction_type':'purchase','search_default_date':
+				time.strftime('%Y-%m-%d'),'search_default_my_process':1}</field>
+			<field name="search_view_id" ref="view_withhold_search" />
+			<field name="view_id" eval="False" />
+		</record>
+
+		<record id="action_purchase_withhold_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_account_withhold_tree" />
+			<field name="act_window_id" ref="action_account_withhold_purchase" />
+		</record>
+
+		<record id="action_purchase_withhold_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_withhold_purchase_form" />
+			<field name="act_window_id" ref="action_account_withhold_purchase" />
+		</record>
+
+	</data>
+</openerp>

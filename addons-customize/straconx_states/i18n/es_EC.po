@@ -1,0 +1,201 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_states
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-20 23:59+0000\n"
+"PO-Revision-Date: 2013-01-20 23:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_states
+#: view:city.city:0
+#: field:city.city,name:0
+#: model:ir.actions.act_window,name:straconx_states.action_city
+#: model:ir.model,name:straconx_states.model_city_city
+#: field:res.company,location_id:0
+msgid "City"
+msgstr "Ciudad"
+
+#. module: straconx_states
+#: field:res.region,name:0
+msgid "region Name"
+msgstr "Nombre Región"
+
+#. modules: straconx_states, crm
+#: field:crm.lead,phone2:0
+#: field:res.partner.address,phone2:0
+msgid "Phone 2"
+msgstr "Teléfono 2"
+
+#. modules: straconx_states, crm
+#: field:crm.lead,parish:0
+#: field:res.partner.address,parish:0
+msgid "Parish"
+msgstr "Parroquia"
+
+#. module: straconx_states
+#: sql_constraint:res.country:0
+msgid "The code of the country must be unique !"
+msgstr "El codigo del pais debe ser unico"
+
+#. module: straconx_states
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_states
+#: model:ir.actions.act_window,name:straconx_states.action_regions
+#: model:ir.ui.menu,name:straconx_states.menu_regions_partner
+#: field:res.country,regions_ids:0
+#: view:res.region:0
+msgid "Regions"
+msgstr "Regiones"
+
+#. module: straconx_states
+#: field:city.city,state_id:0
+msgid "State"
+msgstr "Provincia"
+
+#. module: straconx_states
+#: model:res.region,name:straconx_states.ORI
+msgid "ORIENTE"
+msgstr "ORIENTE"
+
+#. module: straconx_states
+#: field:res.partner.address,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: straconx_states
+#: constraint:res.partner.address:0
+msgid "The number sri must be only numbers"
+msgstr "El número del SRI debe contener solo números"
+
+#. module: straconx_states
+#: field:city.city,zipcode:0
+msgid "ZIP"
+msgstr "Código Postal"
+
+#. module: straconx_states
+#: constraint:res.partner.address:0
+msgid "Only must exist a address type default by partner"
+msgstr "Solo puede existir un dirección de tipo predeterminada por Empresa"
+
+#. module: straconx_states
+#: help:res.region,name:0
+msgid "The full name of the region."
+msgstr "El nombre de la región."
+
+#. module: straconx_states
+#: sql_constraint:res.country:0
+msgid "The name of the country must be unique !"
+msgstr "El nombre del país debe ser único"
+
+#. module: straconx_states
+#: model:res.region,name:straconx_states.SIE
+msgid "SIERRA"
+msgstr "SIERRA"
+
+#. module: straconx_states
+#: model:ir.ui.menu,name:straconx_states.menu_city_partner
+#: field:res.country.state,city_ids:0
+msgid "Cities"
+msgstr "Ciudades"
+
+#. module: straconx_states
+#: sql_constraint:res.region:0
+msgid "The name of the region must be unique by country!"
+msgstr "El nombre de la región debe ser único por país!"
+
+#. module: straconx_states
+#: model:res.region,name:straconx_states.COS
+msgid "COSTA"
+msgstr "COSTA"
+
+#. module: straconx_states
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_states
+#: sql_constraint:res.region:0
+msgid "The code of the region must be unique by country!"
+msgstr "El código de la región debe ser único por país!"
+
+#. module: straconx_states
+#: model:ir.model,name:straconx_states.model_res_country
+#: field:res.region,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_states
+#: field:res.company,region_id:0
+#: field:res.country.state,region_id:0
+#: field:res.partner.address,region_id:0
+msgid "Region"
+msgstr "Región"
+
+#. module: straconx_states
+#: model:ir.model,name:straconx_states.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_states
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del SRI debe ser único!"
+
+#. module: straconx_states
+#: model:res.region,name:straconx_states.GAL
+msgid "GALAPAGOS"
+msgstr "GALAPAGOS"
+
+#. module: straconx_states
+#: field:res.partner.address,sector:0
+msgid "Sector"
+msgstr "Sector"
+
+#. module: straconx_states
+#: model:ir.model,name:straconx_states.model_res_country_state
+msgid "Country state"
+msgstr "Provincia"
+
+#. module: straconx_states
+#: model:ir.model,name:straconx_states.model_res_region
+msgid "region"
+msgstr "Regiones"
+
+#. module: straconx_states
+#: help:res.region,code:0
+msgid "The Region code in two chars.\n"
+"You can use this field for quick search."
+msgstr "El código de la región en dos letras.\\Usted puede usar este campos para búsquedas rápidas."
+
+#. module: straconx_states
+#: view:res.region:0
+#: field:res.region,states_ids:0
+msgid "States"
+msgstr "Provincias"
+
+#. module: straconx_states
+#: field:res.region,code:0
+msgid "region Code"
+msgstr "Código"
+
+#. module: straconx_states
+#: model:ir.model,name:straconx_states.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_states
+#: model:res.region,name:straconx_states.AUS
+msgid "AUSTRO"
+msgstr "AUSTRO"

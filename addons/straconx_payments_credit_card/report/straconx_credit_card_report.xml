@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="ac_deposit_register_credit_card" model="ir.actions.report.xml">
+            <field name="name">Depósitos de Recaps</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">deposit.register</field>
+            <field name="report_name">recaps_depositados</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments_credit_card/report/straconx_credit_card_register.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','deposit.register')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>
+  
+        <record id="ac_tc_finance_cheque_list" model="ir.actions.report.xml">
+            <field name="name">Lista de Pagos en T/C</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">lista_finance_tc</field>
+            <field name="report_type">xls</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_tc_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('menu_account_view_creditcard')" />            
+        </record>  
+
+
+    </data>
+</openerp>

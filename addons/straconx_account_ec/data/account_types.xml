@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+        <!-- delete old journal types -->
+ 	<delete model="account.journal" search="[('code','like','BAN1')]"/> 
+ 	<delete model="account.journal" search="[('code','like','BAN2')]"/> 
+ 	<delete model="account.journal" search="[('code','like','ECNJ')]"/> 
+ 	<delete model="account.journal" search="[('code','like','SCNJ')]"/> 
+ 	<delete model="account.journal" search="[('code','like','VENTA')]"/> 
+<!--  	<delete model="account.journal" search="[('code','like','DV')]"/>  -->
+
+    	<!-- journal types -->
+        <record model="account.journal.type" id="journal_sale">
+            <field name="name">Facturas de Ventas</field>
+            <field name="code">sale</field>
+        </record>
+        <record model="account.journal.type" id="journal_sale_refund">
+            <field name="name">Notas de Crédito de Clientes</field>
+            <field name="code">sale_refund</field>
+        </record>
+        <record model="account.journal.type" id="journal_purchase">
+            <field name="name">Facturas de Compra</field>
+            <field name="code">purchase</field>
+        </record>
+        <record model="account.journal.type" id="journal_purchase_refund">
+            <field name="name">Notas de Crédito de Proveedores</field>
+            <field name="code">purchase_refund</field>
+        </record>
+        <record model="account.journal.type" id="journal_cash">
+            <field name="name">Efectivo</field>
+            <field name="code">cash</field>
+        </record>
+        <record model="account.journal.type" id="journal_Bank">
+            <field name="name">Bancos</field>
+            <field name="code">bank</field>
+        </record>
+        <record model="account.journal.type" id="journal_general">
+            <field name="name">General</field>
+            <field name="code">general</field>
+        </record>
+        <record model="account.journal.type" id="journal_withhold">
+            <field name="name">Retenciones</field>
+            <field name="code">withhold</field>
+        </record>
+        <record model="account.journal.type" id="journal_purchase_liquidation">
+            <field name="name">Liquidación de Compras</field>
+            <field name="code">purchase_liquidation</field>
+        </record>
+        <record model="account.journal.type" id="journal_delivery">
+            <field name="name">Guías de Remisión</field>
+            <field name="code">delivery</field>
+        </record>
+		<record model="account.journal.type" id="journal_trade_liquidation">
+            <field name="name">Liquidación de Importaciones</field>
+            <field name="code">trade_liquidation</field>
+        </record>        
+        <record model="account.journal.type" id="journal_moves">
+            <field name="name">Movimientos</field>
+            <field name="code">moves</field>
+        </record>
+        <record model="account.journal.type" id="journal_stock">
+            <field name="name">Inventarios</field>
+            <field name="code">stock</field>
+        </record>
+        <record model="account.journal.type" id="journal_situation">
+            <field name="name">Apertura/Cierre Anual</field>
+            <field name="code">situation</field>
+        </record>
+<!--        <record model="account.journal.type" id="journal_other_moves">-->
+<!--            <field name="name">Other Moves</field>-->
+<!--            <field name="code">other_moves</field>-->
+<!--        </record>-->
+
+		<record id="stock.stock_journal" model="account.journal">
+            <field name="name">Diario de Inventario</field>
+            <field name="code">STJ</field>
+            <field name="type">stock</field>
+            <field name="view_id" ref="account.account_journal_view"/>
+            <field name="sequence_id" ref="stock.stock_journal_sequence"/>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+		<record model="account.account.type" id="account.data_account_type_bank">
+			<field name="name">Bank</field>
+			<field name="code">bank</field>
+			<field name="close_method">balance</field>
+			<field name="report_type">asset</field>
+		</record>
+
+        <record model="account.account.type" id="account.data_account_type_receivable">
+          <field name="name">Receivable</field>
+          <field name="code">receivable</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">asset</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_payable">
+          <field name="name">Payable</field>
+          <field name="code">payable</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">liability</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_stock">
+          <field name="name">Inventario</field>
+          <field name="code">Inv</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">asset</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_taxes">
+          <field name="name">Impuestos Activo</field>
+          <field name="code">imp_act</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">asset</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_inmo">
+          <field name="name">Activos Fijos</field>
+          <field name="code">actfijos</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">asset</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_taxes">
+          <field name="name">Impuestos</field>
+          <field name="code">imp</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">liability</field>          
+        </record>        
+
+        <record model="account.account.type" id="account.data_account_type_capital">
+          <field name="name">Patrimonio</field>
+          <field name="code">capital</field>
+          <field name="close_method">balance</field>
+          <field name="report_type">liability</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_costs">
+          <field name="name">Costos</field>
+          <field name="code">cost</field>
+          <field name="close_method">none</field>
+          <field name="report_type">expense</field>
+        </record>
+
+        <record model="account.account.type" id="account.data_account_type_results">
+          <field name="name">Resultados</field>
+          <field name="code">results</field>
+          <field name="close_method">none</field>
+          <field name="report_type">expense</field>
+        </record>
+
+        
+        <!-- account types -->
+        <record model="account.account.type.internal" id="account_receivable">
+            <field name="name">Por Cobrar</field>
+            <field name="code">receivable</field>
+        </record>
+        <record model="account.account.type.internal" id="account_payable">
+            <field name="name">Por Pagar</field>
+            <field name="code">payable</field>
+        </record>
+        <record model="account.account.type.internal" id="account_view">
+            <field name="name">Vista</field>
+            <field name="code">view</field>
+        </record>
+        <record model="account.account.type.internal" id="account_consolidation">
+            <field name="name">Consolidación</field>
+            <field name="code">consolidation</field>
+        </record>
+        <record model="account.account.type.internal" id="account_liquidity">
+            <field name="name">Liquidez</field>
+            <field name="code">liquidity</field>
+        </record>
+        <record model="account.account.type.internal" id="account_lother">
+            <field name="name">Otras</field>
+            <field name="code">other</field>
+        </record>
+        <record model="account.account.type.internal" id="account_stock">
+            <field name="name">Inventario</field>
+            <field name="code">stock</field>
+        </record>
+        <record model="account.account.type.internal" id="account_closed">
+            <field name="name">Cerrado</field>
+            <field name="code">closed</field>
+        </record>
+    </data>
+</openerp>

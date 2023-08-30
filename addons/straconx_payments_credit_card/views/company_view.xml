@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="view_company_inherit">
+            <field name="name">res.company.form.inherit</field>
+            <field name="inherit_id" ref="straconx_payments.view_company_inherit_settings_account"/>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="property_account_commission_credit_card" position="after">                		
+                		<field name="property_account_active_credit_card" />
+                		<field name="property_tax_vat_credit_card" />
+                		<field name="property_tax_withhold_credit_card" />
+						<field name="property_tax_withhold_vat_credit_card" />						
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

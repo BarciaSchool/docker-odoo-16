@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<menuitem action="action_migration_products_form" id="migration_products_menu_id"
+			name="Product Migration" parent="stock.menu_stock_product" />
+		<menuitem id="migration_menu" name="Migration" parent="base.menu_config"
+			sequence="45" />
+		<menuitem id="migration_item" name="Migration" parent="migration_menu"
+			action="action_migration_database_form" />
+	</data>
+</openerp>

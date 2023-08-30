@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>	
+		<menuitem name="ATS Export" action="action_wizard_anexo_export"
+			id="menu_wizard_anexo_export" parent="straconx_sri.menu_finance_sri" 
+			sequence="3"/>				
+		<menuitem name="Form 103 Export" action="action_form_103"
+			id="menu_wizard_form_103" parent="straconx_sri.menu_finance_sri" 
+			sequence="1"/>				
+	</data>
+</openerp>

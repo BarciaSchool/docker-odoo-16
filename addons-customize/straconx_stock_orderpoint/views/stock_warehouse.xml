@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="straconx_stock_view_warehouse_inherit">
+			<field name="name">stock.warehouse.form.inherit</field>
+			<field name="model">stock.warehouse</field>
+			<field name="inherit_id" ref="stock.view_warehouse" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="partner_address_id" position="after">
+					<field name="picking_shop_id" />
+					<field name="sequence" />
+				</field>
+			</field>
+		</record>
+        
+	</data>
+</openerp>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <!-- Factura de clientes -->
+    
+    	<record id="view_invoice_logistics_form" model="ir.ui.view">
+            <field name="name">account.invoice.form_inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Logistics Information">
+                       <field name="more_information" invisible="1"/>
+                       <field name="carrier_id" on_change="onchange_carrier(carrier_id)" required="0"/>
+                       <field name="driver_int" attrs="{'invisible':[('more_information','=',1)]}"/>
+                       <field name="carrier_tracking_ref" attrs="{'invisible':[('more_information','!=',1)]}" colspan="4" />
+                       <field name="number_of_packages" attrs="{'invisible':[('more_information','!=',1)]}"/>
+                       <field name="weight_hand"  attrs="{'invisible':[('more_information','!=',1)]}"/>
+                       <field name="picking_id" groups="account.group_account_user"/>
+                   </page>
+                   <page string="Picking associated" 
+                   		groups="base.group_phone_manager,base.group_sales_supervisor,
+                   				base.group_pos_manager,base.group_return_manager,
+                   				base.group_driver_manager,stock.group_stock_supervisor">
+                       <field name="picking_ids" colspan="4" nolabel="1"/>
+                   </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <!-- Factura de Proveedores -->
+        
+        <record id="view_invoice_logistics_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form_inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Logistics Information">
+                            <field name="more_information" invisible="1"/>
+                            <field name="carrier_id" on_change="onchange_carrier(carrier_id)" required="0"/>
+                            <field name="driver_int" attrs="{'invisible':[('more_information','=',1)]}"/>
+                            <field name="carrier_tracking_ref" attrs="{'invisible':[('more_information','!=',1)]}" colspan="4" />
+                            <field name="number_of_packages" attrs="{'invisible':[('more_information','!=',1)]}"/>
+                            <field name="weight_hand"  attrs="{'invisible':[('more_information','!=',1)]}"/>
+                            <field name="picking_id" groups="account.group_account_user"/>
+                        </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <!-- Nota de Credito de Clientes -->
+        
+        <record id="view_refund_logistics_form" model="ir.ui.view">
+            <field name="name">account.refund.form_inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_credit_notes.refund_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Logistics Information">
+                        <field name="more_information" invisible="1"/>
+                        <field name="carrier_id" on_change="onchange_carrier(carrier_id)" required="0"/>
+                        <field name="driver_int" attrs="{'invisible':[('more_information','=',1)]}"/>
+                        <field name="carrier_tracking_ref" attrs="{'invisible':[('more_information','!=',1)]}" colspan="4" />
+                        <field name="number_of_packages" attrs="{'invisible':[('more_information','!=',1)]}"/>
+                        <field name="weight_hand"  attrs="{'invisible':[('more_information','!=',1)]}"/>
+                        <field name="picking_id" groups="account.group_account_user"/>
+                     </page>
+                   <page string="Picking associated" 
+                   		groups="base.group_phone_manager,base.group_sales_supervisor,
+                   				base.group_pos_manager,base.group_return_manager,
+                   				base.group_driver_manager,stock.group_stock_supervisor">
+                       <field name="picking_ids" colspan="4" nolabel="1"/>
+                   </page>
+                </notebook>
+            </field>
+        </record>
+        
+        <record id="view_refund_logistics_supplier_form" model="ir.ui.view">
+            <field name="name">account.refund.supplier.form_inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_credit_notes.refund_supplier_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Logistics Information">
+                            <field name="more_information" invisible="1"/>
+                            <field name="carrier_id" on_change="onchange_carrier(carrier_id)" required="0"/>
+                            <field name="driver_int" attrs="{'invisible':[('more_information','=',1)]}"/>
+                            <field name="carrier_tracking_ref" attrs="{'invisible':[('more_information','!=',1)]}" colspan="4" />
+                            <field name="number_of_packages" attrs="{'invisible':[('more_information','!=',1)]}"/>
+                            <field name="weight_hand"  attrs="{'invisible':[('more_information','!=',1)]}"/>
+                            <field name="picking_id" groups="account.group_account_user"/>
+                        </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

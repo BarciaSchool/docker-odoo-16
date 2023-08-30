@@ -1,0 +1,477 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_cash_consolidation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-01 09:46+0000\n"
+"PO-Revision-Date: 2012-11-01 09:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,required_reference:0
+#: field:move.type,required_reference:0
+msgid "Required Reference?"
+msgstr "Required Reference?"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Are you sure to Re-open this cash consolidation?"
+msgstr "¿Seguro de reabrir esta caja?"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Moves Account"
+msgstr "Movimiento contable"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: selection:cash.consolidation,state:0
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: straconx_cash_consolidation
+#: selection:invoice.type,type:0
+msgid "No IVA"
+msgstr "No IVA"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.consolidation.line.in,invoice_type_id:0
+#: view:invoice.type:0
+#: model:ir.actions.act_window,name:straconx_cash_consolidation.action_invoice_type_view
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_invoice_type_action
+msgid "Invoice Type"
+msgstr "Línea Factura"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Expenses and Incomes"
+msgstr "Ingresos y Ventas"
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_cash_consolidation_line_in
+msgid "cash.consolidation.line.in"
+msgstr "cash.consolidation.line.in"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Set to draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,expenses_move_id:0
+msgid "Accounting Entry Expenses"
+msgstr "Movimiento contable de Gastos"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "date"
+msgstr "Fecha"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,state:0
+msgid "State"
+msgstr "State"
+
+#. module: straconx_cash_consolidation
+#: selection:cash.consolidation,estatus:0
+msgid "Cuadrado"
+msgstr "Cuadrado"
+
+#. module: straconx_cash_consolidation
+#: selection:cash.consolidation,state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: straconx_cash_consolidation
+#: selection:move.type,type:0
+msgid "Income"
+msgstr "Income"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,partner_id:0
+#: field:open.cash.consolidation,partner_id:0
+msgid "partner"
+msgstr "Empresa"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,register_move:0
+#: field:invoice.consolidation.line.in,register_move:0
+#: field:invoice.type,register_move:0
+#: field:move.type,register_move:0
+msgid "Register in Move Account?"
+msgstr "Register in Move Account?"
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_invoice_consolidation_line_in
+msgid "invoice.consolidation.line.in"
+msgstr "invoice.consolidation.line.in"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,sequence:0
+#: field:invoice.consolidation.line.in,sequence:0
+#: field:invoice.type,sequence:0
+#: field:move.type,sequence:0
+msgid "Seq."
+msgstr "Seq."
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_move_type
+msgid "move.type"
+msgstr "move.type"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,printer_id:0
+#: field:open.cash.consolidation,printer_id:0
+msgid "Printer"
+msgstr "Caja"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:148
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:167
+#: code:addons/straconx_cash_consolidation/wizard/open_cash_consolidation.py:74
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Will erase the income and expenses recorded, sure you want to change to draft this cash consolidation?"
+msgstr "Cambiar a borrador eliminará los ingresos y gastos ingresados. ¿Seguro de continuar?"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.consolidation.line.in,account_id_iva:0
+msgid "IVA Account"
+msgstr "IVA Account"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,company_id:0
+#: field:open.cash.consolidation,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_cash_consolidation
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_cash
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_cash_action
+msgid "Cash consolidation"
+msgstr "Consolidación de Cajas"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:148
+#, python-format
+msgid "Need a shop for open a cash consolidation!"
+msgstr "Need a shop for open a cash consolidation!"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,estatus:0
+#: view:invoice.type:0
+#: field:invoice.type,type:0
+#: view:move.type:0
+#: field:move.type,type:0
+msgid "type"
+msgstr "type"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Print Cash Consolidate"
+msgstr "Imprimir Caja"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,user_id:0
+#: field:open.cash.consolidation,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_cash_consolidation
+#: field:open.cash.consolidation,amount_initial:0
+msgid "Amount Initial"
+msgstr "Monto Inicial"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:288
+#, python-format
+msgid "Only Can delete Cash(s) consolidation(s) in state draft !"
+msgstr "¡Solo se puede borrar Cierres de Caja en estado de borrador!"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,date:0
+#: field:open.cash.consolidation,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_cash_consolidation
+#: selection:move.type,type:0
+msgid "expense"
+msgstr "expense"
+
+#. module: straconx_cash_consolidation
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:233
+#, python-format
+msgid "Consolidated Cash is unbalanced!"
+msgstr "Consolidated Cash is unbalanced!"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:167
+#, python-format
+msgid "You can not Re-Open this cash that has registered reconciliations, please check!"
+msgstr "You can not Re-Open this cash that has registered reconciliations, please check!"
+
+#. module: straconx_cash_consolidation
+#: model:ir.actions.report.xml,name:straconx_cash_consolidation.action_straconx_cash_consolidation_report
+msgid "straconx.cash.consolidation.report"
+msgstr "Reporte de Caja Consolidadas"
+
+#. module: straconx_cash_consolidation
+#: view:invoice.type:0
+#: view:move.type:0
+msgid "Shop used"
+msgstr "Shop used"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:288
+#, python-format
+msgid "Invalid action !"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.type,name:0
+#: field:move.type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_cash_consolidation
+msgid "cash.consolidation"
+msgstr "cash.consolidation"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,journal_id:0
+#: field:open.cash.consolidation,journal_id:0
+msgid "journal"
+msgstr "Diario"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: model:ir.actions.act_window,name:straconx_cash_consolidation.action_cash_consolidation_view
+msgid "Cash Consolidation"
+msgstr "Caja Consolidada"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,cash_id:0
+#: field:invoice.consolidation.line.in,cash_id:0
+msgid "Cash"
+msgstr "Cash"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,amount_initial:0
+msgid "Amount Initital"
+msgstr "Monto Inicial"
+
+#. module: straconx_cash_consolidation
+#: view:open.cash.consolidation:0
+msgid "No"
+msgstr "No"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: selection:cash.consolidation,state:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.consolidation.line.in,amount:0
+msgid "Amount"
+msgstr "Monto Total"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.consolidation.line.in,amount_untaxed:0
+msgid "Amount Untaxed"
+msgstr "Amount Untaxed"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:302
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:302
+#, python-format
+msgid "You can not have two open cash consolidation for the same point printer"
+msgstr "No puede tener dos cajas abiertas para el mismo punto de impresión"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,invoice_move_id:0
+msgid "Invoice Accounting Entry"
+msgstr "Invoice Accounting Entry"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.type,shop_ids:0
+#: field:move.type,shop_ids:0
+msgid "Shops"
+msgstr "Shops"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Re-Open"
+msgstr "Reabrir"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,comprob:0
+msgid "Proof"
+msgstr "Total Ingresos"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: field:cash.consolidation,shop_id:0
+#: field:open.cash.consolidation,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,account_id:0
+#: field:invoice.type,account_id:0
+#: field:move.type,account_id:0
+#: field:open.cash.consolidation,account_id:0
+msgid "account"
+msgstr "Cuenta"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.consolidation.line.in,amount_taxes:0
+msgid "Amount Taxes"
+msgstr "Amount Taxes"
+
+#. module: straconx_cash_consolidation
+#: selection:invoice.type,type:0
+msgid "IVA"
+msgstr "IVA"
+
+#. module: straconx_cash_consolidation
+#: model:ir.actions.act_window,name:straconx_cash_consolidation.action_open_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_open_cash_consolidation
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_open_cash_action
+#: view:open.cash.consolidation:0
+msgid "Open Cash Consolidation"
+msgstr "Abrir Caja Consolidada"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:99
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,period_id:0
+msgid "Fiscal Period"
+msgstr "Período Fiscal"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,move_type_id:0
+#: model:ir.actions.act_window,name:straconx_cash_consolidation.action_move_type_view
+#: model:ir.ui.menu,name:straconx_cash_consolidation.menu_move_type_action
+#: view:move.type:0
+msgid "Move Type"
+msgstr "Tipo"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,name:0
+msgid "Name Cash"
+msgstr "Nombre"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Are you sure to cancel this cash consolidation?"
+msgstr "¿Seguro de cancelar esta caja consolidada?"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Expenses"
+msgstr "Cobros"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/objects/cash_consolidation.py:233
+#, python-format
+msgid "Invalid Amount Cash !"
+msgstr "Invalid Amount Cash !"
+
+#. module: straconx_cash_consolidation
+#: field:invoice.type,account_id_iva:0
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,amount:0
+msgid "amount"
+msgstr "Monto"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+msgid "Accounting Information"
+msgstr "Información Contable"
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_cash_consolidation_line_out
+msgid "cash.consolidation.line.out"
+msgstr "cash.consolidation.line.out"
+
+#. module: straconx_cash_consolidation
+#: code:addons/straconx_cash_consolidation/wizard/open_cash_consolidation.py:74
+#, python-format
+msgid "You must defined a period for this date!"
+msgstr "¡Debe definir un período para esta fecha!"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: field:cash.consolidation,invoices_ids:0
+msgid "Invoice"
+msgstr "Invoice"
+
+#. module: straconx_cash_consolidation
+#: model:ir.model,name:straconx_cash_consolidation.model_invoice_type
+msgid "invoice.type"
+msgstr "invoice.type"
+
+#. module: straconx_cash_consolidation
+#: selection:cash.consolidation,estatus:0
+msgid "Descuadrado"
+msgstr "Descuadrado"
+
+#. module: straconx_cash_consolidation
+#: view:open.cash.consolidation:0
+msgid "Yes"
+msgstr "Si"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation,expenses_ids:0
+msgid "Moves"
+msgstr "Moves"
+
+#. module: straconx_cash_consolidation
+#: view:cash.consolidation:0
+#: selection:cash.consolidation,state:0
+msgid "Open"
+msgstr "Abrir"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,reference:0
+msgid "Reference"
+msgstr "Reference"
+
+#. module: straconx_cash_consolidation
+#: field:cash.consolidation.line.in,quantity:0
+#: field:invoice.consolidation.line.in,quantity:0
+msgid "quantity"
+msgstr "quantity"
+

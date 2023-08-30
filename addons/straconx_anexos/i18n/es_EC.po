@@ -1,0 +1,208 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_anexos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121104-003211\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-08 07:19+0000\n"
+"PO-Revision-Date: 2012-11-08 07:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_anexos
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_anexos
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_anexos
+#: view:res.company:0
+msgid "Information of Account SRI"
+msgstr "Información Contable del SRI"
+
+#. module: straconx_anexos
+#: model:ir.ui.menu,name:straconx_anexos.menu_wizard_form_103
+msgid "Form 103 Export"
+msgstr "Exportar Formulario 103"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Form Replacement"
+msgstr "Sustitutivas"
+
+#. module: straconx_anexos
+#: code:addons/straconx_anexos/wizard/form_103.py:126
+#, python-format
+msgid "Unknown Error"
+msgstr "Error Desconocido"
+
+#. module: straconx_anexos
+#: view:sri.ats:0
+msgid " "
+msgstr " "
+
+#. module: straconx_anexos
+#: model:ir.model,name:straconx_anexos.model_sri_ats
+msgid "sri.ats"
+msgstr "Anexo Transaccional Simplicado"
+
+#. module: straconx_anexos
+#: selection:sri.ats,state:0
+#: selection:sri.reoc,state:0
+msgid "Get"
+msgstr "Obtener"
+
+#. module: straconx_anexos
+#: view:sri.ats:0
+msgid "This may take a few minutes"
+msgstr "Esto puede tomar unos minutos y la pantalla se puede ensombrecer"
+
+#. module: straconx_anexos
+#: view:form.103:0
+#: view:sri.ats:0
+msgid "_Export"
+msgstr "_Exportar"
+
+#. module: straconx_anexos
+#: field:sri.ats,state:0
+#: field:sri.reoc,state:0
+msgid "state"
+msgstr "Estado"
+
+#. module: straconx_anexos
+#: view:sri.ats:0
+msgid "Este asistente genera automáticamente la información del"
+msgstr "Este asistente genera automáticamente la información del"
+
+#. module: straconx_anexos
+#: view:form.103:0
+#: view:sri.ats:0
+msgid "_Close"
+msgstr "_Cerrar"
+
+#. module: straconx_anexos
+#: model:ir.model,name:straconx_anexos.model_form_103
+msgid "form.103"
+msgstr "Formulario 103"
+
+#. module: straconx_anexos
+#: view:res.company:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Other taxes for substitute declarations"
+msgstr "Otros Impuestos para declaraciones sustitutivas"
+
+#. module: straconx_anexos
+#: model:ir.actions.act_window,name:straconx_anexos.action_form_103
+msgid "Export Form 103 SRI"
+msgstr "Exportar Formulario 103 del SRI"
+
+#. module: straconx_anexos
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_anexos
+#: field:sri.ats,data:0
+#: field:sri.reoc,data:0
+msgid "File"
+msgstr "Archivo"
+
+#. module: straconx_anexos
+#: field:account.invoice,create_date:0
+msgid "Creation date"
+msgstr "Fecha de Creación"
+
+#. module: straconx_anexos
+#: model:ir.model,name:straconx_anexos.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_anexos
+#: view:sri.ats:0
+msgid "ANEXO TRANSACCIONAL SIMPLIFICADO- ATS "
+msgstr "ANEXO TRANSACCIONAL SIMPLIFICADO- ATS "
+
+#. module: straconx_anexos
+#: field:sri.ats,fiscalyear_id:0
+#: field:sri.reoc,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Año Fiscal"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Este Asistente permite generar el formulario 103 del sri listo para cargarlo a la web oficial www.sri.gob.ec"
+msgstr "Este Asistente permite generar el formulario 103 del SRI listo para cargarlo a la web oficial www.sri.gob.ec"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Imputation detail (substitute declarations)"
+msgstr "Detalles de Imposiciones para declaraciones sustitutivas"
+
+#. module: straconx_anexos
+#: model:ir.model,name:straconx_anexos.model_sri_reoc
+msgid "sri.reoc"
+msgstr "REOC"
+
+#. module: straconx_anexos
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Data Form"
+msgstr "Formulario"
+
+#. module: straconx_anexos
+#: field:sri.ats,name:0
+#: field:sri.reoc,name:0
+msgid "name"
+msgstr "Nombre"
+
+#. module: straconx_anexos
+#: field:sri.ats,period_id:0
+#: field:sri.reoc,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_anexos
+#: view:form.103:0
+msgid "Form 103"
+msgstr "Formulario 103"
+
+#. module: straconx_anexos
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_anexos
+#: model:ir.model,name:straconx_anexos.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_anexos
+#: model:ir.actions.act_window,name:straconx_anexos.action_wizard_anexo_export
+#: model:ir.ui.menu,name:straconx_anexos.menu_wizard_anexo_export
+#: view:sri.ats:0
+msgid "ATS Export"
+msgstr "Exportar ATS"
+
+#. module: straconx_anexos
+#: selection:sri.ats,state:0
+#: selection:sri.reoc,state:0
+msgid "Choose"
+msgstr "Seleccione"

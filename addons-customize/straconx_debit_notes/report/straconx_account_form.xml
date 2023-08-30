@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sri_debit_note_report_id" model="ir.actions.report.xml">
+            <field name="name">Nota_de_Débito</field>
+            <field name="report_name">Nota_de_Debito</field>            
+            <field name="pentaho_filename">straconx_debit_notes/report/straconx_debit_note.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+		
+		<record id="customer_advance" model="ir.actions.report.xml">
+            <field name="name">Comprobante de Ingreso</field>
+            <field name="report_name">comprobante_de_ingreso</field>
+            <field name="pentaho_filename">straconx_debit_notes/report/straconx_advance_customer.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.debit.note')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >account.debit.note</field>
+        </record>
+		
+		<record id="debit_notes_list" model="ir.actions.report.xml">
+            <field name="name">Otros Documentos</field>
+            <field name="report_name">otros_documentos</field>
+            <field name="pentaho_filename">straconx_debit_notes/report/straconx_debit_notes_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.debit.note')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.final_accounting_reports')" />
+            <field name="model" >account.debit.note</field>
+        </record>
+
+        <delete model="ir.values" search="[('name','=','Nota_de_Débito')]" />
+        <delete model="ir.values" search="[('name','=','Comprobante de Ingreso')]" />
+        <delete model="ir.values" search="[('name','=','Otros Documentos')]" />
+    </data>
+</openerp>

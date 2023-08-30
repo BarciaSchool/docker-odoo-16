@@ -1,0 +1,43 @@
+<openerp>
+    <data>
+        <record id="straconx_view_tax_products_configuration_installer" model="ir.ui.view">
+            <field name="name">Multi Tax Products</field>
+            <field name="model">account.multi.charts.tax</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="Taxes">
+                <group colspan="8">
+                     <group colspan="4">
+                         <label string="This selection underwriter your actual selection of taxes product. This wizard only write products type storage"/>
+                         <separator orientation="horizontal" colspan="4"/>
+                         <field name="type" required="1"/>
+                     </group>
+                     <group colspan="4">
+                     	<group colspan="2">
+                     		<separator string="Sale Taxes" colspan="4"/>
+                     		<field name="sale_taxes_ids" nolabel="1"/>
+                     	</group>
+                     	<group colspan="2">
+                     		<separator string="Purchase Taxes" colspan="4"/>
+                     		<field name="purchase_taxes_ids" nolabel="1"/>
+                     	</group>
+                     </group>
+                  	<button name="execute" string="Done" type="object" icon="gtk-execute" />
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <record id="straconx_action_wizard_multi_tax_products" model="ir.actions.act_window">
+            <field name="name">Generate Tax Accounts for Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.multi.charts.tax</field>
+            <field name="view_id" ref="straconx_view_tax_products_configuration_installer"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</openerp>

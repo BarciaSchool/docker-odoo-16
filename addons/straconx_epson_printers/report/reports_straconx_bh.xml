@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_credit_notes.refund_report_pos_id" model="ir.actions.report.xml">
+			<field name="name">Nota_de_Crédito POS</field>
+			<field name="report_name">nota_de_credito_pos</field>
+			<field name="pentaho_filename">straconx_epson_printers/report/straconx_credit_note.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+		
+		<record id="straconx_bh.pentaho_invoice_report_id" model="ir.actions.report.xml">
+			<field name="name">Factura a Contado</field>
+			<field name="report_name">pentaho.invoice.report.id</field>
+			<field name="pentaho_filename">straconx_epson_printers/report/straconx_invoice_form_pos.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="False"/>			
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="straconx_bh.electronic_invoice_report_id" model="ir.actions.report.xml">
+			<field name="name">Factura a Contado</field>
+			<field name="report_name">electronic.invoice.report.id</field>
+			<field name="pentaho_filename">straconx_epson_printers/report/straconx_invoice_form_pos_electronic.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+		<record id="straconx_logistics.delivery_report_log_txt_id"
+			model="ir.actions.report.xml">
+			<field name="name">Guía de Remisión (TXT)</field>
+			<field name="report_name">delivery_guide_txt</field>
+			<field name="pentaho_filename">straconx_epson_printers/report/straconx_stock_picking_delivery_guide.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','stock.delivery')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">stock.delivery</field>
+		</record>
+		<record id="straconx_logistics.straconx_stock_pickinglist_customer"
+			model="ir.actions.report.xml">
+			<field name="name">Orden de Entrega (txt)</field>
+			<field name="report_name">orden_customer</field>
+			<field name="pentaho_filename">straconx_epson_printers/report/straconx_stock_picking_customer.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="model">account.invoice</field>
+		</record>
+
+        <record id="print_type_invoice" model="ir.ui.view">
+            <field name="name">Imprimir Tipo de Factura</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.pos_invoice_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <button name="%(straconx_bh.pentaho_invoice_report_id)d" position="replace">
+                	<button name="print_invoice_electronic"
+						string="Imprimir Factura"
+						type="object" icon="gtk-print" 
+						attrs="{'invisible':[('picking_id', '=', False),('state','not in',[('open','paid')])]}"
+						 />
+                </button>
+            </field>
+        </record>
+
+		<delete model="ir.values" search="[('name','=','Factura a Contado')]" />
+		
+	</data>
+</openerp>

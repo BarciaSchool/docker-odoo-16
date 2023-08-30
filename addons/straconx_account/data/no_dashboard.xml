@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!--Account -->
+		<record id="account.menu_finance" model="ir.ui.menu">
+			<field name="action" ref="account.action_invoice_tree1" />
+		</record>
+		<!-- Sale -->
+		<record id="base.menu_base_partner" model="ir.ui.menu">
+			<field name="action" ref="sale.action_order_form" />
+		</record>
+		<!-- Admin -->
+<!-- 		<record id="base.menu_administration" model="ir.ui.menu"> -->
+<!-- 			<field name="action" ref="base.action_res_users" /> -->
+<!-- 		</record> -->
+	</data>
+</openerp>
+

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Add information on Account analytic list for the project management -->
+        <record id="view_account_analytic_account_tree_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="sequence"/>
+                    <field name="type_account"/>
+                </field>
+				<field name="debit" position="replace"/>
+                <field name="credit" position="replace"/>
+                <field name="balance" position="replace"/>
+            </field>
+        </record>        
+
+        <record id="view_account_analytic_account_form_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="sequence"/>
+                    <field name="type_account" attrs="{'required':[('type','!=','view')]}"/>
+                </field>
+            </field>
+        </record>        
+
+        <record id="view_account_account_form_inherit" model="ir.ui.view">
+            <field name="name">account.account</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="active" position="before">
+                    <field name="analytic_account_id" domain="[('type', '!=', 'view')]"/>
+                    <field name="department_id"/>
+                </field>
+            </field>
+        </record> 
+        
+        <record id="account.view_account_list" model="ir.ui.view">
+            <field name="name">account.account.list</field>
+            <field name="model">account.account</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_id</field>
+            <field name="arch" type="xml">
+                <tree colors="blue:type == 'view';black:type in ('other','receivable','payable','consolidation');gray:type == 'closed'" string="Chart of accounts" toolbar="1" >
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="analytic_account_id"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="user_type" invisible="1"/>
+                    <field name="type"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="company_currency_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="account.view_account_search" model="ir.ui.view">
+            <field name="name">account.account.search</field>
+            <field name="model">account.account</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Accounts">
+                    <group>
+                        <filter icon="terp-sale" string="Receivable Accounts" domain="[('type','=','receivable')]"/>
+                        <filter icon="terp-purchase" string="Payable Accounts" domain="[('type','=','payable')]"/>
+                        <filter string="Analytic Account" icon="terp-stock_symbol-selection" domain="" context="{'group_by':'analytic_account_id'}"/>
+                        <separator orientation="vertical"/>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="user_type"/>
+						<field name="type"/>
+                    	<field name="analytic_account_id"/>                        
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Parent Account" icon="terp-folder-orange" domain="" context="{'group_by':'parent_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Account Type" icon="terp-stock_symbol-selection" domain="" context="{'group_by':'user_type'}"/>
+                        <filter string="Internal Type" icon="terp-stock_symbol-selection" domain="" context="{'group_by':'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

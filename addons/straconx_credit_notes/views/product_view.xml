@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record id="product_refund_form_view" model="ir.ui.view">
+            <field name="name">product.refund.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="property_account_expense" position="after">
+                    <field name="property_account_refund_sale" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" attrs="{'readonly':[('sale_ok','=',0)]}"  groups="base.group_extended"/>
+                    <field name="property_account_refund_purchase" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" attrs="{'readonly':[('purchase_ok','=',0)]}"  groups="base.group_extended"/>
+                    <field name="property_account_discount_sale" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" attrs="{'readonly':[('sale_ok','=',0)]}"  groups="base.group_extended"/>
+                    <field name="property_account_discount_purchase" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" attrs="{'readonly':[('purchase_ok','=',0)]}"  groups="base.group_extended"/>
+                </field>
+            </field>
+        </record>
+        
+<!--         <record id="product_template_refund_form_view" model="ir.ui.view"> -->
+<!--             <field name="name">product.template.refund.product.form.inherit</field> -->
+<!--             <field name="model">product.template</field> -->
+<!--             <field name="type">form</field> -->
+<!--             <field name="inherit_id" ref="account.product_template_form_view"/> -->
+<!--             <field name="arch" type="xml"> -->
+<!--                 <field name="property_account_expense" position="after"> -->
+<!--                     <field name="property_account_refund_sale" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]"/> -->
+<!--                     <field name="property_account_refund_purchase" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" /> -->
+<!--                     <field name="property_account_discount_sale" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" /> -->
+<!--                     <field name="property_account_discount_purchase" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]"/> -->
+<!--                 </field> -->
+<!--              </field> -->
+<!--         </record> -->
+        
+        <record id="view_category_refund_form" model="ir.ui.view">
+            <field name="name">product.category.refund.form.inherit</field>
+            <field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+                <field name="property_account_expense_categ" position="after">
+                    <separator string="Refund Properties" colspan="4"/>
+                   	<field name="permit_refund"/>
+                    <field name="property_account_refund_sale_categ" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]" />
+                    <field name="property_account_refund_purchase_categ" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]"/>
+                    <field name="property_account_discount_sale_categ" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]"/>
+                    <field name="property_account_discount_purchase_categ" domain="[('type','&lt;&gt;','view'),('type','&lt;&gt;','consolidation')]"/>
+                </field>
+            </field>
+        </record>
+    
+    
+    </data>
+</openerp>

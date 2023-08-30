@@ -1,0 +1,200 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-02 06:42+0000\n"
+"PO-Revision-Date: 2013-02-02 06:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "In Progress"
+msgstr "En proceso"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Confirm"
+msgstr "Confirmado"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Draft Purchase Requisition"
+msgstr "Requisición de Compras en Borrador"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Purchase Requisition in negociation"
+msgstr "Requisición de Compras en negociación"
+
+#. module: straconx_management
+#: model:ir.model,name:straconx_management.model_purchase_requisition
+#: model:ir.ui.menu,name:straconx_management.menu_purchase_requisition_management_tree
+#: view:purchase.requisition:0
+msgid "Purchase Requisition"
+msgstr "Solicitud de compra"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Approved by Supplier"
+msgstr "Aprobado por proveedor"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Unassigned"
+msgstr "No asignado"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Current Purchase Requisition"
+msgstr "Requisición de Compras actual"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Unassigned  Requisition"
+msgstr "Requisición de Compras no asignada"
+
+#. module: straconx_management
+#: model:ir.actions.act_window,name:straconx_management.straconx_action_purchase_requisition
+#: model:ir.actions.act_window,name:straconx_management.straconx_action_purchase_requisition_form
+#: model:ir.ui.menu,name:straconx_management.menu_purchase_management
+msgid "Purchase Requisitions"
+msgstr "Solicitudes de compra"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Search Purchase Requisition"
+msgstr "Buscar solicitud de compra"
+
+#. module: straconx_management
+#: field:purchase.requisition,solicited_id:0
+msgid "Solicited by"
+msgstr "Solicitado por"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Cancel Purchase Order"
+msgstr "Cancelar pedido de compra"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: straconx_management
+#: model:ir.ui.menu,name:straconx_management.menu_purchase_requisition_management_form
+msgid "New Purchase Requisition"
+msgstr "Nueva Requisición de Compras"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Order Date"
+msgstr "Fecha pedido"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Quotations"
+msgstr "Presupuestos"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Request a Quotation"
+msgstr "Solicitar un presupuesto"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: straconx_management
+#: model:ir.ui.menu,name:straconx_management.straconx_menu__management_purchase_form_action
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_management
+#: model:ir.ui.menu,name:straconx_management.menu_management_purchase_form_action
+msgid "New Purchase"
+msgstr "Nueva Orden de Compra"
+
+#. module: straconx_management
+#: model:ir.ui.menu,name:straconx_management.menu_purchase_management_admin
+msgid "Management Purchase "
+msgstr "Administración de Compras "
+
+#. module: straconx_management
+#: model:ir.ui.menu,name:straconx_management.menu_management
+msgid "Management "
+msgstr "Gestión Administrativa"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Reset to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Confirm Purchase Order"
+msgstr "Confirmar pedido de compra"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_management
+#: view:purchase.requisition:0
+msgid "Start Date"
+msgstr "Fecha inicio"

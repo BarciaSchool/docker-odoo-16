@@ -1,0 +1,12 @@
+BZR merge-modified list format 1
+file_id: invoice_refund_view.-20120705224252-r4ck0mwvzv9k27y0-1
+hash: 5f5f6454901bf5d95f4d4d52669c1233d385c1ee
+
+file_id: account_invoice.py-20120704214713-lwwrhmfxx61y6b3b-6
+hash: 90985fd3440ed5c25f5593796fedcd7a1a06a2b0
+
+file_id: straconx_credit_note-20140316065955-s2cdu4xnfis8dnl8-1
+hash: 98dbdba2641084611f96f65a8aea8d67206b6921
+
+file_id: __openerp__.py-20120704214713-lwwrhmfxx61y6b3b-4
+hash: 37da2013443b0b557b42e40d042d73f096a5bad7

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+        <record id="straconx_account.res_partner_sri" model="res.partner">
+            <field name="name">SERVICIO DE RENTAS INTERNAS</field>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="vat">EC1760013210001</field>
+            <field name="website">www.sri.gob.ec</field>
+        </record>
+		<record id='straconx_account.res_partner_address_sri' model='res.partner.address'>
+			<field name='name'>SERVICIO DE RENTAS INTERNAS</field>
+			<field name='street'>SALINAS N17-203 Y SANTIAGO</field>
+			<field search="[('name','=','QUITO')]" model='city.city'
+				name='location_id' />
+			<field name='phone'>None</field>
+			<field name='type'>default</field>
+			<field name="partner_id" ref="straconx_account.res_partner_sri" />
+			<field name='ag_state'>open</field>
+			<field name='number_sri'>037</field>
+		</record>
+	</data>
+</openerp>

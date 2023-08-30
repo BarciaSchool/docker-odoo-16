@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+		<record id="account_ledger_statement_view" model="ir.ui.view">
+			<field name="name">Account Leger</field>
+			<field name="model">account.ledger.statement</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Select Date or Period for Ledgers">
+					<group colspan="4" col="8">
+					<separator string="Required Info" colspan="4"/>
+					<newline />
+					<field name="company_id" colspan="4" widget="selection"/>
+					<newline />
+					<field name="account_list" domain="[('company_id','=',company_id)]" colspan="4"/>
+					<newline />
+					<field name="analytic_account_id" colspan="2"/>
+					<field name="fiscalyear" required="True" invisible="1" colspan="2" domain="[('company_id','=',company_id)]"/>
+					<field name="move_state" required="True" colspan="2" />					
+					<newline />
+					<field name="shop_id" colspan="2"/>
+					<field name="department_id" colspan="2"/>
+					<newline />
+					<field name="partner_id" colspan="4" />
+					<newline />
+					<field name="state" required="True" invisible="1"/>
+					<newline />
+					</group>					
+					<newline />
+					<group attrs="{'invisible':[('state','=','byperiod')]}"	colspan="4" >
+						<separator string="Date Filter" colspan="8"/>
+						<newline />
+						<field name="date_from" attrs="{'required':[('state','=','bydate')]}"/>
+						<field name="date_to" attrs="{'required':[('state','=','bydate')]}"/>
+					</group>
+					<group attrs="{'invisible':[('state','=','bydate')]}" colspan="4">
+						<separator string="Filter on Periods" colspan="8"/>
+						<newline />
+						<field name="period_from" domain="[('fiscalyear_id','=',fiscalyear),('company_id','=',company_id)]" attrs="{'required':[('state','=','byperiod')]}"/>
+						<field name="period_to" domain="[('fiscalyear_id','=',fiscalyear),('company_id','=',company_id)]" attrs="{'required':[('state','=','byperiod')]}"/>
+					</group>
+					<newline />
+					<group col="8" colspan="4">
+					<separator string="Other Filters" colspan="4" />
+					<newline />
+					<field name="display_account" required="True" />
+					<field name="sortbydate" required="True" />
+					<newline />
+					<field name="amount_currency" invisible="1" />
+					<field name="initial_balance" invisible="1" />
+					<newline />
+					<field name="initial_amount" required="True" />
+					<field name="final_amount" required="True" />
+					</group>
+					<newline />
+					<group col="8" colspan="4">
+						<button name="search_lines" string="Buscar Movimientos" type="object" icon="gtk-apply"/>
+						<button name="%(account_ledger_report_id)d" string="Imprimir Mayores" type="action" icon="gtk-print"/>										
+						<button name="%(account_ledger_report_xls_id)d" string="Exportar Mayores" type="action" icon="gtk-convert"/>
+						<button icon="gtk-cancel" special="cancel" string="Cancel"/>
+					</group>
+					<newline />
+					<field name="move_lines" nolabel="1" colspan="4" readonly="1">
+						<tree string="Línea de Movimiento">
+								<field name="date"/>
+								<field name="move_id"/>
+								<field name="move_line_id" invisible="1"/>
+								<field name="partner_id"/>
+								<field name="reference"/>
+								<field name="debit" sum="Total Débitos"/>
+								<field name="credit" sum="Total Créditos"/>
+								<field name="total_debit"/>
+								<field name="total_credit"/>
+								<field name="subtotal_line"/>						
+						</tree>
+						<form string="Línea de Movimiento">
+								<field name="date"/>
+								<field name="move_id"/>
+								<field name="move_line_id"/>
+								<field name="partner_id"/>
+								<field name="reference"/>
+								<field name="debit" sum="Total Débitos"/>
+								<field name="credit" sum="Total Créditos"/>
+								<field name="total_debit"/>
+								<field name="total_credit"/>
+								<field name="subtotal_line"/>						
+						</form>
+					</field>
+				</form>
+			</field>
+		</record>
+		
+		<record id="account_ledger_statement_view_lines_tree" model="ir.ui.view">
+			<field name="name">Línea de Movimiento</field>
+			<field name="model">account.ledger.statement.lines</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Línea de Movimiento">
+						<field name="date"/>
+						<field name="move_id"/>
+						<field name="move_line_id" invisible="1"/>
+						<field name="partner_id"/>
+						<field name="reference"/>
+						<field name="debit" sum="Total Débitos"/>
+						<field name="credit" sum="Total Créditos"/>
+						<field name="total_debit"/>
+						<field name="total_credit"/>
+						<field name="subtotal_line"/>						
+				</tree>
+			</field>
+		</record>		
+
+		<record id="account_ledger_statement_view_lines_form" model="ir.ui.view">
+			<field name="name">Línea de Movimiento</field>
+			<field name="model">account.ledger.statement.lines</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<form string="Línea de Movimiento">
+						<field name="date"/>
+						<field name="move_id"/>
+						<field name="move_line_id" invisible="1"/>
+						<field name="partner_id"/>
+						<field name="reference"/>
+						<field name="debit" sum="Total Débitos"/>
+						<field name="credit" sum="Total Créditos"/>
+						<field name="total_debit"/>
+						<field name="total_credit"/>
+						<field name="subtotal_line"/>						
+				</form>
+			</field>
+		</record>				
+		
+		<record id="account_ledger_statement_view_act" model="ir.actions.act_window">
+			<field name="name">Mayores Contables</field>
+			<field name="res_model">account.ledger.statement</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="context">{}</field>
+			<field name="target">current</field>
+		</record>
+	</data>
+</openerp>

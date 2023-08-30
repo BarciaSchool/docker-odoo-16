@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+<!--Account Menu -->
+            
+    <menuitem 
+        id="straconx_menu_shop"
+        name="Compañía"
+        parent="account.menu_finance_configuration"
+        sequence="0" />
+
+    <menuitem 
+        id="sale.menu_action_company"
+        name="Compañías"
+        action="action_res_company" 
+        parent="straconx_menu_shop"
+        sequence="0" />
+        
+    <menuitem 
+        id="sale.menu_action_shop_form"
+        action="sale.action_shop_form" 
+        parent="straconx_menu_shop"
+        sequence="1" />
+        
+    <menuitem 
+        id="printer_point_menu" 
+        name="Account Printer Points"
+        action="action_printer_point_view" 
+        parent="straconx_menu_shop"
+        sequence="2"/>
+    
+    <menuitem 
+        id="area_menu" 
+        name="Account Area"
+        action="action_area_view" 
+        parent="straconx_menu_shop"
+        sequence="3"/>
+        
+     <!-- Type Journal -->
+
+	<menuitem id="account.menu_journals" 
+		sequence="9" 
+		name="Journals"
+		parent="account.menu_finance_accounting" 
+		groups="account.group_account_manager" />
+
+	<menuitem action="account.action_account_journal_form" 
+		id="account.menu_action_account_journal_form"
+		parent="account.menu_journals" />
+
+     <menuitem 
+     	id="account_journal_type_menu" 
+     	name="Journal Type" 
+     	parent="account.menu_journals" 
+     	action="action_account_journal_type"/>
+     	
+     <!-- Type account Internal -->	
+     <menuitem 
+     	id="account_account_type_menu" 
+     	name="Account Type Internal" 
+     	parent="account.account_account_menu" 
+     	action="action_account_account_type_internal" 
+     	sequence="18"/>
+
+
+<!---->
+<!--    <menuitem -->
+<!--        name="Documents Type"-->
+<!--        id="menu_action_straconx_account_tax_documents"-->
+<!--        action="action_straconx_account_tax_documents" -->
+<!--        parent="account_sri_configuration" -->
+<!--        sequence="2"/>-->
+<!---->
+<!--    <menuitem -->
+<!--        name="Transaction Type"-->
+<!--        id="menu_action_straconx_account_tax_sustention"-->
+<!--        action="action_straconx_account_tax_sustention" -->
+<!--        parent="account_sri_configuration" -->
+<!--        sequence="3"/>-->
+<!---->
+<!--    <menuitem -->
+<!--        name="Transaction Sustention"-->
+<!--        id="menu_action_straconx_account_tax_type_sustention"-->
+<!--        action="action_straconx_account_tax_type_sustention" -->
+<!--        parent="account_sri_configuration" -->
+<!--        sequence="1"/>-->
+<!--        -->
+<!--        -->
+<!--    <menuitem action="base.action_partner_address_form" -->
+<!--            id="menu_partner_address_account_form"-->
+<!--            parent="account.menu_finance_payables" sequence="6"/>-->
+<!---->
+
+	<menuitem id="account.menu_finance_periodical_processing" name="Periodical Processing"
+		parent="account.menu_finance" sequence="16"
+		groups="account.group_account_user,account.group_account_manager" />
+    
+    
+    </data>
+</openerp>
+    

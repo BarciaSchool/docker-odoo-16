@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    		<record model="ir.ui.view" id="straconx_user_petty_cash_form_inherit">
+                <field name="name">straconx.user.petty.cash.form.inherit</field>
+                <field name="model">res.users</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="straconx_payments.res_user_payments_form_view"/>
+                <field name="arch" type="xml">
+                        <field name="cash_box_default_id" position="after">
+                        	<field name="maximun_cash_voucher_amount" attrs="{'invisible': [('is_cashier','!=',True)]}" on_change="onchange_maximun_cash_voucher_amount(maximun_cash_voucher_amount,is_cashier)"/>
+						</field>
+                </field>
+            </record>    
+    </data>
+</openerp>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="deposit_statement_form" model="ir.ui.view">
+			<field name="name">deposit.statement.form</field>
+			<field name="model">deposit.statement.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Deposit">
+					<group colspan="4" width="900">
+						<label string="In this wizard you must specify the total amount deposit ​​to closing the cash box."/>
+					</group>
+					<group colspan="4">
+						<field name="statement_id" invisible="1"/>
+					</group>
+					<field name="line_ids" colspan="4" nolabel="1">
+						<tree editable="bottom" string="Lines deposit Register Cash">
+							<field name="mode_id" domain="[('only_receipt','=',True)]" required="1" on_change="onchange_mode_id(parent.statement_id, mode_id)"/>
+							<field name="account_id" domain="[('type','=','liquidity')]" invisible="0" required="1"/>
+                            <field name="receipt" required="1"/>
+                            <field name="receipt_date" required="1"/>
+                            <field name="amount" required="1" sum="Total Depósito"/>
+                        </tree>
+                        <form string="Lines deposit Register">
+                        	<field name="mode_id" domain="[('only_receipt','=',True)]" required="1" on_change="onchange_mode_id(parent.statement_id, mode_id)"/>
+                            <field name="account_id" domain="[('type','=','liquidity')]" invisible="0" required="1"/>
+                            <field name="receipt" required="1"/>
+                            <field name="receipt_date" required="1"/>
+                            <field name="amount" required="1"/>
+                        </form>
+					</field>
+					<group col="6" colspan="4">
+						<label string="" colspan="2" />
+						<button icon="gtk-cancel" special="cancel" string="_Cancel" type="object"/>
+						<button name="action_deposit" string="Deposit" icon="gtk-media-play"
+						type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_deposit_statement" model="ir.actions.act_window">
+			<field name="name">Depósito de Cajas</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">deposit.statement.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="deposit_statement_form" />
+			<field name="target">new</field>
+		</record>
+		
+
+	</data>
+</openerp>

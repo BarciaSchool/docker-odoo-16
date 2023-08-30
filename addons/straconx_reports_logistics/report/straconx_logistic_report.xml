@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--     Submenú para Reportes Logísticos -->
+  		<menuitem name="Ajustes de Inventarios" id="str_inventory_reports" parent="stock.next_id_61" sequence="3" />
+  
+         <record id="product_inventory_list_shop" model="ir.actions.report.xml">
+            <field name="name">Listado de Inventarios por Tiendas</field>
+            <field name="report_name">inventory.shop</field>
+            <field name="pentaho_filename">straconx_reports_logistics/report/straconx_inventory_shop_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('str_inventory_reports')"/>
+            <field name="model" >stock.inventory</field>
+        </record>   
+        
+         <record id="product_inventory_list_product_shop" model="ir.actions.report.xml">
+            <field name="name">Ajustes por Productos y Tiendas</field>
+            <field name="report_name">inventory.product.shop</field>
+            <field name="pentaho_filename">straconx_reports_logistics/report/straconx_inventory_products_shop_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('str_inventory_reports')"/>
+            <field name="model" >stock.inventory</field>
+        </record>
+
+         <record id="product_inventory_list_category_shop" model="ir.actions.report.xml">
+            <field name="name">Ajustes por Categorías y Tiendas</field>
+            <field name="report_name">inventory.category.shop</field>
+            <field name="pentaho_filename">straconx_reports_logistics/report/straconx_inventory_categories_shop_list.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.inventory')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('str_inventory_reports')"/>
+            <field name="model" >stock.inventory</field>
+        </record>
+	</data>
+</openerp>

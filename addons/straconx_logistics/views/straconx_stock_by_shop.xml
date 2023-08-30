@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!-- 		<record model="ir.ui.view" id="ubication_product_normal_action"> -->
+<!-- 			<field name="name">Ubicaciones de Productos</field> -->
+<!-- 			<field name="model">product.product</field> -->
+<!-- 			<field name="inherit_id" ref="product.product_product_tree_view" /> -->
+<!-- 			<field name="arch" type="xml"> -->
+<!-- 				<field name="qty_available" position="replace"> -->
+<!-- 					<field name="qty_available" invisible="1" /> -->
+<!-- 				</field> -->
+<!-- 				<field name="virtual_available" position="replace"> -->
+<!-- 					<field name="virtual_available" -->
+<!-- 						groups="base.group_sales_supervisor,base.group_pos_manager,base.group_phone_manager,base.group_sale_manager" -->
+<!-- 						invisible="1" /> -->
+<!-- 				</field> -->
+<!-- 				<field name="lst_price" position="before"> -->
+<!-- 					<field name="ubication_total_amount" /> -->
+<!-- 				</field> -->
+<!-- 			</field> -->
+<!-- 		</record> -->
+
+	</data>
+</openerp>

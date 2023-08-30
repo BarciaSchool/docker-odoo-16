@@ -1,0 +1,6 @@
+Ejecutar wkf_invoice_migrate si has migrado facturas desde un sql.
+Este te crea los registros que necesitas para ejecutar un workflow
+
+
+Run wkf_invoice_migrate if you have migrated from a sql.
+This will make the records you need to run a workflow.

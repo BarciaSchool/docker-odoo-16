@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="form_103_form" model="ir.ui.view">
+            <field name="name">form 103</field>
+            <field name="model">form.103</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Form 103">
+                    <group colspan="4" width="850" height="400">
+                    	<label string="Este Asistente permite generar el formulario 103 del sri listo para cargarlo a la web oficial www.sri.gob.ec"/>
+                    	<label string=""/>
+                    	<separator colspan="4"/>
+                    	<field invisible="1" name="state"/>
+                    	<group colspan="4" states="choose" height="280" width="850">
+                    		<notebook>
+                    			<page string="Data Form">
+			                    	<field name="fiscalyear_id" string="Año Fiscal"/>
+			                    	<field name="period_id" string="Periodo"/>
+			                    	<field name="company_id" widget="selection" on_change="onchange_company(company_id)" string="Compañía"/>
+			                    	<field name="currency_id" string="Moneda"/>
+			                    	<field name="legal_representative_id" domain="[('type_vat','in',('ci','passport'))]" string="Representante Legal"/>
+			                    	<field name="counter_id" domain="[('type_vat','=','ruc')]" string="Contador"/>
+			                    	<field name="cod_form" required="1" string="Formulario"/>
+		                    	</page>
+		                    	<page string="Form Replacement">
+			                    	<field name="replacement"/>
+			                    	<field name="cod_form_replace" attrs="{'invisible':[('replacement','!=',True)],'required':[('replacement','=',True)]}"/>
+			                    	<newline/>
+			                    	<group attrs="{'invisible':[('replacement','!=',True)]}" colspan="4">
+				                    	<separator string="Imputation detail (substitute declarations)"/>
+				                    	<group colspan="4" attrs="{'required':[('replacement','=',True)]}">
+				                    		<field name="pre_payment"/>
+				                    		<field name="pre_interest"/>
+				                    		<field name="pre_tax"/>
+				                    		<field name="pre_fine"/>
+				                    	</group>
+				                    	<separator string="Other taxes for substitute declarations"/>
+				                    	<group colspan="4" attrs="{'required':[('replacement','=',True)]}">
+				                    		<field name="interest"/>
+				                    		<field name="tax"/>
+				                    	</group>
+			                    	</group>
+		                    	</page>
+	                    	</notebook>
+	                    </group>
+	                    <group colspan="4" states="get" height="280" width="850">
+                            <field name="name" invisible="1" colspan="4"/>
+                            <field name="data" nolabel="1" colspan="4"/>
+                        </group>
+                        <group colspan="8" col="6" states="choose">
+                            <separator string="" colspan="6"/>
+                            <label colspan="6" width="200"/>
+                            <button icon="gtk-cancel" special="cancel" string="_Close"/>
+                            <button icon="gtk-ok" name ="act_export" string="_Export" type="object"/>
+                            <button icon="gtk-ok" name ="crear_formulario" string="Generar Excel" type="object"/>
+                        </group>
+                         <group colspan="8" col="8" states="get">
+                            <separator string="" colspan="8"/>
+                            <label colspan="7" width="220"/>
+                            <button icon="gtk-close" special="cancel" string="_Close"/>
+                        </group>
+					</group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_form_103" model="ir.actions.act_window">
+            <field name="name">Export Form 103 SRI</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">form.103</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_103_form" />
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

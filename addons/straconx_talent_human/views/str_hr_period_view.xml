@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<!-- Fiscal Year -->
+		<record id="view_hr_fiscalyear_form" model="ir.ui.view">
+			<field name="name">account.fiscalyear.form</field>
+			<field name="model">account.fiscalyear</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Fiscalyear">
+					<group>
+						<field name="name" readonly="1" />
+						<field name="code" readonly="1" />
+						<field name="date_start" readonly="1" />
+						<field name="date_stop" readonly="1" />
+						<field name="company_id" readonly="1" />
+						<field name="extra"/>
+					</group>
+					<separator colspan="4" string="HR Periods" />
+					<field colspan="4" name="hr_period_ids" nolabel="1"
+						widget="one2many_list" readonly="1"/>
+					<separator colspan="4" string="States" />
+					<group>
+						<field name="state" select="1" readonly="1"  widget="statusbar" />
+						<button name="hr_create_period" states="draft"
+							string="Create Monthly Periods" type="object" icon="terp-document-new" />
+						<button name="hr_create_period2" states="draft"
+							string="Create Bi-Monthly Periods" type="object" icon="terp-document-new" />
+					</group>
+				</form>
+			</field>
+		</record>
+		<record id="view_hr_fiscalyear_tree" model="ir.ui.view">
+			<field name="name">account.fiscalyear.tree</field>
+			<field name="model">account.fiscalyear</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="blue:state == 'draft';gray:state == 'done'"
+					string="Fiscalyear">
+					<field name="code" />
+					<field name="name" />
+					<field name="company_id" groups="base.group_multi_company" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+		<record id="view_hr_fiscalyear_search" model="ir.ui.view">
+			<field name="name">account.fiscalyear.search</field>
+			<field name="model">account.fiscalyear</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Search Fiscalyear">
+					<group>
+						<filter string="Open" domain="[('state','=','draft')]"
+							icon="terp-camera_test" />
+						<filter string="Closed" domain="[('state','=','done')]"
+							icon="terp-dialog-close" />
+						<separator orientation="vertical" />
+						<field name="code" />
+						<field name="name" />
+						<field name="state" />
+					</group>
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="State" context="{'group_by': 'state'}"
+							icon="terp-stock_effects-object-colorize" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<record id="action_hr_fiscalyear_form" model="ir.actions.act_window">
+			<field name="name">Fiscal Years</field>
+			<field name="res_model">account.fiscalyear</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_hr_fiscalyear_search" />
+		</record>
+
+		<record id="action_hr_fiscalyear_view_t" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="view_hr_fiscalyear_tree" />
+			<field name="act_window_id" ref="action_hr_fiscalyear_form" />
+		</record>
+
+		<record id="action_hr_fiscalyear_view_f" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_hr_fiscalyear_form" />
+			<field name="act_window_id" ref="action_hr_fiscalyear_form" />
+		</record>
+
+
+		<!-- HR Period Fiscal -->
+		<record model="ir.ui.view" id="hr_period_payment_search">
+			<field name="name">Payment Period Search</field>
+			<field name="model">hr.period</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Payment Period Search">
+					<group col="12" colspan="6">
+						<filter string="Type" icon="terp-camera_test" name="category_id"
+							context="{'group_by':'type'}" />
+						<filter string="State" name="state" icon="terp-folder-yellow"
+							context="{'group_by':'state'}" />
+						<separator orientation="vertical" />
+						<field name="name" />
+						<field name="type" />
+						<field name="state"  widget="statusbar"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_period_payment_tree">
+			<field name="name">Payment Period List</field>
+			<field name="model">hr.period</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree
+					colors="blue:state == 'draft';gray:state == 'cancel';red:state == 'waiting'"
+					string="Payment period">
+					<field name="name" />
+					<field name="date_start" />
+					<field name="date_stop" />
+					<field name="type" />
+					<field name="state" />
+					<field name="company_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_period_payment_form">
+			<field name="name">Payment Period Form</field>
+			<field name="model">hr.period</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Payment period">
+					<group colspan="4">
+						<field name="name" readonly="1" />
+						<field name="date_start" readonly="1" />
+						<field name="date_stop" readonly="1" />
+						<newline />
+						<field name="type" readonly="1" />
+						<field name="payment" readonly="1" />
+						<field name="state" readonly="1"  widget="statusbar"/>
+						<field name="company_id" readonly="1" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_hr_period_payment_view" model="ir.actions.act_window">
+			<field name="name">Payment Period Actions</field>
+			<field name="res_model">hr.period</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="hr_period_payment_search" />
+		</record>
+
+		<record id="action_hr_period_payment_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="hr_period_payment_tree" />
+			<field name="act_window_id" ref="action_hr_period_payment_view" />
+		</record>
+
+	</data>
+</openerp>

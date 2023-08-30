@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="sales_loyalty_customer_search" model="ir.ui.view">
+			<field name="name">Búsqueda de Cliente</field>
+			<field name="model">sales.loyalty.partner</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Estado de Promociones">
+					<field name="name"/>
+					<field name="vat"/>
+					<field name="partner_id"/>
+				</search>
+			</field>
+		</record>
+
+		<record id="sales_loyalty_customer_tree" model="ir.ui.view">
+			<field name="name">Lista de Clientes</field>
+			<field name="model">sales.loyalty.partner</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Estado de Promociones">
+					<field name="name"/>
+					<field name="partner_id"/>
+					<field name="date_from"/>
+					<field name="date_to"/>
+					<field name="received_bonus"/>
+					<field name="redeem_bonus"/>
+					<field name="expired_bonus"/>
+					<field name="actual_bonus"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="sales_loyalty_customer_form" model="ir.ui.view">
+			<field name="name">Formulario de Promociones</field>
+			<field name="model">sales.loyalty.partner</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Promociones">
+					<group col="4" colspan="2">
+						<field name="company_id" readonly="1" colspan="4"/>
+						<field name="name" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="vat" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="partner_id" colspan="4" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="date_from" required="1" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="date_to" required="1" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="total_invoices"/>
+						<field name="received_bonus"/>						
+						<field name="redeem_bonus"/>
+						<field name="expired_bonus"/>
+						<field name="actual_bonus"/>						
+					</group>
+					<newline/>
+					<!--  <button name="print_report" string="Imprimir Reporte" type="object" icon="gtk-print"/> -->
+					<newline/>
+					<field name="bonus_ids" nolabel="1" readonly="0">
+						<tree string="Detalle">
+							<field name="name" invisible="1"/>
+							<field name="partner_id" invisible="1"/>
+							<field name="type" readonly="1"/>
+							<field name="mode_id" readonly="1"/>
+							<field name="date" readonly="1"/>
+							<field name="invoice_id"  readonly="1"/>
+							<field name="amount_invoice"  readonly="1"/>
+							<field name="bonus" readonly="1"/>
+							<field name="pending" readonly="1"/>
+							<field name="percent" readonly="1"/>
+							<field name="date_start" readonly="1"/>
+							<field name="date_expired" readonly="1"/>
+							<field name="state" readonly="1"/>							
+							<field name="campaing_id" readonly="1" invisible="1"/>
+						</tree>
+						<form string="Detalle">
+							<field name="name" invisible="1"/>
+							<field name="partner_id" invisible="1"/>
+							<field name="type" readonly="1"/>
+							<field name="mode_id" readonly="1"/>
+							<field name="date" readonly="1"/>
+							<field name="invoice_id"  readonly="1"/>
+							<field name="amount_invoice"  readonly="1"/>
+							<field name="bonus" readonly="1"/>
+							<field name="pending" readonly="1"/>
+							<field name="percent" readonly="1"/>
+							<field name="date_start" readonly="1"/>
+							<field name="date_expired" readonly="1"/>
+							<field name="state" readonly="1"/>
+							<field name="campaing_id" readonly="1" invisible="1"/>
+						</form>
+					</field>
+					</form>
+			</field>
+		</record>
+
+        <record id="action_sales_loyalty_customer" model="ir.actions.act_window">
+            <field name="name">Estado de Promociones</field>
+            <field name="res_model">sales.loyalty.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" eval="sales_loyalty_customer_form"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+<!--             <field name="search_view_id" ref="sales_loyalty_customer_search"/> -->
+        </record>
+
+		<record id="action_sales_loyalty_customer_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sales_loyalty_customer_tree"/>
+            <field name="act_window_id" ref="sales_loyalty_customer_search"/>
+        </record>
+
+		<record id="action_sales_loyalty_customer_form" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sales_loyalty_customer_form"/>
+            <field name="act_window_id" ref="sales_loyalty_customer_search"/>
+        </record>
+
+<!-- ************************** -->
+<!-- *********REPORTE********** -->
+<!-- ************************** -->
+		
+		<record id="straconx_view_loyalty_form" model="ir.ui.view">
+			<field name="name">Promociones</field>
+			<field name="model">reports.loyalty.partner</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Promociones">
+					<group col="4" colspan="2">
+						<field name="company_id" readonly="1" colspan="4"/>
+						<field name="name" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="vat" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="partner_id" required="1" colspan="4" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="date_from" required="1" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						<field name="date_to" required="1" on_change="onchange_date(date_from,date_to,partner_id,vat,name)"/>
+						
+					</group>
+					<newline/>
+					<group>
+						<button name="do_search_loyalty_report" string=" Generar Reporte de Promociones" icon="gtk-media-play"  colspan="3"
+								type="object" />		 			
+						<button name="%(reports_loyalty_partner)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>							
+						<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2" type="object" />
+					</group>
+					<newline/>
+					<field name="bonus_ids" required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+					</field>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="straconx_view_loyalty_tree" model="ir.ui.view">
+			<field name="name">Resumen de Promociones</field>
+			<field name="model">reports.loyalty.partner.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Promociones">
+					<field name="type" readonly="1"/>
+					<field name="mode_id" readonly="1"/>
+					<field name="date" readonly="1"/>
+					<field name="invoice_id" readonly="1"/>
+					<field name="amount_invoice" readonly="1"/>
+					<field name="bonus"  readonly="1"/>
+					<field name="pending"  readonly="1"/>
+					<field name="percent" readonly="1"/>
+					<field name="date_start" readonly="1"/>
+					<field name="date_expired" readonly="1"/>
+					<field name="state" readonly="1"/>
+					<field name="state" readonly="1"/>							
+					<field name="campaing" readonly="1"/>
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="action_loyalty_reports_form" model="ir.actions.act_window">
+			<field name="name">Resumen de Promociones</field>
+			<field name="res_model">reports.loyalty.partner</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+	</data>
+</openerp>

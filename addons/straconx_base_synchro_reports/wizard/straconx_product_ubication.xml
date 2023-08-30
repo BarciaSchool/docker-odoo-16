@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		 <record id="straconx_base_synchro.view_wizard_product_information_form" model="ir.ui.view">
+            <field name="name">Información de Productos</field>
+            <field name="model">wizard.product.ubication</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Información de Productos">
+				<group height="480" width="960">
+				  	<group colspan="4">
+                	<field name="company_id" readonly="1" colspan="4"/>
+                	<field name="product_id" readonly="1"/>
+                	<field name="date" readonly="1"/>
+					</group>
+                	<newline/>
+                	<group colspan="6">
+                		<field name="purchases" readonly="1"/>
+                		<field name="inputs" readonly="1"/>
+                		<field name="outputs" readonly="1"/>
+                		<field name="transfers" readonly="1"/>
+                		<field name="manufacturer" readonly="1"/>
+                		<field name="refunds" readonly="1"/>
+                		<field name="inventory" readonly="1"/>
+                		<field name="stock" readonly="1"/>
+					</group>
+					<newline/>
+                	<field name="lines_product_ids" readonly="1" colspan="4" nolabel="1">
+                		<tree string="Ubicación"  editable="bottom">
+		               		<field name="location_id" />
+							<field name="product_id" invisible="1"/>
+							<field name="purchase_unit" sum="Compras"/>
+							<field name="refunds" sum="Devoluciones"/>
+							<field name="transfer_send" sum="Transf. Enviadas"/>
+							<field name="transfer_unit" sum="Transf. Recibidas"/>
+							<field name="sales_unit" sum="Ventas"/>
+							<field name="inventories" sum="Ajustes"/>
+							<field name="stock_unit" sum="Inventario"/>							
+						</tree>	
+					</field>	
+					<newline/>																		
+				  	<group colspan="4">
+						<button name="do_product_conection" string="Revisar Inventario de Productos" icon="gtk-media-play"
+							type="object" />						
+						<button icon="gtk-cancel" special="cancel" string="Cancelar"
+							type="object" />
+				  	</group>
+				</group>
+				</form>
+            </field>
+        </record>
+        
+	    <record id="straconx_products.action_product_information_view" model="ir.actions.act_window">
+	            <field name="name">Información de Productos</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">wizard.product.ubication</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">form</field>
+	            <field name="target">new</field>
+        </record>
+        
+       <delete model="ir.ui.view" id="straconx_logistics.product_form_ubication2"/>
+              
+	</data>
+</openerp>

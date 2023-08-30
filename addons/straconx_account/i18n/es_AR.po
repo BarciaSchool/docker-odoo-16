@@ -1,0 +1,1270 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-25 23:01+0000\n"
+"PO-Revision-Date: 2016-01-25 23:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Reconciliation"
+msgstr "Reconciliación"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:531
+#, python-format
+msgid "Move name (id): %s (%s)"
+msgstr "Nombre del Movimiento (id): %s (%s)"
+
+#. module: straconx_account
+#: selection:account.tax.code,tax_type:0
+#: selection:account.tax.code.template,tax_type:0
+msgid "Withhold Vat"
+msgstr "Retenciones IVA"
+
+#. module: straconx_account
+#: view:printer.point:0
+msgid "Tipo"
+msgstr "Tipo"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_tax_code
+msgid "Tax Code"
+msgstr "Código impuesto"
+
+#. module: straconx_account
+#: model:ir.actions.todo,note:straconx_account.config_call_account_template_ec
+msgid "Generate Chart of Accounts from a Chart Template. You will be asked to pass the name of the company, the chart template to follow, the no. of digits to generate the code for your accounts and Bank account, currency to create Journals. Thus,the pure copy of chart Template is generated.\n"
+"	This is the same wizard that runs from Financial Management/Configuration/Financial Accounting/Financial Accounts/Generate Chart of Accounts from a Chart Template."
+msgstr "Generar el Plan General de Contabilidad a partir de una plantilla. Se le pedirá elegir el nombre de la empresa, la plantilla contable a seguir, el no. de dígitos para generar el código de sus cuentas y la cuenta bancaria, la moneda para crear los Diarios. Basado en estos datos, se genera la nueva Configuración Contable.  n 	Este es el mismo asistente que se ejecuta desde Gestión Financiera / Configuración / Contabilidad Financiera / Contabilidad Financiera / Generar Plan General de Contabilidad a partir de una plantilla contable"
+
+#. module: straconx_account
+#: constraint:account.move:0
+msgid "You can not create more than one move per period on centralized journal"
+msgstr "No puede crear más de un movimiento por periodo en un diario centralizado"
+
+#. module: straconx_account
+#: field:res.bank,vat:0
+msgid "VAT code"
+msgstr "Código IVA"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_printer_point
+msgid "printer.point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:375
+#, python-format
+msgid "No period found or more than one period found for the given date."
+msgstr "No hay períodos o existe más de uno para la fecha indicada."
+
+#. module: straconx_account
+#: selection:account.tax,tax_type:0
+msgid "Otros Impuestos"
+msgstr "Otros Impuestos"
+
+#. module: straconx_account
+#: field:account.account,department_id:0
+#: field:account.move,department_id:0
+#: field:account.move.line,department_id:0
+msgid "Department"
+msgstr "Departmento"
+
+#. module: straconx_account
+#: help:account.move.line,reference:0
+msgid "Transaction document reference as Chq # 27"
+msgstr "Número del documento que referencia, por ejemplo Cheque #27"
+
+#. module: straconx_account
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_account
+#: field:res.company,pricelist:0
+msgid "Use list_price"
+msgstr "Usar lista de Precios"
+
+#. module: straconx_account
+#: field:sale.shop,credit_manager:0
+msgid "Credit Manager"
+msgstr "Jefe de Crédito"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:429
+#, python-format
+msgid "You can not use this general account in this journal, check the tab 'Entry Controls' on the related journal !"
+msgstr "No puede utilizar esta cuenta general para este diario. Revise la página 'Control de Entradas' en el diario relacionado !"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Reconciliation result"
+msgstr "Resultado de la reconciliación"
+
+#. module: straconx_account
+#: field:sale.shop,purchase_manager:0
+msgid "Purchase Manager"
+msgstr "Jefe de Compras"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:46
+#, python-format
+msgid "The entries to reconcile should belong to the same company"
+msgstr "Las entradas a reconciliar deben pertenecer a la misma compañía"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_analytic_journal
+msgid "Analytic Journal"
+msgstr "Diario Analítico"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:72
+#, python-format
+msgid "You need a shop for continue!"
+msgstr "¡Usted requiere una tienda para continuar!"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_message_option
+msgid "message.option"
+msgstr "Opción mensaje"
+
+#. module: straconx_account
+#: field:account.account.template,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_account
+#: field:account.chart,company_id:0
+#: model:ir.ui.menu,name:straconx_account.straconx_menu_shop
+#: field:validate.account.move,company_id:0
+msgid "Compañía"
+msgstr "Compañía"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_account_journal_type
+#: model:ir.model,name:straconx_account.model_account_journal_type
+msgid "account.journal.type"
+msgstr "Tipo de Diario Contable"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:375
+#, python-format
+msgid "Encoding error"
+msgstr "Error de codificación"
+
+#. module: straconx_account
+#: selection:account.tax,tax_type:0
+msgid "Aranceles"
+msgstr "Aranceles"
+
+#. module: straconx_account
+#: view:printer.point:0
+msgid "Users assign"
+msgstr "Usuario Asignado"
+
+#. module: straconx_account
+#: sql_constraint:account.tax:0
+msgid "Tax Name must be unique per company!"
+msgstr "¡El nombre del impuesto debe ser único por Compañía!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:212
+#: code:addons/straconx_account/wizard/account_crossing_reconcile.py:103
+#: code:addons/straconx_account/wizard/account_crossing_reconcile.py:105
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:72
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:83
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:86
+#, python-format
+msgid "UserError"
+msgstr "Error de Usuario"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,writeoff_acc_id:0
+#: model:ir.model,name:straconx_account.model_account_account
+msgid "Account"
+msgstr "Producto"
+
+#. module: straconx_account
+#: help:account.tax.code,tax_type:0
+#: help:account.tax.code.template,tax_type:0
+msgid "Select 'VAT' for VAT tax to be used at the time of making invoice.Select 'Withhold' for Withhold and VAT's Withhold tax to be used at the time of making invoice.Select 'Duties' for Duties tax to be used at the time of trade international liquidation."
+msgstr "Seleccione IVA para impuestos de IVA que serán usados al realizar una factura. Seleccione Retención en la Fuente o Retención sobre IVA para que sea el impuesto utilizado para crear Factura. Seleccione Arancel para la generación de documentos basados en la liquidación de importaciones."
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Ok"
+msgstr "Ok"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_wizard_multi_charts_accounts
+msgid "wizard.multi.charts.accounts"
+msgstr "Plan de Cuentas Multiple"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/option.py:24
+#, python-format
+msgid "Option Message"
+msgstr "Mensaje de Opción"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:72
+#, python-format
+msgid "Shop required !"
+msgstr "¡Se requiere una tienda para continuar en el movimiento contable!"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,move_lines_ids:0
+msgid "Move to Reconcile"
+msgstr "Movimiento a reconciliar"
+
+#. module: straconx_account
+#: sql_constraint:res.partner.address:0
+msgid "The number of SRI must be unique !"
+msgstr "¡El número del SRI debe ser único!"
+
+#. module: straconx_account
+#: selection:account.tax.code,tax_type:0
+#: selection:account.tax.code.template,tax_type:0
+msgid "Withhold"
+msgstr "Retención en la Fuente"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_journal.py:43
+#: code:addons/straconx_account/objects/account_journal.py:51
+#, python-format
+msgid "Ya existe %s como Diario de Costo Predeterminado"
+msgstr "Ya existe %s como Diario de Costo Predeterminado"
+
+#. module: straconx_account
+#: field:res.users,printer_point_ids:0
+msgid "boxes"
+msgstr "Cajas"
+
+#. module: straconx_account
+#: constraint:account.journal:0
+msgid "Configuration error! The currency chosen should be shared by the default accounts too."
+msgstr "Error de Configuración! La moneda seleccionada debe ser compartida por las cuentas por defecto tambíen"
+
+#. module: straconx_account
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr "¡Valor crédito o débito erróneo en apunte contable!"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_account_template
+msgid "Templates for Accounts"
+msgstr "Plantillas para cuentas"
+
+#. module: straconx_account
+#: selection:account.tax,tax_type:0
+msgid "Retención del IVA"
+msgstr "Retención del IVA"
+
+#. module: straconx_account
+#: model:ir.actions.report.xml,name:straconx_account.move_list_id
+msgid "Move Report"
+msgstr "Reporte de Movimiento Contable"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:117
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:46
+#, python-format
+msgid "Warning !"
+msgstr "¡Aviso!"
+
+#. module: straconx_account
+#: selection:account.tax.code,tax_type:0
+#: selection:account.tax.code.template,tax_type:0
+msgid "VAT"
+msgstr "IVA"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Reconcile"
+msgstr "Reconciliar"
+
+#. module: straconx_account
+#: field:account.model,shop_id:0
+#: field:account.move,shop_id:0
+#: field:account.move.line,shop_id:0
+#: view:printer.point:0
+#: field:printer.point,shop_id:0
+#: field:res.users,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_account
+#: view:res.users:0
+msgid "Access Rights"
+msgstr "Permisos de acceso"
+
+#. module: straconx_account
+#: constraint:account.account:0
+#: constraint:account.tax.code:0
+msgid "Error ! You can not create recursive accounts."
+msgstr "Error! No se pueden crear cuentas recursivas."
+
+#. module: straconx_account
+#: field:account.move.line,reference:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:147
+#, python-format
+msgid "Couldn't create move between different companies"
+msgstr "No se puede crear movimientos entre diferentes compañías"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:178
+#, python-format
+msgid "No Analytic Journal !"
+msgstr "¡Sin Diario Analítico!"
+
+#. module: straconx_account
+#: selection:account.tax.code,tax_type:0
+msgid "Others Taxes"
+msgstr "Otros Impuestos"
+
+#. module: straconx_account
+#: field:account.account,analytic_account_id:0
+#: model:ir.model,name:straconx_account.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta Analitica"
+
+#. module: straconx_account
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr "El código del diario debe ser único por compañía!"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,partner_id:0
+#: field:res.bank,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_account
+#: constraint:account.analytic.account:0
+msgid "Error! You can not create recursive analytic accounts."
+msgstr "¡Error! No puede crear cuentas analíticas recursivas."
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:165
+#, python-format
+msgid "You have a wrong expression \"%(...)s\" in your model !"
+msgstr "¡Usted tiene una expresión equivocada \"%(...)s\" en su modelo!"
+
+#. module: straconx_account
+#: field:sale.shop,logistics_stock:0
+msgid "Logistics Stock"
+msgstr "Administrador de Inventario"
+
+#. module: straconx_account
+#: view:res.company:0
+msgid "Other Settings"
+msgstr "Otras Configuraciones"
+
+#. module: straconx_account
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_account
+#: help:res.company,required_analytic:0
+msgid "If is check, you can active a analytic account"
+msgstr "Si esta activa, usted debe activar una cuenta analítica"
+
+#. module: straconx_account
+#: view:account.area:0
+#: field:account.area,name:0
+#: model:ir.actions.act_window,name:straconx_account.action_area_view
+msgid "Area"
+msgstr "Area"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+#: model:ir.ui.menu,name:straconx_account.menu_crossing_reconcile
+msgid "Crossing Reconciliation"
+msgstr "Reconciliación cruzada"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_fiscalyear_close
+msgid "Fiscalyear Close"
+msgstr "Cerrar Ejercicio Fiscal"
+
+#. module: straconx_account
+#: sql_constraint:account.account:0
+#: sql_constraint:account.account.template:0
+msgid "The code of the account must be unique per company !"
+msgstr "El código debe ser único por compañia"
+
+#. module: straconx_account
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_account
+#: constraint:res.partner.address:0
+msgid "Por cada empresa, solo puede existir una dirección tipo"
+msgstr "Por cada empresa, solo puede existir una dirección tipo"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:151
+#, python-format
+msgid "Couldn't create move with currency different from the secondary currency of the account \"%s - %s\". Clear the secondary currency field of the account definition if you want to accept all currencies."
+msgstr "Couldn't create move with currency different from the secondary currency of the account \"%s - %s\". Clear the secondary currency field of the account definition if you want to accept all currencies."
+
+#. module: straconx_account
+#: field:account.analytic.line,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_account
+#: model:res.partner.bank.type,name:straconx_account.savings_account
+msgid "Savings Account"
+msgstr "Cuenta Ahorro"
+
+#. module: straconx_account
+#: field:res.users,old_auth:0
+msgid "Allows entry of expired authorizations?"
+msgstr "¿Permite el ingreso de autorizaciones caducadas para aprobar documentos?"
+
+#. module: straconx_account
+#: selection:account.crossing.reconcile,type_reconcile:0
+msgid "Debit"
+msgstr "Débito"
+
+#. module: straconx_account
+#: field:res.company,property_discount_purchase:0
+msgid "Purchase Discount Account"
+msgstr "Cuenta de Descuento de Compras"
+
+#. module: straconx_account
+#: view:account.account.type.internal:0
+msgid "Account Type"
+msgstr "Tipo de Cuenta"
+
+#. module: straconx_account
+#: selection:account.tax,tax_type:0
+msgid "Retención en la Fuente"
+msgstr "Retención en la Fuente"
+
+#. module: straconx_account
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "¡La dirección seleccionada solo puede tener una tienda asignada!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:191
+#: code:addons/straconx_account/objects/account_move.py:227
+#: code:addons/straconx_account/objects/account_move.py:229
+#: code:addons/straconx_account/objects/account_move.py:533
+#, python-format
+msgid "Error !"
+msgstr "¡Error!"
+
+#. module: straconx_account
+#: constraint:account.account.template:0
+msgid "Error ! You can not create recursive account templates."
+msgstr "Error ! No puede crear cuentas recursivas"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,move_line_id:0
+msgid "Move line to reconcile"
+msgstr "Líneas del movimiento para reconciliar"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:44
+#, python-format
+msgid "Integrity Error !"
+msgstr "¡Error de Integridad!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:87
+#, python-format
+msgid "The journal must have centralised counterpart without the Skipping draft state option checked!"
+msgstr "The journal must have centralised counterpart without the Skipping draft state option checked!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_validate_account_move.py:42
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: straconx_account
+#: view:printer.point:0
+msgid "Users Assign"
+msgstr "Usuarios asignados"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_res_bank_emisor
+msgid "res.bank.emisor"
+msgstr "Emisores de Tarjetas de Crédito"
+
+#. module: straconx_account
+#: constraint:account.tax.code.template:0
+msgid "Error ! You can not create recursive Tax Codes."
+msgstr "Error ! No puede crear códigos recursivos"
+
+#. module: straconx_account
+#: view:res.company:0
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_tax
+msgid "account.tax"
+msgstr "Impuestos"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_printer_point_view
+#: view:printer.point:0
+msgid "Printer Point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Moves Lines to Reconcile"
+msgstr "Línea de movimientos a reconciliar"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,help:straconx_account.action_res_company
+msgid "Create and manage the companies that will be managed by OpenERP from here. Shops or subsidiaries can be created and maintained from here."
+msgstr "Cree o modifique las compañías que se gestionarán mediante OpenERP. Tiendas o delegaciones también pueden ser creadas y gestionadas desde aquí."
+
+#. module: straconx_account
+#: field:res.partner.bank,acc_country_id:0
+msgid "Bank country"
+msgstr "País del Banco"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_ir_actions_report_promptwizard
+msgid "ir.actions.report.promptwizard"
+msgstr "ir.actions.report.promptwizard"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:236
+#, python-format
+msgid "¡Error!"
+msgstr "¡Error!"
+
+#. module: straconx_account
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "Solo puede existir un diario por tipo en cada tienda."
+
+#. module: straconx_account
+#: help:res.bank,vat:0
+msgid "Value Added Tax number"
+msgstr "Número del RUC"
+
+#. module: straconx_account
+#: selection:account.tax,tax_type:0
+msgid "IVA"
+msgstr "IVA"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_area
+msgid "account.area"
+msgstr "Área Contable"
+
+#. module: straconx_account
+#: sql_constraint:printer.point:0
+msgid "The number of point printer must be unique for each shop!"
+msgstr "¡El número del punto de impresión debe ser único para cada tienda!"
+
+#. module: straconx_account
+#: selection:account.analytic.line,state:0
+msgid "Válido"
+msgstr "Válido"
+
+#. module: straconx_account
+#: constraint:account.move.line:0
+msgid "The selected account of your Journal Entry forces to provide a secondary currency. You should remove the secondary currency on the account or select a multi-currency view on the journal."
+msgstr "La cuenta selecionada de su diario obliga a tener una moneda secundaria. Usted debería eliminar la moneda secundaria de la cuenta o asignar una vista de multi-moneda al diario."
+
+#. module: straconx_account
+#: field:account.tax,tax_type:0
+msgid "Tipo de Impuesto"
+msgstr "Tipo de Impuesto"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,amount:0
+msgid "amount"
+msgstr "monto"
+
+#. module: straconx_account
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not define children to an account with internal type different of \"View\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_account
+#: model:res.partner.bank.type,name:straconx_account.credit_card
+msgid "Credit Card"
+msgstr "Tarjeta de Crédito"
+
+#. module: straconx_account
+#: field:printer.point,user_ids:0
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_res_partner_address
+msgid "Partner Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_account
+#: model:res.partner.bank.type,format_layout:straconx_account.credit_card
+#: model:res.partner.bank.type,format_layout:straconx_account.debit_card
+#: model:res.partner.bank.type,format_layout:straconx_account.savings_account
+msgid "%(bank_name)s: %(acc_number)s"
+msgstr "%(bank_name)s: %(acc_number)s"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_ir_actions_report_xml
+msgid "ir.actions.report.xml"
+msgstr "ir.acciones.informe.xml"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,allow_write_off:0
+msgid "Allow write off"
+msgstr "Permite diferencias"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:72
+#, python-format
+msgid "The periods to generate opening entries were not found"
+msgstr "The periods to generate opening entries were not found"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:165
+#, python-format
+msgid "Wrong model !"
+msgstr "¡Modelo equivocado!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:123
+#: code:addons/straconx_account/objects/account_journal.py:43
+#: code:addons/straconx_account/objects/account_journal.py:51
+#, python-format
+msgid "¡Aviso!"
+msgstr "¡Aviso!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:58
+#, python-format
+msgid "No sequence defined on the journal !"
+msgstr "No sequence defined on the journal !"
+
+#. module: straconx_account
+#: view:account.journal.type:0
+#: model:ir.ui.menu,name:straconx_account.account_journal_type_menu
+msgid "Journal Type"
+msgstr "Tipo de Diario Contable"
+
+#. module: straconx_account
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía seleccionada no está autorizada como compañía para este usuario"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,account_id:0
+msgid "Account of moves"
+msgstr "Cuenta de movimiento"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Write-Off Move"
+msgstr "Movimiento contable de diferencia"
+
+#. module: straconx_account
+#: model:ir.ui.menu,name:straconx_account.area_menu
+msgid "Account Area"
+msgstr "Área contable"
+
+#. module: straconx_account
+#: field:res.bank,website:0
+msgid "Website"
+msgstr "Sitio Web"
+
+#. module: straconx_account
+#: constraint:account.account.template:0
+msgid "Configuration Error!\n"
+"You can not define children to an account with internal type different of \"View\"! "
+msgstr "Error de configuración!\n"
+"¡No puede definir hijos para una cuenta con el tipo interno distinto de \"vista\"! "
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Linea Analitica"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:362
+#, python-format
+msgid "Bad account!"
+msgstr "Cuenta equivocada!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:44
+#, python-format
+msgid "You can not validate a non-balanced entry !\n"
+"Make sure you have configured payment terms properly !\n"
+"The latest payment term line should be of the type \"Balance\" !"
+msgstr "¡No se puede aprobar una cuenta descuadrada !\n"
+"Por favor revise la configuración de sus términos de pago !\n"
+"La última línea del pago debe ser de tipo \"Balance\" !"
+
+#. module: straconx_account
+#: view:res.users:0
+msgid "Printer Point Information"
+msgstr "Información del Punto de Impresión"
+
+#. module: straconx_account
+#: constraint:account.move.line:0
+msgid "Company must be the same for its related account and period."
+msgstr "La compañía debe ser la misma para su cuenta y periodos relacionados"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_crossing_reconcile
+msgid "Crossing Reconcile"
+msgstr "Reconciliación cruzada"
+
+#. module: straconx_account
+#: selection:account.tax,state:0
+#: selection:account.tax.code,state:0
+msgid "Descontinuado"
+msgstr "Descontinuado"
+
+#. module: straconx_account
+#: selection:account.tax,state:0
+#: selection:account.tax.code,state:0
+msgid "Activo"
+msgstr "Activo"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_fiscalyear_close.py:84
+#, python-format
+msgid "The journal must have default credit and debit account"
+msgstr "The journal must have default credit and debit account"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:362
+#, python-format
+msgid "You can not use an inactive account!"
+msgstr "No se puede utilizar una cuenta inactiva!"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_move_line
+msgid "Journal Items"
+msgstr "Lineas de Asientos Contables"
+
+#. module: straconx_account
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal."
+msgstr "¡La fecha de su asiento no está en el periodo definido! Usted debería cambiar la fecha o borar este esta restricción del diario."
+
+#. module: straconx_account
+#: constraint:account.move.line:0
+msgid "You can not create journal items on an account of type view."
+msgstr "No puede crear asientos en una cuenta de tipo vista"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_tax_template
+msgid "account.tax.template"
+msgstr "Plantilla de Impuestos"
+
+#. module: straconx_account
+#: field:account.tax.code,tax_type:0
+#: field:account.tax.code.template,tax_type:0
+msgid "Tax Type"
+msgstr "Tipos de Impuestos"
+
+#. module: straconx_account
+#: view:res.company:0
+msgid "Settings Discount"
+msgstr "Configuración de Descuentos"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_chart.py:45
+#, python-format
+msgid "No existen períodos fiscales para la compañía seleccionada."
+msgstr "No existen períodos fiscales para la compañía seleccionada."
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:191
+#, python-format
+msgid "Maturity date of entry line generated by model line '%s' of model '%s' is based on partner payment term!\n"
+"Please define partner on it!"
+msgstr "Maturity date of entry line generated by model line '%s' of model '%s' is based on partner payment term!\n"
+"Please define partner on it!"
+
+#. module: straconx_account
+#: field:account.analytic.journal,default:0
+msgid "Default"
+msgstr "Predeterminado"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_res_company
+#: model:ir.model,name:straconx_account.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_validate_account_move
+msgid "Validate Account Move"
+msgstr "Validar Asiento contable"
+
+#. module: straconx_account
+#: field:account.move.line,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_account
+#: model:res.partner.bank.type,name:straconx_account.debit_card
+msgid "Debit Card"
+msgstr "Tarjeta Débito"
+
+#. module: straconx_account
+#: model:ir.ui.menu,name:straconx_account.printer_point_menu
+msgid "Account Printer Points"
+msgstr "Puntos de Impresión de Tiendas"
+
+#. module: straconx_account
+#: field:sale.shop,journal_ids:0
+msgid "Journals Used"
+msgstr "Diarios Contables Usados"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:58
+#: code:addons/straconx_account/objects/account_move.py:147
+#: code:addons/straconx_account/objects/account_move.py:151
+#: code:addons/straconx_account/wizard/straconx_account_chart.py:40
+#: code:addons/straconx_account/wizard/straconx_account_chart.py:45
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:227
+#, python-format
+msgid "You can not modify a posted entry of closed periods"
+msgstr "You can not modify a posted entry of closed periods"
+
+#. module: straconx_account
+#: field:res.company,property_analytic_account:0
+msgid "Default Analytic Account"
+msgstr "Cuenta de Costo predeterminada"
+
+#. module: straconx_account
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuestos de factura"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:401
+#, python-format
+msgid "No piece number !"
+msgstr "!Sin número!"
+
+#. module: straconx_account
+#: field:account.account.type.internal,code:0
+#: field:account.journal.type,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_account
+#: constraint:account.account:0
+msgid "Configuration Error! \n"
+"You can not select an account type with a deferral method different of \"Unreconciled\" for accounts with internal type \"Payable/Receivable\"! "
+msgstr "¡Error de configuración! "
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Cuentas bancarias"
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_account
+#: field:account.tax,state:0
+#: field:account.tax.code,state:0
+msgid "Estado SRI"
+msgstr "Estado SRI"
+
+#. module: straconx_account
+#: selection:account.analytic.line,state:0
+msgid "Anulado"
+msgstr "Anulado"
+
+#. module: straconx_account
+#: constraint:account.analytic.line:0
+msgid "You can not create analytic line on view account."
+msgstr "No puede crear una línea analítica en una cuenta vista"
+
+#. module: straconx_account
+#: help:res.company,pricelist:0
+msgid "If is check, price for product is based in listprice, otherwise, price is based in product form"
+msgstr "Si se encuentra activo, los precios de los productos se basaran en la lista de precios, caso contrario, será por la ficha del producto."
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:533
+#, python-format
+msgid "You can not do this modification on a confirmed entry! You can just change some non legal fields or you must unconfirm the journal entry first! \n"
+"%s"
+msgstr "You can not do this modification on a confirmed entry! You can just change some non legal fields or you must unconfirm the journal entry first! \n"
+"%s"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:93
+#, python-format
+msgid "Input date no have a defined period.Check period state or create fiscal year!"
+msgstr "¡La fecha ingresada no tiene un período definido! Revise el período o cree el año fiscal correspondiente"
+
+#. module: straconx_account
+#: field:sale.shop,logistics_manager:0
+msgid "Logistics Manager"
+msgstr "Jefe de Logística"
+
+#. module: straconx_account
+#: field:res.bank,lname:0
+msgid "Long name"
+msgstr "Nombre Completo"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/account_crossing_reconcile.py:103
+#, python-format
+msgid "You must select at least 2 lines to reconcile"
+msgstr "Debe seleccionar por lo menos 2 líneas para reconciliar"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:212
+#, python-format
+msgid "You can not delete a posted journal entry \"%s\"!"
+msgstr "You can not delete a posted journal entry \"%s\"!"
+
+#. module: straconx_account
+#: model:ir.ui.menu,name:straconx_account.account_account_type_menu
+msgid "Account Type Internal"
+msgstr "Tipo de cuenta interna"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:178
+#, python-format
+msgid "You have to define an analytic journal on the '%s' journal!"
+msgstr "You have to define an analytic journal on the '%s' journal!"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "Successful Operation."
+msgstr "Operación Exitosa."
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,type_reconcile:0
+msgid "Type reconcile"
+msgstr "Tipo de reconciliación"
+
+#. module: straconx_account
+#: field:account.move,create_uid:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_chart
+msgid "Account chart"
+msgstr "Account chart"
+
+#. module: straconx_account
+#: selection:account.tax.code.template,tax_type:0
+msgid "Other"
+msgstr "Retención sobre IVA"
+
+#. module: straconx_account
+#: view:printer.point:0
+#: field:sale.shop,printer_point_ids:0
+msgid "Printer Points"
+msgstr "Puntos de Impresión"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:401
+#, python-format
+msgid "Can not create an automatic sequence for this piece!\n"
+"Put a sequence in the journal definition for automatic numbering or create a sequence manually for this piece."
+msgstr "No se puede crear una secuencia automática para este movimiento!\n"
+"Ingrese una secuencia en el diario correspondiente para obtener una numeración automática o ingrese una secuencia manual."
+
+#. module: straconx_account
+#: selection:account.tax.code,tax_type:0
+#: selection:account.tax.code.template,tax_type:0
+msgid "Duties"
+msgstr "Aranceles"
+
+#. module: straconx_account
+#: field:sale.shop,shop_supervisor:0
+msgid "Shop Supervisor"
+msgstr "Supervisor de Tienda"
+
+#. module: straconx_account
+#: view:account.crossing.reconcile:0
+msgid "This wizard allows you to make reconciliations by accounts crossing from lines accounting already created."
+msgstr "This wizard allows you to make reconciliations by accounts crossing from lines accounting already created."
+
+#. module: straconx_account
+#: constraint:res.partner.address:0
+msgid "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+msgstr "Los Punto de Emisión del SRI solo pueden contener números y ser mayores 000."
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:229
+#, python-format
+msgid "You can not modify a posted entry of this journal !\n"
+"You should set the journal to allow cancelling entries if you want to do that."
+msgstr "You can not modify a posted entry of this journal !\n"
+"You should set the journal to allow cancelling entries if you want to do that."
+
+#. module: straconx_account
+#: field:account.crossing.reconcile,journal_id:0
+#: model:ir.model,name:straconx_account.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_account
+#: view:res.users:0
+msgid "Points Assigned"
+msgstr "Cajas Asignadas"
+
+#. module: straconx_account
+#: field:printer.point,type:0
+msgid "internal"
+msgstr "interno"
+
+#. module: straconx_account
+#: help:account.analytic.journal,default:0
+msgid "If the active field is set to False, it will allow you to hide the analytic journal without removing it."
+msgstr "If the active field is set to False, it will allow you to hide the analytic journal without removing it."
+
+#. module: straconx_account
+#: field:account.move,address_id:0
+#: field:account.move.line,address_id:0
+msgid "Address"
+msgstr "Sucursal"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_model
+msgid "Account Model"
+msgstr "Modelo de asiento"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_res_bank
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_account_type_internal
+msgid "account.account.type.internal"
+msgstr "Tipo de cuenta interna"
+
+#. module: straconx_account
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_account
+#: field:account.account.type.internal,name:0
+#: field:account.journal.type,name:0
+#: field:account.move,details:0
+#: field:printer.point,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_account_account_type_internal
+msgid "account type Internal"
+msgstr "Tipo de cuenta interna"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/orm.py:82
+#, python-format
+msgid "A document was modified since you last viewed it (%s:%d)"
+msgstr "El documento ha sido modificado desde su última vista (%s:%d)"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:93
+#, python-format
+msgid "Period required !"
+msgstr "¡Se requiere un período!"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:117
+#, python-format
+msgid "You cannot change the owner company of an account that already contains journal items."
+msgstr "No se puede cambiar la compañía dueña de la cuenta que ya contiene asientos de diarios."
+
+#. module: straconx_account
+#: field:account.move.line,cost_journal:0
+msgid "Cost Journal"
+msgstr "Diario de Costo"
+
+#. module: straconx_account
+#: constraint:sale.shop:0
+msgid "The percentage utility margin must be a positive number"
+msgstr "El porcentaje de utilidad debe ser un número positivo"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account.py:123
+#, python-format
+msgid "No se puede cambiar el código de una cuenta contable que ha tenido movimientos."
+msgstr "No se puede cambiar el código de una cuenta contable que ha tenido movimientos."
+
+#. module: straconx_account
+#: constraint:printer.point:0
+msgid "Los puntos asignados por el SRI solo deben ser números y diferentes a 000."
+msgstr "Los puntos asignados por el SRI solo deben ser números y diferentes a 000."
+
+#. module: straconx_account
+#: field:res.company,amount_cc:0
+msgid "Monto máximo de compra de Consumidor Final"
+msgstr "Monto máximo de compra de Consumidor Final"
+
+#. module: straconx_account
+#: field:sale.shop,shop_manager:0
+msgid "Shop Manager"
+msgstr "Jefe de Tienda"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_account_crossing_reconcile
+msgid "Account Crossing Reconcile"
+msgstr "Cuenta cruzada para reconciliación"
+
+#. module: straconx_account
+#: constraint:account.move.line:0
+msgid "You can not create journal items on closed account."
+msgstr "No puede crear asientos en cuentas cerradas"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_move
+msgid "Account Entry"
+msgstr "Entrada de cuenta"
+
+#. module: straconx_account
+#: selection:account.crossing.reconcile,type_reconcile:0
+msgid "Credit"
+msgstr "Crédito"
+
+#. module: straconx_account
+#: field:res.company,property_rounding_difference:0
+msgid "Diferencias por Redondeo"
+msgstr "Diferencias por Redondeo"
+
+#. module: straconx_account
+#: model:ir.actions.act_window,name:straconx_account.action_res_bank_emisor
+#: view:res.bank.emisor:0
+#: field:res.bank.emisor,name:0
+#: field:res.partner.bank,type_account_bank:0
+msgid "Emisor"
+msgstr "Emisor"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_payment_term
+msgid "Payment Term"
+msgstr "Término de pago"
+
+#. module: straconx_account
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr "El nombre del diaro debe ser único por compañía!"
+
+#. module: straconx_account
+#: field:res.company,property_discount_sales:0
+msgid "Sales Discount Account"
+msgstr "Cuenta de Descuento de Ventas"
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:236
+#, python-format
+msgid "No se puede modificar entradas que han sido completamente pagadas o cobradas. Por favor, primero anule el cobro o pago realizado."
+msgstr "No se puede modificar entradas que han sido completamente pagadas o cobradas. Por favor, primero anule el cobro o pago realizado."
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_chart.py:40
+#, python-format
+msgid "Debe seleccionar una compañía para continuar."
+msgstr "Debe seleccionar una compañía para continuar."
+
+#. module: straconx_account
+#: code:addons/straconx_account/objects/account_move.py:429
+#, python-format
+msgid "Bad account !"
+msgstr "!Cuenta errada!"
+
+#. module: straconx_account
+#: field:res.company,required_analytic:0
+msgid "Analytic Account required"
+msgstr "Cuenta analítica requerida"
+
+#. module: straconx_account
+#: view:res.company:0
+msgid "Price Type"
+msgstr "Tipo de Precios"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/account_crossing_reconcile.py:105
+#, python-format
+msgid "the sum amount of lines moves must be equals to move line selected"
+msgstr "la suma de los movimientos debe ser igual a la línea seleccionada"
+
+#. module: straconx_account
+#: model:ir.model,name:straconx_account.model_account_tax_code_template
+msgid "Tax Code Template"
+msgstr "Plantilla códigos de impuestos"
+
+#. module: straconx_account
+#: code:addons/straconx_account/wizard/straconx_account_validate_account_move.py:42
+#, python-format
+msgid "Specified Journal does not have any account move entries in draft state for this period"
+msgstr "Specified Journal does not have any account move entries in draft state for this period"
+
+#. module: straconx_account
+#: view:res.company:0
+msgid "Otras Cuentas Contables"
+msgstr "Otras Cuentas Contables"
+
+#. module: account
+#: model:ir.ui.menu,name:account.menu_finance_reporting
+msgid "Accounting"
+msgstr "Reporte"

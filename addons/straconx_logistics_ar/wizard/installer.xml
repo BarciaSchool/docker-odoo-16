@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+	<record id="base_setup.config_action_user_preferences_config_form" model="ir.actions.todo">
+          <field name="action_id" ref="base_setup.action_user_preferences_config_form"/>
+          <field name="category_id" ref="base.category_administration_config"/>
+          <field name="sequence">2</field>
+          <field name="type">automatic</field>
+      </record>
+      
+	<record id="view_create_ubication" model="ir.ui.view">
+      <field name="name">create.ubication</field>
+      <field name="model">create.ubication</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+        <data>          
+          <separator string="title" position="attributes">
+            <attribute name="string">Create Product Ubication</attribute>
+          </separator>
+          <xpath expr="//label[@string='description']"
+                 position="attributes">
+            <attribute name="string">Create Product Ubication for product</attribute>
+          </xpath>
+          
+          <xpath expr='//separator[@string="vsep"]' position='attributes'>
+                <attribute name='string'></attribute>
+          </xpath>
+          <xpath expr="//button[@string='Install Modules']" position="attributes">
+                   <attribute name="string">Approve</attribute>
+          </xpath>
+          <group colspan="8">
+          		<field name="company_id" required="1"/>          		
+          </group>
+        </data>
+         
+      </field>
+    </record>		
+		
+	<record id="action_approveview_create_ubication" model="ir.actions.act_window">
+      <field name="name">Create Product Ubication</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">create.ubication</field>
+      <field name="view_id" ref="view_create_ubication"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="approve_moves_installer_todo" model="ir.actions.todo">
+      <field name="name">Create Product Ubication</field>
+      <field name="action_id" ref="action_approveview_create_ubication"/>
+      <field name="category_id" ref="base.category_administration_config"/>
+      <field name="sequence">2</field>
+      <field name="type">automatic</field>
+    </record>
+    
+	</data>
+</openerp>

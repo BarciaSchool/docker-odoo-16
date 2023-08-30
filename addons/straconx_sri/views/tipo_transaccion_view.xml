@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="sri_transaction_type_tree_view">
+			<field name="name">sri.transaction.type.tree</field>
+			<field name="model">sri.transaction.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Transaction Type">
+					<field name="code" />
+					<field name="name" />
+					<field name="type_identification"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sri_transaction_type_form_view">
+			<field name="name">sri.transaction.type.form</field>
+			<field name="model">sri.transaction.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Transaction Type">
+					<group colspan="4" col="6">
+						<field name="code" select="1" />
+						<field name="name" select="1" />
+						<field name="type_identification" select="1" />
+					</group>
+					<separator string="Documents" colspan="4"/>
+					<field name="documents_type_ids" colspan="4" nolabel="1" readonly="0">
+						<tree string="Documents Type">
+							<field name="code" />
+							<field name="name" />
+						</tree>
+						<form string="Documents Type">
+							<field name="code" readonly="1"/>
+							<field name="name" readonly="1"/>
+						</form>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sri_transaction_type_tree_view">
+			<field name="name">Transactions Types</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sri.transaction.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sri_transaction_type_tree_view" />
+		</record>
+    
+    </data>
+</openerp>

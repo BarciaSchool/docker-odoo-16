@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="res_user_payments_form_view">
+			<field name="name">res.users.form.inherit</field>
+			<field name="model">res.users</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="straconx_salesman.res_user_salesman_form_view" />
+			<field name="arch" type="xml">
+				<field name="is_manager" position="after">
+					<newline />
+					<separator string="Configuration of cashier" colspan="4" />
+					<newline />
+					<field name="is_cashier" />
+						<field name="collect" attrs="{'invisible':[('is_cashier','!=',True)]}" />
+						<field name="pay" attrs="{'invisible':[('is_cashier','!=',True)]}" />
+					<newline />
+					<field name="cash_box_default_id" domain="[('shop_id','=',shop_id)]" attrs="{'invisible':[('is_cashier','!=',True)], 'required':[('is_cashier','=',True)]}" colspan="4" />
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>

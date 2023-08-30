@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C), 2012, OpenERP - Team de Localización Argentina. https://launchpad.net/~openerp-l10n-ar-localization 
+	This program is free software: you can redistribute it and/or modify it under 
+	the terms of the GNU General Public License as published by the Free Software 
+	Foundation, either version 3 of the License, or (at your option) any later 
+	version. This program is distributed in the hope that it will be useful, 
+	but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+	or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+	more details. You should have received a copy of the GNU General Public License 
+	along with this program. If not, see <http://www.gnu.org/licenses/>. -->
+<openerp>
+	<data>
+
+       <record model='res.region' id='ARG'>
+           <field name='name'>ARGENTINA</field>
+           <field name='code'>ARG</field>
+           <field search="[('code','=','AR')]" model='res.country' name='country_id'/> 
+       </record>
+
+
+		<record model="res.country.state" id="CBA">
+			<field name="name">Ciudad Autónoma de Buenos Aires</field>
+			<field name="code">ABA</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">0</field>
+		</record>
+
+		<record model="res.country.state" id="B">
+			<field name="name">Buenos Aires</field>
+			<field name="code">B</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">1</field>
+		</record>
+
+		<record model="res.country.state" id="X">
+			<field name="name">Córdoba</field>
+			<field name="code">X</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">3</field>
+		</record>
+
+		<record model="res.country.state" id="S">
+			<field name="name">Santa Fe</field>
+			<field name="code">S</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">12</field>
+		</record>
+
+		<record model="res.country.state" id="C">
+			<field name="name">Capital Federal</field>
+			<field name="code">C</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">0</field>
+		</record>
+
+		<record model="res.country.state" id="M">
+			<field name="name">Mendoza</field>
+			<field name="code">M</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">7</field>
+		</record>
+
+		<record model="res.country.state" id="T">
+			<field name="name">Tucumán</field>
+			<field name="code">T</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">14</field>
+		</record>
+
+		<record model="res.country.state" id="E">
+			<field name="name">Entre Ríos</field>
+			<field name="code">E</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">5</field>
+		</record>
+
+		<record model="res.country.state" id="A">
+			<field name="name">Salta</field>
+			<field name="code">A</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">9</field>
+		</record>
+
+		<record model="res.country.state" id="N">
+			<field name="name">Misiones</field>
+			<field name="code">N</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">19</field>
+		</record>
+
+		<record model="res.country.state" id="H">
+			<field name="name">Chaco</field>
+			<field name="code">H</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">16</field>
+		</record>
+
+		<record model="res.country.state" id="W">
+			<field name="name">Corrientes</field>
+			<field name="code">W</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">4</field>
+		</record>
+
+		<record model="res.country.state" id="G">
+			<field name="name">Santiago del Estero</field>
+			<field name="code">G</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">13</field>
+		</record>
+
+		<record model="res.country.state" id="Y">
+			<field name="name">Jujuy</field>
+			<field name="code">Y</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">6</field>
+		</record>
+
+		<record model="res.country.state" id="J">
+			<field name="name">San Juan</field>
+			<field name="code">J</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">10</field>
+		</record>
+
+		<record model="res.country.state" id="R">
+			<field name="name">Río Negro</field>
+			<field name="code">R</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">22</field>
+		</record>
+
+		<record model="res.country.state" id="P">
+			<field name="name">Formosa</field>
+			<field name="code">P</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">18</field>
+		</record>
+
+		<record model="res.country.state" id="Q">
+			<field name="name">Neuquén</field>
+			<field name="code">Q</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">20</field>
+		</record>
+
+		<record model="res.country.state" id="U">
+			<field name="name">Chubut</field>
+			<field name="code">U</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">17</field>
+		</record>
+
+		<record model="res.country.state" id="D">
+			<field name="name">San Luis</field>
+			<field name="code">D</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">11</field>
+		</record>
+
+		<record model="res.country.state" id="K">
+			<field name="name">Catamarca</field>
+			<field name="code">K</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">2</field>
+		</record>
+
+		<record model="res.country.state" id="F">
+			<field name="name">La Rioja</field>
+			<field name="code">F</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">8</field>
+		</record>
+
+		<record model="res.country.state" id="L">
+			<field name="name">La Pampa</field>
+			<field name="code">L</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">21</field>
+		</record>
+
+		<record model="res.country.state" id="Z">
+			<field name="name">Santa Cruz</field>
+			<field name="code">Z</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">23</field>
+		</record>
+
+		<record model="res.country.state" id="V">
+			<field name="name">Tierra del Fuego</field>
+			<field name="code">V</field>
+			<field search="[('code','=','ARG')]" model='res.region' name='region_id'/>
+			<field name="afip_code">24</field>
+		</record>
+
+		<record id='res_ARC-01' model='city.city'>
+			<field name='name'>Buenos Aires</field>
+			<field name='zipcode'>ARC-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.CBA' />
+		</record>
+		<record id='res_ARX-01' model='city.city'>
+			<field name='name'>Córdoba</field>
+			<field name='zipcode'>ARX-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.X' />
+		</record>
+		<record id='res_ARS-01' model='city.city'>
+			<field name='name'>Rosario</field>
+			<field name='zipcode'>ARS-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARB-01' model='city.city'>
+			<field name='name'>La Plata</field>
+			<field name='zipcode'>ARB-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-02' model='city.city'>
+			<field name='name'>Mar del Plata</field>
+			<field name='zipcode'>ARB-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ART-01' model='city.city'>
+			<field name='name'>San Miguel de Tucumán</field>
+			<field name='zipcode'>ART-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.T' />
+		</record>
+		<record id='res_ARA-01' model='city.city'>
+			<field name='name'>Ciudad de Salta</field>
+			<field name='zipcode'>ARA-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.A' />
+		</record>
+		<record id='res_ARS-02' model='city.city'>
+			<field name='name'>Ciudad de Santa Fe</field>
+			<field name='zipcode'>ARS-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARW-01' model='city.city'>
+			<field name='name'>Ciudad de Corrientes</field>
+			<field name='zipcode'>ARW-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.W' />
+		</record>
+		<record id='res_ARB-03' model='city.city'>
+			<field name='name'>Bahía Blanca</field>
+			<field name='zipcode'>ARB-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARH-01' model='city.city'>
+			<field name='name'>Resistencia</field>
+			<field name='zipcode'>ARH-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.H' />
+		</record>
+		<record id='res_ARB-04' model='city.city'>
+			<field name='name'>Vicente López</field>
+			<field name='zipcode'>ARB-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARN-01' model='city.city'>
+			<field name='name'>Posadas</field>
+			<field name='zipcode'>ARN-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.N' />
+		</record>
+		<record id='res_ARB-05' model='city.city'>
+			<field name='name'>Merlo</field>
+			<field name='zipcode'>ARB-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARE-01' model='city.city'>
+			<field name='name'>Paraná</field>
+			<field name='zipcode'>ARE-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.E' />
+		</record>
+		<record id='res_ARY-01' model='city.city'>
+			<field name='name'>San Salvador de Jujuy</field>
+			<field name='zipcode'>ARY-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.Y' />
+		</record>
+		<record id='res_ARB-06' model='city.city'>
+			<field name='name'>Quilmes</field>
+			<field name='zipcode'>ARB-06</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARG-01' model='city.city'>
+			<field name='name'>Ciudad de Santiago del Estero</field>
+			<field name='zipcode'>ARG-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.G' />
+		</record>
+		<record id='res_ARB-07' model='city.city'>
+			<field name='name'>Pilar</field>
+			<field name='zipcode'>ARB-07</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-08' model='city.city'>
+			<field name='name'>Banfield</field>
+			<field name='zipcode'>ARB-08</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARM-01' model='city.city'>
+			<field name='name'>Guaymallén</field>
+			<field name='zipcode'>ARM-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-09' model='city.city'>
+			<field name='name'>José C. Paz</field>
+			<field name='zipcode'>ARB-09</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-10' model='city.city'>
+			<field name='name'>Lanús</field>
+			<field name='zipcode'>ARB-10</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARQ-01' model='city.city'>
+			<field name='name'>Ciudad de Neuquén</field>
+			<field name='zipcode'>ARQ-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.Q' />
+		</record>
+		<record id='res_ARP-01' model='city.city'>
+			<field name='name'>Ciudad de Formosa</field>
+			<field name='zipcode'>ARP-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.P' />
+		</record>
+		<record id='res_ARM-02' model='city.city'>
+			<field name='name'>Godoy Cruz</field>
+			<field name='zipcode'>ARM-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARM-03' model='city.city'>
+			<field name='name'>Las Heras</field>
+			<field name='zipcode'>ARM-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-11' model='city.city'>
+			<field name='name'>Gregorio de Laferrere</field>
+			<field name='zipcode'>ARB-11</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-12' model='city.city'>
+			<field name='name'>Berazategui</field>
+			<field name='zipcode'>ARB-12</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-13' model='city.city'>
+			<field name='name'>González Catán</field>
+			<field name='zipcode'>ARB-13</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-14' model='city.city'>
+			<field name='name'>San Miguel</field>
+			<field name='zipcode'>ARB-14</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARD-01' model='city.city'>
+			<field name='name'>Ciudad de San Luis</field>
+			<field name='zipcode'>ARD-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.D' />
+		</record>
+		<record id='res_ARB-15' model='city.city'>
+			<field name='name'>Moreno</field>
+			<field name='zipcode'>ARB-15</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARE-02' model='city.city'>
+			<field name='name'>Concordia</field>
+			<field name='zipcode'>ARE-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.E' />
+		</record>
+		<record id='res_ARF-01' model='city.city'>
+			<field name='name'>Ciudad de La Rioja</field>
+			<field name='zipcode'>ARF-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.F' />
+		</record>
+		<record id='res_ARX-02' model='city.city'>
+			<field name='name'>Ciudad de Río Cuarto</field>
+			<field name='zipcode'>ARX-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.X' />
+		</record>
+		<record id='res_ARK-01' model='city.city'>
+			<field name='name'>San Fernando del Valle de Catamarca</field>
+			<field name='zipcode'>ARK-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.K' />
+		</record>
+		<record id='res_ARU-01' model='city.city'>
+			<field name='name'>Comodoro Rivadavia</field>
+			<field name='zipcode'>ARU-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.U' />
+		</record>
+		<record id='res_ARB-16' model='city.city'>
+			<field name='name'>Isidro Casanova</field>
+			<field name='zipcode'>ARB-16</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARM-04' model='city.city'>
+			<field name='name'>San Rafael</field>
+			<field name='zipcode'>ARM-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-17' model='city.city'>
+			<field name='name'>Ituzaingó</field>
+			<field name='zipcode'>ARB-17</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-18' model='city.city'>
+			<field name='name'>San Nicolás de los Arroyos</field>
+			<field name='zipcode'>ARB-18</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-19' model='city.city'>
+			<field name='name'>Florencio Varela</field>
+			<field name='zipcode'>ARB-19</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARJ-01' model='city.city'>
+			<field name='name'>Ciudad de San Juan</field>
+			<field name='zipcode'>ARJ-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.J' />
+		</record>
+		<record id='res_ARB-20' model='city.city'>
+			<field name='name'>Lomas de Zamora</field>
+			<field name='zipcode'>ARB-20</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-21' model='city.city'>
+			<field name='name'>Temperley</field>
+			<field name='zipcode'>ARB-21</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARM-05' model='city.city'>
+			<field name='name'>Ciudad de Mendoza</field>
+			<field name='zipcode'>ARM-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-22' model='city.city'>
+			<field name='name'>Monte Grande</field>
+			<field name='zipcode'>ARB-22</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-23' model='city.city'>
+			<field name='name'>Bernal</field>
+			<field name='zipcode'>ARB-23</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-24' model='city.city'>
+			<field name='name'>San Justo</field>
+			<field name='zipcode'>ARB-24</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARR-01' model='city.city'>
+			<field name='name'>San Carlos de Bariloche</field>
+			<field name='zipcode'>ARR-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.R' />
+		</record>
+		<record id='res_ARB-25' model='city.city'>
+			<field name='name'>Pergamino</field>
+			<field name='zipcode'>ARB-25</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-26' model='city.city'>
+			<field name='name'>Castelar</field>
+			<field name='zipcode'>ARB-26</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-27' model='city.city'>
+			<field name='name'>Rafael Castillo</field>
+			<field name='zipcode'>ARB-27</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARU-02' model='city.city'>
+			<field name='name'>Trelew</field>
+			<field name='zipcode'>ARU-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.U' />
+		</record>
+		<record id='res_ARL-01' model='city.city'>
+			<field name='name'>Santa Rosa</field>
+			<field name='zipcode'>ARL-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.L' />
+		</record>
+		<record id='res_ARB-28' model='city.city'>
+			<field name='name'>Tandil</field>
+			<field name='zipcode'>ARB-28</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-29' model='city.city'>
+			<field name='name'>Libertad</field>
+			<field name='zipcode'>ARB-29</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-30' model='city.city'>
+			<field name='name'>Ramos Mejía</field>
+			<field name='zipcode'>ARB-30</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARD-02' model='city.city'>
+			<field name='name'>Villa Mercedes</field>
+			<field name='zipcode'>ARD-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.D' />
+		</record>
+		<record id='res_ARG-02' model='city.city'>
+			<field name='name'>La Banda</field>
+			<field name='zipcode'>ARG-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.G' />
+		</record>
+		<record id='res_ARB-31' model='city.city'>
+			<field name='name'>Trujui</field>
+			<field name='zipcode'>ARB-31</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-32' model='city.city'>
+			<field name='name'>Ezeiza</field>
+			<field name='zipcode'>ARB-32</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-33' model='city.city'>
+			<field name='name'>Morón</field>
+			<field name='zipcode'>ARB-33</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-34' model='city.city'>
+			<field name='name'>Virrey del Pino</field>
+			<field name='zipcode'>ARB-34</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-35' model='city.city'>
+			<field name='name'>Caseros</field>
+			<field name='zipcode'>ARB-35</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARR-02' model='city.city'>
+			<field name='name'>San Carlos de Bariloche</field>
+			<field name='zipcode'>ARR-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.R' />
+		</record>
+		<record id='res_ARM-06' model='city.city'>
+			<field name='name'>Maipú</field>
+			<field name='zipcode'>ARM-06</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-36' model='city.city'>
+			<field name='name'>Zárate</field>
+			<field name='zipcode'>ARB-36</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-37' model='city.city'>
+			<field name='name'>Burzaco</field>
+			<field name='zipcode'>ARB-37</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-38' model='city.city'>
+			<field name='name'>Grand Bourg</field>
+			<field name='zipcode'>ARB-38</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-39' model='city.city'>
+			<field name='name'>Monte Chingolo</field>
+			<field name='zipcode'>ARB-39</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-40' model='city.city'>
+			<field name='name'>Olavarría</field>
+			<field name='zipcode'>ARB-40</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARJ-02' model='city.city'>
+			<field name='name'>Rawson</field>
+			<field name='zipcode'>ARJ-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.J' />
+		</record>
+		<record id='res_ARS-03' model='city.city'>
+			<field name='name'>Rafaela</field>
+			<field name='zipcode'>ARS-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARB-41' model='city.city'>
+			<field name='name'>Junín</field>
+			<field name='zipcode'>ARB-41</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-42' model='city.city'>
+			<field name='name'>Remedios de Escalada (Partido de Lanús)</field>
+			<field name='zipcode'>ARB-42</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-43' model='city.city'>
+			<field name='name'>La Tablada</field>
+			<field name='zipcode'>ARB-43</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARZ-01' model='city.city'>
+			<field name='name'>Río Gallegos</field>
+			<field name='zipcode'>ARZ-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.Z' />
+		</record>
+		<record id='res_ARB-44' model='city.city'>
+			<field name='name'>Campana</field>
+			<field name='zipcode'>ARB-44</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARH-02' model='city.city'>
+			<field name='name'>Presidencia Roque Sáenz Peña</field>
+			<field name='zipcode'>ARH-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.H' />
+		</record>
+		<record id='res_ARJ-03' model='city.city'>
+			<field name='name'>Rivadavia</field>
+			<field name='zipcode'>ARJ-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.J' />
+		</record>
+		<record id='res_ARB-45' model='city.city'>
+			<field name='name'>Florida (no es ciudad sino barrio)</field>
+			<field name='zipcode'>ARB-45</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-46' model='city.city'>
+			<field name='name'>Villa Madero</field>
+			<field name='zipcode'>ARB-46</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-47' model='city.city'>
+			<field name='name'>Olivos (no es ciudad sino barrio)</field>
+			<field name='zipcode'>ARB-47</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARE-03' model='city.city'>
+			<field name='name'>Gualeguaychú</field>
+			<field name='zipcode'>ARE-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.E' />
+		</record>
+		<record id='res_ARS-04' model='city.city'>
+			<field name='name'>Villa Gobernador Gálvez</field>
+			<field name='zipcode'>ARS-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARB-48' model='city.city'>
+			<field name='name'>Villa Luzuriaga</field>
+			<field name='zipcode'>ARB-48</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-49' model='city.city'>
+			<field name='name'>Boulogne Sur Mer</field>
+			<field name='zipcode'>ARB-49</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARJ-04' model='city.city'>
+			<field name='name'>Chimbas</field>
+			<field name='zipcode'>ARJ-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.J' />
+		</record>
+		<record id='res_ARB-50' model='city.city'>
+			<field name='name'>Ciudadela</field>
+			<field name='zipcode'>ARB-50</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARM-07' model='city.city'>
+			<field name='name'>Luján de Cuyo</field>
+			<field name='zipcode'>ARM-07</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-51' model='city.city'>
+			<field name='name'>Ezpeleta</field>
+			<field name='zipcode'>ARB-51</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARX-03' model='city.city'>
+			<field name='name'>Villa María</field>
+			<field name='zipcode'>ARX-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.X' />
+		</record>
+		<record id='res_ARR-03' model='city.city'>
+			<field name='name'>General Roca</field>
+			<field name='zipcode'>ARR-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.R' />
+		</record>
+		<record id='res_ARB-52' model='city.city'>
+			<field name='name'>San Fernando</field>
+			<field name='zipcode'>ARB-52</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-53' model='city.city'>
+			<field name='name'>Ciudad Evita</field>
+			<field name='zipcode'>ARB-53</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARS-05' model='city.city'>
+			<field name='name'>Venado Tuerto</field>
+			<field name='zipcode'>ARS-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARB-54' model='city.city'>
+			<field name='name'>Bella Vista</field>
+			<field name='zipcode'>ARB-54</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-55' model='city.city'>
+			<field name='name'>Luján</field>
+			<field name='zipcode'>ARB-55</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARA-02' model='city.city'>
+			<field name='name'>San Ramón de la Nueva Orán</field>
+			<field name='zipcode'>ARA-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.A' />
+		</record>
+		<record id='res_ARR-04' model='city.city'>
+			<field name='name'>Cipolletti</field>
+			<field name='zipcode'>ARR-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.R' />
+		</record>
+		<record id='res_ARW-02' model='city.city'>
+			<field name='name'>Goya</field>
+			<field name='zipcode'>ARW-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.W' />
+		</record>
+		<record id='res_ARS-06' model='city.city'>
+			<field name='name'>Reconquista</field>
+			<field name='zipcode'>ARS-06</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.S' />
+		</record>
+		<record id='res_ARB-56' model='city.city'>
+			<field name='name'>Wilde</field>
+			<field name='zipcode'>ARB-56</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-57' model='city.city'>
+			<field name='name'>Martínez</field>
+			<field name='zipcode'>ARB-57</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-58' model='city.city'>
+			<field name='name'>Necochea</field>
+			<field name='zipcode'>ARB-58</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-59' model='city.city'>
+			<field name='name'>Don Torcuato</field>
+			<field name='zipcode'>ARB-59</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ART-02' model='city.city'>
+			<field name='name'>Banda del Río Salí</field>
+			<field name='zipcode'>ART-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.T' />
+		</record>
+		<record id='res_ARE-04' model='city.city'>
+			<field name='name'>Concepción del Uruguay</field>
+			<field name='zipcode'>ARE-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.E' />
+		</record>
+		<record id='res_ARB-60' model='city.city'>
+			<field name='name'>General Rodríguez</field>
+			<field name='zipcode'>ARB-60</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-61' model='city.city'>
+			<field name='name'>Villa Tesei</field>
+			<field name='zipcode'>ARB-61</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-62' model='city.city'>
+			<field name='name'>Ciudad Jardín El Libertador</field>
+			<field name='zipcode'>ARB-62</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARX-04' model='city.city'>
+			<field name='name'>Villa Carlos Paz</field>
+			<field name='zipcode'>ARX-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.X' />
+		</record>
+		<record id='res_ARB-63' model='city.city'>
+			<field name='name'>Sarandí</field>
+			<field name='zipcode'>ARB-63</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-64' model='city.city'>
+			<field name='name'>Chivilcoy</field>
+			<field name='zipcode'>ARB-64</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-65' model='city.city'>
+			<field name='name'>Villa Domínico</field>
+			<field name='zipcode'>ARB-65</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-66' model='city.city'>
+			<field name='name'>Béccar</field>
+			<field name='zipcode'>ARB-66</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARX-05' model='city.city'>
+			<field name='name'>San Francisco</field>
+			<field name='zipcode'>ARX-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.X' />
+		</record>
+		<record id='res_ARB-67' model='city.city'>
+			<field name='name'>Glew</field>
+			<field name='zipcode'>ARB-67</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARU-03' model='city.city'>
+			<field name='name'>Puerto Madryn</field>
+			<field name='zipcode'>ARU-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.U' />
+		</record>
+		<record id='res_ARB-68' model='city.city'>
+			<field name='name'>Punta Alta</field>
+			<field name='zipcode'>ARB-68</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-69' model='city.city'>
+			<field name='name'>El Palomar</field>
+			<field name='zipcode'>ARB-69</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-70' model='city.city'>
+			<field name='name'>Rafael Calzada</field>
+			<field name='zipcode'>ARB-70</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARA-03' model='city.city'>
+			<field name='name'>Tartagal</field>
+			<field name='zipcode'>ARA-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.A' />
+		</record>
+		<record id='res_ARY-02' model='city.city'>
+			<field name='name'>San Pedro de Jujuy</field>
+			<field name='zipcode'>ARY-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.Y' />
+		</record>
+		<record id='res_ARB-71' model='city.city'>
+			<field name='name'>Belén de Escobar</field>
+			<field name='zipcode'>ARB-71</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-72' model='city.city'>
+			<field name='name'>Los Hornos</field>
+			<field name='zipcode'>ARB-72</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-73' model='city.city'>
+			<field name='name'>Mariano Acosta</field>
+			<field name='zipcode'>ARB-73</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-74' model='city.city'>
+			<field name='name'>San Francisco Solano</field>
+			<field name='zipcode'>ARB-74</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-75' model='city.city'>
+			<field name='name'>Los Polvorines</field>
+			<field name='zipcode'>ARB-75</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-76' model='city.city'>
+			<field name='name'>Azul</field>
+			<field name='zipcode'>ARB-76</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-77' model='city.city'>
+			<field name='name'>Lomas del Mirador</field>
+			<field name='zipcode'>ARB-77</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARV-01' model='city.city'>
+			<field name='name'>Río Grande</field>
+			<field name='zipcode'>ARV-01</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.V' />
+		</record>
+		<record id='res_ARB-78' model='city.city'>
+			<field name='name'>Presidente Perón</field>
+			<field name='zipcode'>ARB-78</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARL-02' model='city.city'>
+			<field name='name'>General Pico</field>
+			<field name='zipcode'>ARL-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.L' />
+		</record>
+		<record id='res_ARB-79' model='city.city'>
+			<field name='name'>Mercedes</field>
+			<field name='zipcode'>ARB-79</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-80' model='city.city'>
+			<field name='name'>Bosques</field>
+			<field name='zipcode'>ARB-80</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARN-02' model='city.city'>
+			<field name='name'>Oberá</field>
+			<field name='zipcode'>ARN-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.N' />
+		</record>
+		<record id='res_ARH-03' model='city.city'>
+			<field name='name'>Barranqueras</field>
+			<field name='zipcode'>ARH-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.H' />
+		</record>
+		<record id='res_ART-03' model='city.city'>
+			<field name='name'>Yerba Buena/Marcos Paz</field>
+			<field name='zipcode'>ART-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.T' />
+		</record>
+		<record id='res_ARB-81' model='city.city'>
+			<field name='name'>Villa Centenario</field>
+			<field name='zipcode'>ARB-81</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARM-08' model='city.city'>
+			<field name='name'>San Martín</field>
+			<field name='zipcode'>ARM-08</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.M' />
+		</record>
+		<record id='res_ARB-82' model='city.city'>
+			<field name='name'>Gobernador Julio A Costa</field>
+			<field name='zipcode'>ARB-82</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-83' model='city.city'>
+			<field name='name'>William Morris</field>
+			<field name='zipcode'>ARB-83</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARB-84' model='city.city'>
+			<field name='name'>El Jagüel</field>
+			<field name='zipcode'>ARB-84</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ART-04' model='city.city'>
+			<field name='name'>Villa Mariano Moreno-El Colmenar</field>
+			<field name='zipcode'>ART-04</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.T' />
+		</record>
+		<record id='res_ARN-03' model='city.city'>
+			<field name='name'>Eldorado</field>
+			<field name='zipcode'>ARN-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.N' />
+		</record>
+		<record id='res_ARB-85' model='city.city'>
+			<field name='name'>Longchamps</field>
+			<field name='zipcode'>ARB-85</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARP-02' model='city.city'>
+			<field name='name'>Clorinda</field>
+			<field name='zipcode'>ARP-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.P' />
+		</record>
+		<record id='res_ARR-05' model='city.city'>
+			<field name='name'>Viedma</field>
+			<field name='zipcode'>ARR-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.R' />
+		</record>
+		<record id='res_ART-05' model='city.city'>
+			<field name='name'>Concepción</field>
+			<field name='zipcode'>ART-05</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.T' />
+		</record>
+		<record id='res_ARB-86' model='city.city'>
+			<field name='name'>Tres Arroyos</field>
+			<field name='zipcode'>ARB-86</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARV-02' model='city.city'>
+			<field name='name'>Ushuaia</field>
+			<field name='zipcode'>ARV-02</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.V' />
+		</record>
+		<record id='res_ARB-87' model='city.city'>
+			<field name='name'>San Isidro</field>
+			<field name='zipcode'>ARB-87</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.B' />
+		</record>
+		<record id='res_ARY-03' model='city.city'>
+			<field name='name'>Palpalá</field>
+			<field name='zipcode'>ARY-03</field>
+			<field model='res.country.state' name='state_id' ref='straconx_states_ar.Y' />
+		</record>
+
+	</data>
+</openerp>

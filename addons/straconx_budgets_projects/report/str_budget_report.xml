@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="account_budgets_project_xls" model="ir.actions.report.xml">
+			<field name="name">Proyecto</field>
+			<field name="report_name">executive_budget_cost_breakdown</field>
+			<field name="pentaho_filename">straconx_budgets_projects/report/01_straconx_budget_analytic.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_budgets.budget_report_project')" />
+		</record>
+		<record id="account_budgets_moves_xls" model="ir.actions.report.xml">
+			<field name="name">Movimientos Mensuales</field>
+			<field name="report_name">reporte_movimientos_mensuales</field>
+			<field name="pentaho_filename">straconx_budgets_projects/report/02_straconx_budget_lines.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_budgets.budget_report_project')" />
+		</record>		
+		<record id="account_account_moves_xls" model="ir.actions.report.xml">
+			<field name="name">Movimientos Contables</field>
+			<field name="report_name">reporte_movimientos_contables</field>
+			<field name="pentaho_filename">straconx_budgets_projects/report/04_straconx_account_all_lines.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]"
+				model="ir.model" />
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="is_pentaho_report" eval="True" />
+			<field name="linked_menu_id" eval="ref('straconx_reports_account.account_menu_general_ledger')" />
+		</record>		
+
+	</data>
+</openerp>

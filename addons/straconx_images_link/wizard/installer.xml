@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="base_setup.config_action_user_preferences_config_form"
+			model="ir.actions.todo">
+			<field name="action_id" ref="base_setup.action_user_preferences_config_form" />
+			<field name="category_id" ref="base.category_administration_config" />
+			<field name="sequence">1</field>
+			<field name="type">automatic</field>
+		</record>
+
+		<record id="view_convert_images_link_installer" model="ir.ui.view">
+			<field name="name">product.images.migrate</field>
+			<field name="model">product.images.migrate</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="base.res_config_installer" />
+			<field name="arch" type="xml">
+				<data>
+					<separator string="title" position="attributes">
+						<attribute name="string">Convert images to links</attribute>
+					</separator>
+					<xpath expr="//label[@string='description']" position="attributes">
+						<attribute name="string">This wizard allows you to convert the recorded images physically in the database recorded on the server links.</attribute>
+					</xpath>
+
+					<xpath expr='//separator[@string="vsep"]' position='attributes'>
+						<attribute name='string'></attribute>
+					</xpath>
+					<xpath expr="//button[@string='Install Modules']" position="attributes">
+						<attribute name="string">Convert</attribute>
+					</xpath>
+					<group colspan="4">
+                        <field name="migrate" colspan="2"/>
+                        <field name="extention" colspan="2"
+                            attrs="{'required':[('migrate','==',True)],'invisible':[('migrate','==',False)]}" />
+                        <newline/>
+                        <field name="sufix" colspan="2"
+                            attrs="{'invisible':[('migrate','==',False)]}" />
+                    </group>
+				</data>
+
+			</field>
+		</record>
+
+		<record id="action_convert_images_link_installer" model="ir.actions.act_window">
+			<field name="name">Convert images to links</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.images.migrate</field>
+			<field name="view_id" ref="view_convert_images_link_installer" />
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<record id="images_link_installer_todo" model="ir.actions.todo">
+			<field name="name">Convert images to links</field>
+			<field name="action_id" ref="action_convert_images_link_installer" />
+			<field name="category_id" ref="base.category_administration_config" />
+			<field name="sequence">2</field>
+			<field name="type">automatic</field>
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    <record model="ir.ui.view" id="view_partner_form4">
+        <field name="name">view.partner.form4</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="account_id"/>
+            </field>
+        </field>
+    </record>
+    
+<!--     <record model="ir.ui.view" id="view_partner_form_talent_human"> -->
+<!--         <field name="model">res.partner</field> -->
+<!--         <field name="inherit_id" ref="account.view_partner_property_form"/> -->
+<!--         <field name="arch" type="xml"> -->
+<!--         	<xpath expr="/form/notebook/page/field[@name='bank_ids']/form//field[@name='name']" position="after"> -->
+<!--         		<field name="account_id"/> -->
+<!--         	</xpath> -->
+<!--         </field> -->
+<!--     </record> -->
+    </data>
+</openerp>

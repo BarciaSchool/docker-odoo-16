@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+<!--    <menuitem -->
+<!--        name="Credit Partner Report"-->
+<!--        id="straconx_credit_report"  -->
+<!--        parent="straconx_credit_risk.menu_credit_report"-->
+<!--        sequence="1"/>-->
+
+        
+    </data>
+</openerp>
+    

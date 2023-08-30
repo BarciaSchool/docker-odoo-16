@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_payments.deposit_register_search" model="ir.ui.view">
+			<field name="name">Deposit Register Search</field>
+			<field name="model">deposit.register</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Deposit Register">
+					<filter string="Cash Box" icon="terp-partner" domain="[]"
+						context="{'group_by':'printer_id'}" />
+					<separator orientation="vertical" />
+					<filter icon="terp-check" name="cash" string="Cash"
+						domain="[('mode_id.cash','=',True)]" />
+					<filter icon="terp-check" name="check" string="Check"
+						domain="[('mode_id.check','=',True)]" />
+					<filter icon="terp-check" name="credit_card" string="Credit Card"
+						domain="[('mode_id.credit_card','=',True)]" />
+					<filter icon="terp-check" name="others" string="Others"
+						domain="[('mode_id.others','=',True)]" />
+					<separator orientation="vertical" />
+					<field name="date" string="Date of deposit" />
+					<field name="receipt" />
+					<field name="cash_id" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_payments.deposit_register_tree_view">
+			<field name="name">Deposit Register List</field>
+			<field name="model">deposit.register</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Deposit Register">
+					<field name="mode_id" />
+					<field name="amount" sum="Total"/>
+					<field name="date" />
+					<field name="receipt" />
+					<field name="cash_id" />
+					<field name="printer_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_payments.deposit_register_form_view">
+			<field name="name">Deposit Register Form</field>
+			<field name="model">deposit.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Deposit Register">
+					<field name="check" invisible="1"/>
+					<field name="deposit_checks" invisible="1" />
+					<field name="mode_id" />
+					<field name="amount" />
+					<field name="date" readonly="1" />
+					<field name="receipt" readonly="1" />
+					<field name="cash_id" />
+					<field name="printer_id" />
+					<field name="state" />
+					<group attrs="{'invisible': [('check','!=',1)]}" colspan="4">
+						<separator string="Checks" colspan="4" />
+					</group>
+					<field name="cheks_ids" colspan="4" nolabel="1" widget="many2many"
+						attrs="{'invisible': [('check','!=',1)]}" context="{'form_view_ref':'straconx_payments.view_cheque_form'}">
+						<tree string="Checks">
+							<field name="partner_id" />
+							<field name="bank_id" height="30" invisible="0" />
+							<field name="bank_account_id" invisible="0" />
+							<field name="mode_id" />
+							<field name="name" invisible="1" />
+							<field name="amount" sum="Total amount" />
+							<field name="deposit_date" />
+							<field name="type" invisible="1" />
+							<field name="authorization_credit" invisible="1" />
+							<field name="state" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="straconx_payments.action_deposit_register_view">
+			<field name="name">Deposit Register</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">deposit.register</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="straconx_payments.deposit_register_search" />
+			<field name="view_id" eval="False" />
+			<field name="domain">[('deposit_checks','=',0),('deposit_credit_card','=',0)]</field>
+		</record>
+
+		<record id="straconx_payments.action_deposit_register_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_payments.deposit_register_tree_view" />
+			<field name="act_window_id" ref="straconx_payments.action_deposit_register_view" />
+		</record>
+		<record id="straconx_payments.action_deposit_register_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_payments.deposit_register_form_view" />
+			<field name="act_window_id" ref="straconx_payments.action_deposit_register_view" />
+		</record>
+
+
+		<record model="ir.ui.view" id="straconx_payments.deposit_register_check_tree_view">
+			<field name="name">Deposit Register Check List</field>
+			<field name="model">deposit.register</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="blue:state in ('draft');grey:state in ('cancel');red:state in ('confirmed')" 
+					string="Deposit Register Check">
+					<field name="receipt" />
+					<field name="account_deposit_id" />
+					<field name="from_date" />
+					<field name="to_date" />
+					<field name="total_docs" />
+					<field name="amount" />
+					<field name="number_deposit" invisible="1"/>
+					<field name="date" invisible="1"/>
+					<field name="user_id" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="straconx_payments.deposit_register_check_form_view">
+			<field name="name">Deposit Register Check Form</field>
+			<field name="model">deposit.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Deposit Register Check">
+					<field name="company_id" />
+					<field name="shop_id" domain ="[('company_id','=',company_id)]" />
+					<field name="receipt" required="1" />
+					<field name="account_deposit_id" required="1" invisible="0"
+						domain="[('user_type.code','=','bank'),('type','!=','view'), ('type','!=','consolidation')]"
+						widget="selection" />
+					<field name="from_date" on_change="onchange_date(from_date,to_date,True)"
+						required="0" string="From Date Deposit" />
+					<field name="to_date" on_change="onchange_date(from_date,to_date,True)"
+						required="0" />
+					<field name="total_docs" />
+					<field name="amount" />
+					<notebook colspan="4">
+						<page string="Checks to deposit">
+							<separator string="Checks to deposit" colspan="4" />
+							<field name="cheks_ids" colspan="4" nolabel="1" widget="many2many"
+								domain="[('check','=',1),('state','=','hold')]" context="{'form_view_ref':'straconx_payments.view_cheque_form'}">
+								<tree string="Checks">
+									<field name="name" invisible="0" />
+									<field name="partner_id" />
+									<field name="bank_id" height="30" invisible="0" />
+									<field name="bank_account_id" invisible="0" />
+									<field name="amount" sum="Total amount" />
+									<field name="deposit_date" />
+									<field name="type" invisible="1" />
+									<field name="mode_id" />
+									<field name="authorization_credit" invisible="1" />
+									<field name="state" />
+								</tree>
+							</field>
+							<group colspan="4" col="8">
+								<field name="state" />
+								<button name="action_cancel" string="Cancel deposit"
+									states="deposit" icon="gtk-cancel" type="object" />
+								<button name="%(straconx_payments.action_deposit_check)d" string="Deposit"
+									states="confirmed" type="action" icon="gtk-execute" />
+								<button name="action_confirmed" string="Confirm" type="object"
+									states="draft" icon="gtk-go-forward" />
+								<button name="action_set_draft" string="Set to draft"
+									states="cancel" icon="gtk-convert" type="object" />
+                                <button name="%(straconx_payments.ac_deposit_register_list)d" string="Imprimir" type="action" icon="gtk-print"/>							
+							</group>
+						</page>
+						<page string="Other Info">
+							<field name="number_deposit" readonly="1" />
+							<field name="date" readonly="1" />
+							<field name="journal_id" readonly="1" />
+							<field name="mode_id" readonly="1" invisible="1"/>
+							<field name="user_id" required="1" />
+							<field name="move_id" readonly="1" />
+							<field name="process_date" readonly="1" />
+							<field name="deposit_checks" invisible="1" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<record id="straconx_payments.deposit_register_checks_search" model="ir.ui.view">
+			<field name="name">Deposit Register Checks Search</field>
+			<field name="model">deposit.register</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Deposit Register">
+					<filter string="bank" icon="terp-personal" domain="[]"
+						context="{'group_by':'bank_id'}" />
+					<filter string="Cuenta Depositada" icon="terp-dolar" domain="[]"
+						context="{'group_by':'account_deposit_id'}" />
+					<filter string="Estado" icon="terp-stock_effects-object-colorize" domain="[]"
+						context="{'group_by':'state'}" />						
+					<filter string="User" icon="terp-partner" domain="[]"
+						context="{'group_by':'user_id'}" />
+					<separator orientation="vertical" />
+					<field name="receipt" />
+					<field name="number_deposit" />
+					<field name="bank_id" />
+					<field name="state" />
+					<newline/>
+					<field name="date" string="Date of deposit" />
+					<field name="user_id" />	
+					<field name="account_deposit_id" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="straconx_payments.action_deposit_register_check_view">
+			<field name="name">Deposit Register Check</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">deposit.register</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="straconx_payments.deposit_register_checks_search" />
+			<field name="view_id" eval="False" />
+			<field name="domain">[('deposit_checks','=',1)]</field>
+			<field name="context">{'default_deposit_checks':1}</field>			
+		</record>
+
+		<record id="straconx_payments.action_deposit_register_check_view_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="straconx_payments.deposit_register_check_tree_view" />
+			<field name="act_window_id" ref="straconx_payments.action_deposit_register_check_view" />
+		</record>
+		<record id="straconx_payments.action_deposit_register_check_view_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_payments.deposit_register_check_form_view" />
+			<field name="act_window_id" ref="straconx_payments.action_deposit_register_check_view" />
+		</record>
+
+
+	</data>
+</openerp>

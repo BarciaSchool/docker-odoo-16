@@ -1,0 +1,922 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-08 00:48+0000\n"
+"PO-Revision-Date: 2012-10-08 00:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Invoice Information"
+msgstr "Información de Facturación"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:686
+#, python-format
+msgid "This number of invoice can correspond to more than one authorization by supplier!"
+msgstr "Este número de factura puede corresponder a más de una autorización del proveedor!"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "This button only appears when the state of the invoice is 'paid' (showing that it has been fully reconciled) and auto-computed boolean 'reconciled' is False (depicting that it's not the case anymore). In other words, the invoice has been dereconciled and it does not fit anymore the 'paid' state. You should press this button to re-open it and let it continue its normal process after having resolved the eventual exceptions it may have created."
+msgstr "Este botón solo aparece cuando el estado de la factura es 'pagado' (mostrando que ha sido totalmente conciliado) y el campo booleano autocalculado 'pagado/conciliado' es falso (representa que ya no es el caso). En otras palabra, la conciliación de la factura ha sido rota y ya no está en estado 'pagado'. Debería presionar este botón para volver a abrir la factura y le permitirá continuar su proceso normal después de haber resuelto la excepción eventual que lo puede haber producido."
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Agency"
+msgstr "Sucursal"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_tax_other:0
+msgid "Other Tax"
+msgstr "Otros Impuestos"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1050
+#: code:addons/straconx_invoice/objects/account_invoice.py:1055
+#, python-format
+msgid "You must configure the discount account in the company"
+msgstr "Usted debe configurar una cuenta de descuento para la compañía antes de continuar"
+
+#. module: straconx_invoice
+#: field:account.invoice,print_status:0
+msgid "Print Status"
+msgstr "Estado de Impresión"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.refund_report_id
+msgid "Print Refund Invoice"
+msgstr "Imprimir Nota de Crédito"
+
+#. module: straconx_invoice
+#: field:account.invoice,tpurchase:0
+msgid "Purchase type"
+msgstr "Tipo de Compra"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Province"
+msgstr "Provincia"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:559
+#, python-format
+msgid "you must select the shop and Journal."
+msgstr "Usted debe seleccionar una tienda con su correspondiente diario."
+
+#. module: straconx_invoice
+#: field:account.invoice,pre_printer:0
+msgid "Pre-printer"
+msgstr "Pre-impreso"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_base_vat_untaxes:0
+msgid "BASE Untaxes"
+msgstr "Base sin Impuestos"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: field:account.invoice,date_invoice2:0
+msgid "Invoice Date"
+msgstr "Emitida el"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Modify"
+msgstr "Modificar"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Marca"
+msgstr "Marca"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.sri_debit_note_report_id
+msgid "Print Debit Note"
+msgstr "Imprimir Nota de Débito"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:931
+#, python-format
+msgid "Please define sequence on invoice journal"
+msgstr "Por favor definir una secuencia en el diario de Facturas"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "This action will erase taxes"
+msgstr "Esta acción borrará impuestos"
+
+#. module: straconx_invoice
+#: model:ir.model,name:straconx_invoice.model_invoice_discount
+msgid "Add a Global Discount"
+msgstr "Añadir un descuento global"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:829
+#, python-format
+msgid "Partner %s doesn't have CEDULA/RUC, you must input for validate."
+msgstr "Empresa %s no tiene una CEDULA/RUC, debe ingresarla para poder validarla."
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:849
+#: code:addons/straconx_invoice/objects/account_invoice.py:882
+#, python-format
+msgid "Not exist authorization for the document, please check"
+msgstr "No existe autorización para el documento, por favor revisar."
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:837
+#: code:addons/straconx_invoice/objects/account_invoice.py:885
+#, python-format
+msgid "Do not exist authorization for this number of sequence, please check"
+msgstr "No existe autorización para la secuencia, por favor revisar."
+
+#. module: straconx_invoice
+#: selection:account.invoice,tpurchase:0
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:871
+#, python-format
+msgid "Not exist tax sustent for the document, please check"
+msgstr "No existe sustento impositivo para el documento, por favor revisar."
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:535
+#: code:addons/straconx_invoice/objects/account_invoice.py:829
+#: code:addons/straconx_invoice/objects/account_invoice.py:887
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_invoice
+#: help:account.invoice,invoice_number_in:0
+#: help:account.invoice,invoice_number_out:0
+msgid "Unique number of the invoice."
+msgstr "Número Único de Factura."
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: model:ir.actions.report.xml,name:straconx_invoice.liquidation_report_id
+msgid "Print Purchase Liquidation"
+msgstr "Imprimir Liquidación de Compras"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:834
+#: code:addons/straconx_invoice/objects/account_invoice.py:874
+#: code:addons/straconx_invoice/objects/account_invoice.py:879
+#, python-format
+msgid "Not exist number for the document, please check"
+msgstr "No existe número para este documento, por favor revisar."
+
+#. module: straconx_invoice
+#: field:account.invoice,origin_transaction:0
+msgid "Origin"
+msgstr "Origen"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:951
+#, python-format
+msgid "Please verify the price of the invoice !\n"
+"The real total does not match the computed total."
+msgstr "Por favor verifique los precios de los productos de la factura !\n"
+"El valor total no coincide con el valor calculado."
+
+#. module: straconx_invoice
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_invoice
+#: field:account.invoice,migrate:0
+msgid "Migrate"
+msgstr "Migración"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.invoice_supplier_report_id
+msgid "Print Supplier Invoice"
+msgstr "Imprimir Resumen de la factura"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Re-Open"
+msgstr "Reabrir"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.servientrega_report_id
+msgid "Print Servientrega Guide"
+msgstr "Imprimir Guía de Servientrega"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:627
+#: code:addons/straconx_invoice/objects/account_invoice.py:674
+#: code:addons/straconx_invoice/objects/account_invoice.py:685
+#, python-format
+msgid "Warning!"
+msgstr "Cuidado!"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_invoice
+#: field:account.invoice,automatic:0
+msgid "automatic"
+msgstr "automático"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.invoice_report_id
+msgid "Print Invoice"
+msgstr "Imprimir Factura"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.delivery_report_id
+msgid "Print Delivery Guide Invoiced"
+msgstr "Imprimir Guía de Remisión"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:933
+#, python-format
+msgid "No Invoice Lines !"
+msgstr "Sin Líneas en la factura !"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:887
+#, python-format
+msgid "There is an invoice with number %s for supplier %s"
+msgstr "Ya existe una factura con el número %s para este proveedor %s"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Supplier Invoice"
+msgstr "Factura de Proveedor"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.invoice_pos_report_id
+msgid "Print POS Invoice"
+msgstr "Imprimir Factura POS"
+
+#. module: straconx_invoice
+#: selection:account.invoice,origin_transaction:0
+msgid "International"
+msgstr "Internacional"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,offer_value_total:0
+msgid "Offer Value Total"
+msgstr "Valor Oferta Total"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+#: model:ir.ui.menu,name:straconx_invoice.menu_action_straconx_invoice_lines_sales
+msgid "Invoice Lines"
+msgstr "Líneas de Facturas"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:931
+#: code:addons/straconx_invoice/objects/account_invoice.py:962
+#: code:addons/straconx_invoice/objects/account_invoice.py:1050
+#: code:addons/straconx_invoice/objects/account_invoice.py:1055
+#: code:addons/straconx_invoice/objects/account_invoice.py:1142
+#: code:addons/straconx_invoice/objects/account_invoice.py:1188
+#: code:addons/straconx_invoice/objects/account_invoice.py:1222
+#: code:addons/straconx_invoice/objects/account_invoice.py:1230
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Taxes Vat Amount"
+msgstr "Monto de IVA"
+
+#. module: straconx_invoice
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_invoice
+#: field:account.invoice,nb_print:0
+msgid "Number of Print"
+msgstr "Número de Impresión"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_total_vat:0
+msgid "Vat"
+msgstr "IVA"
+
+#. module: straconx_invoice
+#: field:account.invoice,tax_sustent:0
+msgid "Tax Sustent"
+msgstr "Sustento Tributario"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: field:account.invoice,shop_id:0
+#: view:account.invoice.line:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:665
+#, python-format
+msgid "you must select the address and Journal."
+msgstr "Debe seleccionar una dirección y un diario."
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:181
+#, python-format
+msgid "Margin Incorrect!"
+msgstr "¡Margen Incorrecto!"
+
+#. module: straconx_invoice
+#: field:account.invoice,printer_id:0
+msgid "Printer Point"
+msgstr "Punto de Impresión"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Print Move"
+msgstr "Imprimir Movimiento"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Pay Invoice"
+msgstr "Pagar Factura"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Compute Taxes"
+msgstr "Calcular impuestos"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Tax Information Withhold"
+msgstr "Información de Retenciones"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:641
+#, python-format
+msgid "you must select the address, Journal and number."
+msgstr "Usted debe seleccionar la dirección, diario y un número de documento."
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_invoice
+#: help:account.invoice,invoice_number:0
+msgid "Unique number of the invoice, computed automatically when the invoice is created."
+msgstr "Número Único de factura, calculada automáticamente cuando la factura es creada."
+
+#. module: straconx_invoice
+#: selection:account.invoice,tpurchase:0
+msgid "Expense"
+msgstr "Gastos"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,margin:0
+msgid "Margin"
+msgstr "Margen"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: straconx_invoice
+#: model:ir.actions.report.xml,name:straconx_invoice.account_invoice_list_report
+msgid "Print Invoice List"
+msgstr "Imprimir Listas de Facturas"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,offer:0
+msgid "Offer"
+msgstr "Oferta"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "My invoices"
+msgstr "Mis facturas"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1188
+#: code:addons/straconx_invoice/objects/account_invoice.py:1222
+#, python-format
+msgid "You cannot annuled the Invoice of date less to the current date!"
+msgstr "No se puede anular la factura si la fecha es menor que la fecha actual!"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_tax_withhold:0
+msgid "Withhold Tax"
+msgstr "Retenciones"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Asesor"
+msgstr "Asesor"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Unpaid Invoices"
+msgstr "Facturas sin Pagar"
+
+#. module: straconx_invoice
+#: model:ir.actions.act_window,name:straconx_invoice.action_straconx_purchase_liquidation_invoice
+#: model:ir.ui.menu,name:straconx_invoice.menu_action_straconx_purchase_liquidation_invoice
+msgid "Purchase Liquidation"
+msgstr "Liquidación de Compras"
+
+#. module: straconx_invoice
+#: field:account.invoice,salesman_id:0
+#: view:account.invoice.line:0
+msgid "Salesman"
+msgstr "Asesor"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Additional Information"
+msgstr "Información Adicional"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,categ_id:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Draft Invoices"
+msgstr "Facturas en borrador"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Proforma/Open/Paid Invoices"
+msgstr "Facturas en estado Proforma/Abierta/Pagada"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Tax Information"
+msgstr "Información de Impuestos"
+
+#. module: straconx_invoice
+#: field:invoice.discount,offer:0
+msgid "Offer (%)"
+msgstr "Oerta (%)"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:962
+#, python-format
+msgid "Cannot create the invoice !\n"
+"The payment term defined gives a computed amount greater than the total invoiced amount."
+msgstr "¡No se puede crear la factura !\n"
+"Los términos de pagos definidos en el valor calculado son mayores que el monto total facturado."
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Supplier Other Documents"
+msgstr "Otros Documentos de Proveedores"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:951
+#, python-format
+msgid "Bad total !"
+msgstr "¡Total Incorrecto!"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:729
+#, python-format
+msgid "Configuration Error !"
+msgstr "¡Error de Configuración!"
+
+#. module: straconx_invoice
+#: field:account.invoice,authorization:0
+#: field:account.invoice,authorization_purchase:0
+#: field:account.invoice,authorization_sales:0
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,price_product:0
+msgid "PVP"
+msgstr "PVP"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:730
+#, python-format
+msgid "Can not find a chart of accounts for this company, you should create one."
+msgstr "No se puede encontrar un Plan de Cuentas para esta empresa, debe crear uno."
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Total Amount"
+msgstr "Valor Total"
+
+#. module: straconx_invoice
+#: help:account.invoice,date_invoice2:0
+msgid "Keep empty to use the current date"
+msgstr "Dejar vacío para usar la fecha actual"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:711
+#, python-format
+msgid "A contact or invoice address is required !"
+msgstr "Un dirección de contacto o de facturación es requerida !"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,offer_value:0
+msgid "Offer Value"
+msgstr "Monto de Oferta"
+
+#. module: straconx_invoice
+#: field:account.invoice,cancel_date:0
+msgid "Cancel Date"
+msgstr "Fecha de Cancelación"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_invoice
+#: field:account.invoice,vat:0
+msgid "R.U.C / CI"
+msgstr "R.U.C / CI"
+
+#. module: straconx_invoice
+#: view:invoice.discount:0
+#: model:ir.actions.act_window,name:straconx_invoice.action_invoice_pos_discount
+msgid "Apply Discount"
+msgstr "Aplicar Descuento"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Proforma"
+msgstr "Proforma"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1142
+#: code:addons/straconx_invoice/objects/account_invoice.py:1230
+#, python-format
+msgid "You cannot cancel the Invoice which is Partially Paid! You need to unreconcile concerned payment entries!"
+msgstr "¡No se puede cancelar una factura que se encuentra parcialmente pagada. Primero necesita reversar el pago realizado!"
+
+#. module: straconx_invoice
+#: field:account.invoice.line,cost_price:0
+msgid "Cost Price"
+msgstr "Costo"
+
+#. module: straconx_invoice
+#: selection:account.invoice,origin_transaction:0
+msgid "local"
+msgstr "local"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:647
+#: code:addons/straconx_invoice/objects/account_invoice.py:834
+#: code:addons/straconx_invoice/objects/account_invoice.py:837
+#: code:addons/straconx_invoice/objects/account_invoice.py:849
+#: code:addons/straconx_invoice/objects/account_invoice.py:871
+#: code:addons/straconx_invoice/objects/account_invoice.py:874
+#: code:addons/straconx_invoice/objects/account_invoice.py:879
+#: code:addons/straconx_invoice/objects/account_invoice.py:882
+#: code:addons/straconx_invoice/objects/account_invoice.py:885
+#: code:addons/straconx_invoice/objects/account_invoice.py:1118
+#: code:addons/straconx_invoice/objects/account_invoice.py:1241
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_invoice
+#: model:ir.actions.act_window,name:straconx_invoice.action_straconx_view_account_invoice_lines_filter
+msgid "Invoiced Lines"
+msgstr "Líneas Facturadas"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Unpaid"
+msgstr "Sin Pagar"
+
+#. module: straconx_invoice
+#: field:account.invoice,flag:0
+msgid "flag"
+msgstr "flag"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_base_vat_12:0
+msgid "BASE 12%"
+msgstr "BASE 12%"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1241
+#, python-format
+msgid "You can delete Invoice only in state Draft"
+msgstr "Solo se puede borrar Facturas en estado borrador"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+msgid "Search Invoice"
+msgstr "Buscar Factura"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1077
+#, python-format
+msgid "Cannot create invoice move on centralised journal"
+msgstr "No se puede crear el Movimiento contable en el Diario Correspondiente"
+
+#. module: straconx_invoice
+#: field:account.invoice,account_quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_invoice
+#: model:ir.model,name:straconx_invoice.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuestos"
+
+#. module: straconx_invoice
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1118
+#, python-format
+msgid "The date entered is not valid for the authorization"
+msgstr "La fecha ingresada no es válida para la autorización"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Residual Amount"
+msgstr "Saldo Pendiente"
+
+#. module: straconx_invoice
+#: model:ir.actions.act_window,help:straconx_invoice.action_straconx_purchase_liquidation_invoice
+msgid "With Supplier Invoices you can enter and manage\n"
+"				invoices issued by your suppliers. OpenERP can also generate draft\n"
+"				invoices automatically from purchase orders or receipts. This way,\n"
+"				you can control the invoice from your supplier according to what you\n"
+"				purchased or received.\n"
+"			"
+msgstr "Desde facturas de proveedores usted puede ingresar y administrar\n"
+"				las facturas emitidas. OpenERP puede también generar en facturas\n"
+"				en borrador desde Ordenes o Ingresos de Compras. Mediante esta vía ,\n"
+"				usted puede controlar las facturas de sus proveedores de acuerdo \n"
+"				que han sido compradas o recibidas.\n"
+"			"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:628
+#: code:addons/straconx_invoice/objects/account_invoice.py:675
+#, python-format
+msgid "Do not exist authorization for this number of sequence, please check!"
+msgstr "¡No existe autorización para este número de secuencia, por favor revisar!"
+
+#. module: straconx_invoice
+#: model:ir.actions.act_window,name:straconx_invoice.action_invoice_form_print
+msgid "Customer Invoices"
+msgstr "Facturas de Cliente"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_invoice
+#: model:ir.ui.menu,name:straconx_invoice.menu_action_other_documents_invoice
+msgid "Another Documents"
+msgstr "Otros Documentos Contables"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+#: view:account.invoice.line:0
+#: model:ir.model,name:straconx_invoice.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Proforma Invoices"
+msgstr "Facturas proforma"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_invoice
+#: view:invoice.discount:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_base_vat_00:0
+msgid "BASE 0%"
+msgstr "BASE 0%"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "City"
+msgstr "Ciudad"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: straconx_invoice
+#: model:ir.model,name:straconx_invoice.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Facturas"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "More filters"
+msgstr "Más filtros"
+
+#. module: straconx_invoice
+#: field:account.invoice,segmento_id:0
+#: view:account.invoice.line:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:933
+#, python-format
+msgid "Please create some invoice lines."
+msgstr "Por favor cree alguna línea de factura."
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Due Date"
+msgstr "Fecha de Vencimiento"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:647
+#, python-format
+msgid "The format number is incorrect"
+msgstr "El formato númerico es incorrecto"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_invoice
+#: field:account.invoice,cancel_user_id:0
+msgid "Cancel User"
+msgstr "Usuario que Cancela"
+
+#. module: straconx_invoice
+#: field:account.invoice,invoice_number:0
+#: field:account.invoice,invoice_number_in:0
+#: field:account.invoice,invoice_number_out:0
+msgid "Invoice Number"
+msgstr "Número de Documento"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Invoice lines"
+msgstr "Detalle de Facturas"
+
+#. module: straconx_invoice
+#: view:account.invoice.line:0
+msgid "Credit Notes"
+msgstr "Nota de Crédito"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_total_offer:0
+msgid "Total Offer"
+msgstr "Total $ de Ofertas"
+
+#. module: straconx_invoice
+#: field:account.invoice,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:618
+#, python-format
+msgid "you must select the shop, cash, and Journal."
+msgstr "usted debe seleccionar la tienda, caja y el diario correspondiente."
+
+#. module: straconx_invoice
+#: field:account.invoice.line,cost_subtotal:0
+msgid "Costs"
+msgstr "Costos"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:1076
+#, python-format
+msgid "UserError"
+msgstr "Error de Usuario"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: straconx_invoice
+#: field:account.invoice,amount_tax_withhold_vat:0
+msgid "VAT Withhold"
+msgstr "Retenciones de IVA"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:559
+#: code:addons/straconx_invoice/objects/account_invoice.py:618
+#: code:addons/straconx_invoice/objects/account_invoice.py:641
+#: code:addons/straconx_invoice/objects/account_invoice.py:665
+#, python-format
+msgid "Verify data!"
+msgstr "Verificar datos!"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Cancel Invoices"
+msgstr "Anular Facturas"
+
+#. module: straconx_invoice
+#: code:addons/straconx_invoice/objects/account_invoice.py:711
+#, python-format
+msgid "Partner need a address for continue"
+msgstr "Empresa requiere una dirección para continuar"
+
+#. module: straconx_invoice
+#: model:ir.actions.act_window,name:straconx_invoice.action_other_documents_invoice
+msgid "Other Documents"
+msgstr "Otros Documentos"
+
+#. module: straconx_invoice
+#: view:account.invoice:0
+msgid "Untaxed Amount"
+msgstr "Base Imponible"
+
+#. module: straconx_invoice
+#: field:account.invoice,document_type:0
+msgid "Document Type"
+msgstr "Tipo de Documento"
+
+#. module: account
+#: field:account.invoice.report,address_invoice_id:0
+msgid "Invoice Address Name"
+msgstr "Enviar a"

@@ -1,0 +1,93 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_auto_backups
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-28 08:02+0000\n"
+"PO-Revision-Date: 2015-08-28 08:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "3) Set 'Object' to 'db.backup' and 'Function' to 'schedule_backup' under page 'Technical Data'"
+msgstr "3) Ajuste \"objeto\" a \"db.backup\" y \"función\" a \"schedule_backup\" en la página \"Datos Técnicos\""
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "Help"
+msgstr "Ayuda"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "2) Schedule new action(create a new record)"
+msgstr "2) Lista de nuevas acciones (crear un nuevo registro)"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "Database Configuration"
+msgstr "Configuración de Base de Datos"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "4) Set other values as per your preference"
+msgstr "4) Establecer los demás valores según su preferencia"
+
+#. module: straconx_auto_backups
+#: field:db.backup,login:0
+msgid "User Name"
+msgstr "Usuario"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "Test"
+msgstr "Prueba"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "1) Go to Administration / Configuration / Scheduler / Scheduled Actions"
+msgstr "1) Vaya a Administración / Configuración / Programador / Acciones programadas"
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "This configures the scheduler for automatic backup of the given database running on given host at given port on regular intervals."
+msgstr "Esto configura el planificador de copia de seguridad automática de la base de datos dado que se ejecutan en el host dado en el puerto en intervalos regulares."
+
+#. module: straconx_auto_backups
+#: model:ir.actions.act_window,name:straconx_auto_backups.action_backup_conf_form
+#: model:ir.ui.menu,name:straconx_auto_backups.backup_conf_menu
+msgid "Configure Backup"
+msgstr "Configurar copia de seguridad"
+
+#. module: straconx_auto_backups
+#: help:db.backup,login:0
+msgid "Debe ser el mismo usuario "
+msgstr "Debe ser el mismo usuario "
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "IP Configuration"
+msgstr "Configuración IP"
+
+#. module: straconx_auto_backups
+#: model:ir.model,name:straconx_auto_backups.model_db_backup
+msgid "db.backup"
+msgstr "backup.BBDD"
+
+#. module: straconx_auto_backups
+#: constraint:db.backup:0
+msgid "Error ! No such database exist."
+msgstr "Error ! La base de datos no existe."
+
+#. module: straconx_auto_backups
+#: view:db.backup:0
+msgid "Automatic backup of all the databases under this can be scheduled as follows: "
+msgstr "Copia de seguridad automática de las bases de datos en virtud de este puede ser programado de la siguiente manera: "
+

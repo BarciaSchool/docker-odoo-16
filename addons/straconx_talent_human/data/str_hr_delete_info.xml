@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="0">
+		<delete model="hr.payroll.structure" search="[('code','=','BASE')]" />
+		<delete model="ir.ui.view" search="[('name','=','hr.contract.view.form.inherit')]" />
+		<delete model="ir.ui.menu" search="[('name','=','Allocation Requests')]" />
+
+		
+	</data>
+</openerp>

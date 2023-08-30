@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="product_orderpoint_tree_view">
+            <field name="name">Lista de Reorden</field>
+            <field name="model">product.orderpoint</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Puntos de Reorden">
+                    <field name="ubication_id"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="location_ubication_id" invisible="1"/>                    
+                    <field name="max_qty" sum="Máx Qty"/>
+                    <field name="min_qty" sum="Mín Qty"/>
+					<field name="date_reorder"/>
+					<field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="product_orderpoint_form_view">
+            <field name="name">Form. Productos Reorden</field>
+            <field name="model">product.orderpoint</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Puntos de Reorden">
+                    <field name="ubication_id"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="location_ubication_id" invisible="1"/>                    
+                    <field name="max_qty" sum="Máx Qty"/>
+                    <field name="min_qty" sum="Mín Qty"/>
+					<field name="date_reorder"/>
+					<field name="state"/>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record id="product_orderpoint_search" model="ir.ui.view">
+            <field name="name">product.orderpoint.select</field>
+            <field name="model">product.orderpoint</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Reorden">
+                   <group string="Group By...">
+						<filter string="Productos" icon="terp-accessories-archiver" domain="[]" context="{'group_by':'product_id'}"/>                    	
+                    	<filter string="Ubicación" icon="terp-stock" domain="[]" context="{'group_by':'ubication_id'}"/>
+                    	<filter string="Categoria" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'location_ubication_id'}"/>                        
+                   		<filter string="Estado" icon="terp-check" context="{'group_by':'state'}"/>
+                        <separator orientation="vertical"/>
+	                    <field name="ubication_id"/>
+	                    <field name="product_id" invisible="1"/>
+	                    <field name="location_ubication_id" invisible="1"/>                    
+                        <newline/>
+	                    <field name="max_qty" sum="Máx Qty"/>
+	                    <field name="min_qty" sum="Mín Qty"/>
+						<field name="date_reorder"/>
+						<field name="state"/>
+                    </group>
+               </search>
+            </field>
+        </record>
+
+<!-- 		<record model="ir.ui.view" id="straconx_logistics.product_form_ubication2"> -->
+<!-- 			<field name="name">Puntos de Reorden</field> -->
+<!-- 			<field name="model">product.product</field> -->
+<!-- 			<field name="inherit_id" ref="product.product_normal_form_view" /> -->
+<!-- 			<field name="arch" type="xml"> -->
+<!-- 				<field name="margin_base" position="replace"> -->
+<!-- 					<field name="margin_base"  -->
+<!-- 					groups="base.group_document_manager,account.group_account_invoice,account.group_account_user,account.group_account_manager,purchase.group_purchase_manager,purchase.group_purchase_user"/>					 -->
+<!-- 					<field name="qty_available_shop"/> -->
+<!-- 					<field name="qty_available_location"/> -->
+<!-- 				</field>				 -->
+<!-- 				<xpath expr="/form/notebook/page/group//field[@name='weight']" -->
+<!-- 					position="replace"> -->
+<!-- 					<newline /> -->
+<!-- 					<field digits="(14, 3)" name="height" -->
+<!-- 						attrs="{'readonly':[('type','=','service')]}" /> -->
+<!-- 					<field digits="(14, 3)" name="width" -->
+<!-- 						attrs="{'readonly':[('type','=','service')]}" /> -->
+<!-- 					<field digits="(14, 3)" name="long" -->
+<!-- 						attrs="{'readonly':[('type','=','service')]}" /> -->
+<!-- 					<field digits="(14, 3)" name="volume" -->
+<!-- 					attrs="{'readonly':[('type','=','service')]}" /> -->
+<!-- 				</xpath> -->
+<!-- 				<field name="state" position="replace"> -->
+<!-- 					<field name="state" on_change="onchange_state_product(state)"/> -->
+<!-- 				</field> -->
+<!-- 				<button name="%(straconx_products.action_product_information_view)d" position="after"> -->
+<!-- 					<newline/> -->
+<!-- 					<group col="4" colspan="4"> -->
+<!-- 						<separator string="Stock" colspan="8" /> -->
+<!-- 						<field colspan="4" name="ubication_ids" nolabel="1"> -->
+<!-- 							<tree string="Product Ubications" editable="bottom"> -->
+<!-- 								<field name="location_ubication_id" />								 -->
+<!-- 								<field name="product_id" invisible="1" /> -->
+<!-- 								<field name="ubication_id" invisible="1" /> -->
+<!-- 								<field name="qty" string="Actual" sum="Cant. actual" readonly="1"/> -->
+<!-- 			                    <field name="max_qty" sum="Máx Cant." attrs="{'readonly':[('state','in',[('no_disp','transit','obsolete')])]}" /> -->
+<!-- 			                    <field name="min_qty" sum="Mín Cant." attrs="{'readonly':[('state','in',[('no_disp','transit','obsolete')])]}" /> -->
+<!-- 								<field name="date_reorder" readonly="1"/> -->
+<!-- 								<field name="state" readonly="1"/> -->
+<!-- 							</tree> -->
+<!-- 							<form string="Product Ubications"> -->
+<!-- 								<field name="location_ubication_id" />								 -->
+<!-- 								<field name="product_id" invisible="1" /> -->
+<!-- 								<field name="ubication_id" invisible="1" /> -->
+<!-- 								<field name="qty" string="Actual" sum="Cant. actual" readonly="1"/> -->
+<!-- 			                    <field name="max_qty" sum="Máx Cant." attrs="{'readonly':[('state','in',[('no_disp','transit','obsolete')])]}" /> -->
+<!-- 			                    <field name="min_qty" sum="Mín Cant." attrs="{'readonly':[('state','in',[('no_disp','transit','obsolete')])]}" /> -->
+<!-- 								<field name="date_reorder" readonly="1"/> -->
+<!-- 								<field name="state" readonly="1"/> -->
+<!-- 							</form> -->
+<!-- 						</field> -->
+<!-- 					</group> -->
+<!-- 				</button> -->
+<!-- 			</field> -->
+<!-- 		</record> -->
+
+        
+    </data>
+</openerp>

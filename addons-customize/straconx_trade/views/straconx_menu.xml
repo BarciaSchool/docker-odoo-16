@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+<!--International Trade Menu -->
+
+    <menuitem
+        name="International Trade"
+        id="menu_itrade"
+        parent="base.menu_purchase_root"
+        sequence="4" />
+
+    <menuitem
+        name="New International Trade Liquidation"
+        id="menu_itrade_form_action"
+        action="straconx_action_itrade_form"
+        parent="menu_itrade"
+        sequence="1" />
+
+    <menuitem
+        name="International Trade Liquidation"
+        id="menu_itrade_tree_action"
+        action="straconx_action_itrade_tree"
+        parent="menu_itrade"
+        sequence="1" />
+
+    <menuitem
+        name="Landed Costs"
+        id="menu_landed_costs"
+        parent="menu_itrade"
+        sequence="3" />
+
+    <menuitem
+        name="Landed Costs"
+        id="menu_view_landed_cost"
+        action="act_view_landed_cost"
+        parent="menu_landed_costs"
+        sequence="1" />
+
+    <menuitem
+        name="New Landed Costs"
+        id="menu_new_landed_cost"
+        action="act_new_landed_cost"
+        parent="menu_landed_costs"
+        sequence="2" />
+
+        <!-- TradeTax menu -->
+
+
+    <menuitem
+        name="Product Tradetax"
+        id="menu_product_tradetax_action_form_str"
+        action="product_tradetax_action_form"
+        parent="straconx_purchase.menu_purchase_config_straconx"
+        sequence="2"/>
+
+   <menuitem
+        name="Tax duty"
+        id="menu_tax_duty"
+        action="tax_duty_action_form"
+        parent="straconx_purchase.menu_purchase_config_straconx"
+        sequence="3"/>
+
+        <!-- Picking In International menu -->
+
+    <menuitem
+        name="Entrada de Importaciones"
+        id="menu_international_picking_in_logistic"
+        parent="stock.menu_stock_warehouse_mgmt"
+        sequence="3"
+        />
+
+    <menuitem
+        name="Importaciones pendientes"
+        action="straconx_action_picking_in_international_tree"
+        id="menu_international_picking_in_log_form"
+        parent="menu_international_picking_in_logistic"
+        sequence="3"
+        />
+
+    <menuitem
+        name="Lista de Importaciones"
+        action="straconx_action_picking_in_international_all_tree"
+        id="menu_international_picking_in_log_all_form"
+        parent="menu_international_picking_in_logistic"
+        sequence="4"
+        />
+
+        <!-- Purchase Receipt International menu -->
+            
+    <menuitem
+        name="International Incoming Orders"
+        id="menu_purchase_international"
+        parent="menu_itrade"
+        sequence="3" />
+        
+    <menuitem
+        name="International Incoming Orders"
+        action="straconx_action_picking_in_international_tree"
+        id="menu_international_picking_in_form"
+        parent="menu_purchase_international"
+        sequence="1"
+        />
+
+    <menuitem
+        name="All International Incoming Orders"
+        action="straconx_action_picking_in_international_all_tree"
+        id="menu_international_picking_in_all_form"
+        parent="menu_purchase_international"
+        sequence="2"
+        />        
+        
+    </data>
+</openerp>
+

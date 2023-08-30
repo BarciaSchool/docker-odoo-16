@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+	<data>
+		<!--Gestión de Conocimiento -->
+		<menuitem name="Kárdex de Productos" id="menu_knowlegde_kardex"
+			action="straconx_logistics.action_kardex_form"
+			parent="straconx_products.knowledge_menu_product"
+			sequence="5" />
+
+		<!--Gestión de Tiendas -->
+		<menuitem name="Kárdex de Productos" id="menu_pointofsale_kardex"
+			action="straconx_logistics.action_kardex_form"
+			parent="straconx_sales.menu_point_of_sale_product"
+			sequence="5" />
+			
+		<!--Gestión de Compras -->
+		<menuitem name="Kárdex de Productos" id="menu_purchase_kardex"
+			action="straconx_logistics.action_kardex_form"
+			parent="purchase.menu_procurement_management_product"
+			sequence="5" />
+
+		<!--Gestión de Logística -->
+		<menuitem name="Kárdex de Productos" id="menu_logistics_kardex"
+			action="straconx_logistics.action_kardex_form"
+			parent="stock.menu_stock_product"
+			sequence="5" />
+
+		<!--Gestión de Ventas -->
+		<menuitem name="Kárdex de Productos" id="menu_sales_kardex"
+			action="straconx_logistics.action_kardex_form"
+			parent="base.menu_product"
+			sequence="5" />
+	</data>
+</openerp>

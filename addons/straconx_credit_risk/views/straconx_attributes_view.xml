@@ -1,0 +1,65 @@
+<openerp>
+<data>
+
+        <!--
+          =====================
+          Partner Address
+          =====================
+        -->
+        
+        <record id="view_partner_address_tree" model="ir.ui.view">
+            <field name="name">res.partner.address.tree</field>
+            <field name="model">res.partner.address</field>
+            <field name="type">tree</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Partner Addresses">
+                    <field name="name" string="Agencies"/>
+                    <field name="type"/>
+                    <field name="street"/>
+                    <field name="city"/>
+                    <field name="phone"/>
+                    <field name="salesman_assigned"/>
+                    <field name="collect_assigned"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+    
+        <record id="view_partner_address_form1" model="ir.ui.view">
+            <field name="name">res.partner.address.form1</field>
+            <field name="model">res.partner.address</field>
+            <field name="type">form</field>
+            <field eval="16" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Address">
+                    <group colspan="4" col="6">
+                        <field name="name" colspan="4"/>
+                        <newline/>                        
+                        <field name="partner_id" colspan="2"/>
+                        <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company" widget="selection" colspan="2" invisible="1"/>
+                    </group>
+                    <group colspan="2" col="4">
+                        <separator string="Postal Address" colspan="4" col="4" />
+                        <field name="type" string="Type" colspan="2"/>
+                        <field name="street" colspan="4"/>
+                        <field name="location" colspan="4" />
+                        <field name="salesman_assigned" colspan="4" />
+                        <field name="collect_assigned" colspan="4" />
+                    </group>
+                    <group colspan="2" col="2">
+                        <separator string="Communication" colspan="4" col="4"/>
+                        <field name="phone"/>
+                        <field name="phone2"/>
+                        <field name="fax"/>
+                        <field name="mobile"/>
+                        <field name="email" widget="email"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+ 
+</data>
+</openerp>

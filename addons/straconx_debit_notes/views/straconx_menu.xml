@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+	<!--Menu Debit Note -->
+
+		<menuitem name="Debit Note" id="debit_note_menu"
+			parent="straconx_partners.menu_financial_risk" sequence="12" />		
+
+		<menuitem id="debit_note_menu_customer" action="action_debit_customer"
+			parent="debit_note_menu" sequence="2" 
+			name="Debit Note Customer"/>
+
+		<menuitem id="invoice_debit_note_sri_menu" name="SRI Debit Note"
+			action="action_invoice_debit_note_sri" parent="debit_note_menu"
+			sequence="3" />
+
+	<!--Debit Note for Account -->
+		<menuitem name="Debit Note" id="account_debit_note_menu"
+			parent="account.menu_finance" sequence="12" />
+
+		<menuitem id="invoice_debit_note_sri_menu" name="SRI Debit Note"
+			action="action_invoice_debit_note_sri" parent="account_debit_note_menu"
+			sequence="3" />
+
+		<menuitem id="debit_note_account_menu_customer" action="action_debit_customer"
+			parent="account_debit_note_menu" sequence="2" 
+			name="Debit Note Customer"/>
+
+		<menuitem id="debit_note_account_menu_supplier" action="action_debit_supplier"
+			parent="account_debit_note_menu" sequence="2" 
+			name="Debit Note Supplier"/>
+
+			
+	<!--Menu Advances -->
+
+		<menuitem name="Advances" id="anticipos_menu"
+			parent="straconx_partners.menu_financial_risk" sequence="7" />
+
+		<menuitem id="menu_advance_customer" action="action_advance_customer"
+			parent="anticipos_menu" groups="base.group_extended" sequence="1" />
+			
+		<menuitem id="menu_advance_supplier" action="action_advance_supplier"
+			parent="account.menu_finance_payables" sequence="8" />
+
+    </data>
+</openerp>

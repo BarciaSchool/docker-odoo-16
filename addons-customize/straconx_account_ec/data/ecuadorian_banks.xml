@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+        
+        <record id="base.bank_normal" model="res.partner.bank.type">
+            <field name="name">Checking Account</field>
+            <field name="code">bank</field>
+        </record>
+
+        <record model="res.partner.bank.type" id="straconx_account.credit_card">
+                <field name="code">credit_card</field>
+                <field name="name">Credit Card</field>
+        </record>
+
+        <record model="res.partner.bank.type" id="straconx_account.savings_account">
+            <field name="name">Savings Account</field>
+            <field name="code">saving</field>
+        </record>
+
+        <record model="res.partner.bank.type" id="straconx_account.debit_card">
+            <field name="name">Debit Card</field>
+            <field name="code">debit_card</field>
+        </record>
+
+<!--Credit Card Names -->
+        <record id="straconx_account.visa" model="res.bank.emisor">
+            <field name="name">VISA</field>
+        </record>
+
+        <record id="straconx_account.american" model="res.bank.emisor">
+            <field name="name">AMERICAN EXPRESS</field>
+        </record>
+
+        <record id="straconx_account.diners" model="res.bank.emisor">
+            <field name="name">DINERS</field>
+        </record>
+
+        <record id="straconx_account.mastercard" model="res.bank.emisor">
+            <field name="name">MASTERCARD</field>
+        </record>
+
+        <record id="straconx_account.cuota" model="res.bank.emisor">
+            <field name="name">CUOTA FACIL</field>
+        </record>
+
+        <record id="straconx_account.discovery" model="res.bank.emisor">
+            <field name="name">DISCOVERY</field>
+        </record>
+
+        <record id="straconx_account.maestro" model="res.bank.emisor">
+            <field name="name">MAESTRO</field>
+        </record>
+        <record id="straconx_account.electron" model="res.bank.emisor">
+            <field name="name">ELECTRON</field>
+        </record>
+
+
+        <record id="straconx_account.otras" model="res.bank.emisor">
+            <field name="name">OTRAS</field>
+        </record>
+
+
+<!--Ecuadorian Banks -->
+        <record id="straconx_account.amazonas" model="res.bank">
+            <field name="vat">1790221806001</field>
+            <field name="lname">BANCO AMAZONAS S.A.</field>
+            <field name="name">AMAZONAS</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.bolivariano" model="res.bank">
+            <field name="vat">0990379017001</field>
+            <field name="lname">BANCO BOLIVARIANO C. A.</field>
+            <field name="name">BOLIVARIANO</field>            
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.capital_bank" model="res.bank">
+            <field name="vat">1090105244001</field>
+            <field name="name">CAPITAL</field>
+            <field name="lname">BANCO CAPITAL S.A.</field>           
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.central" model="res.bank">
+            <field name="vat">1760002600001</field>
+            <field name="name">BANCO CENTRAL</field>
+            <field name="lname">BANCO CENTRAL DEL ECUADOR</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.cofiec" model="res.bank">
+            <field name="vat">1790021831001</field>
+            <field name="name">COFIEC</field>
+            <field name="lname">BANCO COFIEC S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.manabi" model="res.bank">
+            <field name="vat">1390067506001</field>
+            <field name="name">COMERCIAL DE MANABI</field>
+            <field name="lname">COMERCIAL DE MANABI S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.bguayaquil" model="res.bank">
+            <field name="vat">0990049459001</field>
+            <field name="lname">BANCO DE GUAYAQUIL S.A.</field>
+            <field name="name">GUAYAQUIL</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.produbanco" model="res.bank">
+            <field name="vat">1790368718001</field>
+			<field name="lname">BANCO DE LA PRODUCCION S.A. PRODUBANCO</field>
+            <field name="name">PRODUBANCO</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.loja" model="res.bank">
+            <field name="vat">1190002213001</field>
+            <field name="name">LOJA</field>
+            <field name="lname">BANCO DE LOJA S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.machala" model="res.bank">
+            <field name="vat">0790002350001</field>
+            <field name="name">MACHALA</field>
+            <field name="lname">BANCO DE MACHALA S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.austro" model="res.bank">
+            <field name="vat">0190055965001</field>
+            <field name="name">AUSTRO</field>
+            <field name="lname">BANCO DEL AUSTRO S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.estado" model="res.bank">
+            <field name="vat">1760002950001</field>
+            <field name="lname">BANCO DEL ESTADO</field>
+            <field name="name">BANCO DEL ESTADO</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.litoral" model="res.bank">
+            <field name="vat">0990981930001</field>
+            <field name="name">LITORAL</field>
+            <field name="lname">BANCO DEL LITORAL S.A.</field>           
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.pacifico" model="res.bank">
+            <field name="vat">0990005737001</field>
+            <field name="name">PACIFICO</field>            
+            <field name="lname">BANCO DEL PACIFICO S.A.</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.bev" model="res.bank">
+            <field name="vat">1760002870001</field>
+            <field name="name">DE LA VIVIENDA</field>
+            <field name="lname">BANCO ECUATORIANO DE LA VIVIENDA BEV</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.ruminahui" model="res.bank">
+            <field name="vat">1790864316001</field>
+            <field name="lname">BANCO GENERAL RUMIÑAHUI S.A.</field>
+            <field name="name">GENERAL RUMIÑAHUI</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.internacional" model="res.bank">
+            <field name="vat">1790098354001</field>
+            <field name="lname">BANCO INTERNACIONAL S.A.</field>
+            <field name="name">INTERNACIONAL</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.bnf" model="res.bank">
+            <field name="vat">1760002790001</field>
+            <field name="lname">BANCO NACIONAL DE FOMENTO</field>
+            <field name="name">BNF</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.pichincha" model="res.bank">
+            <field name="vat">1790010937001</field>
+            <field name="lname">BANCO PICHINCHA COMPAÑÍA ANONIMA</field>
+            <field name="name">PICHINCHA</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.procredit" model="res.bank">
+            <field name="vat">1791269225001</field>
+            <field name="lname">BANCO PROCREDIT S.A.</field>
+            <field name="name">PROCREDIT</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.promerica" model="res.bank">
+            <field name="vat">1790477142001</field>
+            <field name="lname">BANCO PROMERICA S.A.</field>
+            <field name="name">PROMERICA</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.solidario" model="res.bank">
+            <field name="vat">1791109384001</field>
+            <field name="lname">BANCO SOLIDARIO S.A.</field>
+            <field name="name">SOLIDARIO</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.sudamericano" model="res.bank">
+            <field name="vat">1791281322001</field>
+            <field name="lname">BANCO SUDAMERICANO S.A.</field>
+            <field name="name">SUDAMERICANO</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.territorial" model="res.bank">
+            <field name="vat">0990029105001</field>
+            <field name="lname">BANCO TERRITORIAL S.A.</field>
+            <field name="name">TERRITORIAL</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.unibanco" model="res.bank">
+            <field name="vat">1790047660001</field>
+            <field name="lname">BANCO UNIVERSAL S.A. UNIBANCO</field>
+            <field name="name">UNIBANCO</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.citibank" model="res.bank">
+            <field name="vat">1790033295001</field>
+            <field name="lname">CITIBANK DEL ECUADOR S.A.</field>
+            <field name="name">CITIBANK</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.lloyds" model="res.bank">
+            <field name="vat">0990023026001</field>
+            <field name="lname">LLOYDS TSB BANK ECUADOR</field>
+            <field name="name">LLOYDS</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.delbank" model="res.bank">
+            <field name="vat">0990048673001</field>
+            <field name="lname">BANCO DELBANK S.A.</field>
+            <field name="name">DELBANK</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record>
+        <record id="straconx_account.dinners" model="res.bank">
+            <field name="vat">1790283380001</field>
+            <field name="lname">DINERS CLUB DEL ECUADOR</field>
+            <field name="name">DINERS CLUB</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+        <record id="straconx_account.pacificard" model="res.bank">
+            <field name="vat">0990497699001</field>
+            <field name="lname">PACIFICARD S.A.</field>
+            <field name="name">PACIFICARD</field>
+            <field model="res.country" name="country" search="[('code','=','EC')]"/>
+        </record> 
+</data>
+</openerp>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.actions.report.xml" id="action_straconx_cash_voucher_report" >
+            <field name="name">Vale de Caja</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>            
+            <field name="report_name">vale_de_caja</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_filename">straconx_cash_voucher/report/straconx_cash_voucher_receipt.prpt</field>            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>
+		            
+        <record model="ir.actions.report.xml" id="action_straconx_petty_cash_report" >
+            <field name="name">Cierre de Caja Chica</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="report_name">Cierre_de_Caja_Chica</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_cash_voucher/report/straconx_cash_box_petty.prpt</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="model">account.bank.statement</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.bank.statement')]" model="ir.model" />
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<delete model='ir.values' search="[('name','=','Cierre de Caja Chica')]" />
+
+    </data>
+</openerp>

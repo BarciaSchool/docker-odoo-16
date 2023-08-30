@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+        	
+
+		<menuitem name="Conversión E/F" id="account.account_menu_currency_financial"
+			parent="account.account_menu_new_financial_reports" groups="account.group_account_manager,account.group_account_user"
+			sequence="8" />
+
+		<record id="account_bg_usd_month" model="ir.actions.report.xml">
+			<field name="name">B/G en dólares</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">bg_usd</field>
+			<field name="pentaho_filename">straconx_currency_convert/reports/straconx_monthly_balance_usd.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xlsx</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_currency_financial')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_lp_usd_month" model="ir.actions.report.xml">
+			<field name="name">P y G en dólares</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">lp_usd</field>
+			<field name="pentaho_filename">straconx_currency_convert/reports/straconx_monthly_lp_usd.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xlsx</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_currency_financial')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_cf_usd_month" model="ir.actions.report.xml">
+			<field name="name">Uso y Orígenes de Fondos en dólares</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">cf_usd</field>
+			<field name="pentaho_filename">straconx_currency_convert/reports/straconx_cash_flow_acc_partner_usd.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xlsx</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_currency_financial')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_pl_account_month_usd" model="ir.actions.report.xml">
+			<field name="name">PyG Mensual por Cta.Ctble y Empresa</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">pl_account_usd_monthly</field>
+			<field name="pentaho_filename">straconx_currency_convert/reports/straconx_pl_acc_partner_usd.prpt</field>			
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xlsx</field>
+			<field name="pentaho_report_output_type">xlsx</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_currency_financial')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+
+    </data>
+</openerp>

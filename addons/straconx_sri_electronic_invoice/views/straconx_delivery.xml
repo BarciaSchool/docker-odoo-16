@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+<!--         <record model="ir.ui.view" id="delivery_electronic_inherit">
+            <field name="name">Guía de Remisión Electrónica</field>
+            <field name="model">stock.delivery</field>
+            <field name="inherit_id" ref="straconx_logistics.straconx_view_guide_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <button name="%(straconx_logistics.delivery_report_log_id)d" position="replace">
+					<button name="print_delivery_guide" string="Imprimir Guía de Remisión PDF"
+						states="sent"
+						type="object" icon="gtk-print" colspan="2"/>
+				</button>				
+            </field>
+        </record> -->
+
+	</data>
+</openerp>

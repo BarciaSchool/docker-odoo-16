@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="straconx_view_compute_schedulers_wizard" model="ir.ui.view">
+			<field name="name">Compute Schedulers</field>
+			<field name="model">procurement.orderpoint</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Make purchase ordes and suppliers">
+					<label
+						string="This wizard allows you to review each of the minimum stock rules and supply the winery you need from a central warehouse. If it can not supply the product then becomes a purchase order to the supplier of the manufacturer. If the products has not manufacturer then no will make the purchase order for these. At the end of the process you will get a notification in the bottom of the main window of OpenERP."
+						colspan="4" />
+					<separator colspan="4" />
+					<field name="company_id" />
+					<field name="automatic" invisible="1" />
+					<separator colspan="4" />
+					<group col="2" colspan="4">
+						<button icon='gtk-cancel' special="cancel" string="_Cancel" />
+						<button name="procure_stock" string="_Process" colspan="1"
+							type="object" icon="gtk-ok" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<act_window name="Generate purchase order and supplies"
+			res_model="procurement.orderpoint" src_model="procurement.orderpoint"
+			view_mode="form" target="new" key2="client_action_multi"
+			 id="action_straconx_procurement" />
+
+		<menuitem action="action_straconx_procurement" id="straconx_procurement"
+			parent="procurement.menu_stock_sched" sequence="1"
+			groups="stock.group_stock_manager" />
+
+	</data>
+</openerp>

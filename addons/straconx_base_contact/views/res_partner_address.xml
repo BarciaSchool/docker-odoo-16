@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<!-- Views for Partners Form View -->
+
+		<record model="ir.ui.view" id="view_partner_form_inherit">
+			<field name="name">Partner form inherited</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="address" mode="form,tree" colspan="4" nolabel="1"
+					select="1" position="replace">
+					<field name="address" mode="form,tree" colspan="4" nolabel="1"
+						select="1">
+						<form string="Address">
+							<group colspan="4" col="6">
+								<field name="name" string="Name SRI" />
+							</group>
+							<group colspan="2" col="2">
+								<separator string="Postal Address" colspan="2" col="2" />
+								<field name="type" required="1" />
+								<field name="street" required="1" />
+								<!--<field name="street2"/>-->								
+								<field name="location_id" required="1" />
+								<field name="zip" />
+								<field name="state_id" />
+								<field name="country_id" completion="1" />								
+							</group>
+							<group colspan="2" col="2">
+								<separator string="Communication" colspan="2" col="2" />
+								<field name="phone" />
+								<field name="fax" />
+								<field name="mobile" />
+								<field name="email" widget="email" />
+							</group>
+							<separator string="Contacts" colspan="4" />
+							<field name="contact_ids" mode="tree,form" nolabel="1"
+								colspan="4">
+								<tree string="Contacts" editable="top">
+									<field name="name" />
+									<field name="first_name" />
+									<field name="vat" />
+									<field name="title" widget="selection" />
+									<field name="mobile" />
+									<field name="email" />
+									<field name="lang_id" />
+									<field name="partner_id" invisible="1" />
+									<field name="country_id" />
+								</tree>
+							</field>
+						</form>
+						<tree string="Addresses">
+							<field name="type" />
+							<field name="zip" />
+							<field name="city" />
+							<field name="country_id" />
+							<field name="phone" />
+							<field name="contact_ids" />
+						</tree>
+					</field>
+				</field>
+				<field name="category_id" position="replace" />
+				<separator colspan="4" string="Categories" position="replace" />
+				<notebook position="inside">
+					<page string="Categories">
+						<separator colspan="4" string="Categories" />
+						<field colspan="4" name="category_id" nolabel="1" />
+					</page>
+				</notebook>
+			</field>
+		</record>
+
+		<act_window domain="[('partner_id', '=', active_id)]" id="act_res_partner_contacts"
+			name="Partner Contacts" res_model="res.partner.contact" src_model="res.partner" />
+
+		<!-- Views for Addresses -->
+
+		<record model="ir.ui.view" id="view_partner_address_tree_inherited1">
+			<field name="name">Partner addresses inherited</field>
+			<field name="model">res.partner.address</field>
+			<field name="inherit_id" ref="base.view_partner_address_tree" />
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<field name="name" position="replace">
+					<field name='street'/>
+					<field name='contact_ids' string='# of Contacts' />
+				</field>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="view_partner_address_contacts_form_inherited">
+			<field name="name">Partner addresses inherited</field>
+			<field name="model">res.partner.address</field>
+			<field name="inherit_id" ref="base.view_partner_address_form1" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="title" position="replace"/>
+				<field name="function" position="replace"/>
+				<notebook position="inside">
+					<page string='Contacts' >
+						<separator string="Contacts" colspan="4" />
+						<field name="contact_ids" mode="tree,form" nolabel="1"
+							colspan="4">
+							<tree string="Contacts">
+								<field name="name" />
+								<field name="first_name" />
+								<field name="vat" />
+								<field name="title" />
+								<field name="mobile" />
+								<field name="email" />
+								<field name="lang_id" />
+								<field name="country_id" />
+							</tree>
+						</field>
+					</page>
+				</notebook>
+			</field>
+		</record>
+
+		<!--
+			Act window defining a shorcut on partner address to open all his jobs
+		-->
+		<act_window id="act_res_partner_jobs" name="Open Jobs"
+			context="{'search_default_address_id': [active_id]}" res_model="res.partner.job"
+			src_model="res.partner.address" />
+
+	</data>
+</openerp>
+

@@ -1,0 +1,137 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_migration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130501-234720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 16:46+0000\n"
+"PO-Revision-Date: 2013-10-04 16:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_migration
+#: model:ir.model,name:straconx_migration.model_migration_database
+msgid "migration.database"
+msgstr "Bases de datos"
+
+#. module: straconx_migration
+#: model:ir.ui.menu,name:straconx_migration.migration_products_menu_id
+msgid "Product Migration"
+msgstr "Migración de Productos"
+
+#. module: straconx_migration
+#: field:migration.products,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_migration
+#: selection:migration.products,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_migration
+#: field:migration.database,port:0
+msgid "port"
+msgstr "Puerto"
+
+#. module: straconx_migration
+#: model:ir.model,name:straconx_migration.model_migration_products
+msgid "migration.products"
+msgstr "Productos a Migrar"
+
+#. module: straconx_migration
+#: code:addons/straconx_migration/objects/str_migration.py:77
+#, python-format
+msgid "Please, select a database."
+msgstr "Por favor, seleccionar una base de datos."
+
+#. module: straconx_migration
+#: field:migration.products,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_migration
+#: model:ir.actions.act_window,name:straconx_migration.action_migration_products_form
+#: view:migration.products:0
+msgid "Migration Products"
+msgstr "Migración de Productos"
+
+#. module: straconx_migration
+#: field:migration.database,user:0
+#: field:migration.products,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_migration
+#: field:migration.database,password:0
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: straconx_migration
+#: field:migration.database,name:0
+#: field:migration.products,base_dest:0
+msgid "Database"
+msgstr "Bases de Datos"
+
+#. module: straconx_migration
+#: field:migration.products,date_proccess:0
+msgid "Process Date"
+msgstr "Fecha de Proceso"
+
+#. module: straconx_migration
+#: field:migration.database,host:0
+msgid "host"
+msgstr "Servidor"
+
+#. module: straconx_migration
+#: field:migration.products,product_ids:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_migration
+#: view:migration.products:0
+msgid "Product Ubications"
+msgstr "Ubicaciones de Productos"
+
+#. module: straconx_migration
+#: view:migration.products:0
+msgid "Start Migration"
+msgstr "Iniciar Migración"
+
+#. module: straconx_migration
+#: model:ir.actions.act_window,name:straconx_migration.action_migration_database_form
+#: view:migration.database:0
+msgid "Migration Database"
+msgstr "Bases de Datos"
+
+#. module: straconx_migration
+#: view:migration.products:0
+msgid "States"
+msgstr "Estado"
+
+#. module: straconx_migration
+#: selection:migration.products,state:0
+msgid "Done"
+msgstr "Realizado"
+
+#. module: straconx_migration
+#: model:ir.ui.menu,name:straconx_migration.migration_item
+#: model:ir.ui.menu,name:straconx_migration.migration_menu
+msgid "Migration"
+msgstr "Migraciones"
+
+#. module: straconx_migration
+#: view:migration.products:0
+msgid "My Migration"
+msgstr "Mis Migraciones"
+
+#. module: straconx_migration
+#: view:migration.products:0
+msgid "Close"
+msgstr "Cancelar"

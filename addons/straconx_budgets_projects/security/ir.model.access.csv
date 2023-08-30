@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_analytic_phase,account_analytic_phase,model_account_analytic_phase,account.group_account_manager,1,1,1,1
+access_manager_purchase_analytic_phase,account_analytic_phase,model_account_analytic_phase,purchase.group_purchase_manager,1,1,1,1
+access_user_purchase_analytic_phase,account_analytic_phase,model_account_analytic_phase,purchase.group_purchase_user,1,1,1,0

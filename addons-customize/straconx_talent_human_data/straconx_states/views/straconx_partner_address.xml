@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    		<!-- Views for Partners Form View -->
+		
+        <record id="base.view_partner_address_tree" model="ir.ui.view">
+            <field name="name">res.partner.address.tree</field>
+            <field name="model">res.partner.address</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Partner Addresses" colors="gray:ag_state in ('close')">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="location_id"/>
+                    <field name="country_id" invisible="1"/>
+                    <field name="type"/>
+                    <field name="ag_state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record id="base.view_res_partner_address_filter" model="ir.ui.view">
+            <field name="name">res.partner.address.select</field>
+            <field name="model">res.partner.address</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search Contact">
+                    <group>
+                        <filter string="Customer" name="customer" icon="terp-personal" domain="[('is_customer_add','=','1')]" />
+                        <filter string="Supplier" name="supplier"  icon="terp-personal" domain="[('is_supplier_add','=','1')]" />
+                        <separator orientation="vertical"/>
+                        <field name="partner_id" string="Partner"/>
+                        <field name="name" />
+                        <field name="location_id" />
+                        <field name="country_id" />
+                    </group>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                       <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by' : 'partner_id'}" />
+                       <filter string="Country" icon="terp-go-home" domain="[]" context="{'group_by' : 'country_id'}" />
+                       <filter string="Location" icon="terp-partner" domain="[]" context="{'group_by' : 'location_id'}" />
+                       <filter string="Type" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'type'}" />
+                   </group>
+                 </search>
+            </field>
+        </record>
+    
+    
+    	<record model="ir.ui.view" id="view_partner_address_form1_inherit">
+			<field name="name">res.partner.address.inherit</field>
+			<field name="inherit_id" ref="base.view_partner_address_form1" />
+			<field name="model">res.partner.address</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="partner_id" position="replace">
+					<field name="partner_id" readonly="1"/>
+				</field>
+				<field name="state_id" position="replace"/>
+				<field name="city" position="replace">
+					<field name="location_id" required="1"/>
+					<field name="state_id"/>
+					<field name="region_id"/>
+				</field>
+				<field name="phone" position="after">
+					<field name="phone2"/>
+					<field name="sector"/>
+					<field name="parish"/>
+				</field>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_partner_address_form2_inherit">
+			<field name="name">res.partner.address.inherit</field>
+			<field name="inherit_id" ref="base.view_partner_address_form2" />
+			<field name="model">res.partner.address</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="city" position="replace">
+					<field name="location_id" required="1"/>
+					<field name="region_id"/>
+				</field>
+				<field name="phone" position="after">
+					<field name="phone2"/>
+					<field name="sector"/>
+					<field name="parish"/>
+				</field>
+			</field>
+		</record>
+    
+    
+    </data>
+</openerp>

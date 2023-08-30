@@ -1,0 +1,27 @@
+<openerp>
+<data>
+
+    <!--Groups User-->        
+
+    <record id="base.group_return_manager" model="res.groups">
+        <field name="name">Warehouse / Return Manager</field>
+    </record>
+    
+    <record id="base.group_return_user" model="res.groups">
+        <field name="name">Warehouse / Return User</field>
+    </record>
+
+    <record id="base.group_driver_manager" model="res.groups">
+        <field name="name">Warehouse / Driver Manager</field>
+    </record>
+
+    <record id="stock.group_stock_supervisor" model="res.groups">
+        <field name="name">Warehouse / Supervisor</field>
+    </record>
+
+    <record id="base.group_driver_user" model="res.groups">
+        <field name="name">Warehouse / Driver User</field>
+    </record>
+
+</data>
+</openerp>

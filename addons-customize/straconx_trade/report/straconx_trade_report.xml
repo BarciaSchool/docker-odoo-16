@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="trade_report_id" model="ir.actions.report.xml">
+            <field name="name">Importaciones</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.trade</field>
+            <field name="report_name">liquidacion_importaciones</field>
+            <field name="pentaho_filename">straconx_trade/report/straconx_trade_report.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.trade')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.trade</field>            
+        </record>
+
+        <record id="trade_report_list_id" model="ir.actions.report.xml">
+            <field name="name">Lista de Importaciones</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.trade</field>
+            <field name="report_name">lista_importaciones</field>
+            <field name="pentaho_filename">straconx_trade/report/straconx_trade_list.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.trade')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('base.next_id_73')" />            
+            <field name="model" >purchase.trade</field>            
+        </record>
+
+        <record id="stock_picking_trade_pdf" model="ir.actions.report.xml">
+            <field name="name">Diferencias de Ingresos</field>
+            <field name="report_name">stock_picking_trade</field>
+            <field name="pentaho_filename">straconx_trade/report/straconx_stock_picking_differences.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','stock.picking')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >stock.picking</field>
+        </record>
+
+        <record id="straconx_invoice.invoice_supplier_report_id" model="ir.actions.report.xml">
+            <field name="name">Factura_Proveedores(pdf)</field>
+            <field name="report_name">factura_proveedores</field>            
+            <field name="pentaho_filename">straconx_trade/report/straconx_invoice_supplier_form.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice</field>
+        </record>
+
+        <record id="straconx_purchase.purchase_report_id" model="ir.actions.report.xml">
+            <field name="name">Orden de Compra</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="report_type">pdf</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Orden_de_Compra</field>
+			<field name="pentaho_filename">straconx_trade/report/straconx_order_purchase.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+        </record>
+
+        <record id="straconx_purchase.purchase_image_id" model="ir.actions.report.xml">
+            <field name="name">Orden de Compra con Imágenes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">Orden_de_Compra_imagenes</field>
+            <field name="report_type">pdf</field>
+			<field name="pentaho_filename">straconx_trade/report/straconx_order_purchase_images.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','purchase.order')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >purchase.order</field>
+        </record>
+
+
+        <delete model="ir.values" search="[('name','=','Importaciones')]" />
+        <delete model="ir.values" search="[('name','=','Lista de Importaciones')]" />
+        <delete model="ir.values" search="[('name','=','Diferencias de Ingresos')]" />
+		<delete model="ir.values" search="[('name','=','Factura_Proveedores(pdf)')]" />        
+
+    </data>
+</openerp>

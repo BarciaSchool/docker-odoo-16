@@ -1,0 +1,42 @@
+BZR merge-modified list format 1
+file_id: str_hr_voucher.py-20140812160406-1l8y9z19ihlsl5x1-47
+hash: 5bc13b62f5cf79824047a668e2c7928b52741554
+
+file_id: str_hr_contract.py-20140812160406-1l8y9z19ihlsl5x1-24
+hash: 8e4f42767133d5ac45079a254bd123dc119136d1
+
+file_id: str_hr_employee.py-20140812160406-1l8y9z19ihlsl5x1-28
+hash: 56a8ba5e4608cbf4c17fa426dbca1d258cc72f1d
+
+file_id: str_hr_pay_provision-20140812160406-1l8y9z19ihlsl5x1-33
+hash: 528a1d592c6af69635b9d677998475583e680818
+
+file_id: str_hr_payroll.prpt-20140812160406-1l8y9z19ihlsl5x1-55
+hash: dcb433fd021d39c3cd86b968e56b233f95153283
+
+file_id: str_hr_wizard_invoic-20140812160406-1l8y9z19ihlsl5x1-103
+hash: bef9bf90512d43a11982f9b40075d2b069e1af7d
+
+file_id: str_hr_invoice_line.-20140812160406-1l8y9z19ihlsl5x1-32
+hash: 13e1a6c97aaeda7d65caafd95c98720bae634036
+
+file_id: str_hr_payslip_run.p-20140812160406-1l8y9z19ihlsl5x1-38
+hash: a63af63cfea832e2789ac111ced9297cc6f1bde1
+
+file_id: str_hr_qpayroll_list-20160219174140-r1dekuw1iyuvqi41-1
+hash: 2fb7782279d77933a142a5cfafade309e9b57f51
+
+file_id: str_hr_discount.py-20140812160406-1l8y9z19ihlsl5x1-26
+hash: 39d2e2a0e2d692fb56fbd609df031a21f072d431
+
+file_id: str_hr_discount.xml-20140812160406-1l8y9z19ihlsl5x1-68
+hash: d67c8a052fb5df10fd86e1e6aa36c20dbeb6824a
+
+file_id: str_hr_payslip.py-20140812160406-1l8y9z19ihlsl5x1-36
+hash: a8c746058454b7447fe915dc09964ec061620b93
+
+file_id: str_hr_payslip_run_v-20140812160406-1l8y9z19ihlsl5x1-80
+hash: 566b7a7bb1b6c4a17ee92f46fb9632a53fa12e46
+
+file_id: str_hr_payroll_list.-20160223173437-3rbm95a0jcykcrjz-1
+hash: eec858621b04b73486ea20eda7e6208e859ea08d

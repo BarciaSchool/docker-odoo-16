@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="hr_reopen_discount">
+            <field name="name">Wizard Modified Discount</field>
+            <field name="model">wizard.modified.discount</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <form string="Change State Discount">
+                <group col="6" colspan="3">
+                	<label string="Desde aqui puede reversar o aprobar en masa descuentos"/>
+                    <button icon="gtk-cancel" special="cancel" string="Close"/>
+                    <button name="back_discount" string="Reopen" type="object" icon="gtk-ok"/>
+                    <button name="approve_mass_discount" string="Approve" type="object" icon="gtk-ok"/>
+                </group>
+            </form>
+            </field>
+        </record>
+
+    <act_window
+            id="hr_reopen_discount_act_window"
+            name="Modified Discount"
+            view_mode="form"
+            view_type="form"
+            res_model="wizard.modified.discount"
+            src_model="hr.discount"
+            target="new"/>
+
+    </data>
+</openerp>

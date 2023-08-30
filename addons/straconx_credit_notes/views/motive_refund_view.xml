@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<!-- Document Tax -->
+
+		<record id="account_refund_motive_search" model="ir.ui.view">
+			<field name="name">account.refund.motive.search</field>
+			<field name="model">account.refund.motive</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Refund Motives">
+					<field name="name" />
+					<field name="code" />
+					<field name="classification"/>
+				</search>
+			</field>
+		</record>
+		<record id="account_refund_motive_tree" model="ir.ui.view">
+			<field name="name">account.refund.motive.tree</field>
+			<field name="model">account.refund.motive</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Refund Motives" toolbar="1">
+					<field name="name" />
+					<field name="code" />
+					<field name="classification"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="account_refund_motive_form" model="ir.ui.view">
+			<field name="name">account.refund.motive.form</field>
+			<field name="model">account.refund.motive</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Refund Motives">
+					<field name="name" />
+					<field name="code" />
+					<field name="classification"/>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_account_refund_motive" model="ir.actions.act_window">
+			<field name="name">Refund Motives</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.refund.motive</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="account_refund_motive_search" />
+		</record>
+
+		<record id="action_account_refund_motive_tree" model="ir.actions.act_window.view">
+			<field eval="1" name="sequence" />
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="account_refund_motive_tree" />
+			<field name="act_window_id" ref="action_account_refund_motive" />
+		</record>
+		<record id="action_account_refund_motive_form" model="ir.actions.act_window.view">
+			<field eval="2" name="sequence" />
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="account_refund_motive_form" />
+			<field name="act_window_id" ref="action_account_refund_motive" />
+		</record>
+    
+    </data>
+</openerp>

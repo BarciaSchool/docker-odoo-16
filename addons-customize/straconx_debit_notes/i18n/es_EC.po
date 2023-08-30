@@ -1,0 +1,462 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_debit_notes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121104-003211\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-07 04:51+0000\n"
+"PO-Revision-Date: 2012-11-07 04:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Invoice Information"
+msgstr "Información de Facturación"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:217
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:265
+#, python-format
+msgid "Do not exist authorization for this number of sequence, please check"
+msgstr "No existe autorización para este número de secuencia, por favor revisar."
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Tax Information"
+msgstr "Información de Impuestos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: straconx_debit_notes
+#: model:ir.actions.act_window,name:straconx_debit_notes.action_advance_supplier
+#: model:ir.ui.menu,name:straconx_debit_notes.menu_advance_supplier
+msgid "Advance Supplier"
+msgstr "Otros egresos"
+
+#. module: straconx_debit_notes
+#: model:ir.model,name:straconx_debit_notes.model_account_debit_note
+msgid "account.debit.note"
+msgstr "Nota de Débito"
+
+#. module: straconx_debit_notes
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:239
+#, python-format
+msgid "You must define first a partner!"
+msgstr "¡Debe definir una Empresa primero!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "total debit"
+msgstr "Total débito"
+
+#. module: straconx_debit_notes
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra retención para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_debit_notes
+#: model:ir.model,name:straconx_debit_notes.model_account_debit_note_line
+msgid "account.debit.note.line"
+msgstr "Línea Nota de Débito"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+#: view:account.invoice:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: straconx_debit_notes
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Are you sure to confirm this record ?"
+msgstr "¿Está seguro de confirmar este registro?"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Untaxed Amount"
+msgstr "Base Imponible"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:120
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:181
+#, python-format
+msgid "Verify data!"
+msgstr "¡Verificar datos!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Supplier Advance"
+msgstr "Otros Egresos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Taxes Vat Amount"
+msgstr "Monto de IVA"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+#: model:ir.ui.menu,name:straconx_debit_notes.anticipos_menu
+msgid "Advances"
+msgstr "Anticipos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Total Amount"
+msgstr "Monto Total"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+#: model:ir.actions.act_window,name:straconx_debit_notes.action_invoice_debit_note_sri
+#: model:ir.ui.menu,name:straconx_debit_notes.invoice_debit_note_sri_menu
+msgid "SRI Debit Note"
+msgstr "Nota de Débito SRI"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+#: view:account.invoice:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_debit_notes
+#: model:ir.actions.report.xml,name:straconx_debit_notes.sri_debit_note_report_id
+msgid "Print Debit Note"
+msgstr "Imprimir Nota de Débito"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Customer Debit Note"
+msgstr "Nota de débito de clientes"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "This action will erase taxes"
+msgstr "Esta acción borrará impuestos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Payment Date"
+msgstr "Fecha de Pago"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "payments"
+msgstr "pagos"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Other Information"
+msgstr "Other Information"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:229
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:262
+#, python-format
+msgid "Not exist authorization for the document, please check"
+msgstr "No existe autorización para este documento, por favor revisar."
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Invoice lines"
+msgstr "Detalle de Facturas"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:190
+#, python-format
+msgid "Your User doesn't have Cash Box assigned"
+msgstr "Su usuario no tiene una Caja asignada"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:190
+#, python-format
+msgid "Warning!"
+msgstr "¡Cuidado!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Customer"
+msgstr "Clientes"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "total credit"
+msgstr "Total crédito"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Compute"
+msgstr "Calcular"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:251
+#, python-format
+msgid "Not exist tax sustent for the document, please check"
+msgstr "No existe sustento tributario para este documento, por favor revisar"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Pay Invoice"
+msgstr "Pagar Factura"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Debit Lines"
+msgstr "Líneas de Débito"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:267
+#, python-format
+msgid "There is an invoice with number %s for supplier %s"
+msgstr "Ya existe una factura con este número %s para este proveedor %s"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:329
+#, python-format
+msgid "You must defined the cash register to confirm this document!"
+msgstr "¡Usted debe definir una Caja para confirmar este documento!"
+
+#. module: straconx_debit_notes
+#: model:ir.model,name:straconx_debit_notes.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Compute Taxes"
+msgstr "Calcular impuestos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:214
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:217
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:229
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:251
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:254
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:259
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:262
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:265
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:239
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:305
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:362
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+#: model:ir.ui.menu,name:straconx_debit_notes.account_debit_note_menu
+#: model:ir.ui.menu,name:straconx_debit_notes.debit_note_menu
+msgid "Debit Note"
+msgstr "Nota de Débito"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:93
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:209
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:267
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:329
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Print Customer Debit Note"
+msgstr "Imprimir Nota de Débito"
+
+#. module: straconx_debit_notes
+#: sql_constraint:account.refund.motive:0
+msgid "The code of the motive refund must be unique!"
+msgstr "¡El código del motivo de la devolución debe ser único!"
+
+#. module: straconx_debit_notes
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Supplier Debit Note"
+msgstr "Nota de Débito del Proveedor"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "payments Move Line"
+msgstr "Línea de Pagos"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:214
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:254
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:259
+#, python-format
+msgid "Not exist number for the document, please check"
+msgstr "No existe número para este documento, por favor revisar"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:120
+#, python-format
+msgid "you must select the shop and Journal."
+msgstr "Usted debe seleccionar la tienda y el diario contable."
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: straconx_debit_notes
+#: model:ir.actions.act_window,name:straconx_debit_notes.action_debit_customer
+#: model:ir.ui.menu,name:straconx_debit_notes.debit_note_menu_customer
+msgid "Debit Note Customer"
+msgstr "Nota Débito  de los Clientes"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Tax Information Withhold"
+msgstr "Información de Retenciones"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Advance Lines"
+msgstr "Líneas de Anticipos"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:191
+#, python-format
+msgid "Do not exist authorization for this number of sequence, please check!"
+msgstr "¡No existe autorización para este número de secuencia, por favor revisar!"
+
+#. module: straconx_debit_notes
+#: model:ir.model,name:straconx_debit_notes.model_account_refund_motive
+msgid "account.refund.motive"
+msgstr "Motivo de Devolución"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:181
+#, python-format
+msgid "you must select the shop, cash, and Journal."
+msgstr "Usted debe seleccionar una tienda, su caja y un diario contable."
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Customer Advance"
+msgstr "Anticipo de Clientes"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:362
+#, python-format
+msgid "You can delete debit Notes in state Draft"
+msgstr "No se puede borrar Notas de Débito en estado borrador"
+
+#. module: straconx_debit_notes
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Re-Open"
+msgstr "Reabrir"
+
+#. module: straconx_debit_notes
+#: view:res.company:0
+msgid "Settings Advances"
+msgstr "Configurar anticipos"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+#: model:ir.model,name:straconx_debit_notes.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/straconx_debit_note.py:305
+#, python-format
+msgid "The amount payments is not equals to the values of lines debit note!"
+msgstr "¡El monto de pagos no es igual a los valores de la nota de débito!"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+#: view:account.invoice:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_debit_notes
+#: model:ir.actions.act_window,name:straconx_debit_notes.action_advance_customer
+#: model:ir.ui.menu,name:straconx_debit_notes.menu_advance_customer
+msgid "Advance Customer"
+msgstr "Anticipos  de Clientes"
+
+#. module: straconx_debit_notes
+#: view:account.debit.note:0
+msgid "Total"
+msgstr "Total"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_debit_notes/objects/account_invoice.py:209
+#, python-format
+msgid "Partner %s doesn't have CEDULA/RUC, you must input for validate."
+msgstr "Empresa %s no tiene una cédula o RUC, ingresarla para continuar."
+
+#. module: straconx_debit_notes
+#: model:ir.actions.act_window,name:straconx_debit_notes.action_debit_supplier
+#: model:ir.ui.menu,name:straconx_debit_notes.debit_note_menu_supplier
+msgid "Debit Note Supplier"
+msgstr "Nota de Débito de Proveedores"
+
+#. module: straconx_debit_notes
+#: view:account.invoice:0
+msgid "Additional Information"
+msgstr "Información Adicional"
+
+#. module: straconx_debit_notes
+#: selection:sri.authorization.line,name:0
+msgid "Debit Notes"
+msgstr "Notas de Débito"
+
+#. module: straconx_debit_notes
+#: code:addons/straconx_invoice/objects/account_invoice.py:93
+#, python-format
+msgid "You must be selected in the shop %s the journal respective for this document."
+msgstr "Debe seleccionar en la tienda %s el diario respectivo para este documento"
+
+#. module: account, straconx_debit_notes
+#: model:ir.actions.act_window,name:account.action_invoice_tree4
+#: model:ir.ui.menu,name:account.menu_action_invoice_tree4
+msgid "Supplier Refunds"
+msgstr "Nota de Crédito Proveedores"

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="straconx_base_synchro.reports_invoice_shop_id" model="ir.actions.report.xml">
+            <field name="name">Ventas por Tienda</field>
+            <field name="report_name">ventas_tienda</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_sales_shop.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','reports.invoice.shop')]" model="ir.model" />            
+            <field name="report_type">xls</field>
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">reports.invoice.shop</field>
+        </record>
+
+		<record id="straconx_base_synchro.reports_invoice_shop_type_id" model="ir.actions.report.xml">
+            <field name="name">Ventas por Tienda</field>
+            <field name="report_name">ventas_tienda</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_sales_shop_type.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','reports.invoice.shop.type')]" model="ir.model" />            
+            <field name="report_type">xls</field>
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">reports.invoice.shop.type</field>
+        </record>
+        
+      	<record id="straconx_base_synchro.reports_invoice_shop_resumen_id" model="ir.actions.report.xml">
+            <field name="name">Resumen de Facturas</field>
+            <field name="report_name">resumen_facturas</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_invoice_shop_resumen.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','invoice.shop.resumen.')]" model="ir.model" />            
+            <field name="report_type">xls</field>
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">invoice.shop.resumen</field>
+        </record>
+      
+
+        <record id="straconx_base_synchro.reports_payments_shop_id" model="ir.actions.report.xml">
+            <field name="name">Cobros por Tienda</field>
+            <field name="report_name">cobro_tienda</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_payments_shop.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','reports.payments.shop')]" model="ir.model" />            
+            <field name="report_type">xls</field>
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">reports.payments.shop</field>
+        </record>
+ 
+        <record id="straconx_base_synchro.reports_discounts_shop_id" model="ir.actions.report.xml">
+            <field name="name">Resumen de Descuentos y Ofertas en Venta</field>
+            <field name="report_name">descuentos_tienda</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_discounts_shop.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','reports.discounts.shop')]" model="ir.model" />            
+            <field name="report_type">xls</field>
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">reports.discounts.shop</field>
+        </record>
+
+
+        <record id="straconx_base_synchro.reports_invoice_salesman_id" model="ir.actions.report.xml">
+            <field name="name">Ventas por Asesor</field>
+            <field name="report_name">ventas_salesman</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_sales_salesman.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice.line</field>
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+        </record>
+        
+        <record id="straconx_base_synchro.reports_invoice_salesman_invoice_id" model="ir.actions.report.xml">
+            <field name="name">Ventas de Producto por Asesor</field>
+            <field name="report_name">ventas_asesor_factura</field>            
+            <field name="pentaho_filename">straconx_base_synchro_reports/report/straconx_sales_salesman_invoice.prpt</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.invoice.line')]" model="ir.model" />            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model">account.invoice.line</field>
+            <field name="linked_menu_id" eval="ref('straconx_sales.pos_menu_reports')" />
+        </record>
+
+    </data>
+</openerp>

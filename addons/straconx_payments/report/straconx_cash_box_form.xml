@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record id="ac_bank_st_report_id" model="ir.actions.report.xml">
+	        <field name="name">Cash Box Closed</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model" >account.bank.statement</field>            
+            <field name="report_name">Cash Box Closed</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cash_box_pos.prpt</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.bank.statement')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="report_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>
+        
+        <record id="ac_bank_st_report_pos_id_txt" model="ir.actions.report.xml">
+            <field name="name">pentaho.cash.report.id</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.bank.statement</field>
+            <field name="report_name">pentaho.cash.report.id</field>
+            <field name="pentaho_filename">straconx_payments/report/cash_txt.prpt</field>            
+            <field name="pentaho_report_model_id" search="[('model','=','account.bank.statement')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">txt</field>            
+            <field name="report_type">txt</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>       
+
+        <record id="ac_voucher_lines_list" model="ir.actions.report.xml">
+            <field name="name">Pagos efectuados por Clientes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.voucher.line</field>
+            <field name="report_name">lista_pagos_abonos</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_account_voucher_lines.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.voucher.line')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>             
+     
+        <record id="ac_deposit_register_list" model="ir.actions.report.xml">
+            <field name="name">Registro de Depósitos</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">deposit.register</field>
+            <field name="report_name">listado_depositos</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_deposit_register.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','deposit.register')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>
+        
+        <record id="ac_bank_cheque_id" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.voucher</field>
+            <field name="report_name">cheque_proveedor</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.voucher')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">txt</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="talonario_cheque_pdf" model="ir.actions.report.xml">
+            <field name="name">Talonario de Cheques</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">check.book</field>
+            <field name="report_name">talonario_cheque</field>
+            <field name="report_type">xls</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_check_book.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','check.book')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_bolivariano" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Bolivariano</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_bolivariano</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_01_bolivariano.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_laser_bolivariano" model="ir.actions.report.xml">
+            <field name="name">Cheques Bolivariano Láser</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_laser_bolivariano</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_01_bolivariano_laser.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_pacifico" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Pacífico</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_pacifico</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_02_pacifico.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_laser_pacifico" model="ir.actions.report.xml">
+            <field name="name">Cheque Pacífico Láser</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_laser_pacifico</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_02_pacifico_laser.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_internacional" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Internacional</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_internacional</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_03_internacional.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_pichincha" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Pichincha</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_pichincha</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_04_pichincha.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_laser_pichincha" model="ir.actions.report.xml">
+            <field name="name">Cheques Pichincha Láser</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_laser_pichincha</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_04_pichincha_laser.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+        
+        <record id="ac_bank_cheque_id_pdf_amazonas" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Amazonas</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_amazonas</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_07_amazonas.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_laser_amazonas" model="ir.actions.report.xml">
+            <field name="name">Cheques Amazonas Láser</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_laser_amazonas</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_07_amazonas_laser.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>                
+
+        <record id="ac_bank_cheque_id_pdf_produbanco" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Produbanco</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_produbanco</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_05_produbanco.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+        <record id="ac_bank_cheque_id_pdf_promerica" model="ir.actions.report.xml">
+            <field name="name">Cheques de Proveedores Promerica</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.payments</field>
+            <field name="report_name">cheque_proveedor_pdf_promerica</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_06_promerica.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.payments')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+                        
+        <record id="ac_bank_st_cheque_id" model="ir.actions.report.xml">
+            <field name="name">Pago a Proveedores</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.voucher</field>
+            <field name="report_name">cheques_proveedores</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_and_moves.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.voucher')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>
+        
+        <record id="ac_bank_cheque_debit_id" model="ir.actions.report.xml">
+            <field name="name">Cheques Otros Egresos PDF</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.debit.note</field>
+            <field name="report_name">cheque_oe_proveedor_pdf</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_debit.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.debit.note')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>        
+
+		<record id="supplier_advance" model="ir.actions.report.xml">
+            <field name="name">Comprobante de Egreso</field>
+            <field name="report_name">comprobante_de_egreso</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_cheques_and_moves_debit.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.debit.note')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="model" >account.debit.note</field>
+        </record>
+
+        <record id="ac_bank_st_customer_id" model="ir.actions.report.xml">
+            <field name="name">Pago de Clientes</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.voucher</field>
+            <field name="report_name">pago_clientes</field>
+            <field name="report_type">pdf</field>
+            <field name="pentaho_filename">straconx_payments/report/straconx_customer_moves.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="pentaho_report_model_id" search="[('model','=','account.voucher')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>            
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />            
+        </record>
+
+		<delete model='ir.values' search="[('name','=','Vale de Caja')]" />
+		<delete model='ir.values' search="[('name','=','Payroll Cheques')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Clientes')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores')]" />
+		<delete model='ir.values' search="[('name','=','Payroll Account Move')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Bolivariano')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Pacífico')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Internacional')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Pichincha')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Produbanco')]" />
+		<delete model='ir.values' search="[('name','=','Cheques de Proveedores Promerica')]" />
+		<delete model='ir.values' search="[('name','=','Pago a Proveedores')]" />
+		<delete model='ir.values' search="[('name','=','Pago de Clientes')]" />
+		<delete model='ir.values' search="[('name','=','Listado de Cheques Emitidos')]" />
+		<delete model='ir.values' search="[('name','=','pentaho.cash.report.id')]" />
+		<delete model='ir.values' search="[('name','=','Cash Box Closed')]" />
+
+   </data>
+</openerp>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.actions.report.xml" id="action_straconx_cash_consolidation_report" >
+            <field name="name">straconx.cash.consolidation.report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">cash.consolidation</field>
+            <field name="report_name">Print_Cash_Consolidation</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')"/>
+            <field name="parser_loc">straconx_cash_consolidation/report/straconx_cash_consolidation_report.py</field>
+            <field name="report_rml">straconx_cash_consolidation/report/straconx_cash_consolidation_report.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+		        
+    </data>
+</openerp>

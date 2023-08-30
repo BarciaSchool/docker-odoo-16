@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+		<record id='base.main_company' model='res.company'>
+			<field name="only_principal_shop" eval="False"/>
+			<field name="sri_url">https:&#47;&#47;cel.sri.gob.ec&#47;comprobantes-electronicos-ws&#47;AutorizacionComprobantes?wsdl</field>			
+		</record>    
+
+		<record id="ir_cron_send_document" model="ir.cron">
+			<field eval="&quot;&quot;&quot;sri_send_document&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Aprueba Documentos Electrónicos&quot;&quot;&quot;" name="name"/>
+			<field eval="-1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d %H:%M:%S')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="True" name="active"/>
+			<field eval="5" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;sri.send.document&quot;&quot;&quot;" name="model"/>
+		</record>
+
+		<record id="ir_cron_correct_send_document" model="ir.cron">
+			<field eval="&quot;&quot;&quot;sri_send_document_correct&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Corrige Documentos Electrónicos&quot;&quot;&quot;" name="name"/>
+			<field eval="1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="False" name="active"/>
+			<field eval="5" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;sri.send.document&quot;&quot;&quot;" name="model"/>
+		</record>
+
+		<record id="ir_cron_create_send_document" model="ir.cron">
+			<field eval="&quot;&quot;&quot;sri_send_migrate_files&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Crea Documentos Electrónicos&quot;&quot;&quot;" name="name"/>
+			<field eval="1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d %H:%M:%S')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="True" name="active"/>
+			<field eval="5" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;sri.send.document&quot;&quot;&quot;" name="model"/>
+		</record>
+
+		<record id="cron_create_users" model="ir.cron">
+			<field eval="&quot;&quot;&quot;cron_create_users&quot;&quot;&quot;" name="function"/>
+			<field eval="&quot;&quot;&quot;minutes&quot;&quot;&quot;" name="interval_type"/>
+			<field name="user_id" ref="base.user_root"/>
+			<field eval="&quot;&quot;&quot;Crea Usuarios de Portal&quot;&quot;&quot;" name="name"/>
+			<field eval="-1" name="numbercall"/>
+			<field eval="time.strftime('%Y-%m-%d')" name="nextcall"/>
+			<field eval="1" name="priority"/>
+			<field eval="0" name="doall"/>
+			<field eval="False" name="active"/>
+			<field eval="5" name="interval_number"/>
+			<field eval="&quot;&quot;&quot;res.users&quot;&quot;&quot;" name="model"/>
+		</record>
+
+    </data>
+</openerp>

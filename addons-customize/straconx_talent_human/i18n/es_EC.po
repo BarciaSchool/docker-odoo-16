@@ -1,0 +1,4337 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_talent_human
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20140716-233729\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-19 06:03+0000\n"
+"PO-Revision-Date: 2015-11-19 06:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,first_quarter_day:0
+msgid "Días Primera Quincena"
+msgstr "Días Primera Quincena"
+
+#. module: straconx_talent_human
+#: field:wizard.invoice.pay.lines,shop_id:0
+msgid "shop"
+msgstr "Tienda"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,code:0
+msgid "code"
+msgstr "Código"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:266
+#, python-format
+msgid "You must defined a account of payroll in the account bank by default"
+msgstr "Debe definir una cuenta bancaria para el pago de nómina en el perfil del colaborador."
+
+#. module: straconx_talent_human
+#: field:hr.education.level,title:0
+msgid "Title"
+msgstr "Título"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:185
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:258
+#, python-format
+msgid "Incorrect month!"
+msgstr "¡Mes incorrecto!"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:417
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:423
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1011
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1017
+#, python-format
+msgid "You can not change to state pay provision in draft because there is a paid check"
+msgstr "Usted no puede cambiar el estado de la provisión de pagado a borrador ya que existen cheques emitidos y pagados."
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:387
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:481
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:14
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:17
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:20
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:96
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:110
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:112
+#, python-format
+msgid "Validation Error!"
+msgstr "¡Error de validación!"
+
+#. module: straconx_talent_human
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice for this supplier with this number, please verify"
+msgstr "Existe otra factura para este proveedor con este número de fac, por favor, verifique."
+
+#. module: straconx_talent_human
+#: field:hr.payslip,department_id:0
+#: field:hr.payslip.line,department_id:0
+msgid "Department"
+msgstr "Departamento"
+
+#. module: straconx_talent_human
+#: field:hr.provision,name:0
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_sectorialcomission
+msgid "hr.sectorialcomission"
+msgstr "Comisión Sectorial"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+msgid "Parent"
+msgstr "Padre"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,period_payment:0
+#: field:hr.payslip.run,reference:0
+msgid "Slip Period"
+msgstr "Período"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:443
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:546
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:114
+#, python-format
+msgid "Need a generate hr payment periods for fiscal year."
+msgstr "Necesita generar Períodos de Pagos de Talento Humano (dependiendo si su pago es quincenal o mensual) para este año fiscal."
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,work_phone:0
+msgid "Work Phone"
+msgstr "Telef. trabajo"
+
+#. module: straconx_talent_human
+#: selection:res.company,schedule_pay:0
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_extra
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_incomes_generate
+msgid "Incomes Employee Generate Lines"
+msgstr "Ingresos de Colaboradores"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:350
+#, python-format
+msgid "You can not generate the file without payroll"
+msgstr "No se puede generar el archivo de texto para el banco sin hacer previamente la nómina"
+
+#. module: straconx_talent_human
+#: constraint:hr.period:0
+msgid "Error ! The duration of the Period(s) is/are invalid. "
+msgstr "¡Precaución! La duración del período(s) es(son) inválido(s)."
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:229
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:239
+#, python-format
+msgid "you can not canceled the income because already generate a payment"
+msgstr "No se puede cancelar el ingreso generado porque ya genero un pago."
+
+#. module: straconx_talent_human
+#: selection:hr.discount,state:0
+msgid "Generado"
+msgstr "Generado"
+
+#. module: straconx_talent_human
+#: constraint:hr.payslip:0
+msgid "Payslip 'Date From' must be before 'Date To'."
+msgstr "'Fecha Desde' debe ser anterior a 'Fecha Hasta'"
+
+#. module: straconx_talent_human
+#: field:hr.salary.rule,account_ids:0
+msgid "Account x Area"
+msgstr "Cuenta por Area"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:588
+#, python-format
+msgid "Contract Employee has not salary structure !"
+msgstr "¡El contrato del colaborador no tiene una estructura salarial!"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_wizard_modified_discount
+msgid "wizard.modified.discount"
+msgstr "Asistente de Descuentos"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_create_partner_from_user
+msgid "create.partner.from.user"
+msgstr "Crear Empresa desde Usuario"
+
+#. module: straconx_talent_human
+#: field:hr.discount,amount:0
+#: field:hr.discount,amount2:0
+#: field:hr.discount.document,amount:0
+#: field:hr.discount.lines,amount:0
+#: field:hr.incomes,amount:0
+#: field:hr.incomes.lines,amount:0
+msgid "Amount"
+msgstr "Monto"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.hr_reopen_discount_act_window
+msgid "Modified Discount"
+msgstr "Descuento modificado"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,status:0
+msgid "Ongoing"
+msgstr "En curso"
+
+#. module: straconx_talent_human
+#: field:hr.holidays.status,paid_cia:0
+msgid "% Paid for company"
+msgstr "% Pago por Compañía"
+
+#. module: straconx_talent_human
+#: selection:hr.provision,name:0
+msgid "VACACIONES"
+msgstr "VACACIONES"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1055
+#, python-format
+msgid "Necesita configurar una cuenta bancaria para los pagos de la compañía"
+msgstr "Necesita configurar una cuenta bancaria para los pagos de la compañía"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.legal.wages:0
+msgid "The code of the Legal Wages must be unique !"
+msgstr "El código del beneficio debe ser único !"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,leaves_days_line_ids:0
+msgid "Payslip Leaves Days"
+msgstr "Días de Permisos y Vacaciones"
+
+#. module: straconx_talent_human
+#: field:hr.employee,home_phone:0
+msgid "Home Phone"
+msgstr "Teléfono Domicilio"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:14
+#, python-format
+msgid "You can use a DISCOUNT OF COLLABORATOR to cancel an invoice if you are an active employee."
+msgstr "Puede usar la opción de Descuento del Colaborador para cancelar facturas pagadas en representación de empleados activos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.provisions_general_report_id_excel
+msgid "Report of Provisions to Excel"
+msgstr "Generar reporte de Provisiones en Excel"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,date_from:0
+msgid "Fecha Inicio"
+msgstr "Fecha Inicio"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_payslip_line_view
+msgid "Employee Payslips Line"
+msgstr "Descuentos de Empleados"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,ref:0
+#: field:hr.contract.income,ref:0
+#: field:hr.discount.document,reference:0
+#: field:hr.discount.lines,ref:0
+#: field:hr.incomes.lines,ref:0
+#: field:hr.pay.provision,reference:0
+#: field:hr.payslip.discount,ref:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: straconx_talent_human
+#: field:hr.discount,quotas_paid:0
+msgid "Paid Quotas"
+msgstr "Cuotas Pagadas"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:303
+#, python-format
+msgid "You must choose a mode payment type check"
+msgstr "Debe seleccionar un modo de pago tipo Cheque"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Course"
+msgstr "Curso"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Customer since"
+msgstr "Cliente desde"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+#: field:hr.discount,partner_id:0
+#: field:hr.incomes,partner_id:0
+#: field:hr.pay.provision,partner_id:0
+#: field:hr.pay.provision.line,partner_id:0
+#: field:hr.provision.advance,partner_id:0
+#: field:hr.provision.advance.line,partner_id:0
+#: field:hr.transaction.type,partner_id:0
+#: field:res.users,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:593
+#, python-format
+msgid "Contract Employee has not Salary Journal !"
+msgstr "¡El Contrato del Colaborador no tiene definido un Diario de Salario!"
+
+#. module: straconx_talent_human
+#: view:hr.transaction.type:0
+msgid "Expenses type"
+msgstr "Tipo de Descuentos"
+
+#. module: straconx_talent_human
+#: field:wizard.invoice.pay.lines,number_of_quotas:0
+msgid "Quotas"
+msgstr "Cuotas"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,move_line_id:0
+#: field:hr.pay.provision.line,move_line_id2:0
+#: field:hr.pay.provision.line,move_line_ids:0
+#: field:hr.provision.advance.line,move_line_id:0
+#: field:hr.provision.advance.line,move_line_id2:0
+#: field:hr.provision.advance.line,move_line_ids:0
+msgid "Move Line"
+msgstr "Línea de Movimiento"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:775
+#, python-format
+msgid "Pago anticipado de %s"
+msgstr "Pago anticipado de %s"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+#: view:account.payments:0
+#: view:hr.discount:0
+#: field:hr.discount,state:0
+#: field:hr.discount.document,state:0
+#: field:hr.discount.lines,state:0
+#: field:hr.education.level,status:0
+#: view:hr.incomes:0
+#: field:hr.incomes,state:0
+#: field:hr.incomes.lines,state:0
+#: field:hr.pay.provision,state:0
+#: view:hr.period:0
+#: field:hr.period,state:0
+#: field:hr.provision.advance,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: straconx_talent_human
+#: field:res.partner.bank,account_id:0
+msgid "Account Payroll"
+msgstr "Cuenta de nómina"
+
+#. module: straconx_talent_human
+#: view:hr.period:0
+msgid "Payment period"
+msgstr "Períodos de Nómina"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_sectorial_configuration_action
+msgid "Sectorial Commision"
+msgstr "Comisiones Sectoriales"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.act_view_cheque_provision
+msgid "Provisions Payment Employee"
+msgstr "Pago de Provisiones de Colaborador"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Rejected"
+msgstr "Devuelto"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Search Partner"
+msgstr "Buscar empresa"
+
+#. module: straconx_talent_human
+#: field:hr.contract,wage_historic:0
+msgid "Wage historic"
+msgstr "Historial de Salarios"
+
+#. module: straconx_talent_human
+#: selection:hr.discount.document,state:0
+msgid "Done"
+msgstr "Realizada"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_view_employee_res_partner_search
+msgid "Employee Partner"
+msgstr "Cliente"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_prov
+msgid "Employee Payslip Provisions"
+msgstr "Nómina General con Provisiones"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.holidays:0
+msgid "You have to select an employee or a category"
+msgstr "Debe seleccionar un empleado o una categoría"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_discount
+msgid "hr.payslip.discount"
+msgstr "Descuentos"
+
+#. module: straconx_talent_human
+#: view:hr.discount.document:0
+msgid "Export File"
+msgstr "Exportar Archivo"
+
+#. module: straconx_talent_human
+#: field:hr.employee,age:0
+#: field:hr.family.burden,age:0
+msgid "Age"
+msgstr "Edad"
+
+#. module: straconx_talent_human
+#: field:hr.provision.advance.line,total_amount:0
+msgid "Valor Máximo de Anticipo"
+msgstr "Valor Máximo de Anticipo"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,value_extra:0
+msgid "% value hours extra"
+msgstr "% Valor por horas extras"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1174
+#, python-format
+msgid "Not exist a line of discount with this number of quota"
+msgstr "No existe una línea de descuento con este número de cuota"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:88
+#, python-format
+msgid "You can not cancel the voucher because exist a discount in state invalid, please check."
+msgstr "No se puede cancelar el recibo porque existe un descuento en estado inválido, por favor revisar."
+
+#. module: straconx_talent_human
+#: constraint:hr.contract:0
+msgid "Error! contract start-date must be lower then contract end-date."
+msgstr "¡Error! La fecha de inicio de contrato debe ser anterior a la fecha de finalización."
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_loans_generate_action
+msgid "Loans Generate Lines"
+msgstr "Descuentos a Colaboradores por Rubro"
+
+#. module: straconx_talent_human
+#: field:hr.period,date_stop:0
+#: field:hr.provision.advance,date_to:0
+msgid "Date To"
+msgstr "Hasta"
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+msgid "total quantity"
+msgstr "Cantidad total"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Rejected Cheques"
+msgstr "Cheques devueltos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_advance
+msgid "Advance Employee"
+msgstr "Anticipo de Empleados"
+
+#. module: straconx_talent_human
+#: selection:hr.contract,labor_type:0
+msgid "Directa"
+msgstr "Directa"
+
+#. module: straconx_talent_human
+#: field:hr.employee,last_name:0
+#: field:hr.family.burden,last_name:0
+msgid "Last Name"
+msgstr "Apellido Paterno"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Communication"
+msgstr "Comunicación"
+
+#. module: straconx_talent_human
+#: field:hr.holidays,justified:0
+msgid "justified?"
+msgstr "justificado?"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_department
+msgid "hr.department"
+msgstr "Departamento"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:198
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:733
+#, python-format
+msgid "Primero debe configurar la provisión"
+msgstr "Primero debe configurar la provisión"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Search Cheques"
+msgstr "Buscar Cheques"
+
+#. module: straconx_talent_human
+#: constraint:resource.calendar.attendance:0
+msgid "the hours entered is incorrect, please check"
+msgstr "las horas ingresadas son incorrectas, por favor revisar."
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:958
+#, python-format
+msgid "You must define a debit account in journal"
+msgstr "You must define a debit account in journal"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Crear Descuento"
+msgstr "Crear Descuento"
+
+
+#. module: straconx_talent_human
+#: field:hr.employee.health,doctor:0
+msgid "Doctor"
+msgstr "Médico"
+
+#. module: straconx_talent_human
+#: field:hr.discount,date_from:0
+#: field:hr.incomes,date_from:0
+#: field:hr.pay.provision,date_from:0
+#: field:hr.period,date_start:0
+#: field:hr.provision,date_from:0
+#: field:hr.provision.advance,date_from:0
+msgid "Date From"
+msgstr "Desde"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Cancel Check"
+msgstr "Cancelar Cheque"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+#: field:hr.provision.advance,value:0
+#: field:hr.provision.advance.line,value:0
+msgid "Valor"
+msgstr "Valor"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "total"
+msgstr "total"
+
+#. module: straconx_talent_human
+#: field:hr.employee.history,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1005
+#, python-format
+msgid "A difference exist of amounts but are not configured in the journal accounts %s"
+msgstr "Una diferencia de valores existe pero no se ha configurado en el diario contable de %s"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_provision_view
+msgid "Type Provision Pay"
+msgstr "Pago de Prestaciones"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.line:0
+#: view:hr.provision.advance.line:0
+msgid "Move Lines"
+msgstr "Línes de Movimiento"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:188
+#, python-format
+msgid "El empleado %s no tiene asignado un departamento o el area, por favor revisar"
+msgstr "El empleado %s no tiene asignado un departamento o el area, por favor revisar"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:62
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:168
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:249
+#, python-format
+msgid "you must defined a journal by payslip"
+msgstr "Debe dedinir un diario para los roles"
+
+#. module: straconx_talent_human
+#: field:hr.provision,date_from_coast:0
+msgid "Date From Coast"
+msgstr "Fecha para la Costa"
+
+#. module: straconx_talent_human
+#: constraint:account.move.line:0
+msgid "You can not create journal items on an account of type view."
+msgstr "No puede crear asientos en una cuenta de tipo vista"
+
+#. module: straconx_talent_human
+#: field:hr.discount,type:0
+#: field:hr.incomes,type:0
+#: field:hr.transaction.type,type:0
+msgid "type"
+msgstr "tipo"
+
+#. module: straconx_talent_human
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr "¡Error! No se puede crear una jerarquía recursiva de empleados."
+
+#. module: straconx_talent_human
+#: selection:hr.incomes,collection_form:0
+msgid "Quincena y Fin de mes"
+msgstr "Quincena y Fin de mes"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: field:hr.provision,pay_prov:0
+#: model:ir.actions.report.xml,name:straconx_talent_human.pay_provision_report
+#: model:ir.ui.menu,name:straconx_talent_human.menu_pay_config_provision
+#: model:ir.ui.menu,name:straconx_talent_human.menu_pay_provision
+#: model:ir.ui.menu,name:straconx_talent_human.menu_pay_provision_action
+msgid "Pay Provision"
+msgstr "Provisiones"
+
+#. module: straconx_talent_human
+#: help:res.company,authorize_sales_order:0
+msgid "Authorize sale by supervisor."
+msgstr "Autorizar venta por supervisor."
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,move_id:0
+#: field:hr.pay.provision,move_id2:0
+#: field:hr.provision.advance,move_id:0
+#: field:hr.provision.advance,move_id2:0
+msgid "Reference Account Move"
+msgstr "Cuenta contable referenciada"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_discount_employee.py:34
+#: code:addons/straconx_talent_human/wizards/str_hr_payroll_payslips_by_employees.py:47
+#, python-format
+msgid "You must select employee(s) to generate payslip(s)"
+msgstr "Debe seleccionar un empleado(s) para generar la nómina"
+
+#. module: straconx_talent_human
+#: view:create.partner.from.user:0
+msgid "Please Write the vat number for create the partner by this user"
+msgstr "Por favor escriba la Identificación para crear la empresa de este usuario"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:274
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:279
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:286
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:300
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:389
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:426
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:457
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:463
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:465
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:473
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:476
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:483
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:494
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:509
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:573
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:591
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:723
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:122
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:229
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:239
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:492
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:573
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:848
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:929
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:43
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:62
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:71
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:400
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:88
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:164
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:168
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:249
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:258
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:46
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:49
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:88
+#: code:addons/straconx_talent_human/wizards/str_hr_create_partner_from_user.py:57
+#, python-format
+msgid "Invalid action!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_talent_human
+#: field:wizard.invoice.pay.lines,discount_employee:0
+msgid "Discount employee"
+msgstr "Descuento de empleado"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: straconx_talent_human
+#: field:hr.account.position,account_debit:0
+#: field:hr.transaction.type,debit_account_id:0
+msgid "Debit Account"
+msgstr "Cuenta de Débito"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1074
+#, python-format
+msgid "Para cancelar esta Rol de Colaborador, primero debe cambiar a borrador la Nómina General de este período"
+msgstr "Para cancelar esta Rol de Colaborador, primero debe cambiar a borrador la Nómina General de este período"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,quantity:0
+#: field:hr.contract.income,quantity:0
+#: field:hr.incomes.lines,quantity:0
+#: field:hr.payslip.input,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:164
+#, python-format
+msgid "you must defined dates from calc wage"
+msgstr "Debe definir fechas para calcular salarios"
+
+#. module: straconx_talent_human
+#: field:hr.employee,health_history_id:0
+msgid "Employee Health History"
+msgstr "Historial Médico"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Comercial Information"
+msgstr "Información Comercial"
+
+#. module: straconx_talent_human
+#: view:hr.discount.employees:0
+msgid "Discount by Employees"
+msgstr "Descuento por Colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.discount,lines_ids:0
+#: field:hr.discount,lines_ids2:0
+#: field:hr.incomes,lines_ids:0
+msgid "Pays"
+msgstr "Pagos"
+
+#. module: straconx_talent_human
+#: field:account.payments,period_id:0
+#: view:hr.education.level:0
+#: view:hr.incomes:0
+#: field:hr.pay.provision,period_id:0
+#: field:hr.provision.advance,period_id:0
+#: field:wizard.invoice.pay.lines,period_id:0
+msgid "Period"
+msgstr "Período"
+
+#. module: straconx_talent_human
+#: field:hr.incomes.lines,income_type_id:0
+#: field:hr.payslip.input,income_type_id:0
+msgid "Income Type"
+msgstr "Tipo de Ingresos"
+
+#. module: straconx_talent_human
+#: help:res.company,number_days_validate:0
+msgid "Days are needed to expire the sales order."
+msgstr "Días que son necesitados para expirar la orden de venta."
+
+#. module: straconx_talent_human
+#: field:res.company,property_reserve_and_surplus_account_profit:0
+msgid "Reserve and Profit/Loss Account for Profit/Loss Balance"
+msgstr "Cuenta de Pérdidas y Ganancias para el Balance"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_incomes_lines
+msgid "hr.incomes.lines"
+msgstr "Línea de Ingresos"
+
+#. module: straconx_talent_human
+#: view:payroll.employees.detail:0
+msgid "Print Report"
+msgstr "Imprimir Reporte"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.pentaho_incomes_id
+msgid "Employee Incomes"
+msgstr "Ingresos de Colaboradores"
+
+#. module: straconx_talent_human
+#: selection:hr.contract.expense,collection_form:0
+#: selection:hr.contract.income,collection_form:0
+#: selection:hr.discount,collection_form:0
+#: selection:hr.transaction.type,collection_form:0
+#: selection:wizard.invoice.pay.lines,collection_form:0
+msgid "End of the month"
+msgstr "Fin del Mes"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_pay_provision_employees
+msgid "hr.pay.provision.employees"
+msgstr "Provisiones de Colaboradores"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,total_discounts:0
+msgid "Total Discount"
+msgstr "Total Discount"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+msgid "Wife/Husband"
+msgstr "Esposo(a)/Conviviente"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Details"
+msgstr "Detalles"
+
+#. module: straconx_talent_human
+#: field:hr.discount,journal_id:0
+#: field:hr.incomes,journal_id:0
+msgid "Expense Journal"
+msgstr "Diario de gastos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:40
+#: code:addons/straconx_talent_human/objects/str_hr_holidays.py:89
+#, python-format
+msgid "Do not exist contract with dates defined by employee"
+msgstr "No existe contrato con fechas definido para el colaborador"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1053
+#, python-format
+msgid "El colaborador %s no tiene creado una empresa para realizar los pagos"
+msgstr "El colaborador %s no tiene creado una empresa para realizar los pagos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_payroll_employees_detail
+msgid "Employees Salary Statement"
+msgstr "Nómina de Colaboradores"
+
+#. module: straconx_talent_human
+#: help:hr.contract,number_of_pays:0
+msgid "This field indicate the number of pays by month"
+msgstr "Este campo indica el número de pago por meses"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,bonus:0
+msgid "Bonus"
+msgstr "Bonos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payroll_move_report_excel
+msgid "Export Account Moves"
+msgstr "Exportar Movimientos Contables"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,journal_id:0
+#: field:hr.provision.advance,journal_id:0
+msgid "Journal"
+msgstr "Diario"
+
+#. module: straconx_talent_human
+#: field:res.company,pay_bi_monthly:0
+msgid "% Pay Bi-monthly"
+msgstr "% Pago quincenal"
+
+#. module: straconx_talent_human
+#: constraint:hr.contract:0
+msgid "Wage is greater 0"
+msgstr "Salario debe ser mayor a 0"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_expenses_configuration_action
+msgid "Expenses Types"
+msgstr "Tipos de Gastos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:437
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:796
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:48
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:103
+#, python-format
+msgid "You must select account on the type of provision to pay"
+msgstr "Debe seleccionar una cuenta en el tipo de provisión para pagar"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,leave_id:0
+msgid "Ausencia"
+msgstr "Ausencia"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:80
+#, python-format
+msgid "You must defined a account of payroll in the account bank selected"
+msgstr "Debe definir una cuenta de nómina en el banco seleccionado"
+
+#. module: straconx_talent_human
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "¡El nombre de la compañía debe ser único!"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_period_payment_view
+msgid "Payment Period Actions"
+msgstr "Período de Pagos"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "Search Fiscalyear"
+msgstr "Buscar Ejercicio Fiscal"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.input,i_id:0
+msgid "Income Line"
+msgstr "Línea de Ingresos"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.tables:0
+msgid "Sectorial table"
+msgstr "Tabla Sectorial"
+
+#. module: straconx_talent_human
+#: field:hr.employee,inability:0
+msgid "Inability"
+msgstr "¿Es discapacitado?"
+
+#. module: straconx_talent_human
+#: help:hr.transaction.type,generate_lines_employee:0
+msgid "If active this field, the discount generate lines for each employee. This discount are made monthly"
+msgstr "Si activa este campo, el descuento genera líneas para cada empleado. Este descuento es realizado mensualmente"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_discount_employees
+msgid "Discount Employees"
+msgstr "Descuentos y Préstamos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:202
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:737
+#, python-format
+msgid "No existe provisiones creadas para esta compañía"
+msgstr "No existe provisiones creadas para esta compañía"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.employees:0
+#: view:hr.provision.advance.employees:0
+msgid "Provision by Employees"
+msgstr "Provisión por Empleado"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Pay Checks"
+msgstr "Pago de cheques"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:975
+#, python-format
+msgid "El descuento %s ha sido cambiado de estado luego de generar el preeliminar de la nómina para el colaborador %s"
+msgstr "El descuento %s ha sido cambiado de estado luego de generar el preeliminar de la nómina para el colaborador %s"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Employee Partners"
+msgstr "Empresa asignada"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,amount:0
+#: field:hr.contract.income,amount:0
+#: field:hr.payslip.discount,amount:0
+msgid "amount"
+msgstr "Monto"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:103
+#, python-format
+msgid "No period defined for this date: %s !\n"
+"Please create one."
+msgstr "No existe período definido para esta fecha: %s !\n"
+"Por favor, crear uno."
+
+#. module: straconx_talent_human
+#: help:hr.salary.rule,generate_move:0
+msgid "check this field if your rule generate lines move account in the move account"
+msgstr "Comprobar este campo si la regla de generar movimiento en cuenta las líneas de la cuenta contable"
+
+#. module: straconx_talent_human
+#: field:hr.discount.document,data:0
+#: field:hr.pay.provision,data:0
+#: field:hr.payslip.run,data:0
+msgid "File"
+msgstr "Archivo"
+
+#. module: straconx_talent_human
+#: field:hr.employee,personal_email:0
+msgid "Personal E-mail"
+msgstr "Correo personal"
+
+#. module: straconx_talent_human
+#: help:hr.employee,inability:0
+msgid "Is a CONADIS Inability?"
+msgstr "¿Es una discapacidad registrada en el CONADIS?"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.line:0
+msgid "Retention"
+msgstr "Retención"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Information Account"
+msgstr "Información Contable"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Master's"
+msgstr "Maestría"
+
+#. module: straconx_talent_human
+#: field:hr.discount,number_of_quotas:0
+msgid "Number of quotas"
+msgstr "Cuotas"
+
+#. module: straconx_talent_human
+#: field:hr.incomes,period_id:0
+msgid "Account Period"
+msgstr "Período Contable"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_salary_rule_category
+msgid "Salary Rule Category"
+msgstr "Categoría de Regla Salarial"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_employee_health
+msgid "hr.employee.health"
+msgstr "Historial Médico"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.provisions_general_report_id
+msgid "Report of Provisions"
+msgstr "Reporte de Provisiones"
+
+#. module: straconx_talent_human
+#: field:account.voucher,search_docs:0
+msgid "Buscar Documentos Pendientes"
+msgstr "Buscar Documentos Pendientes"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Search Lines Discount by employee"
+msgstr "Buscar descuento en Contratos"
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+#: field:hr.incomes.lines,input_id:0
+#: field:hr.payslip.input,input_id:0
+msgid "Income"
+msgstr "Ingresos"
+
+#. module: straconx_talent_human
+#: selection:hr.period,type:0
+msgid "Ordinary"
+msgstr "Ordinarios"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_discount_lines_action
+msgid "Estado de Cuenta por Colaborador"
+msgstr "Estado de Cuenta por Colaborador"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_discount
+msgid "hr.discount"
+msgstr "Descuentos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:673
+#, python-format
+msgid "You can not generate the file without Discount"
+msgstr "No se puede generar el archivo sin descuentos"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "Create Bi-Monthly Periods"
+msgstr "Crear períodos quincenales"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:246
+#, python-format
+msgid "The user has not a partner created, please selected one"
+msgstr "El usuario no tiene una empresa creada, por favor seleccione uno"
+
+#. module: straconx_talent_human
+#: field:hr.discount,paid:0
+#: field:hr.holidays.status,is_paid:0
+#: field:hr.incomes,paid:0
+msgid "Paid?"
+msgstr "¿Pagado?"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:110
+#, python-format
+msgid "You can not re-open a period which belongs to closed fiscal year"
+msgstr "No se puede reabrir un período de un año fiscal cerrado"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:457
+#, python-format
+msgid "you must selected a line invoiced by discount"
+msgstr "Debe seleccioanr una línea de una factura para realizar el descuento"
+
+#. module: straconx_talent_human
+#: field:create.partner.from.user,vat:0
+msgid "VAT"
+msgstr "RUC / CI"
+
+#. module: straconx_talent_human
+#: field:hr.discount.lines,move_line_id:0
+msgid "Accounting Entry Line"
+msgstr "Línea de Entrada Contable"
+
+#. module: straconx_talent_human
+#: view:create.partner.from.user:0
+#: model:ir.actions.act_window,name:straconx_talent_human.action_create_partner_from user
+#: view:res.users:0
+msgid "Create Partner"
+msgstr "Crear Empresa"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_discount_document
+msgid "hr.discount.document"
+msgstr "Descuento"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Salary"
+msgstr "Salarios"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:279
+#, python-format
+msgid "You must defined an account period for this company"
+msgstr "Usted debe definir un período contable para esta compañía"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "HR Periods"
+msgstr "Períodos de Nómina"
+
+#. module: straconx_talent_human
+#: selection:hr.employee.history,state:0
+msgid "Resolve"
+msgstr "Resuelto"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+#: selection:hr.discount,payment_form:0
+#: field:hr.discount,payment_id:0
+msgid "Payment"
+msgstr "Pago"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,work_place:0
+msgid "Work Place"
+msgstr "Lugar de Trabajo"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_holidays_national
+msgid "hr.holidays.national"
+msgstr "Feriados Nacionales"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Pagos"
+msgstr "Pagos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.pentaho_department_employee_report_id
+msgid "Employee List"
+msgstr "Lista de Colaboradores"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:681
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:375
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:76
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:263
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:358
+#, python-format
+msgid "You must have a account bank by default"
+msgstr "Debe tener una cuenta bancaria predeterminada"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,wk_days:0
+#: field:hr.payslip.run,days:0
+msgid "Work Days"
+msgstr "Días laborables"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Pago Aprobado"
+msgstr "Pago Aprobado"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_education_area
+msgid "hr.education.area"
+msgstr "Area de Educación"
+
+#. module: straconx_talent_human
+#: help:hr.contract,pay_reserve_funds:0
+msgid "active this field if the employee collect your reserves funds"
+msgstr "Active este campo si el empleado cobra sus fondos de reservas"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_education_level
+msgid "hr.education.level"
+msgstr "Nivel de Educación"
+
+#. module: straconx_talent_human
+#: field:hr.discount,is_paid:0
+msgid "is_paid"
+msgstr "es pagada"
+
+#. module: straconx_talent_human
+#: field:hr.discount,period_id:0
+msgid "Force Period"
+msgstr "Período"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1170
+#, python-format
+msgid "The quota must be greater than 0"
+msgstr "La cuota debe ser mayor que 0"
+
+#. module: straconx_talent_human
+#: view:hr.family.burden:0
+msgid "Aditional Info"
+msgstr "Información adicional"
+
+#. module: straconx_talent_human
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal."
+msgstr "¡La fecha de su asiento no está en el periodo definido! Usted debería cambiar la fecha o borar este esta restricción del diario."
+
+#. module: straconx_talent_human
+#: view:wizard.modified.discount:0
+msgid "Reopen"
+msgstr "Reaperturar"
+
+#. module: straconx_talent_human
+#: selection:hr.provision,name:0
+msgid "XIII"
+msgstr "XIII"
+
+#. module: straconx_talent_human
+#: view:create.partner.from.user:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:430
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:162
+#, python-format
+msgid "Need a account period!"
+msgstr "Necesita un período contables!"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,check_id:0
+#: field:hr.payslip,check_id:0
+#: field:hr.provision.advance,check_id:0
+#: field:hr.provision.advance.line,check_id:0
+msgid "Check"
+msgstr "Cheque"
+
+#. module: straconx_talent_human
+#: field:hr.employee.health,name:0
+#: field:hr.employee.history,name:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: straconx_talent_human
+#: view:hr.provision:0
+msgid "hr Provision"
+msgstr "Provisión"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.holidays:0
+msgid "The start date must be before the end date !"
+msgstr "¡La fecha de inicio debe ser anterior a la fecha de fin!"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,retention:0
+msgid "Retention Value"
+msgstr "Valor de Retención"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: view:hr.incomes:0
+msgid "Other information"
+msgstr "Otra información"
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+#: field:hr.payslip.worked_days,i_id:0
+#: field:hr.payslip.worked_days,input_id:0
+#: field:hr.payslip.worked_days,transaction_id:0
+#: view:hr.period:0
+#: field:hr.period,type:0
+#: view:res.partner:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "historical wage"
+msgstr "Salarios Históricos"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,is_inhab:0
+msgid "inability?"
+msgstr "Discapacidad"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:557
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:563
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:219
+#, python-format
+msgid "Only Can delete Discount(s) in state draft !"
+msgstr "¡Solo se puede borrar descuentos en estado borrador!"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,number_of_days:0
+msgid "Number of Days"
+msgstr "Número de días"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_liq_vacation_action
+msgid "Liquidation of Vacation"
+msgstr "Liquidación de Vacaciones"
+
+#. module: straconx_talent_human
+#: field:hr.salary.rule,calculate_wage:0
+msgid "calculate Wage"
+msgstr "Calcular Salario"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.transaction.type:0
+msgid "Code of transaction must be unique"
+msgstr "Código de transacción debe ser único"
+
+#. module: straconx_talent_human
+#: view:hr.legal.wages:0
+#: model:ir.actions.act_window,name:straconx_talent_human.straconx_hr_legal_action
+msgid "Legals Wages and Provisions"
+msgstr "Beneficios sociales y provisiones"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:189
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:197
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:207
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:557
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:563
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:204
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:207
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:219
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:674
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:91
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:588
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:593
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:230
+#: code:addons/straconx_talent_human/objects/str_hr_salary_rule.py:51
+#, python-format
+msgid "Invalid action !"
+msgstr "¡Acción inválida!"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_salary_rule.py:51
+#, python-format
+msgid "No se pueden borrar reglas salariales que tengan Nóminas generadas"
+msgstr "No se pueden borrar reglas salariales que tengan Nóminas generadas"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Hold"
+msgstr "Pendiente"
+
+#. module: straconx_talent_human
+#: field:hr.salary.rule,generate_move:0
+msgid "Generate Move Account"
+msgstr "Generar Movimiento contable"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Exchanged Check"
+msgstr "Canje de Cheques"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.line,is_provision:0
+#: field:hr.salary.rule,is_provision:0
+msgid "Is Provision"
+msgstr "¿Es una provisión?"
+
+#. module: straconx_talent_human
+#: field:hr.employee,extension:0
+msgid "Extension"
+msgstr "Extensión"
+
+#. module: straconx_talent_human
+#: field:hr.discount,generate_lines_employee:0
+#: field:hr.incomes,generate_lines_employee:0
+#: field:hr.transaction.type,generate_lines_employee:0
+msgid "Generate Lines of all employee"
+msgstr "Generar datos de los colaboradores"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_details_report
+msgid "Employee Payroll Details"
+msgstr "Nómina Individual con Provisiones"
+
+#. module: straconx_talent_human
+#: field:account.voucher,type_collect_employee:0
+msgid "Type Collect Employee"
+msgstr "Tipo de descuento de colaborador"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:110
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:112
+#, python-format
+msgid "The number of quotas to pay must be greater than 0"
+msgstr "El número de cuotas a pagar debe ser mayor a 0"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:286
+#, python-format
+msgid "Employee have not contract with this company"
+msgstr "El colaborador no tiene contrato con esta compañía"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.sectorialcomission:0
+msgid "The branch of the Sectorial Comission must be unique !"
+msgstr "La rama de la comisión sectorial debe ser único !"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:911
+#, python-format
+msgid "Payslip of %s"
+msgstr "Nómina de %s"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,type_expense:0
+msgid "type Expense"
+msgstr "Tipo de Gasto"
+
+#. module: straconx_talent_human
+#: field:res.company,property_account_employee_receivable:0
+msgid "Employee Credit Account"
+msgstr "Cuenta de Crédito de Colaborador"
+
+#. module: straconx_talent_human
+#: constraint:sale.shop:0
+msgid "The percentage utility margin must be a positive number"
+msgstr "El porcentaje de utilidad debe ser un número positivo"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_discount_lines
+msgid "hr.discount.lines"
+msgstr "Líneas de Descuento"
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+msgid "Incomes of Employee"
+msgstr "Ingreso de colaborador"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_report
+msgid "Employee Payroll"
+msgstr "Nómina de Colaboradores"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Partner Status"
+msgstr "Estado de la Empresa"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Cuota 1"
+msgstr "Cuota 1"
+
+#. module: straconx_talent_human
+#: help:hr.incomes.lines,contract_id:0
+#: help:hr.payslip.leaves_days,contract_id:0
+msgid "The contract for which applied this input"
+msgstr "El contrato para que es aplicado este ingreso"
+
+#. module: straconx_talent_human
+#: view:hr.transaction.type:0
+msgid "Type Expense"
+msgstr "Descuentos"
+
+#. module: straconx_talent_human
+#: field:hr.account.position,rule_id:0
+msgid "Salary Rule"
+msgstr "Regla Salarial"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:446
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:549
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:117
+#, python-format
+msgid "Date from is greater then Date to"
+msgstr "Fecha inicial es mayor que fecha final"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: straconx_talent_human
+#: constraint:account.payments:0
+msgid "Document number already exists"
+msgstr "Número de Documento ya existe"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_provision_advance
+msgid "hr.provision.advance"
+msgstr "hr.provision.advance"
+
+#. module: straconx_talent_human
+#: field:hr.employee,unemployee:0
+msgid "Ex-Employee"
+msgstr "Ex-colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,is_paid:0
+msgid "Pay with document"
+msgstr "Generar Pago"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:139
+#, python-format
+msgid "Only accepts 01 or 16 in payslip days"
+msgstr "Solo se acepta como días iniciales de nómina el 01 ó 16 del mes"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.period:0
+msgid "The name of the period must be unique per company!"
+msgstr "¡El nombre del período debe ser único por compañía!"
+
+#. module: straconx_talent_human
+#: field:account.invoice,has_discount_employee:0
+msgid "Has discount employee?"
+msgstr "Empleado tiene descuento?"
+
+#. module: straconx_talent_human
+#: selection:hr.incomes,collection_form:0
+msgid "Fin de mes"
+msgstr "Fin de mes"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:329
+#, python-format
+msgid "You can not generate the file without pay provision lines"
+msgstr "No se puede generar el archivo sin líneas de pago de provisión"
+
+#. module: straconx_talent_human
+#: constraint:account.fiscalyear:0
+msgid "Error! The start date of the fiscal year must be before his end date."
+msgstr "Error! La fecha de inicio del año fiscal debe ser anterior a la fecha final de este."
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,total_amount:0
+#: field:hr.pay.provision,total_bank:0
+#: view:hr.pay.provision.line:0
+msgid "Total Amount"
+msgstr "Importe total"
+
+#. module: straconx_talent_human
+#: field:account.invoice.line,price_unit_read:0
+msgid "Price Unit"
+msgstr "Precio Unitario"
+
+#. module: straconx_talent_human
+#: field:hr.contract.historic,name:0
+#: field:hr.discount.document,date:0
+#: field:hr.discount.lines,date:0
+#: field:hr.employee.health,date_revision:0
+#: field:hr.employee.history,date_note:0
+#: field:hr.incomes.lines,date:0
+#: field:hr.payslip.discount,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+msgid "Estado"
+msgstr "Estado"
+
+#. module: straconx_talent_human
+#: field:hr.contract,contract_active:0
+msgid "Contract Active?"
+msgstr "Activo"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:961
+#, python-format
+msgid "You must define a credit account in journal"
+msgstr "Debe definir una cuenta de crédito en el diario"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_payroll_employees_detail
+msgid "payroll.employees.detail"
+msgstr "Detalle de Pago de Colaborador"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.holidays:0
+msgid "The number of days must be greater than 0 !"
+msgstr "¡El número de días debe ser superior a 0!"
+
+#. module: straconx_talent_human
+#: view:payroll.employees.detail:0
+msgid "Year Salary"
+msgstr "Año del Salario"
+
+#. module: straconx_talent_human
+#: selection:account.voucher,type_collect_employee:0
+msgid "By Discount"
+msgstr "Por Descuento"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_transaction_configuration
+msgid "Incomes and Expenses Employee"
+msgstr "Ingresos y Descuentos de Colaborador"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.legal.wages:0
+msgid "Please enter a number into 1999 - 2999 !"
+msgstr "Por favor ingrese un número entre 1999 - 2999 !"
+
+#. module: straconx_talent_human
+#: field:hr.contract,lines_historic_ids:0
+msgid "Historical Wage"
+msgstr "Salarios históricos"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Primary education"
+msgstr "Educación Primaria"
+
+#. module: straconx_talent_human
+#: field:hr.incomes.lines,code:0
+#: field:hr.payslip.discount,code:0
+#: field:hr.payslip.leaves_days,code:0
+#: view:hr.payslip.tables:0
+#: field:hr.payslip.tables,code:0
+#: view:hr.sectorialcomission:0
+#: field:hr.sectorialcomission,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_talent_human
+#: view:wizard.modified.discount:0
+msgid "Change State Discount"
+msgstr "Change State Discount"
+
+#. module: straconx_talent_human
+#: field:account.invoice,user_authorized_refund:0
+msgid "User Authorized Refund"
+msgstr "Usuario autorizado para N/C"
+
+#. module: straconx_talent_human
+#: field:account.payments,provision_id:0
+#: field:hr.pay.provision.line,pay_provision_id:0
+#: field:hr.provision.advance,adv_provision_id:0
+#: field:hr.provision.advance.line,provision_advance_id:0
+msgid "Provision"
+msgstr "Provisión"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,second_quarter_day:0
+msgid "Días Segunda Quincena"
+msgstr "Días Segunda Quincena"
+
+#. module: straconx_talent_human
+#: field:hr.account.position,account_credit:0
+#: field:hr.transaction.type,credit_account_id:0
+msgid "Credit Account"
+msgstr "Cuenta de Crédito"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_provision_advance_employees
+msgid "hr.provision.advance.employees"
+msgstr "Anticipo de Empleados"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,region_id:0
+#: field:hr.provision.advance,region_id:0
+msgid "Region"
+msgstr "Región"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: selection:hr.discount,state:0
+#: view:hr.discount.employees:0
+#: selection:hr.discount.lines,state:0
+#: selection:hr.employee.history,state:0
+#: view:hr.incomes:0
+#: selection:hr.incomes,state:0
+#: selection:hr.incomes.lines,state:0
+#: view:hr.pay.provision.employees:0
+#: selection:hr.period,state:0
+#: view:hr.provision.advance.employees:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_res_users
+msgid "res.users"
+msgstr "Usuarios"
+
+#. module: straconx_talent_human
+#: view:hr.period:0
+msgid "Payment Period Search"
+msgstr "Buscar Períodos de Nómina"
+
+#. module: straconx_talent_human
+#: field:hr.employee,mother_last_name:0
+msgid "Mother Last Name"
+msgstr "Apellido Materno"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:279
+#, python-format
+msgid "Pago de %s"
+msgstr "Pago de %s"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1031
+#, python-format
+msgid "The discount not have account move in approve state %s for partner %s"
+msgstr "El descuento no tiene un movimiento contable en estado aprobado %s para el empleado %s"
+
+#. module: straconx_talent_human
+#: constraint:account.move.line:0
+msgid "Company must be the same for its related account and period."
+msgstr "La compañía debe ser la misma para su cuenta y periodos relacionados"
+
+#. module: straconx_talent_human
+#: view:hr.provision.advance:0
+msgid "Pay Provision Advance"
+msgstr "Aprobar Pago"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_payment_period_configuration
+msgid "Payment Periods"
+msgstr "Período de Nómina"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.line:0
+#: view:hr.provision.advance.line:0
+msgid "total debit"
+msgstr "total débito"
+
+#. module: straconx_talent_human
+#: field:hr.employee,first_name:0
+msgid "First Name"
+msgstr "Primer Nombre"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:473
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:476
+#, python-format
+msgid "You must selected a credit account in the type discount"
+msgstr "Usted debe seleccionar una cuenta de crédito en el tipo de descuento"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+#: selection:hr.incomes,type:0
+msgid "Other"
+msgstr "Otros"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1070
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1233
+#, python-format
+msgid "Debe configurar un N° d cuenta para el empleado"
+msgstr "Debe configurar un N° d cuenta para el empleado"
+
+#. module: straconx_talent_human
+#: field:hr.contract,pay_reserve_xiv:0
+msgid "Acumular XIV"
+msgstr "Acumular XIV"
+
+#. module: straconx_talent_human
+#: view:res.company:0
+msgid "Employee Account"
+msgstr "Cuenta del Colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.discount,ref:0
+#: field:hr.incomes,ref:0
+msgid "Ref"
+msgstr "Referencia"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+msgid "Couple"
+msgstr "Pareja"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:49
+#, python-format
+msgid "There is not an employee created for this Partner"
+msgstr "No existe colaborador asignado para esta empresa"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "payments"
+msgstr "pagos"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_period
+msgid "hr.period"
+msgstr "Período de Nómina"
+
+#. module: straconx_talent_human
+#: field:hr.discount,internal:0
+msgid "internal"
+msgstr "interno"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,advance:0
+msgid "Value Advance"
+msgstr "Valor del anticipo"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,status:0
+msgid "Graduated"
+msgstr "Concluido"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Print Discount"
+msgstr "Imprimir descuentos"
+
+#. module: straconx_talent_human
+#: constraint:sale.shop:0
+msgid "should only be a journal by type in the shop"
+msgstr "Solo puede existir un diario por tipo en cada tienda."
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_sectorial_legal_action
+msgid "Legal Basic Wages and Provisions"
+msgstr "Salario Básico y Provisiones"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:17
+#, python-format
+msgid "The employee has no contract."
+msgstr "El colaborador no tiene contrato."
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: straconx_talent_human
+#: field:hr.employee,employee_history_id:0
+msgid "Employee History Notes"
+msgstr "Historial del Colaborador"
+
+#. module: straconx_talent_human
+#: selection:hr.contract.expense,collection_form:0
+#: selection:hr.contract.income,collection_form:0
+#: selection:hr.discount,collection_form:0
+#: selection:hr.transaction.type,collection_form:0
+#: selection:wizard.invoice.pay.lines,collection_form:0
+msgid "Middle and End of the month"
+msgstr "Quincena y fin de mes"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,name:0
+#: field:hr.contract.income,name:0
+#: field:hr.discount,name:0
+#: field:hr.discount.document,name:0
+#: field:hr.discount.lines,name:0
+#: field:hr.education.area,name:0
+#: field:hr.family.burden,name:0
+#: field:hr.holidays.national,name:0
+#: field:hr.incomes,name:0
+#: field:hr.incomes.lines,name:0
+#: field:hr.pay.provision,name:0
+#: field:hr.pay.provision,provision_id:0
+#: field:hr.payslip.discount,name:0
+#: view:hr.payslip.tables:0
+#: field:hr.payslip.tables,name:0
+#: field:hr.period,name:0
+#: field:hr.provision.advance,name:0
+#: view:hr.sectorialcomission:0
+#: field:hr.sectorialcomission,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:71
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:258
+#, python-format
+msgid "you must defined a rule default of calculate wage"
+msgstr "Debe definir una regla predeterminada para calcular el salario"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,type:0
+msgid "Type Payment"
+msgstr "Tipo de pago"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:335
+#, python-format
+msgid "You must have a account bank by default in the mode payment"
+msgstr "Usted debe tener una cuenta bancaria predeterminada en el modo de pago"
+
+#. module: straconx_talent_human
+#: field:hr.contract,pay_reserve_xiii:0
+msgid "Acumular XIII"
+msgstr "Acumular XIII"
+
+#. module: straconx_talent_human
+#: field:hr.discount,mode_id:0
+#: field:hr.pay.provision.line,mode_id:0
+#: field:hr.provision.advance.line,mode_id:0
+msgid "Mode"
+msgstr "Modo de Pago"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:430
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:162
+#, python-format
+msgid "You must defined a account period for this payslip"
+msgstr "Debe definir una cuenta contable para esta nómina"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:407
+#, python-format
+msgid "Employee not have a active contract"
+msgstr "El colaborador no tiene un contracto activo"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.straconx_hr_commision_action
+msgid "Sectorial Comissions"
+msgstr "Comisiones Sectoriales"
+
+#. module: straconx_talent_human
+#: field:hr.discount,total:0
+#: view:hr.discount.document:0
+#: field:hr.discount.lines,total:0
+#: view:hr.pay.provision.line:0
+msgid "Total"
+msgstr "Total"
+
+#. module: straconx_talent_human
+#: field:hr.employee,education_ids:0
+msgid "Childrens"
+msgstr "Hijos/Convivientes"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.nomina_general_report_id_excel
+msgid "Nómina General a Excel"
+msgstr "Generar Nómina a Excel"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_transaction_type
+msgid "hr.transaction.type"
+msgstr "Tipo de Trasacción"
+
+#. module: straconx_talent_human
+#: help:hr.incomes.lines,code:0
+#: help:hr.payslip.leaves_days,code:0
+msgid "The code that can be used in the salary rules"
+msgstr "Este código debe ser usado en las reglas salariales"
+
+#. module: straconx_talent_human
+#: field:account.move.line,pay_provision_line_id:0
+#: view:hr.pay.provision.line:0
+#: view:hr.provision.advance.line:0
+msgid "Provision Line"
+msgstr "Línea de Provisión"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:230
+#, python-format
+msgid "Cannot delete payslip(s) that are done state !"
+msgstr "¡No se pueden eliminar rol(es) en estado Realizado!"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_discount
+#: field:payment.mode,discount_employee:0
+msgid "Discount Employee"
+msgstr "Descuentos de Colaboradores"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_provision_advance_action
+msgid "Provisions Advance"
+msgstr "Anticipo de provisiones"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.run,total_bank:0
+msgid "Total of Payslip of Bank"
+msgstr "Total de Nómina para enviar al Banco"
+
+#. module: straconx_talent_human
+#: selection:hr.pay.provision.line,type:0
+msgid "Direct Payment Retention"
+msgstr "Retención Pago Directo"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Accounting"
+msgstr "Administración Financiera"
+
+#. module: straconx_talent_human
+#: field:hr.employee,substitute_id:0
+msgid "Substitute"
+msgstr "Sustituto"
+
+#. module: straconx_talent_human
+#: field:hr.employee,substitute:0
+msgid "Substitute disability"
+msgstr "Sustituto de Discapacidad"
+
+#. module: straconx_talent_human
+#: view:hr.transaction.type:0
+msgid "Type Income"
+msgstr "Ingresos"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,work_address:0
+msgid "Work Address"
+msgstr "Dirección del Trabajo"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_loans_generate
+msgid "Loans Employee Generate Lines"
+msgstr "Generar Descuentos a Colaboradores por Rubro"
+
+#. module: straconx_talent_human
+#: field:hr.discount,amount_to_paid:0
+#: field:hr.incomes,amount_to_paid:0
+msgid "Amount to Paid"
+msgstr "Monto a pagar"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+#: view:hr.incomes:0
+#: view:hr.transaction.type:0
+#: selection:hr.transaction.type,type:0
+msgid "Incomes"
+msgstr "Ingresos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_prov_excel
+msgid "Exportar Nómina con Provisiones"
+msgstr "Exportar Nómina con Provisiones"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+#: view:account.payments:0
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: straconx_talent_human
+#: field:hr.employee,emergency_home_phone:0
+msgid "Emergency Home Phone"
+msgstr "Teléfono de Emergencia"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:207
+#, python-format
+msgid "Only can delete contract(s) with incomes in draft state!"
+msgstr "Solo puede borrar contrato(s) con ingresos en estado de borrador!"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Assigned Users"
+msgstr "Usuarios asignados"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_expenses_type_view
+msgid "Expenses Type"
+msgstr "Tipo de Descuentos"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Bachelor's"
+msgstr "Universitario"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+msgid "Grandchildren"
+msgstr "Nieto"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:387
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:481
+#, python-format
+msgid "Amount  of employee discount must be greater than 0"
+msgstr "Monto del descuento del empleado debe ser mayor a 0"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Print Payroll Cheque"
+msgstr "Imprimir Cheque de Nómina"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: view:hr.discount.document:0
+#: view:hr.incomes:0
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Set to Draft"
+msgstr "Cambiar a borrador"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,type_income:0
+msgid "type Income"
+msgstr "Tipo de Ingresos"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Valid for"
+msgstr "Válido para"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_other_action
+msgid "Others"
+msgstr "Otros Ingresos"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Payment Form"
+msgstr "Formulario de Pago"
+
+#. module: straconx_talent_human
+#: view:hr.discount.employees:0
+#: view:hr.pay.provision.employees:0
+#: view:hr.provision.advance.employees:0
+msgid "Generate"
+msgstr "Generar"
+
+#. module: straconx_talent_human
+#: selection:hr.contract,labor_type:0
+msgid "Indirecta"
+msgstr "Indirecta"
+
+#. module: straconx_talent_human
+#: field:hr.discount.lines,date_paid:0
+msgid "Date Paid"
+msgstr "Fecha de pago"
+
+#. module: straconx_talent_human
+#: field:hr.provision,account_id:0
+#: field:hr.salary.rule.category,account_id:0
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,total_payslip_lines:0
+#: field:hr.payslip.run,total:0
+msgid "Total of Payslip"
+msgstr "Valor a recibir"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:91
+#, python-format
+msgid "Cannot delete payslip(s) that are done !"
+msgstr "¡No se puede eliminar nómina(s) que esten aprobadas!"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_holidays
+msgid "Leave"
+msgstr "Ausencia"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_check_provision_action
+msgid "Check Provision"
+msgstr "Cheque de Provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.transaction.type:0
+msgid "Incomes type"
+msgstr "Tipos de Ingresos"
+
+#. module: straconx_talent_human
+#: selection:hr.provision,name:0
+msgid "XIV"
+msgstr "XIV"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_qreport_excel
+msgid "Exportar Nómina Quincenal"
+msgstr "Exportar Nómina Quincenal"
+
+#. module: straconx_talent_human
+#: field:hr.holidays.national,shop_ids:0
+msgid "Shops"
+msgstr "Tiendas"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:417
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:82
+#, python-format
+msgid "Need a company!"
+msgstr "¡Necesita una compañía!"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Higher education"
+msgstr "Universidad Incompleta"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:246
+#, python-format
+msgid "No Partner found!"
+msgstr "¡No Empresa creada para este colaborador!"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: view:hr.incomes:0
+msgid "total amount"
+msgstr "Monto total"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payroll_discount_id
+msgid "Payroll Discount Report"
+msgstr "Reporte de Descuento de Nómina"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:124
+#, python-format
+msgid "Normal Working Days paid at 100%"
+msgstr "Días normales trabajados pagados al 100%"
+
+#. module: straconx_talent_human
+#: sql_constraint:sale.shop:0
+msgid "The address selected must be from a one Shop. Please check !"
+msgstr "¡La dirección seleccionada solo puede tener una tienda asignada!"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_provision
+msgid "hr.provision"
+msgstr "Provisión"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_employee_history
+msgid "hr.employee.history"
+msgstr "Historial del colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,mode_id:0
+msgid "Modo de Pago"
+msgstr "Modo de Pago"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Customer Partners"
+msgstr "Clientes"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payroll_move_report
+msgid "Account Moves"
+msgstr "Movimiento Contables"
+
+#. module: straconx_talent_human
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr "¡No puede tener dos usuarios con el mismo identificador de usuario!"
+
+#. module: straconx_talent_human
+#: field:hr.account.position,area_id:0
+#: field:hr.department,area_id:0
+#: field:hr.payslip,area_id:0
+msgid "Area"
+msgstr "Area"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,number_total_days:0
+#: field:hr.payslip.worked_days,number_total_days:0
+msgid "Total de días"
+msgstr "Total de días"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:509
+#, python-format
+msgid "You must selected a shop type headquarter for continue"
+msgstr "Usted debe seleccionar una Tienda Matriz para continuar"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.payslip.tables:0
+msgid "The code of the Sectorial Table must be unique !"
+msgstr "¡El código de la tabla sectorial debe ser único!"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+#: field:hr.discount.lines,payslip_id2:0
+msgid "Nómina"
+msgstr "Nómina"
+
+#. module: straconx_talent_human
+#: help:hr.discount,period_id:0
+#: help:hr.incomes,period_id:0
+msgid "Keep empty to use the period of the validation date."
+msgstr "Mantenga vacío para usar el periodo de la fecha de validación."
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:437
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:796
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:110
+#: code:addons/straconx_talent_human/wizards/str_hr_discount_employee.py:34
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:46
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:48
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:55
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:101
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:103
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:110
+#: code:addons/straconx_talent_human/wizards/str_hr_payroll_payslips_by_employees.py:47
+#, python-format
+msgid "Warning !"
+msgstr "¡Aviso!"
+
+#. module: straconx_talent_human
+#: view:hr.education.level:0
+#: field:hr.employee,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_payment_mode
+msgid "Payment Mode"
+msgstr "Modo de pago"
+
+#. module: straconx_talent_human
+#: selection:hr.pay.provision.line,type:0
+msgid "Bank Statement"
+msgstr "Acreditación Bancaria"
+
+#. module: straconx_talent_human
+#: field:hr.discount.lines,number_quota:0
+#: field:hr.payslip.discount,number_quota:0
+msgid "Number Quota"
+msgstr "Cuota"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:167
+#, python-format
+msgid "No Cheques were created"
+msgstr "No se han creado cheques"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:649
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:103
+#, python-format
+msgid "Error !"
+msgstr "Error !"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:284
+#, python-format
+msgid "Need a register with positive numbers"
+msgstr "Necesita un registro con números positivos"
+
+#. module: straconx_talent_human
+#: help:hr.salary.rule.category,account_id:0
+msgid "This field is to reconcile the accounts discount"
+msgstr "Este campo es para reconciliar las cuentas de Descuento."
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Secondary education"
+msgstr "Educación Secundaria"
+
+#. module: straconx_talent_human
+#: field:hr.employee,vat:0
+msgid "R.U.C / CI"
+msgstr "R.U.C / CI"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_pay_provision_by_employees
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_provision_advance_by_employees
+msgid "Generate Pay Provision"
+msgstr "Generar Pago de Provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.family.burden:0
+msgid "Family Burden"
+msgstr "Cargas Familiares"
+
+#. module: straconx_talent_human
+#: view:hr.education.level:0
+msgid "Info"
+msgstr "Información"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Print Move"
+msgstr "Imprimir Movimiento"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+#: field:hr.incomes.lines,employee_name:0
+msgid "Empleado"
+msgstr "Empleado"
+
+#. module: straconx_talent_human
+#: view:hr.education.level:0
+msgid "Education Levels"
+msgstr "Niveles de Educación"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_incomes
+msgid "hr.incomes"
+msgstr "Ingresos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:369
+#, python-format
+msgid "you must configure a check method of payment type"
+msgstr "usted puede configurar un método de pago tipo Cheque"
+
+#. module: straconx_talent_human
+#: field:hr.discount.lines,amount2:0
+msgid "Monto"
+msgstr "Monto"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.act_view_cheque_employee
+msgid "All Payment Employee"
+msgstr "Todos los Pagos"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,payment_form:0
+msgid "Partner Statement"
+msgstr "Registros de Empresas"
+
+#. module: straconx_talent_human
+#: field:hr.transaction.type,internal:0
+msgid "Discount Internal"
+msgstr "Descuento Interno"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,contract_id:0
+#: field:hr.contract.income,contract_id:0
+msgid "contract"
+msgstr "Contrato"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Total amount"
+msgstr "Monto total"
+
+#. module: straconx_talent_human
+#: field:hr.discount,quotas_remain:0
+msgid "Remain Quotas"
+msgstr "Cuotas Pendientes"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_check_employees
+#: model:ir.ui.menu,name:straconx_talent_human.menu_check_employees_action
+msgid "Check Employees"
+msgstr "Cheques de Nómina"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Generate Copy Check"
+msgstr "Generar una copia de cheque"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.pentaho_discount_report_id
+msgid "Employee Discount"
+msgstr "Descuento de Colaboradores"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:55
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:110
+#, python-format
+msgid "The employee(s) selected already assigned"
+msgstr "El colaborador seleccionado ya se encuentra asignado"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,start_date:0
+#: field:payroll.employees.detail,date_from:0
+msgid "Start Date"
+msgstr "Fecha inicial"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:20
+#, python-format
+msgid "Can not bill the employee with current user."
+msgstr "No se puede realizar pagos con su usuario."
+
+#. module: straconx_talent_human
+#: field:hr.discount,debit_move_line:0
+msgid "debit Move line"
+msgstr "Línea de débito"
+
+#. module: straconx_talent_human
+#: selection:hr.pay.provision.line,type:0
+msgid "Direct Payment"
+msgstr "Pago Directo"
+
+#. module: straconx_talent_human
+#: field:account.move.line,l_discount_id:0
+#: field:hr.payslip.discount,discount_line_id:0
+msgid "Discount Line"
+msgstr "Línea de descuento"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:188
+#, python-format
+msgid "¡Acción Inválida!"
+msgstr "¡Acción Inválida!"
+
+#. module: straconx_talent_human
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr "La compañía seleccionada no está autorizada como compañía para este usuario"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+#: selection:hr.period,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: straconx_talent_human
+#: view:hr.discount.employees:0
+msgid "This wizard will generate lines Discount for all selected employee(s) based on the dates."
+msgstr "Este asistente generará líneas de descuento para todos los empleados seleccionado(s) en base a las fechas."
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,cell_phone:0
+msgid "Cell Phone"
+msgstr "Celular"
+
+#. module: straconx_talent_human
+#: field:hr.holidays.national,date:0
+msgid "Holiday"
+msgstr "Vacaciones"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Checks"
+msgstr "Cheques"
+
+#. module: straconx_talent_human
+#: selection:hr.employee.history,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: straconx_talent_human
+#: field:res.company,authorize_sales_order:0
+msgid "Requires a supervisor"
+msgstr "Requiere un supervisor"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr "Reglas Salariales"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Hold Cheques"
+msgstr "Cheques en espera"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:313
+#, python-format
+msgid "You can not generate payroll within period"
+msgstr "No puede generar un rol de pago sin período"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "¡Se procederá a APROBAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!"
+msgstr "¡Se procederá a APROBAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_type_provision_action
+msgid "type Pay Provision"
+msgstr "Configurar Provisiones"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+#: selection:hr.discount,state:0
+#: selection:hr.incomes,state:0
+#: selection:hr.incomes.lines,state:0
+#: selection:hr.pay.provision,state:0
+#: selection:hr.provision.advance,state:0
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: straconx_talent_human
+#: selection:hr.pay.provision.line,type:0
+msgid "Bank Statement Retention"
+msgstr "Retención Acreditación Bancaria"
+
+#. module: straconx_talent_human
+#: field:account.invoice.line,discount_read:0
+#: field:account.payments,discount_id:0
+#: field:account.voucher,discount_id:0
+#: view:hr.discount:0
+#: selection:hr.discount,type:0
+#: view:hr.discount.document:0
+#: view:hr.discount.lines:0
+#: field:hr.discount.lines,discount_id:0
+#: selection:hr.transaction.type,type_expense:0
+#: model:ir.ui.menu,name:straconx_talent_human.menu_discount_action
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: field:hr.pay.provision,line_ids:0
+msgid "Pay Provision Line"
+msgstr "Línea de Provisión"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Cheque"
+msgstr "Cheque"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_account_move_line
+msgid "Journal Items"
+msgstr "Lineas de Asientos Contables"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.payslip:0
+#: sql_constraint:hr.payslip.run:0
+msgid "Slip period must be unique. Please check !"
+msgstr "Solo puede existir una nómina por período y colaborador. Por favor, revisar que no exista otra nómina con el mismo período y colaborador."
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+msgid "Print Incomes"
+msgstr "Imprimir Otros Ingresos"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,payment_form:0
+msgid "Not Apply"
+msgstr "No Aplica"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.ac_payroll_cheque_move_id
+msgid "Payroll Account Move"
+msgstr "Movimiento contable de nómina"
+
+#. module: straconx_talent_human
+#: field:res.company,schedule_pay:0
+msgid "Scheduled Pay"
+msgstr "Cronogramas de Pagos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_wizard_invoice_pay.py:96
+#, python-format
+msgid "You can use a DISCOUNT OF COLLABORATOR to cancel an invoice if you are an active employee or is the active user."
+msgstr "Puede utilizar DESCUENTO DEL COLABORADOR para Pagar una factura solo si el CLIENTE es un empleado activo."
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+msgid "Search Lines Incomes by employee"
+msgstr "Buscar Ingresos de Colaboradores"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:274
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:300
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:389
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:483
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:122
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:400
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:88
+#, python-format
+msgid "You must defined a journal by discount of employee"
+msgstr "Debe definir un diario para descuentos de empleados"
+
+#. module: straconx_talent_human
+#: field:account.move.line,provision_advance_line_id:0
+#: view:hr.provision.advance:0
+msgid "Provision Advance Line"
+msgstr "Línea de Anticipos de Provisiones"
+
+#. module: straconx_talent_human
+#: constraint:res.users:0
+msgid "You must choose if the cashier is collection or payment"
+msgstr "Debe elegir si el cajero podrá cobrar, pagar o ambas acciones."
+
+#. module: straconx_talent_human
+#: field:hr.provision,date_to_coast:0
+msgid "Date to Coast"
+msgstr "Fecha para Costa"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.incomes:0
+msgid "There can be one income type by type, ref and date in a same month!"
+msgstr "¡Solo puede existir un tipo de ingreso por tipo, referencia y fecha en el mismo mes!"
+
+#. module: straconx_talent_human
+#: field:account.fiscalyear,extra:0
+msgid "Special Payments"
+msgstr "Pagos especiales"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_pay_provision_line
+msgid "hr.pay.provision.line"
+msgstr "Línea de Provisión"
+
+#. module: straconx_talent_human
+#: selection:hr.incomes,type:0
+#: selection:hr.transaction.type,type_income:0
+#: model:ir.ui.menu,name:straconx_talent_human.menu_extra_action
+msgid "Extra Hours"
+msgstr "Horas Extras"
+
+#. module: straconx_talent_human
+#: field:hr.incomes.lines,payslip_id:0
+#: field:hr.payslip.leaves_days,payslip_id:0
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Nómina"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Comprobantes contables"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_wizard_invoice_pay
+msgid "wizard.invoice.pay"
+msgstr "Asistente de Pagos"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_loans
+msgid "Loans Employee"
+msgstr "Préstamos de Colaborador"
+
+#. module: straconx_talent_human
+#: sql_constraint:account.invoice:0
+msgid "There is another invoice in the shop and shop with this number, please verify"
+msgstr "Existe otra factura con ese número en la tienda, por favor, verifíquelo"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr "Generar nómina para todos los empleados seleccionados"
+
+#. module: straconx_talent_human
+#: field:account.fiscalyear,hr_period_ids:0
+msgid "Periods"
+msgstr "Período de Nómina"
+
+#. module: straconx_talent_human
+#: field:account.payments,invoice_id:0
+#: model:ir.model,name:straconx_talent_human.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_input
+msgid "Payslip Input"
+msgstr "Ingreso de Nómina"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+#: selection:hr.employee.history,state:0
+#: selection:hr.period,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.line:0
+#: view:hr.provision.advance.line:0
+msgid "total credit"
+msgstr "total de crédito"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.pentaho_employee_report_id
+msgid "Curriculum Vitae"
+msgstr "Hoja de Vida"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,birth_date:0
+msgid "Birth Date"
+msgstr "Fecha de Nacimiento"
+
+#. module: straconx_talent_human
+#: field:sale.shop,city:0
+msgid "City"
+msgstr "Ciudad"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_account_position
+msgid "Human Resource Account Position"
+msgstr "Posición contable de Recursos Humanos"
+
+#. module: straconx_talent_human
+#: selection:res.company,schedule_pay:0
+msgid "Bi-monthly"
+msgstr "Quincenal"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:59
+#, python-format
+msgid "You can not pay the check because payroll is not in done status"
+msgstr "No se puede realizar el cheque porque la nómina no se encuentra en estado aprobado"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,total_provision:0
+msgid "Amount Provision"
+msgstr "Monto Provisión"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.ac_payroll_cheque_id
+msgid "Payroll Cheques"
+msgstr "Cheques de Pagos"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Expenses Employee"
+msgstr "Egresos del Colaborador"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_incomes_configuration_action
+msgid "Incomes Types"
+msgstr "Tipo de Ingresos"
+
+#. module: straconx_talent_human
+#: field:hr.discount,payment_form:0
+msgid "Payment form"
+msgstr "Forma de Pago"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+msgid "Print Pay Provision"
+msgstr "Imprimir Pago de Provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.education.level:0
+#: field:hr.education.level,level:0
+msgid "Education Level"
+msgstr "Nivel de Educación"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.sectorialcomission:0
+msgid "The code of the Sectorial Comission must be unique !"
+msgstr "El código de la comisión sectorial debe ser único !"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Cheques"
+msgstr "Cheques"
+
+#. module: straconx_talent_human
+#: field:hr.holidays,number_of_hours:0
+msgid "Number of hours"
+msgstr "Número de horas"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:46
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:101
+#, python-format
+msgid "You must select employee(s) to generate pay provision"
+msgstr "Debe seleccionar un colaborador para generar el pago de provisión"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Incomes and Expenses"
+msgstr "Ingresos y Egresos"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,check:0
+msgid "check"
+msgstr "cheque"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_employee_substitute
+msgid "hr.employee.substitute"
+msgstr "Substituto"
+
+#. module: straconx_talent_human
+#: selection:hr.period,type:0
+msgid "Extraordinary"
+msgstr "Extraordinario"
+
+#. module: straconx_talent_human
+#: selection:hr.contract.expense,collection_form:0
+#: selection:hr.contract.income,collection_form:0
+#: selection:hr.discount,collection_form:0
+#: selection:hr.transaction.type,collection_form:0
+#: selection:wizard.invoice.pay.lines,collection_form:0
+msgid "Middle of the month"
+msgstr "Primera Quincena"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+#: field:res.users,address_id:0
+msgid "Address"
+msgstr "Dirección"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,wk_days:0
+msgid "Días de trabajo"
+msgstr "Días de trabajo"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,type:0
+#: selection:hr.transaction.type,type_expense:0
+#: model:ir.ui.menu,name:straconx_talent_human.menu_loans_action
+msgid "Loans"
+msgstr "Préstamos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:674
+#, python-format
+msgid "Cannot delete payslip(s) that are close or paid state !"
+msgstr "¡No se puede borrar roles de pago que están en estado cerrado o pagado!"
+
+#. module: straconx_talent_human
+#: field:hr.discount,value_quota:0
+msgid "Value Quota"
+msgstr "Valor de la Cuota"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,end_date:0
+#: field:payroll.employees.detail,date_to:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_contract_expense
+msgid "hr.contract.expense"
+msgstr "Egresos"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+msgid "Generate File"
+msgstr "Generar Archivo"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Ph.D."
+msgstr "Doctorado"
+
+#. module: straconx_talent_human
+#: view:hr.discount.document:0
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_discount_document
+msgid "Discount Document Generate"
+msgstr "Generar Documento de Descuento"
+
+#. module: straconx_talent_human
+#: field:hr.provision.advance,lines_ids:0
+msgid "Lines"
+msgstr "Lines"
+
+#. module: straconx_talent_human
+#: field:create.partner.from.user,exists:0
+msgid "Empresa existe"
+msgstr "Empresa existe"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.discount,expense_type_id:0
+msgid "Expense Type"
+msgstr "Tipo de Descuento"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_voucher.py:46
+#, python-format
+msgid "You must be to create one payline in the voucher when is discount the employee."
+msgstr "Debe crear por lo menos una línea de pago en el recibod para el descuento del colaborador."
+
+#. module: straconx_talent_human
+#: selection:hr.provision,name:0
+msgid "UTILIDADES"
+msgstr "UTILIDADES"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Paid Cheques"
+msgstr "Cheques pagados"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,collection_form:0
+#: field:hr.contract.income,collection_form:0
+#: field:hr.discount,collection_form:0
+#: field:hr.incomes,collection_form:0
+#: field:hr.transaction.type,collection_form:0
+#: field:wizard.invoice.pay.lines,collection_form:0
+msgid "Collection Form"
+msgstr "Pagar en"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_mode.py:62
+#: code:addons/straconx_talent_human/objects/str_hr_payment_mode.py:63
+#, python-format
+msgid "No employee discount on this invoice."
+msgstr "No hay descuento de empleado en esta factura"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: selection:hr.discount,state:0
+#: selection:hr.discount.lines,state:0
+#: view:hr.incomes:0
+#: selection:hr.incomes,state:0
+#: selection:hr.incomes.lines,state:0
+#: view:wizard.modified.discount:0
+msgid "Approve"
+msgstr "Aprobado"
+
+#. module: straconx_talent_human
+#: view:hr.incomes:0
+msgid "total price"
+msgstr "Valor total"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Postal Address"
+msgstr "Dirección postal"
+
+#. module: straconx_talent_human
+#: constraint:account.move.line:0
+msgid "You can not create journal items on closed account."
+msgstr "No puede crear asientos en cuentas cerradas"
+
+#. module: straconx_talent_human
+#: field:hr.discount,interest:0
+msgid "% Interest"
+msgstr "% Interés"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:417
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:82
+#, python-format
+msgid "You must defined a company for this payslip"
+msgstr "Debe definir una compañía para este rol de pago"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:575
+#, python-format
+msgid "Salary Slip of %s for %s"
+msgstr "Rol de Pago %s para %s"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.account.position:0
+msgid "Salary Rule x Area must be unique. Please check !"
+msgstr "Reglas Salariales por Area deben ser únicas.¡Por favor, revisar!"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision,check_ids:0
+#: field:hr.provision.advance,check_ids:0
+msgid "Checks Provision"
+msgstr "Cheque de Provisión"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "States"
+msgstr "Estados"
+
+#. module: straconx_talent_human
+#: view:hr.holidays.national:0
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_national_holidays
+msgid "National Holidays"
+msgstr "Feriados Nacionales"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+#: view:hr.incomes:0
+msgid "More filters..."
+msgstr "Más filtros..."
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+#: field:hr.contract,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:573
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:591
+#, python-format
+msgid "you can not canceled the discount because already generate a payment"
+msgstr "No se puede cancelar el descuento porque ya generó un pago"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:904
+#, python-format
+msgid "You can define a analytic account in shop for generate salary moves"
+msgstr "You can define a analytic account in shop for generate salary moves"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.tables:0
+#: field:hr.payslip.tables,sectorial_comission:0
+#: view:hr.sectorialcomission:0
+msgid "Sectorial Comission"
+msgstr "Comisión Sectorial"
+
+#. module: straconx_talent_human
+#: field:hr.contract.expense,price:0
+#: field:hr.contract.income,price:0
+#: field:hr.incomes.lines,price:0
+#: field:hr.payslip.input,price:0
+msgid "Price"
+msgstr "Valor"
+
+#. module: straconx_talent_human
+#: view:res.company:0
+msgid "Schedule pay by company"
+msgstr "Pagos planificados por compañía"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1068
+#, python-format
+msgid "You can not change to state payroll in draft because there is a paid check"
+msgstr "No se puede cambiar el estado de la nómina a borrador porque existe un cheque pagado"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Add wage for employee, this value receive the employee by month and can not be a negative number."
+msgstr "Añade el salario del trabajador que recibe mensualmente (no puede ser un valor negativo)."
+
+#. module: straconx_talent_human
+#: constraint:hr.department:0
+msgid "Error! You can not create recursive departments."
+msgstr "Error! No puede crear departamentos recursivos."
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.holidays.national:0
+msgid "Holidays Name must be unique"
+msgstr "Nombre del feriado debe ser único"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:211
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:746
+#, python-format
+msgid "Las tiendas de esta compañía no tienen asignada una región"
+msgstr "Las tiendas de esta compañía no tienen asignada una región"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:598
+#, python-format
+msgid "Acción Inválida!"
+msgstr "Acción Inválida!"
+
+#. module: straconx_talent_human
+#: field:hr.provision,date_to_sie:0
+msgid "Date to Sierra"
+msgstr "Fecha para la Sierra"
+
+#. module: straconx_talent_human
+#: view:hr.sectorialcomission:0
+#: field:hr.sectorialcomission,branch:0
+msgid "Branch"
+msgstr "Rama"
+
+#. module: straconx_talent_human
+#: constraint:res.users:0
+msgid "The percentage maximum Offer must be a positive number"
+msgstr "El porcentaje máximo de oferta debe ser un número positivo"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_discount_lines
+msgid "Detalle de Descuento por Colaborador"
+msgstr "Detalle de Descuento por Colaborador"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_contract_income
+msgid "hr.contract.income"
+msgstr "Ingresos"
+
+#. module: straconx_talent_human
+#: field:hr.contract.historic,wage:0
+msgid "wage"
+msgstr "salario"
+
+#. module: straconx_talent_human
+#: field:hr.contract,company_id:0
+#: field:hr.contract.expense,company_id:0
+#: field:hr.contract.income,company_id:0
+#: view:hr.discount:0
+#: field:hr.discount,company_id:0
+#: field:hr.holidays,company_id:0
+#: view:hr.incomes:0
+#: field:hr.incomes,company_id:0
+#: field:hr.pay.provision,company_id:0
+#: field:hr.pay.provision.employees,company_id:0
+#: field:hr.payslip.run,company_id:0
+#: field:hr.period,company_id:0
+#: field:hr.provision,company_id:0
+#: field:hr.provision.advance,company_id:0
+#: field:hr.provision.advance.employees,company_id:0
+#: view:hr.transaction.type:0
+#: field:hr.transaction.type,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:314
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:315
+#, python-format
+msgid "Holidays"
+msgstr "Feriados"
+
+#. module: straconx_talent_human
+#: field:hr.discount,date_to:0
+#: field:hr.incomes,date_to:0
+#: field:hr.pay.provision,date_to:0
+#: field:hr.provision,date_to:0
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: straconx_talent_human
+#: selection:hr.incomes,collection_form:0
+msgid "Primera Quincena"
+msgstr "Primera Quincena"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.line,payslip_run_id:0
+msgid "Payslip Run"
+msgstr "Generar Nómina"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:340
+#: code:addons/straconx_talent_human/wizards/str_hr_discount_employee.py:70
+#, python-format
+msgid "%s - %s (%s quota)"
+msgstr "%s - %s (%s cuota)"
+
+#. module: straconx_talent_human
+#: field:hr.contract,contract_income_ids:0
+msgid "Income the employee"
+msgstr "Ingreso por colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,institution:0
+msgid "Institution"
+msgstr "Institución"
+
+#. module: straconx_talent_human
+#: field:account.payments,shop_id:0
+#: field:hr.employee,shop_id:0
+msgid "Shop"
+msgstr "Tienda"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:941
+#, python-format
+msgid "You can define account for generate salary moves"
+msgstr "Debe definir una cuenta para generar movimientos salariales"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,status:0
+msgid "Abandoned"
+msgstr "Abandonado"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "Create Monthly Periods"
+msgstr "Crear Períodos Mensuales"
+
+#. module: straconx_talent_human
+#: field:hr.provision,date_from_sie:0
+msgid "Date From Sierra"
+msgstr "Fecha para la Sierra"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,amount_total:0
+msgid "Receiving Total"
+msgstr "Total a Recibir"
+
+#. module: straconx_talent_human
+#: field:hr.employee.history,user_id:0
+msgid "User Responsible"
+msgstr "Responsable"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1177
+#, python-format
+msgid "%s (%s quotas)"
+msgstr "%s (%s cuotas)"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:463
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:465
+#, python-format
+msgid "The values amount of discount must be equals to subtotal invoice line selected"
+msgstr "El valor de los descuentos debe ser igual a la línea de la factura seleccionada"
+
+#. module: straconx_talent_human
+#: constraint:hr.contract:0
+msgid "You can not activate a contract already having an active contract, please first finalize active contracts"
+msgstr "No se puede activar un contrato cuando tiene otro activo, por favor finalice primero el contrato activo"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_mode.py:62
+#: code:addons/straconx_talent_human/objects/str_hr_payment_mode.py:63
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:185
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:258
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_talent_human
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr "¡Valor crédito o débito erróneo en apunte contable!"
+
+#. module: straconx_talent_human
+#: view:hr.discount.lines:0
+msgid "Total Cuota"
+msgstr "Total Cuota"
+
+#. module: straconx_talent_human
+#: field:hr.employee,name1:0
+msgid "name"
+msgstr "Nombre"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Incomes Employee"
+msgstr "Ingresos del Colaborador"
+
+#. module: straconx_talent_human
+#: sql_constraint:account.payments:0
+msgid "There is another cheque with this number and this partner, please verify"
+msgstr "Ya existe otro cheque con este número y esta empresa, por favor verificar"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Tipo de ausencia"
+
+#. module: straconx_talent_human
+#: field:hr.discount,debit_note_id:0
+msgid "Egreso"
+msgstr "Egreso"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.run,em:0
+msgid "End Month"
+msgstr "Fin de Mes"
+
+#. module: straconx_talent_human
+#: field:hr.employee,bbmesenger_id:0
+msgid "Blackberry Messenger ID"
+msgstr "PIN Blackberry"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,education_area_id:0
+msgid "Education Area"
+msgstr "Área de Estudios"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_leaves_days
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr "Días Trabajados"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_account_payments
+msgid "account.payments"
+msgstr "Pagos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:207
+#, python-format
+msgid "The partner need a ci or passport, ruc is not permited"
+msgstr "La empresa necesita un cédula o pasaporte, no se permiten RUC"
+
+#. module: straconx_talent_human
+#: field:hr.discount,move_id:0
+#: field:hr.incomes,move_id:0
+#: field:hr.payslip.run,move_id:0
+msgid "Accounting Entry"
+msgstr "Entrada Contable"
+
+#. module: straconx_talent_human
+#: field:hr.employee,disability:0
+msgid "Disability"
+msgstr "Discapacidad"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_job
+msgid "Job Description"
+msgstr "Descripción del puesto de trabajo"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:426
+#, python-format
+msgid "Usted debe seleccionar un modo de pago"
+msgstr "Usted debe seleccionar un modo de pago"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_provision_advance_line
+msgid "hr.provision.advance.line"
+msgstr "Línea de Anticio de Provisión"
+
+#. module: straconx_talent_human
+#: field:account.invoice.line,employee_id:0
+#: view:hr.discount:0
+#: field:hr.discount,employee_id:0
+#: field:hr.discount.lines,employee_id:0
+#: field:hr.education.level,employee_id:0
+#: field:hr.employee.health,employee_id:0
+#: field:hr.employee.history,employee_id:0
+#: field:hr.family.burden,employee_id:0
+#: field:hr.incomes.lines,employee_id:0
+#: field:hr.pay.provision,employee_id:0
+#: field:hr.pay.provision.line,employee_id:0
+#: field:hr.provision.advance.line,employee_id:0
+#: model:ir.model,name:straconx_talent_human.model_hr_employee
+#: view:res.partner:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:137
+#, python-format
+msgid "You should have chosen periods that belongs to the same company"
+msgstr "Debe elegir períodos que correspondan a la misma compañía"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.run,payment:0
+#: field:hr.period,payment:0
+msgid "pagos"
+msgstr "pagos"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Wage Historical"
+msgstr "Salarios Históricos"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Approve Pay Provision"
+msgstr "Aprobar Pago de Provisiones"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,relationship:0
+msgid "Relationship"
+msgstr "Relación"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:485
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:563
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:841
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:920
+#, python-format
+msgid "You can not close a Pay-Provision without lines generated"
+msgstr "No se puede cerrar una Provisión sin líneas generadas"
+
+#. module: straconx_talent_human
+#: field:hr.employee,emergency_home_mobile:0
+msgid "Emergency Home Mobile"
+msgstr "Celular de Emergencia"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.employees:0
+#: view:hr.provision.advance.employees:0
+msgid "This wizard will generate Pay Provision for all selected employee(s) based on the dates specified on this form."
+msgstr "Este asistente generará Provisiones por pagar para todo(s) empleado(s) seleccionado(s) en base a las fechas indicadas en este formulario."
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.pentaho_discount_expense_id
+msgid "Partner Discount"
+msgstr "Descuento de Empresas"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,date_to:0
+msgid "Fecha Final"
+msgstr "Fecha Final"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_wizard_invoice_pay_lines
+msgid "wizard.invoice.pay.lines"
+msgstr "Asistente para Línea de Pago de Facturas"
+
+#. module: straconx_talent_human
+#: help:res.company,property_reserve_and_surplus_account_profit:0
+msgid "This account is used for transferring Profit/Loss (If It is Profit: Amount will be added, Loss : Amount will be deducted.), as calculated in Profit & Loss Report"
+msgstr "Esta cuenta es usada para transferir Ganancias / Pérdidas"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Pays of Employee"
+msgstr "Pagos de Colaborador"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:43
+#, python-format
+msgid "You can delete Cheque with only state hold"
+msgstr "Solo se puede borrar Cheques con estado Pendiente"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:189
+#, python-format
+msgid "Only can delete contract(s) with paylisp in draft state!"
+msgstr "¡Solo puede borrar contratos con roles de pago en estado de borrador!"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_line
+#: model:ir.ui.menu,name:straconx_talent_human.menu_payslip_line_tree
+msgid "Payslip Line"
+msgstr "Línea de nómina"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Certified's"
+msgstr "Diplomado"
+
+#. module: straconx_talent_human
+#: field:account.voucher,refund_id:0
+msgid "Pago en exceso"
+msgstr "Pago en exceso"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_discount_employees
+msgid "Generate discount lines for all selected employees"
+msgstr "Genera líneas de descuento para todos los colaboradores selccionados"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_pay_provision_view
+msgid "Provision Pay"
+msgstr "Pago de Prestaciones"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,total_amount_provision:0
+msgid "Total de Provisión"
+msgstr "Total de Provisión"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.leaves_days,number_of_hours:0
+msgid "Number of Hours"
+msgstr "Número de horas"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,at_present:0
+msgid "At present?"
+msgstr "Actualmente?"
+
+#. module: straconx_talent_human
+#: field:account.payments,slip_id:0
+#: field:hr.discount.lines,payslip_id:0
+#: field:hr.payslip,discount_lines_ids:0
+#: field:hr.payslip.discount,payslip_id:0
+msgid "Payslip"
+msgstr "Nómina"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_employee.py:204
+#: sql_constraint:hr.employee:0
+#, python-format
+msgid "A client can not be assigned twice as employee!"
+msgstr "!Una empresa no puede ser asignada dos veces o más a un Colaborador!"
+
+#. module: straconx_talent_human
+#: field:account.invoice.line,discount_employee:0
+msgid "discount"
+msgstr "descuento"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.straconx_hr_table_action
+msgid "Sectorial tables"
+msgstr "Tablas Sectoriales"
+
+#. module: straconx_talent_human
+#: field:hr.contract,labor_type:0
+msgid "Labor Type"
+msgstr "Tipo de Labor"
+
+#. module: straconx_talent_human
+#: selection:hr.discount.lines,state:0
+msgid "Pendiente"
+msgstr "Pendiente"
+
+#. module: straconx_talent_human
+#: field:hr.contract,contract_expense_ids:0
+msgid "Expense the employee"
+msgstr "Descuentos del colaborador"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.sectorialcomission:0
+msgid "The name of the Sectorial Comission must be unique !"
+msgstr "El nombre de la Comisión Sectorial debe ser único !"
+
+#. module: straconx_talent_human
+#: view:hr.family.burden:0
+msgid "Birth Info"
+msgstr "Información Personal"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Account Information"
+msgstr "Información Contable"
+
+#. module: straconx_talent_human
+#: field:hr.discount,invoice_line_id:0
+#: model:ir.model,name:straconx_talent_human.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea de Factura"
+
+#. module: straconx_talent_human
+#: constraint:account.move.line:0
+msgid "The selected account of your Journal Entry forces to provide a secondary currency. You should remove the secondary currency on the account or select a multi-currency view on the journal."
+msgstr "La cuenta selecionada de su diario obliga a tener una moneda secundaria. Usted debería eliminar la moneda secundaria de la cuenta o asignar una vista de multi-moneda al diario."
+
+#. module: straconx_talent_human
+#: field:hr.contract,pay_reserve_funds:0
+msgid "Pay Reserve Funds in payslip"
+msgstr "Acumular Fondo de Reserva"
+
+#. module: straconx_talent_human
+#: field:payment.mode,collect_employee:0
+msgid "Collect Employee"
+msgstr "Colaborador Recaudador"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:649
+#, python-format
+msgid "Already exists payroll that was generated within this date range for the employee"
+msgstr "Ya existe un rol de pagos generado con esta fecha para el colaborador"
+
+#. module: straconx_talent_human
+#: field:hr.payslip,total_of_hours:0
+msgid "Total of hours"
+msgstr "Total de horas"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:197
+#, python-format
+msgid "Only can delete contract(s) with discount in draft state!"
+msgstr "¡Solo puede borrar contratos con descuento en estado de borrador!"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,payment_form:0
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_discount_employee
+msgid "Generate Lines Discount"
+msgstr "Generar Línea de Descuento"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.discount,internal:0
+msgid "Internal"
+msgstr "Interno"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,state:0
+#: selection:hr.discount.document,state:0
+#: selection:hr.incomes,state:0
+#: selection:hr.incomes.lines,state:0
+#: selection:hr.pay.provision,state:0
+#: selection:hr.provision.advance,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: straconx_talent_human
+#: field:hr.legal.wages,basic_wages:0
+#: help:hr.legal.wages,basic_wages:0
+#: field:hr.payslip.tables,basic_wages:0
+#: help:hr.payslip.tables,basic_wages:0
+msgid "Basic Wage"
+msgstr "Salario Básico"
+
+#. module: straconx_talent_human
+#: field:account.invoice.line,price_product_read:0
+msgid "Price Product"
+msgstr "Precio del Producto"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_report_excel
+msgid "Exportar Nómina Final"
+msgstr "Exportar Nómina Final"
+
+#. module: straconx_talent_human
+#: view:account.fiscalyear:0
+msgid "Fiscalyear"
+msgstr "Ejercicio Fiscal"
+
+#. module: straconx_talent_human
+#: field:hr.discount,amount_remain:0
+msgid "Amount Remain"
+msgstr "Saldo Pendiente"
+
+#. module: straconx_talent_human
+#: selection:account.voucher,type_collect_employee:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: straconx_talent_human
+#: help:create.partner.from.user,vat:0
+msgid "CI, RUC or passport. Please enter the number with the 2 first letters of your country at the beginning"
+msgstr "CI, RUC o ​​pasaporte. Por favor, introduzca el número con las dos primeras letras de su país al principio"
+
+#. module: straconx_talent_human
+#: field:hr.discount,date:0
+#: field:hr.incomes,date:0
+msgid "Date register"
+msgstr "Fecha de Registro"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Cuota 2"
+msgstr "Cuota 2"
+
+#. module: straconx_talent_human
+#: field:res.company,number_days_validate:0
+msgid "Number days to Validate"
+msgstr "Número de días a validar"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_income_employees
+msgid "Incomes Employees"
+msgstr "Ingresos Adicionales"
+
+#. module: straconx_talent_human
+#: field:hr.contract.historic,user_id:0
+#: field:hr.discount,user_id:0
+#: field:hr.incomes,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_sale_shop
+msgid "Sales Shop"
+msgstr "Tienda"
+
+#. module: straconx_talent_human
+#: selection:hr.family.burden,relationship:0
+msgid "Child"
+msgstr "Hijo"
+
+#. module: straconx_talent_human
+#: field:res.users,vat:0
+msgid "vat"
+msgstr "identificación"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_legal_wages
+msgid "hr.legal.wages"
+msgstr "Beneficios Sociales"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:494
+#, python-format
+msgid "you must selected a mode of payment by discount"
+msgstr "seleccione un modo de pago para el descuento"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payroll_discount_excel_id
+msgid "Excel Payroll Discount Report"
+msgstr "Reporte de Descuento en Excel"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:305
+#, python-format
+msgid "You must choose a bank account in the payment mode selected"
+msgstr "Debe elegir una cuenta bancaria en el modo de pago seleccionado"
+
+#. module: straconx_talent_human
+#: field:res.company,basic_salary:0
+msgid "Basic Salary"
+msgstr "Salario Básico"
+
+#. module: straconx_talent_human
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "¡Error! No puede crear compañías recursivas."
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+msgid "Approve Pay"
+msgstr "Aprobar Pago"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_report
+msgid "Employee Payroll List"
+msgstr "Imprimir Nómina General"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+#: field:hr.contract.historic,contract_id:0
+#: field:hr.discount,contract_id:0
+#: field:hr.holidays,contract_id:0
+#: field:hr.incomes.lines,contract_id:0
+#: field:hr.pay.provision.line,contract_id:0
+#: field:hr.payslip.leaves_days,contract_id:0
+#: field:hr.provision.advance.line,contract_id:0
+#: model:ir.model,name:straconx_talent_human.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_contract_historic
+msgid "Historical contract of employee"
+msgstr "Historial de contratos"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.discount,active:0
+#: field:hr.sectorialcomission,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_contract.py:40
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:420
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:423
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:491
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:673
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:681
+#: code:addons/straconx_talent_human/objects/str_hr_holidays.py:89
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:203
+#: code:addons/straconx_talent_human/objects/str_hr_incomes.py:284
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:198
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:202
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:211
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:303
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:305
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:329
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:335
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:369
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:375
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:417
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:423
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:451
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:485
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:563
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:733
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:737
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:746
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:807
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:841
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:864
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:920
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1011
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1017
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1070
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:1233
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:59
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:76
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:80
+#: code:addons/straconx_talent_human/objects/str_hr_payment_method.py:167
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:407
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:443
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:446
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:546
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:549
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:958
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:961
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:975
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1053
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1055
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1068
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1074
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1170
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1174
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:114
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:117
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:139
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:263
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:266
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:303
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:313
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:350
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:358
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:137
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:139
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:57
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:68
+#: code:addons/straconx_talent_human/wizards/str_hr_pay_provision_by_employees.py:112
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: straconx_talent_human
+#: help:account.fiscalyear,extra:0
+msgid "Check this field if you company have extraordinary payments"
+msgstr "Seleccione este campo si su compañía tiene pagos extraordinarios"
+
+#. module: straconx_talent_human
+#: field:hr.discount,amount_paid:0
+#: field:hr.incomes,amount_paid:0
+msgid "Amount Paid"
+msgstr "Monto pagado "
+
+#. module: straconx_talent_human
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr "¡El número de factura debe ser único por compañía!"
+
+#. module: straconx_talent_human
+#: sql_constraint:hr.job:0
+msgid "The name of the job position must be unique per company!"
+msgstr "¡El nombre de el puesto de trabajo, debe ser único por Compañia!"
+
+#. module: straconx_talent_human
+#: view:hr.provision.advance:0
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_provision_adv_view
+msgid "Provision Advance"
+msgstr "Avance de Provisión"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Nómina por Lote"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Cuentas bancarias"
+
+#. module: straconx_talent_human
+#: help:hr.contract,wage_historic:0
+msgid "Latest Recorded Wage Value"
+msgstr "Último valor registrado"
+
+#. module: straconx_talent_human
+#: selection:hr.period,state:0
+msgid "Waiting"
+msgstr "Esperando"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "General Information"
+msgstr "Información general"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Protested Cheques"
+msgstr "Cheques Protestados "
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,email_personal:0
+msgid "Personal Email"
+msgstr "Correo Electrónico"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_discount.py:598
+#, python-format
+msgid "El Egreso de este descuento esta aprobado. Debe reversarlo para continuar"
+msgstr "El Egreso de este descuento esta aprobado. Debe reversarlo para continuar"
+
+#. module: straconx_talent_human
+#: selection:hr.employee.history,state:0
+#: selection:hr.pay.provision,state:0
+#: selection:hr.provision.advance,state:0
+#: view:payroll.employees.detail:0
+#: view:wizard.modified.discount:0
+msgid "Close"
+msgstr "Cerrado"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.contract_report_id
+msgid "Contract Discount"
+msgstr "Descuentos del Contrato"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:904
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:941
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1005
+#: code:addons/straconx_talent_human/objects/str_hr_payslip.py:1031
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: straconx_talent_human
+#: constraint:hr.discount.lines:0
+msgid "The number of quotas must be unique for each discount"
+msgstr "El número de cuotas debe ser único para cada descuento"
+
+#. module: straconx_talent_human
+#: selection:hr.education.level,level:0
+msgid "Seminar"
+msgstr "Seminario"
+
+#. module: straconx_talent_human
+#: field:hr.provision.advance,ref:0
+msgid "Referencia"
+msgstr "Referencia"
+
+#. module: straconx_talent_human
+#: view:account.payments:0
+msgid "Protested"
+msgstr "Protestado"
+
+#. module: straconx_talent_human
+#: field:hr.family.burden,working:0
+msgid "Work?"
+msgstr "¿Trabaja?"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_pay_provision
+msgid "hr.pay.provision"
+msgstr "Pago de provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.discount.document:0
+msgid "Discounts"
+msgstr "Descuentos"
+
+#. module: straconx_talent_human
+#: selection:hr.transaction.type,type_income:0
+msgid "Other Income"
+msgstr "Otros Ingresos"
+
+#. module: straconx_talent_human
+#: field:wizard.invoice.pay.lines,amount_partial:0
+msgid "Next Amount Paid"
+msgstr "Siguiente valor a pagar"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_sectorial_configuration
+msgid "Wages Sectorial Commision Tables"
+msgstr "Tablas de Comisiones Sectoriales"
+
+#. module: straconx_talent_human
+#: field:hr.employee.health,message:0
+#: field:hr.employee.history,message:0
+#: field:hr.payslip.leaves_days,name:0
+#: field:hr.transaction.type,name:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_period.py:139
+#, python-format
+msgid "Start period should be smaller then End period"
+msgstr "Período de inicio no puede ser mayor que el período final"
+
+#. module: straconx_talent_human
+#: field:hr.employee,second_name:0
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_family_burden
+msgid "hr.family.burden"
+msgstr "Cargas Familiares"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_fiscalyear_form
+#: model:ir.ui.menu,name:straconx_talent_human.menu_action_hr_fiscalyear_form
+msgid "Fiscal Years"
+msgstr "Ejercicio Fiscal"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+msgid "Work Permit"
+msgstr "Permiso de trabajo"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/wizards/str_hr_create_partner_from_user.py:57
+#, python-format
+msgid "This user has created a partner, please check"
+msgstr "Este usuario tiene una Empresa creada, por favor revisar"
+
+#. module: straconx_talent_human
+#: selection:hr.discount,type:0
+#: view:hr.pay.provision.line:0
+#: selection:hr.transaction.type,type_expense:0
+#: model:ir.ui.menu,name:straconx_talent_human.menu_advance_action
+msgid "Advance"
+msgstr "Anticipo"
+
+#. module: straconx_talent_human
+#: constraint:account.payments:0
+msgid "El valor de los pagos realizados es diferente al valor a pagar o ya existe otro cheque con el mismo número, empresa y cuenta bancaria. Por favor revise."
+msgstr "El valor de los pagos realizados es diferente al valor a pagar o ya existe otro cheque con el mismo número, empresa y cuenta bancaria. Por favor revise."
+
+#. module: straconx_talent_human
+#: view:hr.payslip.tables:0
+#: model:ir.ui.menu,name:straconx_talent_human.menu_sectorial_table_action
+msgid "Sectorial Tables"
+msgstr "Tablas Sectoriales"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision:0
+#: view:hr.provision.advance:0
+msgid "Generate Pay"
+msgstr "Generar Pagos"
+
+#. module: straconx_talent_human
+#: field:hr.education.level,country_id:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_talent_human
+#: view:hr.discount.employees:0
+#: field:hr.discount.employees,employee_ids:0
+#: view:hr.pay.provision.employees:0
+#: field:hr.pay.provision.employees,employee_ids:0
+#: view:hr.provision.advance.employees:0
+#: field:hr.provision.advance.employees,employee_ids:0
+#: view:payroll.employees.detail:0
+#: field:payroll.employees.detail,employee_ids:0
+msgid "Employees"
+msgstr "Colaboradores"
+
+#. module: straconx_talent_human
+#: field:hr.pay.provision.line,bank_account_id:0
+#: field:hr.provision.advance.line,bank_account_id:0
+msgid "Bank Account"
+msgstr "Cuenta Bancaria"
+
+#. module: straconx_talent_human
+#: field:hr.period,fiscalyear_id:0
+#: model:ir.model,name:straconx_talent_human.model_account_fiscalyear
+msgid "Fiscal Year"
+msgstr "Ejercicio Fiscal"
+
+#. module: straconx_talent_human
+#: model:ir.model,name:straconx_talent_human.model_hr_payslip_tables
+msgid "hr.payslip.tables"
+msgstr "Tablas de Nómina"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_payslip_run.py:303
+#, python-format
+msgid "You can not close a Pay-slip Run without payroll generated"
+msgstr "No se puede cerrar un Nómina sin ningún rol de pago generado"
+
+#. module: straconx_talent_human
+#: view:hr.discount:0
+msgid "¡Se procederá a GENERAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!"
+msgstr "¡Se procederá a GENERAR el descuento. Por favor, revisar que toda la información se encuentre correcta.!"
+
+#. module: straconx_talent_human
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:492
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:573
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:848
+#: code:addons/straconx_talent_human/objects/str_hr_pay_provision.py:929
+#, python-format
+msgid "you must defined a journal by pay provision"
+msgstr "Debe definir un diario para pagar provisiones"
+
+#. module: straconx_talent_human
+#: view:res.partner:0
+msgid "Addresses"
+msgstr "Direcciones"
+
+#. module: straconx_talent_human
+#: field:hr.employee,home_mobile:0
+msgid "Home Mobile"
+msgstr "Celular Personal"
+
+#. module: straconx_talent_human
+#: model:ir.ui.menu,name:straconx_talent_human.menu_payment_period_action
+msgid "Payments Periods"
+msgstr "Períodos de Nómina"
+
+#. module: straconx_talent_human
+#: field:hr.salary.rule,multi:0
+msgid "Required Account x Area"
+msgstr "Requiere Cuenta x Area"
+
+#. module: straconx_talent_human
+#: view:hr.pay.provision.line:0
+msgid "Total Provision"
+msgstr "Total Provisión"
+
+#. module: straconx_talent_human
+#: field:hr.payslip.worked_days,percentage_extra:0
+msgid "% value Hours Extra"
+msgstr "% Valor de Horas Extras"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.nomina_general_report_id
+msgid "Nómina General"
+msgstr "Nómina General"
+
+#. module: straconx_talent_human
+#: view:hr.contract:0
+#: view:hr.transaction.type:0
+#: selection:hr.transaction.type,type:0
+msgid "Expenses"
+msgstr "Gastos"
+
+#. module: straconx_talent_human
+#: model:ir.actions.act_window,name:straconx_talent_human.action_hr_incomes_type_view
+msgid "Incomes Type"
+msgstr "Tipo de Ingresos"
+
+#. module: straconx_talent_human
+#: field:hr.legal.wages,name:0
+msgid "Year"
+msgstr "Año"
+
+#. module: straconx_talent_human
+#: field:hr.contract,number_of_pays:0
+msgid "Number of Pays"
+msgstr "Número de Pagos"
+
+#. module: straconx_talent_human
+#: view:wizard.modified.discount:0
+msgid "Desde aqui puede reversar o aprobar en masa descuentos"
+msgstr "Desde aqui puede reversar o aprobar descuentos masivamente"
+
+#. module: hr_payroll
+#: view:hr.payslip.run:0
+msgid "Change Draft Payslips Employees"
+msgstr "Cambiar a borrador Nómina de empleados."
+
+#. module: hr_payroll
+#: view:hr.payslip.run:0
+msgid "Are you sure to change state draft all payslips employees? This take a long time."
+msgstr "¿Esta seguro de cambiar a estado de borrador todos los Roles de pago de Empleados? Esto puede tomar un largo tiempo."
+
+#. module: hr_payroll
+#: view:hr.payslip.run:0
+msgid "Are you sure to change state draft to the payroll? This will erase the payslip of each employee"
+msgstr "¿Está seguro de cambiar a estado borrador toda la Nómina? Esto borrará los roles de pago de cada empleado."
+
+#. module: hr_payroll, straconx_talent_human
+#: view:hr.payslip.run:0
+#: model:ir.actions.act_window,name:hr_payroll.action_hr_payslip_run_tree
+#: model:ir.ui.menu,name:hr_payroll.menu_hr_payslip_run
+msgid "Payslips Batches"
+msgstr "Generar Roles"
+
+#. module: hr_payroll, straconx_talent_human
+#: view:hr.payslip.run:0
+#: model:ir.actions.act_window,name:hr_payroll.action_hr_payslip_by_employees
+msgid "Generate Payslips"
+msgstr "Generar Roles"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Print Payslip Report"
+msgstr "Imprimir Nómina General"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Print Payslip QReport"
+msgstr "Imprimir Nómina Quincenal"
+
+#. module: straconx_talent_human
+#: model:ir.actions.report.xml,name:straconx_talent_human.payslip_list_qreport
+msgid "Employee Payroll QList"
+msgstr "Imprimir Resumen de Nómina General"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Print Payslip Prov"
+msgstr "Imprimir Nómina con Provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Export Payslip Report"
+msgstr "Exportar Nómina General"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Export Payslip QReport"
+msgstr "Exportar Nómina Quincenal"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Export Payslip Prov"
+msgstr "Exportar Nómina con Provisiones"
+
+#. module: straconx_talent_human
+#: view:hr.payslip.run:0
+msgid "Export File"
+msgstr "Exportar Archivos"

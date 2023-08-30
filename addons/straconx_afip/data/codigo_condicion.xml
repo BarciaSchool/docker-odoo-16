@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+
+		<record id="cond_00" model="tax.code.condicion">
+		<field name="code">0</field>
+		<field name="name">Ninguna</field>
+		</record>
+
+		<record id="cond_01" model="tax.code.condicion">
+		<field name="code">1</field>
+		<field name="name">Inscripto</field>
+		</record>
+
+		<record id="cond_02" model="tax.code.condicion">
+		<field name="code">2</field>
+		<field name="name">No Inscripto</field>
+		</record>
+
+		<record id="cond_03" model="tax.code.condicion">
+		<field name="code">3</field>
+		<field name="name">No categorizado</field>
+		</record>
+
+		<record id="cond_06" model="tax.code.condicion">
+		<field name="code">6</field>
+		<field name="name">Contratación Hora Dia Estadía</field>
+		</record>
+
+		<record id="cond_07" model="tax.code.condicion">
+		<field name="code">7</field>
+		<field name="name">Contratación Mensual</field>
+		</record>
+
+		<record id="cond_08" model="tax.code.condicion">
+		<field name="code">8</field>
+		<field name="name">Incluido en el Registro Fiscal de Granos</field>
+		</record>
+
+		<record id="cond_09" model="tax.code.condicion">
+		<field name="code">9</field>
+		<field name="name">No incluido en el Registro Fiscal de Granos</field>
+		</record>
+
+		<record id="cond_10" model="tax.code.condicion">
+		<field name="code">10</field>
+		<field name="name">Inscripto demás sujetos</field>
+		</record>
+
+		<record id="cond_11" model="tax.code.condicion">
+		<field name="code">11</field>
+		<field name="name">Inscripto retenciones IVA Estaciones de Servicio</field>
+		</record>
+
+		<record id="cond_12" model="tax.code.condicion">
+		<field name="code">12</field>
+		<field name="name">Servicios públicos</field>
+		</record>
+
+		<record id="cond_13" model="tax.code.condicion">
+		<field name="code">13</field>
+		<field name="name">Venta de cosas muebles y locación - Alícuota general</field>
+		</record>
+
+		<record id="cond_14" model="tax.code.condicion">
+		<field name="code">14</field>
+		<field name="name">Venta de cosas muebles y locación - Alícuota reducida</field>
+		</record>
+
+		<record id="cond_15" model="tax.code.condicion">
+		<field name="code">15</field>
+		<field name="name">Retención sustitutiva</field>
+		</record>
+
+		<record id="cond_16" model="tax.code.condicion">
+		<field name="code">16</field>
+		<field name="name">Sujetos suspendidos según artículo 40 inc. A)</field>
+		</record>
+
+		<record id="cond_17" model="tax.code.condicion">
+		<field name="code">17</field>
+		<field name="name">Sujetos suspendidos según artículo 40 inc. B)</field>
+		</record>
+
+		<record id="cond_18" model="tax.code.condicion">
+		<field name="code">18</field>
+		<field name="name">Aplica Convenio de Doble Imposición</field>
+		</record>
+
+		<record id="cond_19" model="tax.code.condicion">
+		<field name="code">19</field>
+		<field name="name">No Aplica Convenio de Doble Imposición</field>
+		</record>
+
+    
+    </data>
+</openerp>

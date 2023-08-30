@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="workflow" id="check_receipt_workflow">
+			<field name="name">workflow.check.receipt</field>
+			<field name="osv">check.receipt</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<record id="act_open" model="workflow.activity">
+			<field name="wkf_id" ref="check_receipt_workflow" />
+			<field name="flow_start">True</field>
+			<field name="name">open</field>
+		</record>
+
+		<record id="act_process" model="workflow.activity">
+			<field name="wkf_id" ref="check_receipt_workflow" />
+			<field name="name">process</field>
+			<field name="kind">function</field>
+			<field name="action">action_process()</field>
+			<field name="split_mode">OR</field>
+		</record>
+
+		<record id="act_annulled" model="workflow.activity">
+			<field name="wkf_id" ref="check_receipt_workflow" />
+			<field name="name">annulled</field>
+			<field name="kind">function</field>
+			<field name="action">action_annulled()</field>
+			<field name="split_mode">OR</field>
+		</record>
+
+		<record id="act_missing" model="workflow.activity">
+			<field name="wkf_id" ref="check_receipt_workflow" />
+			<field name="name">missing</field>
+			<field name="kind">function</field>
+			<field name="action">action_missing()</field>
+		</record>
+
+		<record id="act_canceled" model="workflow.activity">
+			<field name="wkf_id" ref="check_receipt_workflow" />
+			<field name="name">canceled</field>
+			<field name="kind">function</field>
+			<field name="action">action_canceled()</field>
+		</record>
+		
+		<!-- Transitions -->
+		
+		<record id="open_to_process" model="workflow.transition">
+			<field name="act_from" ref="act_open" />
+			<field name="act_to" ref="act_process" />
+			<field name="signal">button_process</field>
+			<field name="condition">True</field>
+		</record>
+
+		<record id="open_to_annulled" model="workflow.transition">
+			<field name="act_from" ref="act_open" />
+			<field name="act_to" ref="act_annulled" />
+			<field name="signal">button_annulled</field>
+			<field name="condition">True</field>
+		</record>
+
+
+		<record id="open_to_missing" model="workflow.transition">
+			<field name="act_from" ref="act_open" />
+			<field name="act_to" ref="act_missing" />
+			<field name="signal">button_missing</field>
+			<field name="condition">True</field>
+		</record>
+
+		<record id="open_to_cancel" model="workflow.transition">
+			<field name="act_from" ref="act_open" />
+			<field name="act_to" ref="act_canceled" />
+			<field name="signal">button_canceled</field>
+			<field name="condition">True</field>
+		</record>
+		
+		<record id="process_to_annulled" model="workflow.transition">
+			<field name="act_from" ref="act_process" />
+			<field name="act_to" ref="act_annulled" />
+			<field name="signal">process_annulled</field>
+			<field name="condition">True</field>
+		</record>
+		
+	</data>
+</openerp>

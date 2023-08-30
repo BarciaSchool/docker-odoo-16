@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="straconx_base_synchro.straconx_view_shop_discounts_base" model="ir.ui.view">
+			<field name="name">Resumen de Descuentos y Ofertas en Ventas</field>
+			<field name="model">reports.discounts.shop</field>
+			<field name="type">form</field>
+			<field eval="1" name="priority" />
+			<field name="arch" type="xml">
+				<form string="Resumen de Descuentos y Ofertas en Ventas"> 
+					<group col="8" colspan="4" width="900">
+						<field name="company_id" required="1" colspan="4" widget="selection"/>
+						<newline/>
+						<field name="report_type" required="1" />
+						<field name="shop_id" widget="selection" nolabel="1" colspan="2"
+						domain="[('emision_point','=',True)]"
+						attrs="{'invisible':[('report_type','=','all')],'required':[('report_type','=','this_shop')]}"/>
+						<newline/>
+							<field name="from_date" required="1" />
+							<field name="to_date" required="1" />
+						<newline/>
+						<group col="8" colspan="4">
+							<button name="do_search_discounts" string=" Generar Reporte de Ventas" icon="gtk-media-play"  colspan="3"
+								type="object" />						
+							<button name="%(straconx_base_synchro.reports_discounts_shop_id)d" string="Imprimir"  colspan="2"
+								type="action" icon="gtk-print"/>										
+							<button icon="gtk-cancel" special="cancel" string="Cancelar"  colspan="2"
+								type="object" />
+						</group>
+						<newline/>
+							<field name="lines_discounts_ids" groups="base.group_pos_manager" 
+							required="1" colspan="4" nolabel="1" readonly="1" height="250" width="650" >
+							</field>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="straconx_base_synchro.view_discounts_shop_lines_tree" model="ir.ui.view">
+			<field name="name">Resumen de Descuentos y Ofertas en Ventas</field>
+			<field name="model">reports.discounts.shop.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Cobros">
+					<field name="shop_id" readonly="1" />
+					<field name="discount" readonly="1" />
+					<field name="amount_cash" readonly="1" sum="Contado"/>
+					<field name="amount_credit" readonly="1" sum="Crédito"/>
+					<field name="amount_refund" readonly="1" sum="Devoluciones"/>
+					<field name="amount_untaxed" readonly="1" sum="Total sin Impuestos"/>
+					<field name="wizard_id" invisible="1" />
+				</tree>
+			</field>
+		</record>		
+		
+		<record id="straconx_base_synchro.action_shop_form_reports_discounts" model="ir.actions.act_window">
+			<field name="name">Resumen de Descuentos y Ofertas en Ventas</field>
+			<field name="res_model">reports.discounts.shop</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field eval="False" name="view_id" />
+			<field name="target">new</field>
+			<field name="context">{}</field>
+		</record>
+	</data>
+</openerp>

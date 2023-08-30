@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf8"?>
+<openerp>
+    <data>
+
+	<menuitem icon="STOCK_PRINT"
+		id="report_stock_shop" 
+		action="action_stock_shop_view"
+		name="Stock Shop"
+		parent="stock.next_id_61" 
+		sequence="6"/>
+
+    </data>
+</openerp>

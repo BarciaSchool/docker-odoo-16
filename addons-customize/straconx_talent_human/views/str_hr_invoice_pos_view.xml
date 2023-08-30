@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+<!-- 		<record id="account_invoice_form_inherit_th" model="ir.ui.view">
+			<field name="name">account.invoice.form.inherit.th</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.pos_invoice_form" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<field name="vat" position="after">
+					<field name="has_discount_employee" invisible="1" />
+				</field>
+				<button name="%(account.action_account_invoice_refund)d"
+					position="after">
+					<button name="print_invoice_hr_discount" string="Imprimir Descuento Colaborador"
+						type="object" icon="gtk-print"
+						attrs="{'invisible':['|',('state','not in',('open','paid','cancel')),('has_discount_employee','!=',True)]}"
+						groups="base.group_phone_manager,base.group_customer_user, base.group_risk_manager,base.group_risk_user,base.group_risk_collector,account_payment.group_account_payment,stock.group_stock_user" />
+				</button>
+			</field>
+		</record> -->
+	</data>
+</openerp>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+        <record model="ir.actions.report.xml" id="action_cost_bonus_invoice_report" >
+            <field name="name">action.cost.bonus.invoice.report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">wizard.report.bonus</field>
+            <field name="report_name">Cost by bonus</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name='out_format' eval="ref('report_aeroo_ooo.report_mimetypes_pdf_odt')"/>
+            <field name="parser_loc">straconx_bonus_invoice/report/cost_bonus_invoice.py</field>
+            <field name="report_rml">straconx_bonus_invoice/report/cost_bonus_invoice.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+    </data>
+</openerp>

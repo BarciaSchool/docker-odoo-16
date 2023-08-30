@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="sri_document_type_tree_view">
+			<field name="name">sri.document.type.tree</field>
+			<field name="model">sri.document.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Document Type">
+					<field name="code" />
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sri_document_type_form_view">
+			<field name="name">sri.document.type.form</field>
+			<field name="model">sri.document.type</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Document Type">
+					<group colspan="4">
+						<field name="code" select="1" />
+						<field name="name" select="1" />
+					</group>
+					<notebook colspan="4">
+						<page string="Tax Supports" >
+							<separator string="Tax Supports" colspan="4"/>
+							<field name="sustent_ids" colspan="4" nolabel="1" readonly="0">
+								<tree string="Tax Sustent">
+									<field name="code" />
+									<field name="name" />
+								</tree>
+								<form string="Tax Sustent">
+									<field name="code" readonly="1"/>
+									<field name="name" readonly="1"/>
+								</form>
+							</field>
+						</page>
+						<page string="Transaction Type">
+							<separator string="Transaction Type" colspan="4"/>
+							<field name="usage_ids" colspan="4" nolabel="1" readonly="0">
+								<tree string="Transaction Types">
+									<field name="code" />
+									<field name="name" />
+									<field name="type_identification"/>
+								</tree>
+								<form string="Transaction Type">
+									<field name="code" readonly="1"/>
+									<field name="name" readonly="1"/>
+									<field name="type_identification" readonly="1"/>
+								</form>
+							</field>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sri_document_type_tree_view">
+			<field name="name">Documents Types</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sri.document.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sri_document_type_tree_view" />
+		</record>
+
+	</data>
+</openerp>

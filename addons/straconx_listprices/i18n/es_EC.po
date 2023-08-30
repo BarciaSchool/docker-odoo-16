@@ -1,0 +1,412 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_listprices
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-29 09:08+0000\n"
+"PO-Revision-Date: 2013-01-29 09:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_listprices
+#: field:product.historic.category,categ_id:0
+msgid "Category"
+msgstr "Categoría"
+
+#. module: straconx_listprices
+#: view:product.product:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,price_base:0
+msgid "Base Price"
+msgstr "Precio Base"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_pricelist_version
+msgid "Pricelist Version"
+msgstr "versio nde precio"
+
+#. module: straconx_listprices
+#: constraint:product.product:0
+msgid "has a standard price is greater than list Price"
+msgstr "el costo es mayor que el precio de venta"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:287
+#, python-format
+msgid "Negative Price!"
+msgstr "Negative Price!"
+
+#. module: straconx_listprices
+#: model:ir.ui.menu,name:straconx_listprices.item_k_listprices
+msgid "Version Listprice"
+msgstr "Version Listprice"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelist.py:178
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:177
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:224
+#, python-format
+msgid "Warning !"
+msgstr "Warning !"
+
+#. module: straconx_listprices
+#: view:product.category:0
+#: view:res.partner.segmento:0
+msgid "Historical Discounts"
+msgstr "Descuentos Históricos"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:287
+#, python-format
+msgid "Need a positive price for continue."
+msgstr "Need a positive price for continue."
+
+#. module: straconx_listprices
+#: field:price.segmento,segmento_id:0
+#: field:product.historic.segmento,segmento_id:0
+msgid "Segmento"
+msgstr "Segmento"
+
+#. module: straconx_listprices
+#: view:product.product:0
+#: field:product.product,price_segmento_ids:0
+msgid "Price Segmento"
+msgstr "Precio por Segmento"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_product.py:49
+#, python-format
+msgid "Product have a negative discount. Check please!"
+msgstr "El producto tiene un descuento negativo. ¡Por favor, revisar!"
+
+#. module: straconx_listprices
+#: constraint:res.partner.segmento:0
+msgid "Only there must be a default segment"
+msgstr "Only there must be a default segment"
+
+#. module: straconx_listprices
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código predeterminado debe ser único"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_product
+#: field:pricelist.partnerinfo,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:177
+#, python-format
+msgid "Customer need a segment for sales."
+msgstr "La Empresa requiere un segmento para realizar la venta."
+
+#. module: straconx_listprices
+#: field:discount.price.product,name:0
+msgid "Price Name"
+msgstr "Nombre"
+
+#. module: straconx_listprices
+#: field:discount.price.product,currency_id:0
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelist.py:178
+#, python-format
+msgid "At least one pricelist has no active version !\n"
+"Please create or activate one."
+msgstr "At least one pricelist has no active version !\n"
+"Please create or activate one."
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,margin:0
+msgid "Margin"
+msgstr "Margen"
+
+#. module: straconx_listprices
+#: field:price.segmento,price:0
+#: field:product.supplierinfo,price_supplier:0
+msgid "Price"
+msgstr "Precio"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,class_id:0
+msgid "Product Clasification"
+msgstr "Clasificación"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_historic_category
+msgid "Historical Discount Category List"
+msgstr "Histórico de Descuento por Categoría"
+
+#. module: straconx_listprices
+#: field:discount.price.product,discount:0
+#: field:product.category,discount:0
+#: field:product.historic.category,discount:0
+#: field:product.historic.segmento,discount:0
+#: field:res.partner.segmento,discount:0
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_historic_segmento
+msgid "Historical Discount Segment List"
+msgstr "Histórico de Descuento por Segmento"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,standard_price:0
+msgid "Cost"
+msgstr "Costo"
+
+#. module: straconx_listprices
+#: field:product.historic.category,user_id:0
+#: field:product.historic.segmento,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_supplierinfo
+msgid "Information about a product supplier"
+msgstr "Información de un proveedor de producto"
+
+#. module: straconx_listprices
+#: field:product.historic.category,name:0
+#: field:product.historic.segmento,name:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_pricelist
+msgid "Pricelist"
+msgstr "Precio"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelist.py:376
+#, python-format
+msgid "Partner section of the product form"
+msgstr "Partner section of the product form"
+
+#. module: straconx_listprices
+#: help:discount.price.product,currency_id:0
+msgid "The currency the field is expressed in."
+msgstr "El campo de moneda se encuentra expresado en."
+
+#. module: straconx_listprices
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_res_partner_segmento
+msgid "res.partner.segmento"
+msgstr "res.partner.segmento"
+
+#. module: straconx_listprices
+#: help:discount.price.product,name:0
+msgid "Name of this kind of price."
+msgstr "Nombre de este tipo de precio."
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_product.py:49
+#, python-format
+msgid "Negative Discount !"
+msgstr "Descuento Negativo !"
+
+#. module: straconx_listprices
+#: field:discount.price.product,date_end:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: straconx_listprices
+#: field:price.segmento,product_id:0
+msgid "product"
+msgstr "product"
+
+#. module: straconx_listprices
+#: help:discount.price.product,date_start:0
+msgid "Starting date for this pricelist version to be valid."
+msgstr "Fecha de inico para esta lista de precios no es válida."
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_pricelist_partnerinfo
+msgid "pricelist.partnerinfo"
+msgstr "pricelist.partnerinfo"
+
+#. module: straconx_listprices
+#: view:product.category:0
+#: field:product.category,list_price_historical_ids:0
+#: view:res.partner.segmento:0
+#: field:res.partner.segmento,list_price_historical_ids:0
+msgid "Historical Discount"
+msgstr "Descuento Histórico"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,min_base:0
+msgid "Base Quantity"
+msgstr "Cantidad Base"
+
+#. module: straconx_listprices
+#: constraint:product.pricelist.version:0
+msgid "You cannot have 2 pricelist versions that overlap!"
+msgstr "¡No puede tener 2 versiones de tarifa que se solapen!"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelist.py:375
+#, python-format
+msgid "Other Pricelist"
+msgstr "Other Pricelist"
+
+#. module: straconx_listprices
+#: model:ir.ui.menu,name:straconx_listprices.menu_products_k_listprices
+msgid "List Prices"
+msgstr "List Prices"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,price_tax:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,price_gross:0
+msgid "Gross Price"
+msgstr "Precio Bruto"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_product.py:99
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_category
+#: field:product.pricelist.version,categ_id:0
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: straconx_listprices
+#: view:product.product:0
+msgid "Price by Segment"
+msgstr "Precio por Segmento"
+
+#. module: straconx_listprices
+#: constraint:product.pricelist.item:0
+msgid "Error ! You cannot assign the Main Pricelist as Other Pricelist in PriceList Item!"
+msgstr "Error ! No puedes asignar la lista de precios principal como Otra lista de precios en los items de listas de precios!"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_discount_price_product
+#: field:product.category,list_discount_historical:0
+#: field:product.product,discount_price:0
+#: field:res.partner.segmento,list_discount_historical:0
+msgid "Discount Price"
+msgstr "Precio con Descuento"
+
+#. module: straconx_listprices
+#: field:discount.price.product,date_start:0
+msgid "Start Date"
+msgstr "Fecha Inicial"
+
+#. module: straconx_listprices
+#: field:product.pricelist.version,class_id:0
+msgid "Product Classification"
+msgstr "Clasificación"
+
+#. module: straconx_listprices
+#: sql_constraint:product.supplierinfo:0
+msgid "Products and partner must be unique"
+msgstr "Products and partner must be unique"
+
+#. module: straconx_listprices
+#: field:product.product,discount_percent:0
+msgid "% Discount"
+msgstr "% Descuento"
+
+#. module: straconx_listprices
+#: help:product.category,list_discount_historical:0
+#: help:res.partner.segmento,list_discount_historical:0
+msgid "Latest Recorded Discount Value"
+msgstr "Último descuento grabado"
+
+#. module: straconx_listprices
+#: constraint:product.category:0
+msgid "Error ! You cannot create recursive categories."
+msgstr "Error ! No se puede crear categorías recursivas."
+
+#. module: straconx_listprices
+#: view:product.product:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_listprices
+#: help:product.pricelist.version,categ_id:0
+msgid "Set a category of product if this rule only apply to products of a category and his children. Keep empty for all products"
+msgstr "Set a category of product if this rule only apply to products of a category and his children. Keep empty for all products"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,min_bonus:0
+msgid "Bonus"
+msgstr "Bonificación"
+
+#. module: straconx_listprices
+#: help:discount.price.product,date_end:0
+msgid "Ending date for this pricelist version to be valid."
+msgstr "La fecha de finalización para esta lista de precios debe ser válida."
+
+#. module: straconx_listprices
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:294
+#, python-format
+msgid "Warning!"
+msgstr "Warning!"
+
+#. module: straconx_listprices
+#: field:pricelist.partnerinfo,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Elemento de la tarifa"
+
+#. module: straconx_listprices
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_listprices
+#: field:product.pricelist.item,price_final:0
+msgid "Final Price"
+msgstr "Precio Final"
+
+#. module: straconx_listprices
+#: code:addons/straconx_listprices/objects/straconx_pricelists.py:224
+#, python-format
+msgid "Product need a price for continue operation."
+msgstr "El producto requiere un precio para continuar..."
+
+#. module: straconx_listprices
+#: model:ir.model,name:straconx_listprices.model_price_segmento
+msgid "price.segmento"
+msgstr "price.segmento"
+
+#. module: straconx_listprices
+#: field:discount.price.product,list_active:0
+msgid "Active"
+msgstr "Activa"
+

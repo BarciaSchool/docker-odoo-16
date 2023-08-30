@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+
+		<!--Departamentos -->
+		<record id='gerencia_general' model='hr.department'>
+			<field name='name'>GERENCIA GENERAL</field>
+			<field name='area_id' model='account.area' search="[('name','=','Administración')]"/>
+	<field name="company_id" ref='base.main_company' model='res.company'/>
+		</record>
+		<record id='administracion' model='hr.department'>
+			<field name='name'>ADMINISTRACION</field>
+			<field name='parent_id' ref='gerencia_general' />
+			<field name='area_id' model='account.area' search="[('name','=','Administración')]"/>
+	<field name="company_id" ref='base.main_company' model='res.company'/>
+		</record>
+		<record id='ventas' model='hr.department'>
+			<field name='name'>SISTEMAS</field>
+			<field name='parent_id' ref='gerencia_general' />
+			<field name='area_id' model='account.area' search="[('name','=','Administración')]"/>
+		<field name="company_id" ref='base.main_company' model='res.company'/>
+		</record>
+		
+		<record id='produccion' model='hr.department'>
+			<field name='name'>CONTABILIDAD</field>
+			<field name='parent_id' ref='gerencia_general' />
+			<field name='area_id' model='account.area' search="[('name','=','Administración')]"/>
+		<field name="company_id" ref='base.main_company' model='res.company'/>
+		</record>
+		
+	</data>
+</openerp>

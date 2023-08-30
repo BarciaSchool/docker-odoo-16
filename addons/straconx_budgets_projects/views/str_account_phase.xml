@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_account_analytic_phase_tree" model="ir.ui.view">
+			<field name="name">account.analytic.phase.tree</field>
+			<field name="model">account.analytic.phase</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="sequence" />
+					<field name="code" />
+					<field name="name" />
+					<field name="parent_id" />
+					<field name="type_phase" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_account_analytic_phase_form" model="ir.ui.view">
+			<field name="name">account.analytic.phase.tree</field>
+			<field name="model">account.analytic.phase</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group colspan="4" col="4">
+						<field name="sequence"/>
+						<field name="code"  required="1"/>
+						<newline/>
+						<field name="name"  colspan="4" required="1"/>
+						<field name="type_phase" required="1"/>
+						<field name="parent_id" on_change="onchange_type_phase(type_phase, parent_id)"/>						
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_account_analytic_phase_search" model="ir.ui.view">
+			<field name="name">account.analytic.phase.search</field>
+			<field name="model">account.analytic.phase</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="code" />
+					<field name="name" />
+					<field name="parent_id"/>
+					<field name="type_phase" />
+					<newline/>
+					<group expand="0" string="Agrupar por..." colspan="4" col="10">
+						<filter string="Tipos de Fases" icon="terp-partner"
+							domain="[]" context="{'group_by':'type_phase'}" />
+						<filter string="Padre" icon="terp-partner"
+							domain="[]" context="{'group_by':'parent_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+        <record id="action_account_analytic_phase" model="ir.actions.act_window">
+            <field name="name">Analytic Phases</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.phase</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_analytic_phase_tree"/>
+            <field name="search_view_id" ref="view_account_analytic_phase_search"/>
+        </record>
+
+
+        <record id="account.view_account_analytic_journal_form" model="ir.ui.view">
+            <field name="name">account.analytic.journal.form</field>
+            <field name="model">account.analytic.journal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Journal">
+                    <field name="company_id" colspan="4" widget="selection"/>
+                    <field name="code"/>
+                    <field name="name"/>                    	
+                    <field name="partner_id" colspan="4"/>
+                    <field name="address_id"  colspan="4" 
+                    	attrs="{'required':[('type','=','project')]}"
+                    	domain="[('partner_id', '=', partner_id)]" 
+                    	context="{'default_partner_id': partner_id}"/>
+                    <field name="country_id" required="1"/>
+                    <field name="type" />
+                    <field name="location_id" attrs="{'required':[('type','=','project')]}"/>
+                    <field name="purchase_sequence" attrs="{'required':[('type','=','project')]}"/>
+                    <field name="active" />
+                    <field name="default" />
+                </form>
+            </field>
+        </record>
+
+
+        <record id="crossovered_budget_view_inherit" model="ir.ui.view" >
+            <field name="name">crossovered.budget.view.inherit</field>
+            <field name="model">crossovered.budget</field>
+            <field name="inherit_id" ref="straconx_budgets.crossovered_budget_view_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<field name="name" position="before">
+                    <field name="project_id" colspan="4" on_change="onchange_project_id(project_id)"/>	
+				</field>
+				<field name="code" position="after">
+                    <field name="partner_id" colspan="4"/>	
+				</field>
+			</field>
+		</record>
+
+        <record id="crossovered_budget_lines_view_tree_inherit" model="ir.ui.view" >
+            <field name="name">crossovered.budget.lines.view.tree.inherit</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="straconx_budgets.view_crossovered_budget_line_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+				<field name="analytic_account_id" position="before">
+                    <field name="wbs_phase" colspan="4" on_change="onchange_project_id(project_id)"/>	
+				</field>
+			</field>
+		</record>
+
+        <record id="crossovered_budget_lines_view_form_inherit" model="ir.ui.view" >
+            <field name="name">crossovered.budget.lines.view.form.inherit</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="straconx_budgets.view_crossovered_budget_line_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<field name="analytic_account_id" position="before">
+                    <field name="wbs_phase" colspan="4" on_change="onchange_project_id(project_id)"/>	
+				</field>
+			</field>
+		</record>
+
+        <record id="view_budget_post_form_inherit" model="ir.ui.view" >
+            <field name="name">account.budget.post.form.inherit</field>
+            <field name="model">account.budget.post</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="straconx_budgets.view_budget_post_form"/>            
+            <field name="arch" type="xml">
+				<field name="code" position="after">
+					<field name="req_dep" on_change="onchange_required(onchange_required)" invisible="1"/>
+				</field>
+				<field name="department_id" position="replace">
+					<field name="department_id" 
+						on_change="onchange_required(onchange_required)" 
+						attrs="{'required': [('req_dep', '=', True)]}"
+						/>
+				</field>
+
+			</field>
+		</record>
+
+
+	</data>
+</openerp>

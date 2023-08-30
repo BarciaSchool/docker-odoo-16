@@ -1,0 +1,761 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* straconx_products
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20121216-003738\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-14 05:09+0000\n"
+"PO-Revision-Date: 2013-02-14 05:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Service"
+msgstr "Servicio"
+
+#. module: straconx_products
+#: field:product.product,am_out:0
+msgid "Control for Output Operations"
+msgstr "Control para Operaciones de Salida"
+
+#. module: straconx_products
+#: field:product.product,supplier_id:0
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: straconx_products
+#: view:product.clasification:0
+msgid "Product Clasification"
+msgstr "Clasificación de Productos"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.action_product_clasification
+#: model:ir.ui.menu,name:straconx_products.menu_product_clasification_str
+msgid "Product Clasification"
+msgstr "Clasificación del Producto"
+
+#. module: straconx_products, products
+#: model:ir.actions.act_window,name:product.product_category_action_form
+#: model:ir.ui.menu,name:product.menu_product_category_action_form
+msgid "Product Category"
+msgstr "Categorías de Productos"
+       
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sellers"
+msgstr "Vendedores"
+
+#. module: straconx_products
+#: view:product.template:0
+msgid "Brand"
+msgstr "Marca"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Marca"
+msgstr "Marca"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_system
+msgid "Products can be systemd and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on."
+msgstr "Products can be systemd and/or sold. They can be raw materials, stockable products, consumables or services. The Product form contains detailed information about your products related to procurement logistics, sales price, product category, suppliers and so on."
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Purchase Description"
+msgstr "Descripción de compra"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_purchase_category
+msgid "Purchase Category"
+msgstr "Categoría de Compras"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Product Prices"
+msgstr "Precios"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: straconx_products
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "D"
+msgstr "D"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Weigths"
+msgstr "Peso"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.action_product_manufacturer
+#: view:res.manufacturer:0
+msgid "Product Manufacturer"
+msgstr "Fabricante del Producto"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "List Prices"
+msgstr "Lista de Precios"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "To Purchase"
+msgstr "A comprar"
+
+#. module: straconx_products
+#: code:addons/straconx_products/objects/straconx_products.py:67
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_account
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_knowledge
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_logistics
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_purchase
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_sale
+#: model:ir.actions.act_window,name:straconx_products.product_normal_action_system
+#: model:ir.ui.menu,name:straconx_products.account_menu_product
+#: model:ir.ui.menu,name:straconx_products.knowledge_menu_product
+#: model:ir.ui.menu,name:straconx_products.knowledge_menu_products
+#: view:product.product:0
+msgid "Products"
+msgstr "Productos"
+
+#. module: straconx_products
+#: view:product.material:0
+msgid "Attributes"
+msgstr "Attributos"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Base Prices"
+msgstr "Precios base"
+
+#. module: straconx_products
+#: field:product.product,calsale:0
+msgid "Cal Sales"
+msgstr "Calificación Ventas"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Internal Information"
+msgstr "Información interna"
+
+#. module: straconx_products
+#: help:product.clasification,parent_id:0
+msgid "Name of the parent clasification"
+msgstr "Nombre de la Clasification padre"
+
+#. module: straconx_products
+#: view:product.color:0
+msgid "Product color"
+msgstr "Color"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Pallet Dimension"
+msgstr "Dimensión del palet"
+
+#. module: straconx_products
+#: field:product.product,margin_base:0
+msgid "% Margin"
+msgstr "% Margen"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sale Taxes"
+msgstr "Impuestos en venta"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.action_product_color
+msgid "Product Color"
+msgstr "Color"
+
+#. module: straconx_products
+#: field:product.template,factor:0
+msgid "Factor"
+msgstr "Factor"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Purchase Taxes"
+msgstr "Impuestos de compras"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_color
+msgid "product.color"
+msgstr "Color"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "UOM"
+msgstr "UdM"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.straconx_pricelist_action
+msgid "Sale Price List"
+msgstr "Lista de Precios de Ventas"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Palletization"
+msgstr "Paletización"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_clasification
+msgid "Product clasifications"
+msgstr "Clasificación"
+
+#. module: straconx_products
+#: field:product.product,material:0
+msgid "Material"
+msgstr "Material"
+
+#. module: straconx_products
+#: field:product.product,packing_q:0
+msgid "Packing"
+msgstr "Empaque"
+
+#. module: straconx_products
+#: field:product.product,year_sale:0
+msgid "Year Sale"
+msgstr "Venta en el Año"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Consumable"
+msgstr "Consumible"
+
+#. module: straconx_products
+#: constraint:product.product:0
+msgid "The dimensions of the product can not be less than 0"
+msgstr "Las dimensiones del producto no pueden ser menores que 0"
+
+#. module: straconx_products
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "C"
+msgstr "C"
+
+#. module: straconx_products
+#: field:product.product,manufacturer_pname:0
+msgid "Purchase Order Name"
+msgstr "Pedido"
+
+#. module: straconx_products
+#: field:product.clasification,parent_id:0
+msgid "Parent Clasification"
+msgstr "Clasificación Padre"
+
+#. module: straconx_products
+#: field:purchase.category,info_required:0
+msgid "Info Aditional in Purchase"
+msgstr "¿Requiere información adicional en Compra?"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_knowledge
+msgid "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, knowledges price, product\n"
+"				category, suppliers and so on.\n"
+"			"
+msgstr "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, knowledges price, product\n"
+"				category, suppliers and so on.\n"
+"			"
+
+#. module: straconx_products
+#: selection:product.product,timport:0
+msgid "Normal Importation"
+msgstr "Importación Normal"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Procurement"
+msgstr "Adquisición"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_res_manufacturer
+msgid "res.manufacturer"
+msgstr "Fabricante"
+
+#. module: straconx_products
+#: field:product.template,fob:0
+msgid "FOB"
+msgstr "Último FOB"
+
+#. module: straconx_products
+#: view:product.product:0
+#: view:product.template:0
+msgid "Catalog"
+msgstr "Catálogo"
+
+#. module: straconx_products
+#: field:product.product,expense_pdt:0
+msgid "Product for expenses"
+msgstr "Producto para Gastos"
+
+#. module: straconx_products
+#: field:product.product,online:0
+msgid "Visible on website"
+msgstr "Visible en website"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Image"
+msgstr "Imagen"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Supplier Information"
+msgstr "Información del proveedor"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Trade"
+msgstr "Comercio Exterior"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Packaging"
+msgstr "Empaquetado"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Descriptions"
+msgstr "Descripciones"
+
+#. module: straconx_products
+#: field:product.product,calinv:0
+msgid "Cal Stock"
+msgstr "Calificación Inventario"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Images"
+msgstr "Imágenes"
+
+#. module: straconx_products
+#: field:product.clasification,name:0
+#: view:product.product:0
+msgid "Clasification"
+msgstr "Clasificación"
+
+#. module: straconx_products
+#: field:product.product,income_pdt:0
+msgid "Product for Input"
+msgstr "Producto para entradas"
+
+#. module: straconx_products
+#: model:label.templates,def_body_text:straconx_products.label_templates_products
+msgid "<blockTable style=\"mytable\">\n"
+" <tr>\n"
+" <td>\n"
+" ${object.product_tmpl_id.name}\n"
+" PVP: ${round(object.total_price,2)} USD\n"
+" </td>\n"
+" </tr>\n"
+" </blockTable>\n"
+" <blockTable style=\"mytable\">\n"
+" <tr>\n"
+" <td>\n"
+" <barCode>${object.default_code}</barCode>\n"
+" </td>\n"
+" </tr>\n"
+" </blockTable>"
+msgstr "<blockTable style=\"mytable\">\n"
+" <tr>\n"
+" <td>\n"
+" ${object.product_tmpl_id.name}\n"
+" PVP: ${round(object.total_price,2)} USD\n"
+" </td>\n"
+" </tr>\n"
+" </blockTable>\n"
+" <blockTable style=\"mytable\">\n"
+" <tr>\n"
+" <td>\n"
+" <barCode>${object.default_code}</barCode>\n"
+" </td>\n"
+" </tr>\n"
+" </blockTable>"
+
+#. module: straconx_products
+#: constraint:product.template:0
+msgid "Error: The default UOM and the purchase UOM must be in the same category."
+msgstr "Error: La UdM por defecto y la UdM de compra deben estar en la misma categoría."
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sales Calification"
+msgstr "Calificación de Ventas"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Import"
+msgstr "Importación"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Purchase Properties"
+msgstr "Propiedades de compra"
+
+#. module: straconx_products
+#: sql_constraint:product.product:0
+msgid "Default code should be uniq"
+msgstr "Código debe ser único"
+
+#. module: straconx_products
+#: selection:product.product,timport:0
+msgid "Fast Importation"
+msgstr "Importación rápida"
+
+#. module: straconx_products
+#: field:product.product,date_purchase:0
+msgid "Último Ingreso"
+msgstr "Último Ingreso"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_material
+#: model:ir.ui.menu,name:straconx_products.menu_action_product_material_form_str
+msgid "Product Material"
+msgstr "Product Material"
+
+#. module: straconx_products, product
+#: view:product.product:0
+msgid "New Arrivals"
+msgstr "Nuevos Productos"
+
+#. module: straconx_products
+#: field:product.product,timport:0
+msgid "Types of Trade Import"
+msgstr "Tipo de Importación"
+
+#. module: straconx_products
+#: field:product.product,manufacturer:0
+#: field:res.manufacturer,name:0
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+#. module: straconx_products
+#: field:product.product,date_sale:0
+msgid "Last Sale"
+msgstr "Última Venta"
+
+#. module: straconx_products
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "B"
+msgstr "B"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sale Description"
+msgstr "Descripción de venta"
+
+#. module: straconx_products
+#: field:product.product,create_date:0
+msgid "Creation date"
+msgstr "Fecha de creación"
+
+#. module: straconx_products
+#: view:product.product:0
+#: field:product.product,datecom:0
+msgid "Comercial Life"
+msgstr "Vida comercial"
+
+#. module: straconx_products
+#: help:product.clasification,name:0
+msgid "Name of the clasification"
+msgstr "Nombre de la clasificación"
+
+#. module: straconx_products
+#: field:product.clasification,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: straconx_products
+#: field:res.manufacturer,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: straconx_products
+#: field:product.clasification,code:0
+#: field:product.material,code:0
+#: field:purchase.category,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: straconx_products
+#: field:product.template,codant:0
+msgid "Former Code"
+msgstr "Código anterior"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Attribute"
+msgstr "Atributo"
+
+#. module: straconx_products
+#: constraint:product.product:0
+#: constraint:product.template:0
+msgid "has a standard price is greater than list Price"
+msgstr "El costo es mayor que el precio de venta"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Admin. Service"
+msgstr "Servicio Administrativo"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "General"
+msgstr "General"
+
+#. module: straconx_products
+#: field:product.product,invoice_id:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Sales Properties"
+msgstr "Propiedades de Venta"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Information"
+msgstr "Información"
+
+#. module: straconx_products
+#: model:ir.actions.act_window,name:straconx_products.action_product_material
+msgid "Product Attributes"
+msgstr "Materiales"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Other Info"
+msgstr "Otra Información"
+
+#. module: straconx_products
+#: model:ir.ui.menu,name:straconx_products.menu_products_config_straconx
+msgid "Details Config"
+msgstr "Otras Configuraciones"
+
+#. module: straconx_products
+#: field:product.product,manufacturer_factory:0
+msgid "Factory"
+msgstr "Nombre de fábrica"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Inventory Valuation"
+msgstr "Valoración Inventario"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Other"
+msgstr "Otros"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Stock Calification"
+msgstr "Calificación de Inventarios"
+
+#. module: straconx_products
+#: field:product.product,disc_controle:0
+msgid "Discount Control"
+msgstr "Control de descuento"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Stock"
+msgstr "Inventarios"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_product
+#: model:ir.ui.menu,name:straconx_products.account_products
+#: view:product.product:0
+#: view:product.template:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: straconx_products
+#: field:product.material,description:0
+#: view:product.product:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Product Description"
+msgstr "Descripción del Producto"
+
+#. module: straconx_products
+#: field:product.product,month_sale:0
+msgid "Month Sale"
+msgstr "Venta en el Mes"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "To Sell"
+msgstr "A vender"
+
+#. module: straconx_products
+#: sql_constraint:res.manufacturer:0
+msgid "The name of the manufacturer must be unique !"
+msgstr "El nombre del fabricante debe ser único !"
+
+#. module: straconx_products
+#: sql_constraint:product.product:0
+msgid "The ean13 field must be unique across all the products"
+msgstr "El código de barra debe ser único por cada producto"
+
+#. module: straconx_products
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "A"
+msgstr "A"
+
+#. module: straconx_products
+#: selection:product.product,calinv:0
+#: selection:product.product,calsale:0
+msgid "E"
+msgstr "E"
+
+#. module: straconx_products
+#: field:product.material,name:0
+#: field:purchase.category,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: straconx_products
+#: field:product.product,manufacturer_country:0
+#: field:res.manufacturer,manufacturer_country:0
+msgid "Country"
+msgstr "País"
+
+#. module: straconx_products
+#: field:product.product,year:0
+msgid "Year"
+msgstr "Año de Creación"
+
+#. module: straconx_products
+#: view:product.product:0
+#: view:product.template:0
+msgid "Stockable"
+msgstr "Almacenable"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: straconx_products
+#: model:ir.model,name:straconx_products.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: straconx_products
+#: field:product.product,month_purchase:0
+msgid "Month Purchase"
+msgstr "Compra en el Mes"
+
+#. module: straconx_products
+#: field:product.product,clasification_cat:0
+msgid "clasification Product"
+msgstr "Clasificación"
+
+#. module: straconx_products
+#: field:product.product,manufacturer_pref:0
+msgid "Manufacturer product code"
+msgstr "Código del Producto"
+
+#. module: straconx_products
+#: field:product.color,name:0
+msgid "Color"
+msgstr "Color"
+
+#. module: straconx_products
+#: field:product.product,year_purchase:0
+msgid "Year Purchase"
+msgstr "Compra en el Año"
+
+#. module: straconx_products
+#: constraint:product.category:0
+msgid "Error ! You cannot create recursive categories."
+msgstr "Error ! No se puede crear categorías recursivas."
+
+#. module: straconx_products
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_account
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_logistics
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_purchase
+#: model:ir.actions.act_window,help:straconx_products.product_normal_action_sale
+msgid "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, sales price, product category,\n"
+"				suppliers and so on.\n"
+"			"
+msgstr "Products can be purchased and/or sold. They can be\n"
+"				raw materials, stockable products, consumables or services. The\n"
+"				Product form contains detailed information about your products\n"
+"				related to procurement logistics, sales price, product category,\n"
+"				suppliers and so on.\n"
+"			"
+
+#. module: straconx_products
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Error: Código EAN erróneo"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "More filters..."
+msgstr "Más filtros..."
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Accounting"
+msgstr "Administración Financiera"
+
+#. module: straconx_products
+#: model:product.category,name:straconx_products.categ_sincateg
+msgid "SIN CATEGORIA"
+msgstr "SIN CATEGORIA"
+
+#. module: straconx_products
+#: view:product.product:0
+msgid "Account Properties"
+msgstr "Propiedades Contables"
+
+#. module: straconx_products, product
+#: view:product.product:0
+msgid "Supplier"
+msgstr "Proveedor"
+

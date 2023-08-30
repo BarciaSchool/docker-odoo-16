@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record id="force_stock_picking_form" model="ir.ui.view">
+			<field name="name">Force availability</field>
+			<field name="model">force.stock.picking</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Force availability">
+					<field name="company_id" colspan="4" />
+					<field name="shop_id" colspan="4" />
+					<newline/>
+					<button icon='gtk-cancel' special="cancel" string="_Cancel" />
+					<button name="force_availability" string="Aprueba Pickings Migrados" colspan="1"
+						type="object" icon="gtk-ok" />
+					<button name="force_availability_draft" string="Aprueba Pickings en Borrador" colspan="1"
+						type="object" icon="gtk-ok" />
+					<button name="force_availability_done" string="Recostea los picking" colspan="1"
+						type="object" icon="gtk-ok" />
+
+				</form>
+			</field>
+		</record>
+
+		<record id="action_force_stock_picking_form" model="ir.actions.act_window">
+			<field name="name">Force availability</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">force.stock.picking</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<record id="action_force_stock_picking_todo" model="ir.actions.todo">
+			<field name="name">Force availability</field>
+			<field name="action_id" ref="action_force_stock_picking_form" />
+			<field name="category_id" ref="base.category_administration_config" />
+			<field name="sequence">3</field>
+			<field name="type">automatic</field>
+		</record>
+
+	</data>
+</openerp>

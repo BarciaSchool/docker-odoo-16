@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp> 
+	<data noupdate="0">
+		<record id='HE50' model='hr.transaction.type'>
+			<field name='code'>HE50</field>
+			<field name='name'>HORAS EXTRAS 50</field>
+			<field name='type_expense'></field>
+			<field name='type_income'>extra_hours</field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>50</field>
+			<field name='type'>incomes</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field>    
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='TPR' model='hr.transaction.type'>
+			<field name='code'>TPR</field>
+			<field name='name'>TRANSPORTE</field>
+			<field name='type_expense'></field>
+			<field name='type_income'>other</field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='type'>incomes</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='AL' model='hr.transaction.type'>
+			<field name='code'>AL</field>
+			<field name='name'>ALIMENTACION</field>
+			<field name='type_expense'></field>
+			<field name='type_income'>other</field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='type'>incomes</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='HE100' model='hr.transaction.type'>
+			<field name='code'>HE100</field>
+			<field name='name'>HORAS EXTRAS 100</field>
+			<field name='type_expense'></field>
+			<field name='type_income'>extra_hours</field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>100</field>
+			<field name='type'>incomes</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='CVDISCOUNT' model='hr.transaction.type'>
+			<field name='code'>CVDISCOUNT</field>
+			<field name='name'>DESCUENTOS Y VALES COLABORADORES</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>discount</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/>
+			<field name="collection_form">end_month</field>  
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='PSALUD' model='hr.transaction.type'>
+			<field name='code'>PSALUD</field>
+			<field name='name'>PRESTAMO PARA SALUD</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='PEQUIP' model='hr.transaction.type'>
+			<field name='code'>PEQUIP</field>
+			<field name='name'>PRESTAMO PARA EQUIPOS</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/>
+			<field name="collection_form">end_month</field>  
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='ANTSUE' model='hr.transaction.type'>
+			<field name='code'>ANTSUE</field>
+			<field name='name'>ANTICIPO DE SUELDO</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>advance</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='PCOLAB' model='hr.transaction.type'>
+			<field name='code'>PCOLAB</field>
+			<field name='name'>PRESTAMO PARA COLABORADORES</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='PVEHIC' model='hr.transaction.type'>
+			<field name='code'>PVEHIC</field>
+			<field name='name'>PRESTAMO PARA VEHICULOS</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/>
+			<field name="collection_form">end_month</field>  
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='PSEGUR' model='hr.transaction.type'>
+			<field name='code'>PSEGUR</field>
+			<field name='name'>PRESTAMO PARA SEGUROS</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='MUL' model='hr.transaction.type'>
+			<field name='code'>MUL</field>
+			<field name='name'>MULTAS</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','4108010102')]" />
+			<field name='type_expense'>discount</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='False' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='False' />
+			<field name='internal' eval='True' />
+		</record>
+		<record id='PQ' model='hr.transaction.type'>
+			<field name='code'>PQ</field>
+			<field name='name'>PRESTAMO QUIROGRAFARIO</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','20107030105')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='True' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='True' />
+			<field name='internal' eval='False' />
+		</record>
+		<record id='PH' model='hr.transaction.type'>
+			<field name='code'>PH</field>
+			<field name='name'>PRESTAMO HIPOTECARIO</field>
+			<field name='credit_account_id' model='account.account'
+				search="[('code','=','20107030106')]" />
+			<field name='type_expense'>loans</field>
+			<field name='type_income'></field>
+			<field name='generate_lines_employee' eval='True' />
+			<field name='value_extra'>0</field>
+			<field name='debit_account_id' model='account.account'
+				search="[('code','=','10102050107')]" />
+			<field name='type'>expenses</field>
+			<field name="company_id" ref='base.main_company' model='res.company'/> 
+			<field name="collection_form">end_month</field> 
+			<field name='is_paid' eval='True' />
+			<field name='internal' eval='False'/>
+		</record>
+	</data>
+</openerp>
+		

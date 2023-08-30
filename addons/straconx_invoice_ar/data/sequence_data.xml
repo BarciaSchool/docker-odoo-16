@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+    	<record id="seq_type_internal_trans" model="ir.sequence.type">
+            <field name="name">Internal Transaction</field>
+            <field name="code">internal.transaction</field>
+        </record>
+
+        <record id="seq_internal_trans" model="ir.sequence">
+            <field name="name">Internal Transaction</field>
+            <field name="code">internal.transaction</field>
+            <field name="prefix">TRAINT</field>
+            <field name="padding">9</field>
+        </record>
+    </data>
+</openerp>

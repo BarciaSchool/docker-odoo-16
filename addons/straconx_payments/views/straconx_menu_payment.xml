@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate='0'>
+
+
+		<!-- Modificar Menú de Bancos y Cajas para convertirlo en Cheques -->
+		
+		<menuitem id="account.menu_finance_bank_and_cash" name="Cheques"
+			parent="account.menu_finance" sequence="10" />
+		<menuitem name="Clientes" id="menu_fin_cheques"
+			parent="account.menu_finance_bank_and_cash" sequence="1" />
+		<menuitem name="Cheques Recibidos" id="menu_fin_view_cheque_in"
+			action="act_view_cheque_in" parent="menu_fin_cheques" sequence="1" />
+		<menuitem name="Proveedores" id="account.menu_action_account_moves_bank"
+			parent="account.menu_finance_bank_and_cash" sequence="3" />
+		<menuitem name="Cheques Emitidos" id="account.menu_bank_statement_tree"
+			action="act_view_cheque_out" parent="account.menu_action_account_moves_bank"
+			sequence="2" />
+		<menuitem id="account_payment.menu_main_payment" name="Payment"
+			parent="account.menu_finance" sequence="9" />
+		<menuitem id="next_account_receipt" name="Cuentas Por Cobrar"
+			parent="account.menu_finance_generic_reporting" sequence="2" />
+		<menuitem id="next_account_payment" name="Cuentas Por Pagar"
+			parent="account.menu_finance_generic_reporting" sequence="2" />
+		<menuitem id="next_account_cheques" name="Cheques"
+			parent="account.menu_finance_generic_reporting" sequence="2" />
+
+		<!-- Delete Partner and Supplier Payment -->
+
+		<menuitem id="account_voucher.menu_action_purchase_receipt"
+			icon="STOCK_JUSTIFY_FILL" action="account_voucher.action_purchase_receipt"
+			parent="account_payment.menu_main_payment" sequence="1"
+			groups="base.group_extended" />
+
+		<delete model="ir.ui.menu" id="account_voucher.menu_action_purchase_receipt" />
+
+		<menuitem name="Invoice payments" parent="account_payment.menu_main_payment"
+			id="account_payment_extension.menu_action_invoice_payments" sequence="4" />
+
+		<menuitem id="account_voucher.menu_action_sale_receipt" icon="STOCK_JUSTIFY_FILL"
+			action="account_voucher.action_vendor_receipt" parent="account_payment.menu_main_payment"
+			sequence="1" />
+
+		<menuitem action="account_voucher.action_vendor_payment"
+			icon="STOCK_JUSTIFY_FILL" sequence="1"
+			id="account_voucher.menu_action_vendor_payment" parent="account_payment.menu_main_payment" />
+
+		<!-- Statements Register -->
+
+		<menuitem name="Statements Register Management" id="menu_open_config"
+			parent="straconx_partners.menu_financial_risk" sequence="2"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager,base.group_pos_collector" />
+
+		<menuitem name="Statements Registers" id="menu_all_menu_all_register"
+			parent="menu_open_config" action="account.action_view_bank_statement_tree"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager,base.group_pos_collector"
+			sequence="4" />
+
+		<menuitem name="Open Cash Registers" parent="menu_open_config"
+			string="Open Cash Registers" action="straconx_action_open_statement"
+			id="menu_open_statement"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager,base.group_pos_collector"
+			sequence="5" />
+
+		<!-- Payments of partners -->
+
+		<menuitem name="Payments Partners" id="menu_payments"
+			parent="straconx_partners.menu_financial_risk"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="4" />
+
+		<menuitem name="All Payments Mode" id="menu_view_payments_mode_in"
+			action="act_view_payments_mode_in" parent="menu_payments"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="1" />
+
+		<menuitem name="All Payments Mode" id="partner_menu_view_payments_mode_in"
+			action="act_view_payments_mode_in" parent="account_payment.menu_main_payment"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="10" />
+
+		<!-- cheques -->
+
+		<menuitem name="Cheques" id="menu_cheques" parent="menu_payments"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="2" />
+
+		<menuitem name="Cambio de Cheque" id="menu_view_cheque_changed"
+			parent="menu_cheques" action="straconx_action_box_out"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="0" />
+
+		<menuitem name="All Cheques" id="menu_view_cheque_in" action="act_view_cheque_in"
+			parent="menu_cheques"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="0" />
+
+		<menuitem name="Hold Cheques" id="menu_view_cheque_hold"
+			action="act_view_cheque_hold" parent="menu_cheques"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="1" />
+
+		<menuitem name="Paid Cheques" id="menu_view_cheque_paid"
+			action="act_view_cheque_paid" parent="menu_cheques" sequence="2" />
+
+		<menuitem name="Protested Cheques" id="menu_view_cheque_protested"
+			action="act_view_cheque_protested" parent="menu_cheques"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="2" />
+
+		<menuitem name="Rejected Cheques" id="menu_view_cheque_rejected"
+			parent="menu_cheques" action="act_view_cheque_rejected"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="3" />
+
+
+
+
+		<!-- Payments Receipts -->
+
+		<menuitem name="Payment Receipts" id="menu_finance_payment_receipts"
+			parent="straconx_partners.menu_financial_risk" sequence="3"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager" />
+
+		<menuitem action="account_voucher.action_vendor_receipt" id="menu_encode_entries_by_voucher_straconx"
+			parent="menu_finance_payment_receipts" sequence="1"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager" />
+
+		<menuitem name="Facturas de Clientes" id="menu_customer_invoices_credit_risk"
+			action="account.action_invoice_tree1" parent="menu_finance_payment_receipts"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="1" />
+
+		<!-- <menuitem name="All Lines Payments" id="menu_view_payments_lines" -->
+		<!-- action="action_voucher_lines" parent="menu_finance_payment_receipts" -->
+		<!-- groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager" -->
+		<!-- sequence="3" /> -->
+
+		<!-- Salesman Receipt -->
+
+		<menuitem name="Salesman book" id="menu_finance_salesman_book"
+			parent="straconx_partners.menu_financial_risk"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="8" />
+
+		<menuitem action="action_straconx_salesman_book" id="menu_action_straconx_salesman_book"
+			parent="menu_finance_salesman_book"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="1" />
+
+		<menuitem action="action_straconx_salesman_receipt" id="menu_action_straconx_salesman_receipt"
+			parent="menu_finance_salesman_book"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager"
+			sequence="2" />
+
+		<menuitem name="Statements Register Management" id="menu_open_config_account_menu"
+			parent="account.menu_finance" sequence="1" />
+
+		<menuitem name="Statements Registers" id="menu_all_menu_all_register_account"
+			parent="menu_open_config_account_menu" action="account.action_view_bank_statement_tree"
+			sequence="4" />
+
+		<menuitem name="Open Cash Registers" id="menu_open_cash_account"
+			action="straconx_action_open_statement" parent="menu_open_config_account_menu"
+			sequence="5" />
+
+		<!-- Cheques Receipt -->
+
+		<menuitem name="Cheques book" id="menu_finance_cheques_book"
+			parent="account.menu_finance_configuration"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="8" />
+
+		<menuitem action="action_straconx_cheques_book" id="menu_action_straconx_cheques_book"
+			parent="menu_finance_cheques_book"
+			groups="base.group_risk_manager,base.group_risk_user,base.group_risk_collector,base.group_recovery_manager,account.group_account_manager"
+			sequence="1" />
+
+		<menuitem action="action_straconx_cheques_receipt" id="menu_action_straconx_cheques_receipt"
+			parent="menu_finance_cheques_book"
+			groups="account.group_account_manager,account.group_account_user,account_payment.group_account_payment"
+			sequence="2" />
+
+		<!-- Bancos -->
+
+		<menuitem id="account.menu_finance_configuration" name="Configuration"
+			parent="account.menu_finance" sequence="25"
+			groups="account.group_account_manager" />
+
+		<menuitem action="base.action_res_bank_form" id="menu_payment_action_res_bank_form"
+			parent="account.menu_configuration_misc" sequence="8" />
+
+		<!-- Anticipos de Clientes-->
+		
+        <menuitem id="menu_advance_customer_finances" name="Ingresos y Anticipos"
+            parent="account.menu_finance_receivables"
+            action="straconx_debit_notes.action_advance_customer" sequence="5"/>
+
+
+
+	</data>
+</openerp>

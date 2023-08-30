@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>    
+        	
+        <record id="account_ledger_report_id" model="ir.actions.report.xml">
+            <field name="name">Imprimir Mayores</field>
+            <field name="report_name">mayor_contable</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_general_ledger.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.ledger.statement</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.ledger.statement')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+
+        <record id="account_ledger_report_xls_id" model="ir.actions.report.xml">
+            <field name="name">Exportar Mayores</field>
+            <field name="report_name">mayor_contable_excel</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_general_ledger.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.ledger.statement</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.ledger.statement')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+
+        <record id="account_account_report_id" model="ir.actions.report.xml">
+            <field name="name">Plan de Cuentas</field>
+            <field name="report_name">plan_contable</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_account_account.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.final_accounting_reports')"/>
+        </record>   
+                		
+		<record id="account_invoice_list_report_view" model="ir.actions.report.xml">
+			<field name="name">Facturas y N/C por Tiendas</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.invoice</field>
+			<field name="report_name">facturas_y_nc_tiendas</field>
+			<field name="pentaho_filename">straconx_invoice/report/straconx_invoice_list.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.invoice')]" model="ir.model" />
+			<field name="report_type">pdf</field>
+			<field name="pentaho_report_output_type">pdf</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.final_accounting_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+		</record>		
+
+		<record id="account_ledger_list_multiple" model="ir.actions.report.xml">
+			<field name="name">Mayores Múltiples</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">mayores_multiples</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_general_ledger_multiple.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account_menu_general_ledger')" />
+			<field name="is_pentaho_report" eval="True" />
+		</record>				
+
+		<record id="account_ledger_list_multiple_residual" model="ir.actions.report.xml">
+			<field name="name">Saldos Mayores Múltiples</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">mayores_multiples_residual</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_general_ledger_multiple_balance_residual.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account_menu_general_ledger')" />
+			<field name="is_pentaho_report" eval="True" />
+		</record>				
+
+        <record id="account_account_purchase_id" model="ir.actions.report.xml">
+            <field name="name">Compras por Período</field>
+            <field name="report_name">compras_periodo</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_purchase_withhold.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.account</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','account.account')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="linked_menu_id" eval="ref('account.final_accounting_reports')" />
+        </record>  
+        
+        <record id="account_balance_report_id" model="ir.actions.report.xml">
+            <field name="name">Imprimir Estado Financiero</field>
+            <field name="report_name">financial_report</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_balance.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">accounting.financial.reports</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','accounting.financial.reports')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">pdf</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+
+        <record id="account_balance_report_xls_id" model="ir.actions.report.xml">
+            <field name="name">Exportar Estado Financiero</field>
+            <field name="report_name">financial_report_xls</field>
+            <field name="pentaho_filename">straconx_reports_account/report/straconx_balance.prpt</field>            
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">accounting.financial.reports</field>                        
+            <field name="pentaho_report_model_id" search="[('model','=','accounting.financial.reports')]" model="ir.model" />            
+            <field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+        </record>   
+
+		<menuitem name="Estados Financieros" id="account.account_menu_new_financial_reports"
+			parent="account.menu_finance" groups="account.group_account_manager,account.group_account_user"
+			sequence="8" />
+
+		<record id="account_loss_and_profit_month" model="ir.actions.report.xml">
+			<field name="name">P y G Mensual</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">lp_month_profit</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_monthly_lp.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_new_financial_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_general_balance_month" model="ir.actions.report.xml">
+			<field name="name">BG Mensual</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">general_balance_monthly</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_monthly_balance.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_new_financial_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_general_balance_month_partner" model="ir.actions.report.xml">
+			<field name="name">BG Mensual por Empresa</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">general_balance_monthly_partner</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_monthly_balance_partner.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_new_financial_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+
+		<record id="account_loss_and_profit_sales_month" model="ir.actions.report.xml">
+			<field name="name">P y G Mensual por Tienda</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="model">account.move.line</field>
+			<field name="report_name">sales_month_profit</field>
+			<field name="pentaho_filename">straconx_reports_account/report/straconx_pg_account.prpt</field>
+			<field name="type">ir.actions.report.xml</field>
+			<field name="pentaho_report_model_id" search="[('model','=','account.move.line')]" model="ir.model" />
+			<field name="report_type">xls</field>
+			<field name="pentaho_report_output_type">xls</field>
+			<field name="pentaho_load_file" eval="True" />
+			<field name="linked_menu_id" eval="ref('account.account_menu_new_financial_reports')" />
+			<field name="is_pentaho_report" eval="True" />
+        </record>
+    
+    	<record id="straconx_account.move_list_excel_id" model="ir.actions.report.xml">
+            <field name="name">Move Report Excel</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.move</field>
+            <field name="report_name">Move Report Excel</field>
+	        <field name="pentaho_filename">straconx_account/report/straconx_move_report.prpt</field>            
+       		<field name="pentaho_report_output_type">xls</field>
+            <field name="pentaho_load_file" eval="True" />            
+            <field name="is_pentaho_report" eval="True" />
+            <field name="pentaho_report_model_id" search="[('model','=','account.move')]" model="ir.model" />
+        </record>
+    
+    </data>
+</openerp>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <!-- Contract Types -->
+        
+<!--         <delete model="hr.contract.type" id="hr_contract.hr_contract_type_emp"/> -->
+<!--         <delete model="hr.contract.type" id="hr_contract.hr_contract_type_wrkr"/> -->
+<!--         <delete model="hr.contract.type" id="hr_contract.hr_contract_type_sub"/> -->
+        
+        <record id="hr_contract_type_prueba" model="hr.contract.type">
+            <field name="name">A Prueba</field>
+        </record>
+
+        <record id="hr_contract_type_indefinido" model="hr.contract.type">
+            <field name="name">Indefinido</field>
+        </record>
+
+        <record id="hr_contract_type_parcia" model="hr.contract.type">
+            <field name="name">Jornada Parcial</field>
+        </record>
+
+    </data>
+</openerp>

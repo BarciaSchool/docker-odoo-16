@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+<!--  
+            <record id="payment_efectivo" model="payment.mode">
+                <field name="name">EFECTIVO</field>
+                <field name="debit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_account_id" ref="straconx_account.111020007" />
+                <field name="cash">1</field>
+            </record>
+            
+            <record id="payment_deposito" model="payment.mode">
+                <field name="name">DEPOSITO BANCARIO</field>
+                <field name="debit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_account_id" ref="straconx_account.111020007" />
+                <field name="cash">1</field>
+                <field name="required_bank">1</field>
+                <field name="required_document">1</field>
+            </record>
+
+            <record id="payment_cheque_dia" model="payment.mode">
+                <field name="name">CHEQUE AL DIA</field>
+                <field name="debit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_account_id" ref="straconx_account.111020007" />
+                <field name="check">1</field>
+                <field name="required_bank">1</field>
+                <field name="required_document">1</field>
+            </record>
+            
+            <record id="payment_cheque_fecha" model="payment.mode">
+                <field name="name">CHEQUE A FECHA</field>
+                <field name="debit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_account_id" ref="straconx_account.111020007" />
+                <field name="check">1</field>
+                <field name="required_bank">1</field>
+                <field name="required_document">1</field>
+            </record>
+
+            <record id="payment_tarjeta_credito" model="payment.mode">
+                <field name="name">TARJETA DE CRÉDITO</field>
+                <field name="debit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_account_id" ref="straconx_account.111020007" />
+                <field name="credit_card">1</field>
+                <field name="authorization">1</field>
+                <field name="required_bank">1</field>
+                <field name="required_document">1</field>
+            </record>
+
+-->
+</data>
+</openerp>

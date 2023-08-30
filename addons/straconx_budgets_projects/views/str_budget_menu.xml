@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+		<menuitem action="action_account_analytic_phase" id="account_analytic_phase"
+			parent="account.menu_analytic_accounting"/>
+
+	</data>
+</openerp>
+
+

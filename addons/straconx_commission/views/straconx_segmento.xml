@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_segmento_form_inherit">
+            <field name="name">segmento.inherit</field>
+            <field name="inherit_id" ref="straconx_partners.view_info_segmento_form_straconx"/>
+            <field name="model">res.partner.segmento</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<field name="is_default" position="after">
+					<separator string="Tables Commission" colspan="4"/>
+					<field name="table_ids" nolabel="1" colspan="4" widget="many2many" readonly="1">
+						<tree string="Table Commission">
+		                    <field name="name"/>
+		                    <field name="type"/>
+		                </tree>
+					</field>
+				</field>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

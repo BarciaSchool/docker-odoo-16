@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<record model="ir.ui.view" id="straconx_reopen_statement_form_wizard">
+            <field name="name">reopen.statement.wizard</field>
+            <field name="model">reopen.statement.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+               <form string="Authorization Open the Cash-Box">
+               		<group colspan="4">
+                    	<newline/>
+                     <label colspan="4" string="Digite el código del supervisor para abrir la Caja Registradora"/>
+                 	</group>
+                  <group colspan="4">
+                  <separator colspan="4" string=""/>
+                     <field name="code" on_change="onchange_code(code)" required="1" password="True" string="Código"/>
+                     <newline/>
+                     <field name="supervisor_id" widget="selection" domain="[('is_supervisor','=',True)]" readonly="1" string="Supervisor"/>
+                  </group>
+				  <group colspan="4" col="6">
+				  	<label string="" colspan="2"/>
+				  	<button special="cancel" string="_Cancel"  icon="gtk-cancel"/>
+					<button name="reopen_statement" string="_Validate" icon="gtk-go-forward" type="object"/>
+				  </group>
+				</form>
+
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="action_reopen_statement_wizard">
+			<field name="name">Reabrir Caja Registradora</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">reopen.statement.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="straconx_reopen_statement_form_wizard"/>
+			<field name="target">new</field>
+		</record>
+		
+	</data>
+</openerp>
